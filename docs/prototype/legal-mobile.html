@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+
+<html lang="de"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="assets/vendor/tailwind-runtime.js?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "text-muted": "#626960", "border-subtle": "#DCDED5", "on-primary-container": "#8cb9a3", "surface-container-high": "#e3eae2", "primary-fixed": "#beedd5", "surface-container-low": "#eef6ed", "secondary-fixed": "#dee5d9", "tertiary-fixed": "#e1e3da", "tertiary": "#2a2d27", "surface-variant": "#dde5dc", "on-tertiary-fixed-variant": "#454841", "surface-container": "#e8f0e7", "brand-deep": "#183F30", "surface-muted": "#EEEEE7", "surface": "#f4fbf3", "outline": "#717974", "text-primary": "#171E19", "secondary-fixed-dim": "#c2c9be", "on-surface-variant": "#414944", "on-tertiary-container": "#adb0a7", "on-error-container": "#93000a", "surface-bright": "#f4fbf3", "tertiary-fixed-dim": "#c5c7bf", "on-secondary-fixed": "#171d16", "outline-variant": "#c0c8c2", "on-secondary-container": "#5f665d", "primary-fixed-dim": "#a3d1ba", "page-bg": "#F8F8F3", "on-background": "#161d18", "on-tertiary": "#ffffff", "primary-container": "#1f4a39", "on-surface": "#161d18", "surface-container-lowest": "#ffffff", "surface-tint": "#3c6754", "on-tertiary-fixed": "#191c17", "error-container": "#ffdad6", "inverse-surface": "#2b322d", "secondary": "#596057", "primary": "#033324", "on-secondary": "#ffffff", "on-primary-fixed": "#002115", "inverse-on-surface": "#ebf3ea", "surface-container-highest": "#dde5dc", "background": "#f4fbf3", "inverse-primary": "#a3d1ba", "secondary-container": "#dee5d9", "on-primary": "#ffffff", "error": "#ba1a1a", "on-secondary-fixed-variant": "#424940", "tertiary-container": "#40433d", "surface-dim": "#d4dcd4", "on-error": "#ffffff", "on-primary-fixed-variant": "#244f3d" }, borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" }, spacing: { "margin": "3rem", "gutter-mobile": "0.75rem", "space-md": "1rem", "space-lg": "1.5rem", "space-3xl": "6rem", "margin-mobile": "1rem", "space-2xl": "4rem", "gutter": "1.5rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "space-xl": "2.5rem" }, fontFamily: { "headline-lg-mobile": ["Bodoni Moda"], "body-md": ["Plus Jakarta Sans"], "headline-lg": ["Bodoni Moda"], "body-lg": ["Plus Jakarta Sans"], "headline-md": ["Bodoni Moda"], "label-md": ["Plus Jakarta Sans"], "display-xl": ["Bodoni Moda"], "title-lg": ["Plus Jakarta Sans"], "price-md": ["Plus Jakarta Sans"], "display-xl-mobile": ["Bodoni Moda"], "body-sm": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "price-lg": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"] }, fontSize: { "headline-lg-mobile": ["1.75rem", { lineHeight: "1.3", fontWeight: "500" }], "body-md": ["0.9375rem", { lineHeight: "1.5", fontWeight: "400" }], "headline-lg": ["2.25rem", { lineHeight: "1.25", letterSpacing: "-0.01em", fontWeight: "500" }], "body-lg": ["1.125rem", { lineHeight: "1.6", fontWeight: "400" }], "headline-md": ["1.5rem", { lineHeight: "1.35", fontWeight: "500" }], "label-md": ["0.8125rem", { lineHeight: "1.2", letterSpacing: "0.05em", fontWeight: "600" }], "display-xl": ["3.5rem", { lineHeight: "1.15", letterSpacing: "-0.02em", fontWeight: "500" }], "title-lg": ["1.125rem", { lineHeight: "1.4", letterSpacing: "0.01em", fontWeight: "600" }], "price-md": ["0.9375rem", { lineHeight: "1.2", fontWeight: "600" }], "display-xl-mobile": ["2.25rem", { lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "500" }], "body-sm": ["0.8125rem", { lineHeight: "1.4", fontWeight: "400" }], "label-sm": ["0.6875rem", { lineHeight: "1.2", letterSpacing: "0.06em", fontWeight: "500" }], "price-lg": ["1.25rem", { lineHeight: "1.2", fontWeight: "600" }], "title-md": ["1rem", { lineHeight: "1.4", fontWeight: "600" }] } } } };</script><style>@layer base { html, body { width: 100%; margin: 0; padding: 0; } body { overscroll-behavior: none; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<script src="assets/reference-tokens.js"></script>
+<link rel="stylesheet" href="assets/shared-chrome.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+<link rel="icon" href="assets/brand/favicon.ico"><link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+</head><body class="bg-page-bg font-body-md text-text-primary antialiased flex flex-col min-h-screen"><aside class="w-full bg-[#183F30] py-2 text-center text-xs tracking-widest text-[#E3E8E4] font-medium uppercase select-none" data-purpose="top-announcement-bar">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<span>MANSTORE</span>
+<span class="mx-3 opacity-60">·</span>
+<span>Olaf Benz</span>
+<span class="mx-3 opacity-60">·</span>
+<span>CALIDA</span>
+</div>
+</aside>
+<header data-shared-chrome="header" class="w-full border-b border-brand-border/60 bg-brand-page/95 backdrop-blur-md sticky top-0 z-40 transition-colors" data-purpose="primary-header">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<!-- Logo Branding Container -->
+<a aria-label="Männermasche Startseite" class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-lg p-1" href="#"><img class="shop-brand-logo" src="assets/brand/logo-horizontal.png" alt="Männermasche – Herrenunterwäsche &amp; Bademode" width="900" height="172"></a>
+<!-- Center Primary Navigation -->
+<nav aria-label="Hauptnavigation" class="hidden md:flex items-center space-x-8 text-sm font-medium text-brand-dark" data-purpose="main-navigation">
+<a class="hover:text-brand-accent transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="#neuheiten">Neuheiten</a>
+<a class="hover:text-brand-accent transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="#unterwaesche">Unterwäsche</a>
+<a class="hover:text-brand-accent transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="#bademode">Bademode</a>
+<a class="hover:text-brand-accent transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="#marken">Marken</a>
+<a class="text-red-700 hover:text-red-800 transition-colors py-1" href="#sale">Sale</a>
+</nav>
+<!-- Right Utility Actions -->
+<div class="flex items-center space-x-4 sm:space-x-5 text-brand-dark" data-purpose="utility-actions">
+<!-- Search Action -->
+<button aria-label="Suche öffnen" class="p-2 text-brand-dark hover:text-brand-accent transition-colors rounded-full hover:bg-brand-surface focus:outline-none focus:ring-2 focus:ring-brand-accent" type="button">
+<svg class="w-5 h-5 stroke-[1.8]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- User Profile Action -->
+<button aria-label="Mein Konto" class="p-2 text-brand-dark hover:text-brand-accent transition-colors rounded-full hover:bg-brand-surface focus:outline-none focus:ring-2 focus:ring-brand-accent" type="button">
+<svg class="w-5 h-5 stroke-[1.8]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Wishlist Action -->
+<button aria-label="Merkzettel" class="p-2 text-brand-dark hover:text-brand-accent transition-colors rounded-full hover:bg-brand-surface focus:outline-none focus:ring-2 focus:ring-brand-accent" type="button">
+<svg class="w-5 h-5 stroke-[1.8]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Shopping Cart Action with Badge -->
+<button aria-label="Warenkorb" class="p-2 text-brand-dark hover:text-brand-accent transition-colors rounded-full hover:bg-brand-surface relative focus:outline-none focus:ring-2 focus:ring-brand-accent" type="button">
+<svg class="w-5 h-5 stroke-[1.8]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25c-.67 0-1.189-.578-1.119-1.243l1.263-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="absolute 1 top-1 right-1 w-2 h-2 bg-brand-accent rounded-full ring-2 ring-brand-page"></span>
+</button>
+</div>
+</div>
+</header><main class="flex flex-col relative w-full pt-16 pb-20 bg-page-bg"><div class="flex flex-col w-full">
+<!-- Horizontal Document Switcher Bar -->
+<div class="w-full bg-surface-muted/80 backdrop-blur-md px-margin-mobile py-2.5 overflow-x-auto no-scrollbar">
+<div class="flex items-center gap-2 min-w-max">
+<a class="px-3.5 py-1.5 bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider transition-all flex items-center gap-1.5 shadow-sm" href="#datenschutz">
+<span class="material-symbols-outlined text-[14px]">verified_user</span>
+        Datenschutz
+      </a>
+<a class="px-3 py-1.5 bg-surface text-text-muted hover:text-text-primary font-label-md text-label-md uppercase tracking-wider transition-all" href="#impressum">
+        Impressum
+      </a>
+<a class="px-3 py-1.5 bg-surface text-text-muted hover:text-text-primary font-label-md text-label-md uppercase tracking-wider transition-all" href="#agb">
+        AGB
+      </a>
+<a class="px-3 py-1.5 bg-surface text-text-muted hover:text-text-primary font-label-md text-label-md uppercase tracking-wider transition-all" href="#widerruf">
+        Widerrufsrecht
+      </a>
+</div>
+</div>
+<!-- Document Header -->
+<header class="px-margin-mobile pt-6 pb-5 bg-surface-bright flex flex-col gap-3">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 bg-primary"></span>
+<span class="font-label-sm text-label-sm tracking-[0.2em] uppercase text-text-muted">Rechtliche Hinweise</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-text-primary tracking-tight leading-tight">
+      Datenschutz­erklärung
+    </h1>
+<div class="flex flex-col gap-2 pt-1">
+<p class="font-body-sm text-body-sm text-text-muted flex items-center gap-1.5 flex-wrap">
+<span>Stand: 15. Mai 2025</span>
+<span class="text-outline-variant">•</span>
+<span>Version 3.2</span>
+<span class="text-outline-variant">•</span>
+<span class="flex items-center gap-1 text-primary font-medium">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+          ~6 Min. Lesezeit
+        </span>
+</p>
+<div class="pt-1">
+<button class="inline-flex items-center gap-2 px-3 py-1.5 bg-surface-container-high text-primary font-label-sm text-label-sm tracking-wider uppercase transition-colors hover:bg-surface-variant active:scale-[0.98]" type="button">
+<span class="material-symbols-outlined text-[16px]">download</span>
+<span>Dokument als PDF (240 KB)</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Collapsible Inhaltsverzeichnis (TOC) -->
+<section class="mx-margin-mobile my-3 bg-surface-container p-0">
+<details class="group select-none" id="tocAccordion">
+<summary class="list-none flex items-center justify-between p-3.5 cursor-pointer text-text-primary hover:bg-surface-variant/40 transition-colors">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px]">format_list_bulleted</span>
+<div class="flex flex-col text-left">
+<span class="font-title-md text-title-md leading-none">Inhaltsverzeichnis</span>
+<span class="font-label-sm text-label-sm text-text-muted mt-1">7 Abschnitte • Antippen zum Springen</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-text-muted group-open:rotate-180 transition-transform duration-200">
+          expand_more
+        </span>
+</summary>
+<nav class="p-3.5 pt-1 bg-surface-container-low flex flex-col gap-1.5">
+<a class="toc-link py-1.5 px-2 font-body-sm text-body-sm text-text-primary hover:text-primary hover:bg-surface-variant flex items-center justify-between transition-colors" href="#sec-1">
+<span>1. Verantwortliche Stelle</span>
+<span class="material-symbols-outlined text-[14px] text-text-muted">arrow_forward</span>
+</a>
+<a class="toc-link py-1.5 px-2 font-body-sm text-body-sm text-text-primary hover:text-primary hover:bg-surface-variant flex items-center justify-between transition-colors" href="#sec-2">
+<span>2. Art der Datenerhebung</span>
+<span class="material-symbols-outlined text-[14px] text-text-muted">arrow_forward</span>
+</a>
+<a class="toc-link py-1.5 px-2 font-body-sm text-body-sm text-text-primary hover:text-primary hover:bg-surface-variant flex items-center justify-between transition-colors" href="#sec-3">
+<span>3. Bestellabwicklung &amp; Anprobe</span>
+<span class="material-symbols-outlined text-[14px] text-text-muted">arrow_forward</span>
+</a>
+<a class="toc-link py-1.5 px-2 font-body-sm text-body-sm text-text-primary hover:text-primary hover:bg-surface-variant flex items-center justify-between transition-colors" href="#sec-4">
+<span>4. Zahlungs- &amp; Versandpartner</span>
+<span class="material-symbols-outlined text-[14px] text-text-muted">arrow_forward</span>
+</a>
+<a class="toc-link py-1.5 px-2 font-body-sm text-body-sm text-text-primary hover:text-primary hover:bg-surface-variant flex items-center justify-between transition-colors" href="#sec-5">
+<span>5. Cookies &amp; Präferenzen</span>
+<span class="material-symbols-outlined text-[14px] text-text-muted">arrow_forward</span>
+</a>
+<a class="toc-link py-1.5 px-2 font-body-sm text-body-sm text-text-primary hover:text-primary hover:bg-surface-variant flex items-center justify-between transition-colors" href="#sec-6">
+<span>6. Ihre Rechte laut DSGVO</span>
+<span class="material-symbols-outlined text-[14px] text-text-muted">arrow_forward</span>
+</a>
+<a class="toc-link py-1.5 px-2 font-body-sm text-body-sm text-text-primary hover:text-primary hover:bg-surface-variant flex items-center justify-between transition-colors" href="#sec-7">
+<span>7. Kontakt &amp; Datenschutzbeauftragter</span>
+<span class="material-symbols-outlined text-[14px] text-text-muted">arrow_forward</span>
+</a>
+</nav>
+</details>
+</section>
+<!-- Editorial Main Body -->
+<main class="px-margin-mobile pt-2 pb-6 flex flex-col gap-6 text-text-primary">
+<!-- Intro / Lead Paragraph -->
+<div class="bg-surface-bright p-4">
+<p class="font-body-lg text-body-lg leading-relaxed text-text-primary italic">
+        „Höchste handwerkliche Präzision bei Lingerie verlangt ein ebenso kompromissloses Bekenntnis zu Ihrer persönlichen Privatsphäre.“
+      </p>
+<p class="font-body-md text-body-md leading-relaxed text-text-muted mt-2.5">
+        Bei Männermasche hat diskreter Luxus oberste Priorität. Wir behandeln Ihre Maße, Anprobenotizen sowie den gesamten Einkaufsprozess mit strengster Vertraulichkeit nach Maßgabe der europäischen Datenschutz-Grundverordnung (DSGVO).
+      </p>
+</div>
+<!-- Atelier Privacy Callout -->
+<div class="bg-primary text-on-primary p-4.5 flex gap-3.5 items-start">
+<span class="material-symbols-outlined text-[24px] text-on-primary-container shrink-0 mt-0.5">verified</span>
+<div class="flex flex-col gap-1">
+<span class="font-title-md text-title-md tracking-wide uppercase text-on-primary">Diskreter Luxus Garantiert</span>
+<p class="font-body-sm text-body-sm text-on-primary/90 leading-relaxed">
+          Ihre Körpermaße, Konfektionsprofile und Bestellhistorie verbleiben ausschließlich verschlüsselt auf ISO-27001-zertifizierten Rechenzentren in Frankfurt am Main (Deutschland). Keine Profilweitergabe an Dritte.
+        </p>
+</div>
+</div>
+<!-- Section 1 -->
+<section class="scroll-mt-24 pt-4 flex flex-col gap-3" id="sec-1">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-primary tracking-widest uppercase font-semibold">Abschnitt 01</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-text-primary">Verantwortliche Stelle</h2>
+<p class="font-body-md text-body-md text-text-muted leading-relaxed">
+        Verantwortlich für die Datenverarbeitung im Sinne der EU-Datenschutz-Grundverordnung (DSGVO) und des Bundesdatenschutzgesetzes (BDSG) ist:
+      </p>
+<!-- Responsible Entity Card -->
+<div class="bg-surface-container-high p-4 flex flex-col gap-2">
+<span class="font-title-md text-title-md text-text-primary">Männermasche Manufaktur &amp; Handel GmbH</span>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
+          Maximilianstraße 42, Atelier B<br/>
+          80539 München, Deutschland<br/>
+          Registergericht: AG München, HRB 284910
+        </p>
+<div class="pt-2 flex flex-col gap-1 font-body-sm text-body-sm">
+<div class="flex items-center gap-2 text-text-primary">
+<span class="material-symbols-outlined text-[16px] text-primary">mail</span>
+<span>datenschutz@maennermasche.de</span>
+</div>
+<div class="flex items-center gap-2 text-text-primary">
+<span class="material-symbols-outlined text-[16px] text-primary">call</span>
+<span>+49 (0) 89 2109 4480</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Visual Accent: Atelier Craftmanship -->
+<div class="w-full bg-surface-muted p-3 flex flex-col gap-2">
+<div class="relative w-full h-44 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up editorial shot of fine luxury cotton fabrics and silk ribbons on a dark minimalist atelier wooden table in soft morning light, muted forest green tones, razor sharp textures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRWYf9kIbkoGYwtlDgulni-hDQanh4_8B05LIszUEnzCOk_nVsB9wxJK76RLud2eJ5XAeOSWTpT03JO0Awk-E-xIgve6bt4giwbcgGwkghoyO2GOlNQDOdRf7GPjptysMfKcviNJkdEJXQuuwDh8lE2CbLtyzxGU7BP3A211MASF2kdkB_m5vq196qzCqFrtVm_8dUFNCxfAJzwez6TyNgYiI_KoRayIEgxSsuJVfgOg23nE_nXn34"/>
+</div>
+<p class="font-label-sm text-label-sm text-text-muted italic px-1">
+        Atelier München: Höchste Sorgfalt bei Schnitt, Material und digitalem Datenschutz.
+      </p>
+</div>
+<!-- Section 2 -->
+<section class="scroll-mt-24 pt-4 flex flex-col gap-3" id="sec-2">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-primary tracking-widest uppercase font-semibold">Abschnitt 02</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-text-primary">Art der Datenerhebung</h2>
+<p class="font-body-md text-body-md text-text-muted leading-relaxed">
+        Wir erheben personenbezogene Daten ausschließlich, wenn Sie uns diese im Rahmen einer Bestellung, bei Eröffnung eines Kundenkontos oder bei einer vertraulichen Stilberatung mitteilen:
+      </p>
+<div class="grid grid-cols-1 gap-2 pt-1">
+<div class="bg-surface-container p-3.5 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md text-text-primary">Identitäts- &amp; Kontaktdaten</span>
+<span class="font-label-sm text-label-sm text-text-muted bg-surface px-2 py-0.5">Art. 6 Abs. 1 b DSGVO</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
+            Vor- und Zuname, Lieferadresse, Rechnungsadresse, E-Mail-Adresse und Telefonnummer für die Zustellankündigung.
+          </p>
+</div>
+<div class="bg-surface-container p-3.5 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md text-text-primary">Körper- &amp; Schnittmaße</span>
+<span class="font-label-sm text-label-sm text-text-muted bg-surface px-2 py-0.5">Art. 6 Abs. 1 a DSGVO</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
+            Optional im Concierge-Modus hinterlegte Passformdaten für Marken wie Olaf Benz, MANSTORE oder CALIDA, zur Verhinderung von Fehlkäufen.
+          </p>
+</div>
+</div>
+</section>
+<!-- Section 3 -->
+<section class="scroll-mt-24 pt-4 flex flex-col gap-3" id="sec-3">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-primary tracking-widest uppercase font-semibold">Abschnitt 03</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-text-primary">Bestellabwicklung &amp; Anprobe</h2>
+<p class="font-body-md text-body-md text-text-muted leading-relaxed">
+        Zur Erfüllung Ihres Kaufvertrages verarbeiten wir die Details zu Artikeln, Größen und Personalisierungen. Verpackung und Versand erfolgen in neutralen, unbeschrifteten Kartonagen ohne äußeren Hinweis auf Erotik- oder Lingerieinhalte, um Diskretion im Hausflur zu wahren.
+      </p>
+</section>
+<!-- Section 4 -->
+<section class="scroll-mt-24 pt-4 flex flex-col gap-3" id="sec-4">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-primary tracking-widest uppercase font-semibold">Abschnitt 04</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-text-primary">Zahlungs- &amp; Versandpartner</h2>
+<p class="font-body-md text-body-md text-text-muted leading-relaxed">
+        Zur Ausführung von Lieferung und Zahlungsmodalitäten kooperieren wir ausschließlich mit auditierten Partnern:
+      </p>
+<!-- Partner Table / List -->
+<div class="flex flex-col gap-2">
+<div class="bg-surface-container-high p-3 flex items-start gap-3">
+<div class="w-9 h-9 bg-surface flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px] text-primary">local_shipping</span>
+</div>
+<div class="flex flex-col flex-1">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md text-text-primary">DHL GoGreen</span>
+<span class="font-label-sm text-label-sm text-text-muted">Transport</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mt-0.5 leading-relaxed">
+              Diskreter, CO₂-neutraler Versand. Übermittlung von Empfängername, Anschrift und Sendungsnummer.
+            </p>
+</div>
+</div>
+<div class="bg-surface-container-high p-3 flex items-start gap-3">
+<div class="w-9 h-9 bg-surface flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px] text-primary">payments</span>
+</div>
+<div class="flex flex-col flex-1">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md text-text-primary">Klarna Bank AB</span>
+<span class="font-label-sm text-label-sm text-text-muted">Rechnungskauf</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mt-0.5 leading-relaxed">
+              Abwicklung von Rechnung &amp; Ratenzahlung unter Einhaltung strenger PCI-DSS Standards.
+            </p>
+</div>
+</div>
+<div class="bg-surface-container-high p-3 flex items-start gap-3">
+<div class="w-9 h-9 bg-surface flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px] text-primary">account_balance_wallet</span>
+</div>
+<div class="flex flex-col flex-1">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md text-text-primary">PayPal (Europe) S.à r.l.</span>
+<span class="font-label-sm text-label-sm text-text-muted">E-Payment</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mt-0.5 leading-relaxed">
+              Verschlüsselte Direktabwicklung ohne Speicherung Ihrer Kontonummern auf unseren Servern.
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 5 -->
+<section class="scroll-mt-24 pt-4 flex flex-col gap-3" id="sec-5">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-primary tracking-widest uppercase font-semibold">Abschnitt 05</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-text-primary">Cookies &amp; Präferenzen</h2>
+<p class="font-body-md text-body-md text-text-muted leading-relaxed">
+        Wir setzen ausschließlich technisch notwendige Session-Cookies zur Aufrechterhaltung des Warenkorbes ein, sofern Sie nicht explizit in analytische Telemetrie einwilligen.
+      </p>
+<div class="p-4 bg-surface-muted flex flex-col gap-3 items-start">
+<div class="flex items-center gap-2 text-text-primary">
+<span class="material-symbols-outlined text-[20px] text-primary">cookie</span>
+<span class="font-title-md text-title-md">Individuelle Einwilligung anpassen</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
+          Sie können Ihre Einwilligung in Web-Analyse und anonymisierte Nutzungsauswertung jederzeit mit einem Klick widerrufen oder einschränken.
+        </p>
+<button class="w-full py-2.5 px-4 bg-primary text-on-primary font-label-md text-label-md tracking-wider uppercase text-center hover:bg-brand-deep transition-colors active:scale-[0.99]" type="button">
+          Cookie-Präferenzen verwalten
+        </button>
+</div>
+</section>
+<!-- Section 6 -->
+<section class="scroll-mt-24 pt-4 flex flex-col gap-3" id="sec-6">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-primary tracking-widest uppercase font-semibold">Abschnitt 06</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-text-primary">Ihre Rechte laut DSGVO</h2>
+<p class="font-body-md text-body-md text-text-muted leading-relaxed">
+        Ihnen stehen nach dem europäischen Datenschutzrecht folgende uneingeschränkte Rechte zu:
+      </p>
+<div class="grid grid-cols-2 gap-2 text-text-primary">
+<div class="p-3 bg-surface-container flex flex-col gap-1">
+<span class="material-symbols-outlined text-[18px] text-primary">visibility</span>
+<span class="font-title-md text-title-md text-[0.875rem]">Auskunft</span>
+<span class="font-body-sm text-body-sm text-text-muted text-[0.75rem]">Art. 15 DSGVO</span>
+</div>
+<div class="p-3 bg-surface-container flex flex-col gap-1">
+<span class="material-symbols-outlined text-[18px] text-primary">edit_note</span>
+<span class="font-title-md text-title-md text-[0.875rem]">Berichtigung</span>
+<span class="font-body-sm text-body-sm text-text-muted text-[0.75rem]">Art. 16 DSGVO</span>
+</div>
+<div class="p-3 bg-surface-container flex flex-col gap-1">
+<span class="material-symbols-outlined text-[18px] text-primary">delete_outline</span>
+<span class="font-title-md text-title-md text-[0.875rem]">Löschung</span>
+<span class="font-body-sm text-body-sm text-text-muted text-[0.75rem]">Art. 17 DSGVO</span>
+</div>
+<div class="p-3 bg-surface-container flex flex-col gap-1">
+<span class="material-symbols-outlined text-[18px] text-primary">swap_horiz</span>
+<span class="font-title-md text-title-md text-[0.875rem]">Datenübertragung</span>
+<span class="font-body-sm text-body-sm text-text-muted text-[0.75rem]">Art. 20 DSGVO</span>
+</div>
+</div>
+</section>
+<!-- Section 7 -->
+<section class="scroll-mt-24 pt-4 flex flex-col gap-3" id="sec-7">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-primary tracking-widest uppercase font-semibold">Abschnitt 07</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-text-primary">Kontakt &amp; Ansprechpartner</h2>
+<p class="font-body-md text-body-md text-text-muted leading-relaxed">
+        Für Fragen zum Datenschutz oder zur direkten Ausübung Ihrer Betroffenenrechte steht Ihnen unser betrieblicher Datenschutzbeauftragter jederzeit zur Verfügung:
+      </p>
+<div class="bg-surface-container-high p-4 flex flex-col gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary text-on-primary flex items-center justify-center font-title-lg text-title-lg">
+            MM
+          </div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-text-primary">Dr. Florian M. von Bernstorff</span>
+<span class="font-body-sm text-body-sm text-text-muted">Zertifizierter Datenschutzbeauftragter (TÜV)</span>
+</div>
+</div>
+<a class="w-full py-2.5 px-4 bg-surface text-text-primary font-label-md text-label-md tracking-wider uppercase text-center hover:bg-surface-variant transition-colors flex items-center justify-center gap-2" href="mailto:datenschutz@maennermasche.de?subject=Datenschutzanfrage%20M%C3%A4nnermasche">
+<span class="material-symbols-outlined text-[18px] text-primary">forward_to_inbox</span>
+<span>Datenschutzbeauftragten kontaktieren</span>
+</a>
+</div>
+</section>
+</main>
+<!-- Bottom Related Legal Documents Switcher -->
+<aside class="px-margin-mobile pt-4 pb-10 bg-surface-muted flex flex-col gap-3">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm tracking-[0.16em] uppercase text-text-muted">Weitere rechtliche Bestimmungen</span>
+<h3 class="font-headline-md text-headline-md text-text-primary">Rechtliches im Überblick</h3>
+</div>
+<div class="flex flex-col gap-2 pt-1">
+<a class="p-3.5 bg-surface text-text-primary flex items-center justify-between hover:bg-surface-bright transition-colors group" href="#impressum">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[22px]">corporate_fare</span>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md group-hover:text-primary transition-colors">Impressum &amp; Unternehmensangaben</span>
+<span class="font-body-sm text-body-sm text-text-muted">Registerdaten, Geschäftsführung &amp; USt-ID</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-text-muted group-hover:translate-x-1 group-hover:text-primary transition-all">
+          chevron_right
+        </span>
+</a>
+<a class="p-3.5 bg-surface text-text-primary flex items-center justify-between hover:bg-surface-bright transition-colors group" href="#agb">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[22px]">gavel</span>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md group-hover:text-primary transition-colors">AGB (Geschäftsbedingungen)</span>
+<span class="font-body-sm text-body-sm text-text-muted">Vertragsschluss, Preise &amp; Eigentumsvorbehalt</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-text-muted group-hover:translate-x-1 group-hover:text-primary transition-all">
+          chevron_right
+        </span>
+</a>
+<a class="p-3.5 bg-surface text-text-primary flex items-center justify-between hover:bg-surface-bright transition-colors group" href="#widerruf">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[22px]">assignment_return</span>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md group-hover:text-primary transition-colors">Widerrufsbelehrung &amp; Retouren</span>
+<span class="font-body-sm text-body-sm text-text-muted">14 Tage Rückgaberecht &amp; Hygieneversiegelung</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-text-muted group-hover:translate-x-1 group-hover:text-primary transition-all">
+          chevron_right
+        </span>
+</a>
+</div>
+<!-- Security & Trust Badge Footer Note -->
+<div class="mt-4 pt-3 flex items-center justify-center gap-2 text-text-muted">
+<span class="material-symbols-outlined text-[16px] text-primary">lock</span>
+<span class="font-label-sm text-label-sm tracking-wider uppercase">SSL 256-Bit Verschlüsselte Übertragung</span>
+</div>
+</aside>
+<!-- Interactive Script for Smooth In-Page Nav & Auto Accordion Closure -->
+<script>
+    document.querySelectorAll('.toc-link').forEach(link => {
+      link.addEventListener('click', () => {
+        const accordion = document.getElementById('tocAccordion');
+        if (accordion && accordion.open) {
+          accordion.removeAttribute('open');
+        }
+      });
+    });
+  </script>
+</div></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-page-bg/95 backdrop-blur-xl shadow-[0_-1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-semibold"><div class="flex justify-around items-center h-16 px-gutter-mobile"><a class="flex flex-col items-center justify-center gap-0.5 w-14 h-12 text-text-muted hover:text-primary transition-colors" data-path="home-boutique" href="#"><span class="material-symbols-outlined text-[22px]">storefront</span><span class="font-label-sm text-label-sm tracking-wider uppercase">Atelier</span></a><a class="flex flex-col items-center justify-center gap-0.5 w-14 h-12 text-text-muted hover:text-primary transition-colors" data-path="collections-catalog" href="#"><span class="material-symbols-outlined text-[22px]">grid_view</span><span class="font-label-sm text-label-sm tracking-wider uppercase">Katalog</span></a><a class="flex flex-col items-center justify-center gap-0.5 w-14 h-12 text-text-muted hover:text-primary transition-colors" data-path="search-filter" href="#"><span class="material-symbols-outlined text-[22px]">manage_search</span><span class="font-label-sm text-label-sm tracking-wider uppercase">Suche</span></a><a class="flex flex-col items-center justify-center gap-0.5 w-14 h-12 text-text-muted hover:text-primary transition-colors" data-path="wishlist-curation" href="#"><span class="material-symbols-outlined text-[22px]">bookmark_border</span><span class="font-label-sm text-label-sm tracking-wider uppercase">Merkliste</span></a><a class="flex flex-col items-center justify-center gap-0.5 w-14 h-12 text-text-muted hover:text-primary transition-colors" data-path="customer-account" href="#"><span class="material-symbols-outlined text-[22px]">person_outline</span><span class="font-label-sm text-label-sm tracking-wider uppercase">Konto</span></a></div></nav><footer data-shared-chrome="footer" class="bg-[#121814] text-neutral-300 pt-16 pb-12 border-t border-neutral-800" data-purpose="main-footer">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Footer Columns -->
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8 pb-12 border-b border-neutral-800 text-sm">
+<!-- Brand column -->
+<div class="col-span-2">
+<a class="shop-footer-brand" href="index.html"><img class="shop-brand-logo-light" src="assets/brand/logo-horizontal-light.png" alt="Männermasche – Herrenunterwäsche &amp; Bademode" width="900" height="191"></a>
+<p class="text-neutral-400 text-xs sm:text-sm max-w-sm leading-relaxed mb-6">
+            Dein spezialisierter Online-Store für exklusive Herrenunterwäsche, Slips, Strings, Loungewear und Bademode renommierter Hersteller.
+          </p>
+<div class="flex items-center space-x-3 text-xs text-neutral-400">
+<span class="px-2 py-1 bg-neutral-800 rounded">DE / EUR</span>
+<span>Klimaneutraler Versand</span>
+</div>
+</div>
+<!-- Kollektionen -->
+<div>
+<h4 class="text-white text-xs font-semibold uppercase tracking-wider mb-4">Kollektionen</h4>
+<ul class="space-y-2.5 text-xs sm:text-sm text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="#">Boxershorts</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Slips &amp; Pants</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Strings &amp; Thongs</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Bodies &amp; Overalls</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Badehosen &amp; Shorts</a></li>
+</ul>
+</div>
+<!-- Marken -->
+<div>
+<h4 class="text-white text-xs font-semibold uppercase tracking-wider mb-4">Marken</h4>
+<ul class="space-y-2.5 text-xs sm:text-sm text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="#">MANSTORE</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Olaf Benz</a></li>
+<li><a class="hover:text-white transition-colors" href="#">CALIDA</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Alle Kollektionen</a></li>
+</ul>
+</div>
+<!-- Kundenservice -->
+<div>
+<h4 class="text-white text-xs font-semibold uppercase tracking-wider mb-4">Service &amp; Recht</h4>
+<ul class="space-y-2.5 text-xs sm:text-sm text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="#">Größentabelle</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Versand &amp; Rückgabe</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Impressum</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Datenschutz</a></li>
+<li><a class="hover:text-white transition-colors" href="#">AGB &amp; Widerruf</a></li>
+</ul>
+</div>
+</div>
+<!-- Bottom Disclaimer / Copyright -->
+<div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-500 gap-4">
+<p>© 2025 Männermasche. Alle Rechte vorbehalten.</p>
+<div class="flex items-center space-x-6">
+<span class="hover:text-neutral-400 transition-colors cursor-pointer">Sichere SSL-Verschlüsselung</span>
+<span>·</span>
+<span class="hover:text-neutral-400 transition-colors cursor-pointer">Zahlung per Rechnung, PayPal, Kreditkarte</span>
+</div>
+</div>
+</div>
+</footer>
+<script src="assets/reference-navigation.js"></script>
+</body></html>

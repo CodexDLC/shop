@@ -1,1 +1,636 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Demo abgeschlossen · Männermasche</title><link rel="stylesheet" href="assets/theme.css"><link rel="stylesheet" href="assets/checkout.css"><script defer src="assets/app.js"></script><script defer src="assets/checkout.js"></script></head><body data-checkout-page="confirmation"><div data-site-header></div><main id="main" class="container checkout-main"><p class="eyebrow">MÄNNERMASCHE · DEMONSTRATION</p><h1 class="page-title">Demo abgeschlossen</h1><p class="demo-note">Interaktiver Entwurf mit Beispieldaten. Keine Bestellung, Zahlung oder Datenübertragung.</p><section class="panel result-panel"><span class="result-icon" aria-hidden="true">✓</span><h2 class="section-title">So könnte Ihre Bestätigung aussehen.</h2><p>Es wurde nichts bestellt oder bezahlt. Keine E-Mail wurde versendet.</p><div id="confirmation-content"></div><a class="button" href="catalog.html">Zurück zum Katalog</a></section></main><div data-site-footer></div></body></html>
+<!DOCTYPE html>
+
+<html class="h-full scroll-smooth" lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Männermasche | Herrenunterwäsche &amp; Bademode</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="assets/vendor/tailwind-runtime.js?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              page: '#F8F8F3',
+              surface: '#F1F1EB',
+              surfaceCard: '#EBEBE3',
+              dark: '#171E19',
+              muted: '#626960',
+              accent: '#183F30',
+              accentHover: '#133327',
+              border: '#DCDED5'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Core Page Styles -->
+<style data-purpose="base-styling">
+    body {
+      background-color: #F8F8F3;
+      color: #171E19;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    ::selection {
+      background-color: #183F30;
+      color: #F8F8F3;
+    }
+  </style>
+<!-- Component & Visual Effect Styles -->
+<style data-purpose="hero-layout">
+    .hero-blend-gradient {
+      background: linear-gradient(90deg, #F5F5EE 0%, #F5F5EE 45%, rgba(245, 245, 238, 0.94) 52%, rgba(245, 245, 238, 0.4) 68%, rgba(245, 245, 238, 0) 80%);
+    }
+    @media (max-width: 1024px) {
+      .hero-blend-gradient {
+        background: linear-gradient(180deg, #F5F5EE 0%, rgba(245, 245, 238, 0.85) 65%, rgba(245, 245, 238, 0.3) 100%);
+      }
+    }
+  </style>
+<meta content="web_dashboard" name="shell-type"/><script src="assets/reference-tokens.js"></script>
+<link rel="stylesheet" href="assets/shared-chrome.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+<link rel="icon" href="assets/brand/favicon.ico"><link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+</head>
+<body class="min-h-full flex flex-col bg-brand-page text-brand-dark">
+<!-- BEGIN: TopBrandBar -->
+
+<!-- END: TopBrandBar -->
+<!-- BEGIN: MainHeader -->
+<aside class="w-full bg-[#183F30] py-2 text-center text-xs tracking-widest text-[#E3E8E4] font-medium uppercase select-none" data-purpose="top-announcement-bar">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<span>MANSTORE</span>
+<span class="mx-3 opacity-60">·</span>
+<span>Olaf Benz</span>
+<span class="mx-3 opacity-60">·</span>
+<span>CALIDA</span>
+</div>
+</aside>
+<header data-shared-chrome="header" class="w-full border-b border-brand-border/60 bg-brand-page/95 backdrop-blur-md sticky top-0 z-40 transition-colors" data-purpose="primary-header">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<!-- Logo Branding Container -->
+<a aria-label="Männermasche Startseite" class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-lg p-1" href="#"><img class="shop-brand-logo" src="assets/brand/logo-horizontal.png" alt="Männermasche – Herrenunterwäsche &amp; Bademode" width="900" height="172"></a>
+<!-- Center Primary Navigation -->
+<nav aria-label="Hauptnavigation" class="hidden md:flex items-center space-x-8 text-sm font-medium text-brand-dark" data-purpose="main-navigation">
+<a class="hover:text-brand-accent transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="#neuheiten">Neuheiten</a>
+<a class="hover:text-brand-accent transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="#unterwaesche">Unterwäsche</a>
+<a class="hover:text-brand-accent transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="#bademode">Bademode</a>
+<a class="hover:text-brand-accent transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="#marken">Marken</a>
+<a class="text-red-700 hover:text-red-800 transition-colors py-1" href="#sale">Sale</a>
+</nav>
+<!-- Right Utility Actions -->
+<div class="flex items-center space-x-4 sm:space-x-5 text-brand-dark" data-purpose="utility-actions">
+<!-- Search Action -->
+<button aria-label="Suche öffnen" class="p-2 text-brand-dark hover:text-brand-accent transition-colors rounded-full hover:bg-brand-surface focus:outline-none focus:ring-2 focus:ring-brand-accent" type="button">
+<svg class="w-5 h-5 stroke-[1.8]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- User Profile Action -->
+<button aria-label="Mein Konto" class="p-2 text-brand-dark hover:text-brand-accent transition-colors rounded-full hover:bg-brand-surface focus:outline-none focus:ring-2 focus:ring-brand-accent" type="button">
+<svg class="w-5 h-5 stroke-[1.8]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Wishlist Action -->
+<button aria-label="Merkzettel" class="p-2 text-brand-dark hover:text-brand-accent transition-colors rounded-full hover:bg-brand-surface focus:outline-none focus:ring-2 focus:ring-brand-accent" type="button">
+<svg class="w-5 h-5 stroke-[1.8]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Shopping Cart Action with Badge -->
+<button aria-label="Warenkorb" class="p-2 text-brand-dark hover:text-brand-accent transition-colors rounded-full hover:bg-brand-surface relative focus:outline-none focus:ring-2 focus:ring-brand-accent" type="button">
+<svg class="w-5 h-5 stroke-[1.8]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25c-.67 0-1.189-.578-1.119-1.243l1.263-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="absolute 1 top-1 right-1 w-2 h-2 bg-brand-accent rounded-full ring-2 ring-brand-page"></span>
+</button>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<main class="flex-grow"><div class="flex flex-col w-full">
+<!-- Stepper Breadcrumb / Process Bar -->
+<section class="w-full bg-surface-muted py-5">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center space-x-2 text-text-muted">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-medium">01 Warenkorb</span>
+<span class="text-xs opacity-40">/</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-medium">02 Kasse</span>
+<span class="text-xs opacity-40">/</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-semibold flex items-center gap-1.5">
+<span class="inline-block w-1.5 h-1.5 bg-primary"></span>
+            03 Bestätigung
+          </span>
+</div>
+<div class="flex items-center space-x-3 text-text-muted">
+<span class="font-label-sm text-label-sm uppercase tracking-wider flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-sm text-primary">verified_user</span>
+            Transaktion autorisiert
+          </span>
+<span class="opacity-30">·</span>
+<span class="font-label-sm text-label-sm tracking-widest uppercase">Referenz: MM-849204</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Editorial Hero Confirmation Banner -->
+<section class="w-full py-12 lg:py-16">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+<div class="lg:col-span-8 space-y-6">
+<div class="inline-flex items-center gap-2.5 px-3 py-1 bg-surface-container text-primary">
+<span class="material-symbols-outlined text-base">check_circle</span>
+<span class="font-label-md text-label-md tracking-widest uppercase">Bestellung erfolgreich abgeschlossen</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg lg:font-display-xl lg:text-display-xl text-text-primary tracking-tight">
+            Vielen Dank für Ihre Bestellung, Alexander.
+          </h1>
+<p class="font-body-lg text-body-lg text-text-muted max-w-2xl leading-relaxed">
+            Wir haben Ihre Auftragsbestätigung sowie die offizielle Rechnung als Beleg an 
+            <span class="text-text-primary font-medium underline decoration-primary/40 underline-offset-4">alexander.v@lifestyle.de</span> 
+            übermittelt. Ihre Auswahl wird im Atelier für den diskreten Premium-Versand vorbereitet.
+          </p>
+</div>
+<!-- Quick Access Meta Badge -->
+<div class="lg:col-span-4 bg-surface-muted p-6 lg:p-8 flex flex-col justify-between">
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">Status</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary bg-primary-fixed/40 px-2.5 py-0.5">In Kommission</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">Voraussichtliche Ankunft</p>
+<p class="font-title-lg text-title-lg text-text-primary mt-1">26. – 27. Mai 2025</p>
+<p class="font-body-sm text-body-sm text-text-muted mt-0.5">Zustellung in 1–2 Werktagen mit DHL GoGreen</p>
+</div>
+</div>
+<div class="pt-6 mt-6">
+<a class="inline-flex items-center justify-between w-full text-left font-label-md text-label-md text-primary uppercase tracking-wider group" href="#tracking-section">
+<span>Sendungsverlauf ansehen</span>
+<span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Content Layout: Two Columns (Left Details & Logistics, Right Order Cart Summary) -->
+<section class="w-full pb-20">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<!-- Left Column: Logistics, Tracker, Instructions, Account Creation -->
+<div class="lg:col-span-7 space-y-12">
+<!-- Metadata Grid Card -->
+<div class="bg-surface-container p-6 sm:p-8 space-y-6">
+<div class="flex items-center justify-between">
+<h2 class="font-title-md text-title-md uppercase tracking-wider text-text-primary">Bestelldaten &amp; Spezifikationen</h2>
+<span class="font-label-sm text-label-sm text-text-muted">Audit-ID: 942-012</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8">
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">Bestellnummer</p>
+<p class="font-title-md text-title-md text-text-primary mt-1 tracking-wider">#MM-849204</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">Bestelldatum &amp; Zeit</p>
+<p class="font-title-md text-title-md text-text-primary mt-1">24. Mai 2025 · 14:32 Uhr</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">Zahlungsart</p>
+<p class="font-title-md text-title-md text-text-primary mt-1 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-primary">account_balance_wallet</span>
+                  PayPal (Später bezahlen nach Anprobe)
+                </p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">Lieferoption</p>
+<p class="font-title-md text-title-md text-text-primary mt-1 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-primary">eco</span>
+                  DHL GoGreen (Klimaneutral)
+                </p>
+</div>
+</div>
+<div class="pt-4 flex flex-col sm:flex-row sm:items-center justify-between text-text-muted gap-2">
+<span class="font-body-sm text-body-sm">Tracking-Code: <span class="text-text-primary font-mono select-all">JJD01.993.421.802 DE</span></span>
+<button class="text-primary hover:text-brand-deep font-label-sm text-label-sm uppercase tracking-wider flex items-center gap-1 text-left" onclick="navigator.clipboard.writeText('JJD01.993.421.802 DE')" type="button">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+                Sendungsnummer kopieren
+              </button>
+</div>
+</div>
+<!-- DHL GoGreen Live Tracker Widget -->
+<div class="bg-surface-muted p-6 sm:p-8 space-y-8" id="tracking-section">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div>
+<div class="flex items-center gap-2">
+<span class="inline-block w-2.5 h-2.5 bg-primary"></span>
+<h3 class="font-headline-md text-headline-md text-text-primary">Sendungsverlauf</h3>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mt-1">Logistikpartner: DHL Express Deutschland GoGreen</p>
+</div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-surface-container font-label-sm text-label-sm tracking-wider uppercase text-text-primary">
+<span class="material-symbols-outlined text-sm text-primary">cloud_download</span>
+                Live-Aktualisierung aktiv
+              </span>
+</div>
+<!-- Discrete Packaging Guarantee Callout -->
+<div class="bg-surface-container p-4 flex items-start gap-3.5">
+<span class="material-symbols-outlined text-primary text-xl flex-shrink-0 mt-0.5">lock</span>
+<div class="space-y-0.5">
+<p class="font-title-md text-title-md text-text-primary">Diskreter Premium-Versand garantiert</p>
+<p class="font-body-sm text-body-sm text-text-muted">
+                  Neutraler Naturkarton ohne Logo oder Markenaufdruck. Als Absender firmiert ausschließlich die neutrale Logistikgesellschaft MM Logistik Services GmbH.
+                </p>
+</div>
+</div>
+<!-- Vertical Timeline Component -->
+<div class="relative pl-6 sm:pl-8 space-y-8 before:absolute before:left-3 before:top-2 before:bottom-3 before:w-px before:bg-text-muted/30">
+<!-- Step 1: Completed -->
+<div class="relative flex items-start group">
+<div class="absolute -left-6 sm:-left-8 w-6 h-6 bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-sm">check</span>
+</div>
+<div class="pl-3 sm:pl-4">
+<div class="flex flex-wrap items-baseline gap-2">
+<p class="font-title-md text-title-md text-text-primary">Bestellung eingegangen &amp; verifiziert</p>
+<span class="font-label-sm text-label-sm text-text-muted">Heute, 14:32 Uhr</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mt-1">
+                    Bestellbestätigung autorisiert. Ihr Kontingent ist gesichert.
+                  </p>
+</div>
+</div>
+<!-- Step 2: In Progress -->
+<div class="relative flex items-start group">
+<div class="absolute -left-6 sm:-left-8 w-6 h-6 bg-text-primary flex items-center justify-center text-on-primary animate-pulse">
+<span class="inline-block w-2 h-2 bg-page-bg"></span>
+</div>
+<div class="pl-3 sm:pl-4">
+<div class="flex flex-wrap items-baseline gap-2">
+<p class="font-title-md text-title-md text-text-primary">In Vorbereitung im Logistikzentrum</p>
+<span class="font-label-sm text-label-sm text-primary font-medium">Aktueller Schritt</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mt-1">
+                    Qualitätskontrolle und staubgeschützte Konfektionierung in Seidenpapier.
+                  </p>
+</div>
+</div>
+<!-- Step 3: Upcoming -->
+<div class="relative flex items-start opacity-60">
+<div class="absolute -left-6 sm:-left-8 w-6 h-6 bg-surface-container flex items-center justify-center text-text-muted">
+<span class="inline-block w-2 h-2 bg-text-muted/40"></span>
+</div>
+<div class="pl-3 sm:pl-4">
+<p class="font-title-md text-title-md text-text-primary">Übergabe an DHL GoGreen</p>
+<p class="font-body-sm text-body-sm text-text-muted mt-1">
+                    Voraussichtlich morgen früh zur klimakompensierten Beförderung.
+                  </p>
+</div>
+</div>
+<!-- Step 4: Final Delivery -->
+<div class="relative flex items-start opacity-60">
+<div class="absolute -left-6 sm:-left-8 w-6 h-6 bg-surface-container flex items-center justify-center text-text-muted">
+<span class="inline-block w-2 h-2 bg-text-muted/40"></span>
+</div>
+<div class="pl-3 sm:pl-4">
+<p class="font-title-md text-title-md text-text-primary">Zustellung an Ihre Adresse</p>
+<p class="font-body-sm text-body-sm text-text-muted mt-1">
+                    Alexander von Berg · Leopoldstraße 48, 80802 München
+                  </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Home Fitting & Hygiene Policy Card -->
+<div class="bg-surface-container p-6 sm:p-8 space-y-6">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-medium">Service-Garantie</span>
+<h3 class="font-headline-md text-headline-md text-text-primary mt-1">Heimanprobe &amp; 30 Tage Rückgaberecht</h3>
+</div>
+<span class="material-symbols-outlined text-3xl text-primary">inventory_2</span>
+</div>
+<p class="font-body-md text-body-md text-text-primary leading-relaxed">
+              Nehmen Sie sich die Zeit, Schnitt und Mikrofaser-Komfort in gewohnter Umgebung zu prüfen. 
+              Wir gewähren Ihnen für alle Artikel volle <strong>30 Tage Bedenkzeit</strong> ab Erhalt.
+            </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base">check</span>
+<h4 class="font-title-md text-title-md text-text-primary">Hygiene-Leitfaden</h4>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
+                  Bitte probieren Sie Wäscheteile stets über Ihrer eigenen Unterbekleidung an. Das unversehrte Hygienesiegel gewährleistet den einwandfreien Zustand.
+                </p>
+</div>
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base">local_shipping</span>
+<h4 class="font-title-md text-title-md text-text-primary">Beiliegendes Retourenlabel</h4>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
+                  Ein vorfrankiertes Rücksendeetikett liegt Ihrer Sendung physisch bei. Kleben Sie es im Bedarfsfall einfach auf das Paket und übergeben es an DHL.
+                </p>
+</div>
+</div>
+<div class="pt-4 flex flex-wrap items-center gap-4">
+<button class="px-5 py-2.5 bg-surface-muted text-text-primary hover:bg-surface-container-high transition-colors font-label-md text-label-md uppercase tracking-wider flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-base">picture_as_pdf</span>
+                Retourenschein als PDF herunterladen
+              </button>
+<a class="font-label-md text-label-md uppercase tracking-wider text-text-muted hover:text-text-primary transition-colors" href="#groessentabelle">
+                Passform-Leitfaden lesen →
+              </a>
+</div>
+</div>
+<!-- Quick 1-Click Guest Account Creation -->
+<div class="bg-surface-muted p-6 sm:p-8 space-y-4">
+<div class="space-y-1">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-medium">Boutique-Konto anlegen</span>
+<h3 class="font-headline-md text-headline-md text-text-primary">Konto für zukünftige Anproben mit einem Klick sichern</h3>
+<p class="font-body-sm text-body-sm text-text-muted">
+                Speichern Sie Ihre Größen-Präferenzen, verfolgen Sie Rücksendungen und bestellen Sie zukünftig mit bevorzugtem Express-Checkout.
+              </p>
+</div>
+<form class="flex flex-col sm:flex-row gap-3 pt-2" onsubmit="event.preventDefault(); document.getElementById('account-feedback').classList.remove('hidden');">
+<input class="w-full bg-page-bg text-text-primary px-4 py-3 font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-primary placeholder:text-text-muted/60" placeholder="Passwort vergeben (mind. 8 Zeichen)" required="" type="password"/>
+<button class="whitespace-nowrap px-6 py-3 bg-primary text-on-primary hover:bg-primary-container transition-colors font-label-md text-label-md uppercase tracking-wider" type="submit">
+                Konto aktivieren
+              </button>
+</form>
+<div class="hidden text-primary font-body-sm text-body-sm flex items-center gap-1.5 pt-1" id="account-feedback">
+<span class="material-symbols-outlined text-base">check_circle</span>
+              Konto eingerichtet. Eine Aktivierungs-E-Mail wurde an alexander.v@lifestyle.de gesendet.
+            </div>
+</div>
+</div>
+<!-- Right Column: Order Summary & Itemized Breakdown -->
+<div class="lg:col-span-5 space-y-8">
+<div class="bg-surface-muted p-6 sm:p-8 space-y-8 sticky top-28">
+<div class="flex items-center justify-between pb-4">
+<h3 class="font-title-lg text-title-lg text-text-primary">Ihre Auswahl (3 Artikel)</h3>
+<span class="font-label-sm text-label-sm text-text-muted">Kollektion 2025</span>
+</div>
+<!-- Items List -->
+<div class="space-y-6">
+<!-- Item 1: MANSTORE -->
+<div class="flex gap-4 items-start">
+<div class="w-20 h-24 bg-surface-container flex-shrink-0 overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="High fashion studio product shot of MANSTORE M107 low cut men's boxer brief in forest green microfiber on a warm neutral architectural stone pedestal with soft directional lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqPZtWectcPObeGb8h5NhznT0-wXtkU3LQoSi-CA8UA1rz77H5678Ia7aCQ_X3uDlJnnXvgW9eePr-oW-_5D-m6jIadJ1UaDN1-P7J25UV9_noh3nXAfFnNOG6X7Mmn_8Ls75EB9mlCL450mLyJC2Qlp3mGgkcCYzJBV2E3O2fPjOSz1o-9Gg_ZL3aZop5wL0EedzADGzjU_cbb-5uChfO9IaAhVUqqOHx9kiKvMEK-4oyv_KF0n7E"/>
+<span class="absolute bottom-1 right-1 font-label-sm text-[9px] px-1 bg-primary text-on-primary">1x</span>
+</div>
+<div class="flex-grow space-y-1">
+<div class="flex items-start justify-between gap-2">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest">MANSTORE</span>
+<span class="font-price-md text-price-md text-text-primary font-semibold">49,95 €</span>
+</div>
+<h4 class="font-title-md text-title-md text-text-primary leading-tight">M107 Low Cut Boxer Brief</h4>
+<div class="flex items-center gap-3 text-text-muted font-body-sm text-body-sm pt-1">
+<span>Größe: <strong class="text-text-primary font-medium">M</strong></span>
+<span>·</span>
+<span class="flex items-center gap-1.5">
+                      Farbe:
+                      <span class="inline-block w-2.5 h-2.5 bg-[#1F4A39]"></span>
+                      Forest Green
+                    </span>
+</div>
+</div>
+</div>
+<!-- Item 2: CALIDA -->
+<div class="flex gap-4 items-start">
+<div class="w-20 h-24 bg-surface-container flex-shrink-0 overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Studio photograph of luxury CALIDA men's natural skin underwear in deep forest shade laid out on architectural minimalist linen background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPLeHWaNIzl1LQe0oXIZ6-qM8uemMfOu9-aSHENHccAdZSEKeOGFbZNiMvXXOluzMvkKqiLYiQ476aMMAc0VWp9YtMC51qqOcDLMSn9SxgWPTw24Fqz1VE_FIDkEWBeb9WKvXV7G_w7piKdXgLex566wN5ELstwJroN-q95a1V6fgAw0IzW-Pu2sY1HdB0coFYUABeI7bs567ZrGp5ztfnQS4XSew8VwauIZHapwsHcZpPHP3YzxtF"/>
+<span class="absolute bottom-1 right-1 font-label-sm text-[9px] px-1 bg-primary text-on-primary">1x</span>
+</div>
+<div class="flex-grow space-y-1">
+<div class="flex items-start justify-between gap-2">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest">CALIDA</span>
+<span class="font-price-md text-price-md text-text-primary font-semibold">44,95 €</span>
+</div>
+<h4 class="font-title-md text-title-md text-text-primary leading-tight">Natural Skin Boxer Brief</h4>
+<div class="flex items-center gap-3 text-text-muted font-body-sm text-body-sm pt-1">
+<span>Größe: <strong class="text-text-primary font-medium">L</strong></span>
+<span>·</span>
+<span class="flex items-center gap-1.5">
+                      Farbe:
+                      <span class="inline-block w-2.5 h-2.5 bg-[#183F30]"></span>
+                      Deep Forest
+                    </span>
+</div>
+</div>
+</div>
+<!-- Item 3: OLAF BENZ -->
+<div class="flex gap-4 items-start">
+<div class="w-20 h-24 bg-surface-container flex-shrink-0 overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Editorial close up product photo of OLAF BENZ RED 2004 mini pant in night navy fabric with fine technical elastic waist on warm beige luxury background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFhJNcw0uTul_LEdesGrH18OR-60i9iVrOeZZlmRp55Eb8dYU__3kZoVuVTi9t2KfBcIzJveMbTtOxuP-mZzNhq2b_SEH0QDryVCYkzexmWLuXvfrGldS4hU1-E3hcrSvujTYcESGCICC5kIsLslT6uAgiK1CF7cQPnIO-KBNCLKGKviZdmR_8MbxWoaHa8RTOqacgRTBRlpDw8oKOdLpkLVZsFOnza2r7I9Gsff_3zovsSaQE3Beg"/>
+<span class="absolute bottom-1 right-1 font-label-sm text-[9px] px-1 bg-primary text-on-primary">1x</span>
+</div>
+<div class="flex-grow space-y-1">
+<div class="flex items-start justify-between gap-2">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest">OLAF BENZ</span>
+<span class="font-price-md text-price-md text-text-primary font-semibold">44,90 €</span>
+</div>
+<h4 class="font-title-md text-title-md text-text-primary leading-tight">RED 2004 Mini-Pant</h4>
+<div class="flex items-center gap-3 text-text-muted font-body-sm text-body-sm pt-1">
+<span>Größe: <strong class="text-text-primary font-medium">M</strong></span>
+<span>·</span>
+<span class="flex items-center gap-1.5">
+                      Farbe:
+                      <span class="inline-block w-2.5 h-2.5 bg-[#17202A]"></span>
+                      Night Navy
+                    </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Price Breakdown Calculation -->
+<div class="pt-6 space-y-3 font-body-md text-body-md">
+<div class="flex justify-between text-text-muted">
+<span>Zwischensumme</span>
+<span class="text-text-primary">139,80 €</span>
+</div>
+<div class="flex justify-between text-text-muted">
+<span class="flex items-center gap-1.5">
+                  Versandkosten (DHL GoGreen)
+                  <span class="material-symbols-outlined text-xs text-primary">eco</span>
+</span>
+<span class="text-primary uppercase tracking-wider font-semibold font-label-sm text-label-sm">Kostenlos</span>
+</div>
+<div class="flex justify-between text-text-muted">
+<span>Enthaltene 19% MwSt.</span>
+<span class="text-text-primary">22,32 €</span>
+</div>
+<div class="pt-4 flex justify-between items-baseline">
+<span class="font-title-lg text-title-lg text-text-primary">Gesamtsumme</span>
+<div class="text-right">
+<span class="font-price-lg text-price-lg text-text-primary font-bold">139,80 €</span>
+<span class="block font-label-sm text-label-sm text-text-muted">Inklusive MwSt. &amp; Versicherung</span>
+</div>
+</div>
+</div>
+<!-- Shipping Destination & Invoice Address Card -->
+<div class="bg-surface-container p-5 space-y-4">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">Liefer- &amp; Rechnungsadresse</span>
+<span class="material-symbols-outlined text-sm text-primary">location_on</span>
+</div>
+<div class="font-body-md text-body-md text-text-primary space-y-0.5">
+<p class="font-medium">Alexander von Berg</p>
+<p>Leopoldstraße 48</p>
+<p>80802 München</p>
+<p class="text-text-muted font-body-sm text-body-sm">Deutschland</p>
+</div>
+<div class="pt-2 font-body-sm text-body-sm text-text-muted">
+<span class="block">Zustellhinweis: Bitte bei Nichtantreffen in der Packstation 118 deponieren.</span>
+</div>
+</div>
+<!-- Primary CTAs for Confirmation Screen -->
+<div class="space-y-3 pt-2">
+<a class="w-full py-4 bg-primary text-on-primary hover:bg-primary-container transition-colors font-label-md text-label-md uppercase tracking-wider text-center block" href="#tracking-section">
+                Bestellstatus live verfolgen
+              </a>
+<a class="w-full py-3.5 bg-surface-container text-text-primary hover:bg-surface-container-high transition-colors font-label-md text-label-md uppercase tracking-wider text-center block" href="#shop">
+                Zurück zum Shop &amp; Weitershoppen
+              </a>
+</div>
+</div>
+<!-- Customer Service Contact Capsule -->
+<div class="bg-surface-container p-6 space-y-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">support_agent</span>
+<h4 class="font-title-md text-title-md text-text-primary">Atelier-Beratung &amp; Support</h4>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
+              Haben Sie Fragen zur Passform, zum Material oder möchten Sie die Lieferadresse noch ändern? Unser Concierge steht Ihnen werktags zur Seite:
+            </p>
+<div class="pt-2 space-y-1.5 font-body-sm text-body-sm">
+<p class="flex items-center gap-2 text-text-primary">
+<span class="material-symbols-outlined text-base text-primary">call</span>
+<a class="hover:underline font-medium" href="tel:+49892154890">+49 (0) 89 215 489 0</a>
+<span class="text-text-muted font-label-sm text-label-sm">(Mo–Fr 09:00–18:00 Uhr)</span>
+</p>
+<p class="flex items-center gap-2 text-text-primary">
+<span class="material-symbols-outlined text-base text-primary">mail</span>
+<a class="hover:underline font-medium" href="mailto:hilfe@maennermasche.de">hilfe@maennermasche.de</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Editorial Brand Footer Accents: Discretion & Craft Values -->
+<section class="w-full bg-surface-muted py-14">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="space-y-2">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-xl">shield</span>
+<span class="font-title-md text-title-md uppercase tracking-wider text-text-primary">Diskrete Zustellung</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
+            Keine erkennbaren Markenaufdrucke oder intime Inhaltsbeschreibungen auf dem Umkarton. Absolute Privatsphäre an Ihrer Haustür.
+          </p>
+</div>
+<div class="space-y-2">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-xl">restart_alt</span>
+<span class="font-title-md text-title-md uppercase tracking-wider text-text-primary">Kostenlose Retoure</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
+            30 Tage Anprobe-Frist. Das vorfrankierte Retourenlabel liegt der Sendung bereits bei – kein Drucker oder mühsames Ausfüllen erforderlich.
+          </p>
+</div>
+<div class="space-y-2">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-xl">workspace_premium</span>
+<span class="font-title-md text-title-md uppercase tracking-wider text-text-primary">Originalität &amp; Handwerk</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
+            Autorisierter Partner von MANSTORE, Olaf Benz und CALIDA. Geprüfte europäische Schnittkunst und schadstofffreie Textilien.
+          </p>
+</div>
+</div>
+</div>
+</section>
+</div></main>
+<!-- BEGIN: SiteFooter -->
+<footer data-shared-chrome="footer" class="bg-[#121814] text-neutral-300 pt-16 pb-12 border-t border-neutral-800" data-purpose="main-footer">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Footer Columns -->
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8 pb-12 border-b border-neutral-800 text-sm">
+<!-- Brand column -->
+<div class="col-span-2">
+<a class="shop-footer-brand" href="index.html"><img class="shop-brand-logo-light" src="assets/brand/logo-horizontal-light.png" alt="Männermasche – Herrenunterwäsche &amp; Bademode" width="900" height="191"></a>
+<p class="text-neutral-400 text-xs sm:text-sm max-w-sm leading-relaxed mb-6">
+            Dein spezialisierter Online-Store für exklusive Herrenunterwäsche, Slips, Strings, Loungewear und Bademode renommierter Hersteller.
+          </p>
+<div class="flex items-center space-x-3 text-xs text-neutral-400">
+<span class="px-2 py-1 bg-neutral-800 rounded">DE / EUR</span>
+<span>Klimaneutraler Versand</span>
+</div>
+</div>
+<!-- Kollektionen -->
+<div>
+<h4 class="text-white text-xs font-semibold uppercase tracking-wider mb-4">Kollektionen</h4>
+<ul class="space-y-2.5 text-xs sm:text-sm text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="#">Boxershorts</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Slips &amp; Pants</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Strings &amp; Thongs</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Bodies &amp; Overalls</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Badehosen &amp; Shorts</a></li>
+</ul>
+</div>
+<!-- Marken -->
+<div>
+<h4 class="text-white text-xs font-semibold uppercase tracking-wider mb-4">Marken</h4>
+<ul class="space-y-2.5 text-xs sm:text-sm text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="#">MANSTORE</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Olaf Benz</a></li>
+<li><a class="hover:text-white transition-colors" href="#">CALIDA</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Alle Kollektionen</a></li>
+</ul>
+</div>
+<!-- Kundenservice -->
+<div>
+<h4 class="text-white text-xs font-semibold uppercase tracking-wider mb-4">Service &amp; Recht</h4>
+<ul class="space-y-2.5 text-xs sm:text-sm text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="#">Größentabelle</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Versand &amp; Rückgabe</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Impressum</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Datenschutz</a></li>
+<li><a class="hover:text-white transition-colors" href="#">AGB &amp; Widerruf</a></li>
+</ul>
+</div>
+</div>
+<!-- Bottom Disclaimer / Copyright -->
+<div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-500 gap-4">
+<p>© 2025 Männermasche. Alle Rechte vorbehalten.</p>
+<div class="flex items-center space-x-6">
+<span class="hover:text-neutral-400 transition-colors cursor-pointer">Sichere SSL-Verschlüsselung</span>
+<span>·</span>
+<span class="hover:text-neutral-400 transition-colors cursor-pointer">Zahlung per Rechnung, PayPal, Kreditkarte</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: SiteFooter -->
+<script src="assets/reference-navigation.js"></script>
+</body></html>

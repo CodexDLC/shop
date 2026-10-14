@@ -1,0 +1,182 @@
+[
+  {
+    "page": "index.html",
+    "source": "design-handoff/product-cards/source.html",
+    "shared_homepage_chrome": true,
+    "original_body_verified_before_shell_replacement": true
+  },
+  {
+    "page": "catalog.html",
+    "source": "design-handoff/catalog/desktop-01.html",
+    "shared_homepage_chrome": true,
+    "original_body_verified_before_shell_replacement": true
+  },
+  {
+    "page": "catalog-empty.html",
+    "source": "design-handoff/catalog/desktop-02.html",
+    "shared_homepage_chrome": true,
+    "original_body_verified_before_shell_replacement": true
+  },
+  {
+    "page": "catalog-mobile.html",
+    "source": "design-handoff/catalog/mobile.html",
+    "shared_homepage_chrome": true,
+    "original_body_verified_before_shell_replacement": true
+  },
+  {
+    "page": "search.html",
+    "source": "design-handoff/search/reference-01.html",
+    "shared_homepage_chrome": true,
+    "original_body_verified_before_shell_replacement": true
+  },
+  {
+    "page": "search-empty.html",
+    "source": "design-handoff/search/reference-02.html",
+    "shared_homepage_chrome": true,
+    "original_body_verified_before_shell_replacement": true
+  },
+  {
+    "page": "product.html",
+    "source": "design-handoff/product-modal/reference.html",
+    "shared_homepage_chrome": true,
+    "original_body_verified_before_shell_replacement": true
+  },
+  {
+    "page": "cart.html",
+    "source": "design-handoff/cart/reference.html",
+    "shared_homepage_chrome": true,
+    "original_body_verified_before_shell_replacement": true
+  },
+  {
+    "page": "empty-cart.html",
+    "source": "design-handoff/empty-and-errors/empty-cart.html",
+    "shared_homepage_chrome": true,
+    "original_body_verified_before_shell_replacement": true
+  },
+  {
+    "page": "checkout-address.html",
+    "source": "design-handoff/checkout-address-shipping/reference.html",
+    "shared_homepage_chrome": true,
+    "original_body_verified_before_shell_replacement": true
+  },
+  {
+    "page": "checkout-address-errors.html",
+    "source": "design-handoff/emails/address-errors.html",
+    "shared_homepage_chrome": true,
+    "original_body_verified_before_shell_replacement": true
+  },
+  {
+    "page": "checkout-payment.html",
+    "source": "design-handoff/checkout-payment-review/reference.html",
+    "shared_homepage_chrome": true,
+    "original_body_verified_before_shell_replacement": true
+  },
+  {
+    "page": "confirmation.html",
+    "source": "design-handoff/order-confirmation/reference.html",
+    "shared_homepage_chrome": true,
+    "original_body_verified_before_shell_replacement": true
+  },
+  {
+    "page": "payment-error.html",
+    "source": "design-handoff/emails/payment-error.html",
+    "shared_homepage_chrome": true,
+    "original_body_verified_before_shell_replacement": true
+  },
+  {
+    "page": "auth.html",
+    "source": "design-handoff/auth/login-desktop.html",
+    "shared_homepage_chrome": true,
+    "original_body_verified_before_shell_replacement": true
+  },
+  {
+    "page": "auth-mobile.html",
+    "source": "design-handoff/auth/login-mobile.html",
+    "shared_homepage_chrome": true,
+    "original_body_verified_before_shell_replacement": true
+  },
+  {
+    "page": "register.html",
+    "source": "design-handoff/auth/register-desktop.html",
+    "shared_homepage_chrome": true,
+    "original_body_verified_before_shell_replacement": true
+  },
+  {
+    "page": "register-mobile.html",
+    "source": "design-handoff/auth/register-reset-mobile.html",
+    "shared_homepage_chrome": true,
+    "original_body_verified_before_shell_replacement": true
+  },
+  {
+    "page": "password-reset.html",
+    "source": "design-handoff/auth/password-reset-desktop.html",
+    "shared_homepage_chrome": true,
+    "original_body_verified_before_shell_replacement": true
+  },
+  {
+    "page": "account.html",
+    "source": "design-handoff/customer-account/overview-desktop.html",
+    "shared_homepage_chrome": true,
+    "original_body_verified_before_shell_replacement": true
+  },
+  {
+    "page": "account-mobile.html",
+    "source": "design-handoff/customer-account/overview-mobile.html",
+    "shared_homepage_chrome": true,
+    "original_body_verified_before_shell_replacement": true
+  },
+  {
+    "page": "account-orders.html",
+    "source": "design-handoff/customer-account/orders-empty-desktop.html",
+    "shared_homepage_chrome": true,
+    "original_body_verified_before_shell_replacement": true
+  },
+  {
+    "page": "account-order-detail.html",
+    "source": "design-handoff/customer-account/order-detail-desktop.html",
+    "shared_homepage_chrome": true,
+    "original_body_verified_before_shell_replacement": true
+  },
+  {
+    "page": "account-profile.html",
+    "source": "design-handoff/customer-account/profile-addresses-security-marketing-desktop.html",
+    "shared_homepage_chrome": true,
+    "original_body_verified_before_shell_replacement": true
+  },
+  {
+    "page": "help.html",
+    "source": "design-handoff/help/desktop.html",
+    "shared_homepage_chrome": true,
+    "original_body_verified_before_shell_replacement": true
+  },
+  {
+    "page": "help-mobile.html",
+    "source": "design-handoff/help/mobile.html",
+    "shared_homepage_chrome": true,
+    "original_body_verified_before_shell_replacement": true
+  },
+  {
+    "page": "legal.html",
+    "source": "design-handoff/legal/reference-02.html",
+    "shared_homepage_chrome": true,
+    "original_body_verified_before_shell_replacement": true
+  },
+  {
+    "page": "legal-mobile.html",
+    "source": "design-handoff/legal/reference.html",
+    "shared_homepage_chrome": true,
+    "original_body_verified_before_shell_replacement": true
+  },
+  {
+    "page": "emails.html",
+    "source": "design-handoff/emails/email-hub.html",
+    "shared_homepage_chrome": false,
+    "original_body_verified_before_shell_replacement": true
+  },
+  {
+    "page": "404.html",
+    "source": "design-handoff/empty-and-errors/404.html",
+    "shared_homepage_chrome": true,
+    "original_body_verified_before_shell_replacement": true
+  }
+]

@@ -1,1 +1,702 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Adresse & Versand · Männermasche</title><link rel="stylesheet" href="assets/theme.css"><link rel="stylesheet" href="assets/checkout.css"><script defer src="assets/app.js"></script><script defer src="assets/checkout.js"></script></head><body data-checkout-page="address"><div data-site-header></div><main id="main" class="container checkout-main"><p class="eyebrow">MÄNNERMASCHE · DEMONSTRATION</p><h1 class="page-title">Adresse & Versand</h1><p class="demo-note">Interaktiver Entwurf mit Beispieldaten. Keine Bestellung, Zahlung oder Datenübertragung.</p><nav class="checkout-steps" aria-label="Bestellschritte"><a href="cart.html">01 Warenkorb</a><a href="checkout-address.html">02 Adresse</a><a href="checkout-payment.html">03 Prüfung</a></nav><div id="checkout-guard"></div><div class="checkout-layout" id="checkout-content"><form id="address-form" class="panel" novalidate><h2 class="section-title">Ihre Kontaktdaten</h2><p class="muted">Bitte nur fiktive Daten verwenden. Diese Angaben bleiben für diese Sitzung in Ihrem Browser.</p><div class="address-fields"><label class="field">E-Mail<input name="email" type="email" autocomplete="off" required><span class="field-error" data-error="email"></span></label><label class="field">Vorname<input name="firstName" autocomplete="off" required><span class="field-error" data-error="firstName"></span></label><label class="field">Nachname<input name="lastName" autocomplete="off" required><span class="field-error" data-error="lastName"></span></label><label class="field">Straße<input name="street" autocomplete="off" required><span class="field-error" data-error="street"></span></label><label class="field">Hausnummer<input name="houseNumber" autocomplete="off" required><span class="field-error" data-error="houseNumber"></span></label><label class="field">Postleitzahl<input name="postcode" inputmode="numeric" maxlength="5" autocomplete="off" required><span class="field-error" data-error="postcode"></span></label><label class="field">Ort<input name="city" autocomplete="off" required><span class="field-error" data-error="city"></span></label></div><p class="muted">Land: Deutschland</p><h2 class="section-title">Versand</h2><label class="choice"><input type="radio" name="shipping" value="standard" checked> Standardversand · 4,90 € <span class="muted">(Beispiel, keine Lieferzusage)</span></label><button class="button" type="submit">Weiter zur Prüfung</button><p id="address-status" role="alert"></p></form><aside class="panel order-summary" id="order-summary"></aside></div></main><div data-site-footer></div></body></html>
+<!DOCTYPE html>
+
+<html class="h-full scroll-smooth" lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Männermasche | Herrenunterwäsche &amp; Bademode</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="assets/vendor/tailwind-runtime.js?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              page: '#F8F8F3',
+              surface: '#F1F1EB',
+              surfaceCard: '#EBEBE3',
+              dark: '#171E19',
+              muted: '#626960',
+              accent: '#183F30',
+              accentHover: '#133327',
+              border: '#DCDED5'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Core Page Styles -->
+<style data-purpose="base-styling">
+    body {
+      background-color: #F8F8F3;
+      color: #171E19;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    ::selection {
+      background-color: #183F30;
+      color: #F8F8F3;
+    }
+  </style>
+<!-- Component & Visual Effect Styles -->
+<style data-purpose="hero-layout">
+    .hero-blend-gradient {
+      background: linear-gradient(90deg, #F5F5EE 0%, #F5F5EE 45%, rgba(245, 245, 238, 0.94) 52%, rgba(245, 245, 238, 0.4) 68%, rgba(245, 245, 238, 0) 80%);
+    }
+    @media (max-width: 1024px) {
+      .hero-blend-gradient {
+        background: linear-gradient(180deg, #F5F5EE 0%, rgba(245, 245, 238, 0.85) 65%, rgba(245, 245, 238, 0.3) 100%);
+      }
+    }
+  </style>
+<meta content="web_dashboard" name="shell-type"/><script src="assets/reference-tokens.js"></script>
+<link rel="stylesheet" href="assets/shared-chrome.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+<link rel="icon" href="assets/brand/favicon.ico"><link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+</head>
+<body class="min-h-full flex flex-col bg-brand-page text-brand-dark">
+<!-- BEGIN: TopBrandBar -->
+
+<!-- END: TopBrandBar -->
+<!-- BEGIN: MainHeader -->
+<aside class="w-full bg-[#183F30] py-2 text-center text-xs tracking-widest text-[#E3E8E4] font-medium uppercase select-none" data-purpose="top-announcement-bar">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<span>MANSTORE</span>
+<span class="mx-3 opacity-60">·</span>
+<span>Olaf Benz</span>
+<span class="mx-3 opacity-60">·</span>
+<span>CALIDA</span>
+</div>
+</aside>
+<header data-shared-chrome="header" class="w-full border-b border-brand-border/60 bg-brand-page/95 backdrop-blur-md sticky top-0 z-40 transition-colors" data-purpose="primary-header">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<!-- Logo Branding Container -->
+<a aria-label="Männermasche Startseite" class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-lg p-1" href="#"><img class="shop-brand-logo" src="assets/brand/logo-horizontal.png" alt="Männermasche – Herrenunterwäsche &amp; Bademode" width="900" height="172"></a>
+<!-- Center Primary Navigation -->
+<nav aria-label="Hauptnavigation" class="hidden md:flex items-center space-x-8 text-sm font-medium text-brand-dark" data-purpose="main-navigation">
+<a class="hover:text-brand-accent transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="#neuheiten">Neuheiten</a>
+<a class="hover:text-brand-accent transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="#unterwaesche">Unterwäsche</a>
+<a class="hover:text-brand-accent transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="#bademode">Bademode</a>
+<a class="hover:text-brand-accent transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="#marken">Marken</a>
+<a class="text-red-700 hover:text-red-800 transition-colors py-1" href="#sale">Sale</a>
+</nav>
+<!-- Right Utility Actions -->
+<div class="flex items-center space-x-4 sm:space-x-5 text-brand-dark" data-purpose="utility-actions">
+<!-- Search Action -->
+<button aria-label="Suche öffnen" class="p-2 text-brand-dark hover:text-brand-accent transition-colors rounded-full hover:bg-brand-surface focus:outline-none focus:ring-2 focus:ring-brand-accent" type="button">
+<svg class="w-5 h-5 stroke-[1.8]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- User Profile Action -->
+<button aria-label="Mein Konto" class="p-2 text-brand-dark hover:text-brand-accent transition-colors rounded-full hover:bg-brand-surface focus:outline-none focus:ring-2 focus:ring-brand-accent" type="button">
+<svg class="w-5 h-5 stroke-[1.8]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Wishlist Action -->
+<button aria-label="Merkzettel" class="p-2 text-brand-dark hover:text-brand-accent transition-colors rounded-full hover:bg-brand-surface focus:outline-none focus:ring-2 focus:ring-brand-accent" type="button">
+<svg class="w-5 h-5 stroke-[1.8]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Shopping Cart Action with Badge -->
+<button aria-label="Warenkorb" class="p-2 text-brand-dark hover:text-brand-accent transition-colors rounded-full hover:bg-brand-surface relative focus:outline-none focus:ring-2 focus:ring-brand-accent" type="button">
+<svg class="w-5 h-5 stroke-[1.8]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25c-.67 0-1.189-.578-1.119-1.243l1.263-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="absolute 1 top-1 right-1 w-2 h-2 bg-brand-accent rounded-full ring-2 ring-brand-page"></span>
+</button>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<main class="flex-grow"><div class="flex flex-col w-full">
+<!-- Stepper Bar (Arch-Minimal / Haute Editorial) -->
+<section class="w-full bg-surface-muted py-6">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<nav aria-label="Bestellfortschritt" class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">Bestellprozess</span>
+<span class="text-text-muted font-body-sm">/</span>
+<span class="font-label-md text-label-md text-text-primary uppercase tracking-wider">Schritt 02 von 03</span>
+</div>
+<ol class="flex items-center space-x-2 sm:space-x-8 text-body-sm font-body-sm">
+<!-- Step 1: Completed -->
+<li class="flex items-center space-x-2 text-text-muted hover:text-text-primary transition-colors cursor-pointer group">
+<span class="flex items-center justify-center w-6 h-6 bg-primary text-on-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm">check</span>
+</span>
+<span class="hidden sm:inline font-label-md text-label-md uppercase tracking-wider group-hover:underline">1. Warenkorb &amp; Passform</span>
+<span class="sm:hidden font-label-md text-label-md">01</span>
+</li>
+<li class="text-text-muted opacity-40 font-serif">→</li>
+<!-- Step 2: Active -->
+<li aria-current="step" class="flex items-center space-x-2 text-text-primary">
+<span class="flex items-center justify-center w-6 h-6 bg-brand-deep text-on-primary font-label-sm text-label-sm font-semibold">
+              02
+            </span>
+<span class="font-label-md text-label-md uppercase tracking-wider font-semibold text-brand-deep">
+              2. Lieferadresse &amp; Versand
+            </span>
+</li>
+<li class="text-text-muted opacity-40 font-serif">→</li>
+<!-- Step 3: Upcoming -->
+<li class="flex items-center space-x-2 text-text-muted opacity-50 select-none">
+<span class="flex items-center justify-center w-6 h-6 bg-surface-container text-text-muted font-label-sm text-label-sm">
+              03
+            </span>
+<span class="hidden sm:inline font-label-md text-label-md uppercase tracking-wider">3. Zahlung &amp; Prüfung</span>
+<span class="sm:hidden font-label-md text-label-md">03</span>
+</li>
+</ol>
+</nav>
+</div>
+</section>
+<!-- Main Checkout Workspace -->
+<main class="w-full py-10 lg:py-16">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+<!-- LEFT COLUMN (Approx. 65% width = 8 cols) -->
+<div class="lg:col-span-8 flex flex-col space-y-12">
+<!-- SECTION 1: Kontakt & Authentifizierung -->
+<section class="bg-surface-bright p-6 sm:p-8 flex flex-col space-y-6">
+<div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 pb-4">
+<div class="flex items-center space-x-3">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest">Abschnitt 01</span>
+<span class="w-1.5 h-1.5 bg-brand-deep"></span>
+<h2 class="font-headline-md text-headline-md text-text-primary tracking-tight">Ihre Kontaktdaten</h2>
+</div>
+<div class="flex items-center space-x-2 font-body-sm text-body-sm text-text-muted">
+<span>Bereits Kunde?</span>
+<button class="text-brand-deep font-label-md text-label-md underline hover:text-on-primary-fixed-variant transition-colors" type="button">
+                  Anmelden für Männermasche Club
+                </button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-12 gap-5">
+<div class="sm:col-span-8 flex flex-col space-y-1.5">
+<label class="font-label-md text-label-md text-text-primary uppercase tracking-wider" for="contact-email">
+                  E-Mail-Adresse <span class="text-error">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-3 font-body-md text-body-md focus:bg-surface-bright focus:outline-none transition-colors" id="contact-email" name="email" placeholder="maximilian.v@lifestyle.de" required="" type="email"/>
+<p class="font-body-sm text-body-sm text-text-muted pt-1">
+                  Für Ihre Sendungsverfolgung und die digitale Quittung. Kein Werbespam.
+                </p>
+</div>
+<div class="sm:col-span-4 flex flex-col space-y-1.5">
+<label class="font-label-md text-label-md text-text-primary uppercase tracking-wider" for="contact-phone">
+                  Telefonnummer <span class="text-text-muted lowercase text-[10px]">(optional)</span>
+</label>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-3 font-body-md text-body-md focus:bg-surface-bright focus:outline-none transition-colors" id="contact-phone" name="phone" placeholder="+49 170 0000000" type="tel"/>
+</div>
+</div>
+<div class="bg-surface-container p-4 flex items-start space-x-3.5">
+<span class="material-symbols-outlined text-brand-deep mt-0.5">verified_user</span>
+<div class="flex flex-col space-y-1">
+<span class="font-label-md text-label-md text-text-primary uppercase tracking-wide">Gast-Bestellung aktiv</span>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
+                  Sie bestellen ohne fixes Kundenkonto. Im letzten Schritt können Sie Ihre Daten optional mit einem Klick für spätere Anproben sichern.
+                </p>
+</div>
+</div>
+</section>
+<!-- SECTION 2: Lieferadresse -->
+<section class="bg-surface-bright p-6 sm:p-8 flex flex-col space-y-6">
+<div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-3 pb-4">
+<div class="flex items-center space-x-3">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest">Abschnitt 02</span>
+<span class="w-1.5 h-1.5 bg-brand-deep"></span>
+<h2 class="font-headline-md text-headline-md text-text-primary tracking-tight">Lieferadresse</h2>
+</div>
+<!-- Tab switch: Standard vs. Packstation -->
+<div class="flex bg-surface-container p-1 gap-1" role="tablist">
+<button class="px-3.5 py-1.5 font-label-md text-label-md uppercase tracking-wider bg-brand-deep text-on-primary transition-all" id="tab-standard-btn" onclick="switchAddressType('standard')" type="button">
+                  Hausadresse
+                </button>
+<button class="px-3.5 py-1.5 font-label-md text-label-md uppercase tracking-wider text-text-muted hover:text-text-primary transition-all" id="tab-packstation-btn" onclick="switchAddressType('packstation')" type="button">
+                  DHL Packstation / Filiale
+                </button>
+</div>
+</div>
+<!-- Standard Address Fields -->
+<div class="flex flex-col space-y-5" id="form-standard-address">
+<!-- Anrede -->
+<div class="flex flex-col space-y-2">
+<span class="font-label-md text-label-md text-text-primary uppercase tracking-wider">Anrede</span>
+<div class="flex gap-4">
+<label class="flex items-center space-x-2 cursor-pointer">
+<input checked="" class="text-brand-deep focus:ring-brand-deep w-4 h-4 bg-surface-container-lowest" name="salutation" type="radio" value="herr"/>
+<span class="font-body-md text-body-md text-text-primary">Herr</span>
+</label>
+<label class="flex items-center space-x-2 cursor-pointer">
+<input class="text-brand-deep focus:ring-brand-deep w-4 h-4 bg-surface-container-lowest" name="salutation" type="radio" value="frau"/>
+<span class="font-body-md text-body-md text-text-primary">Frau</span>
+</label>
+<label class="flex items-center space-x-2 cursor-pointer">
+<input class="text-brand-deep focus:ring-brand-deep w-4 h-4 bg-surface-container-lowest" name="salutation" type="radio" value="none"/>
+<span class="font-body-md text-body-md text-text-primary">Keine Angabe</span>
+</label>
+</div>
+</div>
+<!-- Vorname, Nachname -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+<div class="flex flex-col space-y-1.5">
+<label class="font-label-md text-label-md text-text-primary uppercase tracking-wider" for="first-name">
+                    Vorname <span class="text-error">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-3 font-body-md text-body-md focus:bg-surface-bright focus:outline-none" id="first-name" name="first-name" required="" type="text" value="Alexander"/>
+</div>
+<div class="flex flex-col space-y-1.5">
+<label class="font-label-md text-label-md text-text-primary uppercase tracking-wider" for="last-name">
+                    Nachname <span class="text-error">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-3 font-body-md text-body-md focus:bg-surface-bright focus:outline-none" id="last-name" name="last-name" required="" type="text" value="von Berg"/>
+</div>
+</div>
+<!-- Straße & Hausnummer -->
+<div class="grid grid-cols-1 sm:grid-cols-12 gap-5">
+<div class="sm:col-span-9 flex flex-col space-y-1.5">
+<label class="font-label-md text-label-md text-text-primary uppercase tracking-wider" for="street">
+                    Straße &amp; Hausnummer <span class="text-error">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-3 font-body-md text-body-md focus:bg-surface-bright focus:outline-none" id="street" name="street" required="" type="text" value="Leopoldstraße 48"/>
+</div>
+<div class="sm:col-span-3 flex flex-col space-y-1.5">
+<label class="font-label-md text-label-md text-text-primary uppercase tracking-wider" for="additional">
+                    Zusatz <span class="text-text-muted lowercase text-[10px]">(opt.)</span>
+</label>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-3 font-body-md text-body-md focus:bg-surface-bright focus:outline-none" id="additional" name="additional" placeholder="z.B. App. 4B" type="text"/>
+</div>
+</div>
+<!-- PLZ, Stadt, Land -->
+<div class="grid grid-cols-1 sm:grid-cols-12 gap-5">
+<div class="sm:col-span-4 flex flex-col space-y-1.5">
+<label class="font-label-md text-label-md text-text-primary uppercase tracking-wider" for="zip">
+                    Postleitzahl <span class="text-error">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-3 font-body-md text-body-md focus:bg-surface-bright focus:outline-none" id="zip" name="zip" required="" type="text" value="80802"/>
+</div>
+<div class="sm:col-span-5 flex flex-col space-y-1.5">
+<label class="font-label-md text-label-md text-text-primary uppercase tracking-wider" for="city">
+                    Stadt / Ort <span class="text-error">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-3 font-body-md text-body-md focus:bg-surface-bright focus:outline-none" id="city" name="city" required="" type="text" value="München"/>
+</div>
+<div class="sm:col-span-3 flex flex-col space-y-1.5">
+<label class="font-label-md text-label-md text-text-primary uppercase tracking-wider" for="country">
+                    Land <span class="text-error">*</span>
+</label>
+<select class="w-full bg-surface-container-lowest text-text-primary px-3 py-3 font-body-md text-body-md focus:bg-surface-bright focus:outline-none" id="country" name="country">
+<option selected="" value="DE">Deutschland</option>
+<option value="AT">Österreich</option>
+<option value="CH">Schweiz</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Packstation Form (Toggled via JS) -->
+<div class="hidden flex flex-col space-y-5" id="form-packstation-address">
+<div class="bg-surface-container p-4 font-body-sm text-body-sm text-text-muted">
+                Lieferung direkt an einen DHL Abholautomaten oder Partner-Filiale Ihrer Wahl. Sie erhalten eine Benachrichtigung per DHL App / SMS.
+              </div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+<div class="flex flex-col space-y-1.5">
+<label class="font-label-md text-label-md text-text-primary uppercase tracking-wider" for="ps-first-name">
+                    Vorname <span class="text-error">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-3 font-body-md text-body-md" id="ps-first-name" placeholder="Vorname" type="text"/>
+</div>
+<div class="flex flex-col space-y-1.5">
+<label class="font-label-md text-label-md text-text-primary uppercase tracking-wider" for="ps-last-name">
+                    Nachname <span class="text-error">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-3 font-body-md text-body-md" id="ps-last-name" placeholder="Nachname" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-12 gap-5">
+<div class="sm:col-span-6 flex flex-col space-y-1.5">
+<label class="font-label-md text-label-md text-text-primary uppercase tracking-wider" for="ps-postnummer">
+                    PostNummer (DHL Kundenkonto) <span class="text-error">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-3 font-body-md text-body-md" id="ps-postnummer" placeholder="6 bis 10 Ziffern" type="text"/>
+</div>
+<div class="sm:col-span-6 flex flex-col space-y-1.5">
+<label class="font-label-md text-label-md text-text-primary uppercase tracking-wider" for="ps-packstation-nr">
+                    Packstation-Nummer <span class="text-error">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-3 font-body-md text-body-md" id="ps-packstation-nr" placeholder="z.B. Packstation 123" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-12 gap-5">
+<div class="sm:col-span-4 flex flex-col space-y-1.5">
+<label class="font-label-md text-label-md text-text-primary uppercase tracking-wider" for="ps-zip">
+                    PLZ der Packstation <span class="text-error">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-3 font-body-md text-body-md" id="ps-zip" placeholder="PLZ" type="text"/>
+</div>
+<div class="sm:col-span-8 flex flex-col space-y-1.5">
+<label class="font-label-md text-label-md text-text-primary uppercase tracking-wider" for="ps-city">
+                    Ort der Packstation <span class="text-error">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-3 font-body-md text-body-md" id="ps-city" placeholder="Stadt / Ort" type="text"/>
+</div>
+</div>
+</div>
+<!-- Checkbox: Rechnungsadresse abweichend -->
+<div class="pt-3">
+<label class="flex items-start space-x-3 cursor-pointer group">
+<input class="mt-1 text-brand-deep focus:ring-brand-deep w-4 h-4 bg-surface-container-lowest" id="billing-differs-toggle" onchange="document.getElementById('billing-address-block').classList.toggle('hidden', !this.checked)" type="checkbox"/>
+<span class="font-body-md text-body-md text-text-primary group-hover:text-brand-deep transition-colors select-none">
+                  Rechnungsadresse weicht von der angegebenen Lieferadresse ab
+                </span>
+</label>
+<!-- Optional Inverted Billing Form -->
+<div class="hidden mt-6 pt-6 bg-surface-container-low p-5 space-y-4" id="billing-address-block">
+<h3 class="font-label-md text-label-md uppercase tracking-wider text-text-primary">Separate Rechnungsanschrift</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-2.5 font-body-sm text-body-sm" placeholder="Vor- und Nachname / Firma" type="text"/>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-2.5 font-body-sm text-body-sm" placeholder="Straße &amp; Hausnummer" type="text"/>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-2.5 font-body-sm text-body-sm" placeholder="PLZ" type="text"/>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-2.5 font-body-sm text-body-sm" placeholder="Stadt" type="text"/>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: Versandart wählen -->
+<section class="bg-surface-bright p-6 sm:p-8 flex flex-col space-y-6">
+<div class="flex items-center space-x-3 pb-2">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest">Abschnitt 03</span>
+<span class="w-1.5 h-1.5 bg-brand-deep"></span>
+<h2 class="font-headline-md text-headline-md text-text-primary tracking-tight">Versandart wählen</h2>
+</div>
+<div class="space-y-4" role="radiogroup">
+<!-- Option 1: Standard (Selected) -->
+<label class="relative flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-surface-container cursor-pointer transition-colors">
+<div class="flex items-start space-x-4">
+<input checked="" class="mt-1 text-brand-deep focus:ring-brand-deep w-4 h-4 bg-surface-container-lowest" name="shipping_method" type="radio" value="standard"/>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-text-primary">DHL GoGreen Standardversand</span>
+<span class="bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm px-2 py-0.5 uppercase tracking-wider">Klimaneutral</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mt-0.5">
+                      Zustellung in 1–2 Werktagen · Zustellung auch samstags ohne Aufpreis
+                    </p>
+</div>
+</div>
+<div class="mt-3 sm:mt-0 sm:text-right pl-8 sm:pl-0">
+<span class="font-price-md text-price-md text-brand-deep uppercase tracking-wider font-semibold">Kostenlos</span>
+<span class="block text-[11px] text-text-muted font-body-sm">(Bestellwert &gt; 50 €)</span>
+</div>
+</label>
+<!-- Option 2: Express -->
+<label class="relative flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-surface-bright hover:bg-surface-container cursor-pointer transition-colors">
+<div class="flex items-start space-x-4">
+<input class="mt-1 text-brand-deep focus:ring-brand-deep w-4 h-4 bg-surface-container-lowest" name="shipping_method" type="radio" value="express"/>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-text-primary">DHL Express Abendzustellung</span>
+<span class="bg-surface-container-high text-text-primary font-label-sm text-label-sm px-2 py-0.5 uppercase tracking-wider">Garantiert</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mt-0.5">
+                      Garantierte Zustellung morgen Abend zwischen 18:00 und 21:00 Uhr
+                    </p>
+</div>
+</div>
+<div class="mt-3 sm:mt-0 sm:text-right pl-8 sm:pl-0">
+<span class="font-price-md text-price-md text-text-primary font-semibold">9,90 €</span>
+</div>
+</label>
+<!-- Option 3: Diskrete Wunschzustellung -->
+<label class="relative flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-surface-bright hover:bg-surface-container cursor-pointer transition-colors">
+<div class="flex items-start space-x-4">
+<input class="mt-1 text-brand-deep focus:ring-brand-deep w-4 h-4 bg-surface-container-lowest" name="shipping_method" type="radio" value="discreet"/>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-text-primary">Diskrete Wunschzustellung &amp; Nachbar-Ausschluss</span>
+<span class="bg-tertiary text-on-tertiary font-label-sm text-label-sm px-2 py-0.5 uppercase tracking-wider">Diskret</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mt-0.5">
+                      Persönliche Übergabe an Sie. Keine Abgabe bei Nachbarn. Neutrale Absenderkennung.
+                    </p>
+</div>
+</div>
+<div class="mt-3 sm:mt-0 sm:text-right pl-8 sm:pl-0">
+<span class="font-price-md text-price-md text-brand-deep uppercase tracking-wider font-semibold">Kostenlos</span>
+</div>
+</label>
+</div>
+</section>
+<!-- SECTION 4: Anprobe- & Verpackungsservice -->
+<section class="bg-surface-bright p-6 sm:p-8 flex flex-col space-y-6">
+<div class="flex items-center space-x-3 pb-2">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest">Abschnitt 04</span>
+<span class="w-1.5 h-1.5 bg-brand-deep"></span>
+<h2 class="font-headline-md text-headline-md text-text-primary tracking-tight">Anprobe- &amp; Verpackungsservice</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Service Card 1 -->
+<div class="bg-surface-container p-5 flex items-start space-x-3.5">
+<div class="p-2 bg-brand-deep text-on-primary shrink-0">
+<span class="material-symbols-outlined text-lg">inventory_2</span>
+</div>
+<div class="flex flex-col space-y-1">
+<span class="font-title-md text-title-md text-text-primary">Neutraler Premium-Karton</span>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
+                    Keinerlei Logos oder Markenaufdrucke außen. Absender: „MM Logistik Logistikzentrum“.
+                  </p>
+<span class="font-label-sm text-label-sm text-brand-deep font-semibold uppercase tracking-wider mt-1">Inklusive</span>
+</div>
+</div>
+<!-- Service Card 2 -->
+<div class="bg-surface-container p-5 flex items-start space-x-3.5">
+<div class="p-2 bg-brand-deep text-on-primary shrink-0">
+<span class="material-symbols-outlined text-lg">assignment_return</span>
+</div>
+<div class="flex flex-col space-y-1">
+<span class="font-title-md text-title-md text-text-primary">Kostenloses Retourenlabel</span>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
+                    Beiliegendes DHL-Rücksendeetikett für risikofreie Größen- und Passformanprobe.
+                  </p>
+<span class="font-label-sm text-label-sm text-brand-deep font-semibold uppercase tracking-wider mt-1">Inklusive</span>
+</div>
+</div>
+</div>
+<!-- Editorial Notice on Fitting & Hygiene -->
+<div class="bg-surface-container-low p-4 flex items-start space-x-3">
+<span class="material-symbols-outlined text-text-muted mt-0.5">info</span>
+<div class="font-body-sm text-body-sm text-text-muted leading-relaxed">
+<strong class="text-text-primary font-medium">Anprobe-Hinweis:</strong> 
+                Bitte probieren Sie Wäscheteile stets über eigener Unterbekleidung an. 
+                Wir garantieren ein <strong>30-tägiges Rückgaberecht</strong> für ungetragene, originalverpackte Textilien mit unversehrtem Hygienesiegel.
+              </div>
+</div>
+</section>
+</div>
+<!-- RIGHT COLUMN: Sticky Order Summary & Trust (Approx. 35% width = 4 cols) -->
+<aside class="lg:col-span-4 sticky top-28 flex flex-col space-y-6">
+<div class="bg-surface-bright p-6 sm:p-7 flex flex-col space-y-6">
+<!-- Header -->
+<div class="flex items-baseline justify-between pb-3">
+<h3 class="font-title-lg text-title-lg text-text-primary tracking-tight">Bestellübersicht</h3>
+<span class="font-label-md text-label-md text-text-muted uppercase">3 Artikel</span>
+</div>
+<!-- Items Mini-List -->
+<div class="flex flex-col space-y-4">
+<!-- Item 1: MANSTORE -->
+<div class="flex items-center space-x-3.5">
+<div class="w-16 h-20 bg-surface-muted shrink-0 overflow-hidden relative">
+<img class="w-full h-full object-cover object-center" data-alt="Editorial studio close-up of a masculine black boxer trunk on an off-white background with minimal lighting, fine cotton texture visible, Atelier Masculin look" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvt4kaocqYIUA3Wp5IIgD9sg0tNh8GtOyZfzJQ3xmZvW8uq05biLEwRx2sfq3L3dKi5SrlI_ELxOL-AtNsAS2GRdZbQ4SMtHIsw5Qvo_WZ5YXLDyd3BRzp7KAO1AMnQSUkS306D8L1ako4cqe8o1YWWvbI-5etfKJfv9yZxZFFV7D5T_jiqMqwNsh5RBHLEq50yZOjIiY99nfwXWKk6MX_K7FQqVILrTh7UtU4QwEvPQICCotK39gJ"/>
+<span class="absolute top-1 right-1 bg-surface-bright/90 px-1 py-0.5 text-[9px] font-label-sm text-text-primary">M</span>
+</div>
+<div class="flex flex-col flex-grow min-w-0">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider truncate">MANSTORE</span>
+<h4 class="font-title-md text-title-md text-text-primary truncate">M107 Zoned Low Cut Boxer</h4>
+<span class="font-body-sm text-body-sm text-text-muted">Schwarz · Größe M · 1x</span>
+</div>
+<div class="font-price-md text-price-md text-text-primary text-right shrink-0">
+                  49,90 €
+                </div>
+</div>
+<!-- Item 2: CALIDA -->
+<div class="flex items-center space-x-3.5">
+<div class="w-16 h-20 bg-surface-muted shrink-0 overflow-hidden relative">
+<img class="w-full h-full object-cover object-center" data-alt="Minimalist men underwear packaging in crisp beige natural cotton fabric, soft shadows, high fashion catalog photography style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWeYKdZZRcEurojWqkna7k-YPdTHIMNACsqDiO6vgxC3NwLuGBfTeq0bePwlMeu07Qt2VjrdtZKSPdNSJ08mqB0nDv0pb4-EZKZHBP6wa-wJfLwkIOXS-U1ubBB8_HHbtVa-3WLeTQ3Ii7gXYqLEHb-_Gh11TOR39qk0Bi7CkSyonnfdTTByaSHj3IOf5hKT6r7pRYBwDA-_U6y6OFB0ONDDAFl35MbL4VlFDCnP-N21Ppx0th0OcJ"/>
+<span class="absolute top-1 right-1 bg-surface-bright/90 px-1 py-0.5 text-[9px] font-label-sm text-text-primary">L</span>
+</div>
+<div class="flex flex-col flex-grow min-w-0">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider truncate">CALIDA</span>
+<h4 class="font-title-md text-title-md text-text-primary truncate">Natural Skin Boxer Brief</h4>
+<span class="font-body-sm text-body-sm text-text-muted">Deep Olive · Größe L · 1x</span>
+</div>
+<div class="font-price-md text-price-md text-text-primary text-right shrink-0">
+                  39,95 €
+                </div>
+</div>
+<!-- Item 3: OLAF BENZ -->
+<div class="flex items-center space-x-3.5">
+<div class="w-16 h-20 bg-surface-muted shrink-0 overflow-hidden relative">
+<img class="w-full h-full object-cover object-center" data-alt="Luxury men designer slip micro modal fabric in anthracite grey, high contrast, clean minimalist studio aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB46VG8omULoMZFclgKseVDuF6Xn1XC7-OLqndPOnqAOChAQ0hbGWZJbYkCzQY8BKpsgSBio838JiO0xqFE9bctda8agmFlSfqb7t1fnfCAwwyHRYTV6mO5XEX0wP451gBJuBDfzPKAzyWiy0lzuPYcwwMpc43ufBLC4pyvhR9ZOBdDXwV42GvlCVv1XDB4NZDsar1949TXHxW2W773TKNyZa4emwdq7HKdmjVSN7fBmhBf0_7ScfKr"/>
+<span class="absolute top-1 right-1 bg-surface-bright/90 px-1 py-0.5 text-[9px] font-label-sm text-text-primary">M</span>
+</div>
+<div class="flex flex-col flex-grow min-w-0">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider truncate">Olaf Benz</span>
+<h4 class="font-title-md text-title-md text-text-primary truncate">RED 2004 Sport Pant</h4>
+<span class="font-body-sm text-body-sm text-text-muted">Anthrazit · Größe M · 1x</span>
+</div>
+<div class="font-price-md text-price-md text-text-primary text-right shrink-0">
+                  49,95 €
+                </div>
+</div>
+</div>
+<!-- Price Breakdown -->
+<div class="bg-surface-container p-4 space-y-2.5">
+<div class="flex justify-between font-body-sm text-body-sm text-text-muted">
+<span>Zwischensumme</span>
+<span class="text-text-primary">139,80 €</span>
+</div>
+<div class="flex justify-between font-body-sm text-body-sm text-text-muted">
+<span>Versandart (DHL GoGreen)</span>
+<span class="text-brand-deep font-medium uppercase font-label-md text-label-md">Kostenlos</span>
+</div>
+<div class="flex justify-between font-body-sm text-body-sm text-text-muted">
+<span>Passform-Retourenlabel</span>
+<span class="text-brand-deep font-medium uppercase font-label-md text-label-md">Inklusive</span>
+</div>
+<div class="pt-3 flex justify-between items-baseline">
+<span class="font-title-md text-title-md text-text-primary font-bold">Gesamtsumme</span>
+<span class="font-price-lg text-price-lg text-brand-deep font-bold">139,80 €</span>
+</div>
+<span class="block text-right text-[11px] font-body-sm text-text-muted">inkl. 19% MwSt. (22,32 €)</span>
+</div>
+<!-- CTA Actions -->
+<div class="flex flex-col space-y-3 pt-2">
+<button class="w-full h-12 bg-primary hover:bg-brand-deep text-on-primary font-label-md text-label-md uppercase tracking-widest flex items-center justify-center space-x-2 transition-colors select-none" type="submit">
+<span>WEITER ZU ZAHLUNG &amp; PRÜFUNG</span>
+<span class="font-serif text-lg">→</span>
+</button>
+<a class="w-full text-center py-2 text-text-muted hover:text-text-primary font-label-md text-label-md uppercase tracking-wider transition-colors" href="#warenkorb">
+                ← Zurück zum Warenkorb
+              </a>
+</div>
+</div>
+<!-- Trust & Discreet Delivery Badges -->
+<div class="bg-surface-muted p-5 space-y-4">
+<h4 class="font-label-md text-label-md uppercase tracking-wider text-text-primary">Männermasche Garantien</h4>
+<div class="space-y-3 font-body-sm text-body-sm text-text-muted">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-brand-deep text-lg">visibility_off</span>
+<span><strong>100% diskrete Zustellung:</strong> Neutrale Kartonage</span>
+</div>
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-brand-deep text-lg">lock</span>
+<span><strong>256-Bit SSL-Verschlüsselung</strong> nach DSGVO</span>
+</div>
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-brand-deep text-lg">eco</span>
+<span><strong>DHL GoGreen:</strong> Klimaneutral kompensiert</span>
+</div>
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-brand-deep text-lg">published_with_changes</span>
+<span><strong>Kostenloser Hin- &amp; Rückversand</strong> in DE</span>
+</div>
+</div>
+</div>
+<!-- Concierge Support Box -->
+<div class="p-5 bg-surface-bright flex items-center space-x-4">
+<span class="material-symbols-outlined text-2xl text-text-muted">headset_mic</span>
+<div class="flex flex-col text-body-sm font-body-sm">
+<span class="font-medium text-text-primary">Fragen zur Passform oder Lieferung?</span>
+<span class="text-text-muted">Telefonische Beratung Mo–Fr 09–18 Uhr</span>
+<a class="text-brand-deep underline font-label-md text-label-md mt-0.5" href="tel:+4989000000">+49 (0) 89 215 489 0</a>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</main>
+<!-- Client Interaction Logic for Tabs and Options -->
+<script>
+    function switchAddressType(type) {
+      const standardForm = document.getElementById('form-standard-address');
+      const packstationForm = document.getElementById('form-packstation-address');
+      const stdBtn = document.getElementById('tab-standard-btn');
+      const psBtn = document.getElementById('tab-packstation-btn');
+
+      if (type === 'packstation') {
+        standardForm.classList.add('hidden');
+        packstationForm.classList.remove('hidden');
+        
+        psBtn.classList.add('bg-brand-deep', 'text-on-primary');
+        psBtn.classList.remove('text-text-muted');
+        
+        stdBtn.classList.remove('bg-brand-deep', 'text-on-primary');
+        stdBtn.classList.add('text-text-muted');
+      } else {
+        packstationForm.classList.add('hidden');
+        standardForm.classList.remove('hidden');
+
+        stdBtn.classList.add('bg-brand-deep', 'text-on-primary');
+        stdBtn.classList.remove('text-text-muted');
+
+        psBtn.classList.remove('bg-brand-deep', 'text-on-primary');
+        psBtn.classList.add('text-text-muted');
+      }
+    }
+  </script>
+</div></main>
+<!-- BEGIN: SiteFooter -->
+<footer data-shared-chrome="footer" class="bg-[#121814] text-neutral-300 pt-16 pb-12 border-t border-neutral-800" data-purpose="main-footer">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Footer Columns -->
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8 pb-12 border-b border-neutral-800 text-sm">
+<!-- Brand column -->
+<div class="col-span-2">
+<a class="shop-footer-brand" href="index.html"><img class="shop-brand-logo-light" src="assets/brand/logo-horizontal-light.png" alt="Männermasche – Herrenunterwäsche &amp; Bademode" width="900" height="191"></a>
+<p class="text-neutral-400 text-xs sm:text-sm max-w-sm leading-relaxed mb-6">
+            Dein spezialisierter Online-Store für exklusive Herrenunterwäsche, Slips, Strings, Loungewear und Bademode renommierter Hersteller.
+          </p>
+<div class="flex items-center space-x-3 text-xs text-neutral-400">
+<span class="px-2 py-1 bg-neutral-800 rounded">DE / EUR</span>
+<span>Klimaneutraler Versand</span>
+</div>
+</div>
+<!-- Kollektionen -->
+<div>
+<h4 class="text-white text-xs font-semibold uppercase tracking-wider mb-4">Kollektionen</h4>
+<ul class="space-y-2.5 text-xs sm:text-sm text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="#">Boxershorts</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Slips &amp; Pants</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Strings &amp; Thongs</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Bodies &amp; Overalls</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Badehosen &amp; Shorts</a></li>
+</ul>
+</div>
+<!-- Marken -->
+<div>
+<h4 class="text-white text-xs font-semibold uppercase tracking-wider mb-4">Marken</h4>
+<ul class="space-y-2.5 text-xs sm:text-sm text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="#">MANSTORE</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Olaf Benz</a></li>
+<li><a class="hover:text-white transition-colors" href="#">CALIDA</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Alle Kollektionen</a></li>
+</ul>
+</div>
+<!-- Kundenservice -->
+<div>
+<h4 class="text-white text-xs font-semibold uppercase tracking-wider mb-4">Service &amp; Recht</h4>
+<ul class="space-y-2.5 text-xs sm:text-sm text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="#">Größentabelle</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Versand &amp; Rückgabe</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Impressum</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Datenschutz</a></li>
+<li><a class="hover:text-white transition-colors" href="#">AGB &amp; Widerruf</a></li>
+</ul>
+</div>
+</div>
+<!-- Bottom Disclaimer / Copyright -->
+<div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-500 gap-4">
+<p>© 2025 Männermasche. Alle Rechte vorbehalten.</p>
+<div class="flex items-center space-x-6">
+<span class="hover:text-neutral-400 transition-colors cursor-pointer">Sichere SSL-Verschlüsselung</span>
+<span>·</span>
+<span class="hover:text-neutral-400 transition-colors cursor-pointer">Zahlung per Rechnung, PayPal, Kreditkarte</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: SiteFooter -->
+<script src="assets/reference-navigation.js"></script>
+</body></html>

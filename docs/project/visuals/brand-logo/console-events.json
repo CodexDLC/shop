@@ -1,0 +1,13 @@
+[
+  {
+    "type": "warning",
+    "text": "cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation",
+    "location": {
+      "url": "http://127.0.0.1:8020/prototype/assets/vendor/tailwind-runtime.js?plugins=forms,container-queries",
+      "line": 63,
+      "column": 1710,
+      "lineNumber": 63,
+      "columnNumber": 1710
+    }
+  }
+]
