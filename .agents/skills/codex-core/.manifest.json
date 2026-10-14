@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "skill": "codex-core",
+  "package_version": "0.5.0",
+  "files": {
+    "SKILL.md": "a2e35acb681b50ff781b6a0f1aaa3d3ec01a8c86f078a351922197062c0d1334",
+    "references/common-logging.md": "5a3c2a55937f5bac41836f176d70e0ca60f0ce9086111d7a6d1df0eb82d313a5",
+    "references/developer-tools.md": "0a6e7ec51c68f24e410edcbfb5ce737ab64ba38f512af96fd361284a56c45db8",
+    "references/dto-pii.md": "303b6500f891731962dde81bcb6bc67f75a9526f11b2ed7ac1294317dba3afb0",
+    "references/integration.md": "eb196c89cc0e74918ee3f2686d20bf9f6cde76c3bdce70b7e3b6749692af67e9",
+    "references/settings.md": "69899ba2d4aef3b61ce2fbda63ed732422aaf97efef2024700adf36c617f8b47"
+  },
+  "agents_created": false
+}

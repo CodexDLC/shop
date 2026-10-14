@@ -1,0 +1,13 @@
+{
+  "version": "1.0",
+  "skill": "codex-platform",
+  "package_version": "0.6.0",
+  "files": {
+    "SKILL.md": "891b82464ff88897f2301b6c71dec395a123fa9d216df98499fa64529c55731a",
+    "references/arq.md": "1fd9bffa8135205292d6c82e8676a9a093259357bbd810d528fec406acc7a95e",
+    "references/messaging.md": "5b1f971e9712c8d18e14466518cdab22b2047036084f849847d0a7aa5b4d4ed3",
+    "references/redis.md": "c01053c6ec9d42fd1e6c1886fd525d6bc2a4efa144243b03ecf5ffbda4b40536",
+    "references/streams.md": "361ab6206ff6b8444f861798394e3663ab107c1b6a2b6d06ec6c33c2f7f30420"
+  },
+  "agents_created": false
+}

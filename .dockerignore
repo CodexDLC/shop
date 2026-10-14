@@ -1,0 +1,14 @@
+.git
+.env
+.env.*
+.venv*
+.uv-cache
+__pycache__
+**/__pycache__
+.pytest_cache
+.ruff_cache
+analysis
+data
+assets
+imports
+backups

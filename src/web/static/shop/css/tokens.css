@@ -1,0 +1,44 @@
+/* Editorial design trial. One semantic palette for the storefront. */
+:root {
+  --color-page: #f8f8f3;
+  --color-surface: #eeeee7;
+  --color-text: #171e19;
+  --color-muted: #626960;
+  --color-accent: #1f4a39;
+  --color-accent-hover: #143528;
+  --color-brand-deep: #183f30;
+  --color-border: #dcded5;
+  --color-on-accent: #fff;
+  --color-error: #ba1a1a;
+  --font-display: "Bodoni Moda", Georgia, serif;
+  --font-ui: "Plus Jakarta Sans", Arial, sans-serif;
+  --text-display: 3.5rem;
+  --text-display-mobile: 2.25rem;
+  --text-heading: 2.25rem;
+  --text-heading-mobile: 1.75rem;
+  --text-title: 1rem;
+  --text-body: .9375rem;
+  --text-small: .8125rem;
+  --text-label: .75rem;
+  --weight-heading: 500;
+  --weight-body: 400;
+  --weight-label: 600;
+  --line-display: 1.15;
+  --line-body: 1.5;
+  --space-xs: .25rem;
+  --space-sm: .5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+  --radius: 0;
+  --container-max: 1440px;
+  /* Existing consumers use these aliases while component names stay stable. */
+  --bg: var(--color-page);
+  --surface: var(--color-surface);
+  --ink: var(--color-text);
+  --muted: var(--color-muted);
+  --accent: var(--color-accent);
+  --border: var(--color-border);
+}

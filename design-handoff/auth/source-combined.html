@@ -1,0 +1,1367 @@
+<!-- Männermasche - Registrieren & Validierung (Desktop) -->
+<!DOCTYPE html>
+
+<html lang="de"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"on-primary-fixed":"#002115","page-bg":"#F8F8F3","secondary":"#596057","inverse-surface":"#2b322d","error-container":"#ffdad6","surface-dim":"#d4dcd4","on-primary":"#ffffff","surface-muted":"#EEEEE7","secondary-fixed-dim":"#c2c9be","surface-bright":"#f4fbf3","surface-container-lowest":"#ffffff","background":"#f4fbf3","on-secondary-fixed-variant":"#424940","outline-variant":"#c0c8c2","on-surface":"#161d18","on-surface-variant":"#414944","surface-container":"#e8f0e7","primary":"#033324","text-primary":"#171E19","surface-container-highest":"#dde5dc","tertiary-fixed-dim":"#c5c7bf","error":"#ba1a1a","tertiary-fixed":"#e1e3da","primary-fixed":"#beedd5","on-secondary-fixed":"#171d16","surface-container-high":"#e3eae2","on-tertiary":"#ffffff","on-error-container":"#93000a","on-primary-fixed-variant":"#244f3d","border-subtle":"#DCDED5","inverse-primary":"#a3d1ba","tertiary":"#2a2d27","primary-fixed-dim":"#a3d1ba","on-primary-container":"#8cb9a3","on-tertiary-fixed-variant":"#454841","secondary-fixed":"#dee5d9","surface-variant":"#dde5dc","secondary-container":"#dee5d9","on-tertiary-container":"#adb0a7","brand-deep":"#183F30","surface-tint":"#3c6754","on-tertiary-fixed":"#191c17","on-error":"#ffffff","primary-container":"#1f4a39","outline":"#717974","inverse-on-surface":"#ebf3ea","surface":"#f4fbf3","on-secondary":"#ffffff","surface-container-low":"#eef6ed","tertiary-container":"#40433d","on-background":"#161d18","text-muted":"#626960","on-secondary-container":"#5f665d"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin":"3rem","space-3xl":"6rem","space-sm":"0.5rem","space-xs":"0.25rem","space-xl":"2.5rem","margin-mobile":"1rem","space-md":"1rem","space-2xl":"4rem","space-lg":"1.5rem","gutter":"1.5rem","gutter-mobile":"0.75rem"},"fontFamily":{"body-md":["Plus Jakarta Sans"],"headline-lg-mobile":["Bodoni Moda"],"display-xl-mobile":["Bodoni Moda"],"label-md":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"display-xl":["Bodoni Moda"],"body-sm":["Plus Jakarta Sans"],"price-lg":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"price-md":["Plus Jakarta Sans"],"headline-md":["Bodoni Moda"],"headline-lg":["Bodoni Moda"],"title-lg":["Plus Jakarta Sans"]},"fontSize":{"body-md":["0.9375rem",{"lineHeight":"1.5","fontWeight":"400"}],"headline-lg-mobile":["1.75rem",{"lineHeight":"1.3","fontWeight":"500"}],"display-xl-mobile":["2.25rem",{"lineHeight":"1.2","letterSpacing":"-0.01em","fontWeight":"500"}],"label-md":["0.8125rem",{"lineHeight":"1.2","letterSpacing":"0.05em","fontWeight":"600"}],"body-lg":["1.125rem",{"lineHeight":"1.6","fontWeight":"400"}],"display-xl":["3.5rem",{"lineHeight":"1.15","letterSpacing":"-0.02em","fontWeight":"500"}],"body-sm":["0.8125rem",{"lineHeight":"1.4","fontWeight":"400"}],"price-lg":["1.25rem",{"lineHeight":"1.2","fontWeight":"600"}],"title-md":["1rem",{"lineHeight":"1.4","fontWeight":"600"}],"label-sm":["0.6875rem",{"lineHeight":"1.2","letterSpacing":"0.06em","fontWeight":"500"}],"price-md":["0.9375rem",{"lineHeight":"1.2","fontWeight":"600"}],"headline-md":["1.5rem",{"lineHeight":"1.35","fontWeight":"500"}],"headline-lg":["2.25rem",{"lineHeight":"1.25","letterSpacing":"-0.01em","fontWeight":"500"}],"title-lg":["1.125rem",{"lineHeight":"1.4","letterSpacing":"0.01em","fontWeight":"600"}]}}}};</script></head><body class="bg-page-bg font-body-md text-text-primary min-h-screen flex flex-col antialiased selection:bg-brand-deep selection:text-surface-container-lowest"><header class="fixed top-0 left-0 right-0 z-50 bg-page-bg border-b border-border-subtle"><div class="bg-brand-deep text-surface-container-lowest py-2 px-margin-mobile lg:px-margin"><div class="max-w-[1440px] mx-auto flex items-center justify-between text-center"><div class="hidden md:flex items-center gap-space-sm font-label-sm text-label-sm tracking-widest uppercase opacity-90"><span>Kuratierte Luxuswäsche</span><span class="opacity-40">·</span><span>Europaweiter Expressversand</span></div><div class="w-full md:w-auto text-center font-label-sm text-label-sm tracking-widest uppercase">MANSTORE · OLAF BENZ · CALIDA</div><div class="hidden md:flex items-center gap-space-sm font-label-sm text-label-sm tracking-widest uppercase opacity-90"><span>Diskrete Verpackung</span></div></div></div><div class="h-20 max-w-[1440px] mx-auto px-margin-mobile lg:px-margin flex items-center justify-between"><a class="flex flex-col group" data-path="neuheiten" href="#"><span class="font-headline-md text-headline-md tracking-wider text-text-primary group-hover:text-brand-deep transition-colors">MÄNNERMASCHE</span><span class="font-label-sm text-label-sm text-text-muted tracking-widest uppercase -mt-1">Atelier &amp; Lingerie</span></a><nav class="hidden lg:flex items-center gap-space-lg h-full" data-active-classes="text-brand-deep font-semibold border-b border-brand-deep"><a aria-current="page" class="h-full flex items-center uppercase tracking-wider transition-colors text-brand-deep font-semibold border-b border-brand-deep" data-path="neuheiten" href="#">Neuheiten</a><a class="h-full flex items-center font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-text-primary transition-colors" data-path="unterwaesche" href="#">Unterwäsche</a><a class="h-full flex items-center font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-text-primary transition-colors" data-path="bademode" href="#">Bademode</a><a class="h-full flex items-center font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-text-primary transition-colors" data-path="marken" href="#">Marken</a><a class="h-full flex items-center font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-text-primary transition-colors" data-path="sale" href="#">Sale</a></nav><div class="flex items-center gap-space-md"><button aria-label="Suche" class="p-space-xs text-on-surface-variant hover:text-brand-deep transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">search</span></button><button aria-label="Merkzettel" class="p-space-xs text-on-surface-variant hover:text-brand-deep transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">favorite</span></button><button aria-label="Warenkorb" class="p-space-xs text-on-surface-variant hover:text-brand-deep transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">shopping_bag</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-page-bg flex-1"><div class="flex flex-col w-full">
+<!-- Top Breadcrumb & Editorial Header -->
+<section class="max-w-[1440px] w-full mx-auto px-margin-mobile lg:px-margin pt-space-xl pb-space-lg">
+<nav aria-label="Breadcrumb" class="flex items-center gap-space-xs text-text-muted font-label-sm text-label-sm uppercase tracking-wider mb-space-md">
+<a class="hover:text-text-primary transition-colors" href="#">Startseite</a>
+<span class="opacity-40">/</span>
+<a class="hover:text-text-primary transition-colors" href="#">Kundenkonto</a>
+<span class="opacity-40">/</span>
+<span class="text-text-primary font-semibold">Registrieren</span>
+</nav>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-end">
+<div class="lg:col-span-8">
+<span class="font-label-sm text-label-sm tracking-[0.2em] uppercase text-brand-deep block mb-space-xs">Exklusives Atelier-Privileg</span>
+<h1 class="font-headline-lg text-headline-lg text-text-primary tracking-tight">Kundenkonto erstellen</h1>
+<p class="font-body-lg text-body-lg text-text-muted mt-space-xs max-w-2xl">
+          Genießen Sie diskreten Service, persönliche Passformempfehlungen und exklusiven Vorab-Zugang zu limitierten Serien von MANSTORE, Olaf Benz und CALIDA.
+        </p>
+</div>
+<div class="lg:col-span-4 flex lg:justify-end items-center gap-space-md text-text-muted font-label-sm text-label-sm uppercase tracking-widest pt-space-xs lg:pt-0">
+<div class="flex items-center gap-1.5 bg-surface-muted px-3 py-1.5">
+<span class="material-symbols-outlined text-[16px] text-brand-deep">lock</span>
+<span>SSL 256-Bit</span>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-muted px-3 py-1.5">
+<span class="material-symbols-outlined text-[16px] text-brand-deep">verified_user</span>
+<span>DSGVO Konform</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Global Form Alert Banner (Simulated Server Response) -->
+<section class="max-w-[1440px] w-full mx-auto px-margin-mobile lg:px-margin mb-space-lg">
+<div class="bg-error-container text-on-error-container p-space-md flex items-start gap-space-md relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-error"></div>
+<span class="material-symbols-outlined text-error text-[24px] shrink-0 mt-0.5">report_problem</span>
+<div class="space-y-0.5">
+<p class="font-title-md text-title-md font-semibold text-error">Eingaben überprüfen</p>
+<p class="font-body-sm text-body-sm text-on-error-container">
+          Einige Angaben sind unvollständig oder fehlerhaft. Bitte korrigieren Sie die hervorgehobenen Felder unten, um fortzufahren.
+        </p>
+</div>
+</div>
+</section>
+<!-- Main Content Layout (Form vs. Reassurance Panel) -->
+<section class="max-w-[1440px] w-full mx-auto px-margin-mobile lg:px-margin pb-space-3xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- LEFT COLUMN: The Detailed Auth Form (with rich validation states) -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-space-lg lg:p-space-xl">
+<form class="space-y-space-lg" onsubmit="event.preventDefault();">
+<!-- Anrede / Salutation -->
+<div>
+<label class="block font-label-md text-label-md uppercase tracking-wider text-text-primary mb-space-xs">
+              Anrede <span class="text-error">*</span>
+</label>
+<div class="grid grid-cols-3 gap-space-sm" role="radiogroup">
+<label class="flex items-center justify-center p-3 bg-brand-deep text-surface-container-lowest cursor-pointer transition-colors text-center font-label-sm text-label-sm uppercase tracking-wider select-none">
+<input checked="" class="sr-only" name="salutation" type="radio" value="herr"/>
+<span>Herr</span>
+</label>
+<label class="flex items-center justify-center p-3 bg-surface-muted text-text-primary hover:bg-surface-variant cursor-pointer transition-colors text-center font-label-sm text-label-sm uppercase tracking-wider select-none">
+<input class="sr-only" name="salutation" type="radio" value="divers"/>
+<span>Divers</span>
+</label>
+<label class="flex items-center justify-center p-3 bg-surface-muted text-text-primary hover:bg-surface-variant cursor-pointer transition-colors text-center font-label-sm text-label-sm uppercase tracking-wider select-none">
+<input class="sr-only" name="salutation" type="radio" value="keine"/>
+<span>Keine Angabe</span>
+</label>
+</div>
+</div>
+<!-- Name Row (Valid & Invalid State Side-by-Side) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Vorname (Success State) -->
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<label class="font-label-md text-label-md uppercase tracking-wider text-text-primary" for="reg-vorname">
+                  Vorname <span class="text-error">*</span>
+</label>
+<span class="text-brand-deep font-label-sm text-label-sm flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+                  Gültig
+                </span>
+</div>
+<div class="relative">
+<input class="w-full h-12 px-4 bg-page-bg text-text-primary font-body-md text-body-md outline-none focus:bg-surface-container-lowest transition-colors pr-10" id="reg-vorname" type="text" value="Maximilian"/>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-brand-deep text-[20px]">
+                  check
+                </span>
+</div>
+</div>
+<!-- Nachname (Error Validation State) -->
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<label class="font-label-md text-label-md uppercase tracking-wider text-error" for="reg-nachname">
+                  Nachname <span class="text-error">*</span>
+</label>
+<span class="text-error font-label-sm text-label-sm flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[16px]">error</span>
+                  Erforderlich
+                </span>
+</div>
+<div class="relative">
+<input aria-describedby="nachname-error" aria-invalid="true" class="w-full h-12 px-4 bg-error-container/30 text-error font-body-md text-body-md outline-none placeholder:text-error/50 pr-10" id="reg-nachname" placeholder="z.B. von Bergmann" type="text" value=""/>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-error text-[20px]">
+                  priority_high
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-error mt-1.5 flex items-center gap-1" id="nachname-error">
+<span class="material-symbols-outlined text-[15px]">close</span>
+                Bitte geben Sie Ihren Nachnamen ein.
+              </p>
+</div>
+</div>
+<!-- E-Mail-Adresse (Conflict/Existing Account Error State) -->
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<label class="font-label-md text-label-md uppercase tracking-wider text-error" for="reg-email">
+                E-Mail-Adresse <span class="text-error">*</span>
+</label>
+<span class="text-error font-label-sm text-label-sm flex items-center gap-1 font-semibold">
+                Bereits vergeben
+              </span>
+</div>
+<div class="relative">
+<input aria-describedby="email-error" aria-invalid="true" class="w-full h-12 px-4 bg-error-container/30 text-text-primary font-body-md text-body-md outline-none pr-10" id="reg-email" type="email" value="maximilian.v.bergmann@luxus-atelier.de"/>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-error text-[20px]">
+                warning
+              </span>
+</div>
+<div class="bg-error-container/40 p-3 mt-2 flex items-start gap-2 text-on-error-container" id="email-error">
+<span class="material-symbols-outlined text-error text-[18px] shrink-0 mt-0.5">info</span>
+<p class="font-body-sm text-body-sm">
+                Diese E-Mail-Adresse ist bereits registriert. Bitte <a class="font-semibold text-error underline hover:text-text-primary transition-colors" href="#">melden Sie sich direkt an</a> oder nutzen Sie die <a class="font-semibold text-error underline hover:text-text-primary transition-colors" href="#">Passwort-Wiederherstellung</a>.
+              </p>
+</div>
+</div>
+<!-- Passwort Input & Live Strength Validation Meter -->
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md uppercase tracking-wider text-text-primary" for="reg-password">
+                Passwort festlegen <span class="text-error">*</span>
+</label>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm uppercase text-text-muted">Sicherheit:</span>
+<span class="font-label-sm text-label-sm font-semibold uppercase text-secondary">Mittel</span>
+</div>
+</div>
+<div class="relative">
+<input class="w-full h-12 px-4 bg-page-bg text-text-primary font-body-md text-body-md outline-none pr-12" id="reg-password" type="text" value="AtelierMuenchen"/>
+<button aria-label="Passwort verbergen" class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-text-primary transition-colors p-1" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+<!-- Segmented Strength Meter -->
+<div class="grid grid-cols-4 gap-1.5 pt-1">
+<div class="h-1.5 bg-brand-deep"></div>
+<div class="h-1.5 bg-brand-deep"></div>
+<div class="h-1.5 bg-border-subtle"></div>
+<div class="h-1.5 bg-border-subtle"></div>
+</div>
+<!-- Requirement Checklist (2 Passed, 1 Highlighted Unfulfilled) -->
+<div class="bg-surface-muted p-space-md space-y-2 mt-space-xs">
+<p class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted mb-1">Sicherheitsanforderungen:</p>
+<div class="flex items-center gap-2 text-brand-deep font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span>Mindestens 8 Zeichen (aktuell: 15)</span>
+</div>
+<div class="flex items-center gap-2 text-brand-deep font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span>Mindestens ein Großbuchstabe enthalten</span>
+</div>
+<div class="flex items-center gap-2 text-error font-body-sm text-body-sm font-semibold bg-error-container/40 p-1.5 -mx-1.5">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+<span>Mindestens eine Ziffer oder ein Sonderzeichen erforderlich (!, ?, $, %, #)</span>
+</div>
+</div>
+</div>
+<!-- Passform-Präferenz (Boutique Feature) -->
+<div class="pt-space-xs">
+<div class="flex items-baseline justify-between mb-space-xs">
+<label class="font-label-md text-label-md uppercase tracking-wider text-text-primary">
+                Passform-Präferenzen
+              </label>
+<span class="font-label-sm text-label-sm uppercase text-text-muted">Optional</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mb-space-xs">
+              Wählen Sie Ihre bevorzugten Schnittformen für kuratierte Empfehlungen:
+            </p>
+<div class="flex flex-wrap gap-2">
+<label class="flex items-center gap-2 bg-brand-deep text-surface-container-lowest px-3 py-2 cursor-pointer select-none">
+<input checked="" class="sr-only" type="checkbox"/>
+<span class="material-symbols-outlined text-[16px]">check</span>
+<span class="font-label-sm text-label-sm tracking-wider uppercase">Boxershorts</span>
+</label>
+<label class="flex items-center gap-2 bg-brand-deep text-surface-container-lowest px-3 py-2 cursor-pointer select-none">
+<input checked="" class="sr-only" type="checkbox"/>
+<span class="material-symbols-outlined text-[16px]">check</span>
+<span class="font-label-sm text-label-sm tracking-wider uppercase">Minipants</span>
+</label>
+<label class="flex items-center gap-2 bg-surface-muted hover:bg-surface-variant text-text-primary px-3 py-2 cursor-pointer transition-colors select-none">
+<input class="sr-only" type="checkbox"/>
+<span class="font-label-sm text-label-sm tracking-wider uppercase">+ Strings / Tanga</span>
+</label>
+<label class="flex items-center gap-2 bg-surface-muted hover:bg-surface-variant text-text-primary px-3 py-2 cursor-pointer transition-colors select-none">
+<input class="sr-only" type="checkbox"/>
+<span class="font-label-sm text-label-sm tracking-wider uppercase">+ Hipster &amp; Retro</span>
+</label>
+</div>
+</div>
+<!-- Mandatory Legal Checkbox (Highlighted Error State) -->
+<div class="pt-space-xs space-y-space-md">
+<div class="p-3 bg-error-container/30">
+<label class="flex items-start gap-3 cursor-pointer">
+<input aria-invalid="true" class="mt-1 w-4 h-4 rounded-none accent-error cursor-pointer" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-text-primary leading-snug">
+                  Ich habe die <a class="underline text-brand-deep hover:text-text-primary" href="#">AGB</a> und die <a class="underline text-brand-deep hover:text-text-primary" href="#">Datenschutzerklärung</a> gelesen und stimme ihnen ausdrücklich zu. <span class="text-error font-semibold">*</span>
+</span>
+</label>
+<p class="font-body-sm text-body-sm text-error mt-2 ml-7 flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[16px]">arrow_upward</span>
+                Bitte bestätigen Sie unsere Geschäfts- und Datenschutzbedingungen.
+              </p>
+</div>
+<!-- Optional Newsletter Checkbox -->
+<label class="flex items-start gap-3 cursor-pointer p-3 hover:bg-surface-muted transition-colors">
+<input checked="" class="mt-1 w-4 h-4 rounded-none accent-brand-deep cursor-pointer" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-text-muted leading-snug">
+<strong class="text-text-primary font-semibold block mb-0.5">Diskreter Atelier-Newsletter (Empfohlen)</strong>
+                Erhalten Sie persönliche Einladungen zu neuen Kollektionen von MANSTORE &amp; Olaf Benz, streng limitierte Sondereditionen sowie Private-Sale Ankündigungen. (Jederzeit mit einem Klick abbestellbar).
+              </span>
+</label>
+</div>
+<!-- Actions & Footnotes -->
+<div class="pt-space-sm space-y-space-md">
+<button class="w-full h-14 bg-brand-deep hover:bg-primary-container text-surface-container-lowest font-label-md text-label-md uppercase tracking-[0.15em] transition-colors flex items-center justify-center gap-2 group cursor-pointer" type="submit">
+<span>Konto jetzt erstellen</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<div class="text-center pt-space-xs">
+<p class="font-body-md text-body-md text-text-muted">
+                Sie haben bereits ein persönliches Atelier-Konto? 
+                <a class="text-brand-deep font-semibold underline hover:text-text-primary transition-colors ml-1" href="#">
+                  Hier anmelden
+                </a>
+</p>
+</div>
+</div>
+</form>
+</div>
+<!-- RIGHT COLUMN: Luxury Editorial Benefits & Concierge Reassurance -->
+<div class="lg:col-span-5 space-y-gutter">
+<!-- Atelier Benefits Card -->
+<div class="bg-surface-muted p-space-lg lg:p-space-xl">
+<div class="flex items-center gap-2 mb-space-md">
+<span class="material-symbols-outlined text-brand-deep text-[22px]">workspace_premium</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-brand-deep">Exklusive Privilegien</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-text-primary mb-space-md leading-tight">
+            Ihre Vorteile als Atelier-Kunde
+          </h2>
+<div class="space-y-space-md">
+<div class="flex items-start gap-space-sm">
+<div class="w-8 h-8 bg-surface-container-lowest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px] text-brand-deep">try</span>
+</div>
+<div>
+<p class="font-title-md text-title-md text-text-primary">30 Tage Heimanprobe-Service</p>
+<p class="font-body-sm text-body-sm text-text-muted mt-0.5">
+                  Nehmen Sie sich Zeit für Haptik und Passform in privater Atmosphäre mit vollem Rückgaberecht.
+                </p>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<div class="w-8 h-8 bg-surface-container-lowest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px] text-brand-deep">package_2</span>
+</div>
+<div>
+<p class="font-title-md text-title-md text-text-primary">Diskreter Versand in neutraler Verpackung</p>
+<p class="font-body-sm text-body-sm text-text-muted mt-0.5">
+                  Neutraler Absender ohne Markenaufdruck oder Rückschlüsse auf den edlen Inhalt.
+                </p>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<div class="w-8 h-8 bg-surface-container-lowest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px] text-brand-deep">straighten</span>
+</div>
+<div>
+<p class="font-title-md text-title-md text-text-primary">Digitale Größenberatung &amp; Memory</p>
+<p class="font-body-sm text-body-sm text-text-muted mt-0.5">
+                  Speichern Sie Ihre exakten Maße für passgenaue Schnitt-Empfehlungen jedes Herstellers.
+                </p>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<div class="w-8 h-8 bg-surface-container-lowest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px] text-brand-deep">local_shipping</span>
+</div>
+<div>
+<p class="font-title-md text-title-md text-text-primary">Kostenfreie DHL Retouren</p>
+<p class="font-body-sm text-body-sm text-text-muted mt-0.5">
+                  Unkomplizierte Rückabwicklung mit beiliegendem oder digitalem Retourenlabel in ganz Deutschland.
+                </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Curated Atelier Showcase Visual -->
+<div class="relative bg-brand-deep text-surface-container-lowest p-space-lg overflow-hidden">
+<div class="relative z-10 space-y-space-sm max-w-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-primary-fixed">Kuratierte Marken</span>
+<p class="font-headline-md text-headline-md">MANSTORE · OLAF BENZ · CALIDA</p>
+<p class="font-body-sm text-body-sm text-surface-muted/80">
+              Direkter Zugang zu Premieren und Capsule-Kollektionen im geschützten Member-Bereich.
+            </p>
+</div>
+<!-- Editorial Ambient Overlay -->
+<div class="absolute -right-8 -bottom-8 w-44 h-44 bg-surface-container-highest/10 rounded-full blur-2xl pointer-events-none"></div>
+</div>
+<!-- Concierge Direct Support Card -->
+<div class="bg-surface-container-lowest p-space-lg space-y-space-md">
+<div class="flex items-center justify-between">
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted">Persönlicher Service</p>
+<h3 class="font-title-lg text-title-lg text-text-primary">Fragen zur Registrierung?</h3>
+</div>
+<div class="w-10 h-10 bg-surface-muted flex items-center justify-center">
+<span class="material-symbols-outlined text-brand-deep text-[22px]">support_agent</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted">
+            Unser Kundenservice in München steht Ihnen bei Größenfragen oder technischen Anliegen diskret zur Seite.
+          </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm pt-space-xs">
+<a class="flex items-center gap-2.5 p-3 bg-surface-muted hover:bg-surface-variant transition-colors group" href="tel:+49892154890">
+<span class="material-symbols-outlined text-[18px] text-brand-deep">phone</span>
+<div class="truncate">
+<span class="font-label-sm text-label-sm uppercase text-text-muted block">Hotline</span>
+<span class="font-title-md text-title-md text-text-primary font-semibold">+49 89 215 489 0</span>
+</div>
+</a>
+<a class="flex items-center gap-2.5 p-3 bg-surface-muted hover:bg-surface-variant transition-colors group" href="#">
+<span class="material-symbols-outlined text-[18px] text-brand-deep">chat</span>
+<div class="truncate">
+<span class="font-label-sm text-label-sm uppercase text-text-muted block">WhatsApp</span>
+<span class="font-title-md text-title-md text-text-primary font-semibold">Concierge Chat</span>
+</div>
+</a>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-text-muted pt-space-xs">
+<span class="w-2 h-2 rounded-full bg-brand-deep"></span>
+<span>Mo. – Fr. 09:00 – 18:00 Uhr persönliche Erreichbarkeit</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<script>
+  // Interactive micro-interaction for password visualizer toggle
+  document.addEventListener('DOMContentLoaded', () => {
+    const passwordInput = document.getElementById('reg-password');
+    const toggleBtn = passwordInput ? passwordInput.nextElementSibling : null;
+    
+    if (toggleBtn && passwordInput) {
+      toggleBtn.addEventListener('click', () => {
+        const isPassword = passwordInput.getAttribute('type') === 'password';
+        passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+        const icon = toggleBtn.querySelector('.material-symbols-outlined');
+        if (icon) {
+          icon.textContent = isPassword ? 'visibility_off' : 'visibility';
+        }
+      });
+    }
+  });
+</script></main><section class="border-t border-b border-border-subtle bg-surface-muted py-space-xl"><div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin"><div class="grid grid-cols-1 md:grid-cols-4 gap-space-lg text-center md:text-left"><div class="flex flex-col md:flex-row items-center md:items-start gap-space-sm"><span class="material-symbols-outlined text-brand-deep text-[28px]">verified</span><div><p class="font-title-md text-title-md text-text-primary">100% Originalware</p><p class="font-body-sm text-body-sm text-text-muted">Offizieller Partner renommierter Manufakturen</p></div></div><div class="flex flex-col md:flex-row items-center md:items-start gap-space-sm"><span class="material-symbols-outlined text-brand-deep text-[28px]">inventory_2</span><div><p class="font-title-md text-title-md text-text-primary">Diskreter Versand</p><p class="font-body-sm text-body-sm text-text-muted">Neutrale Verpackung ohne Brandhinweis</p></div></div><div class="flex flex-col md:flex-row items-center md:items-start gap-space-sm"><span class="material-symbols-outlined text-brand-deep text-[28px]">sync_alt</span><div><p class="font-title-md text-title-md text-text-primary">Kostenfreie Retoure</p><p class="font-body-sm text-body-sm text-text-muted">30 Tage Bedenkzeit innerhalb Deutschlands</p></div></div><div class="flex flex-col md:flex-row items-center md:items-start gap-space-sm"><span class="material-symbols-outlined text-brand-deep text-[28px]">lock</span><div><p class="font-title-md text-title-md text-text-primary">Sichere SSL-Zahlung</p><p class="font-body-sm text-body-sm text-text-muted">Verschlüsselte &amp; zertifizierte Transaktionen</p></div></div></div></div></section><footer class="w-full bg-page-bg border-t border-border-subtle pt-space-2xl pb-space-xl"><div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin"><div class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-space-2xl"><div class="md:col-span-5 pr-0 md:pr-space-xl"><p class="font-headline-md text-headline-md text-text-primary mb-space-xs">MÄNNERMASCHE</p><p class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted mb-space-md">Atelier &amp; Lingerie</p><p class="font-body-sm text-body-sm text-text-muted leading-relaxed max-w-sm">Kuratiertes High-End Sortiment für anspruchsvolle Herrenwäsche, Swimwear und Loungewear führender europäischer Traditionsmarken.</p></div><div class="md:col-span-2"><p class="font-label-md text-label-md tracking-wider uppercase text-text-primary mb-space-md">Sortiment</p><ul class="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-text-primary transition-colors" data-path="neuheiten" href="#">Neuheiten</a></li><li><a class="hover:text-text-primary transition-colors" data-path="unterwaesche" href="#">Unterwäsche</a></li><li><a class="hover:text-text-primary transition-colors" data-path="bademode" href="#">Bademode</a></li><li><a class="hover:text-text-primary transition-colors" data-path="marken" href="#">Markenübersicht</a></li><li><a class="hover:text-text-primary transition-colors" data-path="sale" href="#">Sale</a></li></ul></div><div class="md:col-span-2"><p class="font-label-md text-label-md tracking-wider uppercase text-text-primary mb-space-md">Kundenservice</p><ul class="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-text-primary transition-colors" data-path="faq-hilfe" href="#">FAQ &amp; Hilfe</a></li><li><a class="hover:text-text-primary transition-colors" data-path="versand-zahlung" href="#">Versand &amp; Zahlung</a></li><li><a class="hover:text-text-primary transition-colors" data-path="groessenberater" href="#">Größenberater</a></li><li><a class="hover:text-text-primary transition-colors" data-path="kontakt" href="#">Kontakt</a></li></ul></div><div class="md:col-span-3"><p class="font-label-md text-label-md tracking-wider uppercase text-text-primary mb-space-md">Atelier Garantie</p><p class="font-body-sm text-body-sm text-text-muted leading-relaxed mb-space-md">Exklusive Haptik, zertifizierte Passform-Treue und makellose Verarbeitungsstandards aus Meisterhand.</p><div class="flex items-center gap-space-sm font-label-sm text-label-sm uppercase tracking-wider text-text-primary"><span class="material-symbols-outlined text-[18px] text-brand-deep">shield</span><span>Geprüfte Qualität</span></div></div></div><div class="border-t border-border-subtle pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md font-body-sm text-body-sm text-text-muted"><div>© 2025 MÄNNERMASCHE Atelier &amp; Lingerie. Alle Rechte vorbehalten.</div><div class="flex items-center gap-space-lg font-label-sm text-label-sm uppercase tracking-wider"><a class="hover:text-text-primary transition-colors" data-path="impressum" href="#">Impressum</a><a class="hover:text-text-primary transition-colors" data-path="datenschutz" href="#">Datenschutz</a><a class="hover:text-text-primary transition-colors" data-path="agb" href="#">AGB</a></div></div></div></footer></body></html>
+
+<!-- Männermasche - Anmelden & Login (Desktop) -->
+<!DOCTYPE html>
+
+<html lang="de"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"on-primary-fixed":"#002115","page-bg":"#F8F8F3","secondary":"#596057","inverse-surface":"#2b322d","error-container":"#ffdad6","surface-dim":"#d4dcd4","on-primary":"#ffffff","surface-muted":"#EEEEE7","secondary-fixed-dim":"#c2c9be","surface-bright":"#f4fbf3","surface-container-lowest":"#ffffff","background":"#f4fbf3","on-secondary-fixed-variant":"#424940","outline-variant":"#c0c8c2","on-surface":"#161d18","on-surface-variant":"#414944","surface-container":"#e8f0e7","primary":"#033324","text-primary":"#171E19","surface-container-highest":"#dde5dc","tertiary-fixed-dim":"#c5c7bf","error":"#ba1a1a","tertiary-fixed":"#e1e3da","primary-fixed":"#beedd5","on-secondary-fixed":"#171d16","surface-container-high":"#e3eae2","on-tertiary":"#ffffff","on-error-container":"#93000a","on-primary-fixed-variant":"#244f3d","border-subtle":"#DCDED5","inverse-primary":"#a3d1ba","tertiary":"#2a2d27","primary-fixed-dim":"#a3d1ba","on-primary-container":"#8cb9a3","on-tertiary-fixed-variant":"#454841","secondary-fixed":"#dee5d9","surface-variant":"#dde5dc","secondary-container":"#dee5d9","on-tertiary-container":"#adb0a7","brand-deep":"#183F30","surface-tint":"#3c6754","on-tertiary-fixed":"#191c17","on-error":"#ffffff","primary-container":"#1f4a39","outline":"#717974","inverse-on-surface":"#ebf3ea","surface":"#f4fbf3","on-secondary":"#ffffff","surface-container-low":"#eef6ed","tertiary-container":"#40433d","on-background":"#161d18","text-muted":"#626960","on-secondary-container":"#5f665d"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin":"3rem","space-3xl":"6rem","space-sm":"0.5rem","space-xs":"0.25rem","space-xl":"2.5rem","margin-mobile":"1rem","space-md":"1rem","space-2xl":"4rem","space-lg":"1.5rem","gutter":"1.5rem","gutter-mobile":"0.75rem"},"fontFamily":{"body-md":["Plus Jakarta Sans"],"headline-lg-mobile":["Bodoni Moda"],"display-xl-mobile":["Bodoni Moda"],"label-md":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"display-xl":["Bodoni Moda"],"body-sm":["Plus Jakarta Sans"],"price-lg":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"price-md":["Plus Jakarta Sans"],"headline-md":["Bodoni Moda"],"headline-lg":["Bodoni Moda"],"title-lg":["Plus Jakarta Sans"]},"fontSize":{"body-md":["0.9375rem",{"lineHeight":"1.5","fontWeight":"400"}],"headline-lg-mobile":["1.75rem",{"lineHeight":"1.3","fontWeight":"500"}],"display-xl-mobile":["2.25rem",{"lineHeight":"1.2","letterSpacing":"-0.01em","fontWeight":"500"}],"label-md":["0.8125rem",{"lineHeight":"1.2","letterSpacing":"0.05em","fontWeight":"600"}],"body-lg":["1.125rem",{"lineHeight":"1.6","fontWeight":"400"}],"display-xl":["3.5rem",{"lineHeight":"1.15","letterSpacing":"-0.02em","fontWeight":"500"}],"body-sm":["0.8125rem",{"lineHeight":"1.4","fontWeight":"400"}],"price-lg":["1.25rem",{"lineHeight":"1.2","fontWeight":"600"}],"title-md":["1rem",{"lineHeight":"1.4","fontWeight":"600"}],"label-sm":["0.6875rem",{"lineHeight":"1.2","letterSpacing":"0.06em","fontWeight":"500"}],"price-md":["0.9375rem",{"lineHeight":"1.2","fontWeight":"600"}],"headline-md":["1.5rem",{"lineHeight":"1.35","fontWeight":"500"}],"headline-lg":["2.25rem",{"lineHeight":"1.25","letterSpacing":"-0.01em","fontWeight":"500"}],"title-lg":["1.125rem",{"lineHeight":"1.4","letterSpacing":"0.01em","fontWeight":"600"}]}}}};</script></head><body class="bg-page-bg font-body-md text-text-primary min-h-screen flex flex-col antialiased selection:bg-brand-deep selection:text-surface-container-lowest"><header class="fixed top-0 left-0 right-0 z-50 bg-page-bg border-b border-border-subtle"><div class="bg-brand-deep text-surface-container-lowest py-2 px-margin-mobile lg:px-margin"><div class="max-w-[1440px] mx-auto flex items-center justify-between text-center"><div class="hidden md:flex items-center gap-space-sm font-label-sm text-label-sm tracking-widest uppercase opacity-90"><span>Kuratierte Luxuswäsche</span><span class="opacity-40">·</span><span>Europaweiter Expressversand</span></div><div class="w-full md:w-auto text-center font-label-sm text-label-sm tracking-widest uppercase">MANSTORE · OLAF BENZ · CALIDA</div><div class="hidden md:flex items-center gap-space-sm font-label-sm text-label-sm tracking-widest uppercase opacity-90"><span>Diskrete Verpackung</span></div></div></div><div class="h-20 max-w-[1440px] mx-auto px-margin-mobile lg:px-margin flex items-center justify-between"><a class="flex flex-col group" data-path="neuheiten" href="#"><span class="font-headline-md text-headline-md tracking-wider text-text-primary group-hover:text-brand-deep transition-colors">MÄNNERMASCHE</span><span class="font-label-sm text-label-sm text-text-muted tracking-widest uppercase -mt-1">Atelier &amp; Lingerie</span></a><nav class="hidden lg:flex items-center gap-space-lg h-full" data-active-classes="text-brand-deep font-semibold border-b border-brand-deep"><a aria-current="page" class="h-full flex items-center uppercase tracking-wider transition-colors text-brand-deep font-semibold border-b border-brand-deep" data-path="neuheiten" href="#">Neuheiten</a><a class="h-full flex items-center font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-text-primary transition-colors" data-path="unterwaesche" href="#">Unterwäsche</a><a class="h-full flex items-center font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-text-primary transition-colors" data-path="bademode" href="#">Bademode</a><a class="h-full flex items-center font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-text-primary transition-colors" data-path="marken" href="#">Marken</a><a class="h-full flex items-center font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-text-primary transition-colors" data-path="sale" href="#">Sale</a></nav><div class="flex items-center gap-space-md"><button aria-label="Suche" class="p-space-xs text-on-surface-variant hover:text-brand-deep transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">search</span></button><button aria-label="Merkzettel" class="p-space-xs text-on-surface-variant hover:text-brand-deep transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">favorite</span></button><button aria-label="Warenkorb" class="p-space-xs text-on-surface-variant hover:text-brand-deep transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">shopping_bag</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-page-bg flex-1"><div class="flex flex-col w-full">
+<!-- Subtle Context & Breadcrumb Line -->
+<div class="w-full bg-surface-muted/60">
+<div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin py-space-sm flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm uppercase tracking-widest">
+<nav aria-label="Brotkrumen-Navigation" class="flex items-center gap-space-xs text-text-muted">
+<a class="hover:text-text-primary transition-colors" href="#">Startseite</a>
+<span class="opacity-40">/</span>
+<a class="hover:text-text-primary transition-colors" href="#">Kundenkonto</a>
+<span class="opacity-40">/</span>
+<span class="text-text-primary font-semibold">Anmelden</span>
+</nav>
+<div class="hidden sm:flex items-center gap-space-xs text-text-muted">
+<span class="material-symbols-outlined text-[16px] text-brand-deep">lock</span>
+<span>Atelier Client Access</span>
+</div>
+</div>
+</div>
+<!-- Main Grid Canvas -->
+<div class="max-w-[1440px] mx-auto w-full px-margin-mobile lg:px-margin py-space-xl lg:py-space-2xl">
+<!-- Asymmetric Top Editorial Note -->
+<div class="flex flex-col md:flex-row md:items-end justify-between pb-space-lg mb-space-xl">
+<div>
+<span class="font-label-sm text-label-sm tracking-[0.2em] uppercase text-text-muted block mb-space-xs">Exklusiver Bereich</span>
+<h1 class="font-headline-lg text-headline-lg text-text-primary tracking-tight">Konto &amp; Atelier-Zugang</h1>
+</div>
+<!-- State Switcher / Interactive Mode Toggle -->
+<div class="mt-space-md md:mt-0 flex items-center gap-space-xs p-1 bg-surface-muted">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted px-space-xs select-none">Ansicht:</span>
+<button class="px-space-md py-1.5 font-label-sm text-label-sm uppercase tracking-wider transition-all bg-surface-container-lowest text-text-primary shadow-sm" id="toggle-default-btn" onclick="setViewState('default')" type="button">
+          Standard
+        </button>
+<button class="px-space-md py-1.5 font-label-sm text-label-sm uppercase tracking-wider text-text-muted hover:text-text-primary transition-all" id="toggle-error-btn" onclick="setViewState('error')" type="button">
+          Fehlerfall (Demo)
+        </button>
+</div>
+</div>
+<!-- 12-Column Responsive Split -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- LEFT COLUMN: AUTHENTICATION FORM (Col 1-7) -->
+<section class="lg:col-span-7 bg-surface-container-lowest p-space-lg sm:p-space-xl lg:p-space-2xl">
+<div class="max-w-xl">
+<div class="mb-space-lg">
+<span class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-brand-deep font-semibold">Anmeldung</span>
+<h2 class="font-headline-md text-headline-md text-text-primary mt-1 tracking-tight">Willkommen zurück</h2>
+<p class="font-body-md text-body-md text-text-muted mt-space-xs leading-relaxed">
+              Melden Sie sich an, um auf Ihre Bestellungen, Ihre vertrauliche Anprobe-Historie und Ihre gespeicherte Wunschliste zuzugreifen.
+            </p>
+</div>
+<!-- Dynamic Form-Level Error Alert (Initially Hidden in Standard Mode) -->
+<div class="hidden mb-space-lg p-space-md bg-error-container/70 text-on-error-container flex items-start gap-space-sm" id="form-error-banner" role="alert">
+<span class="material-symbols-outlined text-[20px] text-error flex-shrink-0 mt-0.5">error</span>
+<div class="flex-1 font-body-sm text-body-sm leading-snug">
+<strong class="font-semibold block font-title-md text-title-md text-on-error-container mb-0.5">Zugriff nicht möglich</strong>
+              Die Kombination aus E-Mail-Adresse und Passwort ist ungültig. Bitte überprüfen Sie Ihre Eingaben oder nutzen Sie die Option »Passwort vergessen«.
+            </div>
+</div>
+<!-- Form Element -->
+<form class="space-y-space-lg" id="auth-form" novalidate="" onsubmit="event.preventDefault(); triggerSubmitValidation();">
+<!-- E-Mail Input Field -->
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between items-baseline">
+<label class="font-label-md text-label-md uppercase tracking-wider text-text-primary" for="email-input">
+                  E-Mail-Adresse <span class="text-error">*</span>
+</label>
+<span class="hidden font-body-sm text-body-sm text-error" id="email-error-msg">Ungültiges E-Mail-Format</span>
+</div>
+<div class="relative">
+<input class="w-full h-12 px-space-md bg-page-bg text-text-primary placeholder:text-text-muted/60 font-body-md text-body-md transition-colors focus:outline-none focus:bg-surface-container-lowest" id="email-input" name="email" placeholder="ihre.adresse@beispiel.de" required="" type="email" value="maximilian.v@atelier-muenchen.de"/>
+<span class="absolute right-3.5 top-1/2 -translate-y-1/2 text-text-muted pointer-events-none">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted" id="email-helper-text">
+                Ihre registrierte Adresse für Bestellbestätigungen &amp; Versandankündigungen.
+              </p>
+</div>
+<!-- Password Input Field -->
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between items-baseline">
+<label class="font-label-md text-label-md uppercase tracking-wider text-text-primary" for="password-input">
+                  Passwort <span class="text-error">*</span>
+</label>
+<span class="hidden font-body-sm text-body-sm text-error" id="password-error-msg">Passwort erforderlich (min. 8 Zeichen)</span>
+</div>
+<div class="relative">
+<input class="w-full h-12 pl-space-md pr-12 bg-page-bg text-text-primary placeholder:text-text-muted/60 font-body-md text-body-md transition-colors focus:outline-none focus:bg-surface-container-lowest" id="password-input" name="password" placeholder="••••••••••••" required="" type="password" value="AtelierKuratierung2025"/>
+<button aria-label="Passwort anzeigen oder verbergen" class="absolute right-0 top-0 bottom-0 w-12 flex items-center justify-center text-text-muted hover:text-text-primary transition-colors focus:outline-none" id="password-toggle-btn" onclick="togglePasswordVisibility()" type="button">
+<span class="material-symbols-outlined text-[20px]" id="password-eye-icon">visibility</span>
+</button>
+</div>
+</div>
+<!-- Remember Me & Forgot Password -->
+<div class="flex items-center justify-between pt-1">
+<label class="flex items-center gap-space-sm cursor-pointer select-none group">
+<input checked="" class="w-4 h-4 rounded-none accent-primary text-primary focus:ring-0 focus:outline-none cursor-pointer" id="remember-me" name="remember_me" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-text-primary group-hover:text-brand-deep transition-colors">
+                  Angemeldet bleiben
+                </span>
+</label>
+<a class="font-label-sm text-label-sm tracking-wider uppercase text-on-surface-variant hover:text-brand-deep underline underline-offset-4 decoration-border-subtle transition-colors" data-path="passwort-vergessen" href="#">
+                Passwort vergessen?
+              </a>
+</div>
+<!-- Submit Button (CTA Primary) -->
+<div class="pt-space-sm">
+<button class="w-full h-12 bg-primary text-on-primary font-label-md text-label-md uppercase tracking-[0.12em] hover:bg-brand-deep active:scale-[0.99] transition-all flex items-center justify-center gap-space-sm shadow-sm" type="submit">
+<span>Anmelden</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</form>
+<!-- Discreet Divider -->
+<div class="relative my-space-xl flex items-center justify-center">
+<div class="w-full h-[1px] bg-border-subtle"></div>
+<span class="absolute bg-surface-container-lowest px-space-md font-label-sm text-label-sm uppercase tracking-widest text-text-muted">
+              Oder diskret fortfahren
+            </span>
+</div>
+<!-- Social / Fast Identity Auth -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+<button class="h-11 px-space-md bg-surface-muted/60 text-text-primary hover:bg-surface-muted transition-colors flex items-center justify-center gap-space-sm font-label-sm text-label-sm uppercase tracking-wider" type="button">
+<svg class="w-4 h-4 fill-current" viewbox="0 0 170 170">
+<path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.69-3.04-7.69-7.85-12.01-14.42-6.19-9.39-10.98-20.08-14.35-32.08-3.37-12-5.06-23.49-5.06-34.47 0-14.88 3.75-27.17 11.26-36.87 7.51-9.7 16.92-14.65 28.23-14.85 4.36 0 9.28 1.15 14.76 3.44 5.48 2.29 9.17 3.48 11.07 3.57 1.34 0 5.25-1.32 11.73-3.95 6.48-2.63 11.79-3.8 15.93-3.52 11.7.9 21.05 5.58 28.05 14.04-10.23 6.18-15.22 14.83-14.98 25.96.24 8.78 3.71 16.21 10.42 22.28 6.71 6.07 14.77 9.49 24.18 10.27-2.34 7.21-5.38 14.46-9.12 21.75zM119.22 31.84c0-7.39 2.68-14.41 8.04-21.06 5.36-6.65 11.89-10.78 19.59-12.39.22 1.35.33 2.6.33 3.75 0 7.39-2.73 14.49-8.19 21.3-5.46 6.81-12.08 10.87-19.86 12.18-.08-1.25-.13-2.51-.13-3.78z"></path>
+</svg>
+<span>Mit Apple</span>
+</button>
+<button class="h-11 px-space-md bg-surface-muted/60 text-text-primary hover:bg-surface-muted transition-colors flex items-center justify-center gap-space-sm font-label-sm text-label-sm uppercase tracking-wider" type="button">
+<svg class="w-4 h-4" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"></path>
+</svg>
+<span>Mit Google</span>
+</button>
+</div>
+</div>
+</section>
+<!-- RIGHT COLUMN: REGISTRATION VALUE PROPOSITION (Col 8-12) -->
+<aside class="lg:col-span-5 flex flex-col gap-space-lg">
+<div class="bg-surface-container-lowest p-space-lg sm:p-space-xl relative overflow-hidden">
+<!-- Subtle corner accent -->
+<div class="absolute top-0 right-0 w-24 h-24 bg-surface-muted/50 -rotate-45 translate-x-12 -translate-y-12 pointer-events-none"></div>
+<div class="flex items-center gap-space-xs text-text-muted mb-space-sm">
+<span class="material-symbols-outlined text-[18px] text-brand-deep">stars</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest">Neuer Kunde?</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-text-primary mb-space-xs tracking-tight">
+            Ihr persönliches Atelier-Konto
+          </h3>
+<p class="font-body-sm text-body-sm text-text-muted mb-space-lg leading-relaxed">
+            Erleben Sie kompromisslosen Einkaufskomfort für Luxus-Herrenwäsche. Genießen Sie als Mitglied exklusive Vorzüge unserer Meistermarken.
+          </p>
+<!-- Atelier Benefits List -->
+<ul class="space-y-space-md mb-space-xl">
+<li class="flex items-start gap-space-md">
+<div class="w-8 h-8 rounded-none bg-surface-muted flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px] text-brand-deep">checkroom</span>
+</div>
+<div>
+<p class="font-title-md text-title-md text-text-primary">30 Tage Heimanprobe</p>
+<p class="font-body-sm text-body-sm text-text-muted mt-0.5">Bequem zu Hause in Ruhe anprobieren, bevor Sie sich endgültig entscheiden.</p>
+</div>
+</li>
+<li class="flex items-start gap-space-md">
+<div class="w-8 h-8 rounded-none bg-surface-muted flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px] text-brand-deep">straighten</span>
+</div>
+<div>
+<p class="font-title-md text-title-md text-text-primary">Größen- &amp; Passform-Berater</p>
+<p class="font-body-sm text-body-sm text-text-muted mt-0.5">Gespeicherte Schnittmaße &amp; Haptik-Präferenzen für MANSTORE, Olaf Benz &amp; CALIDA.</p>
+</div>
+</li>
+<li class="flex items-start gap-space-md">
+<div class="w-8 h-8 rounded-none bg-surface-muted flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px] text-brand-deep">bookmark</span>
+</div>
+<div>
+<p class="font-title-md text-title-md text-text-primary">Diskrete Wunschliste &amp; Blitz-Checkout</p>
+<p class="font-body-sm text-body-sm text-text-muted mt-0.5">Schneller, priorisierter Zugriff auf limitierte Kollektionen und Farbvarianten.</p>
+</div>
+</li>
+<li class="flex items-start gap-space-md">
+<div class="w-8 h-8 rounded-none bg-surface-muted flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px] text-brand-deep">local_shipping</span>
+</div>
+<div>
+<p class="font-title-md text-title-md text-text-primary">Transparente Sendungsverfolgung</p>
+<p class="font-body-sm text-body-sm text-text-muted mt-0.5">Alle DHL GoGreen Zustellungen mit diskretem Absender auf einen Blick.</p>
+</div>
+</li>
+</ul>
+<!-- Register Action -->
+<div class="space-y-space-sm pt-space-xs">
+<a class="w-full h-12 bg-surface-container-lowest text-text-primary hover:bg-text-primary hover:text-page-bg transition-all font-label-md text-label-md uppercase tracking-[0.12em] flex items-center justify-center gap-space-sm shadow-sm" data-path="registrieren" href="#">
+<span>Jetzt Konto erstellen</span>
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+</a>
+<p class="font-label-sm text-label-sm text-center text-text-muted tracking-wider uppercase pt-1">
+              Dauert weniger als 2 Minuten · Keine Kaufverpflichtung
+            </p>
+</div>
+</div>
+<!-- Curated Editorial Highlight Tile -->
+<div class="bg-surface-muted p-space-md flex items-center gap-space-md">
+<div class="w-16 h-20 bg-surface-container flex-shrink-0 overflow-hidden relative">
+<img class="w-full h-full object-cover grayscale contrast-125" data-alt="Editorial still life of luxurious folded men's silk and micro modal boxers on slate stone, soft morning window light, high-end European atelier catalogue aesthetic, minimal shadows, natural neutral palette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtuwlS_q3WfCBzx_bwaSb4egkFHw9ZPWxpGK9JDK1sLf2lFxxg5Qr6z5T-1qS8BMnqCRx94uHaq5gnp2IqWgiL0IGHHRWPy0iXXEJZWNCzXZaOvzjTkjfbHqscyokLno3xI9XlMNaEPbpvmXXvwnkUnDcIKv_voYSRf_SFOO0S2rP_2cUMZP7AJQ1hctYUlWMb1IpH1UZK1N2vyl7IGkFkJwa00g4RLUINQwJaDDSp2I9Rdpul8NVX"/>
+</div>
+<div class="flex-1 min-w-0">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted block">Frühjahr / Sommer 2025</span>
+<p class="font-title-md text-title-md text-text-primary truncate">MANSTORE M2180 Neon &amp; Velvet</p>
+<p class="font-body-sm text-body-sm text-text-muted truncate">Exklusiv für registrierte Club-Kunden freigeschaltet</p>
+</div>
+</div>
+</aside>
+</div>
+<!-- Atelier Trust & Security Assurance Banner -->
+<div class="mt-space-2xl bg-surface-muted/40 p-space-lg">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-none bg-surface-container-lowest flex items-center justify-center flex-shrink-0 text-brand-deep">
+<span class="material-symbols-outlined text-[22px]">enhanced_encryption</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-text-primary">256-Bit SSL-Verschlüsselung</h4>
+<p class="font-body-sm text-body-sm text-text-muted">Modernste TLS-Sicherheitsstandards für lückenlosen Datentransfer</p>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-none bg-surface-container-lowest flex items-center justify-center flex-shrink-0 text-brand-deep">
+<span class="material-symbols-outlined text-[22px]">markunread_mailbox</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-text-primary">Diskreter Versand</h4>
+<p class="font-body-sm text-body-sm text-text-muted">Neutrale Umverpackung ohne Hinweis auf Dessous, Bademode oder Marken</p>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-none bg-surface-container-lowest flex items-center justify-center flex-shrink-0 text-brand-deep">
+<span class="material-symbols-outlined text-[22px]">verified_user</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-text-primary">100% Datenschutz nach DSGVO</h4>
+<p class="font-body-sm text-body-sm text-text-muted">Keine Weitergabe an Werbenetzwerke, Serverstandort Deutschland</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Inline Logic for Form Interactivity & Demo State Switching -->
+<script>
+    function togglePasswordVisibility() {
+      const pwdInput = document.getElementById('password-input');
+      const eyeIcon = document.getElementById('password-eye-icon');
+      if (!pwdInput || !eyeIcon) return;
+
+      if (pwdInput.type === 'password') {
+        pwdInput.type = 'text';
+        eyeIcon.textContent = 'visibility_off';
+      } else {
+        pwdInput.type = 'password';
+        eyeIcon.textContent = 'visibility';
+      }
+    }
+
+    function setViewState(state) {
+      const defaultBtn = document.getElementById('toggle-default-btn');
+      const errorBtn = document.getElementById('toggle-error-btn');
+      const banner = document.getElementById('form-error-banner');
+      const emailInput = document.getElementById('email-input');
+      const passwordInput = document.getElementById('password-input');
+      const emailErrorMsg = document.getElementById('email-error-msg');
+      const passwordErrorMsg = document.getElementById('password-error-msg');
+      const emailHelper = document.getElementById('email-helper-text');
+
+      if (state === 'error') {
+        // Toggle Active styles on state switcher
+        defaultBtn.className = "px-space-md py-1.5 font-label-sm text-label-sm uppercase tracking-wider text-text-muted hover:text-text-primary transition-all";
+        errorBtn.className = "px-space-md py-1.5 font-label-sm text-label-sm uppercase tracking-wider transition-all bg-surface-container-lowest text-error font-semibold shadow-sm";
+
+        // Show error UI
+        banner.classList.remove('hidden');
+        emailErrorMsg.classList.remove('hidden');
+        passwordErrorMsg.classList.remove('hidden');
+        if (emailHelper) emailHelper.classList.add('hidden');
+
+        // Apply error field stylings
+        emailInput.classList.remove('bg-page-bg');
+        emailInput.classList.add('bg-error-container/20', 'text-error');
+        emailInput.value = 'maximilian.invalid@domain';
+
+        passwordInput.classList.remove('bg-page-bg');
+        passwordInput.classList.add('bg-error-container/20', 'text-error');
+        passwordInput.value = '12345';
+      } else {
+        // Return to standard pristine mode
+        defaultBtn.className = "px-space-md py-1.5 font-label-sm text-label-sm uppercase tracking-wider transition-all bg-surface-container-lowest text-text-primary shadow-sm";
+        errorBtn.className = "px-space-md py-1.5 font-label-sm text-label-sm uppercase tracking-wider text-text-muted hover:text-text-primary transition-all";
+
+        banner.classList.add('hidden');
+        emailErrorMsg.classList.add('hidden');
+        passwordErrorMsg.classList.add('hidden');
+        if (emailHelper) emailHelper.classList.remove('hidden');
+
+        emailInput.classList.remove('bg-error-container/20', 'text-error');
+        emailInput.classList.add('bg-page-bg');
+        emailInput.value = 'maximilian.v@atelier-muenchen.de';
+
+        passwordInput.classList.remove('bg-error-container/20', 'text-error');
+        passwordInput.classList.add('bg-page-bg');
+        passwordInput.value = 'AtelierKuratierung2025';
+      }
+    }
+
+    function triggerSubmitValidation() {
+      const emailVal = document.getElementById('email-input').value.trim();
+      const pwdVal = document.getElementById('password-input').value.trim();
+      
+      if (!emailVal.includes('@') || pwdVal.length < 6) {
+        setViewState('error');
+      } else {
+        alert('Anmeldedaten verifiziert. Willkommen im Männermasche Atelier.');
+      }
+    }
+  </script>
+</div></main><section class="border-t border-b border-border-subtle bg-surface-muted py-space-xl"><div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin"><div class="grid grid-cols-1 md:grid-cols-4 gap-space-lg text-center md:text-left"><div class="flex flex-col md:flex-row items-center md:items-start gap-space-sm"><span class="material-symbols-outlined text-brand-deep text-[28px]">verified</span><div><p class="font-title-md text-title-md text-text-primary">100% Originalware</p><p class="font-body-sm text-body-sm text-text-muted">Offizieller Partner renommierter Manufakturen</p></div></div><div class="flex flex-col md:flex-row items-center md:items-start gap-space-sm"><span class="material-symbols-outlined text-brand-deep text-[28px]">inventory_2</span><div><p class="font-title-md text-title-md text-text-primary">Diskreter Versand</p><p class="font-body-sm text-body-sm text-text-muted">Neutrale Verpackung ohne Brandhinweis</p></div></div><div class="flex flex-col md:flex-row items-center md:items-start gap-space-sm"><span class="material-symbols-outlined text-brand-deep text-[28px]">sync_alt</span><div><p class="font-title-md text-title-md text-text-primary">Kostenfreie Retoure</p><p class="font-body-sm text-body-sm text-text-muted">30 Tage Bedenkzeit innerhalb Deutschlands</p></div></div><div class="flex flex-col md:flex-row items-center md:items-start gap-space-sm"><span class="material-symbols-outlined text-brand-deep text-[28px]">lock</span><div><p class="font-title-md text-title-md text-text-primary">Sichere SSL-Zahlung</p><p class="font-body-sm text-body-sm text-text-muted">Verschlüsselte &amp; zertifizierte Transaktionen</p></div></div></div></div></section><footer class="w-full bg-page-bg border-t border-border-subtle pt-space-2xl pb-space-xl"><div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin"><div class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-space-2xl"><div class="md:col-span-5 pr-0 md:pr-space-xl"><p class="font-headline-md text-headline-md text-text-primary mb-space-xs">MÄNNERMASCHE</p><p class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted mb-space-md">Atelier &amp; Lingerie</p><p class="font-body-sm text-body-sm text-text-muted leading-relaxed max-w-sm">Kuratiertes High-End Sortiment für anspruchsvolle Herrenwäsche, Swimwear und Loungewear führender europäischer Traditionsmarken.</p></div><div class="md:col-span-2"><p class="font-label-md text-label-md tracking-wider uppercase text-text-primary mb-space-md">Sortiment</p><ul class="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-text-primary transition-colors" data-path="neuheiten" href="#">Neuheiten</a></li><li><a class="hover:text-text-primary transition-colors" data-path="unterwaesche" href="#">Unterwäsche</a></li><li><a class="hover:text-text-primary transition-colors" data-path="bademode" href="#">Bademode</a></li><li><a class="hover:text-text-primary transition-colors" data-path="marken" href="#">Markenübersicht</a></li><li><a class="hover:text-text-primary transition-colors" data-path="sale" href="#">Sale</a></li></ul></div><div class="md:col-span-2"><p class="font-label-md text-label-md tracking-wider uppercase text-text-primary mb-space-md">Kundenservice</p><ul class="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-text-primary transition-colors" data-path="faq-hilfe" href="#">FAQ &amp; Hilfe</a></li><li><a class="hover:text-text-primary transition-colors" data-path="versand-zahlung" href="#">Versand &amp; Zahlung</a></li><li><a class="hover:text-text-primary transition-colors" data-path="groessenberater" href="#">Größenberater</a></li><li><a class="hover:text-text-primary transition-colors" data-path="kontakt" href="#">Kontakt</a></li></ul></div><div class="md:col-span-3"><p class="font-label-md text-label-md tracking-wider uppercase text-text-primary mb-space-md">Atelier Garantie</p><p class="font-body-sm text-body-sm text-text-muted leading-relaxed mb-space-md">Exklusive Haptik, zertifizierte Passform-Treue und makellose Verarbeitungsstandards aus Meisterhand.</p><div class="flex items-center gap-space-sm font-label-sm text-label-sm uppercase tracking-wider text-text-primary"><span class="material-symbols-outlined text-[18px] text-brand-deep">shield</span><span>Geprüfte Qualität</span></div></div></div><div class="border-t border-border-subtle pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md font-body-sm text-body-sm text-text-muted"><div>© 2025 MÄNNERMASCHE Atelier &amp; Lingerie. Alle Rechte vorbehalten.</div><div class="flex items-center gap-space-lg font-label-sm text-label-sm uppercase tracking-wider"><a class="hover:text-text-primary transition-colors" data-path="impressum" href="#">Impressum</a><a class="hover:text-text-primary transition-colors" data-path="datenschutz" href="#">Datenschutz</a><a class="hover:text-text-primary transition-colors" data-path="agb" href="#">AGB</a></div></div></div></footer></body></html>
+
+<!-- Männermasche - Passwort vergessen & Wiederherstellung (Desktop) -->
+<!DOCTYPE html>
+
+<html lang="de"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"on-primary-fixed":"#002115","page-bg":"#F8F8F3","secondary":"#596057","inverse-surface":"#2b322d","error-container":"#ffdad6","surface-dim":"#d4dcd4","on-primary":"#ffffff","surface-muted":"#EEEEE7","secondary-fixed-dim":"#c2c9be","surface-bright":"#f4fbf3","surface-container-lowest":"#ffffff","background":"#f4fbf3","on-secondary-fixed-variant":"#424940","outline-variant":"#c0c8c2","on-surface":"#161d18","on-surface-variant":"#414944","surface-container":"#e8f0e7","primary":"#033324","text-primary":"#171E19","surface-container-highest":"#dde5dc","tertiary-fixed-dim":"#c5c7bf","error":"#ba1a1a","tertiary-fixed":"#e1e3da","primary-fixed":"#beedd5","on-secondary-fixed":"#171d16","surface-container-high":"#e3eae2","on-tertiary":"#ffffff","on-error-container":"#93000a","on-primary-fixed-variant":"#244f3d","border-subtle":"#DCDED5","inverse-primary":"#a3d1ba","tertiary":"#2a2d27","primary-fixed-dim":"#a3d1ba","on-primary-container":"#8cb9a3","on-tertiary-fixed-variant":"#454841","secondary-fixed":"#dee5d9","surface-variant":"#dde5dc","secondary-container":"#dee5d9","on-tertiary-container":"#adb0a7","brand-deep":"#183F30","surface-tint":"#3c6754","on-tertiary-fixed":"#191c17","on-error":"#ffffff","primary-container":"#1f4a39","outline":"#717974","inverse-on-surface":"#ebf3ea","surface":"#f4fbf3","on-secondary":"#ffffff","surface-container-low":"#eef6ed","tertiary-container":"#40433d","on-background":"#161d18","text-muted":"#626960","on-secondary-container":"#5f665d"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin":"3rem","space-3xl":"6rem","space-sm":"0.5rem","space-xs":"0.25rem","space-xl":"2.5rem","margin-mobile":"1rem","space-md":"1rem","space-2xl":"4rem","space-lg":"1.5rem","gutter":"1.5rem","gutter-mobile":"0.75rem"},"fontFamily":{"body-md":["Plus Jakarta Sans"],"headline-lg-mobile":["Bodoni Moda"],"display-xl-mobile":["Bodoni Moda"],"label-md":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"display-xl":["Bodoni Moda"],"body-sm":["Plus Jakarta Sans"],"price-lg":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"price-md":["Plus Jakarta Sans"],"headline-md":["Bodoni Moda"],"headline-lg":["Bodoni Moda"],"title-lg":["Plus Jakarta Sans"]},"fontSize":{"body-md":["0.9375rem",{"lineHeight":"1.5","fontWeight":"400"}],"headline-lg-mobile":["1.75rem",{"lineHeight":"1.3","fontWeight":"500"}],"display-xl-mobile":["2.25rem",{"lineHeight":"1.2","letterSpacing":"-0.01em","fontWeight":"500"}],"label-md":["0.8125rem",{"lineHeight":"1.2","letterSpacing":"0.05em","fontWeight":"600"}],"body-lg":["1.125rem",{"lineHeight":"1.6","fontWeight":"400"}],"display-xl":["3.5rem",{"lineHeight":"1.15","letterSpacing":"-0.02em","fontWeight":"500"}],"body-sm":["0.8125rem",{"lineHeight":"1.4","fontWeight":"400"}],"price-lg":["1.25rem",{"lineHeight":"1.2","fontWeight":"600"}],"title-md":["1rem",{"lineHeight":"1.4","fontWeight":"600"}],"label-sm":["0.6875rem",{"lineHeight":"1.2","letterSpacing":"0.06em","fontWeight":"500"}],"price-md":["0.9375rem",{"lineHeight":"1.2","fontWeight":"600"}],"headline-md":["1.5rem",{"lineHeight":"1.35","fontWeight":"500"}],"headline-lg":["2.25rem",{"lineHeight":"1.25","letterSpacing":"-0.01em","fontWeight":"500"}],"title-lg":["1.125rem",{"lineHeight":"1.4","letterSpacing":"0.01em","fontWeight":"600"}]}}}};</script></head><body class="bg-page-bg font-body-md text-text-primary min-h-screen flex flex-col antialiased selection:bg-brand-deep selection:text-surface-container-lowest"><header class="fixed top-0 left-0 right-0 z-50 bg-page-bg border-b border-border-subtle"><div class="bg-brand-deep text-surface-container-lowest py-2 px-margin-mobile lg:px-margin"><div class="max-w-[1440px] mx-auto flex items-center justify-between text-center"><div class="hidden md:flex items-center gap-space-sm font-label-sm text-label-sm tracking-widest uppercase opacity-90"><span>Kuratierte Luxuswäsche</span><span class="opacity-40">·</span><span>Europaweiter Expressversand</span></div><div class="w-full md:w-auto text-center font-label-sm text-label-sm tracking-widest uppercase">MANSTORE · OLAF BENZ · CALIDA</div><div class="hidden md:flex items-center gap-space-sm font-label-sm text-label-sm tracking-widest uppercase opacity-90"><span>Diskrete Verpackung</span></div></div></div><div class="h-20 max-w-[1440px] mx-auto px-margin-mobile lg:px-margin flex items-center justify-between"><a class="flex flex-col group" data-path="neuheiten" href="#"><span class="font-headline-md text-headline-md tracking-wider text-text-primary group-hover:text-brand-deep transition-colors">MÄNNERMASCHE</span><span class="font-label-sm text-label-sm text-text-muted tracking-widest uppercase -mt-1">Atelier &amp; Lingerie</span></a><nav class="hidden lg:flex items-center gap-space-lg h-full" data-active-classes="text-brand-deep font-semibold border-b border-brand-deep"><a aria-current="page" class="h-full flex items-center uppercase tracking-wider transition-colors text-brand-deep font-semibold border-b border-brand-deep" data-path="neuheiten" href="#">Neuheiten</a><a class="h-full flex items-center font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-text-primary transition-colors" data-path="unterwaesche" href="#">Unterwäsche</a><a class="h-full flex items-center font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-text-primary transition-colors" data-path="bademode" href="#">Bademode</a><a class="h-full flex items-center font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-text-primary transition-colors" data-path="marken" href="#">Marken</a><a class="h-full flex items-center font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-text-primary transition-colors" data-path="sale" href="#">Sale</a></nav><div class="flex items-center gap-space-md"><button aria-label="Suche" class="p-space-xs text-on-surface-variant hover:text-brand-deep transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">search</span></button><button aria-label="Merkzettel" class="p-space-xs text-on-surface-variant hover:text-brand-deep transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">favorite</span></button><button aria-label="Warenkorb" class="p-space-xs text-on-surface-variant hover:text-brand-deep transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">shopping_bag</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-page-bg flex-1"><div class="flex flex-col w-full">
+<!-- Top Breadcrumb & Editorial Header Bar -->
+<section class="w-full bg-page-bg border-b border-border-subtle">
+<div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin py-space-md flex flex-wrap items-center justify-between gap-space-sm">
+<nav aria-label="Breadcrumb" class="flex items-center gap-space-xs font-label-sm text-label-sm uppercase tracking-widest text-text-muted">
+<a class="hover:text-text-primary transition-colors" data-path="startseite" href="#">Startseite</a>
+<span class="opacity-40">/</span>
+<a class="hover:text-text-primary transition-colors" data-path="kundenkonto" href="#">Kundenkonto</a>
+<span class="opacity-40">/</span>
+<span class="text-text-primary font-semibold">Passwort vergessen</span>
+</nav>
+<div class="hidden md:flex items-center gap-space-md font-label-sm text-label-sm uppercase tracking-wider text-text-muted">
+<span class="inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-deep"></span> 256-Bit SSL Verschlüsselung</span>
+<span class="opacity-30">|</span>
+<span>Atelier Authentifizierung</span>
+</div>
+</div>
+</section>
+<!-- Editorial Context & Title Section -->
+<section class="w-full max-w-[1440px] mx-auto px-margin-mobile lg:px-margin pt-space-xl pb-space-lg">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-end">
+<div class="lg:col-span-8">
+<p class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-brand-deep mb-space-xs">Sicherheit &amp; Kontoverwaltung</p>
+<h1 class="font-headline-lg text-headline-lg text-text-primary font-normal tracking-tight">
+          Zugang wiederherstellen
+        </h1>
+<p class="font-body-md text-body-md text-text-muted max-w-2xl mt-space-xs">
+          Wählen Sie zwischen der Neuanforderung eines Autorisierungslinks oder überprüfen Sie die Bestätigungsdetails für ein bestehendes Kundenkonto.
+        </p>
+</div>
+<div class="lg:col-span-4 flex lg:justify-end">
+<div class="bg-surface-muted px-space-md py-space-sm border border-border-subtle inline-flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-brand-deep text-[20px]">lock_reset</span>
+<div class="text-left">
+<p class="font-label-sm text-label-sm uppercase tracking-wider text-text-primary font-semibold">Geschützter Ablauf</p>
+<p class="font-body-sm text-body-sm text-text-muted">Token-Gültigkeit: 60 Minuten</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Side-by-Side Architectural State Demonstration -->
+<section class="w-full max-w-[1440px] mx-auto px-margin-mobile lg:px-margin pb-space-2xl">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter items-stretch">
+<!-- STATE A (Left): Eingabe & Validierungsfehler -->
+<div class="flex flex-col bg-surface-container-lowest border border-border-subtle relative p-space-lg lg:p-space-xl">
+<!-- Status Indicator Pill -->
+<div class="flex items-center justify-between pb-space-md mb-space-lg border-b border-border-subtle">
+<div class="flex items-center gap-space-sm">
+<span class="w-6 h-6 flex items-center justify-center bg-brand-deep text-surface-container-lowest font-label-sm text-label-sm font-semibold">1</span>
+<span class="font-label-md text-label-md tracking-wider uppercase text-text-primary">Schritt 1: Passwort zurücksetzen</span>
+</div>
+<span class="font-label-sm text-label-sm text-error bg-error-container/40 px-2 py-0.5 tracking-wider uppercase">Fehlervalidierung</span>
+</div>
+<div class="mb-space-lg">
+<h2 class="font-headline-md text-headline-md text-text-primary mb-space-xs font-normal">
+            E-Mail-Adresse verifizieren
+          </h2>
+<p class="font-body-md text-body-md text-text-muted leading-relaxed">
+            Geben Sie Ihre registrierte E-Mail-Adresse ein. Wir senden Ihnen umgehend einen sicheren Link zur Neuzuordnung Ihres Passworts.
+          </p>
+</div>
+<!-- Formular Modul -->
+<form class="space-y-space-lg flex-1 flex flex-col justify-between" id="reset-form" onsubmit="event.preventDefault();">
+<div class="space-y-space-md">
+<!-- Input mit Validierungsfehler-Darstellung -->
+<div class="space-y-space-xs">
+<label class="block font-label-md text-label-md uppercase tracking-wider text-text-primary" for="reset-email">
+                Registrierte E-Mail-Adresse <span class="text-error">*</span>
+</label>
+<div class="relative">
+<input aria-describedby="email-error-msg" aria-invalid="true" class="w-full h-12 px-space-md bg-page-bg border-2 border-error text-text-primary font-body-md text-body-md rounded-none focus:outline-none focus:border-error focus:ring-0 pr-10" id="reset-email" name="email" type="email" value="max.berg@ungueltige-domain"/>
+<span class="material-symbols-outlined text-error absolute right-3 top-1/2 -translate-y-1/2 text-[20px]">
+                  error
+                </span>
+</div>
+<div class="flex items-start gap-1.5 text-error mt-1.5" id="email-error-msg">
+<span class="material-symbols-outlined text-[16px] mt-0.5">warning</span>
+<p class="font-body-sm text-body-sm text-error font-medium leading-tight">
+                  E-Mail-Adresse nicht gefunden oder ungültiges Format. Bitte überprüfen Sie die Eingabe.
+                </p>
+</div>
+</div>
+<!-- Sicherheitshinweis Box -->
+<div class="bg-surface-muted p-space-md border-l-2 border-brand-deep">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-brand-deep text-[20px] shrink-0 mt-0.5">timer</span>
+<div>
+<p class="font-label-md text-label-md uppercase tracking-wider text-text-primary font-semibold">Sicherheitsrichtlinie</p>
+<p class="font-body-sm text-body-sm text-text-muted mt-0.5 leading-relaxed">
+                    Aus Sicherheitsgründen ist dieser Link nur 60 Minuten lang gültig und verfällt nach einmaliger Verwendung automatisch.
+                  </p>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-space-md space-y-space-md border-t border-border-subtle mt-space-lg">
+<button class="w-full h-12 bg-brand-deep hover:bg-primary-container text-surface-container-lowest font-label-md text-label-md uppercase tracking-[0.1em] transition-colors flex items-center justify-center gap-space-sm group" type="submit">
+<span>Link zum Zurücksetzen anfordern</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<div class="text-center">
+<a class="inline-flex items-center gap-1.5 font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant hover:text-brand-deep transition-colors py-1" data-path="login" href="#">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+<span>Zurück zur Anmeldung</span>
+</a>
+</div>
+</div>
+</form>
+</div>
+<!-- STATE B (Right): Erfolgsbestätigung & Mail versendet -->
+<div class="flex flex-col bg-surface-muted border border-border-subtle relative p-space-lg lg:p-space-xl">
+<!-- Status Indicator Pill -->
+<div class="flex items-center justify-between pb-space-md mb-space-lg border-b border-border-subtle">
+<div class="flex items-center gap-space-sm">
+<span class="w-6 h-6 flex items-center justify-center bg-brand-deep text-surface-container-lowest font-label-sm text-label-sm font-semibold">2</span>
+<span class="font-label-md text-label-md tracking-wider uppercase text-text-primary">Schritt 2: E-Mail versendet</span>
+</div>
+<span class="font-label-sm text-label-sm text-brand-deep bg-surface-container-high px-2 py-0.5 tracking-wider uppercase font-semibold">Übermittelt</span>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<!-- Hero Icon Emblem -->
+<div class="flex items-center justify-center w-16 h-16 bg-surface-container-lowest border border-border-subtle text-brand-deep mb-space-lg">
+<span class="material-symbols-outlined text-[32px]">mark_email_read</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-text-primary mb-space-xs font-normal">
+              E-Mail zur Wiederherstellung versendet
+            </h2>
+<!-- Editorial Notice Card -->
+<div class="bg-surface-container-lowest p-space-lg border border-border-subtle space-y-space-sm my-space-md">
+<p class="font-body-md text-body-md text-text-primary leading-relaxed">
+                Wir haben eine E-Mail mit einem gesicherten Bestätigungslink an folgende Adresse gesendet:
+              </p>
+<div class="inline-flex items-center gap-space-xs bg-page-bg px-space-sm py-1.5 border border-border-subtle">
+<span class="material-symbols-outlined text-[18px] text-brand-deep">alternate_email</span>
+<span class="font-label-md text-label-md text-brand-deep tracking-wide font-semibold">m.berg@beispiel.de</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed pt-space-xs">
+                Bitte prüfen Sie auch Ihren Spam-Ordner, falls die Nachricht nicht innerhalb von 2 Minuten eingeht.
+              </p>
+</div>
+<!-- Interaktiver Timer Status -->
+<div class="flex items-center justify-between px-space-sm py-space-xs border border-dashed border-border-subtle text-text-muted mb-space-md font-body-sm text-body-sm">
+<span class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-brand-deep animate-ping"></span>
+<span>Anforderungssperre aktiv</span>
+</span>
+<span class="font-label-sm text-label-sm font-semibold text-text-primary" id="countdown-text">Wartezeit: 48s</span>
+</div>
+</div>
+<!-- Aktionsbereich Status B -->
+<div class="pt-space-md space-y-space-sm border-t border-border-subtle mt-space-lg">
+<!-- Resend Button with Cooldown -->
+<button class="w-full h-11 border border-border-subtle bg-surface-container-lowest hover:border-brand-deep text-text-primary font-label-md text-label-md uppercase tracking-wider transition-colors flex items-center justify-center gap-space-sm" id="resend-btn" onclick="triggerResend()" type="button">
+<span class="material-symbols-outlined text-[18px]">replay</span>
+<span>E-Mail erneut senden (<span id="btn-timer">48s</span>)</span>
+</button>
+<!-- Secondary Actions -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm pt-space-xs">
+<button class="w-full h-10 px-space-sm border border-border-subtle text-text-muted hover:text-text-primary hover:border-text-primary font-label-sm text-label-sm uppercase tracking-wider transition-colors text-center" type="button">
+                Anderen Account wählen
+              </button>
+<a class="w-full h-10 px-space-sm border border-brand-deep bg-brand-deep hover:bg-primary-container text-surface-container-lowest font-label-sm text-label-sm uppercase tracking-wider transition-colors flex items-center justify-center" data-path="login" href="#">
+                Zur Anmeldung
+              </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Editorial Atelier Visual Accent Strip -->
+<section class="w-full max-w-[1440px] mx-auto px-margin-mobile lg:px-margin pb-space-2xl">
+<div class="border border-border-subtle bg-surface-container-lowest grid grid-cols-1 md:grid-cols-12 overflow-hidden">
+<!-- High fashion atmospheric imagery placeholder -->
+<div class="md:col-span-4 h-64 md:h-auto min-h-[220px] relative">
+<div class="bg-cover bg-center w-full h-full" data-alt="Editorial still life of premium tailored gentlemen fabric, deep forest green and tactile bone white cotton textures with subtle studio shadows, luxury craftsmanship aesthetic" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAcMpiqMZTPQaVvN7AJZUWxMVzOsROL9YAIyWytmRWen9M06JLGGgprXThLsFUadji8zuleSrujr5Z-_9ZfqkaDDNysXZ0v0gWJydXHamEmW6z-twA7jWNPP1JBpxJvjwwP_7BTW0xVhIr6DGX_nwqKXEPqqPau9aMBIxVaBtjtgHyku5AEC-RuVCGSGpRAN4D_pdtI4j9fbY7WvVdN8u0AsvjhvS6VAJvWB9IozZVwsri5dsEAHzC2')"></div>
+<div class="absolute inset-0 bg-brand-deep/15"></div>
+</div>
+<!-- Atelier Concierge Assistance Details -->
+<div class="md:col-span-8 p-space-lg lg:p-space-xl flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-space-xs text-brand-deep font-label-sm text-label-sm uppercase tracking-widest mb-space-xs">
+<span class="material-symbols-outlined text-[18px]">support_agent</span>
+<span>Atelier Kundendialog</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-text-primary font-normal mb-space-xs">
+            Haben Sie keinen Zugriff mehr auf Ihre E-Mail?
+          </h3>
+<p class="font-body-md text-body-md text-text-muted leading-relaxed max-w-2xl">
+            Unser persönlicher Atelier-Kundenservice hilft Ihnen gerne diskret und unkompliziert bei der Verifizierung Ihrer Kundendaten und der Reaktivierung Ihres Zugangs weiter.
+          </p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-gutter pt-space-lg mt-space-md border-t border-border-subtle">
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted mb-1">Persönliche Hotline</p>
+<p class="font-title-md text-title-md text-text-primary">+49 (0) 800 442 88 00</p>
+<p class="font-body-sm text-body-sm text-text-muted mt-0.5">Mo – Fr: 09:00 – 18:00 Uhr</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted mb-1">Schriftlicher Kontakt</p>
+<p class="font-title-md text-title-md text-text-primary">atelier@maennermasche.de</p>
+<p class="font-body-sm text-body-sm text-text-muted mt-0.5">Antwort meist innerhalb von 2 Std.</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted mb-1">Sicherheitsnachweis</p>
+<p class="font-title-md text-title-md text-text-primary">Persönlicher Abgleich</p>
+<p class="font-body-sm text-body-sm text-text-muted mt-0.5">Rechnungs- oder Bestellnummer genügt</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<script>
+  // Dynamic cooldown timer simulation for the Resend demonstration card
+  (function initCooldownTimer() {
+    let secondsLeft = 48;
+    const timerDisplay = document.getElementById('countdown-text');
+    const btnTimer = document.getElementById('btn-timer');
+    const resendBtn = document.getElementById('resend-btn');
+
+    const updateTimer = () => {
+      if (secondsLeft > 0) {
+        secondsLeft--;
+        if (timerDisplay) timerDisplay.textContent = 'Wartezeit: ' + secondsLeft + 's';
+        if (btnTimer) btnTimer.textContent = secondsLeft + 's';
+      } else {
+        if (timerDisplay) timerDisplay.textContent = 'Bereit zum erneuten Senden';
+        if (resendBtn) {
+          resendBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">replay</span><span>E-Mail jetzt erneut senden</span>';
+          resendBtn.classList.remove('opacity-75');
+          resendBtn.classList.add('hover:bg-brand-deep', 'hover:text-surface-container-lowest');
+        }
+      }
+    };
+
+    setInterval(updateTimer, 1000);
+
+    window.triggerResend = function() {
+      if (secondsLeft <= 0) {
+        secondsLeft = 60;
+        if (resendBtn) {
+          resendBtn.classList.remove('hover:bg-brand-deep', 'hover:text-surface-container-lowest');
+          resendBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">replay</span><span>E-Mail erneut senden (<span id="btn-timer">60s</span>)</span>';
+        }
+      }
+    };
+  })();
+</script></main><section class="border-t border-b border-border-subtle bg-surface-muted py-space-xl"><div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin"><div class="grid grid-cols-1 md:grid-cols-4 gap-space-lg text-center md:text-left"><div class="flex flex-col md:flex-row items-center md:items-start gap-space-sm"><span class="material-symbols-outlined text-brand-deep text-[28px]">verified</span><div><p class="font-title-md text-title-md text-text-primary">100% Originalware</p><p class="font-body-sm text-body-sm text-text-muted">Offizieller Partner renommierter Manufakturen</p></div></div><div class="flex flex-col md:flex-row items-center md:items-start gap-space-sm"><span class="material-symbols-outlined text-brand-deep text-[28px]">inventory_2</span><div><p class="font-title-md text-title-md text-text-primary">Diskreter Versand</p><p class="font-body-sm text-body-sm text-text-muted">Neutrale Verpackung ohne Brandhinweis</p></div></div><div class="flex flex-col md:flex-row items-center md:items-start gap-space-sm"><span class="material-symbols-outlined text-brand-deep text-[28px]">sync_alt</span><div><p class="font-title-md text-title-md text-text-primary">Kostenfreie Retoure</p><p class="font-body-sm text-body-sm text-text-muted">30 Tage Bedenkzeit innerhalb Deutschlands</p></div></div><div class="flex flex-col md:flex-row items-center md:items-start gap-space-sm"><span class="material-symbols-outlined text-brand-deep text-[28px]">lock</span><div><p class="font-title-md text-title-md text-text-primary">Sichere SSL-Zahlung</p><p class="font-body-sm text-body-sm text-text-muted">Verschlüsselte &amp; zertifizierte Transaktionen</p></div></div></div></div></section><footer class="w-full bg-page-bg border-t border-border-subtle pt-space-2xl pb-space-xl"><div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin"><div class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-space-2xl"><div class="md:col-span-5 pr-0 md:pr-space-xl"><p class="font-headline-md text-headline-md text-text-primary mb-space-xs">MÄNNERMASCHE</p><p class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted mb-space-md">Atelier &amp; Lingerie</p><p class="font-body-sm text-body-sm text-text-muted leading-relaxed max-w-sm">Kuratiertes High-End Sortiment für anspruchsvolle Herrenwäsche, Swimwear und Loungewear führender europäischer Traditionsmarken.</p></div><div class="md:col-span-2"><p class="font-label-md text-label-md tracking-wider uppercase text-text-primary mb-space-md">Sortiment</p><ul class="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-text-primary transition-colors" data-path="neuheiten" href="#">Neuheiten</a></li><li><a class="hover:text-text-primary transition-colors" data-path="unterwaesche" href="#">Unterwäsche</a></li><li><a class="hover:text-text-primary transition-colors" data-path="bademode" href="#">Bademode</a></li><li><a class="hover:text-text-primary transition-colors" data-path="marken" href="#">Markenübersicht</a></li><li><a class="hover:text-text-primary transition-colors" data-path="sale" href="#">Sale</a></li></ul></div><div class="md:col-span-2"><p class="font-label-md text-label-md tracking-wider uppercase text-text-primary mb-space-md">Kundenservice</p><ul class="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant"><li><a class="hover:text-text-primary transition-colors" data-path="faq-hilfe" href="#">FAQ &amp; Hilfe</a></li><li><a class="hover:text-text-primary transition-colors" data-path="versand-zahlung" href="#">Versand &amp; Zahlung</a></li><li><a class="hover:text-text-primary transition-colors" data-path="groessenberater" href="#">Größenberater</a></li><li><a class="hover:text-text-primary transition-colors" data-path="kontakt" href="#">Kontakt</a></li></ul></div><div class="md:col-span-3"><p class="font-label-md text-label-md tracking-wider uppercase text-text-primary mb-space-md">Atelier Garantie</p><p class="font-body-sm text-body-sm text-text-muted leading-relaxed mb-space-md">Exklusive Haptik, zertifizierte Passform-Treue und makellose Verarbeitungsstandards aus Meisterhand.</p><div class="flex items-center gap-space-sm font-label-sm text-label-sm uppercase tracking-wider text-text-primary"><span class="material-symbols-outlined text-[18px] text-brand-deep">shield</span><span>Geprüfte Qualität</span></div></div></div><div class="border-t border-border-subtle pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md font-body-sm text-body-sm text-text-muted"><div>© 2025 MÄNNERMASCHE Atelier &amp; Lingerie. Alle Rechte vorbehalten.</div><div class="flex items-center gap-space-lg font-label-sm text-label-sm uppercase tracking-wider"><a class="hover:text-text-primary transition-colors" data-path="impressum" href="#">Impressum</a><a class="hover:text-text-primary transition-colors" data-path="datenschutz" href="#">Datenschutz</a><a class="hover:text-text-primary transition-colors" data-path="agb" href="#">AGB</a></div></div></div></footer></body></html>
+
+<!-- Männermasche - Mobile Anmelden & Login -->
+<!DOCTYPE html>
+
+<html lang="de"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-primary-fixed": "#002115", "page-bg": "#F8F8F3", "secondary": "#596057", "inverse-surface": "#2b322d", "error-container": "#ffdad6", "surface-dim": "#d4dcd4", "on-primary": "#ffffff", "surface-muted": "#EEEEE7", "secondary-fixed-dim": "#c2c9be", "surface-bright": "#f4fbf3", "surface-container-lowest": "#ffffff", "background": "#f4fbf3", "on-secondary-fixed-variant": "#424940", "outline-variant": "#c0c8c2", "on-surface": "#161d18", "on-surface-variant": "#414944", "surface-container": "#e8f0e7", "primary": "#033324", "text-primary": "#171E19", "surface-container-highest": "#dde5dc", "tertiary-fixed-dim": "#c5c7bf", "error": "#ba1a1a", "tertiary-fixed": "#e1e3da", "primary-fixed": "#beedd5", "on-secondary-fixed": "#171d16", "surface-container-high": "#e3eae2", "on-tertiary": "#ffffff", "on-error-container": "#93000a", "on-primary-fixed-variant": "#244f3d", "border-subtle": "#DCDED5", "inverse-primary": "#a3d1ba", "tertiary": "#2a2d27", "primary-fixed-dim": "#a3d1ba", "on-primary-container": "#8cb9a3", "on-tertiary-fixed-variant": "#454841", "secondary-fixed": "#dee5d9", "surface-variant": "#dde5dc", "secondary-container": "#dee5d9", "on-tertiary-container": "#adb0a7", "brand-deep": "#183F30", "surface-tint": "#3c6754", "on-tertiary-fixed": "#191c17", "on-error": "#ffffff", "primary-container": "#1f4a39", "outline": "#717974", "inverse-on-surface": "#ebf3ea", "surface": "#f4fbf3", "on-secondary": "#ffffff", "surface-container-low": "#eef6ed", "tertiary-container": "#40433d", "on-background": "#161d18", "text-muted": "#626960", "on-secondary-container": "#5f665d" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin": "3rem", "space-3xl": "6rem", "space-sm": "0.5rem", "space-xs": "0.25rem", "space-xl": "2.5rem", "margin-mobile": "1rem", "space-md": "1rem", "space-2xl": "4rem", "space-lg": "1.5rem", "gutter": "1.5rem", "gutter-mobile": "0.75rem" }, "fontFamily": { "body-md": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Bodoni Moda"], "display-xl-mobile": ["Bodoni Moda"], "label-md": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "display-xl": ["Bodoni Moda"], "body-sm": ["Plus Jakarta Sans"], "price-lg": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "price-md": ["Plus Jakarta Sans"], "headline-md": ["Bodoni Moda"], "headline-lg": ["Bodoni Moda"], "title-lg": ["Plus Jakarta Sans"] }, "fontSize": { "body-md": ["0.9375rem", { "lineHeight": "1.5", "fontWeight": "400" }], "headline-lg-mobile": ["1.75rem", { "lineHeight": "1.3", "fontWeight": "500" }], "display-xl-mobile": ["2.25rem", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500" }], "label-md": ["0.8125rem", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }], "body-lg": ["1.125rem", { "lineHeight": "1.6", "fontWeight": "400" }], "display-xl": ["3.5rem", { "lineHeight": "1.15", "letterSpacing": "-0.02em", "fontWeight": "500" }], "body-sm": ["0.8125rem", { "lineHeight": "1.4", "fontWeight": "400" }], "price-lg": ["1.25rem", { "lineHeight": "1.2", "fontWeight": "600" }], "title-md": ["1rem", { "lineHeight": "1.4", "fontWeight": "600" }], "label-sm": ["0.6875rem", { "lineHeight": "1.2", "letterSpacing": "0.06em", "fontWeight": "500" }], "price-md": ["0.9375rem", { "lineHeight": "1.2", "fontWeight": "600" }], "headline-md": ["1.5rem", { "lineHeight": "1.35", "fontWeight": "500" }], "headline-lg": ["2.25rem", { "lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "500" }], "title-lg": ["1.125rem", { "lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "600" }] } } } };</script><style>@layer base{html,body{width:100%;margin:0;padding:0;}body{overscroll-behavior-y:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-16 px-gutter-mobile flex items-center justify-between gap-space-xs"><div class="flex items-center gap-space-xs"><button aria-label="Navigation Menü" class="w-11 h-11 flex items-center justify-center text-on-surface hover:text-primary transition-colors"><span class="material-symbols-outlined text-[24px]">menu</span></button><a class="flex flex-col" data-path="atelier" href="#"><span class="font-headline-md text-headline-md tracking-tight uppercase text-primary leading-none">MÄNNERMASCHE</span><span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest">Atelier Privé</span></a></div><div class="flex items-center gap-space-xs"><button aria-label="Suche öffnen" class="w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">search</span></button><button aria-label="Warenkorb" class="w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-on-surface relative transition-colors"><span class="material-symbols-outlined text-[22px]">shopping_bag</span><span class="absolute top-2 right-2 w-1.5 h-1.5 bg-brand-deep rounded-full"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-20 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Sub-header navigation row -->
+<div class="px-gutter-mobile py-space-sm flex items-center justify-between">
+<a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary transition-colors py-1" href="#">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+<span class="font-label-sm text-label-sm tracking-wider uppercase">Zurück zum Shop</span>
+</a>
+<span class="font-label-md text-label-md text-text-muted uppercase tracking-widest">Atelier Konto</span>
+<div class="w-6"></div>
+</div>
+<!-- Editorial Headline Section -->
+<div class="px-gutter-mobile pt-space-xs pb-space-sm">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest block mb-0.5">Exklusiver Zugang</span>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-text-primary tracking-tight">Privates Atelier</h1>
+</div>
+<!-- Segmented Tab Bar -->
+<div class="px-gutter-mobile mb-space-md">
+<div class="grid grid-cols-2 bg-surface-muted p-1 rounded-DEFAULT">
+<button class="py-2.5 text-center font-label-md text-label-md uppercase tracking-wider bg-surface shadow-sm text-primary transition-all" type="button">
+        Anmelden
+      </button>
+<button class="py-2.5 text-center font-label-md text-label-md uppercase tracking-wider text-text-muted hover:text-text-primary transition-colors" type="button">
+        Registrieren
+      </button>
+</div>
+</div>
+<!-- Main Container -->
+<div class="px-gutter-mobile flex flex-col gap-space-md pb-space-xl">
+<!-- Discreet Error Banner -->
+<div class="p-space-sm bg-error-container text-on-error-container rounded-DEFAULT flex items-start gap-space-xs" role="alert">
+<span class="material-symbols-outlined text-[20px] text-error flex-shrink-0 mt-0.5">error_outline</span>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md font-semibold text-error leading-snug">Zugriff fehlgeschlagen</span>
+<p class="font-body-sm text-body-sm text-on-error-container mt-0.5">
+          E-Mail oder Passwort nicht korrekt. Bitte prüfen Sie Ihre Eingaben oder nutzen Sie die Wiederherstellung.
+        </p>
+</div>
+</div>
+<!-- Auth Form -->
+<form class="flex flex-col gap-space-md" onsubmit="event.preventDefault();">
+<!-- Email Field with Error state -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md uppercase tracking-wider text-text-primary flex justify-between" for="login-email">
+<span>E-Mail-Adresse</span>
+<span class="font-label-sm text-label-sm text-error lowercase font-normal">ungültig</span>
+</label>
+<div class="relative">
+<input aria-describedby="email-error-text" class="w-full h-12 px-3.5 bg-surface-container-lowest text-text-primary font-body-md text-body-md rounded-DEFAULT focus:outline-none ring-2 ring-error" id="login-email" type="email" value="maximilian.v@atelier-kunde"/>
+<div class="absolute right-3 top-1/2 -translate-y-1/2 text-error flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-[20px]">priority_high</span>
+</div>
+</div>
+<span class="font-body-sm text-body-sm text-error flex items-center gap-1 mt-0.5" id="email-error-text">
+<span class="material-symbols-outlined text-[16px]">info</span>
+          Bitte geben Sie eine vollständige E-Mail-Adresse ein.
+        </span>
+</div>
+<!-- Password Field with Toggle -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md uppercase tracking-wider text-text-primary" for="login-password">
+            Passwort
+          </label>
+<a class="font-label-sm text-label-sm text-text-muted hover:text-primary transition-colors underline underline-offset-4" href="#">
+            Passwort vergessen?
+          </a>
+</div>
+<div class="relative">
+<input class="w-full h-12 px-3.5 pr-12 bg-surface-container-lowest text-text-primary font-body-md text-body-md rounded-DEFAULT focus:outline-none focus:ring-1 focus:ring-primary" id="login-password" placeholder="••••••••••••" type="password"/>
+<button aria-label="Passwort anzeigen oder verbergen" class="absolute right-1 top-1 w-10 h-10 flex items-center justify-center text-text-muted hover:text-on-surface transition-colors" id="toggle-pwd-btn" type="button">
+<span class="material-symbols-outlined text-[20px]" id="eye-icon">visibility_off</span>
+</button>
+</div>
+</div>
+<!-- Remember Me Checkbox -->
+<div class="flex items-center justify-between pt-0.5">
+<label class="flex items-center gap-2.5 cursor-pointer select-none">
+<input checked="" class="w-4 h-4 rounded-DEFAULT bg-surface text-primary focus:ring-primary focus:ring-offset-0 cursor-pointer" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface">Angemeldet bleiben</span>
+</label>
+<span class="font-label-sm text-label-sm text-text-muted uppercase">30 Tage aktiv</span>
+</div>
+<!-- Submit CTA -->
+<button class="w-full h-12 bg-brand-deep hover:bg-primary text-on-primary font-label-md text-label-md uppercase tracking-widest rounded-DEFAULT shadow-sm active:scale-[0.99] transition-all flex items-center justify-center gap-2 mt-1" type="submit">
+<span>Anmelden</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</form>
+<!-- Visual Divider -->
+<div class="relative flex items-center justify-center my-1">
+<div class="w-full h-[1px] bg-surface-container-highest"></div>
+<span class="absolute bg-surface px-3 font-label-sm text-label-sm uppercase tracking-widest text-text-muted">
+        Oder express
+      </span>
+</div>
+<!-- Social & Fast Auth Stack -->
+<div class="flex flex-col gap-2.5">
+<!-- Apple Button -->
+<button class="w-full h-12 bg-on-surface text-on-primary font-label-md text-label-md rounded-DEFAULT flex items-center justify-center gap-2 hover:opacity-90 active:scale-[0.99] transition-all shadow-sm" type="button">
+<svg class="w-4 h-4 fill-current mb-0.5" viewbox="0 0 170 170">
+<path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.74 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.69-3.08-7.7-7.93-12.05-14.57-6.08-9.27-10.85-20.05-14.33-32.33-3.48-12.28-5.22-23.75-5.22-34.41 0-14.36 3.74-26.24 11.23-35.63 7.48-9.39 16.7-14.19 27.65-14.41 5.09 0 10.59 1.34 16.51 4.02 5.91 2.68 9.77 4.08 11.58 4.18 1.45 0 5.46-1.45 12.03-4.35 6.57-2.9 12.39-4.24 17.47-4.02 13.43.67 24.33 5.48 32.7 14.42-11.72 7.07-17.47 16.78-17.26 29.13.21 9.8 4.01 17.96 11.41 24.49 7.4 6.53 16.14 10.15 26.22 10.86-2.58 7.82-5.74 15.48-9.48 22.98zM119.22 31.84c0-7.72 2.76-15.01 8.28-21.87 5.52-6.86 12.37-11.29 20.55-13.3 0 1.01.05 1.95.14 2.83 0 7.37-2.91 14.73-8.73 22.09-5.82 7.36-12.78 11.75-20.89 13.17-.33-.97-.49-1.95-.49-2.92z"></path>
+</svg>
+<span>Mit Apple fortfahren</span>
+</button>
+<!-- Google Button -->
+<button class="w-full h-12 bg-surface-container-lowest text-text-primary font-label-md text-label-md rounded-DEFAULT flex items-center justify-center gap-2 hover:bg-surface-container-low active:scale-[0.99] transition-all shadow-sm" type="button">
+<svg class="w-4 h-4" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"></path>
+</svg>
+<span>Mit Google fortfahren</span>
+</button>
+</div>
+<!-- Editorial Atmosphere Image Card -->
+<div class="relative w-full overflow-hidden bg-surface-muted rounded-DEFAULT mt-1">
+<div class="bg-cover bg-center w-full h-36" data-alt="Editorial moody atmospheric photograph of curated luxury silk underwear and linen textiles placed on a dark minimal marble table in a boutique atelier. Natural soft daylight, warm shadows, high-end quiet luxury lifestyle aesthetics, tones of deep emerald green and warm off-white." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBQkjrOXJKuJ2utTW5Y2Cv8rvhn7pd3LfHETJfwyZyyO0CotScdDbJpOfxvIhIIYYDMaqvZ8VhKcCIG1_XAKRqDnsGYg0GBVjckW_rIwg1nPec0yI2ds4oDV7kOzQRj2V0VJMPCXcVmEvXzedr8SCQl4FIR_LAVKFsuEDUd7OW8Z9xFF24pcijKIMOZmBnRu3jyTvY93K4zN9cKWOsfHbg_bsT0D2A4euQzxZ1fVJRLC_alO2f7anom')">
+</div>
+<div class="p-space-md bg-surface-container">
+<div class="flex items-center gap-space-xs mb-2">
+<span class="material-symbols-outlined text-[18px] text-primary">verified_user</span>
+<span class="font-label-md text-label-md uppercase tracking-wider text-text-primary">Ihre Atelier-Vorteile</span>
+</div>
+<ul class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">check</span>
+<span>30 Tage diskrete Heimanprobe ohne Eile</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">check</span>
+<span>Atelier-Passformprofil &amp; gespeicherte Schnittmuster</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">check</span>
+<span>Neutraler, versiegelter Premiumversand aus München</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Concierge Assistance Section -->
+<div class="py-space-sm text-center flex flex-col items-center gap-1">
+<span class="font-body-sm text-body-sm text-text-muted">Hilfe bei der Anmeldung benötigt?</span>
+<a class="inline-flex items-center gap-1 font-label-md text-label-md uppercase tracking-wider text-brand-deep hover:text-primary transition-colors pb-0.5" href="#">
+<span class="material-symbols-outlined text-[18px]">support_agent</span>
+<span>Concierge kontaktieren</span>
+</a>
+<span class="font-label-sm text-label-sm text-text-muted mt-1">Mo–Sa von 09:00 bis 20:00 Uhr erreichbar</span>
+</div>
+</div>
+</div>
+<script>
+  // Simple password visibility toggle
+  (function() {
+    const toggleBtn = document.getElementById('toggle-pwd-btn');
+    const pwdInput = document.getElementById('login-password');
+    const eyeIcon = document.getElementById('eye-icon');
+
+    if (toggleBtn && pwdInput && eyeIcon) {
+      toggleBtn.addEventListener('click', function() {
+        const isPassword = pwdInput.type === 'password';
+        pwdInput.type = isPassword ? 'text' : 'password';
+        eyeIcon.textContent = isPassword ? 'visibility' : 'visibility_off';
+      });
+    }
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-title-md font-semibold"><div class="flex justify-around items-center h-16 px-gutter-mobile"><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant hover:text-on-surface transition-colors gap-0.5" data-path="atelier" href="#"><span class="material-symbols-outlined text-[22px]">diamond</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Atelier</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant hover:text-on-surface transition-colors gap-0.5" data-path="katalog" href="#"><span class="material-symbols-outlined text-[22px]">grid_view</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Katalog</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant hover:text-on-surface transition-colors gap-0.5" data-path="suche" href="#"><span class="material-symbols-outlined text-[22px]">search</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Suche</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant hover:text-on-surface transition-colors gap-0.5" data-path="merkliste" href="#"><span class="material-symbols-outlined text-[22px]">favorite</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Merkliste</span></a><a aria-current="page" class="flex flex-col items-center justify-center w-14 h-14 transition-colors gap-0.5 text-primary font-title-md font-semibold" data-path="konto" href="#"><span class="material-symbols-outlined text-[22px]">person</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Konto</span></a></div></nav></body></html>
+
+<!-- Männermasche - Mobile Registrierung & Passwort-Reset -->
+<!DOCTYPE html>
+
+<html lang="de"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-primary-fixed": "#002115", "page-bg": "#F8F8F3", "secondary": "#596057", "inverse-surface": "#2b322d", "error-container": "#ffdad6", "surface-dim": "#d4dcd4", "on-primary": "#ffffff", "surface-muted": "#EEEEE7", "secondary-fixed-dim": "#c2c9be", "surface-bright": "#f4fbf3", "surface-container-lowest": "#ffffff", "background": "#f4fbf3", "on-secondary-fixed-variant": "#424940", "outline-variant": "#c0c8c2", "on-surface": "#161d18", "on-surface-variant": "#414944", "surface-container": "#e8f0e7", "primary": "#033324", "text-primary": "#171E19", "surface-container-highest": "#dde5dc", "tertiary-fixed-dim": "#c5c7bf", "error": "#ba1a1a", "tertiary-fixed": "#e1e3da", "primary-fixed": "#beedd5", "on-secondary-fixed": "#171d16", "surface-container-high": "#e3eae2", "on-tertiary": "#ffffff", "on-error-container": "#93000a", "on-primary-fixed-variant": "#244f3d", "border-subtle": "#DCDED5", "inverse-primary": "#a3d1ba", "tertiary": "#2a2d27", "primary-fixed-dim": "#a3d1ba", "on-primary-container": "#8cb9a3", "on-tertiary-fixed-variant": "#454841", "secondary-fixed": "#dee5d9", "surface-variant": "#dde5dc", "secondary-container": "#dee5d9", "on-tertiary-container": "#adb0a7", "brand-deep": "#183F30", "surface-tint": "#3c6754", "on-tertiary-fixed": "#191c17", "on-error": "#ffffff", "primary-container": "#1f4a39", "outline": "#717974", "inverse-on-surface": "#ebf3ea", "surface": "#f4fbf3", "on-secondary": "#ffffff", "surface-container-low": "#eef6ed", "tertiary-container": "#40433d", "on-background": "#161d18", "text-muted": "#626960", "on-secondary-container": "#5f665d" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin": "3rem", "space-3xl": "6rem", "space-sm": "0.5rem", "space-xs": "0.25rem", "space-xl": "2.5rem", "margin-mobile": "1rem", "space-md": "1rem", "space-2xl": "4rem", "space-lg": "1.5rem", "gutter": "1.5rem", "gutter-mobile": "0.75rem" }, "fontFamily": { "body-md": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Bodoni Moda"], "display-xl-mobile": ["Bodoni Moda"], "label-md": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "display-xl": ["Bodoni Moda"], "body-sm": ["Plus Jakarta Sans"], "price-lg": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "price-md": ["Plus Jakarta Sans"], "headline-md": ["Bodoni Moda"], "headline-lg": ["Bodoni Moda"], "title-lg": ["Plus Jakarta Sans"] }, "fontSize": { "body-md": ["0.9375rem", { "lineHeight": "1.5", "fontWeight": "400" }], "headline-lg-mobile": ["1.75rem", { "lineHeight": "1.3", "fontWeight": "500" }], "display-xl-mobile": ["2.25rem", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500" }], "label-md": ["0.8125rem", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }], "body-lg": ["1.125rem", { "lineHeight": "1.6", "fontWeight": "400" }], "display-xl": ["3.5rem", { "lineHeight": "1.15", "letterSpacing": "-0.02em", "fontWeight": "500" }], "body-sm": ["0.8125rem", { "lineHeight": "1.4", "fontWeight": "400" }], "price-lg": ["1.25rem", { "lineHeight": "1.2", "fontWeight": "600" }], "title-md": ["1rem", { "lineHeight": "1.4", "fontWeight": "600" }], "label-sm": ["0.6875rem", { "lineHeight": "1.2", "letterSpacing": "0.06em", "fontWeight": "500" }], "price-md": ["0.9375rem", { "lineHeight": "1.2", "fontWeight": "600" }], "headline-md": ["1.5rem", { "lineHeight": "1.35", "fontWeight": "500" }], "headline-lg": ["2.25rem", { "lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "500" }], "title-lg": ["1.125rem", { "lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "600" }] } } } };</script><style>@layer base{html,body{width:100%;margin:0;padding:0;}body{overscroll-behavior-y:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-16 px-gutter-mobile flex items-center justify-between gap-space-xs"><div class="flex items-center gap-space-xs"><button aria-label="Navigation Menü" class="w-11 h-11 flex items-center justify-center text-on-surface hover:text-primary transition-colors"><span class="material-symbols-outlined text-[24px]">menu</span></button><a class="flex flex-col" data-path="atelier" href="#"><span class="font-headline-md text-headline-md tracking-tight uppercase text-primary leading-none">MÄNNERMASCHE</span><span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest">Atelier Privé</span></a></div><div class="flex items-center gap-space-xs"><button aria-label="Suche öffnen" class="w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">search</span></button><button aria-label="Warenkorb" class="w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-on-surface relative transition-colors"><span class="material-symbols-outlined text-[22px]">shopping_bag</span><span class="absolute top-2 right-2 w-1.5 h-1.5 bg-brand-deep rounded-full"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-20 bg-surface min-h-screen"><div class="flex flex-col w-full pb-8">
+<div class="px-margin-mobile pt-space-md">
+<div class="w-full bg-surface-container p-1 flex">
+<button class="flex-1 py-2.5 text-center font-label-md text-label-md uppercase transition-all bg-primary-container text-on-primary" id="tab-reg-btn" type="button">
+        Registrieren
+      </button>
+<button class="flex-1 py-2.5 text-center font-label-md text-label-md uppercase text-on-surface-variant transition-all hover:text-on-surface" id="tab-reset-btn" type="button">
+        Passwort-Reset
+      </button>
+</div>
+</div>
+<div class="flex flex-col px-margin-mobile mt-space-md" id="registration-flow">
+<div class="bg-surface-container-lowest p-space-md flex flex-col">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest">Atelier Privé Zugang</span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary">
+<span class="material-symbols-outlined text-[14px]">lock</span> Verschlüsselt
+        </span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-medium tracking-tight">
+        Neues Kundenkonto
+      </h1>
+<p class="font-body-md text-body-md text-text-muted mt-1 leading-relaxed">
+        Genießen Sie 30 Tage Heimanprobe, kuratierte Neuheiten und diskreten Atelier-Versand.
+      </p>
+<form class="flex flex-col gap-space-md mt-space-lg" id="reg-form" onsubmit="event.preventDefault();">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm uppercase text-text-muted tracking-wider">Anrede</label>
+<div class="grid grid-cols-3 gap-2" id="salutation-group">
+<button class="salutation-btn py-2.5 text-center font-label-md text-label-md uppercase bg-primary-container text-on-primary" type="button">
+              Herr
+            </button>
+<button class="salutation-btn py-2.5 text-center font-label-md text-label-md uppercase bg-surface-container text-on-surface" type="button">
+              Divers
+            </button>
+<button class="salutation-btn py-2.5 text-center font-label-md text-label-md uppercase bg-surface-container text-on-surface" type="button">
+              Keine
+            </button>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-space-xs">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm uppercase text-text-muted tracking-wider" for="vorname">Vorname</label>
+<input class="w-full h-11 px-3 bg-surface-container-lowest text-on-surface font-body-md text-body-md outline-none focus:bg-surface-container-low transition-colors" id="vorname" placeholder="Maximilian" type="text" value="Julian"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm uppercase text-text-muted tracking-wider" for="nachname">Nachname</label>
+<input class="w-full h-11 px-3 bg-surface-container-lowest text-on-surface font-body-md text-body-md outline-none focus:bg-surface-container-low transition-colors" id="nachname" placeholder="Mustermann" type="text" value="von Bern"/>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between items-center">
+<label class="font-label-sm text-label-sm uppercase text-text-muted tracking-wider" for="email">E-Mail-Adresse</label>
+<span class="font-label-sm text-label-sm text-error uppercase">Fehler</span>
+</div>
+<div class="relative flex items-center">
+<input class="w-full h-11 pl-3 pr-10 bg-error-container/40 text-on-error-container font-body-md text-body-md outline-none" id="email" type="email" value="julian.bern@luxuryprive.de"/>
+<span class="material-symbols-outlined text-error absolute right-3 text-[18px]">error</span>
+</div>
+<div class="bg-error-container/70 p-2 flex items-start gap-1.5 text-on-error-container">
+<span class="material-symbols-outlined text-[16px] flex-shrink-0 mt-0.5">priority_high</span>
+<span class="font-body-sm text-body-sm">Diese E-Mail ist bereits vergeben. Möchten Sie sich stattdessen anmelden?</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="flex justify-between items-center">
+<label class="font-label-sm text-label-sm uppercase text-text-muted tracking-wider" for="password">Passwort</label>
+<span class="font-label-sm text-label-sm text-text-muted">Sicherheitsstatus: Mittel</span>
+</div>
+<div class="relative flex items-center">
+<input class="w-full h-11 pl-3 pr-10 bg-surface-container-lowest text-on-surface font-body-md text-body-md outline-none focus:bg-surface-container-low transition-colors" id="password" type="text" value="HerrenStil2025"/>
+<button class="absolute right-3 text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+<div class="bg-surface-container-low p-3 flex flex-col gap-2 mt-1">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span class="font-body-sm text-body-sm">Mindestens 8 Zeichen erfüllt</span>
+</div>
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span class="font-body-sm text-body-sm">Groß- und Kleinbuchstaben enthalten</span>
+</div>
+<div class="flex items-center gap-2 text-error">
+<span class="material-symbols-outlined text-[16px]">cancel</span>
+<span class="font-body-sm text-body-sm">Sonderzeichen fehlt (z. B. ! @ # $ % &amp; *)</span>
+</div>
+</div>
+</div>
+<div class="flex items-start gap-3 mt-1 cursor-pointer select-none">
+<input checked="" class="mt-1 w-4 h-4 accent-primary" id="agb" type="checkbox"/>
+<label class="font-body-sm text-body-sm text-text-muted leading-tight" for="agb">
+            Ich akzeptiere die <span class="text-primary underline">AGB</span> und bestätige die Kenntnisnahme der <span class="text-primary underline">Datenschutzerklärung</span> für diskrete Zustellungen.
+          </label>
+</div>
+<button class="w-full h-12 bg-primary-container text-on-primary font-label-md text-label-md uppercase tracking-wider flex items-center justify-center gap-2 mt-2 transition-all hover:bg-brand-deep" type="submit">
+<span>Konto erstellen</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</form>
+<div class="mt-space-md pt-space-sm flex justify-center">
+<button class="font-label-sm text-label-sm uppercase text-text-muted hover:text-primary underline tracking-wider transition-colors" id="quick-reset-trigger" type="button">
+          Bereits registriert? Passwort vergessen?
+        </button>
+</div>
+</div>
+</div>
+<div class="flex flex-col px-margin-mobile mt-space-md hidden" id="reset-flow">
+<div class="bg-surface-container-lowest p-space-md flex flex-col">
+<div class="flex items-center gap-1.5 text-primary mb-1">
+<span class="material-symbols-outlined text-[18px]">key</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest">Sicherer Zugang</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-medium tracking-tight">
+        Passwort zurücksetzen
+      </h2>
+<p class="font-body-md text-body-md text-text-muted mt-1 leading-relaxed">
+        Geben Sie die hinterlegte E-Mail-Adresse Ihres Männermasche Atelier-Kontos ein.
+      </p>
+<div class="mt-space-md p-space-sm bg-primary-container text-on-primary flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary-fixed text-[20px] mt-0.5">mark_email_read</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md tracking-wide">Wiederherstellungslink gesendet</span>
+<span class="font-body-sm text-body-sm opacity-90 mt-0.5">Ein Prüfcode ging an <span class="font-semibold text-primary-fixed">jul***@***.de</span>. Gültig für 15 Minuten.</span>
+</div>
+</div>
+<form class="flex flex-col gap-space-md mt-space-md" onsubmit="event.preventDefault();">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm uppercase text-text-muted tracking-wider" for="reset-email">Ihre E-Mail</label>
+<input class="w-full h-11 px-3 bg-surface-container text-on-surface font-body-md text-body-md outline-none" id="reset-email" type="email" value="julian.bern@luxuryprive.de"/>
+</div>
+<button class="w-full h-12 bg-primary-container text-on-primary font-label-md text-label-md uppercase tracking-wider flex items-center justify-center gap-2 transition-all hover:bg-brand-deep" type="submit">
+<span>Neuen Link anfordern</span>
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+</button>
+</form>
+</div>
+</div>
+<div class="px-margin-mobile mt-space-lg">
+<div class="bg-surface-muted p-space-md flex flex-col gap-space-sm">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest">Diskretion &amp; Garantie</span>
+<div class="grid grid-cols-3 gap-2">
+<div class="bg-surface-container-lowest p-2.5 flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary text-[22px]">verified_user</span>
+<span class="font-label-sm text-label-sm text-on-surface mt-1.5 font-semibold">256-Bit SSL</span>
+<span class="font-body-sm text-body-sm text-text-muted text-[11px] leading-tight mt-0.5">Banking Standard</span>
+</div>
+<div class="bg-surface-container-lowest p-2.5 flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary text-[22px]">inventory_2</span>
+<span class="font-label-sm text-label-sm text-on-surface mt-1.5 font-semibold">Diskreter Versand</span>
+<span class="font-body-sm text-body-sm text-text-muted text-[11px] leading-tight mt-0.5">Neutrale Kartons</span>
+</div>
+<div class="bg-surface-container-lowest p-2.5 flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary text-[22px]">policy</span>
+<span class="font-label-sm text-label-sm text-on-surface mt-1.5 font-semibold">DSGVO konform</span>
+<span class="font-body-sm text-body-sm text-text-muted text-[11px] leading-tight mt-0.5">Kein Adressverkauf</span>
+</div>
+</div>
+</div>
+</div>
+<div class="px-margin-mobile mt-space-lg">
+<div class="relative bg-surface-container-lowest p-space-md flex items-center gap-space-md overflow-hidden">
+<img class="w-20 h-24 object-cover flex-shrink-0" data-alt="High-end editorial studio still life of luxury men's Swiss cotton underwear and tactile fabric packaging on warm stone pedestal in moody cinematic morning lighting with deep green tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHBFwb1ewYEbovIKba1hUL_vQAB4RQrvO_urCqneUTTXl6zIb2fPq9QA25yU5z1NMHls1QqfBpSFdFWi3kSUVXpqRMKEKRHWlFHieLKeFk3pN01Dx88dNRJYFzbKKfOX68Qaan-a8qTfYoAOTOaR4IBLc0-_QxBkZIxHEHNKL6GhpHiAOraYJ8LyTtSBl1qgdD75Ee_BJYD-wVxUu6shSIYsOw7dEZhf2e7mZ1lLjUiCvPLyh-IgTn"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-text-muted uppercase">MANSTORE · Olaf Benz · CALIDA</span>
+<h3 class="font-title-md text-title-md text-primary mt-1 truncate">Atelier Privé Vorzugskonditionen</h3>
+<p class="font-body-sm text-body-sm text-text-muted mt-1 line-clamp-2">Exklusiver Vorabzugriff auf limitierte Kollektionen und kostenfreier Rückversand bei jeder Bestellung.</p>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function initAuthFlow() {
+    const regTabBtn = document.getElementById('tab-reg-btn');
+    const resetTabBtn = document.getElementById('tab-reset-btn');
+    const regFlow = document.getElementById('registration-flow');
+    const resetFlow = document.getElementById('reset-flow');
+    const quickReset = document.getElementById('quick-reset-trigger');
+    const salutationBtns = document.querySelectorAll('.salutation-btn');
+
+    function showRegistration() {
+      regFlow.classList.remove('hidden');
+      resetFlow.classList.add('hidden');
+      regTabBtn.className = 'flex-1 py-2.5 text-center font-label-md text-label-md uppercase transition-all bg-primary-container text-on-primary';
+      resetTabBtn.className = 'flex-1 py-2.5 text-center font-label-md text-label-md uppercase text-on-surface-variant transition-all hover:text-on-surface';
+    }
+
+    function showReset() {
+      resetFlow.classList.remove('hidden');
+      regFlow.classList.add('hidden');
+      resetTabBtn.className = 'flex-1 py-2.5 text-center font-label-md text-label-md uppercase transition-all bg-primary-container text-on-primary';
+      regTabBtn.className = 'flex-1 py-2.5 text-center font-label-md text-label-md uppercase text-on-surface-variant transition-all hover:text-on-surface';
+    }
+
+    if (regTabBtn && resetTabBtn) {
+      regTabBtn.addEventListener('click', showRegistration);
+      resetTabBtn.addEventListener('click', showReset);
+    }
+
+    if (quickReset) {
+      quickReset.addEventListener('click', showReset);
+    }
+
+    salutationBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        salutationBtns.forEach(b => {
+          b.className = 'salutation-btn py-2.5 text-center font-label-md text-label-md uppercase bg-surface-container text-on-surface transition-colors';
+        });
+        btn.className = 'salutation-btn py-2.5 text-center font-label-md text-label-md uppercase bg-primary-container text-on-primary transition-colors';
+      });
+    });
+
+    const kontoNav = document.querySelector('nav a[data-path="konto"]');
+    if (kontoNav) {
+      document.querySelectorAll('nav a').forEach(a => {
+        a.classList.remove('text-primary', 'font-title-md', 'font-semibold');
+        a.classList.add('text-on-surface-variant');
+      });
+      kontoNav.classList.remove('text-on-surface-variant');
+      kontoNav.classList.add('text-primary', 'font-title-md', 'font-semibold');
+    }
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-title-md font-semibold"><div class="flex justify-around items-center h-16 px-gutter-mobile"><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant hover:text-on-surface transition-colors gap-0.5" data-path="atelier" href="#"><span class="material-symbols-outlined text-[22px]">diamond</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Atelier</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant hover:text-on-surface transition-colors gap-0.5" data-path="katalog" href="#"><span class="material-symbols-outlined text-[22px]">grid_view</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Katalog</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant hover:text-on-surface transition-colors gap-0.5" data-path="suche" href="#"><span class="material-symbols-outlined text-[22px]">search</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Suche</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant hover:text-on-surface transition-colors gap-0.5" data-path="merkliste" href="#"><span class="material-symbols-outlined text-[22px]">favorite</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Merkliste</span></a><a aria-current="page" class="flex flex-col items-center justify-center w-14 h-14 transition-colors gap-0.5 text-primary font-title-md font-semibold" data-path="konto" href="#"><span class="material-symbols-outlined text-[22px]">person</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Konto</span></a></div></nav></body></html>

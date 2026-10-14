@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+
+<html lang="de"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "text-muted": "#626960", "border-subtle": "#DCDED5", "on-primary-container": "#8cb9a3", "surface-container-high": "#e3eae2", "primary-fixed": "#beedd5", "surface-container-low": "#eef6ed", "secondary-fixed": "#dee5d9", "tertiary-fixed": "#e1e3da", "tertiary": "#2a2d27", "surface-variant": "#dde5dc", "on-tertiary-fixed-variant": "#454841", "surface-container": "#e8f0e7", "brand-deep": "#183F30", "surface-muted": "#EEEEE7", "surface": "#f4fbf3", "outline": "#717974", "text-primary": "#171E19", "secondary-fixed-dim": "#c2c9be", "on-surface-variant": "#414944", "on-tertiary-container": "#adb0a7", "on-error-container": "#93000a", "surface-bright": "#f4fbf3", "tertiary-fixed-dim": "#c5c7bf", "on-secondary-fixed": "#171d16", "outline-variant": "#c0c8c2", "on-secondary-container": "#5f665d", "primary-fixed-dim": "#a3d1ba", "page-bg": "#F8F8F3", "on-background": "#161d18", "on-tertiary": "#ffffff", "primary-container": "#1f4a39", "on-surface": "#161d18", "surface-container-lowest": "#ffffff", "surface-tint": "#3c6754", "on-tertiary-fixed": "#191c17", "error-container": "#ffdad6", "inverse-surface": "#2b322d", "secondary": "#596057", "primary": "#033324", "on-secondary": "#ffffff", "on-primary-fixed": "#002115", "inverse-on-surface": "#ebf3ea", "surface-container-highest": "#dde5dc", "background": "#f4fbf3", "inverse-primary": "#a3d1ba", "secondary-container": "#dee5d9", "on-primary": "#ffffff", "error": "#ba1a1a", "on-secondary-fixed-variant": "#424940", "tertiary-container": "#40433d", "surface-dim": "#d4dcd4", "on-error": "#ffffff", "on-primary-fixed-variant": "#244f3d" }, borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" }, spacing: { "margin": "3rem", "gutter-mobile": "0.75rem", "space-md": "1rem", "space-lg": "1.5rem", "space-3xl": "6rem", "margin-mobile": "1rem", "space-2xl": "4rem", "gutter": "1.5rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "space-xl": "2.5rem" }, fontFamily: { "headline-lg-mobile": ["Bodoni Moda"], "body-md": ["Plus Jakarta Sans"], "headline-lg": ["Bodoni Moda"], "body-lg": ["Plus Jakarta Sans"], "headline-md": ["Bodoni Moda"], "label-md": ["Plus Jakarta Sans"], "display-xl": ["Bodoni Moda"], "title-lg": ["Plus Jakarta Sans"], "price-md": ["Plus Jakarta Sans"], "display-xl-mobile": ["Bodoni Moda"], "body-sm": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "price-lg": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"] }, fontSize: { "headline-lg-mobile": ["1.75rem", { lineHeight: "1.3", fontWeight: "500" }], "body-md": ["0.9375rem", { lineHeight: "1.5", fontWeight: "400" }], "headline-lg": ["2.25rem", { lineHeight: "1.25", letterSpacing: "-0.01em", fontWeight: "500" }], "body-lg": ["1.125rem", { lineHeight: "1.6", fontWeight: "400" }], "headline-md": ["1.5rem", { lineHeight: "1.35", fontWeight: "500" }], "label-md": ["0.8125rem", { lineHeight: "1.2", letterSpacing: "0.05em", fontWeight: "600" }], "display-xl": ["3.5rem", { lineHeight: "1.15", letterSpacing: "-0.02em", fontWeight: "500" }], "title-lg": ["1.125rem", { lineHeight: "1.4", letterSpacing: "0.01em", fontWeight: "600" }], "price-md": ["0.9375rem", { lineHeight: "1.2", fontWeight: "600" }], "display-xl-mobile": ["2.25rem", { lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "500" }], "body-sm": ["0.8125rem", { lineHeight: "1.4", fontWeight: "400" }], "label-sm": ["0.6875rem", { lineHeight: "1.2", letterSpacing: "0.06em", fontWeight: "500" }], "price-lg": ["1.25rem", { lineHeight: "1.2", fontWeight: "600" }], "title-md": ["1rem", { lineHeight: "1.4", fontWeight: "600" }] } } } };</script><style>@layer base { html, body { width: 100%; margin: 0; padding: 0; } body { overscroll-behavior: none; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style></head><body class="bg-page-bg font-body-md text-text-primary antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-page-bg/90 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-gutter-mobile flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="Navigation Menü" class="w-11 h-11 flex items-center justify-center text-text-primary hover:text-primary transition-colors" type="button"><span class="material-symbols-outlined text-[24px]">menu</span></button><button aria-label="Suche öffnen" class="w-11 h-11 flex items-center justify-center text-text-primary hover:text-primary transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">search</span></button></div><div class="flex flex-col items-center justify-center"><a class="font-headline-md text-headline-md tracking-tight text-primary leading-none uppercase" data-path="home-boutique" href="#">Männermasche</a><span class="font-label-sm text-label-sm tracking-[0.18em] text-text-muted uppercase mt-0.5">Atelier &amp; Lingerie</span></div><div class="flex items-center gap-space-xs"><a aria-label="Warenkorb" class="relative w-11 h-11 flex items-center justify-center text-text-primary hover:text-primary transition-colors" data-path="cart-review" href="#"><span class="material-symbols-outlined text-[22px]">shopping_bag</span><span class="absolute top-2.5 right-2 w-4 h-4 bg-primary text-on-primary font-label-sm text-[9px] flex items-center justify-center leading-none">2</span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-1"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-20 bg-page-bg"><div class="flex flex-col w-full text-text-primary">
+<!-- Atelier Editorial Category Intro -->
+<section class="px-gutter-mobile pt-space-md pb-space-sm bg-page-bg">
+<div class="flex items-center gap-space-xs text-text-muted text-label-sm font-label-sm uppercase tracking-widest mb-1.5">
+<span>Atelier</span>
+<span class="text-[10px]">/</span>
+<span>Herren</span>
+<span class="text-[10px]">/</span>
+<span class="text-primary font-semibold">Kollektion</span>
+</div>
+<div class="flex items-baseline justify-between">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile tracking-tight text-primary">Unterwäsche</h1>
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider">24 Artikel</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mt-1 leading-relaxed max-w-[340px]">
+      Feinste europäische Strick- und Mikrofaserqualitäten. Ergonomische Schnitte von MANSTORE, Olaf Benz und CALIDA.
+    </p>
+</section>
+<!-- Sticky Filter & Sort Controller -->
+<div class="sticky top-16 z-30 bg-page-bg/95 backdrop-blur-md pb-2 pt-2 shadow-sm">
+<div class="px-gutter-mobile flex items-center justify-between gap-space-sm mb-2">
+<!-- Filter Modal Trigger -->
+<button class="flex items-center gap-2 h-10 px-3.5 bg-primary text-on-primary text-label-md font-label-md uppercase tracking-wider transition-opacity active:opacity-90" id="openFilterBtn" type="button">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+<span>Filter &amp; Sortierung</span>
+<span class="w-4 h-4 bg-on-primary text-primary font-label-sm text-[10px] flex items-center justify-center font-bold">3</span>
+</button>
+<!-- Sort Dropdown Trigger -->
+<button class="flex items-center gap-1.5 h-10 px-3 bg-surface-muted text-text-primary text-label-md font-label-md uppercase tracking-wider" id="sortToggleBtn" type="button">
+<span class="text-text-muted font-normal lowercase text-[10px]">Sort:</span>
+<span class="font-semibold text-primary" id="currentSortLabel">Beliebtheit</span>
+<span class="material-symbols-outlined text-[16px] text-text-muted">keyboard_arrow_down</span>
+</button>
+</div>
+<!-- Active Filter Chips (Horizontal Scrollable) -->
+<div class="flex items-center gap-2 overflow-x-auto px-gutter-mobile no-scrollbar py-1">
+<span class="shrink-0 flex items-center gap-1.5 bg-surface-container px-2.5 py-1 text-label-sm font-label-sm text-text-primary">
+        MANSTORE
+        <button aria-label="Filter MANSTORE entfernen" class="hover:text-primary leading-none" type="button">×</button>
+</span>
+<span class="shrink-0 flex items-center gap-1.5 bg-surface-container px-2.5 py-1 text-label-sm font-label-sm text-text-primary">
+        Größe M
+        <button aria-label="Filter Größe M entfernen" class="hover:text-primary leading-none" type="button">×</button>
+</span>
+<span class="shrink-0 flex items-center gap-1.5 bg-primary-container text-on-primary-fixed-variant px-2.5 py-1 text-label-sm font-label-sm">
+        Forest Green
+        <button aria-label="Filter Forest Green entfernen" class="hover:text-white leading-none" type="button">×</button>
+</span>
+<button class="shrink-0 text-label-sm font-label-sm text-text-muted hover:text-primary underline underline-offset-2 px-1" type="button">
+        Zurücksetzen
+      </button>
+</div>
+</div>
+<!-- SECTION 1: Horizontal Highlights Reel with Card Peek (~82vw width, ~15vw peek) -->
+<section class="mt-space-md">
+<div class="px-gutter-mobile flex items-center justify-between mb-3">
+<div>
+<span class="font-label-sm text-label-sm text-brand-deep font-semibold uppercase tracking-widest block">Kuratiert</span>
+<h2 class="font-headline-md text-headline-md text-text-primary">Kollektions-Highlights</h2>
+</div>
+<div class="flex items-center gap-1 text-text-muted text-label-sm font-label-sm uppercase tracking-wider">
+<span>1 / 3</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+<!-- Snap Scroll Track -->
+<div class="flex gap-3 overflow-x-auto px-gutter-mobile snap-x snap-mandatory no-scrollbar pb-2">
+<!-- Highlight Card 1 (Active) -->
+<article class="shrink-0 w-[82vw] snap-center bg-surface-container-lowest flex flex-col p-3 shadow-sm" data-card="hero-1">
+<div class="relative w-full aspect-[4/5] bg-surface-muted overflow-hidden mb-3">
+<img alt="MANSTORE M900 V-Pants Forest Green" class="w-full h-full object-cover transition-opacity duration-300" data-alt="High-fashion studio photograph of athletic male model wearing luxury forest green minimalist briefs, natural architectural shadows, warm off-white tones, studio lighting editorial style." id="card1-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJ67eg99NAyeY3x_1N4rNvS3BapVaEd7oF-7axTZnf6PJxQb_jsc93149s-SPmfA7vmJ1nkzOjWk_WsQFeyElyVXS95yqF5tsEmEGvffmBwQ-9E4g1wgBQjWXDWGvgp5Xp6FDfRucPKu4UTUSYRi6-87MM-QvnDUxgn8d9YFHl1WDgWjWVJqRTeYMa9uYEpf9stbAedZdi2slkjuXHbiIDK5f9QGDw_ocZ8We2r4BUjxJQzMttUM0m"/>
+<div class="absolute top-2 left-2 bg-brand-deep text-on-primary text-label-sm font-label-sm px-2 py-0.5 uppercase tracking-wider">
+            Neuheit
+          </div>
+<button aria-label="Auf die Merkliste" class="absolute top-2 right-2 w-8 h-8 bg-page-bg/80 backdrop-blur-sm flex items-center justify-center text-text-primary hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
+</button>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="flex justify-between items-baseline">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider font-semibold">MANSTORE</span>
+<span class="font-price-md text-price-md text-primary font-bold">49,95 €</span>
+</div>
+<h3 class="font-title-md text-title-md text-text-primary mt-0.5">M900 Athletic V-Pants</h3>
+<p class="font-body-sm text-body-sm text-text-muted line-clamp-1 mt-0.5">Feinste Viskose-Seiden-Mischung mit anatomischem Schnitt.</p>
+<!-- Interactive Color Swatches -->
+<div class="mt-3 pt-2.5 flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider">Farbe</span>
+<div class="flex items-center gap-2">
+<button aria-label="Forest Green" class="w-5 h-5 bg-[#183F30] ring-1 ring-offset-1 ring-primary focus:outline-none" onclick="switchCardColor('card1', 'forest', 'Forest Green')" title="Forest Green" type="button"></button>
+<button aria-label="Tiefschwarz" class="w-5 h-5 bg-[#171E19] hover:opacity-80 focus:outline-none" onclick="switchCardColor('card1', 'black', 'Tiefschwarz')" title="Tiefschwarz" type="button"></button>
+<button aria-label="Slate Gray" class="w-5 h-5 bg-[#626960] hover:opacity-80 focus:outline-none" onclick="switchCardColor('card1', 'gray', 'Slate Gray')" title="Slate Gray" type="button"></button>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted text-right block mt-0.5" id="card1-color-label">Forest Green</span>
+<!-- Size Quick Selector -->
+<div class="mt-3">
+<div class="flex items-center justify-between mb-1.5">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider">Größe</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Passform normal</span>
+</div>
+<div class="grid grid-cols-4 gap-1.5 size-group" data-target="card1">
+<button class="h-9 text-label-md font-label-md bg-surface-muted text-text-primary hover:bg-surface-container transition-colors" type="button">S</button>
+<button class="h-9 text-label-md font-label-md bg-primary text-on-primary font-bold" type="button">M</button>
+<button class="h-9 text-label-md font-label-md bg-surface-muted text-text-primary hover:bg-surface-container transition-colors" type="button">L</button>
+<button class="h-9 text-label-md font-label-md bg-surface-muted text-text-muted opacity-40 cursor-not-allowed" type="button">XL</button>
+</div>
+</div>
+<!-- Add to Cart CTA -->
+<button class="mt-3 w-full h-11 bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-brand-deep active:opacity-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+<span>Schnellkauf • 49,95 €</span>
+</button>
+</div>
+</article>
+<!-- Highlight Card 2 (Peek Visible) -->
+<article class="shrink-0 w-[82vw] snap-center bg-surface-container-lowest flex flex-col p-3 shadow-sm" data-card="hero-2">
+<div class="relative w-full aspect-[4/5] bg-surface-muted overflow-hidden mb-3">
+<img alt="Olaf Benz RED2200 Minipants" class="w-full h-full object-cover transition-opacity duration-300" data-alt="Sophisticated male fashion studio shot featuring Olaf Benz luxury midnight black minipants, clean editorial off-white backdrop, sculptural lighting, high contrast luxury aesthetics." id="card2-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-d-TIr9fP-0yst2oit0oPCMDgFXhQ7zQz_NQf_8JS9KxSIPI25YWk-cl3U78RLzXo4eukFiHyl-UtYC5FFdiR3vXwJ8ATBSCBBN1p092KlzOBeReJFjmPRfyp8vy2OVv7NgbvGBEvgQIbfvldouRTtlohWT2RG-5biyjGLSPv2fh0yrFGTYbjlAaxEKMpZWy6YWA-5beb52_VjCO3k2rxv3AiWelqJoqhIFo3nzI2l_9-6dAAfOaq"/>
+<div class="absolute top-2 left-2 bg-surface-muted text-text-primary text-label-sm font-label-sm px-2 py-0.5 uppercase tracking-wider font-semibold">
+            Bestseller
+          </div>
+<button aria-label="Auf die Merkliste" class="absolute top-2 right-2 w-8 h-8 bg-page-bg/80 backdrop-blur-sm flex items-center justify-center text-text-primary hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
+</button>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="flex justify-between items-baseline">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider font-semibold">Olaf Benz</span>
+<span class="font-price-md text-price-md text-primary font-bold">54,90 €</span>
+</div>
+<h3 class="font-title-md text-title-md text-text-primary mt-0.5">RED2200 Modern Minipants</h3>
+<p class="font-body-sm text-body-sm text-text-muted line-clamp-1 mt-0.5">Ultraleichte Mikrofaser, extrem dehnfähig und formbeständig.</p>
+<!-- Interactive Color Swatches -->
+<div class="mt-3 pt-2.5 flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider">Farbe</span>
+<div class="flex items-center gap-2">
+<button aria-label="Tiefschwarz" class="w-5 h-5 bg-[#171E19] ring-1 ring-offset-1 ring-primary focus:outline-none" onclick="switchCardColor('card2', 'black', 'Tiefschwarz')" title="Tiefschwarz" type="button"></button>
+<button aria-label="Forest Green" class="w-5 h-5 bg-[#183F30] hover:opacity-80 focus:outline-none" onclick="switchCardColor('card2', 'forest', 'Forest Green')" title="Forest Green" type="button"></button>
+<button aria-label="Slate Gray" class="w-5 h-5 bg-[#626960] hover:opacity-80 focus:outline-none" onclick="switchCardColor('card2', 'slate', 'Slate Gray')" title="Slate Gray" type="button"></button>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted text-right block mt-0.5" id="card2-color-label">Tiefschwarz</span>
+<!-- Size Quick Selector -->
+<div class="mt-3">
+<div class="flex items-center justify-between mb-1.5">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider">Größe</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Nur noch 2 Stück in M</span>
+</div>
+<div class="grid grid-cols-4 gap-1.5 size-group" data-target="card2">
+<button class="h-9 text-label-md font-label-md bg-surface-muted text-text-primary hover:bg-surface-container transition-colors" type="button">S</button>
+<button class="h-9 text-label-md font-label-md bg-primary text-on-primary font-bold" type="button">M</button>
+<button class="h-9 text-label-md font-label-md bg-surface-muted text-text-primary hover:bg-surface-container transition-colors" type="button">L</button>
+<button class="h-9 text-label-md font-label-md bg-surface-muted text-text-primary hover:bg-surface-container transition-colors" type="button">XL</button>
+</div>
+</div>
+<!-- Add to Cart CTA -->
+<button class="mt-3 w-full h-11 bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-brand-deep active:opacity-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+<span>Schnellkauf • 54,90 €</span>
+</button>
+</div>
+</article>
+<!-- Highlight Card 3 (CALIDA Peek) -->
+<article class="shrink-0 w-[82vw] snap-center bg-surface-container-lowest flex flex-col p-3 shadow-sm" data-card="hero-3">
+<div class="relative w-full aspect-[4/5] bg-surface-muted overflow-hidden mb-3">
+<img alt="CALIDA Natural Skin Boxer" class="w-full h-full object-cover transition-opacity duration-300" data-alt="High-end studio photography of Swiss luxury cotton boxers in slate grey, male atelier model posing thoughtfully, warm ambient light, architectural purity." id="card3-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB904qx2kcgXl2aj8OzEWEdvMpstSemvR94BPJ9yZ4bt3To6geLxiJ51ybr96GSdlsP4LtV6Ox46khY0ebueWF_9aPz_25YLDqB1DSwIu8ix1UIMyzmYbmrYYlzk6FZq6L-ej5cBoxGn9CjL3C02U02OQlvn4C_TsUAUESg0nDD02uFaQ7rm7fCHPp8SxhdQ-TO67KLaysQ-XYH4Vkgeuv9FE3y3xBXfABzaxRrVFizsf18EwvhJ3Tn"/>
+<div class="absolute top-2 left-2 bg-surface-muted text-text-primary text-label-sm font-label-sm px-2 py-0.5 uppercase tracking-wider font-semibold">
+            Swiss Pima
+          </div>
+<button aria-label="Auf die Merkliste" class="absolute top-2 right-2 w-8 h-8 bg-page-bg/80 backdrop-blur-sm flex items-center justify-center text-text-primary hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
+</button>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="flex justify-between items-baseline">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider font-semibold">CALIDA</span>
+<span class="font-price-md text-price-md text-primary font-bold">44,00 €</span>
+</div>
+<h3 class="font-title-md text-title-md text-text-primary mt-0.5">Natural Skin Pure Boxer</h3>
+<p class="font-body-sm text-body-sm text-text-muted line-clamp-1 mt-0.5">Gekämmte Supima-Baumwolle mit seidenweichem Komfortbund.</p>
+<div class="mt-3 pt-2.5 flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider">Farbe</span>
+<div class="flex items-center gap-2">
+<button aria-label="Slate Gray" class="w-5 h-5 bg-[#626960] ring-1 ring-offset-1 ring-primary focus:outline-none" onclick="switchCardColor('card3', 'slate', 'Slate Gray')" type="button"></button>
+<button aria-label="Forest Green" class="w-5 h-5 bg-[#183F30] hover:opacity-80 focus:outline-none" onclick="switchCardColor('card3', 'forest', 'Forest Green')" type="button"></button>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted text-right block mt-0.5" id="card3-color-label">Slate Gray</span>
+<div class="mt-3">
+<div class="flex items-center justify-between mb-1.5">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider">Größe</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Auf Lager</span>
+</div>
+<div class="grid grid-cols-4 gap-1.5 size-group" data-target="card3">
+<button class="h-9 text-label-md font-label-md bg-surface-muted text-text-primary hover:bg-surface-container transition-colors" type="button">S</button>
+<button class="h-9 text-label-md font-label-md bg-primary text-on-primary font-bold" type="button">M</button>
+<button class="h-9 text-label-md font-label-md bg-surface-muted text-text-primary hover:bg-surface-container transition-colors" type="button">L</button>
+<button class="h-9 text-label-md font-label-md bg-surface-muted text-text-primary hover:bg-surface-container transition-colors" type="button">XL</button>
+</div>
+</div>
+<button class="mt-3 w-full h-11 bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-brand-deep active:opacity-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+<span>Schnellkauf • 44,00 €</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+<!-- SECTION 2: Beliebte Schnittformen (Quick Category Filters) -->
+<section class="mt-space-lg px-gutter-mobile">
+<div class="flex items-center justify-between mb-2.5">
+<h2 class="font-headline-md text-headline-md text-text-primary">Beliebte Schnittformen</h2>
+<a class="font-label-sm text-label-sm text-primary uppercase tracking-wider font-semibold" href="#">Alle (6) →</a>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<!-- Pill 1 -->
+<button class="flex flex-col items-center justify-center p-3 bg-surface-muted hover:bg-surface-container transition-colors text-center" type="button">
+<span class="material-symbols-outlined text-[24px] text-primary mb-1">styler</span>
+<span class="font-label-md text-label-md text-text-primary uppercase tracking-wide">Minipants</span>
+<span class="font-label-sm text-label-sm text-text-muted mt-0.5">14 Modelle</span>
+</button>
+<!-- Pill 2 (Active state) -->
+<button class="flex flex-col items-center justify-center p-3 bg-primary text-on-primary text-center" type="button">
+<span class="material-symbols-outlined text-[24px] text-on-primary mb-1">checkroom</span>
+<span class="font-label-md text-label-md font-bold uppercase tracking-wide">Boxer</span>
+<span class="font-label-sm text-label-sm text-on-primary-container mt-0.5">8 Modelle</span>
+</button>
+<!-- Pill 3 -->
+<button class="flex flex-col items-center justify-center p-3 bg-surface-muted hover:bg-surface-container transition-colors text-center" type="button">
+<span class="material-symbols-outlined text-[24px] text-primary mb-1">loyalty</span>
+<span class="font-label-md text-label-md text-text-primary uppercase tracking-wide">Strings</span>
+<span class="font-label-sm text-label-sm text-text-muted mt-0.5">6 Modelle</span>
+</button>
+</div>
+</section>
+<!-- SECTION 3: Alle Artikel (2-Column Dense Grid) -->
+<section class="mt-space-lg px-gutter-mobile pb-space-xl">
+<div class="flex items-baseline justify-between mb-3">
+<div>
+<h2 class="font-headline-md text-headline-md text-text-primary">Alle Artikel</h2>
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider">Gefiltert nach: M • Forest Green</span>
+</div>
+<button class="text-label-sm font-label-sm text-text-muted uppercase tracking-wider flex items-center gap-1" type="button">
+<span>Kompakt</span>
+<span class="material-symbols-outlined text-[16px]">view_agenda</span>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Grid Item 1 -->
+<article class="bg-surface-container-lowest p-2 flex flex-col justify-between">
+<div>
+<div class="relative w-full aspect-[3/4] bg-surface-muted mb-2 overflow-hidden">
+<img alt="MANSTORE M101 Zinga String" class="w-full h-full object-cover" data-alt="Editorial look of MANSTORE M101 string body luxury male underwear in deep pine green tone on minimalist podium." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvv5ZcyKPJgC1JC2xu2L95njL0cMQVVPEYkage4G60mrsOZf0RlnZ6SdELYjuCoMuxYr1E8kcV_u-F-_7vMoSJ_cAyIXvvyCw6o5cgBxLaHI1u-VP0x1RhJrKTmRAUn-a2phld_KaH72txesFvVEK_LSts7j0Ro5StyvobN1rW9gG6FGrjUOPc_83aVvyfuAk7bwystMv1BkfCTRfbXT2coqm_9pLuFRG5lfj9be-mgsl9137wwwc1"/>
+<button aria-label="Merken" class="absolute top-1.5 right-1.5 w-6 h-6 bg-page-bg/75 flex items-center justify-center text-text-primary" type="button">
+<span class="material-symbols-outlined text-[14px]">bookmark_border</span>
+</button>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider block font-semibold">MANSTORE</span>
+<h3 class="font-title-md text-title-md text-text-primary truncate">M101 Micro String</h3>
+<span class="font-price-md text-price-md text-primary font-bold block mt-0.5">39,95 €</span>
+</div>
+<div class="mt-2 pt-2 flex items-center justify-between">
+<div class="flex items-center gap-1">
+<span class="w-2.5 h-2.5 bg-[#183F30] inline-block" title="Forest Green"></span>
+<span class="w-2.5 h-2.5 bg-[#171E19] inline-block" title="Black"></span>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted font-medium">Gr. M</span>
+</div>
+</article>
+<!-- Grid Item 2 -->
+<article class="bg-surface-container-lowest p-2 flex flex-col justify-between">
+<div>
+<div class="relative w-full aspect-[3/4] bg-surface-muted mb-2 overflow-hidden">
+<img alt="Olaf Benz BLU1200 Brief" class="w-full h-full object-cover" data-alt="Model photograph of Olaf Benz phantom brief in luxury dark slate hue, masculine styling, pure architectural light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCItSEPFd4mPnlYdmXablWIjG8cgCoFz12wKsskw17rbDPu9GmgmOFjA9M-loz5uRKTNFZ0g5D4H7_3Gl8Xcxtedk_SuUBfFrKSpv9YSpj4bfDUSssc69CxXCqWulcYccERHR1zBVtQgkAnUEkGgp_W1-lhrFOk6HlPVeIHCglzlmY3827f8LiwMaxxY3eBSZ9FxzGZwbVVMKaGKmximC3-8Z5CAZ2SORnZYBstpvOZWVMjaEAIg5r-"/>
+<button aria-label="Merken" class="absolute top-1.5 right-1.5 w-6 h-6 bg-page-bg/75 flex items-center justify-center text-text-primary" type="button">
+<span class="material-symbols-outlined text-[14px]">bookmark_border</span>
+</button>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider block font-semibold">Olaf Benz</span>
+<h3 class="font-title-md text-title-md text-text-primary truncate">BLU1200 Sport Brief</h3>
+<span class="font-price-md text-price-md text-primary font-bold block mt-0.5">42,50 €</span>
+</div>
+<div class="mt-2 pt-2 flex items-center justify-between">
+<div class="flex items-center gap-1">
+<span class="w-2.5 h-2.5 bg-[#183F30] inline-block" title="Forest"></span>
+<span class="w-2.5 h-2.5 bg-[#626960] inline-block" title="Slate"></span>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted font-medium">Gr. M</span>
+</div>
+</article>
+<!-- Grid Item 3 -->
+<article class="bg-surface-container-lowest p-2 flex flex-col justify-between">
+<div>
+<div class="relative w-full aspect-[3/4] bg-surface-muted mb-2 overflow-hidden">
+<img alt="CALIDA Relax Modal Shorts" class="w-full h-full object-cover" data-alt="High-end studio detail of CALIDA cotton modal boxer shorts in forest emerald green, clean natural folds, luxury atelier atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkD7lj-kVW9SD-sTsz0ASihZcl7OjE642T0-AuAKhvO1LDVoiv5tlHk4FUczDH8n5iAcXsAK1otxZ4piofUBdAnIgrF8sdFPsWwBzwuC8IylUePy2CZ_ATje2ESf_t9NocUZTmSsvFMY3Ns_0Oy9MYfPR4I16FdsL1uC7YEZJSOmBNHb0eonle6zcuxMKdfIQbOn-ulLmY0cym3OVUZrPLteZoghveFHZGgsaV8knpQNTf2wQcN5aW"/>
+<button aria-label="Merken" class="absolute top-1.5 right-1.5 w-6 h-6 bg-page-bg/75 flex items-center justify-center text-text-primary" type="button">
+<span class="material-symbols-outlined text-[14px]">bookmark_border</span>
+</button>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider block font-semibold">CALIDA</span>
+<h3 class="font-title-md text-title-md text-text-primary truncate">Relax Modal Shorts</h3>
+<span class="font-price-md text-price-md text-primary font-bold block mt-0.5">47,95 €</span>
+</div>
+<div class="mt-2 pt-2 flex items-center justify-between">
+<div class="flex items-center gap-1">
+<span class="w-2.5 h-2.5 bg-[#183F30] inline-block"></span>
+<span class="w-2.5 h-2.5 bg-[#DCDED5] inline-block"></span>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted font-medium">Gr. M</span>
+</div>
+</article>
+<!-- Grid Item 4 -->
+<article class="bg-surface-container-lowest p-2 flex flex-col justify-between">
+<div>
+<div class="relative w-full aspect-[3/4] bg-surface-muted mb-2 overflow-hidden">
+<img alt="MANSTORE M2100 Hipster" class="w-full h-full object-cover" data-alt="Studio shot of MANSTORE M2100 neon wire hipster pants, dark background with muted green ambient accent, high luxury fashion." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA24nAi-NtBgg3p7kfZb4-AXv88v1NPZaw0oMBe2-0jZzDf1jZD6vmTLzmpm1ZDU74zCThKjc2loRthQlT9ZOFShupJuLlRno5LbnPjGVInP04YyU7-XJtKXBDkAfJwyyCTKn0_ccqPMxa5FCWS_2H0zkLs3k1X1DRR4laPvYFsyW1eJuFrHNJHIJq2WXVOATtMEybBw2Dpauqqs842F1fIM5_7G5N-Ezc8ZVlppbneLI7G1VpL4zoX"/>
+<button aria-label="Merken" class="absolute top-1.5 right-1.5 w-6 h-6 bg-page-bg/75 flex items-center justify-center text-text-primary" type="button">
+<span class="material-symbols-outlined text-[14px]">bookmark_border</span>
+</button>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider block font-semibold">MANSTORE</span>
+<h3 class="font-title-md text-title-md text-text-primary truncate">M2100 Low Hipster</h3>
+<span class="font-price-md text-price-md text-primary font-bold block mt-0.5">52,00 €</span>
+</div>
+<div class="mt-2 pt-2 flex items-center justify-between">
+<div class="flex items-center gap-1">
+<span class="w-2.5 h-2.5 bg-[#183F30] inline-block"></span>
+<span class="w-2.5 h-2.5 bg-[#171E19] inline-block"></span>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted font-medium">Gr. M</span>
+</div>
+</article>
+</div>
+<!-- Editorial Assurance Badge -->
+<div class="mt-space-lg p-4 bg-surface-container flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[28px]">verified</span>
+<div>
+<span class="font-title-md text-title-md text-text-primary block">Atelier-Qualitätsgarantie</span>
+<p class="font-body-sm text-body-sm text-text-muted">Diskreter Expressversand • 100 Tage Umtauschrecht • Geprfüfte Originalware.</p>
+</div>
+</div>
+</section>
+<!-- FILTER BOTTOM DRAWER MODAL (Toggleable) -->
+<div class="fixed inset-0 z-50 bg-text-primary/60 backdrop-blur-sm hidden transition-opacity duration-300" id="filterDrawerBackdrop">
+<!-- Slide-Up Drawer Container -->
+<div class="absolute bottom-0 inset-x-0 bg-page-bg max-h-[88vh] flex flex-col transform translate-y-full transition-transform duration-300 ease-out shadow-2xl" id="filterDrawerContent">
+<!-- Grabber Bar & Header -->
+<div class="pt-3 pb-2 px-gutter-mobile flex flex-col items-center bg-page-bg shrink-0">
+<div class="w-10 h-1 bg-border-subtle mb-3"></div>
+<div class="w-full flex items-center justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary">Filter &amp; Sortierung</h2>
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider">3 aktive Auswahlen</span>
+</div>
+<button aria-label="Schließen" class="w-10 h-10 flex items-center justify-center text-text-primary hover:text-primary" id="closeFilterBtn" type="button">
+<span class="material-symbols-outlined text-[24px]">close</span>
+</button>
+</div>
+</div>
+<!-- Accordion Filter Body (Scrollable) -->
+<div class="overflow-y-auto px-gutter-mobile py-2 flex flex-col divide-y divide-border-subtle flex-grow">
+<!-- Accordion 1: Marke -->
+<details class="py-3.5 group" open="">
+<summary class="flex justify-between items-center cursor-pointer list-none font-title-md text-title-md text-text-primary">
+<span>Marke</span>
+<span class="material-symbols-outlined text-[20px] text-text-muted group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="pt-3 grid grid-cols-2 gap-2">
+<label class="flex items-center gap-2 p-2 bg-primary text-on-primary font-label-md text-label-md cursor-pointer">
+<input checked="" class="accent-on-primary" type="checkbox"/>
+<span>MANSTORE (14)</span>
+</label>
+<label class="flex items-center gap-2 p-2 bg-surface-muted text-text-primary font-label-md text-label-md cursor-pointer">
+<input class="accent-primary" type="checkbox"/>
+<span>Olaf Benz (7)</span>
+</label>
+<label class="flex items-center gap-2 p-2 bg-surface-muted text-text-primary font-label-md text-label-md cursor-pointer">
+<input class="accent-primary" type="checkbox"/>
+<span>CALIDA (3)</span>
+</label>
+</div>
+</details>
+<!-- Accordion 2: Gr&ouml;&szlig;e -->
+<details class="py-3.5 group" open="">
+<summary class="flex justify-between items-center cursor-pointer list-none font-title-md text-title-md text-text-primary">
+<span>Größe</span>
+<span class="material-symbols-outlined text-[20px] text-text-muted group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="pt-3 grid grid-cols-4 gap-2">
+<button class="h-10 bg-surface-muted text-text-primary font-label-md text-label-md hover:bg-surface-container" type="button">S</button>
+<button class="h-10 bg-primary text-on-primary font-label-md text-label-md font-bold" type="button">M</button>
+<button class="h-10 bg-surface-muted text-text-primary font-label-md text-label-md hover:bg-surface-container" type="button">L</button>
+<button class="h-10 bg-surface-muted text-text-primary font-label-md text-label-md hover:bg-surface-container" type="button">XL</button>
+</div>
+</details>
+<!-- Accordion 3: Farbe -->
+<details class="py-3.5 group" open="">
+<summary class="flex justify-between items-center cursor-pointer list-none font-title-md text-title-md text-text-primary">
+<span>Farbe</span>
+<span class="material-symbols-outlined text-[20px] text-text-muted group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="pt-3 flex flex-wrap gap-2">
+<button class="flex items-center gap-2 px-3 py-1.5 bg-primary text-on-primary font-label-md text-label-md" type="button">
+<span class="w-3.5 h-3.5 bg-[#183F30] border border-white inline-block"></span>
+<span>Forest Green</span>
+</button>
+<button class="flex items-center gap-2 px-3 py-1.5 bg-surface-muted text-text-primary font-label-md text-label-md" type="button">
+<span class="w-3.5 h-3.5 bg-[#171E19] inline-block"></span>
+<span>Tiefschwarz</span>
+</button>
+<button class="flex items-center gap-2 px-3 py-1.5 bg-surface-muted text-text-primary font-label-md text-label-md" type="button">
+<span class="w-3.5 h-3.5 bg-[#626960] inline-block"></span>
+<span>Slate Gray</span>
+</button>
+<button class="flex items-center gap-2 px-3 py-1.5 bg-surface-muted text-text-primary font-label-md text-label-md" type="button">
+<span class="w-3.5 h-3.5 bg-[#FFFFFF] border border-border-subtle inline-block"></span>
+<span>Reinweiß</span>
+</button>
+</div>
+</details>
+<!-- Accordion 4: Schnittform -->
+<details class="py-3.5 group">
+<summary class="flex justify-between items-center cursor-pointer list-none font-title-md text-title-md text-text-primary">
+<span>Schnittform</span>
+<span class="material-symbols-outlined text-[20px] text-text-muted group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="pt-3 grid grid-cols-2 gap-2 text-label-md font-label-md">
+<label class="flex items-center gap-2 p-2 bg-surface-muted"><input class="accent-primary" type="checkbox"/> Minipants</label>
+<label class="flex items-center gap-2 p-2 bg-surface-muted"><input class="accent-primary" type="checkbox"/> Strings</label>
+<label class="flex items-center gap-2 p-2 bg-surface-muted"><input class="accent-primary" type="checkbox"/> Boxer Shorts</label>
+<label class="flex items-center gap-2 p-2 bg-surface-muted"><input class="accent-primary" type="checkbox"/> Sport Briefs</label>
+</div>
+</details>
+<!-- Accordion 5: Material & Haptik -->
+<details class="py-3.5 group">
+<summary class="flex justify-between items-center cursor-pointer list-none font-title-md text-title-md text-text-primary">
+<span>Material &amp; Haptik</span>
+<span class="material-symbols-outlined text-[20px] text-text-muted group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="pt-3 flex flex-wrap gap-2 text-label-sm font-label-sm">
+<button class="px-3 py-1.5 bg-surface-muted" type="button">Supima-Baumwolle</button>
+<button class="px-3 py-1.5 bg-surface-muted" type="button">Mikrofaser Sensitive</button>
+<button class="px-3 py-1.5 bg-surface-muted" type="button">Seiden-Viskose</button>
+</div>
+</details>
+<!-- Accordion 6: Preisrahmen -->
+<details class="py-3.5 group">
+<summary class="flex justify-between items-center cursor-pointer list-none font-title-md text-title-md text-text-primary">
+<span>Preisrahmen</span>
+<span class="material-symbols-outlined text-[20px] text-text-muted group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="pt-3 pb-1">
+<div class="flex justify-between font-label-sm text-label-sm text-text-muted mb-2">
+<span>30 €</span>
+<span class="text-primary font-bold">Bis 60 €</span>
+<span>120 €</span>
+</div>
+<input class="w-full accent-primary" max="120" min="30" type="range" value="60"/>
+</div>
+</details>
+</div>
+<!-- Sticky Apply Action Bar -->
+<div class="p-gutter-mobile bg-page-bg shrink-0 shadow-inner">
+<button class="w-full h-12 bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider flex items-center justify-between px-4 hover:bg-brand-deep active:opacity-95 transition-all" id="applyFilterBtn" type="button">
+<span>Filter anwenden</span>
+<span class="bg-on-primary text-primary px-2 py-0.5 text-label-sm font-bold">14 Artikel</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Filter Drawer Behavior
+  const openFilterBtn = document.getElementById('openFilterBtn');
+  const closeFilterBtn = document.getElementById('closeFilterBtn');
+  const applyFilterBtn = document.getElementById('applyFilterBtn');
+  const filterDrawerBackdrop = document.getElementById('filterDrawerBackdrop');
+  const filterDrawerContent = document.getElementById('filterDrawerContent');
+
+  function openDrawer() {
+    filterDrawerBackdrop.classList.remove('hidden');
+    // slight delay for slide up transition
+    setTimeout(() => {
+      filterDrawerContent.classList.remove('translate-y-full');
+    }, 10);
+  }
+
+  function closeDrawer() {
+    filterDrawerContent.classList.add('translate-y-full');
+    setTimeout(() => {
+      filterDrawerBackdrop.classList.add('hidden');
+    }, 300);
+  }
+
+  if (openFilterBtn) openFilterBtn.addEventListener('click', openDrawer);
+  if (closeFilterBtn) closeFilterBtn.addEventListener('click', closeDrawer);
+  if (applyFilterBtn) applyFilterBtn.addEventListener('click', closeDrawer);
+
+  if (filterDrawerBackdrop) {
+    filterDrawerBackdrop.addEventListener('click', (e) => {
+      if (e.target === filterDrawerBackdrop) closeDrawer();
+    });
+  }
+
+  // Color Swatch Interactive Preview Switcher
+  function switchCardColor(cardPrefix, colorKey, colorName) {
+    const label = document.getElementById(`${cardPrefix}-color-label`);
+    const img = document.getElementById(`${cardPrefix}-img`);
+    if (label) label.textContent = colorName;
+    
+    // Smooth opacity pulse indicating visual photo change
+    if (img) {
+      img.classList.add('opacity-40');
+      setTimeout(() => {
+        img.classList.remove('opacity-40');
+      }, 200);
+    }
+  }
+
+  // Size Selector Toggle Interactions within Cards
+  document.querySelectorAll('.size-group').forEach(group => {
+    group.querySelectorAll('button:not([disabled])').forEach(btn => {
+      btn.addEventListener('click', () => {
+        group.querySelectorAll('button').forEach(b => {
+          b.classList.remove('bg-primary', 'text-on-primary', 'font-bold');
+          b.classList.add('bg-surface-muted', 'text-text-primary');
+        });
+        btn.classList.remove('bg-surface-muted', 'text-text-primary');
+        btn.classList.add('bg-primary', 'text-on-primary', 'font-bold');
+      });
+    });
+  });
+
+  // Sort label cycle micro-interaction
+  const sortToggleBtn = document.getElementById('sortToggleBtn');
+  const sortLabel = document.getElementById('currentSortLabel');
+  const sortModes = ['Beliebtheit', 'Preis &uarr;', 'Neuheiten', 'Exklusiv'];
+  let sortIndex = 0;
+  if (sortToggleBtn && sortLabel) {
+    sortToggleBtn.addEventListener('click', () => {
+      sortIndex = (sortIndex + 1) % sortModes.length;
+      sortLabel.innerHTML = sortModes[sortIndex];
+    });
+  }
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-page-bg/95 backdrop-blur-xl shadow-[0_-1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-semibold"><div class="flex justify-around items-center h-16 px-gutter-mobile"><a class="flex flex-col items-center justify-center gap-0.5 w-14 h-12 text-text-muted hover:text-primary transition-colors" data-path="home-boutique" href="#"><span class="material-symbols-outlined text-[22px]">storefront</span><span class="font-label-sm text-label-sm tracking-wider uppercase">Atelier</span></a><a aria-current="page" class="flex flex-col items-center justify-center gap-0.5 w-14 h-12 transition-colors text-primary font-semibold" data-path="collections-catalog" href="#"><span class="material-symbols-outlined text-[22px]">grid_view</span><span class="font-label-sm text-label-sm tracking-wider uppercase">Katalog</span></a><a class="flex flex-col items-center justify-center gap-0.5 w-14 h-12 text-text-muted hover:text-primary transition-colors" data-path="search-filter" href="#"><span class="material-symbols-outlined text-[22px]">manage_search</span><span class="font-label-sm text-label-sm tracking-wider uppercase">Suche</span></a><a class="flex flex-col items-center justify-center gap-0.5 w-14 h-12 text-text-muted hover:text-primary transition-colors" data-path="wishlist-curation" href="#"><span class="material-symbols-outlined text-[22px]">bookmark_border</span><span class="font-label-sm text-label-sm tracking-wider uppercase">Merkliste</span></a><a class="flex flex-col items-center justify-center gap-0.5 w-14 h-12 text-text-muted hover:text-primary transition-colors" data-path="customer-account" href="#"><span class="material-symbols-outlined text-[22px]">person_outline</span><span class="font-label-sm text-label-sm tracking-wider uppercase">Konto</span></a></div></nav></body></html>

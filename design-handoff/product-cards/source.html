@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+
+<html class="h-full scroll-smooth" lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Männermasche | Herrenunterwäsche &amp; Bademode</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              page: '#F8F8F3',
+              surface: '#F1F1EB',
+              surfaceCard: '#EBEBE3',
+              dark: '#171E19',
+              muted: '#626960',
+              accent: '#183F30',
+              accentHover: '#133327',
+              border: '#DCDED5'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Core Page Styles -->
+<style data-purpose="base-styling">
+    body {
+      background-color: #F8F8F3;
+      color: #171E19;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    ::selection {
+      background-color: #183F30;
+      color: #F8F8F3;
+    }
+  </style>
+<!-- Component & Visual Effect Styles -->
+<style data-purpose="hero-layout">
+    .hero-blend-gradient {
+      background: linear-gradient(90deg, #F5F5EE 0%, #F5F5EE 45%, rgba(245, 245, 238, 0.94) 52%, rgba(245, 245, 238, 0.4) 68%, rgba(245, 245, 238, 0) 80%);
+    }
+    @media (max-width: 1024px) {
+      .hero-blend-gradient {
+        background: linear-gradient(180deg, #F5F5EE 0%, rgba(245, 245, 238, 0.85) 65%, rgba(245, 245, 238, 0.3) 100%);
+      }
+    }
+  </style>
+</head>
+<body class="min-h-full flex flex-col bg-brand-page text-brand-dark">
+<!-- BEGIN: TopBrandBar -->
+<aside class="w-full bg-[#183F30] py-2 text-center text-xs tracking-widest text-[#E3E8E4] font-medium uppercase select-none" data-purpose="top-announcement-bar">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<span>MANSTORE</span>
+<span class="mx-3 opacity-60">·</span>
+<span>Olaf Benz</span>
+<span class="mx-3 opacity-60">·</span>
+<span>CALIDA</span>
+</div>
+</aside>
+<!-- END: TopBrandBar -->
+<!-- BEGIN: MainHeader -->
+<header class="w-full border-b border-brand-border/60 bg-brand-page/95 backdrop-blur-md sticky top-0 z-40 transition-colors" data-purpose="primary-header">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<!-- Logo Branding Container -->
+<a aria-label="Männermasche Startseite" class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-lg p-1" href="#">
+<!-- SVG Monogram Logo: MM icon -->
+<svg class="w-10 h-10 text-[#183F30] transition-transform duration-200 group-hover:scale-105" fill="none" viewbox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 34V10L14 26L24 10V34" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"></path>
+<path d="M20 34V10L30 26L40 10V34" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"></path>
+</svg>
+<div class="flex flex-col text-left">
+<span class="text-xl font-bold tracking-tight text-brand-dark leading-tight group-hover:text-brand-accent transition-colors">Männermasche</span>
+<span class="text-[11px] font-normal text-brand-muted tracking-wide">Herrenunterwäsche &amp; Bademode</span>
+</div>
+</a>
+<!-- Center Primary Navigation -->
+<nav aria-label="Hauptnavigation" class="hidden md:flex items-center space-x-8 text-sm font-medium text-brand-dark" data-purpose="main-navigation">
+<a class="hover:text-brand-accent transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="#neuheiten">Neuheiten</a>
+<a class="hover:text-brand-accent transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="#unterwaesche">Unterwäsche</a>
+<a class="hover:text-brand-accent transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="#bademode">Bademode</a>
+<a class="hover:text-brand-accent transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="#marken">Marken</a>
+<a class="text-red-700 hover:text-red-800 transition-colors py-1" href="#sale">Sale</a>
+</nav>
+<!-- Right Utility Actions -->
+<div class="flex items-center space-x-4 sm:space-x-5 text-brand-dark" data-purpose="utility-actions">
+<!-- Search Action -->
+<button aria-label="Suche öffnen" class="p-2 text-brand-dark hover:text-brand-accent transition-colors rounded-full hover:bg-brand-surface focus:outline-none focus:ring-2 focus:ring-brand-accent" type="button">
+<svg class="w-5 h-5 stroke-[1.8]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- User Profile Action -->
+<button aria-label="Mein Konto" class="p-2 text-brand-dark hover:text-brand-accent transition-colors rounded-full hover:bg-brand-surface focus:outline-none focus:ring-2 focus:ring-brand-accent" type="button">
+<svg class="w-5 h-5 stroke-[1.8]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Wishlist Action -->
+<button aria-label="Merkzettel" class="p-2 text-brand-dark hover:text-brand-accent transition-colors rounded-full hover:bg-brand-surface focus:outline-none focus:ring-2 focus:ring-brand-accent" type="button">
+<svg class="w-5 h-5 stroke-[1.8]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Shopping Cart Action with Badge -->
+<button aria-label="Warenkorb" class="p-2 text-brand-dark hover:text-brand-accent transition-colors rounded-full hover:bg-brand-surface relative focus:outline-none focus:ring-2 focus:ring-brand-accent" type="button">
+<svg class="w-5 h-5 stroke-[1.8]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25c-.67 0-1.189-.578-1.119-1.243l1.263-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="absolute 1 top-1 right-1 w-2 h-2 bg-brand-accent rounded-full ring-2 ring-brand-page"></span>
+</button>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<main class="flex-grow">
+<!-- BEGIN: HeroSection -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-12" data-purpose="hero-banner">
+<!-- Rounded Hero Card matching Homepage reference -->
+<div class="relative bg-[#F5F5EE] rounded-3xl overflow-hidden min-h-[460px] lg:min-h-[500px] border border-brand-border/40 flex items-center">
+<!-- Background Hero Image Container (Right aligned) -->
+<div class="absolute inset-0 w-full h-full flex justify-end">
+<img alt="Männermasche Kampagnenmotiv - Moderner Mann in bequemer Designer-Unterwäsche" class="w-full lg:w-[62%] h-full object-cover object-center lg:object-top" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFpvVlR8qokqkZPIw9br4LFOY0_F-grKpw1Aa-2Op9f15ED_Aqykk34auNUmb3DxyY1Kl_kVYQ7huVjY1tYJPpUGH00T_RGOToiVQDod_RIlCfE_9IY4Ue3pBCqwb6fhmTjjnPIlpWoLwO9m75zaLigDBu6Q3GW5lNqCyT9sqOkc5nS0DLgPNihWAu4pjjz9XH5PrlXUTWp0ixOrohp4_iRpTgByfgXiTeNi5Lv6HHuLpESLbg03zwIL_tqhQ8WywPZQ"/>
+</div>
+<!-- Left Gradient Mask for Seamless Text Readability -->
+<div class="absolute inset-0 hero-blend-gradient pointer-events-none"></div>
+<!-- Hero Content Overlay -->
+<div class="relative z-10 w-full lg:w-1/2 p-8 sm:p-12 lg:p-16 flex flex-col justify-center items-start">
+<h1 class="text-4xl sm:text-5xl lg:text-[54px] font-bold text-brand-dark tracking-tight leading-[1.12] mb-5">
+            Dein Stil.<br/>Deine Underwear.
+          </h1>
+<p class="text-brand-muted text-base sm:text-lg mb-8 max-w-md font-normal leading-relaxed">
+            Entdecke besondere Styles von MANSTORE, Olaf Benz und CALIDA.
+          </p>
+<a class="inline-flex items-center justify-center px-8 py-3.5 bg-[#183F30] text-white text-sm font-medium rounded-xl hover:bg-[#122e23] active:scale-[0.99] transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent" href="#kategorien">
+            Jetzt shoppen
+          </a>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: CategoryNavigation -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6" data-purpose="category-showcase" id="kategorien">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-2xl font-bold text-brand-dark tracking-tight">Unsere Kategorien</h2>
+</div>
+<!-- 4-Column Category Grid -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+<!-- Category Card 1: Boxershorts -->
+<a class="group flex flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-2xl" href="#boxershorts">
+<div class="w-full aspect-[4/3] rounded-2xl bg-[#EBEBE3] overflow-hidden flex items-center justify-center p-4 transition-transform duration-300 group-hover:scale-[1.02]">
+<img alt="Boxershorts Kollektion" class="w-full h-full object-cover rounded-xl mix-blend-multiply opacity-90 transition-opacity group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJsHfQcvrWjMpLDFDxGKUkTFj3AE4W1-J6tVdVWriVx20pH1WvSHw56rrlaIqx1O1K58F-W79PTqMXyQ656UL8NcbWMhq9bjNZGNRgSiT8ht_tgSrcMFTYuEI5En0ebFX_Ot8oWc3QA7LMVGGuSIPykOtLSBs3wu0OpW-jVfwHDbmDdUeAa_HmwuvSkr3FuQy_4uyUlqWkJIK3hrIbEcz8emWKNc2qbd9S1XmkPpTdv3PDJ7PqHPak"/>
+</div>
+<div class="mt-3 flex items-center text-sm font-semibold text-brand-dark group-hover:text-brand-accent transition-colors">
+<span>Boxershorts</span>
+<span class="ml-1.5 transition-transform duration-200 group-hover:translate-x-1">→</span>
+</div>
+</a>
+<!-- Category Card 2: Slips & Pants -->
+<a class="group flex flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-2xl" href="#slips-pants">
+<div class="w-full aspect-[4/3] rounded-2xl bg-[#EBEBE3] overflow-hidden flex items-center justify-center p-4 transition-transform duration-300 group-hover:scale-[1.02]">
+<img alt="Slips und Pants Kollektion" class="w-full h-full object-cover rounded-xl mix-blend-multiply opacity-90 transition-opacity group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXmI80C8bE-e6-hwIc1n9nN1_QuT7XXwQxF8NkhnafbDpm2QP-MSAxR1FlzdakHFujUXbyaFSgF53FAKHUdS-vbtYc0WYi2b1h5V81brpbU7CdmSFuVO0hL8uPBWCq6-NI7i0rbHRviHL7cNsN3IiaJ5Ef63OT4wva8ClxUgsiA1kxkrMtX7qgygpiArWYSFrj6fS3htDbmt4dmSPFM0czZBI8UKB0ghka6aZPKvSngeobX5MuDM4V"/>
+</div>
+<div class="mt-3 flex items-center text-sm font-semibold text-brand-dark group-hover:text-brand-accent transition-colors">
+<span>Slips &amp; Pants</span>
+<span class="ml-1.5 transition-transform duration-200 group-hover:translate-x-1">→</span>
+</div>
+</a>
+<!-- Category Card 3: Strings -->
+<a class="group flex flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-2xl" href="#strings">
+<div class="w-full aspect-[4/3] rounded-2xl bg-[#EBEBE3] overflow-hidden flex items-center justify-center p-4 transition-transform duration-300 group-hover:scale-[1.02]">
+<img alt="Herren Strings Kollektion" class="w-full h-full object-cover rounded-xl mix-blend-multiply opacity-90 transition-opacity group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdmcDxv8-U5m6OEZDyPKohaVo-nXWZJJ6iQ5R74mcNPbfh6FcjT_zIOLPmXgwGVF60vuj6zs5kzBC9MbKs2-qzIyxVAmCGYo7EeRbg0UAGhl4rN5BUMCRpWUSZh9tClAaNdOrdCSmKCgV1jtVSHr4ho4LhYMJ6R7I74mCfDCCJFLgtS4flaFQUaqIypZINcRMlxn0KK6MUu0S84fBNpCyAgbIMpPaz8uO3gfjCr7D0Ucf0wGqO6eyH"/>
+</div>
+<div class="mt-3 flex items-center text-sm font-semibold text-brand-dark group-hover:text-brand-accent transition-colors">
+<span>Strings</span>
+<span class="ml-1.5 transition-transform duration-200 group-hover:translate-x-1">→</span>
+</div>
+</a>
+<!-- Category Card 4: Bodies -->
+<a class="group flex flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-2xl" href="#bodies">
+<div class="w-full aspect-[4/3] rounded-2xl bg-[#EBEBE3] overflow-hidden flex items-center justify-center p-4 transition-transform duration-300 group-hover:scale-[1.02]">
+<img alt="Bodies Kollektion" class="w-full h-full object-cover rounded-xl mix-blend-multiply opacity-90 transition-opacity group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTzy7AS5a4QJ-4B-8eAgrogo14OI01U61-1reuLHtohkamDwubxz5K_LdFFV2NlQupGg4x2J-NoQ1UtuQCBopXF3MvBL442UMlJG3c8Zy0xO5hjSc9nLF0E5EvlVmjMQWqesCweed30b3d8sLY30SHYQDBV5L2hc4D61et6klwVpky0Xt1vf2XPAOa1pLHrvRpYURir-blOAt-2ovUfN06gsrqeykGFeU1uyUs6H3cORow1Ts15fFM"/>
+</div>
+<div class="mt-3 flex items-center text-sm font-semibold text-brand-dark group-hover:text-brand-accent transition-colors">
+<span>Bodies</span>
+<span class="ml-1.5 transition-transform duration-200 group-hover:translate-x-1">→</span>
+</div>
+</a>
+</div>
+</section>
+<!-- END: CategoryNavigation -->
+<!-- BEGIN: CuratedProducts -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10" data-purpose="curated-products-grid"><!-- Section Header with Quick Buy Feature highlight -->
+<div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-4 border-b border-brand-border/60 gap-4">
+<div>
+<div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-[#183F30]/10 text-[#183F30] text-xs font-semibold tracking-wide uppercase mb-2">
+<span class="w-1.5 h-1.5 rounded-full bg-[#183F30] animate-pulse"></span>
+      Direkt bestellen · Express-Checkout
+    </div>
+<h2 class="text-2xl sm:text-3xl font-bold text-brand-dark tracking-tight">Kuratierte Highlights &amp; Schnellkauf</h2>
+<p class="text-sm text-brand-muted mt-1">Wähle Größe und Farbe direkt in der Übersicht – ohne Umwege zum Warenkorb.</p>
+</div>
+<div class="flex items-center gap-3 text-xs text-brand-muted">
+<span class="inline-flex items-center gap-1.5">
+<svg class="w-4 h-4 text-[#183F30]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+      Sofort lieferbar
+    </span>
+<span class="text-neutral-300">•</span>
+<span class="inline-flex items-center gap-1.5">
+<svg class="w-4 h-4 text-[#183F30]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+      Neutral verpackt
+    </span>
+</div>
+</div>
+<!-- 4-Column Enhanced Interactive Product Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="quick-buy-grid">
+<!-- Card 1: Premier Showcase Product (MANSTORE M107 Deep V Boxer) with expanded/interactive Quick Buy panel -->
+<article class="group relative flex flex-col bg-white rounded-2xl border border-brand-border/70 p-4 transition-all duration-300 hover:shadow-xl hover:border-[#183F30]/40 overflow-hidden" data-base-price="49,95 €" data-product-id="p1">
+<!-- Badge & Wishlist Action Bar -->
+<div class="absolute top-6 left-6 right-6 z-20 flex items-center justify-between pointer-events-none">
+<span class="px-2.5 py-1 rounded-md bg-[#183F30] text-white text-[11px] font-semibold tracking-wider uppercase shadow-sm pointer-events-auto">
+        Bestseller · Schnellkauf
+      </span>
+<button aria-label="Auf den Merkzettel" class="wishlist-btn p-2 rounded-full bg-white/90 backdrop-blur-md text-brand-dark hover:text-red-700 hover:bg-white shadow-sm transition-all pointer-events-auto active:scale-95 focus:outline-none" onclick="toggleWishlist(this)">
+<svg class="w-4 h-4 stroke-[2] transition-colors" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Image Thumbnail Container with Quick View Hover Trigger -->
+<div class="relative w-full aspect-[4/3] rounded-xl bg-[#EBEBE3] overflow-hidden flex items-center justify-center p-3 mb-4 group/image">
+<img alt="MANSTORE M107 Deep V Boxer" class="w-full h-full object-cover rounded-lg mix-blend-multiply opacity-95 transition-all duration-300 group-hover/image:scale-105" id="p1-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJsHfQcvrWjMpLDFDxGKUkTFj3AE4W1-J6tVdVWriVx20pH1WvSHw56rrlaIqx1O1K58F-W79PTqMXyQ656UL8NcbWMhq9bjNZGNRgSiT8ht_tgSrcMFTYuEI5En0ebFX_Ot8oWc3QA7LMVGGuSIPykOtLSBs3wu0OpW-jVfwHDbmDdUeAa_HmwuvSkr3FuQy_4uyUlqWkJIK3hrIbEcz8emWKNc2qbd9S1XmkPpTdv3PDJ7PqHPak"/>
+<!-- Floating Quick Look trigger -->
+<button class="absolute bottom-3 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 px-3.5 py-1.5 rounded-full bg-brand-dark/85 backdrop-blur-sm text-white text-xs font-medium tracking-wide flex items-center gap-1.5 shadow-md hover:bg-brand-dark" onclick="triggerQuickView('MANSTORE M107 Deep V Boxer', '49,95 €')" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+        Schnellansicht
+      </button>
+</div>
+<!-- Brand & Title & Live Price -->
+<div class="flex items-start justify-between gap-2 mb-2">
+<div>
+<span class="text-[11px] uppercase tracking-widest text-brand-muted font-bold">MANSTORE</span>
+<h3 class="text-sm font-semibold text-brand-dark leading-snug hover:text-brand-accent transition-colors">M107 Deep V Boxer</h3>
+</div>
+<div class="text-right">
+<div class="text-sm font-bold text-brand-dark">49,95 €</div>
+<span class="text-[10px] text-brand-muted">inkl. MwSt.</span>
+</div>
+</div>
+<!-- Color Switcher Swatches with Live Label -->
+<div class="mb-3">
+<div class="flex items-center justify-between text-xs mb-1.5">
+<span class="text-brand-muted text-[11px]">Farbe:</span>
+<span class="font-medium text-brand-dark text-[11px]" id="p1-color-label">Forest Green</span>
+</div>
+<div aria-label="Farbe auswählen" class="flex items-center space-x-2" role="radiogroup">
+<button aria-checked="true" class="color-swatch-btn w-5 h-5 rounded-full bg-[#183F30] ring-2 ring-offset-2 ring-[#183F30] transition-all hover:scale-110 focus:outline-none" onclick="selectColor('p1', 'Forest Green', this)" role="radio" title="Forest Green" type="button"></button>
+<button aria-checked="false" class="color-swatch-btn w-5 h-5 rounded-full bg-neutral-900 border border-neutral-400/40 transition-all hover:scale-110 focus:outline-none" onclick="selectColor('p1', 'Schwarz', this)" role="radio" title="Schwarz" type="button"></button>
+<button aria-checked="false" class="color-swatch-btn w-5 h-5 rounded-full bg-[#3A3F47] border border-neutral-400/40 transition-all hover:scale-110 focus:outline-none" onclick="selectColor('p1', 'Anthrazit', this)" role="radio" title="Anthrazit" type="button"></button>
+<button aria-checked="false" class="color-swatch-btn w-5 h-5 rounded-full bg-[#5A2A38] border border-neutral-400/40 transition-all hover:scale-110 focus:outline-none" onclick="selectColor('p1', 'Bordeaux', this)" role="radio" title="Bordeaux" type="button"></button>
+</div>
+</div>
+<!-- Interactive Quick Size Selector Pills -->
+<div class="mb-3.5">
+<div class="flex items-center justify-between text-xs mb-1.5">
+<span class="text-brand-muted text-[11px]">Größe:</span>
+<span class="text-[11px] text-[#183F30] font-medium flex items-center gap-1" id="p1-stock-status">
+<span class="w-1.5 h-1.5 rounded-full bg-[#183F30]"></span>
+          Auf Lager (M)
+        </span>
+</div>
+<div aria-label="Größe wählen" class="grid grid-cols-4 gap-1.5" role="radiogroup">
+<button aria-checked="false" class="size-btn py-1 text-xs font-semibold rounded-md border border-brand-border/80 text-brand-dark bg-brand-page/50 hover:border-brand-dark transition-all text-center focus:outline-none" onclick="selectSize('p1', 'S', 'Nur noch 2 verfügbar', this)" role="radio" type="button">
+          S
+        </button>
+<button aria-checked="true" class="size-btn active py-1 text-xs font-semibold rounded-md border border-[#183F30] bg-[#183F30] text-white shadow-sm transition-all text-center focus:outline-none" onclick="selectSize('p1', 'M', 'Auf Lager (M)', this)" role="radio" type="button">
+          M
+        </button>
+<button aria-checked="false" class="size-btn py-1 text-xs font-semibold rounded-md border border-brand-border/80 text-brand-dark bg-brand-page/50 hover:border-brand-dark transition-all text-center focus:outline-none" onclick="selectSize('p1', 'L', 'Auf Lager (L)', this)" role="radio" type="button">
+          L
+        </button>
+<button aria-checked="false" class="size-btn py-1 text-xs font-semibold rounded-md border border-brand-border/80 text-brand-dark bg-brand-page/50 hover:border-brand-dark transition-all text-center focus:outline-none" onclick="selectSize('p1', 'XL', 'Lieferbar in 2-3 Tagen', this)" role="radio" type="button">
+          XL
+        </button>
+</div>
+</div>
+<!-- Quick Add to Cart Button with Instant Interactive Feedback -->
+<div class="mt-auto pt-2">
+<button class="w-full py-2.5 px-4 rounded-xl bg-[#183F30] text-white text-xs font-semibold flex items-center justify-center gap-2 hover:bg-[#122e23] active:scale-[0.98] transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-[#183F30]" id="p1-add-btn" onclick="quickAddToCart('p1', 'MANSTORE M107 Deep V Boxer', '49,95 €')" type="button">
+<svg class="w-4 h-4 stroke-[2]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25c-.67 0-1.189-.578-1.119-1.243l1.263-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Schnellkauf · 49,95 €</span>
+</button>
+</div>
+</article>
+<!-- Card 2: Olaf Benz mini-pant with Interactive Quick Buy -->
+<article class="group relative flex flex-col bg-white rounded-2xl border border-brand-border/70 p-4 transition-all duration-300 hover:shadow-xl hover:border-[#183F30]/40 overflow-hidden" data-base-price="44,90 €" data-product-id="p2">
+<div class="absolute top-6 left-6 right-6 z-20 flex items-center justify-between pointer-events-none">
+<span class="px-2.5 py-1 rounded-md bg-[#2B3A42] text-white text-[11px] font-semibold tracking-wider uppercase shadow-sm pointer-events-auto">
+        Neuheit
+      </span>
+<button aria-label="Auf den Merkzettel" class="wishlist-btn p-2 rounded-full bg-white/90 backdrop-blur-md text-brand-dark hover:text-red-700 hover:bg-white shadow-sm transition-all pointer-events-auto active:scale-95 focus:outline-none" onclick="toggleWishlist(this)">
+<svg class="w-4 h-4 stroke-[2] transition-colors" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<div class="relative w-full aspect-[4/3] rounded-xl bg-[#EBEBE3] overflow-hidden flex items-center justify-center p-3 mb-4 group/image">
+<img alt="Olaf Benz mini-pant" class="w-full h-full object-cover rounded-lg mix-blend-multiply opacity-95 transition-all duration-300 group-hover/image:scale-105" id="p2-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXmI80C8bE-e6-hwIc1n9nN1_QuT7XXwQxF8NkhnafbDpm2QP-MSAxR1FlzdakHFujUXbyaFSgF53FAKHUdS-vbtYc0WYi2b1h5V81brpbU7CdmSFuVO0hL8uPBWCq6-NI7i0rbHRviHL7cNsN3IiaJ5Ef63OT4wva8ClxUgsiA1kxkrMtX7qgygpiArWYSFrj6fS3htDbmt4dmSPFM0czZBI8UKB0ghka6aZPKvSngeobX5MuDM4V"/>
+<button class="absolute bottom-3 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 px-3.5 py-1.5 rounded-full bg-brand-dark/85 backdrop-blur-sm text-white text-xs font-medium tracking-wide flex items-center gap-1.5 shadow-md hover:bg-brand-dark" onclick="triggerQuickView('Olaf Benz RED 2004 Mini-Pant', '44,90 €')" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+        Schnellansicht
+      </button>
+</div>
+<div class="flex items-start justify-between gap-2 mb-2">
+<div>
+<span class="text-[11px] uppercase tracking-widest text-brand-muted font-bold">Olaf Benz</span>
+<h3 class="text-sm font-semibold text-brand-dark leading-snug hover:text-brand-accent transition-colors">RED 2004 Mini-Pant</h3>
+</div>
+<div class="text-right">
+<div class="text-sm font-bold text-brand-dark">44,90 €</div>
+<span class="text-[10px] text-brand-muted">inkl. MwSt.</span>
+</div>
+</div>
+<div class="mb-3">
+<div class="flex items-center justify-between text-xs mb-1.5">
+<span class="text-brand-muted text-[11px]">Farbe:</span>
+<span class="font-medium text-brand-dark text-[11px]" id="p2-color-label">Night Navy</span>
+</div>
+<div aria-label="Farbe auswählen" class="flex items-center space-x-2" role="radiogroup">
+<button aria-checked="true" class="color-swatch-btn w-5 h-5 rounded-full bg-[#1A2634] ring-2 ring-offset-2 ring-[#1A2634] transition-all hover:scale-110 focus:outline-none" onclick="selectColor('p2', 'Night Navy', this)" role="radio" title="Night Navy" type="button"></button>
+<button aria-checked="false" class="color-swatch-btn w-5 h-5 rounded-full bg-[#3A3F47] border border-neutral-400/40 transition-all hover:scale-110 focus:outline-none" onclick="selectColor('p2', 'Graphit', this)" role="radio" title="Graphit" type="button"></button>
+<button aria-checked="false" class="color-swatch-btn w-5 h-5 rounded-full bg-[#5A2A38] border border-neutral-400/40 transition-all hover:scale-110 focus:outline-none" onclick="selectColor('p2', 'Bordeaux', this)" role="radio" title="Bordeaux" type="button"></button>
+<button aria-checked="false" class="color-swatch-btn w-5 h-5 rounded-full bg-[#D5CBBE] border border-neutral-400/40 transition-all hover:scale-110 focus:outline-none" onclick="selectColor('p2', 'Sand', this)" role="radio" title="Sand" type="button"></button>
+</div>
+</div>
+<div class="mb-3.5">
+<div class="flex items-center justify-between text-xs mb-1.5">
+<span class="text-brand-muted text-[11px]">Größe:</span>
+<span class="text-[11px] text-[#183F30] font-medium flex items-center gap-1" id="p2-stock-status">
+<span class="w-1.5 h-1.5 rounded-full bg-[#183F30]"></span>
+          Auf Lager (L)
+        </span>
+</div>
+<div aria-label="Größe wählen" class="grid grid-cols-4 gap-1.5" role="radiogroup">
+<button aria-checked="false" class="size-btn py-1 text-xs font-semibold rounded-md border border-brand-border/80 text-brand-dark bg-brand-page/50 hover:border-brand-dark transition-all text-center focus:outline-none" onclick="selectSize('p2', 'S', 'Auf Lager (S)', this)" role="radio" type="button">S</button>
+<button aria-checked="false" class="size-btn py-1 text-xs font-semibold rounded-md border border-brand-border/80 text-brand-dark bg-brand-page/50 hover:border-brand-dark transition-all text-center focus:outline-none" onclick="selectSize('p2', 'M', 'Auf Lager (M)', this)" role="radio" type="button">M</button>
+<button aria-checked="true" class="size-btn active py-1 text-xs font-semibold rounded-md border border-[#183F30] bg-[#183F30] text-white shadow-sm transition-all text-center focus:outline-none" onclick="selectSize('p2', 'L', 'Auf Lager (L)', this)" role="radio" type="button">L</button>
+<button aria-checked="false" class="size-btn py-1 text-xs font-semibold rounded-md border border-brand-border/80 text-brand-dark bg-brand-page/50 hover:border-brand-dark transition-all text-center focus:outline-none" onclick="selectSize('p2', 'XL', 'Noch 1 Stück', this)" role="radio" type="button">XL</button>
+</div>
+</div>
+<div class="mt-auto pt-2">
+<button class="w-full py-2.5 px-4 rounded-xl bg-[#183F30] text-white text-xs font-semibold flex items-center justify-center gap-2 hover:bg-[#122e23] active:scale-[0.98] transition-all shadow-sm focus:outline-none" id="p2-add-btn" onclick="quickAddToCart('p2', 'Olaf Benz RED 2004 Mini-Pant', '44,90 €')" type="button">
+<svg class="w-4 h-4 stroke-[2]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25c-.67 0-1.189-.578-1.119-1.243l1.263-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Schnellkauf · 44,90 €</span>
+</button>
+</div>
+</article>
+<!-- Card 3: CALIDA basic brief with Quick Buy -->
+<article class="group relative flex flex-col bg-white rounded-2xl border border-brand-border/70 p-4 transition-all duration-300 hover:shadow-xl hover:border-[#183F30]/40 overflow-hidden" data-base-price="29,95 €" data-product-id="p3">
+<div class="absolute top-6 left-6 right-6 z-20 flex items-center justify-between pointer-events-none">
+<span class="px-2.5 py-1 rounded-md bg-[#64748B] text-white text-[11px] font-semibold tracking-wider uppercase shadow-sm pointer-events-auto">
+        Pure Cotton
+      </span>
+<button aria-label="Auf den Merkzettel" class="wishlist-btn p-2 rounded-full bg-white/90 backdrop-blur-md text-brand-dark hover:text-red-700 hover:bg-white shadow-sm transition-all pointer-events-auto active:scale-95 focus:outline-none" onclick="toggleWishlist(this)">
+<svg class="w-4 h-4 stroke-[2] transition-colors" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<div class="relative w-full aspect-[4/3] rounded-xl bg-[#EBEBE3] overflow-hidden flex items-center justify-center p-3 mb-4 group/image">
+<img alt="CALIDA basic brief" class="w-full h-full object-cover rounded-lg mix-blend-multiply opacity-95 transition-all duration-300 group-hover/image:scale-105" id="p3-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdmcDxv8-U5m6OEZDyPKohaVo-nXWZJJ6iQ5R74mcNPbfh6FcjT_zIOLPmXgwGVF60vuj6zs5kzBC9MbKs2-qzIyxVAmCGYo7EeRbg0UAGhl4rN5BUMCRpWUSZh9tClAaNdOrdCSmKCgV1jtVSHr4ho4LhYMJ6R7I74mCfDCCJFLgtS4flaFQUaqIypZINcRMlxn0KK6MUu0S84fBNpCyAgbIMpPaz8uO3gfjCr7D0Ucf0wGqO6eyH"/>
+<button class="absolute bottom-3 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 px-3.5 py-1.5 rounded-full bg-brand-dark/85 backdrop-blur-sm text-white text-xs font-medium tracking-wide flex items-center gap-1.5 shadow-md hover:bg-brand-dark" onclick="triggerQuickView('CALIDA Basic Comfort Brief', '29,95 €')" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+        Schnellansicht
+      </button>
+</div>
+<div class="flex items-start justify-between gap-2 mb-2">
+<div>
+<span class="text-[11px] uppercase tracking-widest text-brand-muted font-bold">CALIDA</span>
+<h3 class="text-sm font-semibold text-brand-dark leading-snug hover:text-brand-accent transition-colors">Basic Comfort Brief</h3>
+</div>
+<div class="text-right">
+<div class="text-sm font-bold text-brand-dark">29,95 €</div>
+<span class="text-[10px] text-brand-muted">inkl. MwSt.</span>
+</div>
+</div>
+<div class="mb-3">
+<div class="flex items-center justify-between text-xs mb-1.5">
+<span class="text-brand-muted text-[11px]">Farbe:</span>
+<span class="font-medium text-brand-dark text-[11px]" id="p3-color-label">Deep Navy</span>
+</div>
+<div aria-label="Farbe auswählen" class="flex items-center space-x-2" role="radiogroup">
+<button aria-checked="true" class="color-swatch-btn w-5 h-5 rounded-full bg-[#1E293B] ring-2 ring-offset-2 ring-[#1E293B] transition-all hover:scale-110 focus:outline-none" onclick="selectColor('p3', 'Deep Navy', this)" role="radio" title="Deep Navy" type="button"></button>
+<button aria-checked="false" class="color-swatch-btn w-5 h-5 rounded-full bg-neutral-900 border border-neutral-400/40 transition-all hover:scale-110 focus:outline-none" onclick="selectColor('p3', 'Schwarz', this)" role="radio" title="Schwarz" type="button"></button>
+<button aria-checked="false" class="color-swatch-btn w-5 h-5 rounded-full bg-[#64748B] border border-neutral-400/40 transition-all hover:scale-110 focus:outline-none" onclick="selectColor('p3', 'Schiefer', this)" role="radio" title="Schiefer" type="button"></button>
+<button aria-checked="false" class="color-swatch-btn w-5 h-5 rounded-full bg-[#CBD5E1] border border-neutral-400/40 transition-all hover:scale-110 focus:outline-none" onclick="selectColor('p3', 'Hellgrau', this)" role="radio" title="Hellgrau" type="button"></button>
+</div>
+</div>
+<div class="mb-3.5">
+<div class="flex items-center justify-between text-xs mb-1.5">
+<span class="text-brand-muted text-[11px]">Größe:</span>
+<span class="text-[11px] text-[#183F30] font-medium flex items-center gap-1" id="p3-stock-status">
+<span class="w-1.5 h-1.5 rounded-full bg-[#183F30]"></span>
+          Auf Lager (M)
+        </span>
+</div>
+<div aria-label="Größe wählen" class="grid grid-cols-4 gap-1.5" role="radiogroup">
+<button aria-checked="false" class="size-btn py-1 text-xs font-semibold rounded-md border border-brand-border/80 text-brand-dark bg-brand-page/50 hover:border-brand-dark transition-all text-center focus:outline-none" onclick="selectSize('p3', 'S', 'Auf Lager (S)', this)" role="radio" type="button">S</button>
+<button aria-checked="true" class="size-btn active py-1 text-xs font-semibold rounded-md border border-[#183F30] bg-[#183F30] text-white shadow-sm transition-all text-center focus:outline-none" onclick="selectSize('p3', 'M', 'Auf Lager (M)', this)" role="radio" type="button">M</button>
+<button aria-checked="false" class="size-btn py-1 text-xs font-semibold rounded-md border border-brand-border/80 text-brand-dark bg-brand-page/50 hover:border-brand-dark transition-all text-center focus:outline-none" onclick="selectSize('p3', 'L', 'Auf Lager (L)', this)" role="radio" type="button">L</button>
+<button aria-checked="false" class="size-btn py-1 text-xs font-semibold rounded-md border border-brand-border/80 text-brand-dark bg-brand-page/50 hover:border-brand-dark transition-all text-center focus:outline-none" onclick="selectSize('p3', 'XL', 'Auf Lager (XL)', this)" role="radio" type="button">XL</button>
+</div>
+</div>
+<div class="mt-auto pt-2">
+<button class="w-full py-2.5 px-4 rounded-xl bg-[#183F30] text-white text-xs font-semibold flex items-center justify-center gap-2 hover:bg-[#122e23] active:scale-[0.98] transition-all shadow-sm focus:outline-none" id="p3-add-btn" onclick="quickAddToCart('p3', 'CALIDA Basic Comfort Brief', '29,95 €')" type="button">
+<svg class="w-4 h-4 stroke-[2]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25c-.67 0-1.189-.578-1.119-1.243l1.263-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Schnellkauf · 29,95 €</span>
+</button>
+</div>
+</article>
+<!-- Card 4: Manstore Body M101 with Quick Buy -->
+<article class="group relative flex flex-col bg-white rounded-2xl border border-brand-border/70 p-4 transition-all duration-300 hover:shadow-xl hover:border-[#183F30]/40 overflow-hidden" data-base-price="79,00 €" data-product-id="p4">
+<div class="absolute top-6 left-6 right-6 z-20 flex items-center justify-between pointer-events-none">
+<span class="px-2.5 py-1 rounded-md bg-neutral-900 text-white text-[11px] font-semibold tracking-wider uppercase shadow-sm pointer-events-auto">
+        Premium Cut
+      </span>
+<button aria-label="Auf den Merkzettel" class="wishlist-btn p-2 rounded-full bg-white/90 backdrop-blur-md text-brand-dark hover:text-red-700 hover:bg-white shadow-sm transition-all pointer-events-auto active:scale-95 focus:outline-none" onclick="toggleWishlist(this)">
+<svg class="w-4 h-4 stroke-[2] transition-colors" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<div class="relative w-full aspect-[4/3] rounded-xl bg-[#EBEBE3] overflow-hidden flex items-center justify-center p-3 mb-4 group/image">
+<img alt="Manstore Body" class="w-full h-full object-cover rounded-lg mix-blend-multiply opacity-95 transition-all duration-300 group-hover/image:scale-105" id="p4-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTzy7AS5a4QJ-4B-8eAgrogo14OI01U61-1reuLHtohkamDwubxz5K_LdFFV2NlQupGg4x2J-NoQ1UtuQCBopXF3MvBL442UMlJG3c8Zy0xO5hjSc9nLF0E5EvlVmjMQWqesCweed30b3d8sLY30SHYQDBV5L2hc4D61et6klwVpky0Xt1vf2XPAOa1pLHrvRpYURir-blOAt-2ovUfN06gsrqeykGFeU1uyUs6H3cORow1Ts15fFM"/>
+<button class="absolute bottom-3 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 px-3.5 py-1.5 rounded-full bg-brand-dark/85 backdrop-blur-sm text-white text-xs font-medium tracking-wide flex items-center gap-1.5 shadow-md hover:bg-brand-dark" onclick="triggerQuickView('MANSTORE M101 Ultra Body', '79,00 €')" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+        Schnellansicht
+      </button>
+</div>
+<div class="flex items-start justify-between gap-2 mb-2">
+<div>
+<span class="text-[11px] uppercase tracking-widest text-brand-muted font-bold">MANSTORE</span>
+<h3 class="text-sm font-semibold text-brand-dark leading-snug hover:text-brand-accent transition-colors">M101 Ultra Body</h3>
+</div>
+<div class="text-right">
+<div class="text-sm font-bold text-brand-dark">79,00 €</div>
+<span class="text-[10px] text-brand-muted">inkl. MwSt.</span>
+</div>
+</div>
+<div class="mb-3">
+<div class="flex items-center justify-between text-xs mb-1.5">
+<span class="text-brand-muted text-[11px]">Farbe:</span>
+<span class="font-medium text-brand-dark text-[11px]" id="p4-color-label">Tiefschwarz</span>
+</div>
+<div aria-label="Farbe auswählen" class="flex items-center space-x-2" role="radiogroup">
+<button aria-checked="true" class="color-swatch-btn w-5 h-5 rounded-full bg-neutral-900 ring-2 ring-offset-2 ring-neutral-900 transition-all hover:scale-110 focus:outline-none" onclick="selectColor('p4', 'Tiefschwarz', this)" role="radio" title="Tiefschwarz" type="button"></button>
+<button aria-checked="false" class="color-swatch-btn w-5 h-5 rounded-full bg-[#2C332D] border border-neutral-400/40 transition-all hover:scale-110 focus:outline-none" onclick="selectColor('p4', 'Olivschwarz', this)" role="radio" title="Olivschwarz" type="button"></button>
+<button aria-checked="false" class="color-swatch-btn w-5 h-5 rounded-full bg-[#4A4B4D] border border-neutral-400/40 transition-all hover:scale-110 focus:outline-none" onclick="selectColor('p4', 'Graphit', this)" role="radio" title="Graphit" type="button"></button>
+<button aria-checked="false" class="color-swatch-btn w-5 h-5 rounded-full bg-[#1A2634] border border-neutral-400/40 transition-all hover:scale-110 focus:outline-none" onclick="selectColor('p4', 'Mitternachtsblau', this)" role="radio" title="Mitternachtsblau" type="button"></button>
+</div>
+</div>
+<div class="mb-3.5">
+<div class="flex items-center justify-between text-xs mb-1.5">
+<span class="text-brand-muted text-[11px]">Größe:</span>
+<span class="text-[11px] text-[#183F30] font-medium flex items-center gap-1" id="p4-stock-status">
+<span class="w-1.5 h-1.5 rounded-full bg-[#183F30]"></span>
+          Auf Lager (M)
+        </span>
+</div>
+<div aria-label="Größe wählen" class="grid grid-cols-4 gap-1.5" role="radiogroup">
+<button aria-checked="false" class="size-btn py-1 text-xs font-semibold rounded-md border border-brand-border/80 text-brand-dark bg-brand-page/50 hover:border-brand-dark transition-all text-center focus:outline-none" onclick="selectSize('p4', 'S', 'Auf Lager (S)', this)" role="radio" type="button">S</button>
+<button aria-checked="true" class="size-btn active py-1 text-xs font-semibold rounded-md border border-[#183F30] bg-[#183F30] text-white shadow-sm transition-all text-center focus:outline-none" onclick="selectSize('p4', 'M', 'Auf Lager (M)', this)" role="radio" type="button">M</button>
+<button aria-checked="false" class="size-btn py-1 text-xs font-semibold rounded-md border border-brand-border/80 text-brand-dark bg-brand-page/50 hover:border-brand-dark transition-all text-center focus:outline-none" onclick="selectSize('p4', 'L', 'Auf Lager (L)', this)" role="radio" type="button">L</button>
+<button aria-checked="false" class="size-btn py-1 text-xs font-semibold rounded-md border border-brand-border/80 text-brand-dark bg-brand-page/50 hover:border-brand-dark transition-all text-center focus:outline-none" onclick="selectSize('p4', 'XL', 'Auf Anfrage lieferbar', this)" role="radio" type="button">XL</button>
+</div>
+</div>
+<div class="mt-auto pt-2">
+<button class="w-full py-2.5 px-4 rounded-xl bg-[#183F30] text-white text-xs font-semibold flex items-center justify-center gap-2 hover:bg-[#122e23] active:scale-[0.98] transition-all shadow-sm focus:outline-none" id="p4-add-btn" onclick="quickAddToCart('p4', 'MANSTORE M101 Ultra Body', '79,00 €')" type="button">
+<svg class="w-4 h-4 stroke-[2]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25c-.67 0-1.189-.578-1.119-1.243l1.263-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Schnellkauf · 79,00 €</span>
+</button>
+</div>
+</article>
+</div>
+<!-- Interactive Floating Cart Confirmation Toast -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none" id="cart-notification-toast">
+<div class="bg-[#183F30] text-white px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3.5 border border-white/20">
+<div class="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center">
+<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+</div>
+<div>
+<div class="text-xs font-bold leading-tight" id="toast-title">In den Warenkorb gelegt</div>
+<div class="text-[11px] text-[#E3E8E4] opacity-90" id="toast-desc">MANSTORE M107 Deep V Boxer</div>
+</div>
+<a class="ml-2 text-xs font-bold underline hover:text-[#5CB38C] transition-colors pointer-events-auto" href="#warenkorb">Zum Warenkorb →</a>
+</div>
+</div>
+<!-- Interactive Quick View Modal Dialog -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm hidden transition-opacity duration-300" id="quick-view-modal">
+<div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-brand-border/70 transform scale-95 transition-transform duration-300" id="quick-view-box">
+<button class="absolute top-5 right-5 p-2 rounded-full text-brand-muted hover:text-brand-dark hover:bg-brand-surface transition-colors" onclick="closeQuickView()">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<span class="text-[11px] uppercase tracking-wider text-brand-muted font-bold block mb-1">Männermasche Schnellansicht</span>
+<h3 class="text-xl font-bold text-brand-dark mb-1" id="modal-product-title">MANSTORE M107 Deep V Boxer</h3>
+<p class="text-lg font-semibold text-[#183F30] mb-4" id="modal-product-price">49,95 €</p>
+<p class="text-xs text-brand-muted leading-relaxed mb-6">
+      Höchste Passformpräzision und unvergleichlicher Tragekomfort gefertigt aus feinsten Mikrofaser-Stoffen. Atmungsaktiv, hautsympathisch und formbeständig.
+    </p>
+<div class="space-y-3">
+<button class="w-full py-3 bg-[#183F30] text-white text-xs font-bold rounded-xl hover:bg-[#122e23] transition-colors" onclick="closeQuickView()">
+        Auswahl übernehmen &amp; Zum Produkt
+      </button>
+<button class="w-full py-2.5 bg-brand-surface text-brand-dark text-xs font-semibold rounded-xl hover:bg-neutral-200 transition-colors" onclick="closeQuickView()">
+        Weiter einkaufen
+      </button>
+</div>
+</div>
+</div>
+<!-- Vanilla JS for Live Quick Buy Interactions -->
+<script>
+  // Quick Size selection handler
+  function selectSize(productId, size, stockText, btnElement) {
+    const card = document.querySelector(`[data-product-id="${productId}"]`);
+    if (!card) return;
+    const sizeBtns = card.querySelectorAll('.size-btn');
+    sizeBtns.forEach(b => {
+      b.classList.remove('active', 'bg-[#183F30]', 'text-white', 'border-[#183F30]');
+      b.classList.add('bg-brand-page/50', 'text-brand-dark', 'border-brand-border/80');
+      b.setAttribute('aria-checked', 'false');
+    });
+    btnElement.classList.add('active', 'bg-[#183F30]', 'text-white', 'border-[#183F30]');
+    btnElement.classList.remove('bg-brand-page/50', 'text-brand-dark', 'border-brand-border/80');
+    btnElement.setAttribute('aria-checked', 'true');
+    const statusEl = document.getElementById(`${productId}-stock-status`);
+    if (statusEl) {
+      statusEl.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-[#183F30]"></span> ${stockText}`;
+    }
+  }
+
+  // Quick Color selection handler
+  function selectColor(productId, colorName, swatchElement) {
+    const card = document.querySelector(`[data-product-id="${productId}"]`);
+    if (!card) return;
+    const swatches = card.querySelectorAll('.color-swatch-btn');
+    swatches.forEach(s => {
+      s.classList.remove('ring-2', 'ring-offset-2', 'ring-[#183F30]', 'ring-neutral-900', 'ring-[#1A2634]', 'ring-[#1E293B]');
+      s.setAttribute('aria-checked', 'false');
+    });
+    swatchElement.classList.add('ring-2', 'ring-offset-2', 'ring-[#183F30]');
+    swatchElement.setAttribute('aria-checked', 'true');
+    const labelEl = document.getElementById(`${productId}-color-label`);
+    if (labelEl) {
+      labelEl.textContent = colorName;
+    }
+  }
+
+  // Wishlist heart toggle
+  function toggleWishlist(btn) {
+    const svg = btn.querySelector('svg');
+    if (!svg) return;
+    const isFavorited = svg.getAttribute('fill') === 'currentColor';
+    if (isFavorited) {
+      svg.setAttribute('fill', 'none');
+      svg.classList.remove('text-red-600');
+      svg.classList.add('text-brand-dark');
+    } else {
+      svg.setAttribute('fill', 'currentColor');
+      svg.classList.add('text-red-600');
+      svg.classList.remove('text-brand-dark');
+    }
+  }
+
+  // Quick Buy Add-to-Cart with visual instant feedback & Toast
+  function quickAddToCart(productId, title, price) {
+    const btn = document.getElementById(`${productId}-add-btn`);
+    if (!btn) return;
+    const originalHtml = btn.innerHTML;
+    btn.innerHTML = `
+      <svg class="w-4 h-4 animate-spin text-white" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+      </svg>
+      <span>Wird hinzugefügt...</span>
+    `;
+    btn.disabled = true;
+    
+    setTimeout(() => {
+      btn.innerHTML = `
+        <svg class="w-4 h-4 stroke-[2.5] text-[#5CB38C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+        </svg>
+        <span>Hinzugefügt! ✓</span>
+      `;
+      btn.classList.add('bg-[#133327]');
+      
+      // Show Toast
+      const toast = document.getElementById('cart-notification-toast');
+      const toastTitle = document.getElementById('toast-title');
+      const toastDesc = document.getElementById('toast-desc');
+      if (toast && toastTitle && toastDesc) {
+        toastDesc.textContent = `${title} (${price})`;
+        toast.classList.remove('translate-y-24', 'opacity-0');
+        toast.classList.add('translate-y-0', 'opacity-100');
+        setTimeout(() => {
+          toast.classList.add('translate-y-24', 'opacity-0');
+          toast.classList.remove('translate-y-0', 'opacity-100');
+        }, 3400);
+      }
+      
+      setTimeout(() => {
+        btn.innerHTML = originalHtml;
+        btn.classList.remove('bg-[#133327]');
+        btn.disabled = false;
+      }, 2000);
+    }, 400);
+  }
+
+  // Quick View Modal triggers
+  function triggerQuickView(title, price) {
+    const modal = document.getElementById('quick-view-modal');
+    const box = document.getElementById('quick-view-box');
+    const titleEl = document.getElementById('modal-product-title');
+    const priceEl = document.getElementById('modal-product-price');
+    if (modal && box && titleEl && priceEl) {
+      titleEl.textContent = title;
+      priceEl.textContent = price;
+      modal.classList.remove('hidden');
+      setTimeout(() => {
+        box.classList.remove('scale-95');
+        box.classList.add('scale-100');
+      }, 10);
+    }
+  }
+
+  function closeQuickView() {
+    const modal = document.getElementById('quick-view-modal');
+    const box = document.getElementById('quick-view-box');
+    if (modal && box) {
+      box.classList.remove('scale-100');
+      box.classList.add('scale-95');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+      }, 200);
+    }
+  }
+</script></section>
+<!-- END: CuratedProducts -->
+<!-- BEGIN: BrandHighlightsTrust -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-brand-border/70 mt-6" data-purpose="brand-trust-values">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+<!-- Trust Item 1 -->
+<div class="flex flex-col items-center md:items-start space-y-2">
+<div class="w-10 h-10 rounded-full bg-brand-surface flex items-center justify-center text-brand-accent mb-1">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+</div>
+<h3 class="text-base font-semibold text-brand-dark">Autorisierter Fachhändler</h3>
+<p class="text-sm text-brand-muted leading-relaxed">
+            100% originale Premium-Kollektionen von MANSTORE, Olaf Benz und Schweizer Traditionsmarke CALIDA.
+          </p>
+</div>
+<!-- Trust Item 2 -->
+<div class="flex flex-col items-center md:items-start space-y-2">
+<div class="w-10 h-10 rounded-full bg-brand-surface flex items-center justify-center text-brand-accent mb-1">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+</div>
+<h3 class="text-base font-semibold text-brand-dark">Diskreter &amp; Schneller Versand</h3>
+<p class="text-sm text-brand-muted leading-relaxed">
+            Neutral verpackte Sendungen innerhalb Deutschlands via DHL mit zuverlässiger Sendungsverfolgung.
+          </p>
+</div>
+<!-- Trust Item 3 -->
+<div class="flex flex-col items-center md:items-start space-y-2">
+<div class="w-10 h-10 rounded-full bg-brand-surface flex items-center justify-center text-brand-accent mb-1">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+</div>
+<h3 class="text-base font-semibold text-brand-dark">Kostenlose Retoure</h3>
+<p class="text-sm text-brand-muted leading-relaxed">
+            30 Tage Bedenkzeit für ungetragene und originalverpackte Artikel ohne bürokratische Hürden.
+          </p>
+</div>
+</div>
+</section>
+<!-- END: BrandHighlightsTrust -->
+</main>
+<!-- BEGIN: SiteFooter -->
+<footer class="bg-[#121814] text-neutral-300 pt-16 pb-12 border-t border-neutral-800" data-purpose="main-footer">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Footer Columns -->
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8 pb-12 border-b border-neutral-800 text-sm">
+<!-- Brand column -->
+<div class="col-span-2">
+<div class="flex items-center gap-3 mb-4">
+<svg class="w-7 h-7 text-[#5CB38C]" fill="none" viewbox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 34V10L14 26L24 10V34" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"></path>
+<path d="M20 34V10L30 26L40 10V34" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"></path>
+</svg>
+<span class="text-lg font-bold text-white tracking-tight">Männermasche</span>
+</div>
+<p class="text-neutral-400 text-xs sm:text-sm max-w-sm leading-relaxed mb-6">
+            Dein spezialisierter Online-Store für exklusive Herrenunterwäsche, Slips, Strings, Loungewear und Bademode renommierter Hersteller.
+          </p>
+<div class="flex items-center space-x-3 text-xs text-neutral-400">
+<span class="px-2 py-1 bg-neutral-800 rounded">DE / EUR</span>
+<span>Klimaneutraler Versand</span>
+</div>
+</div>
+<!-- Kollektionen -->
+<div>
+<h4 class="text-white text-xs font-semibold uppercase tracking-wider mb-4">Kollektionen</h4>
+<ul class="space-y-2.5 text-xs sm:text-sm text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="#">Boxershorts</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Slips &amp; Pants</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Strings &amp; Thongs</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Bodies &amp; Overalls</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Badehosen &amp; Shorts</a></li>
+</ul>
+</div>
+<!-- Marken -->
+<div>
+<h4 class="text-white text-xs font-semibold uppercase tracking-wider mb-4">Marken</h4>
+<ul class="space-y-2.5 text-xs sm:text-sm text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="#">MANSTORE</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Olaf Benz</a></li>
+<li><a class="hover:text-white transition-colors" href="#">CALIDA</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Alle Kollektionen</a></li>
+</ul>
+</div>
+<!-- Kundenservice -->
+<div>
+<h4 class="text-white text-xs font-semibold uppercase tracking-wider mb-4">Service &amp; Recht</h4>
+<ul class="space-y-2.5 text-xs sm:text-sm text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="#">Größentabelle</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Versand &amp; Rückgabe</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Impressum</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Datenschutz</a></li>
+<li><a class="hover:text-white transition-colors" href="#">AGB &amp; Widerruf</a></li>
+</ul>
+</div>
+</div>
+<!-- Bottom Disclaimer / Copyright -->
+<div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-500 gap-4">
+<p>© 2025 Männermasche. Alle Rechte vorbehalten.</p>
+<div class="flex items-center space-x-6">
+<span class="hover:text-neutral-400 transition-colors cursor-pointer">Sichere SSL-Verschlüsselung</span>
+<span>·</span>
+<span class="hover:text-neutral-400 transition-colors cursor-pointer">Zahlung per Rechnung, PayPal, Kreditkarte</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: SiteFooter -->
+</body></html>

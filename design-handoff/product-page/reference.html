@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+
+<html class="h-full scroll-smooth" lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Männermasche | Herrenunterwäsche &amp; Bademode</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              page: '#F8F8F3',
+              surface: '#F1F1EB',
+              surfaceCard: '#EBEBE3',
+              dark: '#171E19',
+              muted: '#626960',
+              accent: '#183F30',
+              accentHover: '#133327',
+              border: '#DCDED5'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Core Page Styles -->
+<style data-purpose="base-styling">
+    body {
+      background-color: #F8F8F3;
+      color: #171E19;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    ::selection {
+      background-color: #183F30;
+      color: #F8F8F3;
+    }
+  </style>
+<!-- Component & Visual Effect Styles -->
+<style data-purpose="hero-layout">
+    .hero-blend-gradient {
+      background: linear-gradient(90deg, #F5F5EE 0%, #F5F5EE 45%, rgba(245, 245, 238, 0.94) 52%, rgba(245, 245, 238, 0.4) 68%, rgba(245, 245, 238, 0) 80%);
+    }
+    @media (max-width: 1024px) {
+      .hero-blend-gradient {
+        background: linear-gradient(180deg, #F5F5EE 0%, rgba(245, 245, 238, 0.85) 65%, rgba(245, 245, 238, 0.3) 100%);
+      }
+    }
+  </style>
+<meta content="web_dashboard" name="shell-type"/></head>
+<body class="min-h-full flex flex-col bg-brand-page text-brand-dark">
+<!-- BEGIN: TopBrandBar -->
+<aside class="w-full bg-[#183F30] py-2 text-center text-xs tracking-widest text-[#E3E8E4] font-medium uppercase select-none" data-purpose="top-announcement-bar">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<span>MANSTORE</span>
+<span class="mx-3 opacity-60">·</span>
+<span>Olaf Benz</span>
+<span class="mx-3 opacity-60">·</span>
+<span>CALIDA</span>
+</div>
+</aside>
+<!-- END: TopBrandBar -->
+<!-- BEGIN: MainHeader -->
+<header class="w-full border-b border-brand-border/60 bg-brand-page/95 backdrop-blur-md sticky top-0 z-40 transition-colors" data-purpose="primary-header">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<!-- Logo Branding Container -->
+<a aria-label="Männermasche Startseite" class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-lg p-1" href="#">
+<!-- SVG Monogram Logo: MM icon -->
+<svg class="w-10 h-10 text-[#183F30] transition-transform duration-200 group-hover:scale-105" fill="none" viewbox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 34V10L14 26L24 10V34" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"></path>
+<path d="M20 34V10L30 26L40 10V34" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"></path>
+</svg>
+<div class="flex flex-col text-left">
+<span class="text-xl font-bold tracking-tight text-brand-dark leading-tight group-hover:text-brand-accent transition-colors">Männermasche</span>
+<span class="text-[11px] font-normal text-brand-muted tracking-wide">Herrenunterwäsche &amp; Bademode</span>
+</div>
+</a>
+<!-- Center Primary Navigation -->
+<nav aria-label="Hauptnavigation" class="hidden md:flex items-center space-x-8 text-sm font-medium text-brand-dark" data-purpose="main-navigation">
+<a class="hover:text-brand-accent transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="#neuheiten">Neuheiten</a>
+<a class="hover:text-brand-accent transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="#unterwaesche">Unterwäsche</a>
+<a class="hover:text-brand-accent transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="#bademode">Bademode</a>
+<a class="hover:text-brand-accent transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="#marken">Marken</a>
+<a class="text-red-700 hover:text-red-800 transition-colors py-1" href="#sale">Sale</a>
+</nav>
+<!-- Right Utility Actions -->
+<div class="flex items-center space-x-4 sm:space-x-5 text-brand-dark" data-purpose="utility-actions">
+<!-- Search Action -->
+<button aria-label="Suche öffnen" class="p-2 text-brand-dark hover:text-brand-accent transition-colors rounded-full hover:bg-brand-surface focus:outline-none focus:ring-2 focus:ring-brand-accent" type="button">
+<svg class="w-5 h-5 stroke-[1.8]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- User Profile Action -->
+<button aria-label="Mein Konto" class="p-2 text-brand-dark hover:text-brand-accent transition-colors rounded-full hover:bg-brand-surface focus:outline-none focus:ring-2 focus:ring-brand-accent" type="button">
+<svg class="w-5 h-5 stroke-[1.8]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Wishlist Action -->
+<button aria-label="Merkzettel" class="p-2 text-brand-dark hover:text-brand-accent transition-colors rounded-full hover:bg-brand-surface focus:outline-none focus:ring-2 focus:ring-brand-accent" type="button">
+<svg class="w-5 h-5 stroke-[1.8]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Shopping Cart Action with Badge -->
+<button aria-label="Warenkorb" class="p-2 text-brand-dark hover:text-brand-accent transition-colors rounded-full hover:bg-brand-surface relative focus:outline-none focus:ring-2 focus:ring-brand-accent" type="button">
+<svg class="w-5 h-5 stroke-[1.8]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25c-.67 0-1.189-.578-1.119-1.243l1.263-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="absolute 1 top-1 right-1 w-2 h-2 bg-brand-accent rounded-full ring-2 ring-brand-page"></span>
+</button>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<main class="flex-grow"><div class="flex flex-col w-full">
+<!-- Content Container with luxury architectural margins -->
+<div class="max-w-[1440px] mx-auto w-full px-4 sm:px-6 lg:px-12 py-6 lg:py-10">
+<!-- 1. Breadcrumbs -->
+<nav aria-label="Breadcrumb" class="mb-8 flex items-center space-x-2.5 font-label-sm text-label-sm uppercase tracking-wider text-text-muted">
+<a class="hover:text-text-primary transition-colors" href="#">Home</a>
+<span class="text-border-subtle">/</span>
+<a class="hover:text-text-primary transition-colors" href="#">Unterwäsche</a>
+<span class="text-border-subtle">/</span>
+<a class="hover:text-text-primary transition-colors" href="#">Boxershorts</a>
+<span class="text-border-subtle">/</span>
+<span class="text-text-primary font-semibold">MANSTORE M107 Low Cut Boxer</span>
+</nav>
+<!-- 2. Main Product Grid (Editorial 2-Column Split) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
+<!-- Left Column: Media Gallery (7 Cols Desktop) -->
+<div class="lg:col-span-7 flex flex-col-reverse md:flex-row gap-4 lg:gap-6 sticky lg:top-28">
+<!-- Thumbnails Rail (Vertical on desktop) -->
+<div class="flex md:flex-col gap-3 shrink-0 overflow-x-auto md:overflow-visible pb-2 md:pb-0 select-none">
+<!-- Thumb 1 Active -->
+<button aria-label="Ansicht 1: Frontalansicht" class="relative w-16 h-20 sm:w-20 sm:h-24 bg-surface-muted p-1 transition-all focus:outline-none ring-2 ring-primary" type="button">
+<img class="w-full h-full object-cover" data-alt="Athletic fit male model standing in bright minimalist studio wearing deep forest green tailored low-cut boxer briefs, architectural lighting, neutral warm sand background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNzj5xVxBVV0_09qmFhG6C9afDyyGmTJJyGdws4O4Jc_l4jvEskJMyXqdtTwv5ScSiiSUogC02XQI4QLoMjMBi_9iNdeWvJnpAvCLLHTUJm7fixtmxUgAIpRjCiO070I2dpq6em8WTtcEniJTu33oIkeXaTQeeIddHj3uQTUPvJwfoLtTiCgqFtgGgDrvp6o-aDBEILylF2_urOR5I8PmsDDnB_y4pmCA7q7MY-IBgHV_S6Zyl0YkR"/>
+</button>
+<!-- Thumb 2 -->
+<button aria-label="Ansicht 2: Bund &amp; Textur Detail" class="relative w-16 h-20 sm:w-20 sm:h-24 bg-surface-muted p-1 hover:opacity-80 transition-all focus:outline-none" type="button">
+<img class="w-full h-full object-cover" data-alt="Macro close-up shot of luxurious dark forest green athletic waistband with subtle premium typography embossing, rich micro-rib weave texture and precise tailored stitching" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnFRgIJg_egKLTQb-15hN1qiefdxio20r4qoSmHhIukPWH8cBANNM84J9U28nDv1D57LcSpgrldfmJMhUjo9trIDX1fS12TKwHeKewYhztuLhqCionRCKOpkdX9BHI4wqU2MfphAVP2h2opAD214d1TgeoO8VVjlGfTLBlBdnnMJQ9KtUGIzZ_yOO1LYmoJhxFEcywFNtR0gwgvMcEx8EVPRWMqT_kAIUPnCt5hgVWDjmAIXMvdLty"/>
+</button>
+<!-- Thumb 3 -->
+<button aria-label="Ansicht 3: Material &amp; Webung" class="relative w-16 h-20 sm:w-20 sm:h-24 bg-surface-muted p-1 hover:opacity-80 transition-all focus:outline-none" type="button">
+<img class="w-full h-full object-cover" data-alt="Close up fabric texture photograph showing breathable premium polyamide microfiber weave in rich pine forest tone, draped softly under museum directional light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdEfuTJQjiGtrX-wr_gAIggNVa2hq4Ml3PK2p5HlU0NZBgRqtFV2FadY3hCPL11KKcVMa5xB4aExFtdI046QI2skYpHwm9hhljlGB6rPdjdkzxiCOfLr5nVUBzEi62zHHs6UHcZk_0m9_5Q1Io7t9DGTHh27UHfb3JdtAfmhAAzUbYwkeLHgNH4apfL5RBGn3upiVOSrC-rMNIQ4WLtWuNpj8Z1KpFr5mIsYmF5Puga721vRyJNzXW"/>
+</button>
+<!-- Thumb 4 -->
+<button aria-label="Ansicht 4: Seiten- und Rückansicht" class="relative w-16 h-20 sm:w-20 sm:h-24 bg-surface-muted p-1 hover:opacity-80 transition-all focus:outline-none" type="button">
+<img class="w-full h-full object-cover" data-alt="Side profile view of fit male model showcasing low rise cut and contoured ergonomic fit of dark forest green boxer briefs in soft architectural interior" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPNAF9S82vGcVAGRcnvnefa0I7OEzUHm-fPaausQf5eZfzhscQ38uPTePaXGiMsbU3pjvHFfM9Iy-ld67w3l46ebV99l5IXk8IqBAs-V6NNSYiGGCbJG3k9lsxM7kG-7ceNHtvPr-LQ0AUqefWyEcRpQ3DKcqQ76wOp3AKP2QbtDbdrtbwzp2ei3ecu5ry0GkilclnWqiNXKTVW_oqJIzXg65TWK82t_BpgeEp0gPKZUC5AZfWx7gc"/>
+</button>
+</div>
+<!-- Featured High-Res Display Container -->
+<div class="relative flex-1 bg-surface-muted overflow-hidden group">
+<!-- Curated Badge -->
+<div class="absolute top-4 left-4 z-10 flex flex-col gap-2">
+<span class="bg-primary text-on-primary font-label-sm text-label-sm px-3 py-1.5 uppercase tracking-widest">
+              Bestseller
+            </span>
+<span class="bg-surface-container-lowest text-text-primary font-label-sm text-label-sm px-3 py-1 uppercase tracking-wider">
+              Oeko-Tex 100
+            </span>
+</div>
+<!-- Zoom / Fullscreen Button -->
+<button aria-label="Bild vergrößern" class="absolute top-4 right-4 z-10 w-10 h-10 bg-surface-container-lowest/90 backdrop-blur-sm text-text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">zoom_in</span>
+</button>
+<!-- Main Image -->
+<div class="aspect-[3/4] w-full relative overflow-hidden">
+<img class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" data-alt="Editorial catalog portrait of lean fit model standing barefoot against clean off-white museum wall wearing deep forest green low cut boxer brief with minimal waistband, soft natural morning sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxnI_9DZg8YBLsksbd1MThAlAn05DfbOHXtWHm-Wp5ZzQEWm2wkyCJXB_2L1jeVOGc6Z07StemKnpU9-WDdgbPDJ600v_uiTjJhbeZQGSIjHhdcKk7O13Gg-WvAnn6LrYC2-_wrp_Qj0u6IT2-m8mc7wrtcrbCPmSGd7Wj0bU4p9PaCWZGJckaa5zgxnocgMX37Qii9NGN1I7NIggU2tW-tDPW7kBxNWyED7S00DBO-5kb-RjzdhTx"/>
+</div>
+<!-- Bottom Micro-Bar on Image -->
+<div class="absolute bottom-4 left-4 right-4 flex justify-between items-center text-text-muted font-label-sm text-label-sm uppercase tracking-widest bg-surface-container-lowest/70 backdrop-blur-sm px-4 py-2">
+<span>Model ist 1,87 m und trägt Größe M</span>
+<span class="text-text-primary font-medium">Art.-Nr. MS-107-DEEPGRN</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Purchasing & Technical Panel (5 Cols Desktop) -->
+<div class="lg:col-span-5 flex flex-col justify-start">
+<!-- Brand & Review Meta -->
+<div class="flex items-center justify-between gap-4 mb-2">
+<a class="font-label-md text-label-md uppercase tracking-widest text-primary font-semibold hover:opacity-80 transition-opacity" href="#">
+            MANSTORE
+          </a>
+<!-- Rating pill -->
+<div class="flex items-center gap-1.5 text-text-muted font-body-sm text-body-sm">
+<div class="flex text-[#D4AF37]">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-semibold text-text-primary">4.9</span>
+<span class="text-text-muted">(48)</span>
+</div>
+</div>
+<!-- Product Title -->
+<h1 class="font-headline-lg text-headline-lg text-text-primary leading-tight mb-4">
+          M107 Zoned Low Cut Boxer Brief
+        </h1>
+<!-- Price Block -->
+<div class="bg-surface-muted p-5 mb-6">
+<div class="flex items-baseline gap-3">
+<span class="font-price-lg text-price-lg text-text-primary font-bold">49,95 €</span>
+<span class="font-body-sm text-body-sm text-text-muted">inkl. MwSt.</span>
+</div>
+<div class="mt-2 flex items-center gap-2 text-primary font-label-sm text-label-sm font-semibold uppercase tracking-wider">
+<span class="w-2 h-2 bg-primary"></span>
+<span>Auf Lager · Lieferzeit 1–2 Werktage</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mt-1">
+            Versandkostenfrei innerhalb Deutschlands ab 50,00 €
+          </p>
+</div>
+<!-- Color Selection -->
+<div class="mb-6">
+<div class="flex justify-between items-center mb-3">
+<span class="font-label-md text-label-md uppercase tracking-wider text-text-primary">
+              Farbe: <strong class="font-bold text-primary">Forest Green</strong>
+</span>
+<span class="font-label-sm text-label-sm text-text-muted">4 Farben verfügbar</span>
+</div>
+<div class="flex items-center gap-3">
+<!-- Active Swatch: Forest Green -->
+<button aria-label="Farbe: Forest Green auswählen" class="relative w-8 h-8 p-0.5 bg-transparent ring-2 ring-primary focus:outline-none" type="button">
+<span class="block w-full h-full bg-[#183F30]"></span>
+</button>
+<!-- Tiefschwarz -->
+<button aria-label="Farbe: Tiefschwarz auswählen" class="relative w-8 h-8 p-0.5 bg-transparent hover:ring-1 hover:ring-text-primary focus:outline-none transition-all" type="button">
+<span class="block w-full h-full bg-[#121212]"></span>
+</button>
+<!-- Anthrazit Melange -->
+<button aria-label="Farbe: Anthrazit Melange auswählen" class="relative w-8 h-8 p-0.5 bg-transparent hover:ring-1 hover:ring-text-primary focus:outline-none transition-all" type="button">
+<span class="block w-full h-full bg-[#3D4044]"></span>
+</button>
+<!-- Burgundy -->
+<button aria-label="Farbe: Deep Burgundy auswählen" class="relative w-8 h-8 p-0.5 bg-transparent hover:ring-1 hover:ring-text-primary focus:outline-none transition-all" type="button">
+<span class="block w-full h-full bg-[#4A1521]"></span>
+</button>
+</div>
+</div>
+<!-- Size Selection -->
+<div class="mb-8">
+<div class="flex justify-between items-center mb-3">
+<span class="font-label-md text-label-md uppercase tracking-wider text-text-primary">
+              Größe: <strong class="font-bold">M (gewählt)</strong>
+</span>
+<button class="inline-flex items-center gap-1.5 text-text-muted hover:text-primary transition-colors font-label-sm text-label-sm uppercase tracking-wider" type="button">
+<span class="material-symbols-outlined text-[16px]">straighten</span>
+<span>Größentabelle &amp; Passform</span>
+</button>
+</div>
+<!-- Size Tiles (Zero-radius architectural grid) -->
+<div class="grid grid-cols-5 gap-2.5">
+<button class="h-12 bg-surface-muted text-text-primary font-title-md text-title-md hover:bg-surface-variant transition-colors flex items-center justify-center" type="button">
+              S
+            </button>
+<button class="h-12 bg-primary text-on-primary font-title-md text-title-md font-bold flex items-center justify-center ring-2 ring-primary" type="button">
+              M
+            </button>
+<button class="h-12 bg-surface-muted text-text-primary font-title-md text-title-md hover:bg-surface-variant transition-colors flex items-center justify-center" type="button">
+              L
+            </button>
+<button class="h-12 bg-surface-muted text-text-primary font-title-md text-title-md hover:bg-surface-variant transition-colors flex items-center justify-center" type="button">
+              XL
+            </button>
+<!-- Disabled Size XXL -->
+<button class="h-12 bg-surface-muted/50 text-text-muted/40 font-title-md text-title-md relative flex items-center justify-center cursor-not-allowed" disabled="" type="button">
+<span>XXL</span>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<span class="w-full h-[1px] bg-text-muted/40 rotate-45 transform"></span>
+</div>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mt-2">
+            Passform: Körpernah geschnitten, sportlicher Low-Rise Bund.
+          </p>
+</div>
+<!-- Purchase Actions (Quantity + CTA + Wishlist) -->
+<div class="flex flex-col sm:flex-row gap-3 mb-8">
+<!-- Quantity Stepper -->
+<div class="flex items-center bg-surface-muted h-12 px-2 self-start shrink-0">
+<button aria-label="Menge verringern" class="w-9 h-full flex items-center justify-center text-text-primary hover:text-primary font-title-md transition-colors" type="button">
+              −
+            </button>
+<span class="w-9 text-center font-title-md text-title-md font-semibold text-text-primary">1</span>
+<button aria-label="Menge erhöhen" class="w-9 h-full flex items-center justify-center text-text-primary hover:text-primary font-title-md transition-colors" type="button">
+              +
+            </button>
+</div>
+<!-- Primary CTA Button -->
+<button class="flex-1 h-12 bg-primary hover:bg-[#133327] text-on-primary font-label-md text-label-md uppercase tracking-widest font-semibold flex items-center justify-center gap-3 transition-colors px-6" type="button">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+<span>In den Warenkorb</span>
+</button>
+<!-- Wishlist Button -->
+<button aria-label="Auf den Merkzettel" class="h-12 w-12 bg-surface-muted hover:bg-surface-variant text-text-primary flex items-center justify-center transition-colors shrink-0" type="button">
+<span class="material-symbols-outlined text-[20px]">favorite_border</span>
+</button>
+</div>
+<!-- Trust Badges & Retail Security -->
+<div class="bg-surface-muted/60 p-5 space-y-3.5">
+<div class="flex items-start gap-3 text-text-primary">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">local_shipping</span>
+<div class="flex flex-col">
+<span class="font-title-md text-body-md font-semibold text-text-primary">Kostenloser Versand ab 50 € &amp; 30 Tage Rückversand</span>
+<span class="font-body-sm text-body-sm text-text-muted">Klimaneutrale Zustellung via DHL GoGreen</span>
+</div>
+</div>
+<div class="flex items-start gap-3 text-text-primary">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">shield</span>
+<div class="flex flex-col">
+<span class="font-title-md text-body-md font-semibold text-text-primary">Diskrete &amp; neutrale Versandverpackung</span>
+<span class="font-body-sm text-body-sm text-text-muted">Ohne Aufdrucke oder Rückschlüsse auf den Inhalt</span>
+</div>
+</div>
+<div class="flex items-start gap-3 text-text-primary">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">verified</span>
+<div class="flex flex-col">
+<span class="font-title-md text-body-md font-semibold text-text-primary">100% Originalware zertifizierter Hersteller</span>
+<span class="font-body-sm text-body-sm text-text-muted">Autorisierter Premium-Vertriebspartner von MANSTORE</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. Editorial Tabs Section: Specifications, Care, Fitting -->
+<div class="mt-20 lg:mt-28">
+<!-- Tab Headers -->
+<div class="flex flex-wrap gap-2 md:gap-4 bg-surface-muted p-1.5 select-none">
+<button class="px-6 py-3 bg-surface-container-lowest font-label-md text-label-md uppercase tracking-wider text-text-primary font-semibold" type="button">
+          Beschreibung &amp; Schnitt
+        </button>
+<button class="px-6 py-3 hover:bg-surface-container-lowest/60 font-label-md text-label-md uppercase tracking-wider text-text-muted transition-colors" type="button">
+          Material &amp; Pflege
+        </button>
+<button class="px-6 py-3 hover:bg-surface-container-lowest/60 font-label-md text-label-md uppercase tracking-wider text-text-muted transition-colors" type="button">
+          Lieferung &amp; Retoure
+        </button>
+<button class="px-6 py-3 hover:bg-surface-container-lowest/60 font-label-md text-label-md uppercase tracking-wider text-text-muted transition-colors" type="button">
+          Kundenbewertungen (48)
+        </button>
+</div>
+<!-- Active Tab Body -->
+<div class="bg-surface-container-lowest p-6 md:p-12 mt-2">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-16">
+<div class="md:col-span-7 space-y-6">
+<h3 class="font-headline-md text-headline-md text-text-primary">
+              Architektonische Schnittführung trifft kompromisslose Mikrofaser-Präzision.
+            </h3>
+<p class="font-body-lg text-body-lg text-text-muted leading-relaxed">
+              Die Serie <strong>M107 von MANSTORE</strong> verkörpert moderne maskuline Ästhetik. Gefertigt aus hochelastischem, ultraleichtem Polyamid-Garn, passt sich dieser Low Cut Boxer Brief jeder Kontur nahtlos an, ohne einzuengen. Der charakteristische tiefe Hüftsitz bleibt unter eng geschnittenen Hosen unsichtbar und sorgt für maximale Bewegungsfreiheit.
+            </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+<div class="bg-surface-muted p-4">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted block mb-1">Passform</span>
+<span class="font-title-md text-title-md text-text-primary block font-semibold">Zoned Athletic Fit</span>
+<p class="font-body-sm text-body-sm text-text-muted mt-1">Ergonomisch modellierte Frontpartie mit natürlichem Support.</p>
+</div>
+<div class="bg-surface-muted p-4">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted block mb-1">Bundhöhe</span>
+<span class="font-title-md text-title-md text-text-primary block font-semibold">Low-Rise Hipster Cut</span>
+<p class="font-body-sm text-body-sm text-text-muted mt-1">Sitzt tief auf den Hüftknochen mit elastischem Soft-Grip.</p>
+</div>
+</div>
+</div>
+<div class="md:col-span-5 bg-surface-muted p-6 md:p-8 flex flex-col justify-between">
+<div>
+<h4 class="font-label-md text-label-md uppercase tracking-wider text-text-primary font-bold mb-4">
+                Technische Spezifikationen
+              </h4>
+<ul class="space-y-3 font-body-md text-body-md text-text-primary">
+<li class="flex justify-between">
+<span class="text-text-muted">Zusammensetzung:</span>
+<span class="font-medium text-right">88% Polyamid, 12% Elasthan</span>
+</li>
+<li class="flex justify-between">
+<span class="text-text-muted">Gewebeart:</span>
+<span class="font-medium">Ultra-Sheer High-Tech Microfaser</span>
+</li>
+<li class="flex justify-between">
+<span class="text-text-muted">Herstellung:</span>
+<span class="font-medium">Made in Europe</span>
+</li>
+<li class="flex justify-between">
+<span class="text-text-muted">Zertifizierung:</span>
+<span class="font-medium">OEKO-TEX® Standard 100</span>
+</li>
+<li class="flex justify-between">
+<span class="text-text-muted">Pflege:</span>
+<span class="font-medium">30°C Schonwäsche, kein Trockner</span>
+</li>
+</ul>
+</div>
+<div class="mt-8 pt-6 bg-surface-container-lowest/80 p-4">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-semibold block mb-1">
+                Passform-Empfehlung unserer Stylisten
+              </span>
+<p class="font-body-sm text-body-sm text-text-muted">
+                Liegen Sie zwischen zwei Größen? Wählen Sie bei MANSTORE für den gewohnten Halt Ihre Standardgröße oder eine Nummer größer für lockeren Tragekomfort.
+              </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 4. Cross-sell / Recommendations Carousel Grid ("Dazu passt auch") -->
+<div class="mt-20 lg:mt-28 mb-12">
+<div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted block mb-1">
+            Kuratierte Ergänzungen
+          </span>
+<h2 class="font-headline-lg text-headline-lg text-text-primary">
+            Dazu passt auch
+          </h2>
+</div>
+<a class="font-label-md text-label-md uppercase tracking-wider text-primary font-semibold hover:opacity-75 transition-opacity inline-flex items-center gap-1.5 self-start" href="#kollektion">
+<span>Gesamte MANSTORE Kollektion</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<!-- 4-Column Product Cards Grid (Matching aesthetic) -->
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+<!-- Rec Card 1 -->
+<div class="group flex flex-col bg-surface-muted">
+<div class="aspect-[4/5] relative overflow-hidden bg-surface-dim">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Male model wearing high quality black minimalist micro-thong underwear, clean architectural studio lighting with soft shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9y8G91_qTXYdkEY3ojAV0xZiiJIq120o3gGhQRIsmWJ0xzMb3s7z45adwPJ41y2pCT63eAeiCr2DyczX9TX86kEOUBdB3xU7WbaBAY0fKX1TH-N5ehbe1MvDuiHkunLcw_v7ZObc83ZWhqabo2JkhzuX7jWyZLfqSwWEYkhREXaq1BKkRBgRRV79v0GkBm9HRrikKbzfvX982YTjggxc4lhLMZuowmc86jsZ1cNyae_sO8S3CNzDp"/>
+<span class="absolute top-3 left-3 bg-primary text-on-primary font-label-sm text-label-sm px-2.5 py-1 uppercase tracking-wider">
+              Iconic
+            </span>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted">MANSTORE</span>
+<h3 class="font-title-md text-title-md text-text-primary font-medium group-hover:text-primary transition-colors line-clamp-1 mt-0.5">
+              M107 Zoned Cheeky String
+            </h3>
+<span class="font-price-md text-price-md text-text-primary mt-1 font-semibold">39,95 €</span>
+<div class="mt-4 pt-3 flex items-center justify-between">
+<div class="flex gap-1.5">
+<span class="w-3.5 h-3.5 bg-[#183F30]"></span>
+<span class="w-3.5 h-3.5 bg-[#121212]"></span>
+</div>
+<button class="font-label-sm text-label-sm uppercase tracking-wider text-text-primary hover:text-primary font-semibold flex items-center gap-1" type="button">
+<span>Ansehen</span>
+<span>→</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Rec Card 2 -->
+<div class="group flex flex-col bg-surface-muted">
+<div class="aspect-[4/5] relative overflow-hidden bg-surface-dim">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Athletic man wearing premium fitted deep olive green loungewear undershirt against minimalist warm plaster wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBCsPLs_GzeSIg_ejtQTkFCTgzMaOhrpy8UmnwqzgJ1YaNRjrWa9A24FW1Ue9NcmZQQ62eZOH3pw57z6QsHSM3KX6weI1ymB9kFaOrB5VDNV5dp0yLh13sAx2KKTHhkabu1lWV_c2PnOIMwMj-cJ5wjuSjwNtNwShn7Y7BTpPB5jBIhZAjeq4Iir_B2bNGWWY_a4xy0NNuboOfr7j1ps8Z-vNBrzUqpLuRt1Ewit5LHlNJ6gHJ_ZKs"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted">Olaf Benz</span>
+<h3 class="font-title-md text-title-md text-text-primary font-medium group-hover:text-primary transition-colors line-clamp-1 mt-0.5">
+              RED2200 V-Neck Shirt
+            </h3>
+<span class="font-price-md text-price-md text-text-primary mt-1 font-semibold">59,90 €</span>
+<div class="mt-4 pt-3 flex items-center justify-between">
+<div class="flex gap-1.5">
+<span class="w-3.5 h-3.5 bg-[#183F30]"></span>
+<span class="w-3.5 h-3.5 bg-[#FFFFFF]"></span>
+<span class="w-3.5 h-3.5 bg-[#121212]"></span>
+</div>
+<button class="font-label-sm text-label-sm uppercase tracking-wider text-text-primary hover:text-primary font-semibold flex items-center gap-1" type="button">
+<span>Ansehen</span>
+<span>→</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Rec Card 3 -->
+<div class="group flex flex-col bg-surface-muted">
+<div class="aspect-[4/5] relative overflow-hidden bg-surface-dim">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Studio photograph of a luxury men's body suit in sleek graphite microfiber on mannequin torso, clean modern fashion aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3wyZn8diYgFeOIuvw2hLY9jQXn4I5PTqCV1RGyzv496aeCJOkdgeT7JGtAL0DYfGwTLoe67GWZUfWAt2tkniYzVfRMpKsyJYRQEPRfc3t7_fMq5w8ORQov3V6fdNoFuKCJxE9ynU3H8MqsLsJFn-rYw1BwyZuhe50BVvZKkBZ3aoVwGWgfWQaD7WwM-pqHMeEvs2zC2JuQgSi2K_YIl6VkY0Yk-0a5ZAcZLHgESpI-ZPc_jV9vYez"/>
+<span class="absolute top-3 left-3 bg-surface-container-lowest text-text-primary font-label-sm text-label-sm px-2.5 py-1 uppercase tracking-wider">
+              Neu
+            </span>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted">MANSTORE</span>
+<h3 class="font-title-md text-title-md text-text-primary font-medium group-hover:text-primary transition-colors line-clamp-1 mt-0.5">
+              M107 Athletic Body Workout
+            </h3>
+<span class="font-price-md text-price-md text-text-primary mt-1 font-semibold">89,95 €</span>
+<div class="mt-4 pt-3 flex items-center justify-between">
+<div class="flex gap-1.5">
+<span class="w-3.5 h-3.5 bg-[#121212]"></span>
+<span class="w-3.5 h-3.5 bg-[#183F30]"></span>
+</div>
+<button class="font-label-sm text-label-sm uppercase tracking-wider text-text-primary hover:text-primary font-semibold flex items-center gap-1" type="button">
+<span>Ansehen</span>
+<span>→</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Rec Card 4 -->
+<div class="group flex flex-col bg-surface-muted">
+<div class="aspect-[4/5] relative overflow-hidden bg-surface-dim">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Product display shot of CALIDA luxury supima cotton boxer briefs in deep pine forest tone laid out flat on stone pedestal" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpe4o1LaJmzRsOEdez4UZLOoqlbjUtdJ1f1-Bta6JWiNTyG9B29PorXy0qdylKrym8DVGtWLyFNWiSmKUfGYua42mSspFg1JE-xQC7In17rqC8K66dfBsCwP9w6xJfBdGOikNgZaxTGfxnSQ8NSzN5gY0Rokwut-diBas0kkNaw2-WahulG3IVLEvih7_541JkQ1nasn8c8SgnvIUUzNdQ2L8cHB-Pauz-lgK8uTIixmpRPrgrdVwF"/>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted">CALIDA</span>
+<h3 class="font-title-md text-title-md text-text-primary font-medium group-hover:text-primary transition-colors line-clamp-1 mt-0.5">
+              Natural Skin Boxer Brief
+            </h3>
+<span class="font-price-md text-price-md text-text-primary mt-1 font-semibold">44,95 €</span>
+<div class="mt-4 pt-3 flex items-center justify-between">
+<div class="flex gap-1.5">
+<span class="w-3.5 h-3.5 bg-[#183F30]"></span>
+<span class="w-3.5 h-3.5 bg-[#3D4044]"></span>
+<span class="w-3.5 h-3.5 bg-[#4A1521]"></span>
+</div>
+<button class="font-label-sm text-label-sm uppercase tracking-wider text-text-primary hover:text-primary font-semibold flex items-center gap-1" type="button">
+<span>Ansehen</span>
+<span>→</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple micro-interactions for gallery thumbnails and size select
+  document.addEventListener('DOMContentLoaded', () => {
+    const thumbs = document.querySelectorAll('[aria-label^="Ansicht"]');
+    thumbs.forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        thumbs.forEach(t => t.classList.remove('ring-2', 'ring-primary'));
+        thumb.classList.add('ring-2', 'ring-primary');
+      });
+    });
+  });
+</script></main>
+<!-- BEGIN: SiteFooter -->
+<footer class="bg-[#121814] text-neutral-300 pt-16 pb-12 border-t border-neutral-800" data-purpose="main-footer">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Footer Columns -->
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8 pb-12 border-b border-neutral-800 text-sm">
+<!-- Brand column -->
+<div class="col-span-2">
+<div class="flex items-center gap-3 mb-4">
+<svg class="w-7 h-7 text-[#5CB38C]" fill="none" viewbox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 34V10L14 26L24 10V34" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"></path>
+<path d="M20 34V10L30 26L40 10V34" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"></path>
+</svg>
+<span class="text-lg font-bold text-white tracking-tight">Männermasche</span>
+</div>
+<p class="text-neutral-400 text-xs sm:text-sm max-w-sm leading-relaxed mb-6">
+            Dein spezialisierter Online-Store für exklusive Herrenunterwäsche, Slips, Strings, Loungewear und Bademode renommierter Hersteller.
+          </p>
+<div class="flex items-center space-x-3 text-xs text-neutral-400">
+<span class="px-2 py-1 bg-neutral-800 rounded">DE / EUR</span>
+<span>Klimaneutraler Versand</span>
+</div>
+</div>
+<!-- Kollektionen -->
+<div>
+<h4 class="text-white text-xs font-semibold uppercase tracking-wider mb-4">Kollektionen</h4>
+<ul class="space-y-2.5 text-xs sm:text-sm text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="#">Boxershorts</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Slips &amp; Pants</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Strings &amp; Thongs</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Bodies &amp; Overalls</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Badehosen &amp; Shorts</a></li>
+</ul>
+</div>
+<!-- Marken -->
+<div>
+<h4 class="text-white text-xs font-semibold uppercase tracking-wider mb-4">Marken</h4>
+<ul class="space-y-2.5 text-xs sm:text-sm text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="#">MANSTORE</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Olaf Benz</a></li>
+<li><a class="hover:text-white transition-colors" href="#">CALIDA</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Alle Kollektionen</a></li>
+</ul>
+</div>
+<!-- Kundenservice -->
+<div>
+<h4 class="text-white text-xs font-semibold uppercase tracking-wider mb-4">Service &amp; Recht</h4>
+<ul class="space-y-2.5 text-xs sm:text-sm text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="#">Größentabelle</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Versand &amp; Rückgabe</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Impressum</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Datenschutz</a></li>
+<li><a class="hover:text-white transition-colors" href="#">AGB &amp; Widerruf</a></li>
+</ul>
+</div>
+</div>
+<!-- Bottom Disclaimer / Copyright -->
+<div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-500 gap-4">
+<p>© 2025 Männermasche. Alle Rechte vorbehalten.</p>
+<div class="flex items-center space-x-6">
+<span class="hover:text-neutral-400 transition-colors cursor-pointer">Sichere SSL-Verschlüsselung</span>
+<span>·</span>
+<span class="hover:text-neutral-400 transition-colors cursor-pointer">Zahlung per Rechnung, PayPal, Kreditkarte</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: SiteFooter -->
+</body></html>

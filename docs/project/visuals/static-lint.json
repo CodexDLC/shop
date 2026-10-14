@@ -1,0 +1,56 @@
+{
+  "tool": "visual_lint",
+  "target": "http://127.0.0.1:8020/prototype/",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "finding_count": 6,
+  "findings": [
+    {
+      "rule": "tiny_text",
+      "severity": "minor",
+      "selector": "header.site-header > div.container.header-row > a.site-logo > small",
+      "message": "Text is 10px, which is likely too small for general UI reading.",
+      "sample": "Herrenunterwäsche & Bademode"
+    },
+    {
+      "rule": "missing_image_alt",
+      "severity": "minor",
+      "selector": "section.home-section > div.home-categories > a.home-category > img",
+      "message": "Image is missing alt text."
+    },
+    {
+      "rule": "missing_image_alt",
+      "severity": "minor",
+      "selector": "section.home-section > div.home-categories > a.home-category > img",
+      "message": "Image is missing alt text."
+    },
+    {
+      "rule": "missing_image_alt",
+      "severity": "minor",
+      "selector": "section.home-section > div.home-categories > a.home-category > img",
+      "message": "Image is missing alt text."
+    },
+    {
+      "rule": "missing_image_alt",
+      "severity": "minor",
+      "selector": "section.home-section > div.home-categories > a.home-category > img",
+      "message": "Image is missing alt text."
+    },
+    {
+      "rule": "text_overflow",
+      "severity": "major",
+      "selector": "#featured-grid",
+      "message": "Element text appears clipped or scrollable.",
+      "sample": "MANSTORE M107 · Micro Pants 39,90 € Farbe: Schwarz Größe wählen S M L XL Bitte Größe wählen OLAF BENZ RED 2320 · Mini Sl",
+      "bounds": {
+        "x": 16,
+        "y": 1550.53125,
+        "width": 358,
+        "height": 736.546875
+      }
+    }
+  ],
+  "generated_at": "2026-10-13T22:19:57.485Z"
+}

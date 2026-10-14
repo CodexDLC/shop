@@ -1,0 +1,20 @@
+{
+  "version": "1.0",
+  "skill": "codex-django",
+  "package_version": "0.7.0",
+  "files": {
+    "SKILL.md": "9f2ab8ff44d84fabe48d24317bc02c082c091d9389d675762228f936e5f05e87",
+    "references/booking.md": "64f620d263489eb528948d99455a42d9804b89690dd26b7da2d19ae33a89c6ce",
+    "references/cabinet-components.md": "aac60e11e19159a9af5bd2491dd49294f6595d298aff388c23ff35dcbfc235a1",
+    "references/cabinet-resources.md": "7c6e847e7f9c4d5f74484d80204c2bdc6e8d7d95b02121a016061f42af0ed076",
+    "references/cabinet-shell.md": "6fc12353ec755f200e3d14ab0f34eae97ce1733ded36084d3dbf91e89955957b",
+    "references/core-seo-i18n.md": "c0b383e5d1f6b35c0ca9e5508016fe78fde4b744da33e55b56ba7f53034b1bfc",
+    "references/dashboard-reports.md": "604732a79205a4f46ea04192963ed980f031c733b4c7e40a80ce811dec651730",
+    "references/integration.md": "5f711372ef4679d0634cff1af58ef510eb24a3da4d6656d0f5798292f1af259a",
+    "references/messaging.md": "dd43cc108ac2e6ce64896ac87a8c4dca01b1fec155e212762fe137bcb8f778ef",
+    "references/redis.md": "f6d30b46164516ef7809a05a563ad813590a4bf1cc1274aac39820e16655ebd9",
+    "references/system.md": "4c396e40c66cd40e2bef51a957d60d4020335125f3503ed4966c8bcb5b4b1989",
+    "references/tracking-showcase.md": "ff1654529a69a5994a0e789a5a20cd074672cedf47f995db17efa0d4125f0e77"
+  },
+  "agents_created": false
+}

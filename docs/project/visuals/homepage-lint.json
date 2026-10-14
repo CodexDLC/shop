@@ -1,0 +1,36 @@
+{
+  "tool": "visual_lint",
+  "target": "http://127.0.0.1:8013",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "finding_count": 4,
+  "findings": [
+    {
+      "rule": "missing_image_alt",
+      "severity": "minor",
+      "selector": "div.categories-grid > button.category > span.category-image > img",
+      "message": "Image is missing alt text."
+    },
+    {
+      "rule": "missing_image_alt",
+      "severity": "minor",
+      "selector": "div.categories-grid > button.category > span.category-image > img",
+      "message": "Image is missing alt text."
+    },
+    {
+      "rule": "missing_image_alt",
+      "severity": "minor",
+      "selector": "div.categories-grid > button.category > span.category-image > img",
+      "message": "Image is missing alt text."
+    },
+    {
+      "rule": "missing_image_alt",
+      "severity": "minor",
+      "selector": "div.categories-grid > button.category > span.category-image > img",
+      "message": "Image is missing alt text."
+    }
+  ],
+  "generated_at": "2026-10-13T20:13:17.587Z"
+}

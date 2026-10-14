@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="wrap">
+  <section class="hero" aria-labelledby="hero-title">
+    <img class="hero-photo" src="{% static 'shop/images/hero.png' %}" alt="Mann in dunkler Unterwäsche in einem lichtdurchfluteten Raum" fetchpriority="high" width="1024" height="572">
+    <div class="hero-copy"><p class="eyebrow">DEIN ALLTAG. DEIN AUSDRUCK.</p><h1 id="hero-title">Dein Stil.<br>Deine Underwear.</h1><p>Entdecke besondere Styles von<br class="desktop-break"> MANSTORE, Olaf Benz und CALIDA.</p><a class="button" href="#products">Kollektion entdecken <span aria-hidden="true">↗</span></a></div>
+    <span class="hero-caption">Komfort trifft Charakter.</span>
+  </section>
+  <section class="categories-section" id="categories" aria-labelledby="categories-title">
+    <div class="section-heading"><h2 id="categories-title">Unsere Kategorien</h2><span>Finde deine Passform.</span></div>
+    <div class="categories-grid">{% for category in categories %}<button class="category" data-filter="{{ category.slug }}" aria-pressed="false"><span class="category-image"><img src="{% static 'shop/images/' %}{{ category.slug }}.svg" alt="" width="400" height="260"></span><span class="category-label">{{ category.name }} <span aria-hidden="true">↗</span></span></button>{% endfor %}</div>
+  </section>
+  <div class="values"><div><span aria-hidden="true">✧</span><span>Qualität im Detail</span></div><div><span aria-hidden="true">◇</span><span>Deine perfekte Passform</span></div><div><span aria-hidden="true">□</span><span>Stil mit Persönlichkeit</span></div></div>
+  <section id="products" class="products-section" aria-labelledby="products-title">
+    <div class="section-heading"><div><p class="eyebrow">AUSGEWÄHLTE STYLES</p><h2 id="products-title">Deine neuen Favoriten</h2></div><button class="text-button" id="reset-filter">Alle Styles <span aria-hidden="true">↗</span></button></div>
+    <p class="preview-note" id="preview-note">Designvorschau: Beispielartikel, Beispielpreise und illustrative Produktbilder. Kein Verkauf; Bademode und Sale folgen.</p>
+    <p class="sr-only" id="filter-status" aria-live="polite"></p>
+    <div class="products-grid">{% for product in products %}<article class="product" data-category="{{ product.category }}"><button class="product-open" data-product="{{ product.id }}" aria-label="{{ product.brand }} {{ product.name }} ansehen"><span class="product-image"><img src="{% static 'shop/images/' %}{{ product.category }}.svg" alt="Illustration: {{ product.name }}" width="400" height="360" loading="lazy"><span class="image-label">BEISPIEL</span></span><span class="product-brand">{{ product.brand }}</span><span class="product-title">{{ product.name }}</span><span class="product-tag">{{ product.tag }}</span><span class="product-bottom"><span class="swatches" aria-hidden="true"><i></i><i></i><i></i></span><strong>{{ product.price }} €</strong></span><span class="product-action">Style ansehen <span aria-hidden="true">→</span></span></button></article>{% endfor %}</div>
+  </section>
+  <section class="brand-story" id="brands"><p class="eyebrow">DREI MARKEN. VIELE FACETTEN.</p><h2>So individuell wie du.</h2><p>Von zeitlosen Essentials bis zu ausdrucksstarken Styles.<br>Entdecke deine persönliche Männermasche.</p><div class="brand-names"><span>MANSTORE</span><span>Olaf Benz</span><span>CALIDA</span></div></section>
+</div>
+<dialog id="product-dialog" aria-labelledby="dialog-title"><div class="dialog-header"><span class="eyebrow">STYLE-VORSCHAU</span><button id="close-dialog" class="close-button" aria-label="Vorschau schließen">×</button></div><div class="dialog-content"><div class="dialog-image"><img id="dialog-image" src="{% static 'shop/images/boxer.svg' %}" alt="Illustratives Produktbild" width="400" height="360"></div><div><p id="dialog-brand" class="product-brand"></p><h2 id="dialog-title"></h2><p id="dialog-price" class="dialog-price"></p><label for="demo-color">Farbe</label><select id="demo-color"><option value="Schwarz">Schwarz</option><option value="Waldgrün">Waldgrün</option><option value="Sand">Sand</option></select><label for="demo-size">Größe</label><select id="demo-size"><option>S</option><option selected>M</option><option>L</option><option>XL</option></select><p id="variant-status" aria-live="polite"></p><p class="preview-note">Nur Vorschau. Keine Bestandsauskunft und keine Bestellung möglich. Die Illustration ersetzt kein Herstellerfoto.</p></div></div></dialog>
+{{ products|json_script:"demo-products" }}
+{% endblock %}

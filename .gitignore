@@ -1,0 +1,32 @@
+# Python and local environments
+__pycache__/
+*.py[cod]
+.venv/
+.venv-incomplete/
+.uv-cache/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local secrets (templates remain trackable)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Generated application files and large local imports
+media/
+staticfiles/
+imports/
+backups/
+/analysis/data/
+/data/
+*.log
+
+# Editors / OS
+.idea/
+.vscode/
+Thumbs.db
+.DS_Store

@@ -1,0 +1,107 @@
+*{box-sizing:border-box}
+
+
+html{scroll-behavior:smooth;
+  scroll-padding-top:25px}
+
+
+body{margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:16px;
+  line-height:1.5}
+
+
+button,select{font:inherit}
+
+
+button,a,select{-webkit-tap-highlight-color:transparent}
+
+
+button{color:inherit}
+
+
+a{color:inherit;
+  text-decoration:none}
+
+
+button{cursor:pointer}
+
+
+img{display:block;
+  width:100%;
+  height:auto}
+
+
+button:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid #a57a35;
+  outline-offset:5px}
+
+
+.wrap{max-width:1320px;
+  margin:auto;
+  padding:0 48px}
+
+
+.eyebrow{font-size:10px;
+  font-weight:700;
+  letter-spacing:.18em;
+  color:var(--muted);
+  margin:0 0 18px}
+
+
+h1{font-size:clamp(38px,4.3vw,59px);
+  font-weight:500;
+  letter-spacing:-2.6px;
+  line-height:1.08;
+  margin:0 0 22px}
+
+
+.preview-note{color:var(--muted);
+  font-size:12px;
+  line-height:1.6;
+  margin:0 0 22px}
+
+
+.image-label{position:absolute;
+  left:13px;
+  top:13px;
+  background:rgba(255,255,255,.75);
+  font-size:9px;
+  letter-spacing:.12em;
+  padding:5px 8px}
+
+
+.skip-link{position:absolute;
+  top:-100px;
+  left:20px;
+  z-index:10;
+  background:white;
+  padding:12px}
+
+
+.skip-link:focus{top:10px}
+
+
+.sr-only{position:absolute;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+  clip-path:inset(50%)}
+
+
+[hidden]{display:none!important}
+
+
+.eyebrow { color: #35483e;
+   }
+
+
+/* Semantic typography and layout. */
+body { font-family: var(--font-ui); font-size: var(--text-body); font-weight: var(--weight-body); line-height: var(--line-body); }
+h1, h2 { font-family: var(--font-display); font-weight: var(--weight-heading); font-optical-sizing: auto; }
+h1 { font-size: var(--text-display); line-height: var(--line-display); letter-spacing: -.02em; }
+.wrap { max-width: var(--container-max); padding-inline: 3rem; }
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+@media (max-width: 1023px) { .wrap { padding-inline: 2rem; } }
+@media (max-width: 767px) { .wrap { padding-inline: 1rem; } h1 { font-size: var(--text-display-mobile); line-height: 1.2; letter-spacing: -.01em; } }

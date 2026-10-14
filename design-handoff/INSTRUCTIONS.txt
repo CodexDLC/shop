@@ -1,0 +1,15 @@
+Что куда добавлять:
+
+images/ — первоначальный макет главной, hero и фотографии товаров.
+logos/ — варианты логотипа, желательно SVG и PNG.
+fonts/ — файлы шрифтов и их лицензии, если уже выбрали.
+
+В форме дизайна:
+1. Вставить содержимое DESIGN.md или загрузить сам файл.
+2. Загрузить images/homepage-reference.png, если этот файл есть, и images/hero-source.png.
+3. Добавить свои выбранные фотографии/логотипы/шрифты.
+
+Additional instructions:
+Use the supplied original homepage mockup as the main visual reference. Preserve the warm off-white background, deep forest-green accents, compact header and hero with text on the left and the model on the right. Refine typography, spacing, components and mobile behaviour into a consistent design system. All storefront text should be German. Product photographs are references and will later be replaced with manufacturer assets.
+
+Не отправлять .env, ключи API, базы заказов или данные покупателей.

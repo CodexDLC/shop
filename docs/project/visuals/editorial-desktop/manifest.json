@@ -1,0 +1,17 @@
+{
+  "tool": "capture_page",
+  "target": "http://127.0.0.1:8013",
+  "title": "Männermasche · Herrenunterwäsche & Bademode",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "device_scale_factor": 1,
+  "screenshot_path": "D:\\Workspace\\clients\\inet_mag\\docs\\project\\visuals\\editorial-desktop\\screenshot.png",
+  "pdf_path": null,
+  "console_events_path": "D:\\Workspace\\clients\\inet_mag\\docs\\project\\visuals\\editorial-desktop\\console-events.json",
+  "request_failures_path": "D:\\Workspace\\clients\\inet_mag\\docs\\project\\visuals\\editorial-desktop\\request-failures.json",
+  "console_event_count": 0,
+  "request_failure_count": 0,
+  "generated_at": "2026-10-13T20:32:23.418Z"
+}

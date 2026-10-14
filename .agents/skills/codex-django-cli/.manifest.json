@@ -1,0 +1,12 @@
+{
+  "version": "1.0",
+  "skill": "codex-django-cli",
+  "package_version": "0.4.0",
+  "files": {
+    "SKILL.md": "19166b94e8fc8fae5b56287cc8bc09651e6f8764e29ae6369a933045cf8889c3",
+    "references/blueprints.md": "6febc7e5bc9d66131c2b1f25a3805f248885219af4b714e8544d515fd53bf6b6",
+    "references/delivery.md": "91a8cdf6d7d6b77452b427e57877abf1e965afbcea47492cb71f8b8c46248204",
+    "references/scaffolding.md": "1561f696d515ce2f71bd8d39ea613b4c29843a6589d8c1f586c5455459997874"
+  },
+  "agents_created": false
+}

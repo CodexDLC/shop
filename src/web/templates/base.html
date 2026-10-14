@@ -1,0 +1,18 @@
+{% load static %}
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Männermasche — Entwurf für Herrenunterwäsche und besondere Styles.">
+  <title>{% block title %}Männermasche · Herrenunterwäsche & Bademode{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'shop/shop.css' %}">
+  <script src="{% static 'shop/shop.js' %}" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt</a>
+  {% include 'includes/header.html' %}
+  <main id="main">{% block content %}{% endblock %}</main>
+  {% include 'includes/footer.html' %}
+</body>
+</html>
