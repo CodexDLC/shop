@@ -12,3 +12,5 @@ description: "Use for inet_mag cart totals, order lifecycle, payment adapters an
 - [Возвраты](references/features/refunds.md) — читать при соответствующей задаче.
 
 Использовать установленные библиотечные навыки при работе с их API, не копировать их руководства сюда. Не редактировать managed skills. После изменения реализации обновлять только затронутые references и их проверки. Этот навык не расширяет разрешение на внешние операции.
+
+Утверждённый платёжный стек первой версии: Stripe Checkout hosted + PayPal через Stripe, один API; сначала sandbox. При реализации читать payment-webhooks reference и docs/project/payment-selection.md. Не возвращаться к выбору Mollie/прямого PayPal без нового решения владельца; live не включать автоматически.
