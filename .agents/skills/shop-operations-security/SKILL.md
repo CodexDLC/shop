@@ -15,3 +15,5 @@ description: "Use for inet_mag local runtime, dependency or container wiring, ac
 Использовать установленные библиотечные навыки при работе с их API, не копировать их руководства сюда. Не редактировать managed skills. После изменения реализации обновлять только затронутые references и их проверки. Этот навык не расширяет разрешение на внешние операции.
 
 - [Письма и рекламные подписки](references/features/email-subscriptions.md) — email layout, consent/DOI, suppression и отказ от рекламы.
+
+- [Sandbox и слой ошибок](../../../docs/project/sandbox-and-error-handling.md) — при настройке тестового стенда, журналов, повторов и ручной приёмке оплаты/DHL; test-only ключи/endpoints, без реальных денег и курьера.
