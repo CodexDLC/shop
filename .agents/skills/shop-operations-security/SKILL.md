@@ -17,3 +17,5 @@ description: "Use for inet_mag local runtime, dependency or container wiring, ac
 - [Письма и рекламные подписки](references/features/email-subscriptions.md) — email layout, consent/DOI, suppression и отказ от рекламы.
 
 - [Sandbox и слой ошибок](../../../docs/project/sandbox-and-error-handling.md) — при настройке тестового стенда, журналов, повторов и ручной приёмке оплаты/DHL; test-only ключи/endpoints, без реальных денег и курьера.
+
+- [Аналитика, хранение и отзыв](../shop-architecture/references/analytics-and-consent.md) — при работе с данными любой фичи, tracking/провайдерами, consent, очисткой и восстановлением; полный паспорт и проверки обязательны.
