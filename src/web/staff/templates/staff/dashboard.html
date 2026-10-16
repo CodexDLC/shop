@@ -1,0 +1,7 @@
+{% extends 'staff/base.html' %}{% load shop_i18n %}
+{% block cabinet_content %}
+<h1 class="h3 mb-3">{% text 'staff.nav.overview' %}</h1>
+<p class="text-muted">{% text 'staff.dashboard.intro' %}</p>
+{% if perms.catalog.view_product %}<a class="btn btn-primary" href="{% url 'staff:products' %}">{% text 'staff.nav.products' %}</a>{% endif %}
+{% if perms.staff.change_cabinetpreferences %}<a class="btn btn-outline-secondary" href="{% url 'staff:settings' %}">{% text 'staff.nav.quick_access' %}</a>{% endif %}
+{% endblock %}

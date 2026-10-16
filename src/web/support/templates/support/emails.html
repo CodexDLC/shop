@@ -1,0 +1,653 @@
+{% extends 'base.html' %}
+{% load static shop_i18n %}
+{% block page_head %}<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="{% static 'storefront/vendor/tailwind-runtime.js' %}?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"primary":"#033324","tertiary-fixed":"#e1e3da","surface-bright":"#f4fbf3","on-primary-fixed":"#002115","surface-container-low":"#eef6ed","on-error":"#ffffff","secondary-fixed-dim":"#c2c9be","primary-fixed-dim":"#a3d1ba","secondary-fixed":"#dee5d9","surface-muted":"#EEEEE7","on-secondary":"#ffffff","surface-container":"#e8f0e7","inverse-primary":"#a3d1ba","surface-container-lowest":"#ffffff","on-tertiary-container":"#adb0a7","tertiary":"#2a2d27","on-tertiary":"#ffffff","brand-deep":"#183F30","on-secondary-container":"#5f665d","tertiary-fixed-dim":"#c5c7bf","inverse-on-surface":"#ebf3ea","inverse-surface":"#2b322d","surface-container-high":"#e3eae2","page-bg":"#F8F8F3","on-background":"#161d18","secondary-container":"#dee5d9","on-primary-fixed-variant":"#244f3d","secondary":"#596057","on-surface":"#161d18","on-surface-variant":"#414944","tertiary-container":"#40433d","background":"#f4fbf3","on-error-container":"#93000a","primary-fixed":"#beedd5","error-container":"#ffdad6","error":"#ba1a1a","surface-variant":"#dde5dc","on-tertiary-fixed-variant":"#454841","on-primary":"#ffffff","surface-container-highest":"#dde5dc","on-primary-container":"#8cb9a3","border-subtle":"#DCDED5","on-secondary-fixed":"#171d16","primary-container":"#1f4a39","on-tertiary-fixed":"#191c17","text-muted":"#626960","surface":"#f4fbf3","on-secondary-fixed-variant":"#424940","outline-variant":"#c0c8c2","surface-dim":"#d4dcd4","surface-tint":"#3c6754","outline":"#717974","text-primary":"#171E19"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"gutter-mobile":"0.75rem","margin":"3rem","space-3xl":"6rem","margin-mobile":"1rem","space-xs":"0.25rem","gutter":"1.5rem","space-xl":"2.5rem","space-md":"1rem","space-lg":"1.5rem","space-sm":"0.5rem","space-2xl":"4rem"},"fontFamily":{"price-md":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"display-xl-mobile":["Bodoni Moda"],"display-xl":["Bodoni Moda"],"headline-lg":["Bodoni Moda"],"title-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Bodoni Moda"],"headline-md":["Bodoni Moda"],"label-sm":["Plus Jakarta Sans"],"price-lg":["Plus Jakarta Sans"]},"fontSize":{"price-md":["0.9375rem",{"lineHeight":"1.2","fontWeight":"600"}],"title-md":["1rem",{"lineHeight":"1.4","fontWeight":"600"}],"label-md":["0.8125rem",{"lineHeight":"1.2","letterSpacing":"0.05em","fontWeight":"600"}],"body-lg":["1.125rem",{"lineHeight":"1.6","fontWeight":"400"}],"display-xl-mobile":["2.25rem",{"lineHeight":"1.2","letterSpacing":"-0.01em","fontWeight":"500"}],"display-xl":["3.5rem",{"lineHeight":"1.15","letterSpacing":"-0.02em","fontWeight":"500"}],"headline-lg":["2.25rem",{"lineHeight":"1.25","letterSpacing":"-0.01em","fontWeight":"500"}],"title-lg":["1.125rem",{"lineHeight":"1.4","letterSpacing":"0.01em","fontWeight":"600"}],"body-md":["0.9375rem",{"lineHeight":"1.5","fontWeight":"400"}],"body-sm":["0.8125rem",{"lineHeight":"1.4","fontWeight":"400"}],"headline-lg-mobile":["1.75rem",{"lineHeight":"1.3","fontWeight":"500"}],"headline-md":["1.5rem",{"lineHeight":"1.35","fontWeight":"500"}],"label-sm":["0.6875rem",{"lineHeight":"1.2","letterSpacing":"0.06em","fontWeight":"500"}],"price-lg":["1.25rem",{"lineHeight":"1.2","fontWeight":"600"}]}}}}</script><script src="{% static 'storefront/reference-tokens.js' %}"></script>
+{% endblock %}
+{% block body_attrs %} class="bg-page-bg font-body-md text-text-primary antialiased" data-demo-page="emails.html"{% endblock %}
+{% block content %}<header class="fixed top-0 left-0 right-0 z-50 bg-page-bg shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="bg-brand-deep text-on-primary"><div class="max-w-[1440px] mx-auto px-margin flex items-center justify-between h-9 text-label-sm font-label-sm tracking-widest uppercase"><div class="flex items-center gap-space-md"><span class="opacity-90">{% text 'support.emails.text.a7769b7586cf' %}</span><span class="opacity-40">·</span><span class="opacity-90">{% text 'support.emails.text.ba3e4d081bdb' %}</span><span class="opacity-40">·</span><span class="opacity-90">{% text 'support.emails.text.3b5534d8b3e9' %}</span></div><div class="hidden md:flex items-center gap-space-xs font-normal text-on-primary-container"><span class="material-symbols-outlined text-[14px]">{% text 'support.emails.text.9c586571e3cb' %}</span><span>{% text 'support.emails.text.6c92ca210b00' %}</span></div><div class="flex items-center gap-space-lg"><div class="flex items-center gap-1 cursor-pointer opacity-90 hover:opacity-100 transition-opacity"><span>{% text 'support.emails.text.f572cedcf12c' %}</span><span class="material-symbols-outlined text-[14px]">{% text 'support.emails.text.5dd226578843' %}</span></div><a class="opacity-90 hover:opacity-100 transition-opacity" data-path="hilfe-kontakt" href="#">{% text 'support.emails.text.b74af50bb9c6' %}</a></div></div></div><div class="h-20 bg-page-bg"><div class="max-w-[1440px] mx-auto px-margin h-full flex items-center justify-between gap-space-lg"><a class="flex flex-col flex-shrink-0 group" data-path="home" href="#"><span class="font-headline-md text-headline-md tracking-tight text-primary leading-none group-hover:opacity-90 transition-opacity">{% text 'support.emails.text.569fef27818f' %}</span><span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted mt-1">{% text 'support.emails.text.a0f29684db11' %}</span></a><nav class="hidden lg:flex items-center gap-space-xl" data-active-classes="text-primary font-title-md border-b-2 border-primary pb-1"><a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" data-path="neuheiten" href="#">{% text 'navigation.new' %}</a><a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" data-path="unterwaesche" href="#">{% text 'navigation.underwear' %}</a><a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" data-path="bademode" href="#">{% text 'navigation.swimwear' %}</a><a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" data-path="marken" href="#">{% text 'navigation.brands' %}</a><a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" data-path="sale" href="#">{% text 'navigation.sale' %}</a></nav><div class="flex items-center gap-space-md"><div class="relative hidden sm:flex items-center w-64 lg:w-72 bg-surface-muted h-10 px-3"><span class="material-symbols-outlined text-[18px] text-text-muted mr-2">{% text 'support.emails.text.3559d7accf00' %}</span><input class="w-full bg-transparent border-0 p-0 font-body-sm text-body-sm text-text-primary placeholder:text-text-muted focus:ring-0 focus:outline-none" placeholder="{% text 'support.emails.label.d5ddba9c4e0a' %}" type="text" value="Olaf Benz RED"/><button class="text-text-muted hover:text-text-primary transition-colors ml-1" type="button"><span class="material-symbols-outlined text-[16px]">{% text 'support.emails.text.da38860cb875' %}</span></button></div><div class="flex items-center gap-space-sm pl-2"><button class="sm:hidden p-2 text-text-primary hover:text-primary transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">{% text 'support.emails.text.3559d7accf00' %}</span></button><a class="p-2 text-text-primary hover:text-primary transition-colors relative" data-path="wunschliste" href="#"><span class="material-symbols-outlined text-[22px]">{% text 'support.emails.text.75017a36ec07' %}</span></a><a class="p-2 text-text-primary hover:text-primary transition-colors relative" data-path="warenkorb" href="#"><span class="material-symbols-outlined text-[22px]">{% text 'support.emails.text.52c70abd4468' %}</span><span class="absolute top-1 right-0 min-w-4 h-4 px-1 bg-brand-deep text-on-primary font-label-sm text-[10px] leading-none flex items-center justify-center font-bold">2</span></a><a class="p-1" data-path="mein-konto" href="#"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">{% text 'support.emails.text.d39a47507bbe' %}</span></div></a></div></div></div></div></header><main class="w-full pt-[116px] bg-page-bg"><div class="flex flex-col w-full">
+<section class="w-full bg-surface-muted py-space-xl">
+<div class="max-w-[1440px] mx-auto px-margin">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-lg mb-space-xl">
+<div class="max-w-2xl">
+<div class="flex items-center gap-space-xs text-text-muted mb-space-xs font-label-sm text-label-sm uppercase tracking-widest">
+<span>{% text 'support.emails.text.69257b883af9' %}</span>
+<span>·</span>
+<span>{% text 'support.emails.text.b822b2c5ce43' %}</span>
+<span>·</span>
+<span>{% text 'support.emails.text.41c461ae4479' %}</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">
+            {% text 'support.emails.text.13c2f5d7b2d3' %}
+          </h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+            {% text 'support.emails.text.98e9aa9c6505' %}
+          </p>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm bg-surface-container p-1.5 shadow-sm">
+<div class="flex items-center gap-2 px-3 py-1.5 bg-primary text-on-primary text-label-sm font-label-sm tracking-wider uppercase">
+<span class="material-symbols-outlined text-[16px]">{% text 'support.emails.text.02c4c71c3265' %}</span>
+<span>{% text 'support.emails.text.28f74d3092e0' %}</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 text-text-muted hover:text-text-primary text-label-sm font-label-sm tracking-wider uppercase transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[16px]">{% text 'support.emails.text.ffa52efca597' %}</span>
+<span>{% text 'support.emails.text.dbd311a3a571' %}</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 text-text-muted hover:text-text-primary text-label-sm font-label-sm tracking-wider uppercase transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[16px]">{% text 'support.emails.text.e6fb06210faf' %}</span>
+<span>{% text 'support.emails.text.e5bb8a0656b0' %}</span>
+</div>
+</div>
+</div>
+<!-- Tab Switcher Navigation -->
+<div class="w-full overflow-x-auto pb-2">
+<div class="flex items-center gap-2 min-w-max bg-surface-container-high p-1.5">
+<button class="template-tab-btn active px-4 py-2.5 bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider transition-all flex items-center gap-2" data-target="view-primary-pair">
+<span class="material-symbols-outlined text-[16px]">{% text 'support.emails.text.e7ebb913750a' %}</span>
+<span>{% text 'support.emails.text.288bb47ceb1c' %}</span>
+</button>
+<button class="template-tab-btn px-4 py-2.5 bg-transparent text-text-primary hover:bg-surface-muted font-label-md text-label-md uppercase tracking-wider transition-all flex items-center gap-2" data-target="tmpl-heimanprobe">
+<span class="material-symbols-outlined text-[16px]">{% text 'support.emails.text.bc8b09d01a00' %}</span>
+<span>{% text 'support.emails.text.ef28a3de8805' %}</span>
+</button>
+<button class="template-tab-btn px-4 py-2.5 bg-transparent text-text-primary hover:bg-surface-muted font-label-md text-label-md uppercase tracking-wider transition-all flex items-center gap-2" data-target="tmpl-security">
+<span class="material-symbols-outlined text-[16px]">{% text 'support.emails.text.41333ef899d0' %}</span>
+<span>{% text 'support.emails.text.d811e37b6e99' %}</span>
+</button>
+<button class="template-tab-btn px-4 py-2.5 bg-transparent text-text-primary hover:bg-surface-muted font-label-md text-label-md uppercase tracking-wider transition-all flex items-center gap-2" data-target="tmpl-doubleoptin">
+<span class="material-symbols-outlined text-[16px]">{% text 'support.emails.text.8f9fe9430004' %}</span>
+<span>{% text 'support.emails.text.41d1cc027497' %}</span>
+</button>
+<button class="template-tab-btn px-4 py-2.5 bg-transparent text-text-primary hover:bg-surface-muted font-label-md text-label-md uppercase tracking-wider transition-all flex items-center gap-2" data-target="tmpl-bulletin">
+<span class="material-symbols-outlined text-[16px]">{% text 'support.emails.text.29cf0a63a0aa' %}</span>
+<span>{% text 'support.emails.text.dad4dcbda35f' %}</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Dual Showcase: Templates 1 & 2 -->
+<section class="w-full py-space-2xl bg-page-bg" id="view-primary-pair">
+<div class="max-w-[1440px] mx-auto px-margin">
+<div class="flex items-center justify-between mb-space-lg">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'support.emails.text.d1c78a5513a8' %}</span>
+<h2 class="font-headline-md text-headline-md text-primary mt-1">{% text 'support.emails.text.12488989870e' %}</h2>
+</div>
+<div class="hidden sm:flex items-center gap-space-sm text-label-sm font-label-sm uppercase text-text-muted">
+<span class="w-2.5 h-2.5 bg-emerald-600 inline-block"></span>
+<span>{% text 'support.emails.text.0fddca440d30' %}</span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-xl">
+<!-- TEMPLATE 1: BESTELLBESTÄTIGUNG -->
+<div class="flex flex-col bg-surface-container-lowest shadow-xl">
+<!-- Client Header Chrome -->
+<div class="bg-surface-container-high px-space-md py-3 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 bg-red-400 inline-block"></span>
+<span class="w-3 h-3 bg-amber-400 inline-block"></span>
+<span class="w-3 h-3 bg-emerald-400 inline-block"></span>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider">{% text 'support.emails.text.3691b83d1c7f' %}</span>
+</div>
+<div class="bg-surface-container-lowest px-3 py-2 flex flex-col text-body-sm font-body-sm text-text-primary gap-1">
+<div class="flex items-baseline gap-2">
+<span class="text-text-muted w-16 uppercase text-label-sm font-label-sm">{% text 'support.emails.text.43d036877c11' %}</span>
+<span class="font-title-md text-title-md text-primary">{% text 'support.emails.text.d8029d25f1d7' %}</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-text-muted w-16 uppercase text-label-sm font-label-sm">{% text 'support.emails.text.b7d74b988ad9' %}</span>
+<span class="font-title-md text-title-md text-text-primary">{% text 'support.emails.text.0ef5f9a4d9a6' %}</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-text-muted w-16 uppercase text-label-sm font-label-sm">{% text 'support.emails.text.4bf30626054d' %}</span>
+<span class="text-text-muted truncate">{% text 'support.emails.text.97bd073b5410' %}</span>
+</div>
+</div>
+</div>
+<!-- Email Content Body -->
+<div class="p-space-lg sm:p-space-xl bg-surface-container-lowest flex flex-col text-text-primary">
+<!-- Email Top Brand Header -->
+<div class="text-center py-6 bg-brand-deep text-on-primary">
+<span class="font-headline-md text-headline-md tracking-tight block text-on-primary">{% text 'support.emails.text.3b13dcee32f7' %}</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container mt-1 block">{% text 'support.emails.text.d9ecdf4f5014' %}</span>
+</div>
+<!-- Intro / Greeting -->
+<div class="pt-space-lg pb-space-md">
+<div class="flex justify-between items-baseline mb-2">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'support.emails.text.48ab0b0500c3' %}</span>
+<span class="font-label-md text-label-md text-primary">{% text 'support.emails.text.6f6656a5250f' %}</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary leading-snug">
+                {% text 'support.emails.text.c92ace478063' %}
+              </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-3 leading-relaxed">
+                {% text 'support.emails.text.a01642f8a4ee' %}
+              </p>
+</div>
+<!-- Key Meta Bar -->
+<div class="grid grid-cols-2 gap-space-sm bg-surface-muted p-space-md my-space-md">
+<div>
+<span class="font-label-sm text-label-sm uppercase text-text-muted block">{% text 'support.emails.text.4225bdd23383' %}</span>
+<span class="font-title-md text-title-md text-text-primary mt-0.5 block">{% text 'support.emails.text.25a9f7127d6a' %}</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm uppercase text-text-muted block">{% text 'support.emails.text.0c7b526fa7d6' %}</span>
+<span class="font-title-md text-title-md text-text-primary mt-0.5 block">{% text 'support.emails.text.328c615a28ea' %}</span>
+</div>
+</div>
+<!-- Order Items -->
+<div class="my-space-md">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary block mb-space-sm">{% text 'support.emails.text.8d976f71f47f' %}</span>
+<!-- Item 1 -->
+<div class="flex gap-space-md py-4 bg-surface-bright p-3 mb-2">
+<div class="w-20 h-24 bg-surface-muted flex-shrink-0 relative overflow-hidden">
+<img class="w-full h-full object-cover" alt="{% text 'support.emails.label.f9adddd7d294' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_2p_GIT60MDtjb45DacnC1mbWn4gmt6acF3Tdwh1Q1Nvx9vhXZ6o7YhUInVE0p2x-JmDWEAfKCedubh-_Uyl4HrkrGqw6TRES0htmjTueUE4XO9SzMwfs7dCvQlY8QESFNtvSlBgSEhhP6RR-nPlV1vNHVfCTFSpJy-jUYYy6YiouIo9q50Xx_j6NApx5P_r7fh2ZVoBDD8I3sqL4-Hmh6i_7KNoanMv6jdxAq14POyvY0FsasmBf"/>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-text-muted uppercase">{% text 'support.emails.text.4fe24f85eb30' %}</span>
+<h4 class="font-title-md text-title-md text-text-primary leading-tight">{% text 'support.emails.text.9ea826396722' %}</h4>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 block">{% text 'support.emails.text.8e7fa91d7dc0' %}</span>
+</div>
+<span class="font-price-md text-price-md text-text-primary">49,95 €</span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex gap-space-md py-4 bg-surface-bright p-3">
+<div class="w-20 h-24 bg-surface-muted flex-shrink-0 relative overflow-hidden">
+<img class="w-full h-full object-cover" alt="{% text 'support.emails.label.d7727d3ef140' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9ig7Clx1SZsK_Qi---p0xA6_cpGK2PdfpSmm45fdwjIoJiXqYsX0VHxHyBhQz88-OJVf3dEzI30VDo0HFM146ofD77Fe3phi5polLIW13AM8h7i4S5tmETjhzYWh5QYfLsi1uuHmo16GcKRrhRaWq6XGGudpl-K5J5IFww8jVkPgR0YZmhOkPm4vtTlqRG7UgYeZkXt5w2EyVqt89r1IJTHJrCQkhUNMc3yxuzMaUEQkMl578jqwk"/>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-text-muted uppercase">{% text 'support.emails.text.33ce0529a4c6' %}</span>
+<h4 class="font-title-md text-title-md text-text-primary leading-tight">{% text 'support.emails.text.a4243c7366e2' %}</h4>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 block">{% text 'support.emails.text.8e7fa91d7dc0' %}</span>
+</div>
+<span class="font-price-md text-price-md text-text-primary">54,95 €</span>
+</div>
+</div>
+</div>
+<!-- Price Breakdown -->
+<div class="bg-surface-container p-space-md space-y-2 text-body-md font-body-md my-space-md">
+<div class="flex justify-between text-on-surface-variant">
+<span>{% text 'support.emails.text.12d7f956c11b' %}</span>
+<span>104,90 €</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span>{% text 'support.emails.text.4330b6076512' %}</span>
+<span class="text-label-sm font-label-sm bg-primary-container text-on-primary px-1.5 py-0.5 uppercase">{% text 'support.emails.text.495f50c6c3e9' %}</span>
+</span>
+<span>0,00 €</span>
+</div>
+<div class="flex justify-between font-title-lg text-title-lg text-primary pt-2">
+<span>{% text 'support.emails.text.76e1264c60a5' %}</span>
+<span>104,90 €</span>
+</div>
+</div>
+<!-- Delivery & Address Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md my-space-md">
+<div class="bg-surface-muted p-space-md">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted block mb-1">{% text 'support.emails.text.3fa4cc79d9e8' %}</span>
+<p class="font-body-sm text-body-sm text-text-primary leading-relaxed">
+                  {% text 'support.emails.text.cc8e98c6296c' %}<br/>
+                  {% text 'support.emails.text.c571ab916b29' %}<br/>
+                  {% text 'support.emails.text.7b7a2b48f53c' %}<br/>
+                  {% text 'support.emails.text.19174e8c9711' %}
+                </p>
+</div>
+<div class="bg-surface-muted p-space-md">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted block mb-1">{% text 'support.emails.text.8916dbc65f35' %}</span>
+<div class="flex items-center gap-2 mt-1">
+<span class="material-symbols-outlined text-primary text-[20px]">{% text 'support.emails.text.9c586571e3cb' %}</span>
+<span class="font-title-md text-title-md text-primary">{% text 'support.emails.text.f85f2f9ef602' %}</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">
+                  {% text 'support.emails.text.72327df7611a' %}
+                </p>
+</div>
+</div>
+<!-- 30-Tage Heimanprobe Guarantee Box -->
+<div class="bg-primary text-on-primary p-space-md my-space-md">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[24px] text-primary-fixed-dim">{% text 'support.emails.text.ec734b651574' %}</span>
+<div>
+<h5 class="font-title-md text-title-md text-on-primary">{% text 'support.emails.text.cf9d9b01b694' %}</h5>
+<p class="font-body-sm text-body-sm text-surface-container-high mt-1 leading-relaxed">
+                    {% text 'support.emails.text.7a3d70b1756e' %}
+                  </p>
+</div>
+</div>
+</div>
+<!-- Email Action Button -->
+<div class="pt-space-md pb-space-lg text-center">
+<a class="inline-block bg-primary-container text-on-primary px-8 py-3.5 font-label-md text-label-md uppercase tracking-wider hover:bg-primary transition-colors" href="#">
+                {% text 'support.emails.text.4ce17bd3740d' %}
+              </a>
+</div>
+<!-- Email Footer -->
+<div class="pt-space-lg text-center text-text-muted text-body-sm font-body-sm bg-surface-muted p-space-md">
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted mb-2">{% text 'support.emails.text.2a641608ac2c' %}</p>
+<p class="text-label-sm font-label-sm mb-3">{% text 'support.emails.text.3cb8269efaa0' %}</p>
+<div class="flex justify-center gap-space-md text-label-sm font-label-sm uppercase tracking-wider text-on-surface-variant">
+<a class="hover:text-primary" href="#">{% text 'support.emails.text.5c3175413bb7' %}</a>
+<span>·</span>
+<a class="hover:text-primary" href="#">{% text 'support.emails.text.606838b24795' %}</a>
+<span>·</span>
+<a class="hover:text-primary" href="#">{% text 'support.emails.text.a30c1f5dd492' %}</a>
+</div>
+</div>
+</div>
+</div>
+<!-- TEMPLATE 2: VERSANDBESTÄTIGUNG & DHL TRACKING -->
+<div class="flex flex-col bg-surface-container-lowest shadow-xl">
+<!-- Client Header Chrome -->
+<div class="bg-surface-container-high px-space-md py-3 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 bg-red-400 inline-block"></span>
+<span class="w-3 h-3 bg-amber-400 inline-block"></span>
+<span class="w-3 h-3 bg-emerald-400 inline-block"></span>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider">{% text 'support.emails.text.3691b83d1c7f' %}</span>
+</div>
+<div class="bg-surface-container-lowest px-3 py-2 flex flex-col text-body-sm font-body-sm text-text-primary gap-1">
+<div class="flex items-baseline gap-2">
+<span class="text-text-muted w-16 uppercase text-label-sm font-label-sm">{% text 'support.emails.text.43d036877c11' %}</span>
+<span class="font-title-md text-title-md text-primary">{% text 'support.emails.text.0f833d3297a4' %}</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-text-muted w-16 uppercase text-label-sm font-label-sm">{% text 'support.emails.text.b7d74b988ad9' %}</span>
+<span class="font-title-md text-title-md text-text-primary">{% text 'support.emails.text.7d1fe5be97b5' %}</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-text-muted w-16 uppercase text-label-sm font-label-sm">{% text 'support.emails.text.4bf30626054d' %}</span>
+<span class="text-text-muted truncate">{% text 'support.emails.text.b104879c6d4b' %}</span>
+</div>
+</div>
+</div>
+<!-- Email Content Body -->
+<div class="p-space-lg sm:p-space-xl bg-surface-container-lowest flex flex-col text-text-primary">
+<!-- Email Top Brand Header -->
+<div class="text-center py-6 bg-brand-deep text-on-primary">
+<span class="font-headline-md text-headline-md tracking-tight block text-on-primary">{% text 'support.emails.text.3b13dcee32f7' %}</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container mt-1 block">{% text 'support.emails.text.c6223a4dc9e8' %}</span>
+</div>
+<!-- Tracking Hero Announcement -->
+<div class="pt-space-lg pb-space-md">
+<div class="flex justify-between items-baseline mb-2">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'support.emails.text.3139ca74a96d' %}</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed font-semibold uppercase">{% text 'support.emails.text.1083a6a352fa' %}</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary leading-snug">
+                {% text 'support.emails.text.e0c918e4d93d' %}
+              </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-3 leading-relaxed">
+                {% text 'support.emails.text.8e10a708c39c' %}
+              </p>
+</div>
+<!-- DHL Live Visual Status Module -->
+<div class="bg-surface-bright p-space-lg my-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm mb-space-md pb-space-sm bg-surface-container p-3">
+<div>
+<span class="font-label-sm text-label-sm uppercase text-text-muted block">{% text 'support.emails.text.aac9365a6423' %}</span>
+<span class="font-price-md text-price-md text-primary tracking-wide block">{% text 'support.emails.text.6a3f488a01e2' %}</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm uppercase text-text-muted block">{% text 'support.emails.text.32d8c331660a' %}</span>
+<span class="font-title-md text-title-md text-text-primary block">{% text 'support.emails.text.1960363c5c39' %}</span>
+</div>
+</div>
+<!-- Shipment Progress Track -->
+<div class="relative py-2">
+<div class="h-1.5 w-full bg-surface-variant relative overflow-hidden">
+<div class="h-full bg-primary w-2/3"></div>
+</div>
+<div class="flex justify-between items-start mt-3 text-center">
+<div class="w-1/4">
+<span class="w-4 h-4 rounded-full bg-primary inline-block mb-1"></span>
+<span class="font-label-sm text-label-sm uppercase block text-primary font-bold">{% text 'support.emails.text.b5669910f2f0' %}</span>
+<span class="text-[11px] text-text-muted">{% text 'support.emails.text.cd68a352c276' %}</span>
+</div>
+<div class="w-1/4">
+<span class="w-4 h-4 rounded-full bg-primary inline-block mb-1"></span>
+<span class="font-label-sm text-label-sm uppercase block text-primary font-bold">{% text 'support.emails.text.a14ab7d44940' %}</span>
+<span class="text-[11px] text-text-muted">{% text 'support.emails.text.5c4e7802218d' %}</span>
+</div>
+<div class="w-1/4">
+<span class="w-4 h-4 rounded-full bg-primary inline-block mb-1"></span>
+<span class="font-label-sm text-label-sm uppercase block text-primary font-bold">{% text 'support.emails.text.26954704d14e' %}</span>
+<span class="text-[11px] text-text-muted">{% text 'support.emails.text.8c8ace73a1fa' %}</span>
+</div>
+<div class="w-1/4 opacity-40">
+<span class="w-4 h-4 rounded-full bg-secondary inline-block mb-1"></span>
+<span class="font-label-sm text-label-sm uppercase block text-text-muted">{% text 'support.emails.text.0fcfb815dbe9' %}</span>
+<span class="text-[11px] text-text-muted">{% text 'support.emails.text.08c48aa7b628' %}</span>
+</div>
+</div>
+</div>
+<!-- CTA Primary Track -->
+<div class="mt-space-lg text-center">
+<a class="inline-flex items-center justify-center gap-2 w-full bg-primary text-on-primary py-3.5 font-label-md text-label-md uppercase tracking-wider hover:bg-brand-deep transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">{% text 'support.emails.text.9c586571e3cb' %}</span>
+<span>{% text 'support.emails.text.8a115f319042' %}</span>
+</a>
+</div>
+</div>
+<!-- Discretion & Hygiene Seal Box -->
+<div class="bg-surface-muted p-space-md space-y-3 my-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">{% text 'support.emails.text.733aa03fdd44' %}</span>
+<span class="font-title-md text-title-md text-primary">{% text 'support.emails.text.44e112d144e3' %}</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                {% text 'support.emails.text.4553ab4b5fdf' %} <em>{% text 'support.emails.text.035424767f99' %}</em>{% text 'support.emails.text.56cd9efd704b' %}
+              </p>
+</div>
+<!-- Items Snapshot in Shipment -->
+<div class="my-space-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted block mb-space-xs">{% text 'support.emails.text.1cff6c17cf3a' %}</span>
+<div class="space-y-2">
+<div class="flex justify-between items-center py-2 bg-surface-container p-2 text-body-sm font-body-sm">
+<span>{% text 'support.emails.text.8dee4ab0a76d' %}</span>
+<span class="font-label-sm text-label-sm uppercase text-text-muted">{% text 'support.emails.text.0cf560d1723f' %}</span>
+</div>
+<div class="flex justify-between items-center py-2 bg-surface-container p-2 text-body-sm font-body-sm">
+<span>{% text 'support.emails.text.e53d21e63f2c' %}</span>
+<span class="font-label-sm text-label-sm uppercase text-text-muted">{% text 'support.emails.text.bb8a076a2a99' %}</span>
+</div>
+</div>
+</div>
+<!-- Alternative Delivery Options -->
+<div class="bg-surface-bright p-space-md my-space-md">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted block mb-1">{% text 'support.emails.text.f8a64a5eca04' %}</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">
+                {% text 'support.emails.text.f36420583fce' %}
+              </p>
+<a class="font-label-md text-label-md text-primary hover:underline uppercase inline-flex items-center gap-1" href="#">
+<span>{% text 'support.emails.text.bc14b5e02904' %}</span>
+<span class="material-symbols-outlined text-[16px]">{% text 'support.emails.text.16d57c087f83' %}</span>
+</a>
+</div>
+<!-- Email Footer -->
+<div class="pt-space-lg text-center text-text-muted text-body-sm font-body-sm bg-surface-muted p-space-md">
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted mb-2">{% text 'support.emails.text.89b7c14597fe' %}</p>
+<p class="text-label-sm font-label-sm mb-3">{% text 'support.emails.text.5253fdd199d7' %}</p>
+<div class="flex justify-center gap-space-md text-label-sm font-label-sm uppercase tracking-wider text-on-surface-variant">
+<a class="hover:text-primary" href="#">{% text 'support.emails.text.c71cf0721b92' %}</a>
+<span>·</span>
+<a class="hover:text-primary" href="#">{% text 'support.emails.text.40da9db00887' %}</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Secondary Templates Showcase: 3, 4, 5 & 6 -->
+<section class="w-full py-space-3xl bg-surface-container-low">
+<div class="max-w-[1440px] mx-auto px-margin">
+<div class="mb-space-2xl">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'support.emails.text.1ae1a4f02287' %}</span>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight mt-1">{% text 'support.emails.text.8b62926b1982' %}</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 max-w-2xl">
+          {% text 'support.emails.text.ce188218bdf3' %}
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-xl">
+<!-- TEMPLATE 3: HEIMANPROBE ERINNERUNG & RETOURE -->
+<div class="bg-surface-container-lowest shadow-lg flex flex-col" id="tmpl-heimanprobe">
+<div class="bg-surface-container-high px-space-md py-3 flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase text-text-primary font-semibold">{% text 'support.emails.text.7226cb72bff3' %}</span>
+<span class="font-label-sm text-label-sm bg-secondary-fixed text-on-secondary-fixed px-2 py-0.5 uppercase">{% text 'support.emails.text.eac530dab3fc' %}</span>
+</div>
+<div class="p-space-lg flex-1 flex flex-col">
+<div class="text-center py-4 bg-brand-deep text-on-primary mb-space-md">
+<span class="font-headline-md text-headline-md tracking-tight block text-on-primary">{% text 'support.emails.text.3b13dcee32f7' %}</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container block">{% text 'support.emails.text.ef634f93cef5' %}</span>
+</div>
+<div class="mb-space-md">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider block">{% text 'support.emails.text.9afb684a613c' %}</span>
+<h3 class="font-headline-md text-headline-md text-primary mt-1">
+                {% text 'support.emails.text.9039905fb156' %}
+              </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-3 leading-relaxed">
+                {% text 'support.emails.text.4fed4e7c77e6' %}
+              </p>
+</div>
+<!-- Retouren Feature Box -->
+<div class="bg-surface-muted p-space-md my-space-sm flex-1">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[24px]">{% text 'support.emails.text.b18fcbfb27c7' %}</span>
+<div>
+<h4 class="font-title-md text-title-md text-primary">{% text 'support.emails.text.79598f9d9f60' %}</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                    {% text 'support.emails.text.adebc336144a' %}
+                  </p>
+</div>
+</div>
+<!-- Retouren Buttons -->
+<div class="mt-space-md flex flex-col sm:flex-row gap-2">
+<a class="bg-primary text-on-primary px-4 py-2.5 font-label-md text-label-md uppercase tracking-wider text-center hover:bg-brand-deep" href="#">
+                  {% text 'support.emails.text.7fa1392ff366' %}
+                </a>
+<a class="bg-surface-container-lowest text-text-primary px-4 py-2.5 font-label-md text-label-md uppercase tracking-wider text-center hover:bg-surface-container" href="#">
+                  {% text 'support.emails.text.1b936fce88bf' %}
+                </a>
+</div>
+</div>
+<!-- Policy note -->
+<p class="font-body-sm text-body-sm text-text-muted mt-space-md text-center">
+              {% text 'support.emails.text.d30db23a6712' %}
+            </p>
+</div>
+</div>
+<!-- TEMPLATE 4: PASSWORT ZURÜCKSETZEN -->
+<div class="bg-surface-container-lowest shadow-lg flex flex-col" id="tmpl-security">
+<div class="bg-surface-container-high px-space-md py-3 flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase text-text-primary font-semibold">{% text 'support.emails.text.79ff17427dde' %}</span>
+<span class="font-label-sm text-label-sm bg-error-container text-on-error-container px-2 py-0.5 uppercase">{% text 'support.emails.text.17bb4ce297af' %}</span>
+</div>
+<div class="p-space-lg flex-1 flex flex-col">
+<div class="text-center py-4 bg-brand-deep text-on-primary mb-space-md">
+<span class="font-headline-md text-headline-md tracking-tight block text-on-primary">{% text 'support.emails.text.3b13dcee32f7' %}</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container block">{% text 'support.emails.text.272ce7cdbab2' %}</span>
+</div>
+<div class="mb-space-md">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider block">{% text 'support.emails.text.489293d993d9' %}</span>
+<h3 class="font-headline-md text-headline-md text-primary mt-1">
+                {% text 'support.emails.text.30153b0b3577' %}
+              </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-3 leading-relaxed">
+                {% text 'support.emails.text.795d5880a26e' %} <strong>{% text 'support.emails.text.83106d7b686b' %}</strong> {% text 'support.emails.text.232d53c52468' %}
+              </p>
+</div>
+<div class="bg-surface-bright p-space-md my-space-sm text-center">
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+                {% text 'support.emails.text.2c43a7edb5d6' %} <strong>{% text 'support.emails.text.66d3e54d7f91' %}</strong> {% text 'support.emails.text.a092fe6d36ce' %}
+              </p>
+<a class="inline-block bg-primary text-on-primary px-8 py-3.5 font-label-md text-label-md uppercase tracking-wider hover:bg-brand-deep transition-colors" href="#">
+                {% text 'support.emails.text.2017d54ee377' %}
+              </a>
+<div class="mt-space-md pt-space-sm text-left">
+<span class="font-label-sm text-label-sm uppercase text-text-muted block">{% text 'support.emails.text.3a7438953b0d' %}</span>
+<span class="font-body-sm text-body-sm text-text-muted break-all font-mono">{% text 'support.emails.text.2ee7b148ffa5' %}</span>
+</div>
+</div>
+<div class="bg-surface-muted p-space-sm mt-space-md text-body-sm font-body-sm text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-text-muted">{% text 'support.emails.text.59bd0a3ff43b' %}</span>
+<span>{% text 'support.emails.text.de6761397cde' %}</span>
+</div>
+</div>
+</div>
+<!-- TEMPLATE 5: DOUBLE OPT-IN & PRIVILEGE WELCOME -->
+<div class="bg-surface-container-lowest shadow-lg flex flex-col" id="tmpl-doubleoptin">
+<div class="bg-surface-container-high px-space-md py-3 flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase text-text-primary font-semibold">{% text 'support.emails.text.1b8e66b5ddda' %}</span>
+<span class="font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed px-2 py-0.5 uppercase">{% text 'support.emails.text.23fdf1f23ffc' %}</span>
+</div>
+<div class="p-space-lg flex-1 flex flex-col">
+<div class="text-center py-4 bg-brand-deep text-on-primary mb-space-md">
+<span class="font-headline-md text-headline-md tracking-tight block text-on-primary">{% text 'support.emails.text.3b13dcee32f7' %}</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container block">{% text 'support.emails.text.1bfed16b0b63' %}</span>
+</div>
+<div class="mb-space-md">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider block">{% text 'support.emails.text.0a14a65d15f3' %}</span>
+<h3 class="font-headline-md text-headline-md text-primary mt-1">
+                {% text 'support.emails.text.ad4cbabe5b94' %}
+              </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-3 leading-relaxed">
+                {% text 'support.emails.text.90f70a5fb8e1' %}
+              </p>
+</div>
+<!-- Welcome Privilege Banner -->
+<div class="bg-surface-muted p-space-md my-space-sm">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-primary text-[24px]">{% text 'support.emails.text.88ef7145d4e6' %}</span>
+<span class="font-title-md text-title-md text-primary">{% text 'support.emails.text.5bcbadcf22f4' %}</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                {% text 'support.emails.text.43b5cf5b1fa1' %}
+              </p>
+</div>
+<div class="text-center py-space-md">
+<a class="inline-block bg-primary text-on-primary px-8 py-3.5 font-label-md text-label-md uppercase tracking-wider hover:bg-brand-deep transition-colors" href="#">
+                {% text 'support.emails.text.1ca09af31c77' %}
+              </a>
+</div>
+<p class="font-label-sm text-label-sm text-text-muted text-center leading-relaxed">
+              {% text 'support.emails.text.c95330fc53a1' %}
+            </p>
+</div>
+</div>
+<!-- TEMPLATE 6: KAMPAGNE & RECHTSSICHERE ABMELDUNG -->
+<div class="bg-surface-container-lowest shadow-lg flex flex-col" id="tmpl-bulletin">
+<div class="bg-surface-container-high px-space-md py-3 flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase text-text-primary font-semibold">{% text 'support.emails.text.6dc2308c1ac2' %}</span>
+<span class="font-label-sm text-label-sm bg-tertiary-fixed text-on-tertiary-fixed px-2 py-0.5 uppercase">{% text 'support.emails.text.ac82a519fb07' %}</span>
+</div>
+<div class="p-space-lg flex-1 flex flex-col">
+<div class="text-center py-4 bg-brand-deep text-on-primary mb-space-md">
+<span class="font-headline-md text-headline-md tracking-tight block text-on-primary">{% text 'support.emails.text.3b13dcee32f7' %}</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container block">{% text 'support.emails.text.6a318c90291a' %}</span>
+</div>
+<!-- Editorial Hero Visual Placeholder -->
+<div class="w-full h-44 bg-surface-muted relative mb-space-md overflow-hidden">
+<img class="w-full h-full object-cover" alt="{% text 'support.emails.label.70755381342b' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBm4pRO_BdrBshe-vk99p2NZjJGEmOEsOITGgi-Pqu9Lptj8dih3vajOBK39DS9u9dKELKDh2UXuCIZj6nFwNh5eNwpDGkMD7ZzN7NTNwv81NZYH3wLeg9JsutH2u8u_1Rnx4uPKyFCYLxxBEaGuweYQsDd_8RZOBM9k3ZxiRqrNfNA2prjAVyZaGSSZaccyZA5hDkkop8fduSpgdtxXiew4MmNpbmDSCsStcgDuHrzFyTuzsoLabch"/>
+<div class="absolute inset-0 bg-primary/20"></div>
+<div class="absolute bottom-3 left-3 bg-brand-deep/90 text-on-primary px-3 py-1 font-label-sm text-label-sm uppercase tracking-wider">
+                {% text 'support.emails.text.c0a4b70c3f76' %}
+              </div>
+</div>
+<div class="mb-space-md">
+<h3 class="font-headline-md text-headline-md text-primary">
+                {% text 'support.emails.text.026a882b38ab' %}
+              </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 leading-relaxed">
+                {% text 'support.emails.text.1a7ca9e43a56' %}
+              </p>
+<div class="mt-4">
+<a class="inline-block bg-primary text-on-primary px-6 py-2.5 font-label-md text-label-md uppercase tracking-wider hover:bg-brand-deep" href="#">
+                  {% text 'support.emails.text.f9d7e9b992fd' %}
+                </a>
+</div>
+</div>
+<!-- Legal Footer with Strict 1-Click Unsubscribe -->
+<div class="mt-auto bg-surface-muted p-space-md">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-primary font-semibold block mb-1">{% text 'support.emails.text.8051bef2f3dc' %}</span>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed mb-3">
+                {% text 'support.emails.text.f9a29fcf5b00' %}
+              </p>
+<!-- One click unsubscribe area -->
+<div class="bg-surface-container-lowest p-3 flex flex-col sm:flex-row items-center justify-between gap-2">
+<div class="text-left">
+<span class="font-title-md text-title-md text-primary block leading-tight">{% text 'support.emails.text.1b7ae15de443' %}</span>
+<span class="font-body-sm text-body-sm text-text-muted">{% text 'support.emails.text.b9e812376597' %}</span>
+</div>
+<a class="bg-surface-muted hover:bg-error-container hover:text-on-error-container text-text-primary px-3 py-1.5 font-label-sm text-label-sm uppercase tracking-wider transition-colors flex-shrink-0" href="#">
+                  {% text 'support.emails.text.b91ce248db82' %}
+                </a>
+</div>
+<div class="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-label-sm font-label-sm text-text-muted uppercase">
+<a class="hover:text-primary" href="#">{% text 'support.emails.text.9a3ab8749b4f' %}</a>
+<span>·</span>
+<a class="hover:text-primary" href="#">{% text 'support.emails.text.606838b24795' %}</a>
+<span>·</span>
+<a class="hover:text-primary" href="#">{% text 'support.emails.text.5c3175413bb7' %}</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Deliverability & Architecture Specifications Banner -->
+<section class="w-full py-space-2xl bg-brand-deep text-on-primary">
+<div class="max-w-[1440px] mx-auto px-margin">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-space-lg">
+<div class="flex flex-col">
+<span class="material-symbols-outlined text-[32px] text-primary-fixed mb-2">{% text 'support.emails.text.2f4ec858baf2' %}</span>
+<h4 class="font-title-lg text-title-lg text-on-primary">{% text 'support.emails.text.1010bbde46cf' %}</h4>
+<p class="font-body-sm text-body-sm text-surface-container-highest mt-1">
+            {% text 'support.emails.text.3b53228e737c' %}
+          </p>
+</div>
+<div class="flex flex-col">
+<span class="material-symbols-outlined text-[32px] text-primary-fixed mb-2">{% text 'support.emails.text.9f00fad98bad' %}</span>
+<h4 class="font-title-lg text-title-lg text-on-primary">{% text 'support.emails.text.e9c852147025' %}</h4>
+<p class="font-body-sm text-body-sm text-surface-container-highest mt-1">
+            {% text 'support.emails.text.0ba43b9d32cf' %}
+          </p>
+</div>
+<div class="flex flex-col">
+<span class="material-symbols-outlined text-[32px] text-primary-fixed mb-2">{% text 'support.emails.text.950a39b6c293' %}</span>
+<h4 class="font-title-lg text-title-lg text-on-primary">{% text 'support.emails.text.b14a803d0834' %}</h4>
+<p class="font-body-sm text-body-sm text-surface-container-highest mt-1">
+            {% text 'support.emails.text.cfaf56a6c97b' %}
+          </p>
+</div>
+<div class="flex flex-col">
+<span class="material-symbols-outlined text-[32px] text-primary-fixed mb-2">{% text 'support.emails.text.7be676cbf4b5' %}</span>
+<h4 class="font-title-lg text-title-lg text-on-primary">{% text 'support.emails.text.c7e111ed4dca' %}</h4>
+<p class="font-body-sm text-body-sm text-surface-container-highest mt-1">
+            {% text 'support.emails.text.d7f5c17af5d3' %}
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive script for template preview tabs -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('.template-tab-btn');
+      
+      tabs.forEach(tab => {
+        tab.addEventListener('click', (e) => {
+          e.preventDefault();
+          tabs.forEach(t => {
+            t.classList.remove('bg-primary', 'text-on-primary');
+            t.classList.add('bg-transparent', 'text-text-primary');
+          });
+          
+          tab.classList.remove('bg-transparent', 'text-text-primary');
+          tab.classList.add('bg-primary', 'text-on-primary');
+          
+          const targetId = tab.getAttribute('data-target');
+          const element = document.getElementById(targetId);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            element.classList.add('ring-2', 'ring-primary');
+            setTimeout(() => {
+              element.classList.remove('ring-2', 'ring-primary');
+            }, 1200);
+          }
+        });
+      });
+    });
+  </script>
+</div></main><footer class="w-full bg-surface-muted text-text-primary mt-space-3xl"><div class="max-w-[1440px] mx-auto px-margin py-space-3xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-xl mb-space-3xl"><div class="lg:col-span-2 pr-space-xl"><span class="font-headline-md text-headline-md text-primary tracking-tight">{% text 'support.emails.text.569fef27818f' %}</span><p class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted mt-2 mb-space-md">{% text 'support.emails.text.a961985174f4' %}</p><p class="font-body-md text-body-md text-on-surface-variant max-w-sm mb-space-lg">{% text 'support.emails.text.bac63d327b64' %}</p><div class="flex items-center gap-space-md text-label-sm font-label-sm tracking-wider uppercase text-text-muted"><span>{% text 'support.emails.text.a7769b7586cf' %}</span><span>·</span><span>{% text 'support.emails.text.ba3e4d081bdb' %}</span><span>·</span><span>{% text 'support.emails.text.3b5534d8b3e9' %}</span></div></div><div><h3 class="font-label-md text-label-md uppercase tracking-wider text-text-primary mb-space-md">{% text 'support.emails.text.bab8d18be06b' %}</h3><ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-primary transition-colors"><a data-path="neuheiten" href="#">{% text 'support.emails.text.ac9fa9d565aa' %}</a></li><li class="hover:text-primary transition-colors"><a data-path="unterwaesche" href="#">{% text 'support.emails.text.5d65f28f3a5e' %}</a></li><li class="hover:text-primary transition-colors"><a data-path="bademode" href="#">{% text 'support.emails.text.425f7570d9f2' %}</a></li><li class="hover:text-primary transition-colors"><a data-path="unterwaesche" href="#">{% text 'support.emails.text.b63cfad6252d' %}</a></li><li class="hover:text-primary transition-colors"><a data-path="unterwaesche" href="#">{% text 'support.emails.text.48f4601307b9' %}</a></li><li class="hover:text-primary transition-colors"><a data-path="sale" href="#">{% text 'support.emails.text.8c8b7fa67772' %}</a></li></ul></div><div><h3 class="font-label-md text-label-md uppercase tracking-wider text-text-primary mb-space-md">{% text 'navigation.brands' %}</h3><ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-primary transition-colors"><a data-path="marken-manstore" href="#">{% text 'support.emails.text.a7769b7586cf' %}</a></li><li class="hover:text-primary transition-colors"><a data-path="marken-olaf-benz" href="#">{% text 'support.emails.text.ba3e4d081bdb' %}</a></li><li class="hover:text-primary transition-colors"><a data-path="marken-calida" href="#">{% text 'support.emails.text.3b5534d8b3e9' %}</a></li><li class="hover:text-primary transition-colors"><a data-path="marken" href="#">{% text 'support.emails.text.7305eebb5e7a' %}</a></li></ul></div><div><h3 class="font-label-md text-label-md uppercase tracking-wider text-text-primary mb-space-md">{% text 'support.emails.text.3c05148ae9ac' %}</h3><ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-primary transition-colors"><a data-path="versand-lieferung" href="#">{% text 'support.emails.text.6a8342cb99a3' %}</a></li><li class="hover:text-primary transition-colors"><a data-path="groessentabelle" href="#">{% text 'support.emails.text.bb3f1cbf386f' %}</a></li><li class="hover:text-primary transition-colors"><a data-path="hilfe-kontakt" href="#">{% text 'support.emails.text.5f29fc511b50' %}</a></li><li class="hover:text-primary transition-colors"><a data-path="faq" href="#">{% text 'support.emails.text.d70e29f21ef9' %}</a></li><li class="hover:text-primary transition-colors"><a data-path="mein-konto" href="#">{% text 'support.emails.text.d60aaafa45cd' %}</a></li></ul></div></div><div class="pt-space-xl flex flex-col md:flex-row items-center justify-between gap-space-md font-body-sm text-body-sm text-text-muted"><div class="flex flex-wrap items-center gap-space-lg text-label-sm font-label-sm uppercase tracking-wider"><a class="hover:text-text-primary transition-colors" data-path="impressum" href="#">{% text 'support.emails.text.5c3175413bb7' %}</a><a class="hover:text-text-primary transition-colors" data-path="datenschutz" href="#">{% text 'support.emails.text.606838b24795' %}</a><a class="hover:text-text-primary transition-colors" data-path="agb" href="#">{% text 'support.emails.text.5850dc9aef33' %}</a><a class="hover:text-text-primary transition-colors" data-path="widerrufsbelehrung" href="#">{% text 'support.emails.text.a30c1f5dd492' %}</a><a class="hover:text-text-primary transition-colors" data-path="cookie-einstellungen" href="#">{% text 'support.emails.text.398dacb69752' %}</a></div><p class="font-label-sm text-label-sm">{% text 'support.emails.text.5e2fe4d18c5e' %}</p></div></div></footer>
+{% endblock %}

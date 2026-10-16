@@ -1,0 +1,563 @@
+{% extends 'base.html' %}
+{% load static shop_i18n %}
+{% block page_head %}<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="{% static 'storefront/vendor/tailwind-runtime.js' %}?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"text-muted":"#626960","border-subtle":"#DCDED5","on-primary-container":"#8cb9a3","surface-container-high":"#e3eae2","primary-fixed":"#beedd5","surface-container-low":"#eef6ed","secondary-fixed":"#dee5d9","tertiary-fixed":"#e1e3da","tertiary":"#2a2d27","surface-variant":"#dde5dc","on-tertiary-fixed-variant":"#454841","surface-container":"#e8f0e7","brand-deep":"#183F30","surface-muted":"#EEEEE7","surface":"#f4fbf3","outline":"#717974","text-primary":"#171E19","secondary-fixed-dim":"#c2c9be","on-surface-variant":"#414944","on-tertiary-container":"#adb0a7","on-error-container":"#93000a","surface-bright":"#f4fbf3","tertiary-fixed-dim":"#c5c7bf","on-secondary-fixed":"#171d16","outline-variant":"#c0c8c2","on-secondary-container":"#5f665d","primary-fixed-dim":"#a3d1ba","page-bg":"#F8F8F3","on-background":"#161d18","on-tertiary":"#ffffff","primary-container":"#1f4a39","on-surface":"#161d18","surface-container-lowest":"#ffffff","surface-tint":"#3c6754","on-tertiary-fixed":"#191c17","error-container":"#ffdad6","inverse-surface":"#2b322d","secondary":"#596057","primary":"#033324","on-secondary":"#ffffff","on-primary-fixed":"#002115","inverse-on-surface":"#ebf3ea","surface-container-highest":"#dde5dc","background":"#f4fbf3","inverse-primary":"#a3d1ba","secondary-container":"#dee5d9","on-primary":"#ffffff","error":"#ba1a1a","on-secondary-fixed-variant":"#424940","tertiary-container":"#40433d","surface-dim":"#d4dcd4","on-error":"#ffffff","on-primary-fixed-variant":"#244f3d"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin":"3rem","gutter-mobile":"0.75rem","space-md":"1rem","space-lg":"1.5rem","space-3xl":"6rem","margin-mobile":"1rem","space-2xl":"4rem","gutter":"1.5rem","space-xs":"0.25rem","space-sm":"0.5rem","space-xl":"2.5rem"},"fontFamily":{"headline-lg-mobile":["Bodoni Moda"],"body-md":["Plus Jakarta Sans"],"headline-lg":["Bodoni Moda"],"body-lg":["Plus Jakarta Sans"],"headline-md":["Bodoni Moda"],"label-md":["Plus Jakarta Sans"],"display-xl":["Bodoni Moda"],"title-lg":["Plus Jakarta Sans"],"price-md":["Plus Jakarta Sans"],"display-xl-mobile":["Bodoni Moda"],"body-sm":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"price-lg":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"]},"fontSize":{"headline-lg-mobile":["1.75rem",{"lineHeight":"1.3","fontWeight":"500"}],"body-md":["0.9375rem",{"lineHeight":"1.5","fontWeight":"400"}],"headline-lg":["2.25rem",{"lineHeight":"1.25","letterSpacing":"-0.01em","fontWeight":"500"}],"body-lg":["1.125rem",{"lineHeight":"1.6","fontWeight":"400"}],"headline-md":["1.5rem",{"lineHeight":"1.35","fontWeight":"500"}],"label-md":["0.8125rem",{"lineHeight":"1.2","letterSpacing":"0.05em","fontWeight":"600"}],"display-xl":["3.5rem",{"lineHeight":"1.15","letterSpacing":"-0.02em","fontWeight":"500"}],"title-lg":["1.125rem",{"lineHeight":"1.4","letterSpacing":"0.01em","fontWeight":"600"}],"price-md":["0.9375rem",{"lineHeight":"1.2","fontWeight":"600"}],"display-xl-mobile":["2.25rem",{"lineHeight":"1.2","letterSpacing":"-0.01em","fontWeight":"500"}],"body-sm":["0.8125rem",{"lineHeight":"1.4","fontWeight":"400"}],"label-sm":["0.6875rem",{"lineHeight":"1.2","letterSpacing":"0.06em","fontWeight":"500"}],"price-lg":["1.25rem",{"lineHeight":"1.2","fontWeight":"600"}],"title-md":["1rem",{"lineHeight":"1.4","fontWeight":"600"}]}}}};</script><script src="{% static 'storefront/reference-tokens.js' %}"></script>
+<link rel="stylesheet" href="{% static 'storefront/shared-chrome.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+<link rel="icon" href="{% static 'storefront/brand/favicon.ico' %}"><link rel="apple-touch-icon" href="{% static 'storefront/brand/apple-touch-icon.png' %}">
+{% endblock %}
+{% block body_attrs %} class="bg-page-bg font-body-md text-text-primary antialiased min-h-screen flex flex-col selection:bg-brand-deep selection:text-surface-container-lowest" data-demo-page="legal.html"{% endblock %}
+{% block content %}
+{% include 'includes/header.html' %}<main class="w-full pt-28 bg-page-bg flex-1"><div class="flex flex-col w-full">
+<!-- Top Progress Bar (Reading Indicator) -->
+<div class="fixed top-20 left-0 w-full h-[2px] bg-border-subtle z-40">
+<div class="h-full bg-brand-deep w-0 transition-all duration-150 ease-out" id="readProgress"></div>
+</div>
+<div class="max-w-[1440px] w-full mx-auto px-margin-mobile lg:px-margin">
+<!-- Breadcrumb & Hub Context -->
+<nav aria-label="{% text 'support.legal.label.c98d4dbd89b8' %}" class="pt-6 pb-4">
+<ol class="flex items-center gap-2 font-label-sm text-label-sm uppercase tracking-wider text-text-muted">
+<li>
+<a class="hover:text-brand-deep transition-colors" href="#">{% text 'support.legal.text.b660f83df4d6' %}</a>
+</li>
+<li class="text-border-subtle">/</li>
+<li>
+<span class="text-text-muted">{% text 'support.legal.text.30843a60c046' %}</span>
+</li>
+<li class="text-border-subtle">/</li>
+<li aria-current="page" class="text-brand-deep font-semibold">{% text 'support.legal.text.874f2e9388a8' %}</li>
+</ol>
+</nav>
+<!-- Header Banner / Document Meta -->
+<header class="bg-surface-container-lowest p-8 lg:p-12 mb-12 shadow-sm">
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-8">
+<div class="max-w-3xl">
+<span class="inline-block font-label-md text-label-md uppercase tracking-[0.2em] text-brand-deep font-semibold mb-3">
+            {% text 'support.legal.text.69b6be423888' %}
+          </span>
+<h1 class="font-headline-lg text-headline-lg lg:text-display-xl text-text-primary tracking-tight">
+            {% text 'support.legal.text.874f2e9388a8' %}
+          </h1>
+<p class="font-body-lg text-body-lg text-text-muted mt-4 max-w-2xl leading-relaxed">
+            {% text 'support.legal.text.030cc7443aed' %}
+          </p>
+</div>
+<!-- Utility Action Buttons -->
+<div class="flex items-center gap-3 shrink-0">
+<button class="inline-flex items-center gap-2 h-11 px-5 bg-surface-muted text-text-primary font-label-md text-label-md uppercase tracking-wider hover:bg-surface-variant transition-colors" onclick="window.print()" type="button">
+<span class="material-symbols-outlined text-[18px]">{% text 'support.legal.text.6d0d5876e671' %}</span>
+<span>{% text 'support.legal.text.72be34048c64' %}</span>
+</button>
+<a class="inline-flex items-center gap-2 h-11 px-6 bg-brand-deep text-surface-container-lowest font-label-md text-label-md uppercase tracking-wider hover:bg-primary-container transition-colors" download="" href="#">
+<span class="material-symbols-outlined text-[18px]">{% text 'support.legal.text.817248fb77fb' %}</span>
+<span>{% text 'support.legal.text.dc2f72e5621d' %}</span>
+</a>
+</div>
+</div>
+<!-- Quick Switcher Tabs & Meta Ribbons -->
+<div class="pt-6 flex flex-col md:flex-row md:items-center justify-between gap-6">
+<!-- Switcher Pills -->
+<div class="flex flex-wrap items-center gap-2">
+<a class="h-9 px-4 inline-flex items-center font-label-sm text-label-sm uppercase tracking-wider bg-brand-deep text-surface-container-lowest font-semibold" href="#">
+            {% text 'support.legal.text.606838b24795' %}
+          </a>
+<a class="h-9 px-4 inline-flex items-center font-label-sm text-label-sm uppercase tracking-wider bg-surface-muted text-text-muted hover:text-text-primary hover:bg-surface-variant transition-colors" href="#">
+            {% text 'support.legal.text.5c3175413bb7' %}
+          </a>
+<a class="h-9 px-4 inline-flex items-center font-label-sm text-label-sm uppercase tracking-wider bg-surface-muted text-text-muted hover:text-text-primary hover:bg-surface-variant transition-colors" href="#">
+            {% text 'support.legal.text.5850dc9aef33' %}
+          </a>
+<a class="h-9 px-4 inline-flex items-center font-label-sm text-label-sm uppercase tracking-wider bg-surface-muted text-text-muted hover:text-text-primary hover:bg-surface-variant transition-colors" href="#">
+            {% text 'support.legal.text.a30c1f5dd492' %}
+          </a>
+</div>
+<!-- Metadata Strip -->
+<div class="flex flex-wrap items-center gap-4 text-label-sm font-label-sm text-text-muted">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-brand-deep">{% text 'support.legal.text.9a07bb664094' %}</span>
+            {% text 'support.legal.text.f202804463a9' %}
+          </span>
+<span class="text-border-subtle">·</span>
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-brand-deep">{% text 'support.legal.text.7be676cbf4b5' %}</span>
+            {% text 'support.legal.text.1434c4749435' %}
+          </span>
+<span class="text-border-subtle">·</span>
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-brand-deep">{% text 'support.legal.text.11e9ba26c91a' %}</span>
+            {% text 'support.legal.text.efa55f746cb1' %}
+          </span>
+</div>
+</div>
+</header>
+<!-- Two-Column Grid: TOC Sidebar & Reader Column -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+<!-- Sticky Sidebar (Table of Contents) -->
+<aside class="lg:col-span-4 sticky top-32 space-y-6">
+<div class="bg-surface-container-lowest p-6 shadow-sm">
+<div class="flex items-center justify-between pb-4 mb-4">
+<span class="font-label-md text-label-md uppercase tracking-[0.15em] text-brand-deep font-semibold">
+              {% text 'support.legal.text.abb04b4c242b' %}
+            </span>
+<span class="text-label-sm font-label-sm text-text-muted">{% text 'support.legal.text.8a94ad82260c' %}</span>
+</div>
+<nav class="space-y-1" id="tocNav">
+<a class="toc-link group flex items-start gap-3 py-2 px-3 text-body-sm font-body-sm text-text-muted hover:text-brand-deep hover:bg-surface transition-all" href="#abschnitt-1">
+<span class="font-mono text-[11px] font-semibold text-text-muted group-hover:text-brand-deep mt-0.5">01</span>
+<span class="leading-snug">{% text 'support.legal.text.fba853156ecc' %}</span>
+</a>
+<a class="toc-link group flex items-start gap-3 py-2 px-3 text-body-sm font-body-sm text-text-muted hover:text-brand-deep hover:bg-surface transition-all" href="#abschnitt-2">
+<span class="font-mono text-[11px] font-semibold text-text-muted group-hover:text-brand-deep mt-0.5">02</span>
+<span class="leading-snug">{% text 'support.legal.text.594319677f1a' %}</span>
+</a>
+<a class="toc-link group flex items-start gap-3 py-2 px-3 text-body-sm font-body-sm text-text-muted hover:text-brand-deep hover:bg-surface transition-all" href="#abschnitt-3">
+<span class="font-mono text-[11px] font-semibold text-text-muted group-hover:text-brand-deep mt-0.5">03</span>
+<span class="leading-snug">{% text 'support.legal.text.8bb05ff8076c' %}</span>
+</a>
+<a class="toc-link group flex items-start gap-3 py-2 px-3 text-body-sm font-body-sm text-text-muted hover:text-brand-deep hover:bg-surface transition-all" href="#abschnitt-4">
+<span class="font-mono text-[11px] font-semibold text-text-muted group-hover:text-brand-deep mt-0.5">04</span>
+<span class="leading-snug">{% text 'support.legal.text.272061b060c2' %}</span>
+</a>
+<a class="toc-link group flex items-start gap-3 py-2 px-3 text-body-sm font-body-sm text-text-muted hover:text-brand-deep hover:bg-surface transition-all" href="#abschnitt-5">
+<span class="font-mono text-[11px] font-semibold text-text-muted group-hover:text-brand-deep mt-0.5">05</span>
+<span class="leading-snug">{% text 'support.legal.text.73477635a43c' %}</span>
+</a>
+<a class="toc-link group flex items-start gap-3 py-2 px-3 text-body-sm font-body-sm text-text-muted hover:text-brand-deep hover:bg-surface transition-all" href="#abschnitt-6">
+<span class="font-mono text-[11px] font-semibold text-text-muted group-hover:text-brand-deep mt-0.5">06</span>
+<span class="leading-snug">{% text 'support.legal.text.cb5b85c5cc85' %}</span>
+</a>
+<a class="toc-link group flex items-start gap-3 py-2 px-3 text-body-sm font-body-sm text-text-muted hover:text-brand-deep hover:bg-surface transition-all" href="#abschnitt-7">
+<span class="font-mono text-[11px] font-semibold text-text-muted group-hover:text-brand-deep mt-0.5">07</span>
+<span class="leading-snug">{% text 'support.legal.text.11db3194c309' %}</span>
+</a>
+</nav>
+</div>
+<!-- Privacy Officer Contact Card -->
+<div class="bg-surface-container p-6">
+<div class="flex items-center gap-3 mb-3">
+<span class="material-symbols-outlined text-brand-deep text-[22px]">{% text 'support.legal.text.b21514846a3a' %}</span>
+<span class="font-title-md text-title-md text-text-primary">{% text 'support.legal.text.444f07693435' %}</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mb-4 leading-relaxed">
+            {% text 'support.legal.text.42b50cdb801f' %}
+          </p>
+<div class="space-y-1.5 text-body-sm font-body-sm">
+<p class="text-text-primary font-medium">{% text 'support.legal.text.c092a521ae36' %}</p>
+<p class="text-text-muted">{% text 'support.legal.text.9c90507a0845' %}</p>
+<a class="inline-flex items-center gap-1.5 text-brand-deep font-semibold hover:underline mt-2" href="mailto:datenschutz@maennermasche.de">
+<span class="material-symbols-outlined text-[16px]">{% text 'support.legal.text.1d6e1cf70ec6' %}</span>
+              {% text 'support.legal.text.881e7b8e6f4e' %}
+            </a>
+</div>
+</div>
+<!-- Quick Info Box: Discrete Packaging -->
+<div class="bg-surface-container-lowest p-6 shadow-sm">
+<div class="flex items-center gap-2 mb-2 text-brand-deep">
+<span class="material-symbols-outlined text-[18px]">{% text 'support.legal.text.e117797422d3' %}</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">{% text 'support.legal.text.3d927f22c56e' %}</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
+            {% text 'support.legal.text.cc7eb69ba57a' %}
+          </p>
+</div>
+</aside>
+<!-- Main Legal Content Reader -->
+<article class="lg:col-span-8 space-y-16 max-w-[75ch] font-body-md text-body-md text-text-primary">
+<!-- Confidentiality Lead Paragraph -->
+<section class="bg-surface-container-lowest p-8 shadow-sm relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-brand-deep"></div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted mb-2 block">
+            {% text 'support.legal.text.2ec02eb4edd3' %}
+          </span>
+<p class="font-body-lg text-body-lg text-text-primary leading-relaxed">
+            {% text 'support.legal.text.fcbd898123d5' %}
+          </p>
+</section>
+<!-- SECTION 1: Verantwortlicher -->
+<section class="scroll-mt-36" id="abschnitt-1">
+<div class="flex items-baseline gap-3 mb-4">
+<span class="font-headline-md text-headline-md text-brand-deep font-medium">01</span>
+<h2 class="font-headline-lg text-headline-md lg:text-headline-lg text-text-primary">
+              {% text 'support.legal.text.fba853156ecc' %}
+            </h2>
+</div>
+<p class="text-text-muted mb-6 leading-relaxed">
+            {% text 'support.legal.text.ce1b40f1a781' %}
+          </p>
+<div class="bg-surface-container-lowest p-6 shadow-sm">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div>
+<p class="font-title-md text-title-md text-text-primary mb-1">{% text 'support.legal.text.1ac8970cbb9b' %}</p>
+<p class="text-text-muted font-body-sm text-body-sm">{% text 'support.legal.text.c73272d14e82' %}<br/>{% text 'support.legal.text.88a8fbcbaa9a' %}</p>
+<p class="text-text-muted font-body-sm text-body-sm mt-3">
+                  {% text 'support.legal.text.8e5ad3434e18' %}<br/>
+                  {% text 'support.legal.text.f3aa58590690' %}
+                </p>
+</div>
+<div class="space-y-2">
+<p class="text-body-sm font-body-sm text-text-muted">
+<span class="block font-medium text-text-primary">{% text 'support.legal.text.c314ac296de2' %}</span>
+                  {% text 'support.legal.text.f5fffbcb044a' %}
+                </p>
+<p class="text-body-sm font-body-sm text-text-muted">
+<span class="block font-medium text-text-primary">{% text 'support.legal.text.e7309b4bf328' %}</span>
+                  {% text 'support.legal.text.cc75be7196a2' %}
+                </p>
+<p class="text-body-sm font-body-sm text-text-muted">
+<span class="block font-medium text-text-primary">{% text 'support.legal.text.6a02a6725cd1' %}</span>
+<a class="text-brand-deep font-medium hover:underline" href="mailto:service@maennermasche.de">{% text 'support.legal.text.311edcc927a4' %}</a>
+</p>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: Datenerhebung -->
+<section class="scroll-mt-36" id="abschnitt-2">
+<div class="flex items-baseline gap-3 mb-4">
+<span class="font-headline-md text-headline-md text-brand-deep font-medium">02</span>
+<h2 class="font-headline-lg text-headline-md lg:text-headline-lg text-text-primary">
+              {% text 'support.legal.text.ea73e89672a9' %}
+            </h2>
+</div>
+<p class="text-text-muted mb-6 leading-relaxed">
+            {% text 'support.legal.text.bccd82d084d1' %}
+          </p>
+<div class="space-y-4">
+<div class="bg-surface-container-lowest p-6 shadow-sm">
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2 h-2 bg-brand-deep"></span>
+<h3 class="font-title-md text-title-md text-text-primary">{% text 'support.legal.text.0ecbe9b871ce' %}</h3>
+</div>
+<p class="text-text-muted font-body-sm text-body-sm leading-relaxed mb-3">
+                {% text 'support.legal.text.3d590fbb8801' %}
+              </p>
+<div class="inline-flex items-center gap-2 font-label-sm text-label-sm bg-surface-muted px-3 py-1 text-text-muted">
+<span>{% text 'support.legal.text.1c0eb4e17681' %}</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 shadow-sm">
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2 h-2 bg-brand-deep"></span>
+<h3 class="font-title-md text-title-md text-text-primary">{% text 'support.legal.text.6b3c86fa21d2' %}</h3>
+</div>
+<p class="text-text-muted font-body-sm text-body-sm leading-relaxed mb-3">
+                {% text 'support.legal.text.22cde89e897a' %}
+              </p>
+<div class="inline-flex items-center gap-2 font-label-sm text-label-sm bg-surface-muted px-3 py-1 text-text-muted">
+<span>{% text 'support.legal.text.b7ffb981bae8' %}</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: Zweck & Heimanprobe -->
+<section class="scroll-mt-36" id="abschnitt-3">
+<div class="flex items-baseline gap-3 mb-4">
+<span class="font-headline-md text-headline-md text-brand-deep font-medium">03</span>
+<h2 class="font-headline-lg text-headline-md lg:text-headline-lg text-text-primary">
+              {% text 'support.legal.text.775fcb0c62a0' %}
+            </h2>
+</div>
+<p class="text-text-muted mb-6 leading-relaxed">
+            {% text 'support.legal.text.e867fc9aa7fe' %}
+          </p>
+<!-- Highlight Atelier Notice -->
+<div class="bg-surface-container p-6 lg:p-8 my-8 relative overflow-hidden">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 bg-brand-deep text-surface-container-lowest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">{% text 'support.legal.text.ec734b651574' %}</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-brand-deep mb-2 font-semibold">
+                  {% text 'support.legal.text.6c09444fbd6c' %}
+                </h4>
+<p class="font-body-sm text-body-sm text-text-primary leading-relaxed">
+                  {% text 'support.legal.text.0d7bf755dcc8' %}
+                </p>
+</div>
+</div>
+</div>
+<ul class="space-y-3 font-body-md text-body-md text-text-muted">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-brand-deep text-[20px] shrink-0 mt-0.5">{% text 'support.legal.text.d56d985300d4' %}</span>
+<span><strong>{% text 'support.legal.text.cd53361b3251' %}</strong> {% text 'support.legal.text.f9394ec58860' %}</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-brand-deep text-[20px] shrink-0 mt-0.5">{% text 'support.legal.text.d56d985300d4' %}</span>
+<span><strong>{% text 'support.legal.text.cd012a4007af' %}</strong> {% text 'support.legal.text.f3961a2f1564' %}</span>
+</li>
+</ul>
+</section>
+<!-- SECTION 4: Auftragsverarbeiter Table -->
+<section class="scroll-mt-36" id="abschnitt-4">
+<div class="flex items-baseline gap-3 mb-4">
+<span class="font-headline-md text-headline-md text-brand-deep font-medium">04</span>
+<h2 class="font-headline-lg text-headline-md lg:text-headline-lg text-text-primary">
+              {% text 'support.legal.text.fe4a7640d916' %}
+            </h2>
+</div>
+<p class="text-text-muted mb-6 leading-relaxed">
+            {% text 'support.legal.text.97ee16629d8c' %}
+          </p>
+<!-- Precision Data Table -->
+<div class="bg-surface-container-lowest shadow-sm overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead class="bg-surface-muted text-text-primary font-label-sm text-label-sm uppercase tracking-wider">
+<tr>
+<th class="p-4">{% text 'support.legal.text.923e49e9bd6d' %}</th>
+<th class="p-4">{% text 'support.legal.text.2ff189a9ed39' %}</th>
+<th class="p-4">{% text 'support.legal.text.ec172ceecd52' %}</th>
+<th class="p-4">{% text 'support.legal.text.4c3785ba94ea' %}</th>
+</tr>
+</thead>
+<tbody class="text-text-muted">
+<tr class="hover:bg-surface/50 transition-colors">
+<td class="p-4 font-medium text-text-primary">
+                    {% text 'support.legal.text.423ed5a2ae8d' %}<br/>
+<span class="text-label-sm font-label-sm text-text-muted font-normal">{% text 'support.legal.text.cc91d705ce21' %}</span>
+</td>
+<td class="p-4">{% text 'support.legal.text.07d3dc898135' %}</td>
+<td class="p-4">{% text 'support.legal.text.045c503f8b8b' %}</td>
+<td class="p-4 font-mono text-[12px] text-text-primary">{% text 'support.legal.text.702dbdd51cd6' %}</td>
+</tr>
+<tr class="hover:bg-surface/50 transition-colors">
+<td class="p-4 font-medium text-text-primary">
+                    {% text 'support.legal.text.d09083504c48' %}<br/>
+<span class="text-label-sm font-label-sm text-text-muted font-normal">{% text 'support.legal.text.f746d171018b' %}</span>
+</td>
+<td class="p-4">{% text 'support.legal.text.c01a7ce603a4' %}</td>
+<td class="p-4">{% text 'support.legal.text.6ed4b7e29942' %}</td>
+<td class="p-4 font-mono text-[12px] text-text-primary">{% text 'support.legal.text.83ffff9010eb' %}</td>
+</tr>
+<tr class="hover:bg-surface/50 transition-colors">
+<td class="p-4 font-medium text-text-primary">
+                    {% text 'support.legal.text.e7b7e7b7a670' %}<br/>
+<span class="text-label-sm font-label-sm text-text-muted font-normal">{% text 'support.legal.text.e486a39af0ad' %}</span>
+</td>
+<td class="p-4">{% text 'support.legal.text.b86365b56d2a' %}</td>
+<td class="p-4">{% text 'support.legal.text.5805f91b5992' %}</td>
+<td class="p-4 font-mono text-[12px] text-text-primary">{% text 'support.legal.text.702dbdd51cd6' %}</td>
+</tr>
+<tr class="hover:bg-surface/50 transition-colors">
+<td class="p-4 font-medium text-text-primary">
+                    {% text 'support.legal.text.f512ee0107d7' %}<br/>
+<span class="text-label-sm font-label-sm text-text-muted font-normal">{% text 'support.legal.text.8caed0d281be' %}</span>
+</td>
+<td class="p-4">{% text 'support.legal.text.5045c6f8f2d4' %}</td>
+<td class="p-4">{% text 'support.legal.text.8391bae03bef' %}</td>
+<td class="p-4 font-mono text-[12px] text-text-primary">{% text 'support.legal.text.702dbdd51cd6' %}</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- SECTION 5: Cookies & CMP -->
+<section class="scroll-mt-36" id="abschnitt-5">
+<div class="flex items-baseline gap-3 mb-4">
+<span class="font-headline-md text-headline-md text-brand-deep font-medium">05</span>
+<h2 class="font-headline-lg text-headline-md lg:text-headline-lg text-text-primary">
+              {% text 'support.legal.text.7cb5dec2bcb6' %}
+            </h2>
+</div>
+<p class="text-text-muted mb-6 leading-relaxed">
+            {% text 'support.legal.text.b70ec99d4c1e' %}
+          </p>
+<div class="bg-surface-container-lowest p-6 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div>
+<p class="font-title-md text-title-md text-text-primary mb-1">{% text 'support.legal.text.988ad5f4616b' %}</p>
+<p class="text-text-muted font-body-sm text-body-sm">
+                {% text 'support.legal.text.11dc9e195292' %} <span class="text-brand-deep font-semibold">{% text 'support.legal.text.2bcdce76dbd5' %}</span> {% text 'support.legal.text.8144406099f7' %}
+              </p>
+</div>
+<button class="h-11 px-6 bg-brand-deep text-surface-container-lowest font-label-md text-label-md uppercase tracking-wider hover:bg-primary-container transition-colors shrink-0" onclick="alert('Cookie-Präferenzzentrum wird geöffnet...')" type="button">
+              {% text 'support.legal.text.537745789533' %}
+            </button>
+</div>
+</section>
+<!-- SECTION 6: DSGVO Rechte -->
+<section class="scroll-mt-36" id="abschnitt-6">
+<div class="flex items-baseline gap-3 mb-4">
+<span class="font-headline-md text-headline-md text-brand-deep font-medium">06</span>
+<h2 class="font-headline-lg text-headline-md lg:text-headline-lg text-text-primary">
+              {% text 'support.legal.text.726e90decbb4' %}
+            </h2>
+</div>
+<p class="text-text-muted mb-6 leading-relaxed">
+            {% text 'support.legal.text.a5435fd397ba' %}
+          </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest p-5 shadow-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-brand-deep font-semibold block mb-1">{% text 'support.legal.text.dd439d9c0271' %}</span>
+<h4 class="font-title-md text-title-md text-text-primary mb-2">{% text 'support.legal.text.a0f270a87940' %}</h4>
+<p class="text-text-muted font-body-sm text-body-sm leading-relaxed">
+                {% text 'support.legal.text.c45c3c05e6d7' %}
+              </p>
+</div>
+<div class="bg-surface-container-lowest p-5 shadow-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-brand-deep font-semibold block mb-1">{% text 'support.legal.text.ce2cb84d9594' %}</span>
+<h4 class="font-title-md text-title-md text-text-primary mb-2">{% text 'support.legal.text.deb3f0a447fb' %}</h4>
+<p class="text-text-muted font-body-sm text-body-sm leading-relaxed">
+                {% text 'support.legal.text.dad1c9ae6d27' %}
+              </p>
+</div>
+<div class="bg-surface-container-lowest p-5 shadow-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-brand-deep font-semibold block mb-1">{% text 'support.legal.text.2968f8d5f42f' %}</span>
+<h4 class="font-title-md text-title-md text-text-primary mb-2">{% text 'support.legal.text.accca2569ceb' %}</h4>
+<p class="text-text-muted font-body-sm text-body-sm leading-relaxed">
+                {% text 'support.legal.text.461c54312ba9' %}
+              </p>
+</div>
+<div class="bg-surface-container-lowest p-5 shadow-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-brand-deep font-semibold block mb-1">{% text 'support.legal.text.ae9b749d4156' %}</span>
+<h4 class="font-title-md text-title-md text-text-primary mb-2">{% text 'support.legal.text.793c539e3e5b' %}</h4>
+<p class="text-text-muted font-body-sm text-body-sm leading-relaxed">
+                {% text 'support.legal.text.7ce4971f8c5f' %}
+              </p>
+</div>
+</div>
+</section>
+<!-- SECTION 7: Datensicherheit -->
+<section class="scroll-mt-36" id="abschnitt-7">
+<div class="flex items-baseline gap-3 mb-4">
+<span class="font-headline-md text-headline-md text-brand-deep font-medium">07</span>
+<h2 class="font-headline-lg text-headline-md lg:text-headline-lg text-text-primary">
+              {% text 'support.legal.text.ea9b9615ded6' %}
+            </h2>
+</div>
+<p class="text-text-muted mb-6 leading-relaxed">
+            {% text 'support.legal.text.62bf60defa52' %}
+          </p>
+<div class="bg-surface-container p-6">
+<div class="flex items-center gap-3 mb-2 text-brand-deep font-title-md text-title-md">
+<span class="material-symbols-outlined text-[20px]">{% text 'support.legal.text.09b6f3b1fb82' %}</span>
+<span>{% text 'support.legal.text.0b2104a93c93' %}</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
+              {% text 'support.legal.text.200a500b3a90' %}
+            </p>
+</div>
+</section>
+</article>
+</div>
+<!-- Bottom Document Navigation & Hub Switcher -->
+<section class="mt-24 pt-12">
+<div class="flex items-center justify-between mb-8">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-text-muted block mb-1">{% text 'support.legal.text.1edcaf8c84f5' %}</span>
+<h3 class="font-headline-md text-headline-md text-text-primary">{% text 'support.legal.text.7db726c4084f' %}</h3>
+</div>
+<span class="font-label-sm text-label-sm text-text-muted">{% text 'support.legal.text.13c35ccf540a' %}</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Card 1: Impressum -->
+<a class="group bg-surface-container-lowest p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between" href="#">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted group-hover:text-brand-deep transition-colors">{% text 'support.legal.text.82571536cd0d' %}</span>
+<h4 class="font-headline-md text-headline-md text-text-primary mt-2 mb-3">{% text 'support.legal.text.5c3175413bb7' %}</h4>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
+              {% text 'support.legal.text.d016b7a1eaec' %}
+            </p>
+</div>
+<div class="pt-6 flex items-center justify-between font-label-md text-label-md text-brand-deep font-semibold">
+<span>{% text 'support.legal.text.b996665007ad' %}</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform text-[18px]">{% text 'support.legal.text.16d57c087f83' %}</span>
+</div>
+</a>
+<!-- Card 2: AGB -->
+<a class="group bg-surface-container-lowest p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between" href="#">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted group-hover:text-brand-deep transition-colors">{% text 'support.legal.text.ae48736f85b1' %}</span>
+<h4 class="font-headline-md text-headline-md text-text-primary mt-2 mb-3">{% text 'support.legal.text.7273f036e811' %}</h4>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
+              {% text 'support.legal.text.0991b06dc051' %}
+            </p>
+</div>
+<div class="pt-6 flex items-center justify-between font-label-md text-label-md text-brand-deep font-semibold">
+<span>{% text 'support.legal.text.b996665007ad' %}</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform text-[18px]">{% text 'support.legal.text.16d57c087f83' %}</span>
+</div>
+</a>
+<!-- Card 3: Widerruf -->
+<a class="group bg-surface-container-lowest p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between" href="#">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted group-hover:text-brand-deep transition-colors">{% text 'support.legal.text.a19cec36d314' %}</span>
+<h4 class="font-headline-md text-headline-md text-text-primary mt-2 mb-3">{% text 'support.legal.text.a30c1f5dd492' %}</h4>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
+              {% text 'support.legal.text.36c8ea3d634a' %}
+            </p>
+</div>
+<div class="pt-6 flex items-center justify-between font-label-md text-label-md text-brand-deep font-semibold">
+<span>{% text 'support.legal.text.b996665007ad' %}</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform text-[18px]">{% text 'support.legal.text.16d57c087f83' %}</span>
+</div>
+</a>
+</div>
+<!-- Trust Badges Bar -->
+<div class="mt-12 py-6 bg-surface-container-lowest px-8 flex flex-wrap items-center justify-around gap-6 text-text-muted text-body-sm font-body-sm">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-brand-deep text-[22px]">{% text 'support.legal.text.ec734b651574' %}</span>
+<span class="font-medium text-text-primary">{% text 'support.legal.text.0dcff2fcec4a' %}</span>
+</div>
+<div class="hidden sm:block text-border-subtle">|</div>
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-brand-deep text-[22px]">{% text 'support.legal.text.e117797422d3' %}</span>
+<span class="font-medium text-text-primary">{% text 'support.legal.text.d907d757290b' %}</span>
+</div>
+<div class="hidden sm:block text-border-subtle">|</div>
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-brand-deep text-[22px]">{% text 'support.legal.text.b7440381beac' %}</span>
+<span class="font-medium text-text-primary">{% text 'support.legal.text.065357879b15' %}</span>
+</div>
+<div class="hidden sm:block text-border-subtle">|</div>
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-brand-deep text-[22px]">{% text 'support.legal.text.a414c9fb20f9' %}</span>
+<span class="font-medium text-text-primary">{% text 'support.legal.text.e44e90dcfd20' %}</span>
+</div>
+</div>
+</section>
+</div>
+<!-- Interactive Active-State & Reading Progress Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const progressBar = document.getElementById('readProgress');
+      const sections = document.querySelectorAll('section[id^="abschnitt-"]');
+      const tocLinks = document.querySelectorAll('.toc-link');
+
+      function onScroll() {
+        // Reading progress calculation
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+        if (progressBar) {
+          progressBar.style.width = Math.min(100, Math.max(0, progress)) + '%';
+        }
+
+        // Active TOC spy
+        let currentId = '';
+        sections.forEach((sec) => {
+          const rect = sec.getBoundingClientRect();
+          if (rect.top <= 200 && rect.bottom >= 100) {
+            currentId = sec.getAttribute('id');
+          }
+        });
+
+        if (currentId) {
+          tocLinks.forEach((link) => {
+            const href = link.getAttribute('href');
+            if (href === '#' + currentId) {
+              link.classList.add('bg-surface', 'text-brand-deep', 'font-semibold');
+              link.classList.remove('text-text-muted');
+            } else {
+              link.classList.remove('bg-surface', 'text-brand-deep', 'font-semibold');
+              link.classList.add('text-text-muted');
+            }
+          });
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    });
+  </script>
+</div></main>{% include 'includes/footer.html' %}
+{% endblock %}

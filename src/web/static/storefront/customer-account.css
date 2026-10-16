@@ -1,0 +1,32 @@
+/* Preserve the supplied desktop composition; adapt its same blocks at narrow widths. */
+.customer-layout{padding-top:0!important}
+.customer-content{min-width:0}
+.customer-email{overflow-wrap:anywhere}
+.customer-sidebar nav a[aria-current="page"]{background:#183F30;color:#fff;font-weight:600}
+.customer-layout :focus-visible{outline:2px solid #183F30;outline-offset:3px}
+.customer-layout fieldset{min-width:0;border:0;padding:0;margin:0}
+.customer-layout fieldset:disabled button{cursor:not-allowed}
+.customer-layout #profile-name-form input[type="text"],
+.customer-layout #customer-address-form input:not([type="hidden"]):not([type="checkbox"]),
+.customer-layout #customer-address-form select{width:100%;min-height:40px;padding:8px 12px;background:#fff;color:#171E19;font:inherit;border:0;box-shadow:0 1px 3px #171E191a}
+.customer-layout #profile-name-form input[type="text"]{min-height:44px}
+.customer-layout #customer-address-form input[type="checkbox"]{width:16px;height:16px;accent-color:#183F30}
+.customer-layout .errorlist{list-style:none;color:#93000a;font:13px/1.5 Arial,sans-serif;padding:8px 0;margin:0}
+.customer-layout #address-modal>div{max-height:90vh;max-height:90dvh;overflow-y:auto}
+@media(max-width:1023px){
+ [data-customer-reference].customer-layout{padding-left:16px;padding-right:16px;flex-direction:column}
+ .customer-layout .customer-sidebar{width:100%;min-height:0;border-right:0;border-bottom:1px solid #DCDED5;padding:24px 0}
+ .customer-layout .customer-sidebar nav{display:flex;overflow-x:auto;gap:8px;padding:4px 0}
+ .customer-layout .customer-sidebar nav a{flex-shrink:0;gap:12px}
+ .customer-layout .customer-sidebar>div:last-child{margin-top:16px}
+ .customer-layout .customer-content{padding-left:0;padding-top:24px;width:100%}
+ .customer-content>div>section,.customer-content>div>div>section{max-width:100%}
+}
+@media(max-width:639px){
+ .customer-layout .customer-content .p-space-xl{padding:20px}
+ .customer-layout .customer-content .px-space-xl{padding-left:20px;padding-right:20px}
+ .customer-layout .customer-content .font-headline-lg{font-size:28px;line-height:1.35}
+ .customer-content .font-headline-md{overflow-wrap:anywhere}
+ .customer-content [data-account-security] nav{flex-direction:column}
+ .customer-content input,.customer-content select{max-width:100%}
+}

@@ -4,6 +4,18 @@
 
 [Собранная основа: установка и локальный запуск](project/foundation-run.md).
 
+[Текущий план разработки](project/development-workplan.md) · [Каталог, варианты и привязка ORM](project/catalog-read-api.md).
+
+[План рабочего кабинета: навигация, настройки и создание товаров](project/staff-cabinet-plan.md).
+
+[Кабинет покупателя: референс и реальные настройки](project/customer-account.md).
+
+[Единый вход и MFA: настройка и ограничения](project/identity-and-mfa.md).
+
+[Реализованный рабочий кабинет: вход, права и ограничения](project/staff-cabinet-run.md).
+
+[Перенос витрины в Django: статус и запуск](project/django-template-migration.md), [ключи локализации](project/django-localization.md).
+
 Актуальные требования уточнены 13.10.2026. Foundation реализован; каталог и commerce-функции ещё впереди.
 
 Порядок чтения:

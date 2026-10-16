@@ -1,0 +1,11 @@
+{% load shop_i18n %}
+<section data-account-security class="bg-surface-container-lowest p-space-xl mb-space-xl shadow-sm">
+<h2 class="font-headline-md text-headline-md text-text-primary">{% text 'customer.account.security' %}</h2>
+<p class="font-body-sm text-body-sm text-text-muted mt-2">{% text 'customer.account.security_intro' %}</p>
+<nav class="flex flex-wrap gap-space-md mt-space-lg" aria-label="{% text 'customer.account.security' %}">
+<a class="px-space-md py-3 bg-brand-deep text-on-primary font-label-md text-label-md" href="{% url 'account_email' %}">{% text 'auth.email.manage' %}</a>
+<a class="px-space-md py-3 bg-surface-muted text-brand-deep font-label-md text-label-md" href="{% url 'account_change_password' %}">{% text 'auth.password.change' %}</a>
+<a class="px-space-md py-3 bg-surface-muted text-brand-deep font-label-md text-label-md" href="{% url 'mfa_index' %}">{% text 'auth.mfa.title' %}</a>
+{% if user.is_staff or user.is_superuser %}<a class="px-space-md py-3 bg-surface-muted text-brand-deep font-label-md text-label-md" href="{% url 'staff:home' %}">{% text 'auth.overview.staff' %}</a>{% endif %}
+<a class="px-space-md py-3 text-brand-deep font-label-md text-label-md" href="{% url 'account_logout' %}">{% text 'auth.logout.submit' %}</a>
+</nav></section>

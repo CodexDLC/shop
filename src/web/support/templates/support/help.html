@@ -1,0 +1,668 @@
+{% extends 'base.html' %}
+{% load static shop_i18n %}
+{% block page_head %}<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>{% text 'support.help.text.bcc9deaa034e' %}</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="{% static 'storefront/vendor/tailwind-runtime.js' %}?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-dim":"#d4dcd4","on-error":"#ffffff","text-muted":"#626960","on-surface-variant":"#414944","on-background":"#161d18","surface-container-highest":"#dde5dc","tertiary-fixed-dim":"#c5c7bf","primary-fixed":"#beedd5","page-bg":"#F8F8F3","error-container":"#ffdad6","on-tertiary-fixed":"#191c17","on-secondary-fixed-variant":"#424940","error":"#ba1a1a","surface":"#f4fbf3","on-tertiary-container":"#adb0a7","tertiary":"#2a2d27","brand-deep":"#183F30","primary-container":"#1f4a39","border-subtle":"#DCDED5","on-primary-fixed-variant":"#244f3d","secondary-container":"#dee5d9","secondary-fixed-dim":"#c2c9be","surface-muted":"#EEEEE7","surface-container-high":"#e3eae2","on-tertiary":"#ffffff","primary-fixed-dim":"#a3d1ba","tertiary-container":"#40433d","outline":"#717974","tertiary-fixed":"#e1e3da","on-secondary-container":"#5f665d","inverse-on-surface":"#ebf3ea","secondary-fixed":"#dee5d9","on-primary-fixed":"#002115","surface-container":"#e8f0e7","surface-variant":"#dde5dc","surface-bright":"#f4fbf3","secondary":"#596057","on-secondary":"#ffffff","on-error-container":"#93000a","on-tertiary-fixed-variant":"#454841","surface-tint":"#3c6754","on-primary-container":"#8cb9a3","outline-variant":"#c0c8c2","background":"#f4fbf3","inverse-primary":"#a3d1ba","on-secondary-fixed":"#171d16","primary":"#033324","text-primary":"#171E19","surface-container-lowest":"#ffffff","surface-container-low":"#eef6ed","inverse-surface":"#2b322d","on-surface":"#161d18","on-primary":"#ffffff"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"space-lg":"1.5rem","space-xl":"2.5rem","space-2xl":"4rem","margin-mobile":"1rem","margin":"3rem","space-md":"1rem","space-xs":"0.25rem","space-sm":"0.5rem","space-3xl":"6rem","gutter":"1.5rem","gutter-mobile":"0.75rem"},fontFamily:{"label-sm":["Plus Jakarta Sans"],"headline-md":["Bodoni Moda"],"headline-lg-mobile":["Bodoni Moda"],"label-md":["Plus Jakarta Sans"],"headline-lg":["Bodoni Moda"],"price-lg":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"display-xl":["Bodoni Moda"],"title-lg":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"price-md":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"display-xl-mobile":["Bodoni Moda"]},fontSize:{"label-sm":["0.6875rem",{"lineHeight":"1.2","letterSpacing":"0.06em","fontWeight":"500"}],"headline-md":["1.5rem",{"lineHeight":"1.35","fontWeight":"500"}],"headline-lg-mobile":["1.75rem",{"lineHeight":"1.3","fontWeight":"500"}],"label-md":["0.8125rem",{"lineHeight":"1.2","letterSpacing":"0.05em","fontWeight":"600"}],"headline-lg":["2.25rem",{"lineHeight":"1.25","letterSpacing":"-0.01em","fontWeight":"500"}],"price-lg":["1.25rem",{"lineHeight":"1.2","fontWeight":"600"}],"body-lg":["1.125rem",{"lineHeight":"1.6","fontWeight":"400"}],"body-md":["0.9375rem",{"lineHeight":"1.5","fontWeight":"400"}],"display-xl":["3.5rem",{"lineHeight":"1.15","letterSpacing":"-0.02em","fontWeight":"500"}],"title-lg":["1.125rem",{"lineHeight":"1.4","letterSpacing":"0.01em","fontWeight":"600"}],"title-md":["1rem",{"lineHeight":"1.4","fontWeight":"600"}],"price-md":["0.9375rem",{"lineHeight":"1.2","fontWeight":"600"}],"body-sm":["0.8125rem",{"lineHeight":"1.4","fontWeight":"400"}],"display-xl-mobile":["2.25rem",{"lineHeight":"1.2","letterSpacing":"-0.01em","fontWeight":"500"}]}}}};</script><script src="{% static 'storefront/reference-tokens.js' %}"></script>
+<link rel="stylesheet" href="{% static 'storefront/shared-chrome.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+<link rel="icon" href="{% static 'storefront/brand/favicon.ico' %}"><link rel="apple-touch-icon" href="{% static 'storefront/brand/apple-touch-icon.png' %}">
+{% endblock %}
+{% block body_attrs %} class="bg-page-bg font-body-md text-text-primary antialiased selection:bg-primary-container selection:text-on-primary" data-demo-page="help.html"{% endblock %}
+{% block content %}
+{% include 'includes/header.html' %}<main class="w-full pt-28 bg-page-bg min-h-[calc(100vh-280px)]"><div class="flex flex-col w-full">
+<!-- Subtle Hero Scrim & Top Breadcrumb Bar -->
+<div class="w-full bg-surface-muted/60">
+<div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin py-space-sm">
+<nav aria-label="{% text 'support.help.label.c766e665183d' %}" class="flex items-center gap-space-xs font-label-sm text-label-sm uppercase tracking-wider text-text-muted">
+<a class="hover:text-brand-deep transition-colors" href="#">{% text 'support.help.text.b660f83df4d6' %}</a>
+<span class="opacity-40">/</span>
+<span class="text-brand-deep font-semibold">{% text 'support.help.text.fdcd0a54dadd' %}</span>
+</nav>
+</div>
+</div>
+<!-- Hero & Atelier Search Header -->
+<section class="w-full bg-surface-muted/30 pb-space-2xl">
+<div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin pt-space-xl">
+<div class="max-w-4xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-brand-deep text-on-primary font-label-sm text-label-sm uppercase tracking-[0.2em] mb-space-md">
+<span class="material-symbols-outlined text-[14px]">{% text 'support.help.text.79ac32b1d75f' %}</span>
+          {% text 'support.help.text.2c3bd2f05671' %}
+        </div>
+<h1 class="font-headline-lg text-headline-lg lg:text-display-xl text-brand-deep tracking-tight mb-space-md">
+          {% text 'support.help.text.4d32db4987a0' %}
+        </h1>
+<p class="font-body-lg text-body-lg text-text-muted max-w-2xl leading-relaxed">
+          {% text 'support.help.text.740c5547d825' %}
+        </p>
+<!-- Search Input Bar -->
+<div class="mt-space-xl bg-surface-container-lowest p-2 lg:p-3 shadow-sm">
+<form class="flex items-center gap-space-md w-full" id="faqSearchForm" onsubmit="event.preventDefault(); window.searchHelpTopics();">
+<div class="w-10 h-10 flex items-center justify-center text-brand-deep">
+<span class="material-symbols-outlined text-[24px]">{% text 'support.help.text.3559d7accf00' %}</span>
+</div>
+<input aria-label="{% text 'support.help.label.071162725532' %}" class="w-full bg-transparent font-body-md text-body-md text-text-primary placeholder:text-text-muted/60 focus:outline-none" id="faqSearchInput" placeholder="{% text 'support.help.label.9bb4ca403a5c' %}" type="text"/>
+<button class="hidden sm:inline-flex items-center justify-center bg-primary-container text-on-primary font-label-md text-label-md uppercase tracking-wider px-space-lg h-11 hover:bg-brand-deep transition-colors" type="submit">
+              {% text 'support.help.text.407d963a825a' %}
+            </button>
+</form>
+</div>
+<!-- Quick Tags -->
+<div class="mt-space-md flex flex-wrap items-center gap-2 font-label-sm text-label-sm">
+<span class="text-text-muted uppercase tracking-wider text-[11px] mr-1">{% text 'support.help.text.10843ceb7eaf' %}</span>
+<button class="px-2.5 py-1 bg-surface-container-high text-brand-deep hover:bg-brand-deep hover:text-on-primary transition-colors uppercase tracking-wider text-[10px]" onclick="setQuickSearch('Heimanprobe')" type="button">{% text 'support.help.text.0fae9e5f3872' %}</button>
+<button class="px-2.5 py-1 bg-surface-container-high text-brand-deep hover:bg-brand-deep hover:text-on-primary transition-colors uppercase tracking-wider text-[10px]" onclick="setQuickSearch('Diskreter Versand')" type="button">{% text 'support.help.text.6d57dc0609d5' %}</button>
+<button class="px-2.5 py-1 bg-surface-container-high text-brand-deep hover:bg-brand-deep hover:text-on-primary transition-colors uppercase tracking-wider text-[10px]" onclick="setQuickSearch('Rücksendeetikett')" type="button">{% text 'support.help.text.6f7abfe3310c' %}</button>
+<button class="px-2.5 py-1 bg-surface-container-high text-brand-deep hover:bg-brand-deep hover:text-on-primary transition-colors uppercase tracking-wider text-[10px]" onclick="setQuickSearch('Größentabelle')" type="button">{% text 'support.help.text.bb3f1cbf386f' %}</button>
+<button class="px-2.5 py-1 bg-surface-container-high text-brand-deep hover:bg-brand-deep hover:text-on-primary transition-colors uppercase tracking-wider text-[10px]" onclick="setQuickSearch('DHL Packstation')" type="button">{% text 'support.help.text.fa67725567ad' %}</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Quick Topic Selector Cards Grid -->
+<section class="w-full -mt-6">
+<div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Card 1: Versand -->
+<a class="group bg-surface-container-lowest p-space-lg shadow-sm hover:bg-surface-container transition-all flex flex-col justify-between" href="#versand-lieferung">
+<div>
+<div class="w-12 h-12 bg-surface-container flex items-center justify-center text-brand-deep mb-space-md group-hover:bg-brand-deep group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[26px]">{% text 'support.help.text.9c586571e3cb' %}</span>
+</div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'support.help.text.2835397b0c30' %}</span>
+<h3 class="font-title-md text-title-md text-brand-deep mt-1 mb-2">{% text 'support.help.text.356a7c420822' %}</h3>
+<p class="font-body-sm text-body-sm text-text-muted">{% text 'support.help.text.4fe948dfba3c' %}</p>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center gap-1 font-label-sm text-label-sm uppercase tracking-wider text-brand-deep font-semibold">
+<span>{% text 'support.help.text.17f706b9a385' %}</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">{% text 'support.help.text.16d57c087f83' %}</span>
+</div>
+</a>
+<!-- Card 2: Heimanprobe & Retoure -->
+<a class="group bg-surface-container-lowest p-space-lg shadow-sm hover:bg-surface-container transition-all flex flex-col justify-between" href="#heimanprobe-retoure">
+<div>
+<div class="w-12 h-12 bg-surface-container flex items-center justify-center text-brand-deep mb-space-md group-hover:bg-brand-deep group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[26px]">{% text 'support.help.text.888fac7aca3c' %}</span>
+</div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'support.help.text.35aa5625f269' %}</span>
+<h3 class="font-title-md text-title-md text-brand-deep mt-1 mb-2">{% text 'support.help.text.58fc2c0d909b' %}</h3>
+<p class="font-body-sm text-body-sm text-text-muted">{% text 'support.help.text.bbe9bd42ec33' %}</p>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center gap-1 font-label-sm text-label-sm uppercase tracking-wider text-brand-deep font-semibold">
+<span>{% text 'support.help.text.926e8a057d8e' %}</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">{% text 'support.help.text.16d57c087f83' %}</span>
+</div>
+</a>
+<!-- Card 3: Zahlungsarten & Rechnung -->
+<a class="group bg-surface-container-lowest p-space-lg shadow-sm hover:bg-surface-container transition-all flex flex-col justify-between" href="#zahlung-rechnung">
+<div>
+<div class="w-12 h-12 bg-surface-container flex items-center justify-center text-brand-deep mb-space-md group-hover:bg-brand-deep group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[26px]">{% text 'support.help.text.5350e9dd4078' %}</span>
+</div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'support.help.text.e08bd55b7221' %}</span>
+<h3 class="font-title-md text-title-md text-brand-deep mt-1 mb-2">{% text 'support.help.text.9693ba05bcf7' %}</h3>
+<p class="font-body-sm text-body-sm text-text-muted">{% text 'support.help.text.9bfa7a28b11b' %}</p>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center gap-1 font-label-sm text-label-sm uppercase tracking-wider text-brand-deep font-semibold">
+<span>{% text 'support.help.text.ee316b1ef785' %}</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">{% text 'support.help.text.16d57c087f83' %}</span>
+</div>
+</a>
+<!-- Card 4: Passform & Marken -->
+<a class="group bg-surface-container-lowest p-space-lg shadow-sm hover:bg-surface-container transition-all flex flex-col justify-between" href="#passform-marken">
+<div>
+<div class="w-12 h-12 bg-surface-container flex items-center justify-center text-brand-deep mb-space-md group-hover:bg-brand-deep group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[26px]">{% text 'support.help.text.26d194e1f4e4' %}</span>
+</div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'support.help.text.458467f582cd' %}</span>
+<h3 class="font-title-md text-title-md text-brand-deep mt-1 mb-2">{% text 'support.help.text.19bc7463491d' %}</h3>
+<p class="font-body-sm text-body-sm text-text-muted">{% text 'support.help.text.abea746a61ae' %}</p>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center gap-1 font-label-sm text-label-sm uppercase tracking-wider text-brand-deep font-semibold">
+<span>{% text 'support.help.text.c6dcc7d10a51' %}</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">{% text 'support.help.text.16d57c087f83' %}</span>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- Two-Column Master Content Layout -->
+<section class="w-full mt-space-3xl pb-space-3xl">
+<div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-2xl">
+<!-- Left Column: Sticky Anchor Navigation & Concierge Card -->
+<aside class="lg:col-span-4 flex flex-col gap-space-xl">
+<div class="lg:sticky lg:top-32 space-y-space-xl">
+<!-- Quick Anchor Nav Module -->
+<div class="bg-surface-container-lowest p-space-lg shadow-sm">
+<h2 class="font-label-md text-label-md uppercase tracking-[0.18em] text-brand-deep mb-space-md font-semibold">
+                {% text 'support.help.text.abb04b4c242b' %}
+              </h2>
+<nav class="flex flex-col space-y-1 font-body-sm text-body-sm">
+<a class="px-3 py-2 text-text-primary hover:bg-surface-container-high hover:text-brand-deep transition-colors flex items-center justify-between" href="#versand-lieferung">
+<span>{% text 'support.help.text.8065c0d088c4' %}</span>
+<span class="material-symbols-outlined text-[16px] text-text-muted">{% text 'support.help.text.d031e2061b1a' %}</span>
+</a>
+<a class="px-3 py-2 text-text-primary hover:bg-surface-container-high hover:text-brand-deep transition-colors flex items-center justify-between" href="#heimanprobe-retoure">
+<span>{% text 'support.help.text.e7acb55c44a7' %}</span>
+<span class="material-symbols-outlined text-[16px] text-text-muted">{% text 'support.help.text.d031e2061b1a' %}</span>
+</a>
+<a class="px-3 py-2 text-text-primary hover:bg-surface-container-high hover:text-brand-deep transition-colors flex items-center justify-between" href="#hygiene-richtlinien">
+<span>{% text 'support.help.text.04644f1b5467' %}</span>
+<span class="material-symbols-outlined text-[16px] text-text-muted">{% text 'support.help.text.d031e2061b1a' %}</span>
+</a>
+<a class="px-3 py-2 text-text-primary hover:bg-surface-container-high hover:text-brand-deep transition-colors flex items-center justify-between" href="#zahlung-rechnung">
+<span>{% text 'support.help.text.07a0b413c28f' %}</span>
+<span class="material-symbols-outlined text-[16px] text-text-muted">{% text 'support.help.text.d031e2061b1a' %}</span>
+</a>
+<a class="px-3 py-2 text-text-primary hover:bg-surface-container-high hover:text-brand-deep transition-colors flex items-center justify-between" href="#passform-marken">
+<span>{% text 'support.help.text.583e013d2dee' %}</span>
+<span class="material-symbols-outlined text-[16px] text-text-muted">{% text 'support.help.text.d031e2061b1a' %}</span>
+</a>
+<a class="px-3 py-2 text-text-primary hover:bg-surface-container-high hover:text-brand-deep transition-colors flex items-center justify-between" href="#kontakt-formular">
+<span>{% text 'support.help.text.2426fd5d833b' %}</span>
+<span class="material-symbols-outlined text-[16px] text-text-muted">{% text 'support.help.text.d031e2061b1a' %}</span>
+</a>
+</nav>
+</div>
+<!-- Concierge Direct Contact Box (Luxury Deep Green) -->
+<div class="bg-brand-deep text-on-primary p-space-xl shadow-md relative overflow-hidden">
+<div class="absolute -right-8 -bottom-8 opacity-5 text-on-primary pointer-events-none">
+<span class="material-symbols-outlined text-[180px]">{% text 'support.help.text.79ac32b1d75f' %}</span>
+</div>
+<div class="relative z-10 space-y-space-md">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm uppercase tracking-widest text-[10px]">
+                  {% text 'support.help.text.f7bed3e5a830' %}
+                </div>
+<h3 class="font-headline-md text-headline-md tracking-tight text-on-primary">
+                  {% text 'support.help.text.86b3b46c2ff3' %}
+                </h3>
+<p class="font-body-sm text-body-sm text-white/80 leading-relaxed">
+                  {% text 'support.help.text.56c6f0e3a979' %}
+                </p>
+<div class="pt-2 space-y-3 font-body-sm text-body-sm">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] text-primary-fixed shrink-0">{% text 'support.help.text.bc8d8647b02d' %}</span>
+<div>
+<a class="font-price-md text-price-md tracking-wider text-on-primary hover:text-primary-fixed transition-colors" href="tel:+49892154890">
+                        +49 (0) 89 215 489 0
+                      </a>
+<p class="text-white/70 text-[11px] uppercase tracking-wider">{% text 'support.help.text.c5d1ee933285' %}</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] text-primary-fixed shrink-0">{% text 'support.help.text.1d6e1cf70ec6' %}</span>
+<div>
+<a class="text-on-primary font-medium hover:text-primary-fixed transition-colors" href="mailto:service@maennermasche.de">
+                        {% text 'support.help.text.311edcc927a4' %}
+                      </a>
+<p class="text-white/70 text-[11px]">{% text 'support.help.text.eebe9d7d6101' %}</p>
+</div>
+</div>
+<div class="pt-2">
+<a class="w-full flex items-center justify-center gap-2 bg-primary-fixed text-on-primary-fixed font-label-md text-label-md uppercase tracking-wider py-3 px-4 hover:bg-white transition-colors" href="https://wa.me/49892154890" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]">{% text 'support.help.text.7ecde348ff9c' %}</span>
+<span>{% text 'support.help.text.1e1c96a78ce5' %}</span>
+</a>
+</div>
+</div>
+<div class="pt-space-md text-[11px] text-white/60 leading-normal">
+<span class="font-medium text-white/80 block">{% text 'support.help.text.fddc2afa3c7b' %}</span>
+                  {% text 'support.help.text.0eb36e9cfb53' %}<br/>
+                  {% text 'support.help.text.7c87d7911835' %}
+                </div>
+</div>
+</div>
+<!-- Assurance Card -->
+<div class="bg-surface-container-high p-space-md flex items-center gap-space-md">
+<span class="material-symbols-outlined text-[32px] text-brand-deep">{% text 'support.help.text.7be676cbf4b5' %}</span>
+<div class="font-body-sm text-body-sm">
+<span class="font-semibold text-text-primary block">{% text 'support.help.text.8c2164912ced' %}</span>
+<span class="text-text-muted">{% text 'support.help.text.963198b3229d' %}</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Right Column: Detailed FAQs & Explanatory Sections -->
+<main class="lg:col-span-8 space-y-space-3xl">
+<!-- SECTION 1: Versand & neutrale Verpackung -->
+<article class="scroll-mt-36" id="versand-lieferung">
+<div class="flex items-center gap-2 mb-space-xs font-label-sm text-label-sm uppercase tracking-widest text-text-muted">
+<span>{% text 'support.help.text.d94b3078a3fc' %}</span>
+<span>·</span>
+<span>{% text 'support.help.text.2835397b0c30' %}</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-brand-deep mb-space-md">
+              {% text 'support.help.text.e1b62aa5e3f2' %}
+            </h2>
+<!-- Highlight Banner -->
+<div class="bg-surface-container-lowest p-space-lg shadow-sm mb-space-lg">
+<div class="flex items-start gap-space-md">
+<span class="material-symbols-outlined text-[28px] text-brand-deep shrink-0">{% text 'support.help.text.43cc3c1898e9' %}</span>
+<div class="space-y-1">
+<h4 class="font-title-md text-title-md text-brand-deep uppercase tracking-wider">
+                    {% text 'support.help.text.69953b5e2a90' %}
+                  </h4>
+<p class="font-body-md text-body-md text-text-muted leading-relaxed">
+                    {% text 'support.help.text.ff6554169056' %} <strong>{% text 'support.help.text.a735ef11fa5d' %}</strong>.
+                  </p>
+</div>
+</div>
+</div>
+<!-- Delivery Countries & Rates -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md mb-space-lg">
+<!-- Deutschland -->
+<div class="bg-surface-container-lowest p-space-lg shadow-sm space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md text-brand-deep">{% text 'support.help.text.19174e8c9711' %}</span>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container font-label-sm text-label-sm uppercase tracking-wider">{% text 'support.help.text.9b98d77c7c02' %}</span>
+</div>
+<div class="font-headline-md text-headline-md text-brand-deep">{% text 'support.help.text.dc70cf542137' %}</div>
+<ul class="font-body-sm text-body-sm text-text-muted space-y-1.5">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-brand-deep">{% text 'support.help.text.d56d985300d4' %}</span>
+                    {% text 'support.help.text.795d737efa65' %}
+                  </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-brand-deep">{% text 'support.help.text.d56d985300d4' %}</span>
+                    {% text 'support.help.text.8f684bdd74ae' %}
+                  </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-brand-deep">{% text 'support.help.text.d56d985300d4' %}</span>
+                    {% text 'support.help.text.7e7a74d31dd0' %}
+                  </li>
+</ul>
+</div>
+<!-- AT & CH -->
+<div class="bg-surface-container-lowest p-space-lg shadow-sm space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md text-brand-deep">{% text 'support.help.text.2f6db76b0058' %}</span>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container font-label-sm text-label-sm uppercase tracking-wider">{% text 'support.help.text.605b29925a1f' %}</span>
+</div>
+<div class="font-headline-md text-headline-md text-brand-deep">{% text 'support.help.text.44bd677e1560' %}</div>
+<ul class="font-body-sm text-body-sm text-text-muted space-y-1.5">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-brand-deep">{% text 'support.help.text.d56d985300d4' %}</span>
+                    {% text 'support.help.text.faa6ef0487b2' %}
+                  </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-brand-deep">{% text 'support.help.text.d56d985300d4' %}</span>
+                    {% text 'support.help.text.80164e34735c' %}
+                  </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-brand-deep">{% text 'support.help.text.d56d985300d4' %}</span>
+                    {% text 'support.help.text.b22d4ca1cae2' %}
+                  </li>
+</ul>
+</div>
+</div>
+<!-- Accordions for Section 1 -->
+<div class="space-y-3" id="accordion-group-1">
+<!-- Item 1 -->
+<div class="bg-surface-container-lowest shadow-sm">
+<button class="w-full p-space-md text-left flex items-center justify-between gap-4 font-title-md text-title-md text-brand-deep focus:outline-none" onclick="toggleAccordion('faq-1')" type="button">
+<span>{% text 'support.help.text.40b8f0bf0b3e' %}</span>
+<span class="material-symbols-outlined text-[20px] transition-transform duration-200" id="icon-faq-1">{% text 'support.help.text.5dd226578843' %}</span>
+</button>
+<div class="hidden px-space-md pb-space-md font-body-md text-body-md text-text-muted" id="content-faq-1">
+<p class="leading-relaxed">
+                    {% text 'support.help.text.a6188d6f6eb9' %} <em>{% text 'support.help.text.d2669b5b68e7' %}</em> {% text 'support.help.text.5898886782c8' %}
+                  </p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface-container-lowest shadow-sm">
+<button class="w-full p-space-md text-left flex items-center justify-between gap-4 font-title-md text-title-md text-brand-deep focus:outline-none" onclick="toggleAccordion('faq-2')" type="button">
+<span>{% text 'support.help.text.0f13e9626f50' %}</span>
+<span class="material-symbols-outlined text-[20px] transition-transform duration-200" id="icon-faq-2">{% text 'support.help.text.5dd226578843' %}</span>
+</button>
+<div class="hidden px-space-md pb-space-md font-body-md text-body-md text-text-muted" id="content-faq-2">
+<p class="leading-relaxed">
+                    {% text 'support.help.text.83309395dce8' %} <strong>{% text 'support.help.text.ed1612543b1f' %}</strong> {% text 'support.help.text.2e1973f4aa1b' %}
+                  </p>
+</div>
+</div>
+</div>
+</article>
+<!-- SECTION 2: 30 Tage Heimanprobe & Retoure -->
+<article class="scroll-mt-36" id="heimanprobe-retoure">
+<div class="flex items-center gap-2 mb-space-xs font-label-sm text-label-sm uppercase tracking-widest text-text-muted">
+<span>{% text 'support.help.text.0f97d975dd04' %}</span>
+<span>·</span>
+<span>{% text 'support.help.text.20306eb6a6e2' %}</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-brand-deep mb-space-md">
+              {% text 'support.help.text.f1c15e7194b5' %}
+            </h2>
+<p class="font-body-md text-body-md text-text-muted mb-space-lg">
+              {% text 'support.help.text.6fdecb9d1db3' %}
+            </p>
+<!-- 3 Step Badges Process -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md mb-space-lg">
+<div class="bg-surface-container-lowest p-space-md shadow-sm space-y-2">
+<div class="w-8 h-8 bg-brand-deep text-on-primary font-label-md text-label-md flex items-center justify-center font-bold">1</div>
+<h4 class="font-title-md text-title-md text-brand-deep">{% text 'support.help.text.0c8c4b554fcb' %}</h4>
+<p class="font-body-sm text-body-sm text-text-muted">{% text 'support.help.text.8857dd24170e' %}</p>
+</div>
+<div class="bg-surface-container-lowest p-space-md shadow-sm space-y-2">
+<div class="w-8 h-8 bg-brand-deep text-on-primary font-label-md text-label-md flex items-center justify-center font-bold">2</div>
+<h4 class="font-title-md text-title-md text-brand-deep">{% text 'support.help.text.787da7d4e1b0' %}</h4>
+<p class="font-body-sm text-body-sm text-text-muted">{% text 'support.help.text.15c8dd98015e' %}</p>
+</div>
+<div class="bg-surface-container-lowest p-space-md shadow-sm space-y-2">
+<div class="w-8 h-8 bg-brand-deep text-on-primary font-label-md text-label-md flex items-center justify-center font-bold">3</div>
+<h4 class="font-title-md text-title-md text-brand-deep">{% text 'support.help.text.23f9f3c3d637' %}</h4>
+<p class="font-body-sm text-body-sm text-text-muted">{% text 'support.help.text.b74b14270028' %}</p>
+</div>
+</div>
+<!-- Accordions for Section 2 -->
+<div class="space-y-3" id="accordion-group-2">
+<!-- Item 3 -->
+<div class="bg-surface-container-lowest shadow-sm">
+<button class="w-full p-space-md text-left flex items-center justify-between gap-4 font-title-md text-title-md text-brand-deep focus:outline-none" onclick="toggleAccordion('faq-3')" type="button">
+<span>{% text 'support.help.text.8404316db538' %}</span>
+<span class="material-symbols-outlined text-[20px] transition-transform duration-200" id="icon-faq-3">{% text 'support.help.text.5dd226578843' %}</span>
+</button>
+<div class="hidden px-space-md pb-space-md font-body-md text-body-md text-text-muted" id="content-faq-3">
+<p class="leading-relaxed">
+                    {% text 'support.help.text.88526bdea6ec' %} <strong>{% text 'support.help.text.26672c205cd8' %}</strong> {% text 'support.help.text.b3b14d06872e' %}
+                  </p>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="bg-surface-container-lowest shadow-sm">
+<button class="w-full p-space-md text-left flex items-center justify-between gap-4 font-title-md text-title-md text-brand-deep focus:outline-none" onclick="toggleAccordion('faq-4')" type="button">
+<span>{% text 'support.help.text.c9319cc94ab7' %}</span>
+<span class="material-symbols-outlined text-[20px] transition-transform duration-200" id="icon-faq-4">{% text 'support.help.text.5dd226578843' %}</span>
+</button>
+<div class="hidden px-space-md pb-space-md font-body-md text-body-md text-text-muted" id="content-faq-4">
+<p class="leading-relaxed">
+                    {% text 'support.help.text.c9bc9be69d96' %} <em>{% text 'support.help.text.6df64193dda5' %}</em> {% text 'support.help.text.cb285b14c01b' %}
+                  </p>
+</div>
+</div>
+</div>
+</article>
+<!-- SECTION 3: Hygiene-Richtlinien & Siegel -->
+<article class="scroll-mt-36" id="hygiene-richtlinien">
+<div class="flex items-center gap-2 mb-space-xs font-label-sm text-label-sm uppercase tracking-widest text-text-muted">
+<span>{% text 'support.help.text.2a18949c4881' %}</span>
+<span>·</span>
+<span>{% text 'support.help.text.08e528ef20e3' %}</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-brand-deep mb-space-md">
+              {% text 'support.help.text.34d1db89049f' %}
+            </h2>
+<div class="bg-surface-container-low p-space-lg mb-space-md space-y-space-sm">
+<div class="flex items-start gap-space-md">
+<span class="material-symbols-outlined text-[28px] text-brand-deep shrink-0">{% text 'support.help.text.124a6c968e17' %}</span>
+<div>
+<h4 class="font-title-md text-title-md text-brand-deep">{% text 'support.help.text.72c10b78baee' %}</h4>
+<p class="font-body-md text-body-md text-text-muted leading-relaxed mt-1">
+                    {% text 'support.help.text.e1a4630df023' %}
+                  </p>
+</div>
+</div>
+</div>
+</article>
+<!-- SECTION 4: Bezahlung & Rechnungskauf -->
+<article class="scroll-mt-36" id="zahlung-rechnung">
+<div class="flex items-center gap-2 mb-space-xs font-label-sm text-label-sm uppercase tracking-widest text-text-muted">
+<span>{% text 'support.help.text.d5079679b062' %}</span>
+<span>·</span>
+<span>{% text 'support.help.text.7930f6e1dc62' %}</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-brand-deep mb-space-md">
+              {% text 'support.help.text.e4de7b303cf6' %}
+            </h2>
+<p class="font-body-md text-body-md text-text-muted mb-space-lg">
+              {% text 'support.help.text.0bb0dec81268' %}
+            </p>
+<!-- Payment Badge Ribbon -->
+<div class="p-space-lg bg-surface-container-lowest shadow-sm mb-space-lg">
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-center">
+<div class="p-3 bg-surface-muted flex flex-col items-center justify-center">
+<span class="font-label-md text-label-md font-bold tracking-wider text-brand-deep">{% text 'support.help.text.5b311f143bf7' %}</span>
+<span class="font-label-sm text-label-sm text-[10px] text-text-muted mt-0.5">{% text 'support.help.text.6c49ef5fcef3' %}</span>
+</div>
+<div class="p-3 bg-surface-muted flex flex-col items-center justify-center">
+<span class="font-label-md text-label-md font-bold tracking-wider text-brand-deep">{% text 'support.help.text.559ef5544c82' %}</span>
+<span class="font-label-sm text-label-sm text-[10px] text-text-muted mt-0.5">{% text 'support.help.text.3cb9e9ee7986' %}</span>
+</div>
+<div class="p-3 bg-surface-muted flex flex-col items-center justify-center">
+<span class="font-label-md text-label-md font-bold tracking-wider text-brand-deep">{% text 'support.help.text.3a7a998eea2c' %}</span>
+<span class="font-label-sm text-label-sm text-[10px] text-text-muted mt-0.5">{% text 'support.help.text.887868203d07' %}</span>
+</div>
+<div class="p-3 bg-surface-muted flex flex-col items-center justify-center">
+<span class="font-label-md text-label-md font-bold tracking-wider text-brand-deep">{% text 'support.help.text.9e135ba6fc99' %}</span>
+<span class="font-label-sm text-label-sm text-[10px] text-text-muted mt-0.5">{% text 'support.help.text.58a470e9c201' %}</span>
+</div>
+<div class="p-3 bg-surface-muted flex flex-col items-center justify-center">
+<span class="font-label-md text-label-md font-bold tracking-wider text-brand-deep">{% text 'support.help.text.4aa503717135' %}</span>
+<span class="font-label-sm text-label-sm text-[10px] text-text-muted mt-0.5">{% text 'support.help.text.82720be3d029' %}</span>
+</div>
+<div class="p-3 bg-surface-muted flex flex-col items-center justify-center">
+<span class="font-label-md text-label-md font-bold tracking-wider text-brand-deep">{% text 'support.help.text.5e9ec1cb7e74' %}</span>
+<span class="font-label-sm text-label-sm text-[10px] text-text-muted mt-0.5">{% text 'support.help.text.d10b6bdd91a1' %}</span>
+</div>
+</div>
+</div>
+<!-- Accordion FAQ 5 -->
+<div class="space-y-3" id="accordion-group-3">
+<div class="bg-surface-container-lowest shadow-sm">
+<button class="w-full p-space-md text-left flex items-center justify-between gap-4 font-title-md text-title-md text-brand-deep focus:outline-none" onclick="toggleAccordion('faq-5')" type="button">
+<span>{% text 'support.help.text.3b75d2e60a77' %}</span>
+<span class="material-symbols-outlined text-[20px] transition-transform duration-200" id="icon-faq-5">{% text 'support.help.text.5dd226578843' %}</span>
+</button>
+<div class="hidden px-space-md pb-space-md font-body-md text-body-md text-text-muted" id="content-faq-5">
+<p class="leading-relaxed">
+                    {% text 'support.help.text.80053ab9ecd6' %}
+                  </p>
+</div>
+</div>
+</div>
+</article>
+<!-- SECTION 5: Passform & Markenberatung -->
+<article class="scroll-mt-36" id="passform-marken">
+<div class="flex items-center gap-2 mb-space-xs font-label-sm text-label-sm uppercase tracking-widest text-text-muted">
+<span>{% text 'support.help.text.c659f8b485b6' %}</span>
+<span>·</span>
+<span>{% text 'support.help.text.442291eaa669' %}</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-brand-deep mb-space-md">
+              {% text 'support.help.text.0686ebd9109f' %}
+            </h2>
+<div class="space-y-3" id="accordion-group-4">
+<!-- FAQ 6 -->
+<div class="bg-surface-container-lowest shadow-sm">
+<button class="w-full p-space-md text-left flex items-center justify-between gap-4 font-title-md text-title-md text-brand-deep focus:outline-none" onclick="toggleAccordion('faq-6')" type="button">
+<span>{% text 'support.help.text.5ac426e1c8b5' %}</span>
+<span class="material-symbols-outlined text-[20px] transition-transform duration-200" id="icon-faq-6">{% text 'support.help.text.5dd226578843' %}</span>
+</button>
+<div class="hidden px-space-md pb-space-md font-body-md text-body-md text-text-muted" id="content-faq-6">
+<div class="space-y-3 leading-relaxed">
+<p>
+<strong>{% text 'support.help.text.37449cf78c1a' %}</strong> {% text 'support.help.text.f68a4f1edcc0' %}
+                    </p>
+<p>
+<strong>{% text 'support.help.text.fa2d5c841e9b' %}</strong> {% text 'support.help.text.ab7c996155a5' %}
+                    </p>
+<p>
+<strong>{% text 'support.help.text.d7d89ec35366' %}</strong> {% text 'support.help.text.18b6ded4a64a' %}
+                    </p>
+</div>
+</div>
+</div>
+<!-- FAQ 7 -->
+<div class="bg-surface-container-lowest shadow-sm">
+<button class="w-full p-space-md text-left flex items-center justify-between gap-4 font-title-md text-title-md text-brand-deep focus:outline-none" onclick="toggleAccordion('faq-7')" type="button">
+<span>{% text 'support.help.text.25a6cca637cc' %}</span>
+<span class="material-symbols-outlined text-[20px] transition-transform duration-200" id="icon-faq-7">{% text 'support.help.text.5dd226578843' %}</span>
+</button>
+<div class="hidden px-space-md pb-space-md font-body-md text-body-md text-text-muted" id="content-faq-7">
+<p class="leading-relaxed">
+                    {% text 'support.help.text.f1d5bfbc2eea' %} <strong>+49 (0) 89 215 489 0</strong> {% text 'support.help.text.560adccf6c16' %}
+                  </p>
+</div>
+</div>
+</div>
+</article>
+</main>
+</div>
+</div>
+</section>
+<!-- Interactive Contact Form Section (Bottom Anchor) -->
+<section class="w-full bg-surface-muted/50 py-space-3xl scroll-mt-24" id="kontakt-formular">
+<div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin">
+<div class="max-w-3xl mx-auto bg-surface-container-lowest p-space-xl lg:p-space-2xl shadow-sm">
+<div class="text-center max-w-xl mx-auto mb-space-xl">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 bg-surface-container text-brand-deep font-label-sm text-label-sm uppercase tracking-widest text-[11px] mb-space-sm">
+            {% text 'support.help.text.c1982a1354c4' %}
+          </div>
+<h2 class="font-headline-lg text-headline-lg text-brand-deep">
+            {% text 'support.help.text.ed7d0827f12e' %}
+          </h2>
+<p class="font-body-md text-body-md text-text-muted mt-2">
+            {% text 'support.help.text.86d5dae9d714' %}
+          </p>
+</div>
+<form class="space-y-space-md" id="serviceContactForm" onsubmit="event.preventDefault(); window.handleFormSubmit();">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div>
+<label class="block font-label-md text-label-md uppercase tracking-wider text-text-primary mb-1" for="contact-name">
+                {% text 'support.help.text.18a493008ffa' %} <span class="text-error">*</span>
+</label>
+<input class="w-full h-11 px-3 bg-page-bg font-body-md text-body-md text-text-primary focus:outline-none focus:bg-surface-container-high transition-colors" id="contact-name" placeholder="{% text 'support.help.label.e3290bde1034' %}" required="" type="text"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md uppercase tracking-wider text-text-primary mb-1" for="contact-email">
+                {% text 'support.help.text.ce8fdbcbfea8' %} <span class="text-error">*</span>
+</label>
+<input class="w-full h-11 px-3 bg-page-bg font-body-md text-body-md text-text-primary focus:outline-none focus:bg-surface-container-high transition-colors" id="contact-email" placeholder="{% text 'support.help.label.68ff7c3e008c' %}" required="" type="email"/>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div>
+<label class="block font-label-md text-label-md uppercase tracking-wider text-text-primary mb-1" for="contact-order">
+                {% text 'support.help.text.e1cb25123dfb' %} <span class="text-text-muted text-[11px]">{% text 'support.help.text.b16c7ac6faff' %}</span>
+</label>
+<input class="w-full h-11 px-3 bg-page-bg font-body-md text-body-md text-text-primary focus:outline-none focus:bg-surface-container-high transition-colors" id="contact-order" placeholder="{% text 'support.help.label.e40afc0b4619' %}" type="text"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md uppercase tracking-wider text-text-primary mb-1" for="contact-topic">
+                {% text 'support.help.text.177549c4e26c' %} <span class="text-error">*</span>
+</label>
+<select class="w-full h-11 px-3 bg-page-bg font-body-md text-body-md text-text-primary focus:outline-none focus:bg-surface-container-high transition-colors cursor-pointer" id="contact-topic" required="">
+<option value="retoure">{% text 'support.help.text.5e57befec732' %}</option>
+<option value="versand">{% text 'support.help.text.9f598b8ae0c9' %}</option>
+<option value="groesse">{% text 'support.help.text.d7cfa063780c' %}</option>
+<option value="zahlung">{% text 'support.help.text.dd771ce48db1' %}</option>
+<option value="reklamation">{% text 'support.help.text.ea53f6496f9c' %}</option>
+<option value="sonstiges">{% text 'support.help.text.c1f2cc662223' %}</option>
+</select>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md uppercase tracking-wider text-text-primary mb-1" for="contact-message">
+              {% text 'support.help.text.816c03d4877e' %} <span class="text-error">*</span>
+</label>
+<textarea class="w-full p-3 bg-page-bg font-body-md text-body-md text-text-primary focus:outline-none focus:bg-surface-container-high transition-colors" id="contact-message" placeholder="{% text 'support.help.label.f63e7d9f902c' %}" required="" rows="5"></textarea>
+</div>
+<div class="flex items-start gap-2 pt-1">
+<input class="mt-1 h-4 w-4 rounded-none accent-brand-deep cursor-pointer" id="contact-consent" required="" type="checkbox"/>
+<label class="font-body-sm text-body-sm text-text-muted leading-tight cursor-pointer" for="contact-consent">
+              {% text 'support.help.text.aaa546a0cd9a' %}
+            </label>
+</div>
+<div class="pt-space-sm flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-text-muted">
+<span class="material-symbols-outlined text-[18px] text-brand-deep">{% text 'support.help.text.e117797422d3' %}</span>
+<span>{% text 'support.help.text.165617614056' %}</span>
+</div>
+<button class="w-full sm:w-auto h-12 px-space-xl bg-primary-container text-on-primary font-label-md text-label-md uppercase tracking-wider hover:bg-brand-deep transition-colors flex items-center justify-center gap-2" type="submit">
+<span>{% text 'support.help.text.408a0d03706a' %}</span>
+<span class="material-symbols-outlined text-[18px]">{% text 'support.help.text.37ed539c0cef' %}</span>
+</button>
+</div>
+<!-- Success Message Container -->
+<div class="hidden p-space-md bg-primary-fixed text-on-primary-fixed font-body-md text-body-md mt-4" id="contact-success">
+<div class="flex items-center gap-2 font-semibold">
+<span class="material-symbols-outlined text-[20px]">{% text 'support.help.text.aa8d0cb1881e' %}</span>
+<span>{% text 'support.help.text.05443ee8b946' %}</span>
+</div>
+<p class="text-[13px] mt-1 opacity-90">{% text 'support.help.text.bab828f67c2d' %}</p>
+</div>
+</form>
+</div>
+</div>
+</section>
+<!-- Inline Micro-Interactions Script -->
+<script>
+    // Accordion Toggle Logic
+    window.toggleAccordion = function(id) {
+      const content = document.getElementById('content-' + id);
+      const icon = document.getElementById('icon-' + id);
+      if (!content || !icon) return;
+
+      const isHidden = content.classList.contains('hidden');
+      if (isHidden) {
+        content.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      } else {
+        content.classList.add('hidden');
+        icon.classList.remove('rotate-180');
+      }
+    };
+
+    // Quick Search Pill Click
+    window.setQuickSearch = function(term) {
+      const input = document.getElementById('faqSearchInput');
+      if (input) {
+        input.value = term;
+        window.searchHelpTopics();
+      }
+    };
+
+    // FAQ Search & Filter Simulation
+    window.searchHelpTopics = function() {
+      const input = document.getElementById('faqSearchInput');
+      if (!input) return;
+      const term = input.value.trim().toLowerCase();
+      if (!term) return;
+
+      // Expand all accordions containing the term, collapse others
+      const accordions = document.querySelectorAll('[id^="content-faq-"]');
+      let foundFirst = null;
+
+      accordions.forEach(acc => {
+        const id = acc.id.replace('content-', '');
+        const parentBtn = acc.previousElementSibling;
+        const btnText = parentBtn ? parentBtn.textContent.toLowerCase() : '';
+        const accText = acc.textContent.toLowerCase();
+
+        if (btnText.includes(term) || accText.includes(term)) {
+          acc.classList.remove('hidden');
+          const icon = document.getElementById('icon-' + id);
+          if (icon) icon.classList.add('rotate-180');
+          if (!foundFirst) foundFirst = parentBtn;
+        }
+      });
+
+      if (foundFirst) {
+        foundFirst.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    };
+
+    // Form Submission Simulation
+    window.handleFormSubmit = function() {
+      const successBox = document.getElementById('contact-success');
+      const form = document.getElementById('serviceContactForm');
+      if (successBox) {
+        successBox.classList.remove('hidden');
+        if (form) {
+          const inputs = form.querySelectorAll('input:not([type="checkbox"]), textarea');
+          inputs.forEach(i => i.value = '');
+        }
+      }
+    };
+  </script>
+</div></main>{% include 'includes/footer.html' %}
+{% endblock %}

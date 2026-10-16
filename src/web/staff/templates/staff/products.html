@@ -1,0 +1,57 @@
+{% extends "staff/base.html" %}
+{% load shop_i18n %}
+{% block cabinet_content %}
+<section aria-labelledby="staff-products-title">
+  <h1 id="staff-products-title" class="h3 mb-3">{% text 'staff.products.title' %}</h1>
+  {% if perms.catalog.add_product %}<a class="btn btn-primary mb-3" href="{% url 'staff:product_add' %}">{% text 'staff.product_form.add_title' %}</a>{% endif %}
+  <p class="text-muted">{% text 'staff.products.demo_notice' %}</p>
+  <form method="get" class="row g-3 mb-4" role="search">
+    <div class="col-md-5">
+      <label for="product-search" class="form-label">{% text 'staff.products.search' %}</label>
+      <input id="product-search" type="search" name="q" maxlength="200" value="{{ search_query }}" class="form-control">
+    </div>
+    <div class="col-md-3">
+      <label for="product-brand" class="form-label">{% text 'staff.products.brand' %}</label>
+      <select id="product-brand" name="brand" class="form-select">
+        <option value="">{% text 'staff.products.all_brands' %}</option>
+        {% for brand in brands %}<option value="{{ brand.slug }}"{% if brand.slug == selected_brand %} selected{% endif %}>{{ brand.name }}</option>{% endfor %}
+      </select>
+    </div>
+    <div class="col-md-3">
+      <label for="product-category" class="form-label">{% text 'staff.products.category' %}</label>
+      <select id="product-category" name="category" class="form-select">
+        <option value="">{% text 'staff.products.all_categories' %}</option>
+        {% for category in categories %}<option value="{{ category.slug }}"{% if category.slug == selected_category %} selected{% endif %}>{% text category.name_key %}</option>{% endfor %}
+      </select>
+    </div>
+    <div class="col-md-1 align-self-end"><button type="submit" class="btn btn-primary">{% text 'staff.products.filter' %}</button></div>
+  </form>
+  <p>{% text 'staff.products.total' %}: {{ page_obj.paginator.count }}</p>
+  <div class="table-responsive">
+    <table class="table table-hover align-middle">
+      <caption class="visually-hidden">{% text 'staff.products.table_caption' %}</caption>
+      <thead><tr>
+        <th scope="col">{% text 'staff.products.model' %}</th>
+        <th scope="col">{% text 'staff.products.category' %}</th>
+        <th scope="col">{% text 'staff.products.variants' %}</th>
+        <th scope="col">{% text 'staff.products.demo_quantity' %}</th>
+        <th scope="col">{% text 'staff.products.price' %}</th>
+        <th scope="col">{% text 'staff.products.status' %}</th>
+      </tr></thead>
+      <tbody>{% for product in products %}<tr>
+        <td><strong>{{ product.brand.name }}</strong><br>{% if perms.catalog.change_product %}<a href="{% url 'staff:product_edit' pk=product.pk %}">{{ product.model_name }}</a>{% else %}{{ product.model_name }}{% endif %}{% if product.manufacturer_article %}<br><small>{{ product.manufacturer_article }}</small>{% endif %}</td>
+        <td>{% text product.category.name_key %}</td>
+        <td>{{ product.active_variant_count }} / {{ product.variant_count }}</td>
+        <td>{{ product.available_quantity }}</td>
+        <td>{% if product.currency_count > 1 %}{% text 'staff.products.mixed_currency' %}{% elif product.minimum_price != None %}{{ product.minimum_price|floatformat:2 }}{% if product.minimum_price != product.maximum_price %} – {{ product.maximum_price|floatformat:2 }}{% endif %} {{ product.price_currency }}{% else %}—{% endif %}</td>
+        <td>{% if product.is_active %}<span class="badge text-bg-success">{% text 'staff.products.active' %}</span>{% else %}<span class="badge text-bg-secondary">{% text 'staff.products.inactive' %}</span>{% endif %}</td>
+      </tr>{% empty %}<tr><td colspan="6">{% text 'staff.products.empty' %}</td></tr>{% endfor %}</tbody>
+    </table>
+  </div>
+  {% if page_obj.has_other_pages %}<nav aria-label="{% text 'staff.products.pagination' %}" class="d-flex align-items-center gap-3">
+    {% if page_obj.has_previous %}<a class="btn btn-outline-secondary" href="?{{ page_query }}&amp;page={{ page_obj.previous_page_number }}">{% text 'staff.products.previous' %}</a>{% endif %}
+    <span>{{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</span>
+    {% if page_obj.has_next %}<a class="btn btn-outline-secondary" href="?{{ page_query }}&amp;page={{ page_obj.next_page_number }}">{% text 'staff.products.next' %}</a>{% endif %}
+  </nav>{% endif %}
+</section>
+{% endblock %}

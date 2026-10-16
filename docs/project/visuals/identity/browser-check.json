@@ -1,0 +1,10 @@
+{
+  "mobileOverflow": false,
+  "enrollment": true,
+  "staffMfaAccess": true,
+  "returningLoginChallenge": true,
+  "recoveryLogin": true,
+  "customerOverview": true,
+  "customerStaffDenied": true,
+  "jsErrors": []
+}

@@ -1,0 +1,7 @@
+{% extends 'staff/base.html' %}{% load shop_i18n %}
+{% block cabinet_content %}
+<h1 class="h3">{% text 'staff.nav.section_settings' %} — {% text 'staff.nav.catalog' %}</h1>
+<p class="alert alert-info">{% text 'staff.catalog_settings.intro' %}</p>
+<dl><dt>{% text 'staff.catalog_settings.identity' %}</dt><dd>{% text 'staff.catalog_settings.identity_text' %}</dd>
+<dt>{% text 'staff.catalog_settings.photo' %}</dt><dd>{% text 'staff.catalog_settings.photo_text' %}</dd></dl>
+{% endblock %}

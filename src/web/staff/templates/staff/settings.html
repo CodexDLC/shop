@@ -1,0 +1,12 @@
+{% extends 'staff/base.html' %}{% load shop_i18n %}
+{% block cabinet_content %}
+<h1 class="h3">{% text 'staff.nav.settings' %}</h1>
+<h2 class="h5 mt-4">{% text 'staff.nav.quick_access' %}</h2>
+<p class="text-muted">{% text 'staff.settings.intro' %}</p>
+{% for message in messages %}<div class="alert alert-success" role="status">{{ message }}</div>{% endfor %}
+<form method="post" class="staff-settings-form">{% csrf_token %}
+{{ form.non_field_errors }}{{ form.links.errors }}
+<fieldset><legend class="fs-6">{% text 'staff.settings.choose' %}</legend>{{ form.links }}</fieldset>
+<button type="submit" class="btn btn-primary mt-3">{% text 'staff.settings.save' %}</button>
+</form>
+{% endblock %}

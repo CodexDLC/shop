@@ -1,0 +1,10 @@
+{% load shop_i18n %}
+{% if form.non_field_errors %}<div class="auth-errors" role="alert">{{ form.non_field_errors }}</div>{% endif %}
+{% for field in form %}
+{% if field.is_hidden %}{{ field }}{% else %}
+<div class="auth-field{% if field.errors %} auth-field-invalid{% endif %}">
+<label for="{{ field.id_for_label }}">{% if field.name == 'login' %}{% text 'auth.field.login' %}{% elif field.name == 'email' %}{% text 'auth.field.email' %}{% elif field.name == 'password' or field.name == 'password1' %}{% text 'auth.field.password' %}{% elif field.name == 'password2' %}{% text 'auth.field.password_confirm' %}{% elif field.name == 'oldpassword' %}{% text 'auth.field.password_current' %}{% elif field.name == 'newpassword1' %}{% text 'auth.field.password_new' %}{% elif field.name == 'newpassword2' %}{% text 'auth.field.password_confirm' %}{% elif field.name == 'remember' %}{% text 'auth.field.remember' %}{% elif field.name == 'code' %}{% text 'auth.field.code' %}{% else %}{{ field.label }}{% endif %}{% if field.field.required %}<span aria-hidden="true"> *</span>{% endif %}</label>
+{{ field }}
+{% if field.help_text %}<div class="auth-help">{{ field.help_text }}</div>{% endif %}
+{% if field.errors %}<div class="auth-errors" role="alert">{{ field.errors }}</div>{% endif %}
+</div>{% endif %}{% endfor %}

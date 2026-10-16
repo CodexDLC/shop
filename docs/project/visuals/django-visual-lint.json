@@ -1,0 +1,44 @@
+{
+  "tool": "visual_lint",
+  "target": "http://127.0.0.1:8030/",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "finding_count": 3,
+  "findings": [
+    {
+      "rule": "console_event",
+      "severity": "minor",
+      "message": "cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation",
+      "location": {
+        "url": "http://127.0.0.1:8030/static/storefront/vendor/tailwind-runtime.js?plugins=forms,container-queries",
+        "line": 63,
+        "column": 1710,
+        "lineNumber": 63,
+        "columnNumber": 1710
+      }
+    },
+    {
+      "rule": "low_contrast",
+      "severity": "major",
+      "selector": "section.max-w-7xl.mx-auto > div.flex.flex-col > div.flex.items-center > span.text-neutral-300",
+      "message": "Contrast ratio 4.33 is below 4.5.",
+      "sample": "•"
+    },
+    {
+      "rule": "text_overflow",
+      "severity": "major",
+      "selector": "#quick-buy-grid",
+      "message": "Element text appears clipped or scrollable.",
+      "sample": "BESTSELLER · SCHNELLKAUF Schnellansicht MANSTORE M2223 Bungee Pants 49,95 € inkl. MwSt. Farbe: Forest Green Größe: Auf L",
+      "bounds": {
+        "x": 16,
+        "y": 1387.546875,
+        "width": 358,
+        "height": 486.765625
+      }
+    }
+  ],
+  "generated_at": "2026-10-15T21:01:06.036Z"
+}

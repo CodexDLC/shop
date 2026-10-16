@@ -1,0 +1,11 @@
+{% load shop_i18n %}Männermasche
+
+{% text 'email.confirm.heading' %}
+
+{% text 'email.confirm.intro' %}
+
+{% autoescape off %}{{ activate_url }}{% endautoescape %}
+
+{% text 'email.confirm.safety' %}
+
+{% text 'email.account.footer' %}

@@ -1,40 +1,34 @@
-# Шаблоны и визуальная основа
+# Django Templates и локализация
 
-Статус: 13.10.2026 реализована демонстрационная главная, без commerce-функций.
+Статус: 15.10.2026 перенесены 30 согласованных HTML-композиций в Django. Статический прототип docs/prototype сохранён отдельно, его дизайн не заменять самодельной упрощённой версией.
 
-## Размещение
+- Общие base/header/footer: src/web/templates; общие static: src/web/static/storefront. Шаблоны фич: src/web/<feature>/templates/<feature> с namespace. Фичи shop, catalog, cart, orders, payments, customer, support. Не дублировать логотип/шапку/футер и не менять компонент без задания.
+- Страницы соединены именованными Django URL; LocaleMiddleware, немецкий без префикса, /ru/ с немецким fallback. Полный русский перевод не выполнен.
+- Тексты через {% load shop_i18n %} и {% text 'stable.key' %}; немецкий каталог src/web/localization/messages/de.json. Новые блоки получают смысловой ключ, параметры отдельно; не писать немецкий текст прямо в шаблоне/JS. Бренды/SKU/данные модели не являются UI-текстами. gettext и escaping не обходить.
+- Полные правила [локализации](../../../../docs/project/django-localization.md). Compiler tools/compile_shop_messages.py создаёт PO/MO из JSON. Не переносить сырой HTML в перевод/mark_safe. JS получает безопасный json_script и использует shopText с escaping при HTML-вставке.
+- Модели/миграции каталога, корзины, заказов и попыток оплаты/возврата созданы, но витрина пока использует presentation-моки. Никаких реальных финансовых операций, писем, DHL или eBay; demo не называть подключённой Stripe sandbox. GET не создаёт заказы/платежи. Auth/account — демонстрационные формы, настоящий Django auth подключается отдельно.
+- Главная и суммы/строки заказа получают данные через context; развитие остальной выдачи до ORM selectors — следующий этап. Сохранять единый формат денежных значений, не добавлять бизнес-логику в templates.
+- Для мобильной главной: одна карточка и край следующей, горизонтально листаются товары; смена цвета определяет набор фото, при отсутствии другого фото допустим общий fallback, не подменять цвет CSS-фильтром.
+- tools/import_storefront_templates.py — однократный/осознанный импорт из docs/prototype, не runtime и не команда для слепого перезаписывания вручную развитых шаблонов. Сначала diff/сохранение ручных доработок.
+- Сначала запуск/проверка по [плану переноса](../../../../docs/project/django-template-migration.md). Внешние фото/шрифты пока сохранены из исходников; локализация assets/production CSS остаётся отдельным этапом.
+- Проверять key/fallback/escaping, reverse URL, отсутствие мутаций и 30 screens; desktop/mobile браузер, JS errors и модальные окна. Моки/иллюстративные claims не выдавать за live-функции.
 
-Шаблоны фичи находятся внутри её Django-приложения: `src/web/catalog/templates/catalog/`, `src/web/cart/templates/cart/`. Дополнительный namespace приложения обязателен для предотвращения совпадения имён. Полные страницы и HTMX fragments различаются: `product_detail.html` и `partials/variant_selector.html`, `partials/color_gallery.html`.
+Историческая demo shop.css/shop.js остаётся в checkout, но текущие страницы используют storefront static, не прежнюю интерпретацию SVG-товаров.
 
-Общий каркас — `src/web/templates/base.html`, `components/`, `includes/header.html`, `includes/footer.html`. Общие CSS/JS/логотип — `src/web/static/shop/`. Общие templates и static directories подключены в settings. Текущая демонстрационная фича находится в web.shop/templates/shop/home.html; отдельные catalog/cart apps ещё не созданы.
+## Рабочий кабинет — 16.10.2026
 
-Компонент выносится в общий слой, когда реально используется несколькими фичами; не создавать универсальный набор заранее. Бизнес-логика не переносится в templates. В независимом codex_ecommerce и ARQ worker шаблонов сайта нет. Будущие Jinja2-шаблоны писем worker — отдельная ответственность, не UI магазина.
+web.staff: staff/base.html наследует codex cabinet; module registry в staff/cabinet.py, проектный context processor не создаёт настройки при GET. Навигация: две верхние группы, общий quick access через библиотечные helpers, внизу sidebar — настройки раздела/магазина. Единый Django/allauth вход /accounts/login/ обслуживает customer/staff; /staff/login/ только redirect. Обязательный staff MFA и endpoint permissions проверяются сервером; см. docs/project/identity-and-mfa.md. Создание модели всегда draft; редактор вариантов не меняет существующий SKU. Проектные overrides не правят установленную библиотеку. Точки входа/права/ограничения: docs/project/staff-cabinet-run.md; tests/web/test_staff_*. Галереи, публикация и генерация SKU ещё не реализованы.
 
-Кабинет использует шаблоны codex-django с проектными расширениями; точные блоки и контексты проверяем по установленному библиотечному навыку. Сохраняем Django Templates, HTMX и Alpine.
+Auth templates account/mfa принадлежат customer/templates и имеют приоритет перед библиотечными account overrides. data-real-auth исключает их из demo JS. Реальные password/email/MFA links в customer overview; reference orders/profile пока protected demo.
 
-## Направление дизайна
 
-Первая демонстрация опирается на обсуждённый макет: светлый фон, тёмно-зелёные акценты, сохранённый hero, категории и карточки товаров. Исходник hero находится в `assets/hero/maennermasche-hero-source.png`. Männermasche остаётся рабочим названием. Это визуальное направление, не утверждённый набор размеров/токенов и не готовая страница.
+## Кабинет покупателя: восстановленный reference — 16.10.2026
 
-Начальная страница использует демонстрационные данные; затем подключаем каталог. Не представлять вымышленные цены, наличие или обещания доставки как реальные. Смена цвета/размера следует требованиям карточки из shop-catalog-media.
+/konto/ использует customer/overview.html, CustomerOverviewView наследует CustomerPageView. Не заменять его auth-only списком настроек. Сохранены HTML-композиции overview/profile/orders/order_detail, общий include sidebar; CSS customer-account.css адаптирует те же блоки на mobile. В identity-полях текущие имя (full_name/username), email и date_joined, escaping обязателен. Reference commerce-блоки остаются явно demo, не удалять их из-за отсутствия backend.
 
-## Приёмка
+Реальные email/password/MFA/logout ссылки — includes/account_security.html, настройки личности и безопасности в profile. Персонализация/адреса/маркетинг пока demo. Не отправлять password из mockформ: disabled fieldset/inputs; customer-account.js перехватывает mocksubmit и заменяет ложные success toast на demo. Нельзя заменять allauth logout защищённый POST на прямой GET logout. Hash tabs profile должны работать при same-page hashchange и первом открытии.
 
-- Шаблоны фичи разрешаются по namespace, общий base доступен всем web-приложениям.
-- Полная страница и HTMX partial возвращают соответствующее содержимое.
-- Общие элементы не дублируются между фичами; engine/worker не получают web templates.
-- Desktop/mobile и клавиатурная навигация проверяются при реализации.
+Проверка: tests/web/test_customer_account.py, tests/web/test_storefront_templates.py и browser desktop/mobile: sidebar, hash tabs, auth links, текущая identity и отсутствие document overflow. Точки входа/границы: docs/project/customer-account.md. Это не разрешает реализацию newsletter/заказов.
 
-Источники: [архитектура](../../../../docs/project/architecture.md), [исходник hero](../../../../assets/hero/maennermasche-hero-source.png).
 
-## Текущая демонстрация
-
-HomeView и web.shop.demo поставляют presentation-only товары; shop.js управляет фильтрами, mobile menu и native dialog. Hero PNG сохранён локально, SVG товаров — иллюстрации, не фото производителя. Цвет SVG в диалоге меняется визуальным фильтром только как demo; реальные фото впоследствии переключаются по галереям. URL /, preview settings web.config.settings.preview, loopback 127.0.0.1:8013. Проверки: tests/web/test_homepage.py; desktop/mobile screenshots в docs/project/visuals. Четыре предупреждения visual lint про пустой alt декоративных изображений категорий приняты: название уже озвучивается текстом кнопки.
-
-## Пробный editorial-вариант
-
-13.10.2026 по запросу пользователя применена интерпретация Gemini: Bodoni Moda для заголовков, Plus Jakarta Sans для UI, прямые углы, квадратные swatches. Это проба для сравнения, не окончательный дизайн. Шрифты локальные с OFL. CSS entry shop.css импортирует css/tokens.css, fonts.css, foundations.css, components.css и pages/home.css; редактировать соответствующий source. Подробности и прежний CSS: docs/design/README.md и docs/design/archive. Не менять название магазина на Atelier Masculin из исходного документа.
-
-## Статический прототип для показа
-
-14.10.2026 создан docs/prototype: самостоятельные HTML страницы, local fonts/assets, общие theme.css/app.js и feature assets. GitHub Pages вход docs/index.html при публикации /docs. Запуск отдельно от Django: python -m http.server 8020 --bind 127.0.0.1 --directory docs. Cart localStorage, checkout sessionStorage и демо-платежи не являются backend-реализацией. README в папке описывает проверки, текущие ограничения и порядок публикации. Не переносить source generator CDN/claims в runtime.
+Кабинет: имя и адреса сохраняются (customer.0001). Реальные формы с data-real-auth: profile-name-form и customer-address-form, card default/delete POST. Не перехватывать их demo-JS. CustomerPageView теперь в views/customer_page_view.py, owner-list одним запросом, json_script для редактирования/одна primary наUser. Empty address list — пустое состояние, не придуманные адреса. Name/email/addresses реальные; маркетинг/счета/заказы остаются demo. Customer-account.js/addresses.js разделяют mock и live; пароль остаётся allauth. Детали: docs/project/customer-account.md, tests/web/test_customer_persistence.py.

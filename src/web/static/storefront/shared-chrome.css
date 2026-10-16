@@ -1,0 +1,35 @@
+/* Shared shell from the approved homepage. Page content keeps its own styles. */
+:root {
+  --shop-page: #F8F8F3;
+  --shop-text: #171E19;
+  --shop-muted: #626960;
+  --shop-accent: #183F30;
+  --shop-border: #DCDED5;
+}
+/* Manufacturer photos keep the complete garment visible in the existing frame. */
+img[data-shop-photo] { object-fit: contain; mix-blend-mode: normal; opacity: 1; }
+.shop-brand-logo { width: 265px; height: auto; display: block; }
+.shop-footer-brand { display: block; margin-bottom: 16px; max-width: 325px; }
+.shop-brand-logo-light { width: 100%; height: auto; display: block; }
+@media (max-width: 767px) { .shop-brand-logo { width: 220px; max-width: 65vw; } }
+[data-shared-chrome], [data-purpose="top-announcement-bar"] {
+  font-family: Inter, system-ui, sans-serif;
+  letter-spacing: normal;
+}
+[data-shared-chrome="header"] {
+  background: var(--shop-page);
+  color: var(--shop-text);
+  border-color: var(--shop-border);
+}
+[data-shared-chrome="header"] .text-brand-dark { color: var(--shop-text); }
+[data-shared-chrome="header"] .text-brand-muted { color: var(--shop-muted); }
+[data-shared-chrome="header"] svg { flex-shrink: 0; }
+/* Original fixed headers reserved 80/116px in their main wrapper. The common
+   header is sticky and already occupies its space in normal document flow. */
+body > main[class*="pt-["], body > main.pt-28, body > main.pt-24,
+body > main.pt-32, body > div[class*="pt-[116px]"] { padding-top: 0 !important; }
+@media (max-width: 767px) {
+  [data-shared-chrome="header"] > div { height: auto; min-height: 80px; flex-wrap: wrap; padding-top: 12px; padding-bottom: 12px; gap: 8px; }
+  [data-shared-chrome="header"] [data-purpose="utility-actions"] { margin-left: auto; gap: 4px; }
+  [data-shared-chrome="header"] [data-purpose="utility-actions"] > * { margin-left: 0; }
+}

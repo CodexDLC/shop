@@ -1,0 +1,656 @@
+{% extends 'base.html' %}
+{% load static shop_i18n %}
+{% block page_head %}<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="{% static 'storefront/vendor/tailwind-runtime.js' %}?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"primary":"#033324","tertiary-fixed":"#e1e3da","surface-bright":"#f4fbf3","on-primary-fixed":"#002115","surface-container-low":"#eef6ed","on-error":"#ffffff","secondary-fixed-dim":"#c2c9be","primary-fixed-dim":"#a3d1ba","secondary-fixed":"#dee5d9","surface-muted":"#EEEEE7","on-secondary":"#ffffff","surface-container":"#e8f0e7","inverse-primary":"#a3d1ba","surface-container-lowest":"#ffffff","on-tertiary-container":"#adb0a7","tertiary":"#2a2d27","on-tertiary":"#ffffff","brand-deep":"#183F30","on-secondary-container":"#5f665d","tertiary-fixed-dim":"#c5c7bf","inverse-on-surface":"#ebf3ea","inverse-surface":"#2b322d","surface-container-high":"#e3eae2","page-bg":"#F8F8F3","on-background":"#161d18","secondary-container":"#dee5d9","on-primary-fixed-variant":"#244f3d","secondary":"#596057","on-surface":"#161d18","on-surface-variant":"#414944","tertiary-container":"#40433d","background":"#f4fbf3","on-error-container":"#93000a","primary-fixed":"#beedd5","error-container":"#ffdad6","error":"#ba1a1a","surface-variant":"#dde5dc","on-tertiary-fixed-variant":"#454841","on-primary":"#ffffff","surface-container-highest":"#dde5dc","on-primary-container":"#8cb9a3","border-subtle":"#DCDED5","on-secondary-fixed":"#171d16","primary-container":"#1f4a39","on-tertiary-fixed":"#191c17","text-muted":"#626960","surface":"#f4fbf3","on-secondary-fixed-variant":"#424940","outline-variant":"#c0c8c2","surface-dim":"#d4dcd4","surface-tint":"#3c6754","outline":"#717974","text-primary":"#171E19"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"gutter-mobile":"0.75rem","margin":"3rem","space-3xl":"6rem","margin-mobile":"1rem","space-xs":"0.25rem","gutter":"1.5rem","space-xl":"2.5rem","space-md":"1rem","space-lg":"1.5rem","space-sm":"0.5rem","space-2xl":"4rem"},"fontFamily":{"price-md":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"display-xl-mobile":["Bodoni Moda"],"display-xl":["Bodoni Moda"],"headline-lg":["Bodoni Moda"],"title-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Bodoni Moda"],"headline-md":["Bodoni Moda"],"label-sm":["Plus Jakarta Sans"],"price-lg":["Plus Jakarta Sans"]},"fontSize":{"price-md":["0.9375rem",{"lineHeight":"1.2","fontWeight":"600"}],"title-md":["1rem",{"lineHeight":"1.4","fontWeight":"600"}],"label-md":["0.8125rem",{"lineHeight":"1.2","letterSpacing":"0.05em","fontWeight":"600"}],"body-lg":["1.125rem",{"lineHeight":"1.6","fontWeight":"400"}],"display-xl-mobile":["2.25rem",{"lineHeight":"1.2","letterSpacing":"-0.01em","fontWeight":"500"}],"display-xl":["3.5rem",{"lineHeight":"1.15","letterSpacing":"-0.02em","fontWeight":"500"}],"headline-lg":["2.25rem",{"lineHeight":"1.25","letterSpacing":"-0.01em","fontWeight":"500"}],"title-lg":["1.125rem",{"lineHeight":"1.4","letterSpacing":"0.01em","fontWeight":"600"}],"body-md":["0.9375rem",{"lineHeight":"1.5","fontWeight":"400"}],"body-sm":["0.8125rem",{"lineHeight":"1.4","fontWeight":"400"}],"headline-lg-mobile":["1.75rem",{"lineHeight":"1.3","fontWeight":"500"}],"headline-md":["1.5rem",{"lineHeight":"1.35","fontWeight":"500"}],"label-sm":["0.6875rem",{"lineHeight":"1.2","letterSpacing":"0.06em","fontWeight":"500"}],"price-lg":["1.25rem",{"lineHeight":"1.2","fontWeight":"600"}]}}}}</script><script src="{% static 'storefront/reference-tokens.js' %}"></script>
+<link rel="stylesheet" href="{% static 'storefront/shared-chrome.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+<link rel="icon" href="{% static 'storefront/brand/favicon.ico' %}"><link rel="apple-touch-icon" href="{% static 'storefront/brand/apple-touch-icon.png' %}">
+{% endblock %}
+{% block body_attrs %} class="bg-page-bg font-body-md text-text-primary antialiased" data-demo-page="search.html"{% endblock %}
+{% block content %}
+{% include 'includes/header.html' %}<main class="w-full pt-[116px] bg-page-bg"><div class="flex flex-col w-full">
+<!-- Search Header & Context Bar -->
+<section class="w-full bg-surface-muted py-space-xl">
+<div class="max-w-[1440px] mx-auto px-margin">
+<!-- Breadcrumb Navigation -->
+<nav class="flex items-center gap-space-xs text-label-sm font-label-sm uppercase tracking-wider text-text-muted mb-space-lg">
+<a class="hover:text-primary transition-colors" data-path="home" href="#">{% text 'catalog.search.text.b660f83df4d6' %}</a>
+<span class="opacity-50">/</span>
+<a class="hover:text-primary transition-colors" data-path="suche" href="#">{% text 'catalog.search.text.fd281588694a' %}</a>
+<span class="opacity-50">/</span>
+<span class="text-text-primary font-medium tracking-normal capitalize">{% text 'catalog.search.text.1c985f771c9d' %}</span>
+</nav>
+<!-- Prominent Search Box & Suggestions -->
+<div class="max-w-3xl">
+<div class="relative flex items-center bg-surface-container-lowest shadow-sm h-14 px-space-md">
+<span class="material-symbols-outlined text-[24px] text-primary mr-space-sm">{% text 'catalog.search.text.3559d7accf00' %}</span>
+<input class="w-full bg-transparent border-0 p-0 font-body-lg text-body-lg text-text-primary placeholder:text-text-muted focus:ring-0 focus:outline-none" id="searchInput" placeholder="{% text 'catalog.search.label.7ac92d29d11f' %}" type="text" value="Boxer Forest Green"/>
+<button class="text-text-muted hover:text-text-primary transition-colors p-2" id="clearSearchBtn" title="{% text 'catalog.search.label.6366c7d69727' %}" type="button">
+<span class="material-symbols-outlined text-[20px]">{% text 'catalog.search.text.da38860cb875' %}</span>
+</button>
+<button class="ml-space-sm bg-primary text-on-primary font-label-md text-label-md px-space-lg h-10 flex items-center justify-center uppercase hover:bg-brand-deep transition-colors" type="button">
+            {% text 'catalog.search.text.20a96919554a' %}
+          </button>
+</div>
+<!-- Suggestion Tags -->
+<div class="flex flex-wrap items-center gap-space-sm mt-space-md">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted">{% text 'catalog.search.text.2ca52df7137d' %}</span>
+<button class="bg-surface-container hover:bg-surface-variant text-text-primary text-body-sm font-body-sm px-3 py-1 transition-colors" type="button">{% text 'catalog.search.text.ac6af775d6f6' %}</button>
+<button class="bg-surface-container hover:bg-surface-variant text-text-primary text-body-sm font-body-sm px-3 py-1 transition-colors" type="button">{% text 'catalog.search.text.16bdd6a7663a' %}</button>
+<button class="bg-surface-container hover:bg-surface-variant text-text-primary text-body-sm font-body-sm px-3 py-1 transition-colors" type="button">{% text 'catalog.search.text.4450a6061a45' %}</button>
+<button class="bg-surface-container hover:bg-surface-variant text-text-primary text-body-sm font-body-sm px-3 py-1 transition-colors" type="button">{% text 'catalog.search.text.722b34b0f91b' %}</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Search Results Lead & Stats -->
+<section class="w-full bg-page-bg pt-space-xl pb-space-lg">
+<div class="max-w-[1440px] mx-auto px-margin flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">
+          {% text 'catalog.search.text.d4c944cbfe8e' %} <span class="italic font-normal">{% text 'catalog.search.text.1c985f771c9d' %}</span>
+</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+          {% text 'catalog.search.text.4b8cda0ae06f' %} <span class="font-medium text-text-primary">{% text 'catalog.search.text.b7111716c20c' %}</span>
+</p>
+</div>
+<!-- Sorting & View Actions -->
+<div class="flex items-center gap-space-md flex-shrink-0">
+<div class="flex items-center gap-2 bg-surface-muted px-3 py-2 text-body-sm font-body-sm">
+<span class="text-text-muted">{% text 'catalog.search.text.a341ee1de63a' %}</span>
+<select class="bg-transparent border-0 p-0 text-text-primary font-medium focus:ring-0 focus:outline-none cursor-pointer">
+<option>{% text 'catalog.search.text.9cd2e2af7170' %}</option>
+<option>{% text 'catalog.search.text.772b16001734' %}</option>
+<option>{% text 'catalog.search.text.30e7974c56d8' %}</option>
+<option>{% text 'catalog.search.text.dfc355ce3d34' %}</option>
+<option>{% text 'navigation.new' %}</option>
+</select>
+</div>
+<div class="hidden sm:flex items-center bg-surface-muted p-1">
+<button class="w-8 h-8 flex items-center justify-center bg-surface-container-lowest text-primary shadow-xs" title="{% text 'catalog.search.label.ddff37c7e1c0' %}" type="button">
+<span class="material-symbols-outlined text-[18px]">{% text 'catalog.search.text.0ffb08753481' %}</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center text-text-muted hover:text-text-primary transition-colors" title="{% text 'catalog.search.label.da8ade086b80' %}" type="button">
+<span class="material-symbols-outlined text-[18px]">{% text 'catalog.search.text.63a06d8ccd62' %}</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Active Filter Badges Bar -->
+<section class="w-full bg-page-bg pb-space-lg">
+<div class="max-w-[1440px] mx-auto px-margin flex flex-wrap items-center gap-space-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted mr-1">{% text 'catalog.search.text.b595eb9c3078' %}</span>
+<!-- Filter Chip: Farbe Forest Green -->
+<div class="inline-flex items-center gap-2 bg-primary-container text-surface-bright px-3 py-1 text-label-sm font-label-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-[#183F30]"></span>
+<span>{% text 'catalog.search.text.c5e493d79bc0' %}</span>
+<button class="hover:text-primary-fixed-dim transition-colors ml-1" title="{% text 'catalog.search.label.f78b6376e028' %}" type="button">
+<span class="material-symbols-outlined text-[14px]">{% text 'catalog.search.text.da38860cb875' %}</span>
+</button>
+</div>
+<!-- Filter Chip: Schnitt Boxershorts -->
+<div class="inline-flex items-center gap-2 bg-surface-muted text-text-primary px-3 py-1 text-label-sm font-label-sm">
+<span>{% text 'catalog.search.text.bd8432e54a65' %}</span>
+<button class="text-text-muted hover:text-text-primary transition-colors ml-1" title="{% text 'catalog.search.label.f78b6376e028' %}" type="button">
+<span class="material-symbols-outlined text-[14px]">{% text 'catalog.search.text.da38860cb875' %}</span>
+</button>
+</div>
+<button class="text-label-sm font-label-sm text-text-muted hover:text-primary underline ml-2 transition-colors" type="button">
+        {% text 'catalog.search.text.c714b23f00c2' %}
+      </button>
+</div>
+</section>
+<!-- Main Catalog Content with Filter Facets and 8 Product Tiles -->
+<section class="w-full bg-page-bg pb-space-3xl">
+<div class="max-w-[1440px] mx-auto px-margin grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+<!-- Sidebar Filter Panel (3 Cols) -->
+<aside class="hidden lg:block lg:col-span-3 space-y-space-xl pr-space-md">
+<!-- Filter Block: Marken -->
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between pb-2">
+<h2 class="font-label-md text-label-md uppercase tracking-wider text-text-primary">{% text 'navigation.brands' %}</h2>
+<span class="material-symbols-outlined text-[18px] text-text-muted">{% text 'catalog.search.text.4ff54d8d6bfa' %}</span>
+</div>
+<div class="space-y-2 font-body-sm text-body-sm text-on-surface-variant">
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input checked="" class="w-4 h-4 text-primary rounded-none bg-surface-muted focus:ring-0 focus:outline-none" type="checkbox"/>
+<span class="group-hover:text-primary transition-colors">{% text 'catalog.search.text.a7769b7586cf' %}</span>
+</span>
+<span class="text-text-muted font-label-sm">(4)</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input checked="" class="w-4 h-4 text-primary rounded-none bg-surface-muted focus:ring-0 focus:outline-none" type="checkbox"/>
+<span class="group-hover:text-primary transition-colors">{% text 'catalog.search.text.ba3e4d081bdb' %}</span>
+</span>
+<span class="text-text-muted font-label-sm">(3)</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input checked="" class="w-4 h-4 text-primary rounded-none bg-surface-muted focus:ring-0 focus:outline-none" type="checkbox"/>
+<span class="group-hover:text-primary transition-colors">{% text 'catalog.search.text.3b5534d8b3e9' %}</span>
+</span>
+<span class="text-text-muted font-label-sm">(1)</span>
+</label>
+</div>
+</div>
+<!-- Filter Block: Schnittform -->
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between pb-2">
+<h2 class="font-label-md text-label-md uppercase tracking-wider text-text-primary">{% text 'catalog.search.text.ef54ebdfa485' %}</h2>
+<span class="material-symbols-outlined text-[18px] text-text-muted">{% text 'catalog.search.text.4ff54d8d6bfa' %}</span>
+</div>
+<div class="space-y-2 font-body-sm text-body-sm text-on-surface-variant">
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input checked="" class="w-4 h-4 text-primary rounded-none bg-surface-muted focus:ring-0 focus:outline-none" type="checkbox"/>
+<span class="group-hover:text-primary transition-colors font-medium text-text-primary">{% text 'catalog.search.text.7e3f753d7033' %}</span>
+</span>
+<span class="text-text-muted font-label-sm">(6)</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input class="w-4 h-4 text-primary rounded-none bg-surface-muted focus:ring-0 focus:outline-none" type="checkbox"/>
+<span class="group-hover:text-primary transition-colors">{% text 'catalog.search.text.0ce76972243d' %}</span>
+</span>
+<span class="text-text-muted font-label-sm">(2)</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group opacity-60">
+<span class="flex items-center gap-2">
+<input class="w-4 h-4 text-primary rounded-none bg-surface-muted" disabled="" type="checkbox"/>
+<span>{% text 'catalog.search.text.d651d9f64ec3' %}</span>
+</span>
+<span class="text-text-muted font-label-sm">(0)</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group opacity-60">
+<span class="flex items-center gap-2">
+<input class="w-4 h-4 text-primary rounded-none bg-surface-muted" disabled="" type="checkbox"/>
+<span>{% text 'catalog.search.text.274ff9538d72' %}</span>
+</span>
+<span class="text-text-muted font-label-sm">(0)</span>
+</label>
+</div>
+</div>
+<!-- Filter Block: Größe -->
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between pb-2">
+<h2 class="font-label-md text-label-md uppercase tracking-wider text-text-primary">{% text 'catalog.search.text.d9130ae841c9' %}</h2>
+<span class="material-symbols-outlined text-[18px] text-text-muted">{% text 'catalog.search.text.4ff54d8d6bfa' %}</span>
+</div>
+<div class="grid grid-cols-4 gap-2">
+<button class="h-10 bg-surface-muted text-text-primary font-label-md text-label-md hover:bg-surface-variant flex items-center justify-center transition-colors" type="button">{% text 'catalog.search.text.02aa629c8b16' %}</button>
+<button class="h-10 bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center transition-colors" type="button">{% text 'catalog.search.text.c63ae6dd4fc9' %}</button>
+<button class="h-10 bg-surface-muted text-text-primary font-label-md text-label-md hover:bg-surface-variant flex items-center justify-center transition-colors" type="button">{% text 'catalog.search.text.d160e0986aca' %}</button>
+<button class="h-10 bg-surface-muted text-text-primary font-label-md text-label-md hover:bg-surface-variant flex items-center justify-center transition-colors" type="button">{% text 'catalog.search.text.a2f9d0d16d02' %}</button>
+<button class="h-10 bg-surface-muted text-text-muted font-label-md text-label-md line-through flex items-center justify-center opacity-40 cursor-not-allowed" type="button">{% text 'catalog.search.text.a9a63fabb948' %}</button>
+</div>
+</div>
+<!-- Filter Block: Material & Haptik -->
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between pb-2">
+<h2 class="font-label-md text-label-md uppercase tracking-wider text-text-primary">{% text 'catalog.search.text.c0653cbeef90' %}</h2>
+<span class="material-symbols-outlined text-[18px] text-text-muted">{% text 'catalog.search.text.4ff54d8d6bfa' %}</span>
+</div>
+<div class="space-y-2 font-body-sm text-body-sm text-on-surface-variant">
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input class="w-4 h-4 text-primary rounded-none bg-surface-muted focus:ring-0" type="checkbox"/>
+<span class="group-hover:text-primary transition-colors">{% text 'catalog.search.text.d4d2ca2b5d33' %}</span>
+</span>
+<span class="text-text-muted font-label-sm">(5)</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input class="w-4 h-4 text-primary rounded-none bg-surface-muted focus:ring-0" type="checkbox"/>
+<span class="group-hover:text-primary transition-colors">{% text 'catalog.search.text.ec76c6ff282f' %}</span>
+</span>
+<span class="text-text-muted font-label-sm">(2)</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input class="w-4 h-4 text-primary rounded-none bg-surface-muted focus:ring-0" type="checkbox"/>
+<span class="group-hover:text-primary transition-colors">{% text 'catalog.search.text.422143c7e2f9' %}</span>
+</span>
+<span class="text-text-muted font-label-sm">(1)</span>
+</label>
+</div>
+</div>
+<!-- Filter Block: Preisspanne -->
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between pb-2">
+<h2 class="font-label-md text-label-md uppercase tracking-wider text-text-primary">{% text 'catalog.search.text.1b7db6dad56a' %}</h2>
+<span class="material-symbols-outlined text-[18px] text-text-muted">{% text 'catalog.search.text.4ff54d8d6bfa' %}</span>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-3">
+<div class="bg-surface-muted px-3 py-2 text-body-sm font-body-sm text-text-primary w-full text-center">30 €</div>
+<span class="text-text-muted">—</span>
+<div class="bg-surface-muted px-3 py-2 text-body-sm font-body-sm text-text-primary w-full text-center">70 €</div>
+</div>
+<div class="h-1 bg-surface-muted relative">
+<div class="absolute left-1/4 right-1/4 h-1 bg-primary"></div>
+</div>
+</div>
+</div>
+<!-- Quality Guarantee Badge -->
+<div class="bg-surface-container-low p-space-md space-y-2">
+<div class="flex items-center gap-2 text-primary font-title-md text-title-md">
+<span class="material-symbols-outlined text-[20px]">{% text 'catalog.search.text.ec734b651574' %}</span>
+<span>{% text 'catalog.search.text.a7a15d209066' %}</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            {% text 'catalog.search.text.c824aa2ae78e' %}
+          </p>
+</div>
+</aside>
+<!-- Products Grid Module (9 Cols: 3 x 3 responsive cards) -->
+<main class="lg:col-span-9">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-lg">
+<!-- Product Card 1 -->
+<article class="group flex flex-col bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<div class="relative w-full aspect-[3/4] bg-surface-muted overflow-hidden">
+<img alt="{% text 'catalog.search.label.62d1da8ee4bb' %}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1U5yATwfo21qc0CiLltX46ThI4tfDjg35NCi0EuuSCxO9ZxuOT3C7SZTxw01KOCt6u_4eZklkERPU7VjoSiaQJ6iF-LePOMB3eA1YDKxLZJ_ktm47LL2UqU4daZkXoObJrzNhd8KfjEVSU-hcx-LKmnhi4GitkPCAV0232dyNzh_edW3gKiF_pED0YMg17Foiw947_s2Z5HAkaqsjtLsPRkHANxC1eFfx4Dq8RWkiXBNese3xYeqLPfJxI"/>
+<span class="absolute top-3 left-3 bg-brand-deep text-on-primary font-label-sm text-label-sm uppercase tracking-wider px-2 py-0.5">
+                {% text 'catalog.search.text.df042dd291b5' %}
+              </span>
+<button class="absolute top-3 right-3 w-8 h-8 bg-surface-container-lowest/80 text-text-primary hover:text-primary flex items-center justify-center transition-colors" title="{% text 'catalog.search.label.3d44a09fcd54' %}" type="button">
+<span class="material-symbols-outlined text-[18px]">{% text 'catalog.search.text.75017a36ec07' %}</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'catalog.search.text.a7769b7586cf' %}</span>
+<h3 class="font-title-md text-title-md text-text-primary mt-1">
+                  {% text 'catalog.search.text.7c1f308b965b' %} <mark class="bg-surface-container-high text-primary font-semibold px-1">{% text 'catalog.search.text.06efec196f4d' %}</mark> {% text 'catalog.search.text.0a676ad3ebf5' %} <mark class="bg-surface-container-high text-primary font-semibold px-1">{% text 'catalog.search.text.90e71d203e22' %}</mark>
+</h3>
+<div class="font-price-md text-price-md text-text-primary mt-1">49,95 €</div>
+</div>
+<!-- Swatches & Size selectors -->
+<div class="space-y-space-sm pt-2">
+<div class="flex items-center gap-1.5">
+<span class="w-3.5 h-3.5 bg-[#183F30] outline outline-1 outline-offset-2 outline-primary cursor-pointer" title="{% text 'catalog.search.label.90e71d203e22' %}"></span>
+<span class="w-3.5 h-3.5 bg-[#171E19] cursor-pointer hover:opacity-80" title="{% text 'catalog.search.label.7535d686f275' %}"></span>
+<span class="w-3.5 h-3.5 bg-[#2B3545] cursor-pointer hover:opacity-80" title="{% text 'catalog.search.label.0698cdb9c21e' %}"></span>
+<span class="w-3.5 h-3.5 bg-[#4A1E2B] cursor-pointer hover:opacity-80" title="{% text 'catalog.search.label.360e67400111' %}"></span>
+</div>
+<div class="flex items-center gap-1 text-label-sm font-label-sm">
+<button class="w-7 h-7 bg-surface-muted text-text-primary hover:bg-surface-variant flex items-center justify-center" type="button">{% text 'catalog.search.text.02aa629c8b16' %}</button>
+<button class="w-7 h-7 bg-primary text-on-primary font-bold flex items-center justify-center" type="button">{% text 'catalog.search.text.c63ae6dd4fc9' %}</button>
+<button class="w-7 h-7 bg-surface-muted text-text-primary hover:bg-surface-variant flex items-center justify-center" type="button">{% text 'catalog.search.text.d160e0986aca' %}</button>
+<button class="w-7 h-7 bg-surface-muted text-text-primary hover:bg-surface-variant flex items-center justify-center" type="button">{% text 'catalog.search.text.a2f9d0d16d02' %}</button>
+</div>
+<button class="w-full h-10 bg-primary hover:bg-brand-deep text-on-primary font-label-md text-label-md uppercase tracking-wider flex items-center justify-center gap-2 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">{% text 'catalog.search.text.52c70abd4468' %}</span>
+<span>{% text 'catalog.search.text.68199e47f757' %}</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product Card 2 -->
+<article class="group flex flex-col bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<div class="relative w-full aspect-[3/4] bg-surface-muted overflow-hidden">
+<img alt="{% text 'catalog.search.label.aa3324059e45' %}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1VhP1sJFH1_hmeR4dqhBzVpo7jz5G1hmLkLLsDbmC2ZWhiIehFkrPwRM0JMH2I0Nwv-C8yNzvO8lH8MQBGeaA38NP-nwPbo0lWVPWa7E-cNIl4NJFnNuL8tVHl9j1YcauG3vRkPSpvbBg-rfwbMsCvnFzEkRkpZyOen1MyCl1zlpiXzjeXbjcfP9ESCoubCTlERUBVjdHATVHWt6WzMx5Qh9I8_rL0x9QNju-WmhBb8CU0iuKjp30802XY"/>
+<span class="absolute top-3 left-3 bg-surface-container text-primary font-label-sm text-label-sm uppercase tracking-wider px-2 py-0.5">
+                {% text 'catalog.search.text.0b43de611c19' %}
+              </span>
+<button class="absolute top-3 right-3 w-8 h-8 bg-surface-container-lowest/80 text-text-primary hover:text-primary flex items-center justify-center transition-colors" title="{% text 'catalog.search.label.3d44a09fcd54' %}" type="button">
+<span class="material-symbols-outlined text-[18px]">{% text 'catalog.search.text.75017a36ec07' %}</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'catalog.search.text.3b5534d8b3e9' %}</span>
+<h3 class="font-title-md text-title-md text-text-primary mt-1">
+                  {% text 'catalog.search.text.5893d6846787' %} <mark class="bg-surface-container-high text-primary font-semibold px-1">{% text 'catalog.search.text.06efec196f4d' %}</mark> {% text 'catalog.search.text.7a6071d83304' %} <mark class="bg-surface-container-high text-primary font-semibold px-1">{% text 'catalog.search.text.90e71d203e22' %}</mark>
+</h3>
+<div class="font-price-md text-price-md text-text-primary mt-1">39,95 €</div>
+</div>
+<!-- Swatches & Size selectors -->
+<div class="space-y-space-sm pt-2">
+<div class="flex items-center gap-1.5">
+<span class="w-3.5 h-3.5 bg-[#183F30] outline outline-1 outline-offset-2 outline-primary cursor-pointer" title="{% text 'catalog.search.label.90e71d203e22' %}"></span>
+<span class="w-3.5 h-3.5 bg-[#8C8F8B] cursor-pointer hover:opacity-80" title="{% text 'catalog.search.label.1ffd4944af6c' %}"></span>
+<span class="w-3.5 h-3.5 bg-[#171E19] cursor-pointer hover:opacity-80" title="{% text 'catalog.search.label.4b436dc5eb76' %}"></span>
+</div>
+<div class="flex items-center gap-1 text-label-sm font-label-sm">
+<button class="w-7 h-7 bg-surface-muted text-text-primary hover:bg-surface-variant flex items-center justify-center" type="button">{% text 'catalog.search.text.02aa629c8b16' %}</button>
+<button class="w-7 h-7 bg-primary text-on-primary font-bold flex items-center justify-center" type="button">{% text 'catalog.search.text.c63ae6dd4fc9' %}</button>
+<button class="w-7 h-7 bg-surface-muted text-text-primary hover:bg-surface-variant flex items-center justify-center" type="button">{% text 'catalog.search.text.d160e0986aca' %}</button>
+<button class="w-7 h-7 bg-surface-muted text-text-primary hover:bg-surface-variant flex items-center justify-center" type="button">{% text 'catalog.search.text.a2f9d0d16d02' %}</button>
+</div>
+<button class="w-full h-10 bg-primary hover:bg-brand-deep text-on-primary font-label-md text-label-md uppercase tracking-wider flex items-center justify-center gap-2 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">{% text 'catalog.search.text.52c70abd4468' %}</span>
+<span>{% text 'catalog.search.text.68199e47f757' %}</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product Card 3 -->
+<article class="group flex flex-col bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<div class="relative w-full aspect-[3/4] bg-surface-muted overflow-hidden">
+<img alt="{% text 'catalog.search.label.2c03476227c1' %}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1U5yATwfo21qc0CiLltX46ThI4tfDjg35NCi0EuuSCxO9ZxuOT3C7SZTxw01KOCt6u_4eZklkERPU7VjoSiaQJ6iF-LePOMB3eA1YDKxLZJ_ktm47LL2UqU4daZkXoObJrzNhd8KfjEVSU-hcx-LKmnhi4GitkPCAV0232dyNzh_edW3gKiF_pED0YMg17Foiw947_s2Z5HAkaqsjtLsPRkHANxC1eFfx4Dq8RWkiXBNese3xYeqLPfJxI"/>
+<span class="absolute top-3 left-3 bg-brand-deep text-on-primary font-label-sm text-label-sm uppercase tracking-wider px-2 py-0.5">
+                {% text 'catalog.search.text.e5683279e563' %}
+              </span>
+<button class="absolute top-3 right-3 w-8 h-8 bg-surface-container-lowest/80 text-text-primary hover:text-primary flex items-center justify-center transition-colors" title="{% text 'catalog.search.label.3d44a09fcd54' %}" type="button">
+<span class="material-symbols-outlined text-[18px]">{% text 'catalog.search.text.75017a36ec07' %}</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'catalog.search.text.ba3e4d081bdb' %}</span>
+<h3 class="font-title-md text-title-md text-text-primary mt-1">
+                  {% text 'catalog.search.text.e0d41f57db7b' %} <mark class="bg-surface-container-high text-primary font-semibold px-1">{% text 'catalog.search.text.06efec196f4d' %}</mark> {% text 'catalog.search.text.0a676ad3ebf5' %} <mark class="bg-surface-container-high text-primary font-semibold px-1">{% text 'catalog.search.text.90e71d203e22' %}</mark>
+</h3>
+<div class="font-price-md text-price-md text-text-primary mt-1">54,90 €</div>
+</div>
+<!-- Swatches & Size selectors -->
+<div class="space-y-space-sm pt-2">
+<div class="flex items-center gap-1.5">
+<span class="w-3.5 h-3.5 bg-[#183F30] outline outline-1 outline-offset-2 outline-primary cursor-pointer" title="{% text 'catalog.search.label.90e71d203e22' %}"></span>
+<span class="w-3.5 h-3.5 bg-[#171E19] cursor-pointer hover:opacity-80" title="{% text 'catalog.search.label.7535d686f275' %}"></span>
+<span class="w-3.5 h-3.5 bg-[#D2B48C] cursor-pointer hover:opacity-80" title="{% text 'catalog.search.label.39547dfe258d' %}"></span>
+</div>
+<div class="flex items-center gap-1 text-label-sm font-label-sm">
+<button class="w-7 h-7 bg-surface-muted text-text-primary hover:bg-surface-variant flex items-center justify-center" type="button">{% text 'catalog.search.text.02aa629c8b16' %}</button>
+<button class="w-7 h-7 bg-primary text-on-primary font-bold flex items-center justify-center" type="button">{% text 'catalog.search.text.c63ae6dd4fc9' %}</button>
+<button class="w-7 h-7 bg-surface-muted text-text-primary hover:bg-surface-variant flex items-center justify-center" type="button">{% text 'catalog.search.text.d160e0986aca' %}</button>
+<button class="w-7 h-7 bg-surface-muted text-text-primary hover:bg-surface-variant flex items-center justify-center" type="button">{% text 'catalog.search.text.a2f9d0d16d02' %}</button>
+</div>
+<button class="w-full h-10 bg-primary hover:bg-brand-deep text-on-primary font-label-md text-label-md uppercase tracking-wider flex items-center justify-center gap-2 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">{% text 'catalog.search.text.52c70abd4468' %}</span>
+<span>{% text 'catalog.search.text.68199e47f757' %}</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product Card 4 -->
+<article class="group flex flex-col bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<div class="relative w-full aspect-[3/4] bg-surface-muted overflow-hidden">
+<img alt="{% text 'catalog.search.label.ac33a9c0eedb' %}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1VhP1sJFH1_hmeR4dqhBzVpo7jz5G1hmLkLLsDbmC2ZWhiIehFkrPwRM0JMH2I0Nwv-C8yNzvO8lH8MQBGeaA38NP-nwPbo0lWVPWa7E-cNIl4NJFnNuL8tVHl9j1YcauG3vRkPSpvbBg-rfwbMsCvnFzEkRkpZyOen1MyCl1zlpiXzjeXbjcfP9ESCoubCTlERUBVjdHATVHWt6WzMx5Qh9I8_rL0x9QNju-WmhBb8CU0iuKjp30802XY"/>
+<button class="absolute top-3 right-3 w-8 h-8 bg-surface-container-lowest/80 text-text-primary hover:text-primary flex items-center justify-center transition-colors" title="{% text 'catalog.search.label.3d44a09fcd54' %}" type="button">
+<span class="material-symbols-outlined text-[18px]">{% text 'catalog.search.text.75017a36ec07' %}</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'catalog.search.text.a7769b7586cf' %}</span>
+<h3 class="font-title-md text-title-md text-text-primary mt-1">
+                  {% text 'catalog.search.text.146f5ba4e9b4' %} <mark class="bg-surface-container-high text-primary font-semibold px-1">{% text 'catalog.search.text.06efec196f4d' %}</mark> — <mark class="bg-surface-container-high text-primary font-semibold px-1">{% text 'catalog.search.text.90e71d203e22' %}</mark>
+</h3>
+<div class="font-price-md text-price-md text-text-primary mt-1">47,95 €</div>
+</div>
+<div class="space-y-space-sm pt-2">
+<div class="flex items-center gap-1.5">
+<span class="w-3.5 h-3.5 bg-[#183F30] outline outline-1 outline-offset-2 outline-primary cursor-pointer" title="{% text 'catalog.search.label.90e71d203e22' %}"></span>
+<span class="w-3.5 h-3.5 bg-[#171E19] cursor-pointer hover:opacity-80" title="{% text 'catalog.search.label.4b436dc5eb76' %}"></span>
+</div>
+<div class="flex items-center gap-1 text-label-sm font-label-sm">
+<button class="w-7 h-7 bg-surface-muted text-text-primary hover:bg-surface-variant flex items-center justify-center" type="button">{% text 'catalog.search.text.02aa629c8b16' %}</button>
+<button class="w-7 h-7 bg-surface-muted text-text-primary hover:bg-surface-variant flex items-center justify-center" type="button">{% text 'catalog.search.text.c63ae6dd4fc9' %}</button>
+<button class="w-7 h-7 bg-primary text-on-primary font-bold flex items-center justify-center" type="button">{% text 'catalog.search.text.d160e0986aca' %}</button>
+<button class="w-7 h-7 bg-surface-muted text-text-primary hover:bg-surface-variant flex items-center justify-center" type="button">{% text 'catalog.search.text.a2f9d0d16d02' %}</button>
+</div>
+<button class="w-full h-10 bg-primary hover:bg-brand-deep text-on-primary font-label-md text-label-md uppercase tracking-wider flex items-center justify-center gap-2 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">{% text 'catalog.search.text.52c70abd4468' %}</span>
+<span>{% text 'catalog.search.text.68199e47f757' %}</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product Card 5 -->
+<article class="group flex flex-col bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<div class="relative w-full aspect-[3/4] bg-surface-muted overflow-hidden">
+<img alt="{% text 'catalog.search.label.4edecf3853e7' %}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1U5yATwfo21qc0CiLltX46ThI4tfDjg35NCi0EuuSCxO9ZxuOT3C7SZTxw01KOCt6u_4eZklkERPU7VjoSiaQJ6iF-LePOMB3eA1YDKxLZJ_ktm47LL2UqU4daZkXoObJrzNhd8KfjEVSU-hcx-LKmnhi4GitkPCAV0232dyNzh_edW3gKiF_pED0YMg17Foiw947_s2Z5HAkaqsjtLsPRkHANxC1eFfx4Dq8RWkiXBNese3xYeqLPfJxI"/>
+<span class="absolute top-3 left-3 bg-surface-container text-primary font-label-sm text-label-sm uppercase tracking-wider px-2 py-0.5">
+                {% text 'catalog.search.text.df042dd291b5' %}
+              </span>
+<button class="absolute top-3 right-3 w-8 h-8 bg-surface-container-lowest/80 text-text-primary hover:text-primary flex items-center justify-center transition-colors" title="{% text 'catalog.search.label.3d44a09fcd54' %}" type="button">
+<span class="material-symbols-outlined text-[18px]">{% text 'catalog.search.text.75017a36ec07' %}</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'catalog.search.text.ba3e4d081bdb' %}</span>
+<h3 class="font-title-md text-title-md text-text-primary mt-1">
+                  {% text 'catalog.search.text.04ef4d045f39' %} <mark class="bg-surface-container-high text-primary font-semibold px-1">{% text 'catalog.search.text.06efec196f4d' %}</mark> — <mark class="bg-surface-container-high text-primary font-semibold px-1">{% text 'catalog.search.text.90e71d203e22' %}</mark>
+</h3>
+<div class="font-price-md text-price-md text-text-primary mt-1">52,00 €</div>
+</div>
+<div class="space-y-space-sm pt-2">
+<div class="flex items-center gap-1.5">
+<span class="w-3.5 h-3.5 bg-[#183F30] outline outline-1 outline-offset-2 outline-primary cursor-pointer" title="{% text 'catalog.search.label.90e71d203e22' %}"></span>
+<span class="w-3.5 h-3.5 bg-[#4B5320] cursor-pointer hover:opacity-80" title="{% text 'catalog.search.label.8f62f4336f19' %}"></span>
+<span class="w-3.5 h-3.5 bg-[#171E19] cursor-pointer hover:opacity-80" title="{% text 'catalog.search.label.7535d686f275' %}"></span>
+</div>
+<div class="flex items-center gap-1 text-label-sm font-label-sm">
+<button class="w-7 h-7 bg-surface-muted text-text-primary hover:bg-surface-variant flex items-center justify-center" type="button">{% text 'catalog.search.text.02aa629c8b16' %}</button>
+<button class="w-7 h-7 bg-primary text-on-primary font-bold flex items-center justify-center" type="button">{% text 'catalog.search.text.c63ae6dd4fc9' %}</button>
+<button class="w-7 h-7 bg-surface-muted text-text-primary hover:bg-surface-variant flex items-center justify-center" type="button">{% text 'catalog.search.text.d160e0986aca' %}</button>
+<button class="w-7 h-7 bg-surface-muted text-text-primary hover:bg-surface-variant flex items-center justify-center" type="button">{% text 'catalog.search.text.a2f9d0d16d02' %}</button>
+</div>
+<button class="w-full h-10 bg-primary hover:bg-brand-deep text-on-primary font-label-md text-label-md uppercase tracking-wider flex items-center justify-center gap-2 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">{% text 'catalog.search.text.52c70abd4468' %}</span>
+<span>{% text 'catalog.search.text.68199e47f757' %}</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product Card 6 -->
+<article class="group flex flex-col bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<div class="relative w-full aspect-[3/4] bg-surface-muted overflow-hidden">
+<img alt="{% text 'catalog.search.label.ba6f7ffac3c8' %}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1VhP1sJFH1_hmeR4dqhBzVpo7jz5G1hmLkLLsDbmC2ZWhiIehFkrPwRM0JMH2I0Nwv-C8yNzvO8lH8MQBGeaA38NP-nwPbo0lWVPWa7E-cNIl4NJFnNuL8tVHl9j1YcauG3vRkPSpvbBg-rfwbMsCvnFzEkRkpZyOen1MyCl1zlpiXzjeXbjcfP9ESCoubCTlERUBVjdHATVHWt6WzMx5Qh9I8_rL0x9QNju-WmhBb8CU0iuKjp30802XY"/>
+<span class="absolute top-3 left-3 bg-brand-deep text-on-primary font-label-sm text-label-sm uppercase tracking-wider px-2 py-0.5">
+                {% text 'catalog.search.text.ceeaa744c45b' %}
+              </span>
+<button class="absolute top-3 right-3 w-8 h-8 bg-surface-container-lowest/80 text-text-primary hover:text-primary flex items-center justify-center transition-colors" title="{% text 'catalog.search.label.3d44a09fcd54' %}" type="button">
+<span class="material-symbols-outlined text-[18px]">{% text 'catalog.search.text.75017a36ec07' %}</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'catalog.search.text.a7769b7586cf' %}</span>
+<h3 class="font-title-md text-title-md text-text-primary mt-1">
+                  {% text 'catalog.search.text.6cdfb2cb45ad' %} <mark class="bg-surface-container-high text-primary font-semibold px-1">{% text 'catalog.search.text.06efec196f4d' %}</mark> — <mark class="bg-surface-container-high text-primary font-semibold px-1">{% text 'catalog.search.text.90e71d203e22' %}</mark>
+</h3>
+<div class="font-price-md text-price-md text-text-primary mt-1">59,95 €</div>
+</div>
+<div class="space-y-space-sm pt-2">
+<div class="flex items-center gap-1.5">
+<span class="w-3.5 h-3.5 bg-[#183F30] outline outline-1 outline-offset-2 outline-primary cursor-pointer" title="{% text 'catalog.search.label.90e71d203e22' %}"></span>
+<span class="w-3.5 h-3.5 bg-[#2A2D27] cursor-pointer hover:opacity-80" title="{% text 'catalog.search.label.6095a6e2aef1' %}"></span>
+</div>
+<div class="flex items-center gap-1 text-label-sm font-label-sm">
+<button class="w-7 h-7 bg-surface-muted text-text-primary hover:bg-surface-variant flex items-center justify-center" type="button">{% text 'catalog.search.text.02aa629c8b16' %}</button>
+<button class="w-7 h-7 bg-primary text-on-primary font-bold flex items-center justify-center" type="button">{% text 'catalog.search.text.c63ae6dd4fc9' %}</button>
+<button class="w-7 h-7 bg-surface-muted text-text-primary hover:bg-surface-variant flex items-center justify-center" type="button">{% text 'catalog.search.text.d160e0986aca' %}</button>
+<button class="w-7 h-7 bg-surface-muted text-text-primary hover:bg-surface-variant flex items-center justify-center" type="button">{% text 'catalog.search.text.a2f9d0d16d02' %}</button>
+</div>
+<button class="w-full h-10 bg-primary hover:bg-brand-deep text-on-primary font-label-md text-label-md uppercase tracking-wider flex items-center justify-center gap-2 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">{% text 'catalog.search.text.52c70abd4468' %}</span>
+<span>{% text 'catalog.search.text.68199e47f757' %}</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product Card 7 -->
+<article class="group flex flex-col bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<div class="relative w-full aspect-[3/4] bg-surface-muted overflow-hidden">
+<img alt="{% text 'catalog.search.label.1bf5c65e00fc' %}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1U5yATwfo21qc0CiLltX46ThI4tfDjg35NCi0EuuSCxO9ZxuOT3C7SZTxw01KOCt6u_4eZklkERPU7VjoSiaQJ6iF-LePOMB3eA1YDKxLZJ_ktm47LL2UqU4daZkXoObJrzNhd8KfjEVSU-hcx-LKmnhi4GitkPCAV0232dyNzh_edW3gKiF_pED0YMg17Foiw947_s2Z5HAkaqsjtLsPRkHANxC1eFfx4Dq8RWkiXBNese3xYeqLPfJxI"/>
+<button class="absolute top-3 right-3 w-8 h-8 bg-surface-container-lowest/80 text-text-primary hover:text-primary flex items-center justify-center transition-colors" title="{% text 'catalog.search.label.3d44a09fcd54' %}" type="button">
+<span class="material-symbols-outlined text-[18px]">{% text 'catalog.search.text.75017a36ec07' %}</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'catalog.search.text.ba3e4d081bdb' %}</span>
+<h3 class="font-title-md text-title-md text-text-primary mt-1">
+                  {% text 'catalog.search.text.7704af5ff60c' %} <mark class="bg-surface-container-high text-primary font-semibold px-1">{% text 'catalog.search.text.06efec196f4d' %}</mark> — <mark class="bg-surface-container-high text-primary font-semibold px-1">{% text 'catalog.search.text.90e71d203e22' %}</mark>
+</h3>
+<div class="font-price-md text-price-md text-text-primary mt-1">45,00 €</div>
+</div>
+<div class="space-y-space-sm pt-2">
+<div class="flex items-center gap-1.5">
+<span class="w-3.5 h-3.5 bg-[#183F30] outline outline-1 outline-offset-2 outline-primary cursor-pointer" title="{% text 'catalog.search.label.90e71d203e22' %}"></span>
+<span class="w-3.5 h-3.5 bg-[#171E19] cursor-pointer hover:opacity-80" title="{% text 'catalog.search.label.4b436dc5eb76' %}"></span>
+<span class="w-3.5 h-3.5 bg-[#FFFFFF] cursor-pointer hover:opacity-80" title="{% text 'catalog.search.label.fb938e028855' %}"></span>
+</div>
+<div class="flex items-center gap-1 text-label-sm font-label-sm">
+<button class="w-7 h-7 bg-surface-muted text-text-primary hover:bg-surface-variant flex items-center justify-center" type="button">{% text 'catalog.search.text.02aa629c8b16' %}</button>
+<button class="w-7 h-7 bg-surface-muted text-text-primary hover:bg-surface-variant flex items-center justify-center" type="button">{% text 'catalog.search.text.c63ae6dd4fc9' %}</button>
+<button class="w-7 h-7 bg-primary text-on-primary font-bold flex items-center justify-center" type="button">{% text 'catalog.search.text.d160e0986aca' %}</button>
+<button class="w-7 h-7 bg-surface-muted text-text-primary hover:bg-surface-variant flex items-center justify-center" type="button">{% text 'catalog.search.text.a2f9d0d16d02' %}</button>
+</div>
+<button class="w-full h-10 bg-primary hover:bg-brand-deep text-on-primary font-label-md text-label-md uppercase tracking-wider flex items-center justify-center gap-2 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">{% text 'catalog.search.text.52c70abd4468' %}</span>
+<span>{% text 'catalog.search.text.68199e47f757' %}</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Product Card 8 -->
+<article class="group flex flex-col bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<div class="relative w-full aspect-[3/4] bg-surface-muted overflow-hidden">
+<img alt="{% text 'catalog.search.label.29adc5dd3414' %}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1VhP1sJFH1_hmeR4dqhBzVpo7jz5G1hmLkLLsDbmC2ZWhiIehFkrPwRM0JMH2I0Nwv-C8yNzvO8lH8MQBGeaA38NP-nwPbo0lWVPWa7E-cNIl4NJFnNuL8tVHl9j1YcauG3vRkPSpvbBg-rfwbMsCvnFzEkRkpZyOen1MyCl1zlpiXzjeXbjcfP9ESCoubCTlERUBVjdHATVHWt6WzMx5Qh9I8_rL0x9QNju-WmhBb8CU0iuKjp30802XY"/>
+<span class="absolute top-3 left-3 bg-brand-deep text-on-primary font-label-sm text-label-sm uppercase tracking-wider px-2 py-0.5">
+                {% text 'catalog.search.text.c90f10fb3ed7' %}
+              </span>
+<button class="absolute top-3 right-3 w-8 h-8 bg-surface-container-lowest/80 text-text-primary hover:text-primary flex items-center justify-center transition-colors" title="{% text 'catalog.search.label.3d44a09fcd54' %}" type="button">
+<span class="material-symbols-outlined text-[18px]">{% text 'catalog.search.text.75017a36ec07' %}</span>
+</button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'catalog.search.text.a7769b7586cf' %}</span>
+<h3 class="font-title-md text-title-md text-text-primary mt-1">
+                  {% text 'catalog.search.text.87b64dfa0900' %} <mark class="bg-surface-container-high text-primary font-semibold px-1">{% text 'catalog.search.text.06efec196f4d' %}</mark> {% text 'catalog.search.text.0a676ad3ebf5' %} <mark class="bg-surface-container-high text-primary font-semibold px-1">{% text 'catalog.search.text.90e71d203e22' %}</mark>
+</h3>
+<div class="font-price-md text-price-md text-text-primary mt-1">42,90 €</div>
+</div>
+<div class="space-y-space-sm pt-2">
+<div class="flex items-center gap-1.5">
+<span class="w-3.5 h-3.5 bg-[#183F30] outline outline-1 outline-offset-2 outline-primary cursor-pointer" title="{% text 'catalog.search.label.90e71d203e22' %}"></span>
+<span class="w-3.5 h-3.5 bg-[#171E19] cursor-pointer hover:opacity-80" title="{% text 'catalog.search.label.4b436dc5eb76' %}"></span>
+</div>
+<div class="flex items-center gap-1 text-label-sm font-label-sm">
+<button class="w-7 h-7 bg-surface-muted text-text-primary hover:bg-surface-variant flex items-center justify-center" type="button">{% text 'catalog.search.text.02aa629c8b16' %}</button>
+<button class="w-7 h-7 bg-primary text-on-primary font-bold flex items-center justify-center" type="button">{% text 'catalog.search.text.c63ae6dd4fc9' %}</button>
+<button class="w-7 h-7 bg-surface-muted text-text-primary hover:bg-surface-variant flex items-center justify-center" type="button">{% text 'catalog.search.text.d160e0986aca' %}</button>
+<button class="w-7 h-7 bg-surface-muted text-text-primary hover:bg-surface-variant flex items-center justify-center" type="button">{% text 'catalog.search.text.a2f9d0d16d02' %}</button>
+</div>
+<button class="w-full h-10 bg-primary hover:bg-brand-deep text-on-primary font-label-md text-label-md uppercase tracking-wider flex items-center justify-center gap-2 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">{% text 'catalog.search.text.52c70abd4468' %}</span>
+<span>{% text 'catalog.search.text.68199e47f757' %}</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+<!-- Pagination & Results Count Footer -->
+<div class="mt-space-2xl pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<p class="font-body-sm text-body-sm text-text-muted">
+            {% text 'catalog.search.text.6e7156111137' %} <span class="font-medium text-text-primary">{% text 'catalog.search.text.f12e83d7bb5f' %}</span> {% text 'catalog.search.text.ee9d2f8add50' %}
+          </p>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 bg-surface-muted text-text-muted opacity-50 cursor-not-allowed flex items-center justify-center" disabled="" type="button">
+<span class="material-symbols-outlined text-[20px]">{% text 'catalog.search.text.c43129fafcf9' %}</span>
+</button>
+<button class="w-10 h-10 bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center" type="button">1</button>
+<button class="w-10 h-10 bg-surface-muted text-text-muted opacity-50 cursor-not-allowed flex items-center justify-center" disabled="" type="button">
+<span class="material-symbols-outlined text-[20px]">{% text 'catalog.search.text.d031e2061b1a' %}</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+</section>
+<!-- Popular Related Searches ("Häufig zusammen gesucht") -->
+<section class="w-full bg-surface-muted py-space-2xl">
+<div class="max-w-[1440px] mx-auto px-margin">
+<div class="flex flex-col md:flex-row md:items-baseline justify-between gap-space-sm mb-space-lg">
+<h2 class="font-headline-md text-headline-md text-primary tracking-tight">{% text 'catalog.search.text.bbbd6102599a' %}</h2>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted">{% text 'catalog.search.text.6a7b7b003ade' %}</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-md">
+<a class="group p-space-md bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow flex items-center justify-between" href="#">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-text-primary group-hover:text-primary transition-colors">{% text 'catalog.search.text.cc0d1822eda2' %}</span>
+<span class="font-body-sm text-body-sm text-text-muted mt-0.5">{% text 'catalog.search.text.2ed5b02aafe9' %}</span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-text-muted group-hover:translate-x-1 transition-transform">{% text 'catalog.search.text.16d57c087f83' %}</span>
+</a>
+<a class="group p-space-md bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow flex items-center justify-between" href="#">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-text-primary group-hover:text-primary transition-colors">{% text 'catalog.search.text.626c855a6d62' %}</span>
+<span class="font-body-sm text-body-sm text-text-muted mt-0.5">{% text 'catalog.search.text.a7a1452ced0c' %}</span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-text-muted group-hover:translate-x-1 transition-transform">{% text 'catalog.search.text.16d57c087f83' %}</span>
+</a>
+<a class="group p-space-md bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow flex items-center justify-between" href="#">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-text-primary group-hover:text-primary transition-colors">{% text 'catalog.search.text.21e29ebf9a35' %}</span>
+<span class="font-body-sm text-body-sm text-text-muted mt-0.5">{% text 'catalog.search.text.491489c3d4ca' %}</span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-text-muted group-hover:translate-x-1 transition-transform">{% text 'catalog.search.text.16d57c087f83' %}</span>
+</a>
+<a class="group p-space-md bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow flex items-center justify-between" href="#">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-text-primary group-hover:text-primary transition-colors">{% text 'catalog.search.text.74fc17dc4d92' %}</span>
+<span class="font-body-sm text-body-sm text-text-muted mt-0.5">{% text 'catalog.search.text.a8d76f775157' %}</span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-text-muted group-hover:translate-x-1 transition-transform">{% text 'catalog.search.text.16d57c087f83' %}</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Atelier Service & Discreet Delivery Guarantee -->
+<section class="w-full bg-brand-deep text-on-primary py-space-2xl">
+<div class="max-w-[1440px] mx-auto px-margin">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-xl">
+<div class="flex items-start gap-space-md">
+<span class="material-symbols-outlined text-[32px] text-primary-fixed-dim">{% text 'catalog.search.text.9c586571e3cb' %}</span>
+<div class="space-y-1">
+<h3 class="font-title-md text-title-md text-on-primary tracking-wide uppercase">{% text 'catalog.search.text.6d57dc0609d5' %}</h3>
+<p class="font-body-sm text-body-sm text-surface-variant leading-relaxed">
+              {% text 'catalog.search.text.87e15887c6d6' %}
+            </p>
+</div>
+</div>
+<div class="flex items-start gap-space-md">
+<span class="material-symbols-outlined text-[32px] text-primary-fixed-dim">{% text 'catalog.search.text.bc8b09d01a00' %}</span>
+<div class="space-y-1">
+<h3 class="font-title-md text-title-md text-on-primary tracking-wide uppercase">{% text 'catalog.search.text.753e838f6158' %}</h3>
+<p class="font-body-sm text-body-sm text-surface-variant leading-relaxed">
+              {% text 'catalog.search.text.78c080355c74' %}
+            </p>
+</div>
+</div>
+<div class="flex items-start gap-space-md">
+<span class="material-symbols-outlined text-[32px] text-primary-fixed-dim">{% text 'catalog.search.text.7be676cbf4b5' %}</span>
+<div class="space-y-1">
+<h3 class="font-title-md text-title-md text-on-primary tracking-wide uppercase">{% text 'catalog.search.text.1464baab2036' %}</h3>
+<p class="font-body-sm text-body-sm text-surface-variant leading-relaxed">
+              {% text 'catalog.search.text.b4015340e261' %}
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const clearBtn = document.getElementById('clearSearchBtn');
+      const searchInput = document.getElementById('searchInput');
+
+      if (clearBtn && searchInput) {
+        clearBtn.addEventListener('click', function() {
+          searchInput.value = '';
+          searchInput.focus();
+        });
+      }
+    });
+  </script>
+</div></main>{% include 'includes/footer.html' %}
+{% endblock %}

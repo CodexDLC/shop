@@ -1,0 +1,29 @@
+{
+  "records": [
+    {
+      "screen": "home",
+      "sku": "DEMO-MANSTORE-M2223-NAVY-M",
+      "soldOutBlocked": true,
+      "demoAction": true
+    },
+    {
+      "screen": "pdp",
+      "sku": "DEMO-MANSTORE-M2223-NAVY-M",
+      "modal": true,
+      "url": "http://127.0.0.1:8030/produkt/manstore-m2223/"
+    },
+    {
+      "networkErrorBlocked": true
+    },
+    {
+      "screen": "mobile",
+      "rail": {
+        "width": 358,
+        "scroll": 1308,
+        "card": 315.03125
+      },
+      "productOverflow": false
+    }
+  ],
+  "errors": []
+}

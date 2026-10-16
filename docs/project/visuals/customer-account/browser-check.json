@@ -1,0 +1,18 @@
+{
+  "errors": [],
+  "overview": {
+    "overflow": false,
+    "reference": 1
+  },
+  "profile": {
+    "overflow": false,
+    "reference": 1,
+    "addressTab": true,
+    "passwordDisabled": true,
+    "emailLinkWorks": true
+  },
+  "orders": {
+    "overflow": false,
+    "reference": 1
+  }
+}

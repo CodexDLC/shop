@@ -1,1 +1,60 @@
-<footer class="site-footer"><div class="wrap footer-inner"><div><strong>Männermasche</strong><p>Besondere Styles. Dein gutes Gefühl.</p></div><p>Designvorschau · noch kein Onlineshop</p></div></footer>
+{% load static shop_i18n %}
+<footer data-shared-chrome="footer" class="bg-[#121814] text-neutral-300 pt-16 pb-12 border-t border-neutral-800" data-purpose="main-footer">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Footer Columns -->
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8 pb-12 border-b border-neutral-800 text-sm">
+<!-- Brand column -->
+<div class="col-span-2">
+<a class="shop-footer-brand" href="{% url 'shop:home' %}"><img class="shop-brand-logo-light" src="{% static 'storefront/brand/logo-horizontal-light.png' %}" alt="{% text 'layout.footer.label.e3ef0a77e9ec' %}" width="900" height="191"></a>
+<p class="text-neutral-400 text-xs sm:text-sm max-w-sm leading-relaxed mb-6">
+            {% text 'layout.footer.text.06db0e568551' %}
+          </p>
+<div class="flex items-center space-x-3 text-xs text-neutral-400">
+<span class="px-2 py-1 bg-neutral-800 rounded">{% text 'layout.footer.text.f572cedcf12c' %}</span>
+<span>{% text 'layout.footer.text.2b946d38107b' %}</span>
+</div>
+</div>
+<!-- Kollektionen -->
+<div>
+<h4 class="text-white text-xs font-semibold uppercase tracking-wider mb-4">{% text 'layout.footer.text.bab8d18be06b' %}</h4>
+<ul class="space-y-2.5 text-xs sm:text-sm text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="#">{% text 'layout.footer.text.af7af2e3a0ac' %}</a></li>
+<li><a class="hover:text-white transition-colors" href="#">{% text 'layout.footer.text.0b8c47a739ce' %}</a></li>
+<li><a class="hover:text-white transition-colors" href="#">{% text 'layout.footer.text.274ff9538d72' %}</a></li>
+<li><a class="hover:text-white transition-colors" href="#">{% text 'layout.footer.text.186393c415de' %}</a></li>
+<li><a class="hover:text-white transition-colors" href="#">{% text 'layout.footer.text.dd5711f78dda' %}</a></li>
+</ul>
+</div>
+<!-- Marken -->
+<div>
+<h4 class="text-white text-xs font-semibold uppercase tracking-wider mb-4">{% text 'navigation.brands' %}</h4>
+<ul class="space-y-2.5 text-xs sm:text-sm text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="#">{% text 'layout.footer.text.a7769b7586cf' %}</a></li>
+<li><a class="hover:text-white transition-colors" href="#">{% text 'layout.footer.text.ba3e4d081bdb' %}</a></li>
+<li><a class="hover:text-white transition-colors" href="#">{% text 'layout.footer.text.3b5534d8b3e9' %}</a></li>
+<li><a class="hover:text-white transition-colors" href="#">{% text 'layout.footer.text.ccc1afcadc4a' %}</a></li>
+</ul>
+</div>
+<!-- Kundenservice -->
+<div>
+<h4 class="text-white text-xs font-semibold uppercase tracking-wider mb-4">{% text 'layout.footer.text.8ae249b9e88d' %}</h4>
+<ul class="space-y-2.5 text-xs sm:text-sm text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="#">{% text 'layout.footer.text.bb3f1cbf386f' %}</a></li>
+<li><a class="hover:text-white transition-colors" href="#">{% text 'layout.footer.text.31e39ee3e41c' %}</a></li>
+<li><a class="hover:text-white transition-colors" href="#">{% text 'layout.footer.text.5c3175413bb7' %}</a></li>
+<li><a class="hover:text-white transition-colors" href="#">{% text 'layout.footer.text.606838b24795' %}</a></li>
+<li><a class="hover:text-white transition-colors" href="#">{% text 'layout.footer.text.bbe5b1aca466' %}</a></li>
+</ul>
+</div>
+</div>
+<!-- Bottom Disclaimer / Copyright -->
+<div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-500 gap-4">
+<p>{% text 'layout.footer.text.5e2fe4d18c5e' %}</p>
+<div class="flex items-center space-x-6">
+<span class="hover:text-neutral-400 transition-colors cursor-pointer">{% text 'layout.footer.text.e5bb36e0013f' %}</span>
+<span>·</span>
+<span class="hover:text-neutral-400 transition-colors cursor-pointer">{% text 'layout.footer.text.fc50a97d409e' %}</span>
+</div>
+</div>
+</div>
+</footer>

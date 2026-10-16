@@ -1,0 +1,3 @@
+{% extends 'staff/base.html' %}{% load shop_i18n %}{% block cabinet_content %}
+<h1 class="h3">{% text 'staff.logout.title' %}</h1><form action="{% url 'staff:logout' %}" method="post">{% csrf_token %}<button class="btn btn-primary" type="submit">{% text 'staff.logout.title' %}</button></form>
+{% endblock %}

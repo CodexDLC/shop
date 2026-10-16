@@ -1,0 +1,595 @@
+{% extends 'base.html' %}
+{% load static shop_i18n %}
+{% block page_head %}
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>{% text 'orders.address.text.62d58d48f882' %}</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="{% static 'storefront/vendor/tailwind-runtime.js' %}?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              page: '#F8F8F3',
+              surface: '#F1F1EB',
+              surfaceCard: '#EBEBE3',
+              dark: '#171E19',
+              muted: '#626960',
+              accent: '#183F30',
+              accentHover: '#133327',
+              border: '#DCDED5'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Core Page Styles -->
+<style data-purpose="base-styling">
+    body {
+      background-color: #F8F8F3;
+      color: #171E19;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    ::selection {
+      background-color: #183F30;
+      color: #F8F8F3;
+    }
+  </style>
+<!-- Component & Visual Effect Styles -->
+<style data-purpose="hero-layout">
+    .hero-blend-gradient {
+      background: linear-gradient(90deg, #F5F5EE 0%, #F5F5EE 45%, rgba(245, 245, 238, 0.94) 52%, rgba(245, 245, 238, 0.4) 68%, rgba(245, 245, 238, 0) 80%);
+    }
+    @media (max-width: 1024px) {
+      .hero-blend-gradient {
+        background: linear-gradient(180deg, #F5F5EE 0%, rgba(245, 245, 238, 0.85) 65%, rgba(245, 245, 238, 0.3) 100%);
+      }
+    }
+  </style>
+<meta content="web_dashboard" name="shell-type"/><script src="{% static 'storefront/reference-tokens.js' %}"></script>
+<link rel="stylesheet" href="{% static 'storefront/shared-chrome.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+<link rel="icon" href="{% static 'storefront/brand/favicon.ico' %}"><link rel="apple-touch-icon" href="{% static 'storefront/brand/apple-touch-icon.png' %}">
+{% endblock %}
+{% block body_attrs %} class="min-h-full flex flex-col bg-brand-page text-brand-dark" data-demo-page="checkout-address.html"{% endblock %}
+{% block content %}
+<!-- BEGIN: TopBrandBar -->
+
+<!-- END: TopBrandBar -->
+<!-- BEGIN: MainHeader -->
+
+{% include 'includes/header.html' %}
+<!-- END: MainHeader -->
+<main class="flex-grow"><div class="flex flex-col w-full">
+<!-- Stepper Bar (Arch-Minimal / Haute Editorial) -->
+<section class="w-full bg-surface-muted py-6">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<nav aria-label="{% text 'orders.address.label.241a1567be25' %}" class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'orders.address.text.c06c5aa81a97' %}</span>
+<span class="text-text-muted font-body-sm">/</span>
+<span class="font-label-md text-label-md text-text-primary uppercase tracking-wider">{% text 'orders.address.text.4c0facd7ddfe' %}</span>
+</div>
+<ol class="flex items-center space-x-2 sm:space-x-8 text-body-sm font-body-sm">
+<!-- Step 1: Completed -->
+<li class="flex items-center space-x-2 text-text-muted hover:text-text-primary transition-colors cursor-pointer group">
+<span class="flex items-center justify-center w-6 h-6 bg-primary text-on-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm">{% text 'orders.address.text.d56d985300d4' %}</span>
+</span>
+<span class="hidden sm:inline font-label-md text-label-md uppercase tracking-wider group-hover:underline">{% text 'orders.address.text.54445a68b6e0' %}</span>
+<span class="sm:hidden font-label-md text-label-md">01</span>
+</li>
+<li class="text-text-muted opacity-40 font-serif">→</li>
+<!-- Step 2: Active -->
+<li aria-current="step" class="flex items-center space-x-2 text-text-primary">
+<span class="flex items-center justify-center w-6 h-6 bg-brand-deep text-on-primary font-label-sm text-label-sm font-semibold">
+              02
+            </span>
+<span class="font-label-md text-label-md uppercase tracking-wider font-semibold text-brand-deep">
+              {% text 'orders.address.text.96444e1a6d62' %}
+            </span>
+</li>
+<li class="text-text-muted opacity-40 font-serif">→</li>
+<!-- Step 3: Upcoming -->
+<li class="flex items-center space-x-2 text-text-muted opacity-50 select-none">
+<span class="flex items-center justify-center w-6 h-6 bg-surface-container text-text-muted font-label-sm text-label-sm">
+              03
+            </span>
+<span class="hidden sm:inline font-label-md text-label-md uppercase tracking-wider">{% text 'orders.address.text.77bf6593e5d0' %}</span>
+<span class="sm:hidden font-label-md text-label-md">03</span>
+</li>
+</ol>
+</nav>
+</div>
+</section>
+<!-- Main Checkout Workspace -->
+<main class="w-full py-10 lg:py-16">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+<!-- LEFT COLUMN (Approx. 65% width = 8 cols) -->
+<div class="lg:col-span-8 flex flex-col space-y-12">
+<!-- SECTION 1: Kontakt & Authentifizierung -->
+<section class="bg-surface-bright p-6 sm:p-8 flex flex-col space-y-6">
+<div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 pb-4">
+<div class="flex items-center space-x-3">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest">{% text 'orders.address.text.d49332ac7b8c' %}</span>
+<span class="w-1.5 h-1.5 bg-brand-deep"></span>
+<h2 class="font-headline-md text-headline-md text-text-primary tracking-tight">{% text 'orders.address.text.1f3d9548f2c9' %}</h2>
+</div>
+<div class="flex items-center space-x-2 font-body-sm text-body-sm text-text-muted">
+<span>{% text 'orders.address.text.bdaa5549290b' %}</span>
+<button class="text-brand-deep font-label-md text-label-md underline hover:text-on-primary-fixed-variant transition-colors" type="button">
+                  {% text 'orders.address.text.e5b90f598916' %}
+                </button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-12 gap-5">
+<div class="sm:col-span-8 flex flex-col space-y-1.5">
+<label class="font-label-md text-label-md text-text-primary uppercase tracking-wider" for="contact-email">
+                  {% text 'orders.address.text.ce8fdbcbfea8' %} <span class="text-error">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-3 font-body-md text-body-md focus:bg-surface-bright focus:outline-none transition-colors" id="contact-email" name="email" placeholder="{% text 'orders.address.label.584a1d7d38d8' %}" required="" type="email"/>
+<p class="font-body-sm text-body-sm text-text-muted pt-1">
+                  {% text 'orders.address.text.2ec696c4cbd9' %}
+                </p>
+</div>
+<div class="sm:col-span-4 flex flex-col space-y-1.5">
+<label class="font-label-md text-label-md text-text-primary uppercase tracking-wider" for="contact-phone">
+                  {% text 'orders.address.text.3cf24bd14d83' %} <span class="text-text-muted lowercase text-[10px]">{% text 'orders.address.text.b16c7ac6faff' %}</span>
+</label>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-3 font-body-md text-body-md focus:bg-surface-bright focus:outline-none transition-colors" id="contact-phone" name="phone" placeholder="+49 170 0000000" type="tel"/>
+</div>
+</div>
+<div class="bg-surface-container p-4 flex items-start space-x-3.5">
+<span class="material-symbols-outlined text-brand-deep mt-0.5">{% text 'orders.address.text.7be676cbf4b5' %}</span>
+<div class="flex flex-col space-y-1">
+<span class="font-label-md text-label-md text-text-primary uppercase tracking-wide">{% text 'orders.address.text.92d2960a2c1c' %}</span>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
+                  {% text 'orders.address.text.f20cc6f01e44' %}
+                </p>
+</div>
+</div>
+</section>
+<!-- SECTION 2: Lieferadresse -->
+<section class="bg-surface-bright p-6 sm:p-8 flex flex-col space-y-6">
+<div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-3 pb-4">
+<div class="flex items-center space-x-3">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest">{% text 'orders.address.text.b3a5443f7fac' %}</span>
+<span class="w-1.5 h-1.5 bg-brand-deep"></span>
+<h2 class="font-headline-md text-headline-md text-text-primary tracking-tight">{% text 'orders.address.text.3fa4cc79d9e8' %}</h2>
+</div>
+<!-- Tab switch: Standard vs. Packstation -->
+<div class="flex bg-surface-container p-1 gap-1" role="tablist">
+<button class="px-3.5 py-1.5 font-label-md text-label-md uppercase tracking-wider bg-brand-deep text-on-primary transition-all" id="tab-standard-btn" onclick="switchAddressType('standard')" type="button">
+                  {% text 'orders.address.text.30252a687637' %}
+                </button>
+<button class="px-3.5 py-1.5 font-label-md text-label-md uppercase tracking-wider text-text-muted hover:text-text-primary transition-all" id="tab-packstation-btn" onclick="switchAddressType('packstation')" type="button">
+                  {% text 'orders.address.text.115d0ad1492e' %}
+                </button>
+</div>
+</div>
+<!-- Standard Address Fields -->
+<div class="flex flex-col space-y-5" id="form-standard-address">
+<!-- Anrede -->
+<div class="flex flex-col space-y-2">
+<span class="font-label-md text-label-md text-text-primary uppercase tracking-wider">{% text 'orders.address.text.51ac34c5b808' %}</span>
+<div class="flex gap-4">
+<label class="flex items-center space-x-2 cursor-pointer">
+<input checked="" class="text-brand-deep focus:ring-brand-deep w-4 h-4 bg-surface-container-lowest" name="salutation" type="radio" value="herr"/>
+<span class="font-body-md text-body-md text-text-primary">{% text 'orders.address.text.1db77fd65e0a' %}</span>
+</label>
+<label class="flex items-center space-x-2 cursor-pointer">
+<input class="text-brand-deep focus:ring-brand-deep w-4 h-4 bg-surface-container-lowest" name="salutation" type="radio" value="frau"/>
+<span class="font-body-md text-body-md text-text-primary">{% text 'orders.address.text.4527bdbe5c4b' %}</span>
+</label>
+<label class="flex items-center space-x-2 cursor-pointer">
+<input class="text-brand-deep focus:ring-brand-deep w-4 h-4 bg-surface-container-lowest" name="salutation" type="radio" value="none"/>
+<span class="font-body-md text-body-md text-text-primary">{% text 'orders.address.text.1a1c7d9ca84e' %}</span>
+</label>
+</div>
+</div>
+<!-- Vorname, Nachname -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+<div class="flex flex-col space-y-1.5">
+<label class="font-label-md text-label-md text-text-primary uppercase tracking-wider" for="first-name">
+                    {% text 'orders.address.text.1679e156baac' %} <span class="text-error">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-3 font-body-md text-body-md focus:bg-surface-bright focus:outline-none" id="first-name" name="first-name" required="" type="text" value="Alexander"/>
+</div>
+<div class="flex flex-col space-y-1.5">
+<label class="font-label-md text-label-md text-text-primary uppercase tracking-wider" for="last-name">
+                    {% text 'orders.address.text.98bc48bc742d' %} <span class="text-error">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-3 font-body-md text-body-md focus:bg-surface-bright focus:outline-none" id="last-name" name="last-name" required="" type="text" value="von Berg"/>
+</div>
+</div>
+<!-- Straße & Hausnummer -->
+<div class="grid grid-cols-1 sm:grid-cols-12 gap-5">
+<div class="sm:col-span-9 flex flex-col space-y-1.5">
+<label class="font-label-md text-label-md text-text-primary uppercase tracking-wider" for="street">
+                    {% text 'orders.address.text.1226f5616adc' %} <span class="text-error">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-3 font-body-md text-body-md focus:bg-surface-bright focus:outline-none" id="street" name="street" required="" type="text" value="Leopoldstraße 48"/>
+</div>
+<div class="sm:col-span-3 flex flex-col space-y-1.5">
+<label class="font-label-md text-label-md text-text-primary uppercase tracking-wider" for="additional">
+                    {% text 'orders.address.text.8718e8abc734' %} <span class="text-text-muted lowercase text-[10px]">{% text 'orders.address.text.5f33a0dab9f1' %}</span>
+</label>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-3 font-body-md text-body-md focus:bg-surface-bright focus:outline-none" id="additional" name="additional" placeholder="{% text 'orders.address.label.f3318c72fbe8' %}" type="text"/>
+</div>
+</div>
+<!-- PLZ, Stadt, Land -->
+<div class="grid grid-cols-1 sm:grid-cols-12 gap-5">
+<div class="sm:col-span-4 flex flex-col space-y-1.5">
+<label class="font-label-md text-label-md text-text-primary uppercase tracking-wider" for="zip">
+                    {% text 'orders.address.text.9d242837641f' %} <span class="text-error">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-3 font-body-md text-body-md focus:bg-surface-bright focus:outline-none" id="zip" name="zip" required="" type="text" value="80802"/>
+</div>
+<div class="sm:col-span-5 flex flex-col space-y-1.5">
+<label class="font-label-md text-label-md text-text-primary uppercase tracking-wider" for="city">
+                    {% text 'orders.address.text.8f9775de3451' %} <span class="text-error">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-3 font-body-md text-body-md focus:bg-surface-bright focus:outline-none" id="city" name="city" required="" type="text" value="München"/>
+</div>
+<div class="sm:col-span-3 flex flex-col space-y-1.5">
+<label class="font-label-md text-label-md text-text-primary uppercase tracking-wider" for="country">
+                    {% text 'orders.address.text.d9df90d8002f' %} <span class="text-error">*</span>
+</label>
+<select class="w-full bg-surface-container-lowest text-text-primary px-3 py-3 font-body-md text-body-md focus:bg-surface-bright focus:outline-none" id="country" name="country">
+<option selected="" value="DE">{% text 'orders.address.text.19174e8c9711' %}</option>
+<option value="AT">{% text 'orders.address.text.2bbce4e7dedc' %}</option>
+<option value="CH">{% text 'orders.address.text.a29c40bae5c8' %}</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Packstation Form (Toggled via JS) -->
+<div class="hidden flex flex-col space-y-5" id="form-packstation-address">
+<div class="bg-surface-container p-4 font-body-sm text-body-sm text-text-muted">
+                {% text 'orders.address.text.fe8b72a5d240' %}
+              </div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+<div class="flex flex-col space-y-1.5">
+<label class="font-label-md text-label-md text-text-primary uppercase tracking-wider" for="ps-first-name">
+                    {% text 'orders.address.text.1679e156baac' %} <span class="text-error">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-3 font-body-md text-body-md" id="ps-first-name" placeholder="{% text 'orders.address.label.1679e156baac' %}" type="text"/>
+</div>
+<div class="flex flex-col space-y-1.5">
+<label class="font-label-md text-label-md text-text-primary uppercase tracking-wider" for="ps-last-name">
+                    {% text 'orders.address.text.98bc48bc742d' %} <span class="text-error">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-3 font-body-md text-body-md" id="ps-last-name" placeholder="{% text 'orders.address.label.98bc48bc742d' %}" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-12 gap-5">
+<div class="sm:col-span-6 flex flex-col space-y-1.5">
+<label class="font-label-md text-label-md text-text-primary uppercase tracking-wider" for="ps-postnummer">
+                    {% text 'orders.address.text.ff5b3b7018de' %} <span class="text-error">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-3 font-body-md text-body-md" id="ps-postnummer" placeholder="{% text 'orders.address.label.d5d1a58d7365' %}" type="text"/>
+</div>
+<div class="sm:col-span-6 flex flex-col space-y-1.5">
+<label class="font-label-md text-label-md text-text-primary uppercase tracking-wider" for="ps-packstation-nr">
+                    {% text 'orders.address.text.2a9f43cb6fb2' %} <span class="text-error">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-3 font-body-md text-body-md" id="ps-packstation-nr" placeholder="{% text 'orders.address.label.1fe6cee44836' %}" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-12 gap-5">
+<div class="sm:col-span-4 flex flex-col space-y-1.5">
+<label class="font-label-md text-label-md text-text-primary uppercase tracking-wider" for="ps-zip">
+                    {% text 'orders.address.text.2e1edf805f7b' %} <span class="text-error">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-3 font-body-md text-body-md" id="ps-zip" placeholder="{% text 'orders.address.label.79c2dfde02ee' %}" type="text"/>
+</div>
+<div class="sm:col-span-8 flex flex-col space-y-1.5">
+<label class="font-label-md text-label-md text-text-primary uppercase tracking-wider" for="ps-city">
+                    {% text 'orders.address.text.309ef56caa01' %} <span class="text-error">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-3 font-body-md text-body-md" id="ps-city" placeholder="{% text 'orders.address.label.8f9775de3451' %}" type="text"/>
+</div>
+</div>
+</div>
+<!-- Checkbox: Rechnungsadresse abweichend -->
+<div class="pt-3">
+<label class="flex items-start space-x-3 cursor-pointer group">
+<input class="mt-1 text-brand-deep focus:ring-brand-deep w-4 h-4 bg-surface-container-lowest" id="billing-differs-toggle" onchange="document.getElementById('billing-address-block').classList.toggle('hidden', !this.checked)" type="checkbox"/>
+<span class="font-body-md text-body-md text-text-primary group-hover:text-brand-deep transition-colors select-none">
+                  {% text 'orders.address.text.d6259c872491' %}
+                </span>
+</label>
+<!-- Optional Inverted Billing Form -->
+<div class="hidden mt-6 pt-6 bg-surface-container-low p-5 space-y-4" id="billing-address-block">
+<h3 class="font-label-md text-label-md uppercase tracking-wider text-text-primary">{% text 'orders.address.text.e6f01f303d0e' %}</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-2.5 font-body-sm text-body-sm" placeholder="{% text 'orders.address.label.07a166daef92' %}" type="text"/>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-2.5 font-body-sm text-body-sm" placeholder="{% text 'orders.address.label.1226f5616adc' %}" type="text"/>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-2.5 font-body-sm text-body-sm" placeholder="{% text 'orders.address.label.79c2dfde02ee' %}" type="text"/>
+<input class="w-full bg-surface-container-lowest text-text-primary px-4 py-2.5 font-body-sm text-body-sm" placeholder="{% text 'orders.address.label.0d10947f2d7d' %}" type="text"/>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: Versandart wählen -->
+<section class="bg-surface-bright p-6 sm:p-8 flex flex-col space-y-6">
+<div class="flex items-center space-x-3 pb-2">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest">{% text 'orders.address.text.71110e35cc0d' %}</span>
+<span class="w-1.5 h-1.5 bg-brand-deep"></span>
+<h2 class="font-headline-md text-headline-md text-text-primary tracking-tight">{% text 'orders.address.text.38addfc0483f' %}</h2>
+</div>
+<div class="space-y-4" role="radiogroup">
+<!-- Option 1: Standard (Selected) -->
+<label class="relative flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-surface-container cursor-pointer transition-colors">
+<div class="flex items-start space-x-4">
+<input checked="" class="mt-1 text-brand-deep focus:ring-brand-deep w-4 h-4 bg-surface-container-lowest" name="shipping_method" type="radio" value="standard"/>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-text-primary">{% text 'orders.address.text.74c1dadc46d3' %}</span>
+<span class="bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm px-2 py-0.5 uppercase tracking-wider">{% text 'orders.address.text.2d9c1420e042' %}</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mt-0.5">
+                      {% text 'orders.address.text.30ed9ae4d7b9' %}
+                    </p>
+</div>
+</div>
+<div class="mt-3 sm:mt-0 sm:text-right pl-8 sm:pl-0">
+<span class="font-price-md text-price-md text-brand-deep uppercase tracking-wider font-semibold">{% text 'orders.address.text.440355b1eb3b' %}</span>
+<span class="block text-[11px] text-text-muted font-body-sm">{% text 'orders.address.text.725e950231e8' %}</span>
+</div>
+</label>
+<!-- Option 2: Express -->
+<label class="relative flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-surface-bright hover:bg-surface-container cursor-pointer transition-colors">
+<div class="flex items-start space-x-4">
+<input class="mt-1 text-brand-deep focus:ring-brand-deep w-4 h-4 bg-surface-container-lowest" name="shipping_method" type="radio" value="express"/>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-text-primary">{% text 'orders.address.text.5a15e2c3e4f6' %}</span>
+<span class="bg-surface-container-high text-text-primary font-label-sm text-label-sm px-2 py-0.5 uppercase tracking-wider">{% text 'orders.address.text.b12541c1071a' %}</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mt-0.5">
+                      {% text 'orders.address.text.324dfd26d7f0' %}
+                    </p>
+</div>
+</div>
+<div class="mt-3 sm:mt-0 sm:text-right pl-8 sm:pl-0">
+<span class="font-price-md text-price-md text-text-primary font-semibold">9,90 €</span>
+</div>
+</label>
+<!-- Option 3: Diskrete Wunschzustellung -->
+<label class="relative flex flex-col sm:flex-row sm:items-center justify-between p-5 bg-surface-bright hover:bg-surface-container cursor-pointer transition-colors">
+<div class="flex items-start space-x-4">
+<input class="mt-1 text-brand-deep focus:ring-brand-deep w-4 h-4 bg-surface-container-lowest" name="shipping_method" type="radio" value="discreet"/>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-text-primary">{% text 'orders.address.text.94eda74bc376' %}</span>
+<span class="bg-tertiary text-on-tertiary font-label-sm text-label-sm px-2 py-0.5 uppercase tracking-wider">{% text 'orders.address.text.b3324fd39b04' %}</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mt-0.5">
+                      {% text 'orders.address.text.f6773c9b7806' %}
+                    </p>
+</div>
+</div>
+<div class="mt-3 sm:mt-0 sm:text-right pl-8 sm:pl-0">
+<span class="font-price-md text-price-md text-brand-deep uppercase tracking-wider font-semibold">{% text 'orders.address.text.440355b1eb3b' %}</span>
+</div>
+</label>
+</div>
+</section>
+<!-- SECTION 4: Anprobe- & Verpackungsservice -->
+<section class="bg-surface-bright p-6 sm:p-8 flex flex-col space-y-6">
+<div class="flex items-center space-x-3 pb-2">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest">{% text 'orders.address.text.509950387e97' %}</span>
+<span class="w-1.5 h-1.5 bg-brand-deep"></span>
+<h2 class="font-headline-md text-headline-md text-text-primary tracking-tight">{% text 'orders.address.text.3219c1b9e18a' %}</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Service Card 1 -->
+<div class="bg-surface-container p-5 flex items-start space-x-3.5">
+<div class="p-2 bg-brand-deep text-on-primary shrink-0">
+<span class="material-symbols-outlined text-lg">{% text 'orders.address.text.43cc3c1898e9' %}</span>
+</div>
+<div class="flex flex-col space-y-1">
+<span class="font-title-md text-title-md text-text-primary">{% text 'orders.address.text.78eaad0d41fa' %}</span>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
+                    {% text 'orders.address.text.0c811a528a88' %}
+                  </p>
+<span class="font-label-sm text-label-sm text-brand-deep font-semibold uppercase tracking-wider mt-1">{% text 'orders.address.text.a39a8ba48dc4' %}</span>
+</div>
+</div>
+<!-- Service Card 2 -->
+<div class="bg-surface-container p-5 flex items-start space-x-3.5">
+<div class="p-2 bg-brand-deep text-on-primary shrink-0">
+<span class="material-symbols-outlined text-lg">{% text 'orders.address.text.bc8b09d01a00' %}</span>
+</div>
+<div class="flex flex-col space-y-1">
+<span class="font-title-md text-title-md text-text-primary">{% text 'orders.address.text.7573d5623f9a' %}</span>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
+                    {% text 'orders.address.text.7a56302c963f' %}
+                  </p>
+<span class="font-label-sm text-label-sm text-brand-deep font-semibold uppercase tracking-wider mt-1">{% text 'orders.address.text.a39a8ba48dc4' %}</span>
+</div>
+</div>
+</div>
+<!-- Editorial Notice on Fitting & Hygiene -->
+<div class="bg-surface-container-low p-4 flex items-start space-x-3">
+<span class="material-symbols-outlined text-text-muted mt-0.5">{% text 'orders.address.text.59bd0a3ff43b' %}</span>
+<div class="font-body-sm text-body-sm text-text-muted leading-relaxed">
+<strong class="text-text-primary font-medium">{% text 'orders.address.text.d18977ebf1e3' %}</strong> 
+                {% text 'orders.address.text.06faadc1d6d5' %} <strong>{% text 'orders.address.text.d5b37304abf8' %}</strong> {% text 'orders.address.text.0ff47b770e87' %}
+              </div>
+</div>
+</section>
+</div>
+<!-- RIGHT COLUMN: Sticky Order Summary & Trust (Approx. 35% width = 4 cols) -->
+<aside class="lg:col-span-4 sticky top-28 flex flex-col space-y-6">
+<div class="bg-surface-bright p-6 sm:p-7 flex flex-col space-y-6">
+<!-- Header -->
+<div class="flex items-baseline justify-between pb-3">
+<h3 class="font-title-lg text-title-lg text-text-primary tracking-tight">{% text 'orders.address.text.71d1f0cce20e' %}</h3>
+<span class="font-label-md text-label-md text-text-muted uppercase">{% text 'orders.address.text.32d109aa5d94' %}</span>
+</div>
+<!-- Items Mini-List -->
+<div class="flex flex-col space-y-4">
+<!-- Item 1: MANSTORE -->
+<div class="flex items-center space-x-3.5">
+<div class="w-16 h-20 bg-surface-muted shrink-0 overflow-hidden relative">
+<img class="w-full h-full object-cover object-center" alt="{% text 'orders.address.label.872fe0f05124' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvt4kaocqYIUA3Wp5IIgD9sg0tNh8GtOyZfzJQ3xmZvW8uq05biLEwRx2sfq3L3dKi5SrlI_ELxOL-AtNsAS2GRdZbQ4SMtHIsw5Qvo_WZ5YXLDyd3BRzp7KAO1AMnQSUkS306D8L1ako4cqe8o1YWWvbI-5etfKJfv9yZxZFFV7D5T_jiqMqwNsh5RBHLEq50yZOjIiY99nfwXWKk6MX_K7FQqVILrTh7UtU4QwEvPQICCotK39gJ"/>
+<span class="absolute top-1 right-1 bg-surface-bright/90 px-1 py-0.5 text-[9px] font-label-sm text-text-primary">{% text 'orders.address.text.c63ae6dd4fc9' %}</span>
+</div>
+<div class="flex flex-col flex-grow min-w-0">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider truncate">{% text 'orders.address.text.a7769b7586cf' %}</span>
+<h4 class="font-title-md text-title-md text-text-primary truncate">{% text 'orders.address.text.a96b237b790a' %}</h4>
+<span class="font-body-sm text-body-sm text-text-muted">{% text 'orders.address.text.4f346d6c9337' %}</span>
+</div>
+<div class="font-price-md text-price-md text-text-primary text-right shrink-0">
+                  49,90 €
+                </div>
+</div>
+<!-- Item 2: CALIDA -->
+<div class="flex items-center space-x-3.5">
+<div class="w-16 h-20 bg-surface-muted shrink-0 overflow-hidden relative">
+<img class="w-full h-full object-cover object-center" alt="{% text 'orders.address.label.487c452b0623' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWeYKdZZRcEurojWqkna7k-YPdTHIMNACsqDiO6vgxC3NwLuGBfTeq0bePwlMeu07Qt2VjrdtZKSPdNSJ08mqB0nDv0pb4-EZKZHBP6wa-wJfLwkIOXS-U1ubBB8_HHbtVa-3WLeTQ3Ii7gXYqLEHb-_Gh11TOR39qk0Bi7CkSyonnfdTTByaSHj3IOf5hKT6r7pRYBwDA-_U6y6OFB0ONDDAFl35MbL4VlFDCnP-N21Ppx0th0OcJ"/>
+<span class="absolute top-1 right-1 bg-surface-bright/90 px-1 py-0.5 text-[9px] font-label-sm text-text-primary">{% text 'orders.address.text.d160e0986aca' %}</span>
+</div>
+<div class="flex flex-col flex-grow min-w-0">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider truncate">{% text 'orders.address.text.3b5534d8b3e9' %}</span>
+<h4 class="font-title-md text-title-md text-text-primary truncate">{{ cart.lines.1.name }}</h4>
+<span class="font-body-sm text-body-sm text-text-muted">{% text 'orders.address.text.9b29bc601015' %}</span>
+</div>
+<div class="font-price-md text-price-md text-text-primary text-right shrink-0">
+                  39,95 €
+                </div>
+</div>
+<!-- Item 3: OLAF BENZ -->
+<div class="flex items-center space-x-3.5">
+<div class="w-16 h-20 bg-surface-muted shrink-0 overflow-hidden relative">
+<img class="w-full h-full object-cover object-center" alt="{% text 'orders.address.label.54c14d17fb09' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB46VG8omULoMZFclgKseVDuF6Xn1XC7-OLqndPOnqAOChAQ0hbGWZJbYkCzQY8BKpsgSBio838JiO0xqFE9bctda8agmFlSfqb7t1fnfCAwwyHRYTV6mO5XEX0wP451gBJuBDfzPKAzyWiy0lzuPYcwwMpc43ufBLC4pyvhR9ZOBdDXwV42GvlCVv1XDB4NZDsar1949TXHxW2W773TKNyZa4emwdq7HKdmjVSN7fBmhBf0_7ScfKr"/>
+<span class="absolute top-1 right-1 bg-surface-bright/90 px-1 py-0.5 text-[9px] font-label-sm text-text-primary">{% text 'orders.address.text.c63ae6dd4fc9' %}</span>
+</div>
+<div class="flex flex-col flex-grow min-w-0">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider truncate">{% text 'orders.address.text.ba3e4d081bdb' %}</span>
+<h4 class="font-title-md text-title-md text-text-primary truncate">{% text 'orders.address.text.30b86c537c12' %}</h4>
+<span class="font-body-sm text-body-sm text-text-muted">{% text 'orders.address.text.282467af40e6' %}</span>
+</div>
+<div class="font-price-md text-price-md text-text-primary text-right shrink-0">
+                  49,95 €
+                </div>
+</div>
+</div>
+<!-- Price Breakdown -->
+<div class="bg-surface-container p-4 space-y-2.5">
+<div class="flex justify-between font-body-sm text-body-sm text-text-muted">
+<span>{% text 'orders.address.text.4e29c83eb9f8' %}</span>
+<span class="text-text-primary">139,80 €</span>
+</div>
+<div class="flex justify-between font-body-sm text-body-sm text-text-muted">
+<span>{% text 'orders.address.text.98caac04e45c' %}</span>
+<span class="text-brand-deep font-medium uppercase font-label-md text-label-md">{% text 'orders.address.text.440355b1eb3b' %}</span>
+</div>
+<div class="flex justify-between font-body-sm text-body-sm text-text-muted">
+<span>{% text 'orders.address.text.cc74539e5863' %}</span>
+<span class="text-brand-deep font-medium uppercase font-label-md text-label-md">{% text 'orders.address.text.a39a8ba48dc4' %}</span>
+</div>
+<div class="pt-3 flex justify-between items-baseline">
+<span class="font-title-md text-title-md text-text-primary font-bold">{% text 'orders.address.text.94ee95564c02' %}</span>
+<span class="font-price-lg text-price-lg text-brand-deep font-bold">139,80 €</span>
+</div>
+<span class="block text-right text-[11px] font-body-sm text-text-muted">{% text 'orders.address.text.41bb9b444233' %}</span>
+</div>
+<!-- CTA Actions -->
+<div class="flex flex-col space-y-3 pt-2">
+<button class="w-full h-12 bg-primary hover:bg-brand-deep text-on-primary font-label-md text-label-md uppercase tracking-widest flex items-center justify-center space-x-2 transition-colors select-none" type="submit">
+<span>{% text 'orders.address.text.f930a3c35338' %}</span>
+<span class="font-serif text-lg">→</span>
+</button>
+<a class="w-full text-center py-2 text-text-muted hover:text-text-primary font-label-md text-label-md uppercase tracking-wider transition-colors" href="#warenkorb">
+                {% text 'orders.address.text.040ca853fafd' %}
+              </a>
+</div>
+</div>
+<!-- Trust & Discreet Delivery Badges -->
+<div class="bg-surface-muted p-5 space-y-4">
+<h4 class="font-label-md text-label-md uppercase tracking-wider text-text-primary">{% text 'orders.address.text.b4ef5f935d61' %}</h4>
+<div class="space-y-3 font-body-sm text-body-sm text-text-muted">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-brand-deep text-lg">{% text 'orders.address.text.c234a3520f19' %}</span>
+<span><strong>{% text 'orders.address.text.430a524165be' %}</strong> {% text 'orders.address.text.7c0cd6a27ebb' %}</span>
+</div>
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-brand-deep text-lg">{% text 'orders.address.text.e117797422d3' %}</span>
+<span><strong>{% text 'orders.address.text.fdccfb7f2d6d' %}</strong> {% text 'orders.address.text.12cac0d46f52' %}</span>
+</div>
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-brand-deep text-lg">{% text 'orders.address.text.f1a915d3cbdb' %}</span>
+<span><strong>{% text 'orders.address.text.009111cc2ebe' %}</strong> {% text 'orders.address.text.93f746484217' %}</span>
+</div>
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-brand-deep text-lg">{% text 'orders.address.text.888fac7aca3c' %}</span>
+<span><strong>{% text 'orders.address.text.8e3c4df45f04' %}</strong> {% text 'orders.address.text.0a69c0faca4e' %}</span>
+</div>
+</div>
+</div>
+<!-- Concierge Support Box -->
+<div class="p-5 bg-surface-bright flex items-center space-x-4">
+<span class="material-symbols-outlined text-2xl text-text-muted">{% text 'orders.address.text.7df490fcfdef' %}</span>
+<div class="flex flex-col text-body-sm font-body-sm">
+<span class="font-medium text-text-primary">{% text 'orders.address.text.8f237345fcf0' %}</span>
+<span class="text-text-muted">{% text 'orders.address.text.c5cb989d8197' %}</span>
+<a class="text-brand-deep underline font-label-md text-label-md mt-0.5" href="tel:+4989000000">+49 (0) 89 215 489 0</a>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</main>
+<!-- Client Interaction Logic for Tabs and Options -->
+<script>
+    function switchAddressType(type) {
+      const standardForm = document.getElementById('form-standard-address');
+      const packstationForm = document.getElementById('form-packstation-address');
+      const stdBtn = document.getElementById('tab-standard-btn');
+      const psBtn = document.getElementById('tab-packstation-btn');
+
+      if (type === 'packstation') {
+        standardForm.classList.add('hidden');
+        packstationForm.classList.remove('hidden');
+        
+        psBtn.classList.add('bg-brand-deep', 'text-on-primary');
+        psBtn.classList.remove('text-text-muted');
+        
+        stdBtn.classList.remove('bg-brand-deep', 'text-on-primary');
+        stdBtn.classList.add('text-text-muted');
+      } else {
+        packstationForm.classList.add('hidden');
+        standardForm.classList.remove('hidden');
+
+        stdBtn.classList.add('bg-brand-deep', 'text-on-primary');
+        stdBtn.classList.remove('text-text-muted');
+
+        psBtn.classList.remove('bg-brand-deep', 'text-on-primary');
+        psBtn.classList.add('text-text-muted');
+      }
+    }
+  </script>
+</div></main>
+<!-- BEGIN: SiteFooter -->
+{% include 'includes/footer.html' %}
+<!-- END: SiteFooter -->
+
+{% endblock %}

@@ -1,0 +1,76 @@
+{
+  "tool": "visual_lint",
+  "target": "http://127.0.0.1:8030/accounts/login/",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "finding_count": 5,
+  "findings": [
+    {
+      "rule": "console_event",
+      "severity": "minor",
+      "message": "cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation",
+      "location": {
+        "url": "http://127.0.0.1:8030/static/storefront/vendor/tailwind-runtime.js?plugins=forms,container-queries",
+        "line": 63,
+        "column": 1710,
+        "lineNumber": 63,
+        "columnNumber": 1710
+      }
+    },
+    {
+      "rule": "text_overflow",
+      "severity": "major",
+      "selector": "body.bg-page-bg.font-body-md > main.auth-page > div.auth-container > header.auth-intro",
+      "message": "Element text appears clipped or scrollable.",
+      "sample": "MÄNNERMASCHE Willkommen zurück.",
+      "bounds": {
+        "x": 16,
+        "y": 303.546875,
+        "width": 358,
+        "height": 59.5
+      }
+    },
+    {
+      "rule": "text_overflow",
+      "severity": "major",
+      "selector": "main.auth-page > div.auth-container > header.auth-intro > h1",
+      "message": "Element text appears clipped or scrollable.",
+      "sample": "Willkommen zurück.",
+      "bounds": {
+        "x": 16,
+        "y": 328.046875,
+        "width": 358,
+        "height": 35
+      }
+    },
+    {
+      "rule": "text_overflow",
+      "severity": "major",
+      "selector": "div.auth-container > div.auth-grid > section.auth-panel > h2",
+      "message": "Element text appears clipped or scrollable.",
+      "sample": "In Ihrem Konto anmelden",
+      "bounds": {
+        "x": 40,
+        "y": 460.640625,
+        "width": 310,
+        "height": 32.390625
+      }
+    },
+    {
+      "rule": "text_overflow",
+      "severity": "major",
+      "selector": "div.auth-container > div.auth-grid > aside.auth-panel.auth-aside > h2",
+      "message": "Element text appears clipped or scrollable.",
+      "sample": "Ihr persönliches Konto",
+      "bounds": {
+        "x": 40,
+        "y": 1040.5,
+        "width": 310,
+        "height": 32.390625
+      }
+    }
+  ],
+  "generated_at": "2026-10-16T07:02:54.816Z"
+}

@@ -1,0 +1,15 @@
+{% extends 'cabinet/base_cabinet.html' %}
+{% load shop_i18n %}
+{% block title %}{% text 'staff.title' %}{% endblock %}
+{% block sidebar %}
+<div class="cab-sidebar__logo"><span class="cab-sidebar__logo-icon bi bi-shop"></span><span class="cab-sidebar__logo-name">Männermasche</span></div>
+<nav class="cab-sidebar__nav" aria-label="{% text 'staff.nav.section' %}"><div class="flex-grow-1 overflow-auto py-2"><ul class="list-unstyled mb-0">
+{% for item in cabinet_sidebar %}{% include 'cabinet/includes/_nav_item.html' with item=item active=False %}{% endfor %}
+</ul></div></nav>
+<div class="cab-sidebar__footer" data-staff-settings>
+{% if cabinet_settings_url %}<a class="cab-nav__item" href="{{ cabinet_settings_url }}"><i class="bi bi-sliders cab-nav__icon"></i><span class="cab-nav__label">{% text 'staff.nav.section_settings' %}</span></a>{% endif %}
+{% if staff_global_settings_url %}<a class="cab-nav__item" href="{{ staff_global_settings_url }}"><i class="bi bi-gear cab-nav__icon"></i><span class="cab-nav__label">{% text 'staff.nav.settings' %}</span></a>{% endif %}
+<button class="cab-sidebar__collapse-btn" type="button" @click="sidebarCollapsed = !sidebarCollapsed" aria-label="{% text 'staff.nav.collapse' %}"><i class="bi bi-layout-sidebar cab-nav__icon"></i><span class="cab-nav__label">{% text 'staff.nav.collapse' %}</span></button>
+</div>
+{% endblock %}
+{% block extra_js %}<script>if(localStorage.getItem('cab_sidebar')===null)localStorage.setItem('cab_sidebar','false');document.querySelectorAll('.cab-nav__item').forEach(a=>{if(a.getAttribute('href')===location.pathname){a.classList.add('cab-nav__item--active');a.setAttribute('aria-current','page');}});</script>{% endblock %}

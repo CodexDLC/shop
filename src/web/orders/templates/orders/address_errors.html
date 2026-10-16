@@ -1,0 +1,511 @@
+{% extends 'base.html' %}
+{% load static shop_i18n %}
+{% block page_head %}<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="{% static 'storefront/vendor/tailwind-runtime.js' %}?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"primary":"#033324","tertiary-fixed":"#e1e3da","surface-bright":"#f4fbf3","on-primary-fixed":"#002115","surface-container-low":"#eef6ed","on-error":"#ffffff","secondary-fixed-dim":"#c2c9be","primary-fixed-dim":"#a3d1ba","secondary-fixed":"#dee5d9","surface-muted":"#EEEEE7","on-secondary":"#ffffff","surface-container":"#e8f0e7","inverse-primary":"#a3d1ba","surface-container-lowest":"#ffffff","on-tertiary-container":"#adb0a7","tertiary":"#2a2d27","on-tertiary":"#ffffff","brand-deep":"#183F30","on-secondary-container":"#5f665d","tertiary-fixed-dim":"#c5c7bf","inverse-on-surface":"#ebf3ea","inverse-surface":"#2b322d","surface-container-high":"#e3eae2","page-bg":"#F8F8F3","on-background":"#161d18","secondary-container":"#dee5d9","on-primary-fixed-variant":"#244f3d","secondary":"#596057","on-surface":"#161d18","on-surface-variant":"#414944","tertiary-container":"#40433d","background":"#f4fbf3","on-error-container":"#93000a","primary-fixed":"#beedd5","error-container":"#ffdad6","error":"#ba1a1a","surface-variant":"#dde5dc","on-tertiary-fixed-variant":"#454841","on-primary":"#ffffff","surface-container-highest":"#dde5dc","on-primary-container":"#8cb9a3","border-subtle":"#DCDED5","on-secondary-fixed":"#171d16","primary-container":"#1f4a39","on-tertiary-fixed":"#191c17","text-muted":"#626960","surface":"#f4fbf3","on-secondary-fixed-variant":"#424940","outline-variant":"#c0c8c2","surface-dim":"#d4dcd4","surface-tint":"#3c6754","outline":"#717974","text-primary":"#171E19"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"gutter-mobile":"0.75rem","margin":"3rem","space-3xl":"6rem","margin-mobile":"1rem","space-xs":"0.25rem","gutter":"1.5rem","space-xl":"2.5rem","space-md":"1rem","space-lg":"1.5rem","space-sm":"0.5rem","space-2xl":"4rem"},"fontFamily":{"price-md":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"display-xl-mobile":["Bodoni Moda"],"display-xl":["Bodoni Moda"],"headline-lg":["Bodoni Moda"],"title-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Bodoni Moda"],"headline-md":["Bodoni Moda"],"label-sm":["Plus Jakarta Sans"],"price-lg":["Plus Jakarta Sans"]},"fontSize":{"price-md":["0.9375rem",{"lineHeight":"1.2","fontWeight":"600"}],"title-md":["1rem",{"lineHeight":"1.4","fontWeight":"600"}],"label-md":["0.8125rem",{"lineHeight":"1.2","letterSpacing":"0.05em","fontWeight":"600"}],"body-lg":["1.125rem",{"lineHeight":"1.6","fontWeight":"400"}],"display-xl-mobile":["2.25rem",{"lineHeight":"1.2","letterSpacing":"-0.01em","fontWeight":"500"}],"display-xl":["3.5rem",{"lineHeight":"1.15","letterSpacing":"-0.02em","fontWeight":"500"}],"headline-lg":["2.25rem",{"lineHeight":"1.25","letterSpacing":"-0.01em","fontWeight":"500"}],"title-lg":["1.125rem",{"lineHeight":"1.4","letterSpacing":"0.01em","fontWeight":"600"}],"body-md":["0.9375rem",{"lineHeight":"1.5","fontWeight":"400"}],"body-sm":["0.8125rem",{"lineHeight":"1.4","fontWeight":"400"}],"headline-lg-mobile":["1.75rem",{"lineHeight":"1.3","fontWeight":"500"}],"headline-md":["1.5rem",{"lineHeight":"1.35","fontWeight":"500"}],"label-sm":["0.6875rem",{"lineHeight":"1.2","letterSpacing":"0.06em","fontWeight":"500"}],"price-lg":["1.25rem",{"lineHeight":"1.2","fontWeight":"600"}]}}}}</script><script src="{% static 'storefront/reference-tokens.js' %}"></script>
+<link rel="stylesheet" href="{% static 'storefront/shared-chrome.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+<link rel="icon" href="{% static 'storefront/brand/favicon.ico' %}"><link rel="apple-touch-icon" href="{% static 'storefront/brand/apple-touch-icon.png' %}">
+{% endblock %}
+{% block body_attrs %} class="bg-page-bg font-body-md text-text-primary antialiased" data-demo-page="checkout-address-errors.html"{% endblock %}
+{% block content %}
+{% include 'includes/header.html' %}<main class="w-full pt-[116px] bg-page-bg"><div class="flex flex-col w-full">
+<!-- Sub-header Breadcrumb / Secure Checkout Ribbon -->
+<div class="w-full bg-surface-muted text-on-surface-variant">
+<div class="max-w-[1440px] mx-auto px-margin py-3 flex items-center justify-between text-label-sm font-label-sm uppercase tracking-widest">
+<div class="flex items-center gap-space-sm text-primary font-title-md">
+<span class="material-symbols-outlined text-[16px]">{% text 'orders.address_errors.text.e117797422d3' %}</span>
+<span>{% text 'orders.address_errors.text.21031507ff60' %}</span>
+</div>
+<div class="hidden sm:flex items-center gap-4 text-text-muted">
+<span>{% text 'orders.address_errors.text.2994b816a3b2' %}</span>
+<span>•</span>
+<span>{% text 'orders.address_errors.text.c15b0de26c30' %}</span>
+<span>•</span>
+<span>{% text 'orders.address_errors.text.590324cc93b0' %}</span>
+</div>
+</div>
+</div>
+<div class="max-w-[1440px] mx-auto w-full px-margin py-space-xl">
+<!-- Progress Indicator -->
+<div class="w-full mb-space-xl">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Step 1: Completed -->
+<div class="bg-surface-container p-space-md flex items-center gap-space-md relative overflow-hidden">
+<div class="w-7 h-7 bg-primary text-on-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[16px]">{% text 'orders.address_errors.text.d56d985300d4' %}</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted">{% text 'orders.address_errors.text.3e80a768e060' %}</span>
+<span class="font-title-md text-title-md text-text-primary truncate">{% text 'orders.address_errors.text.837420e541ce' %}</span>
+</div>
+<div class="absolute right-3 text-text-muted/40 font-headline-md text-headline-md italic">01</div>
+</div>
+<!-- Step 2: Active -->
+<div class="bg-primary text-on-primary p-space-md flex items-center gap-space-md relative shadow-md">
+<div class="w-7 h-7 bg-on-primary text-primary font-label-md flex items-center justify-center flex-shrink-0 font-bold">
+            2
+          </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-primary-container">{% text 'orders.address_errors.text.2502384448d8' %}</span>
+<span class="w-1.5 h-1.5 bg-error rounded-full animate-pulse"></span>
+</div>
+<span class="font-title-md text-title-md text-on-primary truncate">{% text 'orders.address_errors.text.c66011ec94b9' %}</span>
+</div>
+<div class="absolute right-3 text-on-primary-container/30 font-headline-md text-headline-md italic">02</div>
+</div>
+<!-- Step 3: Pending -->
+<div class="bg-surface-muted p-space-md flex items-center gap-space-md opacity-60">
+<div class="w-7 h-7 bg-surface-container-high text-text-muted font-label-md flex items-center justify-center flex-shrink-0">
+            3
+          </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted">{% text 'orders.address_errors.text.24f8e3a7859f' %}</span>
+<span class="font-title-md text-title-md text-text-primary truncate">{% text 'orders.address_errors.text.d637e82a224d' %}</span>
+</div>
+<div class="absolute right-3 text-text-muted/30 font-headline-md text-headline-md italic">03</div>
+</div>
+</div>
+</div>
+<!-- Editorial Validation Notice Banner -->
+<div class="w-full bg-[#faebe6] text-[#781812] p-space-lg mb-space-xl flex flex-col md:flex-row md:items-center justify-between gap-space-md shadow-sm" id="validation-banner">
+<div class="flex items-start md:items-center gap-space-md">
+<div class="w-10 h-10 bg-[#f1cdc6] text-[#781812] flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">{% text 'orders.address_errors.text.e7aa764822bf' %}</span>
+</div>
+<div>
+<h2 class="font-title-lg text-title-lg text-[#781812] tracking-normal mb-0.5">{% text 'orders.address_errors.text.1a580005b184' %}</h2>
+<p class="font-body-md text-body-md text-[#852822]">
+            {% text 'orders.address_errors.text.a27e794b1b92' %} <span class="font-title-md underline decoration-1">{% text 'orders.address_errors.text.dbd5d5b6f7af' %}</span> {% text 'orders.address_errors.text.837fe7f022d6' %} <span class="font-title-md underline decoration-1">{% text 'orders.address_errors.text.9d242837641f' %}</span> {% text 'orders.address_errors.text.2e49ff92c59d' %}
+          </p>
+</div>
+</div>
+<a class="inline-flex items-center gap-2 font-label-md text-label-md uppercase tracking-wider text-[#781812] hover:text-[#4d0c07] transition-colors whitespace-nowrap self-start md:self-auto" href="#error-hausnummer">
+<span>{% text 'orders.address_errors.text.63705d8b2407' %}</span>
+<span class="material-symbols-outlined text-[16px]">{% text 'orders.address_errors.text.b6f84df2a7b0' %}</span>
+</a>
+</div>
+<!-- Main Grid: Checkout Workspace -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- LEFT COLUMN: Form Workspace (7 Cols) -->
+<section class="lg:col-span-7 flex flex-col gap-space-xl">
+<!-- Address Section Header -->
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted mb-1">{% text 'orders.address_errors.text.32c2949238fe' %}</span>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">{% text 'orders.address_errors.text.eed8aa3bd357' %}</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+            {% text 'orders.address_errors.text.bc89c65199ad' %}
+          </p>
+</div>
+<!-- Mode Segmented Switch: Standard vs Packstation -->
+<div class="bg-surface-muted p-1 flex gap-1">
+<button class="flex-1 py-3 px-4 bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">{% text 'orders.address_errors.text.e83249bd3ba7' %}</span>
+<span>{% text 'orders.address_errors.text.25506fa6ccc4' %}</span>
+</button>
+<button class="flex-1 py-3 px-4 bg-transparent text-text-muted hover:text-text-primary font-label-md text-label-md uppercase tracking-wider flex items-center justify-center gap-2 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">{% text 'orders.address_errors.text.43cc3c1898e9' %}</span>
+<span>{% text 'orders.address_errors.text.115d0ad1492e' %}</span>
+</button>
+</div>
+<!-- Form Card Container -->
+<div class="bg-surface-container-low p-space-lg md:p-space-xl flex flex-col gap-space-lg shadow-sm">
+<!-- Anrede -->
+<div>
+<label class="block font-label-sm text-label-sm uppercase tracking-wider text-text-muted mb-2">{% text 'orders.address_errors.text.51ac34c5b808' %}</label>
+<div class="flex flex-wrap gap-space-sm">
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="salutation" type="radio" value="herr"/>
+<span class="inline-block px-5 py-2.5 bg-primary text-on-primary font-label-md text-label-md peer-checked:bg-primary peer-checked:text-on-primary transition-colors">{% text 'orders.address_errors.text.1db77fd65e0a' %}</span>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="salutation" type="radio" value="frau"/>
+<span class="inline-block px-5 py-2.5 bg-surface-muted text-text-primary hover:bg-surface-container font-label-md text-label-md peer-checked:bg-primary peer-checked:text-on-primary transition-colors">{% text 'orders.address_errors.text.4527bdbe5c4b' %}</span>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="salutation" type="radio" value="divers"/>
+<span class="inline-block px-5 py-2.5 bg-surface-muted text-text-primary hover:bg-surface-container font-label-md text-label-md peer-checked:bg-primary peer-checked:text-on-primary transition-colors">{% text 'orders.address_errors.text.9a2dd276e60f' %}</span>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="salutation" type="radio" value="none"/>
+<span class="inline-block px-5 py-2.5 bg-surface-muted text-text-primary hover:bg-surface-container font-label-md text-label-md peer-checked:bg-primary peer-checked:text-on-primary transition-colors">{% text 'orders.address_errors.text.1a1c7d9ca84e' %}</span>
+</label>
+</div>
+</div>
+<!-- Vorname & Nachname -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div>
+<label class="block font-label-sm text-label-sm uppercase tracking-wider text-text-muted mb-1.5" for="first-name">{% text 'orders.address_errors.text.4e41c78fd941' %}</label>
+<div class="relative">
+<input class="w-full h-11 px-3 bg-surface-container-lowest text-text-primary font-body-md text-body-md focus:outline-none focus:bg-white shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)] focus:shadow-[inset_0_0_0_2px_#033324]" id="first-name" type="text" value="Maximilian"/>
+<span class="material-symbols-outlined text-primary text-[18px] absolute right-3 top-3">{% text 'orders.address_errors.text.d56d985300d4' %}</span>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm uppercase tracking-wider text-text-muted mb-1.5" for="last-name">{% text 'orders.address_errors.text.e29e009d916b' %}</label>
+<div class="relative">
+<input class="w-full h-11 px-3 bg-surface-container-lowest text-text-primary font-body-md text-body-md focus:outline-none focus:bg-white shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)] focus:shadow-[inset_0_0_0_2px_#033324]" id="last-name" type="text" value="von Bernsdorff"/>
+<span class="material-symbols-outlined text-primary text-[18px] absolute right-3 top-3">{% text 'orders.address_errors.text.d56d985300d4' %}</span>
+</div>
+</div>
+</div>
+<!-- Straße & Hausnummer (HAS VALIDATION ERROR ON HAUSNUMMER) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-md">
+<div class="md:col-span-8">
+<label class="block font-label-sm text-label-sm uppercase tracking-wider text-text-muted mb-1.5" for="street">{% text 'orders.address_errors.text.4ab12141ae4f' %}</label>
+<div class="relative">
+<input class="w-full h-11 px-3 bg-surface-container-lowest text-text-primary font-body-md text-body-md focus:outline-none focus:bg-white shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)] focus:shadow-[inset_0_0_0_2px_#033324]" id="street" type="text" value="Maximilianstraße"/>
+<span class="material-symbols-outlined text-primary text-[18px] absolute right-3 top-3">{% text 'orders.address_errors.text.d56d985300d4' %}</span>
+</div>
+</div>
+<div class="md:col-span-4 scroll-mt-28" id="error-hausnummer">
+<div class="flex items-center justify-between mb-1.5">
+<label class="block font-label-sm text-label-sm uppercase tracking-wider text-error font-semibold" for="house-number">{% text 'orders.address_errors.text.23f32b310c17' %}</label>
+<span class="font-label-sm text-[10px] text-error font-medium uppercase">{% text 'orders.address_errors.text.a0af51f4fd2b' %}</span>
+</div>
+<div class="relative">
+<input aria-describedby="house-number-err" aria-invalid="true" class="w-full h-11 px-3 bg-[#fff5f5] text-text-primary placeholder:text-text-muted/60 font-body-md text-body-md focus:outline-none shadow-[inset_0_0_0_2px_#ba1a1a]" id="house-number" placeholder="{% text 'orders.address_errors.label.4e60e6ad214b' %}" type="text"/>
+<span class="material-symbols-outlined text-error text-[20px] absolute right-3 top-2.5">{% text 'orders.address_errors.text.11f9578d05e6' %}</span>
+</div>
+<p class="mt-1.5 font-body-sm text-body-sm text-error flex items-start gap-1" id="house-number-err">
+<span class="material-symbols-outlined text-[14px] mt-0.5 flex-shrink-0">{% text 'orders.address_errors.text.725aee399253' %}</span>
+<span>{% text 'orders.address_errors.text.59558afbc4b6' %}</span>
+</p>
+</div>
+</div>
+<!-- Adresszusatz (Optional) -->
+<div>
+<label class="block font-label-sm text-label-sm uppercase tracking-wider text-text-muted mb-1.5" for="address-extra">{% text 'orders.address_errors.text.8650c17000dd' %} <span class="lowercase text-text-muted font-normal">{% text 'orders.address_errors.text.b16c7ac6faff' %}</span></label>
+<input class="w-full h-11 px-3 bg-surface-container-lowest text-text-primary placeholder:text-text-muted/60 font-body-md text-body-md focus:outline-none focus:bg-white shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)] focus:shadow-[inset_0_0_0_2px_#033324]" id="address-extra" placeholder="{% text 'orders.address_errors.label.473a9bf08b67' %}" type="text"/>
+</div>
+<!-- PLZ & Ort (HAS VALIDATION ERROR ON PLZ WITH AUTO-CORRECTION SUGGESTION) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-md">
+<!-- PLZ with error & suggestion box -->
+<div class="md:col-span-5 scroll-mt-28" id="error-plz">
+<div class="flex items-center justify-between mb-1.5">
+<label class="block font-label-sm text-label-sm uppercase tracking-wider text-error font-semibold" for="postal-code">{% text 'orders.address_errors.text.1ab4519dc726' %}</label>
+<span class="font-label-sm text-[10px] text-error font-medium uppercase">{% text 'orders.address_errors.text.896bbcac7192' %}</span>
+</div>
+<div class="relative">
+<input aria-describedby="postal-code-err" aria-invalid="true" class="w-full h-11 px-3 bg-[#fff5f5] text-error font-title-md text-title-md focus:outline-none shadow-[inset_0_0_0_2px_#ba1a1a]" id="postal-code" type="text" value="8053"/>
+<span class="material-symbols-outlined text-error text-[20px] absolute right-3 top-2.5">{% text 'orders.address_errors.text.383fd7bf84aa' %}</span>
+</div>
+<!-- Inline Error Details & Suggestion Bubble -->
+<div class="mt-2 bg-[#faebe6] p-3 flex flex-col gap-2" id="postal-code-err">
+<p class="font-body-sm text-body-sm text-[#781812] leading-snug">
+                  {% text 'orders.address_errors.text.9ae827728fda' %}
+                </p>
+<div class="flex flex-col gap-1.5 pt-1">
+<span class="font-label-sm text-label-sm uppercase text-[#781812]/80 font-bold tracking-wide">{% text 'orders.address_errors.text.e3a0b6059e68' %}</span>
+<button class="w-full py-2 px-3 bg-[#781812] hover:bg-[#520f0b] text-white font-label-sm text-label-sm uppercase tracking-wider flex items-center justify-between transition-colors shadow-sm" id="apply-plz-btn" type="button">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">{% text 'orders.address_errors.text.35dd282dc420' %}</span>
+<span>{% text 'orders.address_errors.text.7b7a2b48f53c' %}</span>
+</span>
+<span class="underline font-bold">{% text 'orders.address_errors.text.594308426372' %}</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Ort -->
+<div class="md:col-span-7">
+<label class="block font-label-sm text-label-sm uppercase tracking-wider text-text-muted mb-1.5" for="city">{% text 'orders.address_errors.text.2402a545b5c3' %}</label>
+<div class="relative">
+<input class="w-full h-11 px-3 bg-surface-container-lowest text-text-primary font-body-md text-body-md focus:outline-none focus:bg-white shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)] focus:shadow-[inset_0_0_0_2px_#033324]" id="city" type="text" value="München"/>
+<span class="material-symbols-outlined text-primary text-[18px] absolute right-3 top-3">{% text 'orders.address_errors.text.d56d985300d4' %}</span>
+</div>
+<p class="mt-1.5 font-body-sm text-body-sm text-text-muted">{% text 'orders.address_errors.text.58bcc30c13f0' %}</p>
+</div>
+</div>
+<!-- Land -->
+<div>
+<label class="block font-label-sm text-label-sm uppercase tracking-wider text-text-muted mb-1.5" for="country">{% text 'orders.address_errors.text.d9df90d8002f' %}</label>
+<div class="relative">
+<select class="w-full h-11 px-3 pr-10 bg-surface-container-lowest text-text-primary font-body-md text-body-md focus:outline-none focus:bg-white appearance-none shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)] focus:shadow-[inset_0_0_0_2px_#033324]" id="country">
+<option selected="" value="DE">{% text 'orders.address_errors.text.3c623ccf6b34' %}</option>
+<option value="AT">{% text 'orders.address_errors.text.92eee06f0eb7' %}</option>
+<option value="CH">{% text 'orders.address_errors.text.010fac8fe316' %}</option>
+</select>
+<span class="material-symbols-outlined text-text-muted text-[20px] pointer-events-none absolute right-3 top-3">{% text 'orders.address_errors.text.5dd226578843' %}</span>
+</div>
+</div>
+<!-- E-Mail & Telefon für Tracking -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-2">
+<div>
+<label class="block font-label-sm text-label-sm uppercase tracking-wider text-text-muted mb-1.5" for="email-address">{% text 'orders.address_errors.text.fdd5ae26fe98' %}</label>
+<div class="relative">
+<input class="w-full h-11 px-3 bg-surface-container-lowest text-text-primary font-body-md text-body-md focus:outline-none focus:bg-white shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)] focus:shadow-[inset_0_0_0_2px_#033324]" id="email-address" type="email" value="m.bernsdorff@atelier-muc.de"/>
+<span class="material-symbols-outlined text-primary text-[18px] absolute right-3 top-3">{% text 'orders.address_errors.text.d56d985300d4' %}</span>
+</div>
+<span class="font-body-sm text-body-sm text-text-muted block mt-1">{% text 'orders.address_errors.text.2a9a91737b53' %}</span>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm uppercase tracking-wider text-text-muted mb-1.5" for="phone-number">{% text 'orders.address_errors.text.ca8d170321f2' %} <span class="lowercase text-text-muted font-normal">{% text 'orders.address_errors.text.b16c7ac6faff' %}</span></label>
+<div class="relative">
+<input class="w-full h-11 px-3 bg-surface-container-lowest text-text-primary placeholder:text-text-muted/60 font-body-md text-body-md focus:outline-none focus:bg-white shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)] focus:shadow-[inset_0_0_0_2px_#033324]" id="phone-number" placeholder="+49 171 0000000" type="tel"/>
+<span class="material-symbols-outlined text-text-muted text-[18px] absolute right-3 top-3">{% text 'orders.address_errors.text.83b04e265391' %}</span>
+</div>
+<span class="font-body-sm text-body-sm text-text-muted block mt-1">{% text 'orders.address_errors.text.4a98227daa38' %}</span>
+</div>
+</div>
+<!-- Rechnungsadresse Toggle -->
+<div class="pt-2">
+<label class="flex items-start gap-3 cursor-pointer group">
+<input class="mt-1 w-4 h-4 text-primary accent-primary rounded-none cursor-pointer" id="diff-billing" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-text-primary group-hover:text-primary transition-colors">{% text 'orders.address_errors.text.0d8d122d4a97' %}</span>
+<span class="font-body-sm text-body-sm text-text-muted">{% text 'orders.address_errors.text.abfe9ae98ac1' %}</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Versandart Selection Module -->
+<div class="flex flex-col gap-space-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'orders.address_errors.text.ce4697fa2a54' %}</span>
+<div class="bg-surface-container p-space-md flex flex-col md:flex-row md:items-center justify-between gap-space-md relative overflow-hidden">
+<div class="flex items-start md:items-center gap-space-md">
+<div class="w-12 h-12 bg-primary text-on-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[26px]">{% text 'orders.address_errors.text.f1a915d3cbdb' %}</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-title-lg text-title-lg text-text-primary">{% text 'orders.address_errors.text.d783706277a2' %}</span>
+<span class="px-2 py-0.5 bg-primary text-on-primary font-label-sm text-[10px] uppercase font-bold tracking-wider">{% text 'orders.address_errors.text.a39a8ba48dc4' %}</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                  {% text 'orders.address_errors.text.3f73bf03aba8' %}
+                </p>
+</div>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="font-price-md text-price-md text-primary line-through mr-2">4,95 €</span>
+<span class="font-price-lg text-price-lg text-primary">0,00 €</span>
+<span class="block font-label-sm text-label-sm text-text-muted uppercase tracking-wider">{% text 'orders.address_errors.text.f993cb25f62f' %}</span>
+</div>
+</div>
+</div>
+<!-- Action Area -->
+<div class="pt-space-sm flex flex-col gap-space-sm">
+<button class="w-full h-14 bg-primary hover:bg-[#143528] text-on-primary font-label-md text-label-md uppercase tracking-widest flex items-center justify-center gap-3 shadow-md transition-all" id="submit-btn" type="button">
+<span>{% text 'orders.address_errors.text.1104bc73d737' %}</span>
+<span class="material-symbols-outlined text-[20px]">{% text 'orders.address_errors.text.16d57c087f83' %}</span>
+</button>
+<div class="flex items-center justify-center gap-2 text-error font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px]">{% text 'orders.address_errors.text.59bd0a3ff43b' %}</span>
+<span>{% text 'orders.address_errors.text.73ebce818f02' %}</span>
+</div>
+</div>
+</section>
+<!-- RIGHT COLUMN: Order Summary & Concierge Trust (5 Cols) -->
+<aside class="lg:col-span-5 flex flex-col gap-space-lg lg:sticky lg:top-28">
+<!-- Summary Card -->
+<div class="bg-surface-container-low p-space-lg md:p-space-xl flex flex-col shadow-sm">
+<div class="flex items-center justify-between pb-space-md bg-transparent">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'orders.address_errors.text.71d1f0cce20e' %}</span>
+<h3 class="font-headline-md text-headline-md text-primary mt-0.5">{% text 'orders.address_errors.text.69c98532f76c' %}</h3>
+</div>
+<a class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted hover:text-primary transition-colors underline" href="#">{% text 'orders.address_errors.text.e2398a51af99' %}</a>
+</div>
+<!-- Product Item 1: MANSTORE -->
+<div class="py-space-md flex gap-space-md bg-transparent">
+<div class="w-20 h-24 bg-surface-muted flex-shrink-0 relative overflow-hidden">
+<img class="w-full h-full object-cover" alt="{% text 'orders.address_errors.label.b561eae3705b' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjbmNzKpR_R4861EKfj32EOicl8N4dyoO-RLjVG9ww5S9WzPIZy9pT-lFKmt43w-UIvmqZLisXyU6c8qZ51753ACK-dN0ZLAOFB9VDLaqFNDPRTs3iC3lc7o_8yKfAs0PtMg6An_muQw4HyrPhOIE4BAy-1lLrTO2B51j1fVvX4-Ah8SGNTs2e0dJCOsVDprR2T4ccGLBqif3_J4cAn7xqkVR3SLNLKU-UOcZKcin5hDiv652buDEk"/>
+</div>
+<div class="flex-1 flex flex-col justify-between min-w-0">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted block">{% text 'orders.address_errors.text.a7769b7586cf' %}</span>
+<h4 class="font-title-md text-title-md text-text-primary truncate">{% text 'orders.address_errors.text.79501ef4bc27' %}</h4>
+<div class="flex items-center gap-2 text-body-sm font-body-sm text-on-surface-variant mt-1">
+<span>{% text 'orders.address_errors.text.7e9ca95a803c' %}</span>
+<span>•</span>
+<span>{% text 'orders.address_errors.text.4b436dc5eb76' %}</span>
+<span>•</span>
+<span>{% text 'orders.address_errors.text.a1833ad93cfd' %}</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-2">
+<span class="font-label-sm text-label-sm text-text-muted">{% text 'orders.address_errors.text.80d36ff557d6' %}</span>
+<span class="font-price-md text-price-md text-text-primary">44,95 €</span>
+</div>
+</div>
+</div>
+<!-- Product Item 2: Olaf Benz -->
+<div class="py-space-md flex gap-space-md bg-transparent">
+<div class="w-20 h-24 bg-surface-muted flex-shrink-0 relative overflow-hidden">
+<img class="w-full h-full object-cover" alt="{% text 'orders.address_errors.label.4feb06cb3e30' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXoJwF6CeL21zqMrmrMRyr9t0Y6wW-5rW-dM9sGoKl-TmgAV1crUTX1AEOQhvWun5IQCDjk5v6PK66xlGiVj3x1_hpvL_Q41UilCBf-dWYxwjz5LRXvkLn1RlBzvQASTefPOS9eFv-E263e3IuVEaXO90XYM4W3_vq9WmWVKwVslqSbSVc_fMeMWXc3_HFLcOWu5CMC8DAFclQw1CFNtOhKpKESUZNhb-pdsODLfT3Z61tnHkW3wh1"/>
+</div>
+<div class="flex-1 flex flex-col justify-between min-w-0">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted block">{% text 'orders.address_errors.text.ba3e4d081bdb' %}</span>
+<h4 class="font-title-md text-title-md text-text-primary truncate">{% text 'orders.address_errors.text.4dd1b2e86686' %}</h4>
+<div class="flex items-center gap-2 text-body-sm font-body-sm text-on-surface-variant mt-1">
+<span>{% text 'orders.address_errors.text.e0997bc0f364' %}</span>
+<span>•</span>
+<span>{% text 'orders.address_errors.text.40c7ef6b6c40' %}</span>
+<span>•</span>
+<span>{% text 'orders.address_errors.text.a1833ad93cfd' %}</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-2">
+<span class="font-label-sm text-label-sm text-text-muted">{% text 'orders.address_errors.text.22d650f9a8b0' %}</span>
+<span class="font-price-md text-price-md text-text-primary">49,90 €</span>
+</div>
+</div>
+</div>
+<!-- Cost Calculation Breakdown -->
+<div class="pt-space-md mt-space-sm flex flex-col gap-2">
+<div class="flex items-center justify-between text-body-md font-body-md text-on-surface-variant">
+<span>{% text 'orders.address_errors.text.59e32090419b' %}</span>
+<span>94,85 €</span>
+</div>
+<div class="flex items-center justify-between text-body-md font-body-md text-primary">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">{% text 'orders.address_errors.text.9c586571e3cb' %}</span>
+<span>{% text 'orders.address_errors.text.dfc1a43e07a9' %}</span>
+</span>
+<span class="font-title-md uppercase tracking-wider text-primary">{% text 'orders.address_errors.text.495f50c6c3e9' %}</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-text-muted">
+<span>{% text 'orders.address_errors.text.82e07a9dada4' %}</span>
+<span>15,14 €</span>
+</div>
+<!-- Total Row -->
+<div class="mt-space-md pt-space-md bg-surface-container p-space-md flex items-baseline justify-between">
+<div>
+<span class="block font-title-lg text-title-lg text-text-primary font-bold">{% text 'orders.address_errors.text.94ee95564c02' %}</span>
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider">{% text 'orders.address_errors.text.a6444c227d38' %}</span>
+</div>
+<div class="text-right">
+<span class="font-price-lg text-headline-md text-primary font-bold">94,85 €</span>
+</div>
+</div>
+</div>
+<!-- Discrete Delivery Promise Box -->
+<div class="mt-space-lg p-space-md bg-surface-muted flex gap-3 items-start">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">{% text 'orders.address_errors.text.7be676cbf4b5' %}</span>
+<div class="flex flex-col text-body-sm font-body-sm text-text-primary">
+<span class="font-title-md text-text-primary">{% text 'orders.address_errors.text.98f5f7f61958' %}</span>
+<span class="text-text-muted text-[13px] mt-0.5">
+                {% text 'orders.address_errors.text.9fc26173b1ea' %}
+              </span>
+</div>
+</div>
+</div>
+<!-- Trust Badges Grid -->
+<div class="grid grid-cols-3 gap-2 text-center">
+<div class="bg-surface-container p-3 flex flex-col items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[22px] mb-1">{% text 'orders.address_errors.text.a414c9fb20f9' %}</span>
+<span class="font-label-sm text-[11px] font-bold uppercase text-text-primary leading-tight">{% text 'orders.address_errors.text.99943286d1c8' %}</span>
+<span class="font-body-sm text-[10px] text-text-muted">{% text 'orders.address_errors.text.219c08b15cdf' %}</span>
+</div>
+<div class="bg-surface-container p-3 flex flex-col items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[22px] mb-1">{% text 'orders.address_errors.text.9a07bb664094' %}</span>
+<span class="font-label-sm text-[11px] font-bold uppercase text-text-primary leading-tight">{% text 'orders.address_errors.text.35aa5625f269' %}</span>
+<span class="font-body-sm text-[10px] text-text-muted">{% text 'orders.address_errors.text.0fae9e5f3872' %}</span>
+</div>
+<div class="bg-surface-container p-3 flex flex-col items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[22px] mb-1">{% text 'orders.address_errors.text.e117797422d3' %}</span>
+<span class="font-label-sm text-[11px] font-bold uppercase text-text-primary leading-tight">{% text 'orders.address_errors.text.91e9f1da9aa8' %}</span>
+<span class="font-body-sm text-[10px] text-text-muted">{% text 'orders.address_errors.text.ebb20004c81b' %}</span>
+</div>
+</div>
+<!-- Concierge / Direct Support Help Card -->
+<div class="bg-brand-deep text-on-primary p-space-lg flex flex-col gap-space-md shadow-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container">{% text 'orders.address_errors.text.ecf8b421ee08' %}</span>
+<span class="w-2 h-2 rounded-full bg-primary-fixed-dim"></span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-on-primary">{% text 'orders.address_errors.text.8f237345fcf0' %}</h4>
+<p class="font-body-sm text-body-sm text-on-primary-container mt-1">
+              {% text 'orders.address_errors.text.710fd593f01e' %}
+            </p>
+</div>
+<div class="flex flex-col sm:flex-row gap-space-sm pt-1">
+<a class="flex-1 py-2.5 px-3 bg-primary-container hover:bg-primary-fixed-dim hover:text-primary text-on-primary font-label-sm text-label-sm uppercase tracking-wider flex items-center justify-center gap-2 transition-colors" href="tel:+498912345678">
+<span class="material-symbols-outlined text-[16px]">{% text 'orders.address_errors.text.bc8d8647b02d' %}</span>
+<span>089 - 450 820</span>
+</a>
+<a class="flex-1 py-2.5 px-3 bg-[#244f3d] hover:bg-primary-fixed-dim hover:text-primary text-on-primary font-label-sm text-label-sm uppercase tracking-wider flex items-center justify-center gap-2 transition-colors" href="https://wa.me/">
+<span class="material-symbols-outlined text-[16px]">{% text 'orders.address_errors.text.7ecde348ff9c' %}</span>
+<span>{% text 'orders.address_errors.text.3fba9f7d7d6f' %}</span>
+</a>
+</div>
+<div class="text-center font-body-sm text-[11px] text-on-primary-container">
+            {% text 'orders.address_errors.text.5ae4e8587aae' %}
+          </div>
+</div>
+</aside>
+</div>
+</div>
+</div>
+<script>
+  // Interactive Validation auto-correction logic
+  document.addEventListener('DOMContentLoaded', () => {
+    const applyPlzBtn = document.getElementById('apply-plz-btn');
+    const plzInput = document.getElementById('postal-code');
+    const cityInput = document.getElementById('city');
+    const houseInput = document.getElementById('house-number');
+    const submitBtn = document.getElementById('submit-btn');
+    const validationBanner = document.getElementById('validation-banner');
+
+    if (applyPlzBtn && plzInput) {
+      applyPlzBtn.addEventListener('click', () => {
+        plzInput.value = '80539';
+        cityInput.value = 'München';
+        
+        // Update input styling to valid state
+        plzInput.classList.remove('bg-[#fff5f5]', 'text-error', 'shadow-[inset_0_0_0_2px_#ba1a1a]');
+        plzInput.classList.add('bg-surface-container-lowest', 'text-text-primary', 'shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)]');
+        
+        const plzErrBox = document.getElementById('postal-code-err');
+        if (plzErrBox) {
+          plzErrBox.innerHTML = `
+            <div class="flex items-center gap-2 text-primary font-body-sm text-body-sm py-1">
+              <span class="material-symbols-outlined text-[18px]">verified</span>
+              <span>PLZ 80539 München erfolgreich validiert.</span>
+            </div>
+          `;
+          plzErrBox.className = 'mt-2 bg-surface-container p-2.5 flex items-center';
+        }
+
+        // Focus the remaining missing field (house number)
+        if (houseInput && !houseInput.value) {
+          houseInput.focus();
+        }
+      });
+    }
+
+    if (houseInput) {
+      houseInput.addEventListener('input', (e) => {
+        if (e.target.value.trim().length > 0) {
+          houseInput.classList.remove('bg-[#fff5f5]', 'shadow-[inset_0_0_0_2px_#ba1a1a]');
+          houseInput.classList.add('bg-surface-container-lowest', 'shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)]');
+          const houseErr = document.getElementById('house-number-err');
+          if (houseErr) houseErr.style.display = 'none';
+        }
+      });
+    }
+
+    if (submitBtn) {
+      submitBtn.addEventListener('click', () => {
+        if (!houseInput.value.trim() || plzInput.value !== '80539') {
+          // Shake effect on error elements
+          if (!houseInput.value.trim()) {
+            houseInput.focus();
+            houseInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else if (plzInput.value !== '80539') {
+            plzInput.focus();
+            plzInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        } else {
+          alert('Angaben fehlerfrei validiert. Weiterleitung zum Bezahlschritt (Schritt 3: Zahlung & Prüfung)...');
+        }
+      });
+    }
+  });
+</script></main>{% include 'includes/footer.html' %}
+{% endblock %}

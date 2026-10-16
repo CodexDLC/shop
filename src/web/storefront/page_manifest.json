@@ -1,0 +1,212 @@
+[
+  {
+    "source": "index.html",
+    "feature": "shop",
+    "name": "home",
+    "path": "",
+    "template": "shop/home.html"
+  },
+  {
+    "source": "catalog.html",
+    "feature": "catalog",
+    "name": "list",
+    "path": "katalog/",
+    "template": "catalog/list.html"
+  },
+  {
+    "source": "catalog-empty.html",
+    "feature": "catalog",
+    "name": "empty",
+    "path": "katalog/leer/",
+    "template": "catalog/empty.html"
+  },
+  {
+    "source": "catalog-mobile.html",
+    "feature": "catalog",
+    "name": "mobile",
+    "path": "katalog/mobil/",
+    "template": "catalog/mobile.html"
+  },
+  {
+    "source": "search.html",
+    "feature": "catalog",
+    "name": "search",
+    "path": "katalog/suche/",
+    "template": "catalog/search.html"
+  },
+  {
+    "source": "search-empty.html",
+    "feature": "catalog",
+    "name": "search_empty",
+    "path": "katalog/suche/leer/",
+    "template": "catalog/search_empty.html"
+  },
+  {
+    "source": "product.html",
+    "feature": "catalog",
+    "name": "product",
+    "path": "produkt/demo/",
+    "template": "catalog/product.html"
+  },
+  {
+    "source": "cart.html",
+    "feature": "cart",
+    "name": "detail",
+    "path": "warenkorb/",
+    "template": "cart/detail.html"
+  },
+  {
+    "source": "empty-cart.html",
+    "feature": "cart",
+    "name": "empty",
+    "path": "warenkorb/leer/",
+    "template": "cart/empty.html"
+  },
+  {
+    "source": "checkout-address.html",
+    "feature": "orders",
+    "name": "address",
+    "path": "bestellung/adresse/",
+    "template": "orders/address.html"
+  },
+  {
+    "source": "checkout-address-errors.html",
+    "feature": "orders",
+    "name": "address_errors",
+    "path": "bestellung/adresse/fehler/",
+    "template": "orders/address_errors.html"
+  },
+  {
+    "source": "checkout-payment.html",
+    "feature": "payments",
+    "name": "review",
+    "path": "bestellung/zahlung/",
+    "template": "payments/review.html"
+  },
+  {
+    "source": "confirmation.html",
+    "feature": "orders",
+    "name": "confirmation",
+    "path": "bestellung/bestaetigung/",
+    "template": "orders/confirmation.html"
+  },
+  {
+    "source": "payment-error.html",
+    "feature": "payments",
+    "name": "error",
+    "path": "bestellung/zahlung/fehler/",
+    "template": "payments/error.html"
+  },
+  {
+    "source": "auth.html",
+    "feature": "customer",
+    "name": "login",
+    "path": "konto/anmelden/",
+    "template": "customer/login.html"
+  },
+  {
+    "source": "auth-mobile.html",
+    "feature": "customer",
+    "name": "login_mobile",
+    "path": "konto/anmelden/mobil/",
+    "template": "customer/login_mobile.html"
+  },
+  {
+    "source": "register.html",
+    "feature": "customer",
+    "name": "register",
+    "path": "konto/registrieren/",
+    "template": "customer/register.html"
+  },
+  {
+    "source": "register-mobile.html",
+    "feature": "customer",
+    "name": "register_mobile",
+    "path": "konto/registrieren/mobil/",
+    "template": "customer/register_mobile.html"
+  },
+  {
+    "source": "password-reset.html",
+    "feature": "customer",
+    "name": "password_reset",
+    "path": "konto/passwort/",
+    "template": "customer/password_reset.html"
+  },
+  {
+    "source": "account.html",
+    "feature": "customer",
+    "name": "overview",
+    "path": "konto/",
+    "template": "customer/overview.html"
+  },
+  {
+    "source": "account-mobile.html",
+    "feature": "customer",
+    "name": "mobile",
+    "path": "konto/mobil/",
+    "template": "customer/mobile.html"
+  },
+  {
+    "source": "account-orders.html",
+    "feature": "customer",
+    "name": "orders",
+    "path": "konto/bestellungen/",
+    "template": "customer/orders.html"
+  },
+  {
+    "source": "account-order-detail.html",
+    "feature": "customer",
+    "name": "order_detail",
+    "path": "konto/bestellungen/demo/",
+    "template": "customer/order_detail.html"
+  },
+  {
+    "source": "account-profile.html",
+    "feature": "customer",
+    "name": "profile",
+    "path": "konto/profil/",
+    "template": "customer/profile.html"
+  },
+  {
+    "source": "help.html",
+    "feature": "support",
+    "name": "help",
+    "path": "service/",
+    "template": "support/help.html"
+  },
+  {
+    "source": "help-mobile.html",
+    "feature": "support",
+    "name": "help_mobile",
+    "path": "service/mobil/",
+    "template": "support/help_mobile.html"
+  },
+  {
+    "source": "legal.html",
+    "feature": "support",
+    "name": "legal",
+    "path": "rechtliches/",
+    "template": "support/legal.html"
+  },
+  {
+    "source": "legal-mobile.html",
+    "feature": "support",
+    "name": "legal_mobile",
+    "path": "rechtliches/mobil/",
+    "template": "support/legal_mobile.html"
+  },
+  {
+    "source": "emails.html",
+    "feature": "support",
+    "name": "emails",
+    "path": "vorschau/emails/",
+    "template": "support/emails.html"
+  },
+  {
+    "source": "404.html",
+    "feature": "support",
+    "name": "not_found",
+    "path": "vorschau/404/",
+    "template": "support/not_found.html"
+  }
+]

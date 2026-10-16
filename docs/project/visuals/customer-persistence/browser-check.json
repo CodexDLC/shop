@@ -1,0 +1,12 @@
+{
+  "namePersists": true,
+  "created": true,
+  "editPersists": true,
+  "packstationCreated": true,
+  "defaultInOverview": true,
+  "deletedAndDefaultReassigned": true,
+  "invalidRetained": true,
+  "validationMessage": true,
+  "mobileOverflow": false,
+  "errors": []
+}

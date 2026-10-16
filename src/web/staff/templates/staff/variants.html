@@ -1,0 +1,63 @@
+{% extends "staff/base.html" %}
+{% load shop_i18n %}
+{% block cabinet_content %}
+<section aria-labelledby="variants-title">
+  <h1 id="variants-title" class="h3">{% text 'staff.variants.title' %} — {{ product.model_name }}</h1>
+  {% include 'staff/includes/product_tabs.html' %}
+  <p class="text-muted">{% text 'staff.variants.demo_notice' %}</p>
+  <p>{% text 'staff.variants.instructions' %}</p>
+  <form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="fingerprint" value="{{ fingerprint }}">
+    {{ formset.management_form }}
+    {% if formset.non_form_errors %}<div class="alert alert-danger" role="alert">{{ formset.non_form_errors }}</div>{% endif %}
+    <div class="table-responsive">
+      <table class="table align-middle">
+        <caption>{% text 'staff.variants.caption' %}</caption>
+        <thead><tr>{% for field in formset.empty_form.visible_fields %}<th scope="col">{{ field.label }}</th>{% endfor %}</tr></thead>
+        <tbody id="variant-rows">{% for form in formset %}<tr>
+          {% for field in form.visible_fields %}<td>{% if forloop.first %}{{ form.id }}{{ form.id.errors }}{{ form.non_field_errors }}{% endif %}<label class="visually-hidden" for="{{ field.id_for_label }}">{{ field.label }} {{ forloop.parentloop.counter }}</label>{{ field }}{{ field.errors }}</td>{% endfor %}
+        </tr>{% endfor %}</tbody>
+      </table>
+    </div>
+    {% if formset.can_add %}
+    <template id="variant-empty-row"><tr>
+      {% for field in formset.empty_form.visible_fields %}<td>{% if forloop.first %}{{ formset.empty_form.id }}{% endif %}<label class="visually-hidden" for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}</td>{% endfor %}
+    </tr></template>
+    <button class="btn btn-outline-primary" id="variant-add-row" type="button">{% text 'staff.variants.add_row' %}</button>
+    {% endif %}
+    <button class="btn btn-primary" type="submit">{% text 'staff.variants.save' %}</button>
+    <a class="btn btn-outline-secondary" href="{% url 'staff:products' %}">{% text 'staff.variants.back' %}</a>
+  </form>
+</section>
+{% endblock %}
+{% block extra_js %}
+{{ block.super }}
+<script>
+(() => {
+  const button = document.getElementById('variant-add-row');
+  if (!button) return;
+  const total = document.getElementById('id_variants-TOTAL_FORMS');
+  const rows = document.getElementById('variant-rows');
+  const template = document.getElementById('variant-empty-row');
+  button.disabled = Number(total.value) >= 100;
+  button.addEventListener('click', () => {
+    const index = Number(total.value);
+    if (!Number.isInteger(index) || index < 0 || index >= 100) return;
+    const fragment = template.content.cloneNode(true);
+    fragment.querySelectorAll('[name], [id], label[for]').forEach(element => {
+      ['name', 'id', 'for'].forEach(attribute => {
+        if (element.hasAttribute(attribute)) {
+          element.setAttribute(attribute, element.getAttribute(attribute).replaceAll('__prefix__', index));
+        }
+      });
+    });
+    const firstInput = fragment.querySelector('input:not([type="hidden"])');
+    rows.appendChild(fragment);
+    total.value = index + 1;
+    button.disabled = index + 1 >= 100;
+    firstInput?.focus();
+  });
+})();
+</script>
+{% endblock %}

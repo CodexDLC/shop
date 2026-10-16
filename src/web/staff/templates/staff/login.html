@@ -1,0 +1,6 @@
+{% load static shop_i18n %}<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>{% text 'staff.login.title' %}</title>{% include 'cabinet/includes/_head.html' %}</head>
+<body><main class="container py-5" style="max-width:480px"><h1 class="h3">Männermasche</h1><h2 class="h5 mb-4">{% text 'staff.login.title' %}</h2>
+<form method="post">{% csrf_token %}{{ form.non_field_errors }}
+<label for="id_username" class="form-label">{% text 'staff.login.username' %}</label>{{ form.username.errors }}<input class="form-control mb-3" id="id_username" name="username" autocomplete="username" required value="{{ form.username.value|default:'' }}">
+<label for="id_password" class="form-label">{% text 'staff.login.password' %}</label>{{ form.password.errors }}<input class="form-control mb-3" id="id_password" name="password" type="password" autocomplete="current-password" required>
+<input type="hidden" name="next" value="{{ next }}"><button class="btn btn-primary" type="submit">{% text 'staff.login.submit' %}</button></form></main></body></html>

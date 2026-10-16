@@ -1,0 +1,165 @@
+{
+  "tool": "visual_lint",
+  "target": "http://127.0.0.1:8030/produkt/manstore-m2223/",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "finding_count": 16,
+  "findings": [
+    {
+      "rule": "console_event",
+      "severity": "minor",
+      "message": "cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation",
+      "location": {
+        "url": "http://127.0.0.1:8030/static/storefront/vendor/tailwind-runtime.js?plugins=forms,container-queries",
+        "line": 63,
+        "column": 1710,
+        "lineNumber": 63,
+        "columnNumber": 1710
+      }
+    },
+    {
+      "rule": "low_contrast",
+      "severity": "major",
+      "selector": "div.flex.flex-col > div.max-w-[1440px].mx-auto > nav.mb-8.flex > span.text-border-subtle",
+      "message": "Contrast ratio 1.28 is below 4.5.",
+      "sample": "/"
+    },
+    {
+      "rule": "low_contrast",
+      "severity": "major",
+      "selector": "div.flex.flex-col > div.max-w-[1440px].mx-auto > nav.mb-8.flex > span.text-border-subtle",
+      "message": "Contrast ratio 1.28 is below 4.5.",
+      "sample": "/"
+    },
+    {
+      "rule": "low_contrast",
+      "severity": "major",
+      "selector": "div.flex.flex-col > div.max-w-[1440px].mx-auto > nav.mb-8.flex > span.text-border-subtle",
+      "message": "Contrast ratio 1.28 is below 4.5.",
+      "sample": "/"
+    },
+    {
+      "rule": "text_overflow",
+      "severity": "major",
+      "selector": "div.grid.grid-cols-1 > div.lg:col-span-7.flex > div.relative.flex-1 > button.absolute.top-4",
+      "message": "Element text appears clipped or scrollable.",
+      "sample": "zoom_in",
+      "bounds": {
+        "x": 318,
+        "y": 271.046875,
+        "width": 40,
+        "height": 40
+      }
+    },
+    {
+      "rule": "low_contrast",
+      "severity": "major",
+      "selector": "div.lg:col-span-5.flex > div.flex.items-center > div.flex.items-center > div.flex.text-[#D4AF37]",
+      "message": "Contrast ratio 1.97 is below 4.5.",
+      "sample": "star star star star star"
+    },
+    {
+      "rule": "low_contrast",
+      "severity": "major",
+      "selector": "div.flex.items-center > div.flex.items-center > div.flex.text-[#D4AF37] > span.material-symbols-outlined.text-[16px]",
+      "message": "Contrast ratio 1.97 is below 4.5.",
+      "sample": "star"
+    },
+    {
+      "rule": "low_contrast",
+      "severity": "major",
+      "selector": "div.flex.items-center > div.flex.items-center > div.flex.text-[#D4AF37] > span.material-symbols-outlined.text-[16px]",
+      "message": "Contrast ratio 1.97 is below 4.5.",
+      "sample": "star"
+    },
+    {
+      "rule": "low_contrast",
+      "severity": "major",
+      "selector": "div.flex.items-center > div.flex.items-center > div.flex.text-[#D4AF37] > span.material-symbols-outlined.text-[16px]",
+      "message": "Contrast ratio 1.97 is below 4.5.",
+      "sample": "star"
+    },
+    {
+      "rule": "low_contrast",
+      "severity": "major",
+      "selector": "div.flex.items-center > div.flex.items-center > div.flex.text-[#D4AF37] > span.material-symbols-outlined.text-[16px]",
+      "message": "Contrast ratio 1.97 is below 4.5.",
+      "sample": "star"
+    },
+    {
+      "rule": "low_contrast",
+      "severity": "major",
+      "selector": "div.flex.items-center > div.flex.items-center > div.flex.text-[#D4AF37] > span.material-symbols-outlined.text-[16px]",
+      "message": "Contrast ratio 1.97 is below 4.5.",
+      "sample": "star"
+    },
+    {
+      "rule": "text_overflow",
+      "severity": "major",
+      "selector": "div.grid.grid-cols-1 > div.lg:col-span-5.flex > div.flex.flex-col > button.h-12.w-12",
+      "message": "Element text appears clipped or scrollable.",
+      "sample": "favorite_border",
+      "bounds": {
+        "x": 16,
+        "y": 1435.875,
+        "width": 48,
+        "height": 48
+      }
+    },
+    {
+      "rule": "text_overflow",
+      "severity": "major",
+      "selector": "div.grid.grid-cols-2 > div.group.flex > div.p-4.flex > h3.text-sm.font-medium",
+      "message": "Element text appears clipped or scrollable.",
+      "sample": "M107 Zoned Cheeky String",
+      "bounds": {
+        "x": 32,
+        "y": 3777.625,
+        "width": 139,
+        "height": 20
+      }
+    },
+    {
+      "rule": "text_overflow",
+      "severity": "major",
+      "selector": "div.grid.grid-cols-2 > div.group.flex > div.p-4.flex > h3.text-sm.font-medium",
+      "message": "Element text appears clipped or scrollable.",
+      "sample": "RED2200 V-Neck Shirt",
+      "bounds": {
+        "x": 219,
+        "y": 3777.625,
+        "width": 139,
+        "height": 20
+      }
+    },
+    {
+      "rule": "text_overflow",
+      "severity": "major",
+      "selector": "div.grid.grid-cols-2 > div.group.flex > div.p-4.flex > h3.text-sm.font-medium",
+      "message": "Element text appears clipped or scrollable.",
+      "sample": "M107 Athletic Body Workout",
+      "bounds": {
+        "x": 32,
+        "y": 4145.375,
+        "width": 139,
+        "height": 20
+      }
+    },
+    {
+      "rule": "text_overflow",
+      "severity": "major",
+      "selector": "div.grid.grid-cols-2 > div.group.flex > div.p-4.flex > h3.text-sm.font-medium",
+      "message": "Element text appears clipped or scrollable.",
+      "sample": "Natural Skin Boxer Brief",
+      "bounds": {
+        "x": 219,
+        "y": 4145.375,
+        "width": 139,
+        "height": 20
+      }
+    }
+  ],
+  "generated_at": "2026-10-16T05:56:47.601Z"
+}

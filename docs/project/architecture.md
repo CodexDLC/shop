@@ -1,5 +1,7 @@
 # Архитектура
 
+Статус 15.10.2026: web-фичи catalog/cart/orders/payments/customer/support, их namespaces/templates и persistence-основа созданы; данные интерфейса пока presentation-моки. Доменный commerce API и реальное исполнение остаются следующим этапом. [Текущий перенос](django-template-migration.md), [ключи локализации](django-localization.md).
+
 План: независимый Python-движок + Django web с PostgreSQL, Django Templates, HTMX и Alpine. ARQ + Redis — отдельный потребитель API движка. Правила: [AGENTS.md](../../AGENTS.md).
 
 ```text

@@ -1,0 +1,132 @@
+[
+  {
+    "page": "index.html",
+    "errors": []
+  },
+  {
+    "page": "catalog.html",
+    "errors": []
+  },
+  {
+    "page": "catalog-empty.html",
+    "errors": []
+  },
+  {
+    "page": "catalog-mobile.html",
+    "errors": []
+  },
+  {
+    "page": "search.html",
+    "errors": []
+  },
+  {
+    "page": "search-empty.html",
+    "errors": []
+  },
+  {
+    "page": "product.html",
+    "errors": []
+  },
+  {
+    "page": "cart.html",
+    "errors": []
+  },
+  {
+    "page": "empty-cart.html",
+    "errors": []
+  },
+  {
+    "page": "checkout-address.html",
+    "errors": []
+  },
+  {
+    "page": "checkout-address-errors.html",
+    "errors": []
+  },
+  {
+    "page": "checkout-payment.html",
+    "errors": []
+  },
+  {
+    "page": "confirmation.html",
+    "errors": []
+  },
+  {
+    "page": "payment-error.html",
+    "errors": []
+  },
+  {
+    "page": "auth.html",
+    "errors": []
+  },
+  {
+    "page": "auth-mobile.html",
+    "errors": []
+  },
+  {
+    "page": "register.html",
+    "errors": []
+  },
+  {
+    "page": "register-mobile.html",
+    "errors": []
+  },
+  {
+    "page": "password-reset.html",
+    "errors": []
+  },
+  {
+    "page": "account.html",
+    "errors": []
+  },
+  {
+    "page": "account-mobile.html",
+    "errors": []
+  },
+  {
+    "page": "account-orders.html",
+    "errors": []
+  },
+  {
+    "page": "account-order-detail.html",
+    "errors": []
+  },
+  {
+    "page": "account-profile.html",
+    "errors": []
+  },
+  {
+    "page": "help.html",
+    "errors": []
+  },
+  {
+    "page": "help-mobile.html",
+    "errors": []
+  },
+  {
+    "page": "legal.html",
+    "errors": []
+  },
+  {
+    "page": "legal-mobile.html",
+    "errors": []
+  },
+  {
+    "page": "emails.html",
+    "errors": []
+  },
+  {
+    "page": "404.html",
+    "errors": []
+  },
+  {
+    "productNavigation": true,
+    "sizeGuide": true
+  },
+  {
+    "cartToAddress": true
+  },
+  {
+    "mobileWidth": 390
+  }
+]

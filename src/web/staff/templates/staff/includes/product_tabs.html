@@ -1,0 +1,6 @@
+{% load shop_i18n %}
+{% if product.pk %}<nav class="nav nav-tabs mb-4" aria-label="{% text 'staff.product_tabs.label' %}">
+<a class="nav-link{% if request.resolver_match.url_name == 'product_edit' %} active{% endif %}" href="{% url 'staff:product_edit' pk=product.pk %}">{% text 'staff.product_tabs.main' %}</a>
+{% if perms.catalog.change_product and perms.catalog.change_productvariant %}<a class="nav-link{% if request.resolver_match.url_name == 'variants' %} active{% endif %}" href="{% url 'staff:variants' pk=product.pk %}">{% text 'staff.product_tabs.variants' %}</a>{% endif %}
+{% if product.is_active %}<a class="nav-link" href="{% url 'catalog:detail' slug=product.slug %}">{% text 'staff.product_tabs.storefront' %}</a>{% endif %}
+</nav>{% endif %}

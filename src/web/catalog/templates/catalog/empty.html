@@ -1,0 +1,346 @@
+{% extends 'base.html' %}
+{% load static shop_i18n %}
+{% block page_head %}<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="{% static 'storefront/vendor/tailwind-runtime.js' %}?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"text-muted":"#626960","border-subtle":"#DCDED5","on-primary-container":"#8cb9a3","surface-container-high":"#e3eae2","primary-fixed":"#beedd5","surface-container-low":"#eef6ed","secondary-fixed":"#dee5d9","tertiary-fixed":"#e1e3da","tertiary":"#2a2d27","surface-variant":"#dde5dc","on-tertiary-fixed-variant":"#454841","surface-container":"#e8f0e7","brand-deep":"#183F30","surface-muted":"#EEEEE7","surface":"#f4fbf3","outline":"#717974","text-primary":"#171E19","secondary-fixed-dim":"#c2c9be","on-surface-variant":"#414944","on-tertiary-container":"#adb0a7","on-error-container":"#93000a","surface-bright":"#f4fbf3","tertiary-fixed-dim":"#c5c7bf","on-secondary-fixed":"#171d16","outline-variant":"#c0c8c2","on-secondary-container":"#5f665d","primary-fixed-dim":"#a3d1ba","page-bg":"#F8F8F3","on-background":"#161d18","on-tertiary":"#ffffff","primary-container":"#1f4a39","on-surface":"#161d18","surface-container-lowest":"#ffffff","surface-tint":"#3c6754","on-tertiary-fixed":"#191c17","error-container":"#ffdad6","inverse-surface":"#2b322d","secondary":"#596057","primary":"#033324","on-secondary":"#ffffff","on-primary-fixed":"#002115","inverse-on-surface":"#ebf3ea","surface-container-highest":"#dde5dc","background":"#f4fbf3","inverse-primary":"#a3d1ba","secondary-container":"#dee5d9","on-primary":"#ffffff","error":"#ba1a1a","on-secondary-fixed-variant":"#424940","tertiary-container":"#40433d","surface-dim":"#d4dcd4","on-error":"#ffffff","on-primary-fixed-variant":"#244f3d"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin":"3rem","gutter-mobile":"0.75rem","space-md":"1rem","space-lg":"1.5rem","space-3xl":"6rem","margin-mobile":"1rem","space-2xl":"4rem","gutter":"1.5rem","space-xs":"0.25rem","space-sm":"0.5rem","space-xl":"2.5rem"},"fontFamily":{"headline-lg-mobile":["Bodoni Moda"],"body-md":["Plus Jakarta Sans"],"headline-lg":["Bodoni Moda"],"body-lg":["Plus Jakarta Sans"],"headline-md":["Bodoni Moda"],"label-md":["Plus Jakarta Sans"],"display-xl":["Bodoni Moda"],"title-lg":["Plus Jakarta Sans"],"price-md":["Plus Jakarta Sans"],"display-xl-mobile":["Bodoni Moda"],"body-sm":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"price-lg":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"]},"fontSize":{"headline-lg-mobile":["1.75rem",{"lineHeight":"1.3","fontWeight":"500"}],"body-md":["0.9375rem",{"lineHeight":"1.5","fontWeight":"400"}],"headline-lg":["2.25rem",{"lineHeight":"1.25","letterSpacing":"-0.01em","fontWeight":"500"}],"body-lg":["1.125rem",{"lineHeight":"1.6","fontWeight":"400"}],"headline-md":["1.5rem",{"lineHeight":"1.35","fontWeight":"500"}],"label-md":["0.8125rem",{"lineHeight":"1.2","letterSpacing":"0.05em","fontWeight":"600"}],"display-xl":["3.5rem",{"lineHeight":"1.15","letterSpacing":"-0.02em","fontWeight":"500"}],"title-lg":["1.125rem",{"lineHeight":"1.4","letterSpacing":"0.01em","fontWeight":"600"}],"price-md":["0.9375rem",{"lineHeight":"1.2","fontWeight":"600"}],"display-xl-mobile":["2.25rem",{"lineHeight":"1.2","letterSpacing":"-0.01em","fontWeight":"500"}],"body-sm":["0.8125rem",{"lineHeight":"1.4","fontWeight":"400"}],"label-sm":["0.6875rem",{"lineHeight":"1.2","letterSpacing":"0.06em","fontWeight":"500"}],"price-lg":["1.25rem",{"lineHeight":"1.2","fontWeight":"600"}],"title-md":["1rem",{"lineHeight":"1.4","fontWeight":"600"}]}}}};</script><script src="{% static 'storefront/reference-tokens.js' %}"></script>
+<link rel="stylesheet" href="{% static 'storefront/shared-chrome.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+<link rel="icon" href="{% static 'storefront/brand/favicon.ico' %}"><link rel="apple-touch-icon" href="{% static 'storefront/brand/apple-touch-icon.png' %}">
+{% endblock %}
+{% block body_attrs %} class="bg-page-bg font-body-md text-text-primary antialiased min-h-screen flex flex-col selection:bg-brand-deep selection:text-surface-container-lowest" data-demo-page="catalog-empty.html"{% endblock %}
+{% block content %}
+{% include 'includes/header.html' %}<main class="w-full pt-28 bg-page-bg flex-1"><div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin py-space-lg"><div class="flex flex-col w-full">
+<!-- BREADCRUMBS & CONTEXT -->
+<nav class="flex items-center gap-2 font-label-sm text-label-sm uppercase tracking-wider text-text-muted mb-space-md">
+<a class="hover:text-text-primary transition-colors" href="#">{% text 'catalog.empty.text.b660f83df4d6' %}</a>
+<span class="text-text-muted/60">/</span>
+<a class="hover:text-text-primary transition-colors" href="#">{% text 'navigation.underwear' %}</a>
+<span class="text-text-muted/60">/</span>
+<span class="text-text-primary font-medium">{% text 'catalog.empty.text.2f400597a36d' %}</span>
+</nav>
+<!-- TITLE & ACTIVE FILTER STRIP -->
+<header class="mb-space-xl pb-space-md border-b border-border-subtle/50">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-space-md">
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-brand-deep mb-1 font-semibold">{% text 'catalog.empty.text.aaec4b1399ec' %}</p>
+<h1 class="font-headline-lg text-headline-lg tracking-tight uppercase text-text-primary">{% text 'catalog.empty.text.66f91412c906' %}</h1>
+</div>
+<div class="flex items-center gap-2 text-text-muted font-body-sm text-body-sm">
+<span class="font-semibold text-text-primary">0</span> {% text 'catalog.empty.text.e0b488d554dd' %}
+      </div>
+</div>
+<!-- Active Filter Pills Strip -->
+<div class="flex flex-wrap items-center gap-2 pt-2">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted mr-2">{% text 'catalog.empty.text.b595eb9c3078' %}</span>
+<button class="group inline-flex items-center gap-2 bg-surface-muted hover:bg-surface-container-high px-3 py-1.5 transition-colors text-text-primary font-label-sm text-label-sm" type="button">
+<span>{% text 'catalog.empty.text.0ad569a4dd82' %} <strong class="font-semibold">{% text 'catalog.empty.text.3b5534d8b3e9' %}</strong></span>
+<span class="material-symbols-outlined text-[14px] text-text-muted group-hover:text-text-primary">{% text 'catalog.empty.text.da38860cb875' %}</span>
+</button>
+<button class="group inline-flex items-center gap-2 bg-surface-muted hover:bg-surface-container-high px-3 py-1.5 transition-colors text-text-primary font-label-sm text-label-sm" type="button">
+<span>{% text 'catalog.empty.text.5b122d1c40d2' %} <strong class="font-semibold">{% text 'catalog.empty.text.b63cfad6252d' %}</strong></span>
+<span class="material-symbols-outlined text-[14px] text-text-muted group-hover:text-text-primary">{% text 'catalog.empty.text.da38860cb875' %}</span>
+</button>
+<button class="group inline-flex items-center gap-2 bg-surface-muted hover:bg-surface-container-high px-3 py-1.5 transition-colors text-text-primary font-label-sm text-label-sm" type="button">
+<span>{% text 'catalog.empty.text.7983efffc1a2' %} <strong class="font-semibold">{% text 'catalog.empty.text.a9a63fabb948' %}</strong></span>
+<span class="material-symbols-outlined text-[14px] text-text-muted group-hover:text-text-primary">{% text 'catalog.empty.text.da38860cb875' %}</span>
+</button>
+<button class="group inline-flex items-center gap-2 bg-surface-muted hover:bg-surface-container-high px-3 py-1.5 transition-colors text-text-primary font-label-sm text-label-sm" type="button">
+<span>{% text 'catalog.empty.text.b66b4521b45b' %} <strong class="font-semibold">{% text 'catalog.empty.text.360e67400111' %}</strong></span>
+<span class="material-symbols-outlined text-[14px] text-text-muted group-hover:text-text-primary">{% text 'catalog.empty.text.da38860cb875' %}</span>
+</button>
+<button class="group inline-flex items-center gap-2 bg-surface-muted hover:bg-surface-container-high px-3 py-1.5 transition-colors text-text-primary font-label-sm text-label-sm" type="button">
+<span>{% text 'catalog.empty.text.6e1eaff0bd14' %} <strong class="font-semibold">{% text 'catalog.empty.text.3438fe96856b' %}</strong></span>
+<span class="material-symbols-outlined text-[14px] text-text-muted group-hover:text-text-primary">{% text 'catalog.empty.text.da38860cb875' %}</span>
+</button>
+<a class="inline-flex items-center gap-1 font-label-sm text-label-sm uppercase tracking-wider text-brand-deep underline underline-offset-4 hover:text-text-primary ml-2 transition-colors" href="#">
+        {% text 'catalog.empty.text.c714b23f00c2' %}
+      </a>
+</div>
+</header>
+<!-- TWO-COLUMN EDITORIAL WORKSPACE -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg lg:gap-space-xl items-start">
+<!-- LEFT SIDEBAR: FILTERS -->
+<aside class="lg:col-span-3 bg-surface-muted/60 p-space-md">
+<div class="flex items-center justify-between pb-space-sm border-b border-border-subtle/40 mb-space-md">
+<span class="font-label-md text-label-md uppercase tracking-widest text-text-primary">{% text 'catalog.empty.text.c173c3c19d58' %}</span>
+<a class="text-[11px] font-label-sm uppercase tracking-wider text-text-muted hover:text-brand-deep transition-colors" href="#">{% text 'catalog.empty.text.44c57abd888a' %}</a>
+</div>
+<!-- Filter Group: Marke -->
+<div class="mb-space-md pb-space-md border-b border-border-subtle/30">
+<h2 class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted mb-space-sm">{% text 'catalog.empty.text.be36224f95f4' %}</h2>
+<div class="space-y-2 font-body-sm text-body-sm">
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input checked="" class="w-4 h-4 rounded-none accent-brand-deep bg-surface-container-lowest" type="checkbox"/>
+<span class="font-semibold text-text-primary">{% text 'catalog.empty.text.3b5534d8b3e9' %}</span>
+</span>
+<span class="text-text-muted text-[11px]">(18)</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group text-text-muted hover:text-text-primary">
+<span class="flex items-center gap-2">
+<input class="w-4 h-4 rounded-none accent-brand-deep bg-surface-container-lowest" type="checkbox"/>
+<span>{% text 'catalog.empty.text.a7769b7586cf' %}</span>
+</span>
+<span class="text-text-muted text-[11px]">(42)</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group text-text-muted hover:text-text-primary">
+<span class="flex items-center gap-2">
+<input class="w-4 h-4 rounded-none accent-brand-deep bg-surface-container-lowest" type="checkbox"/>
+<span>{% text 'catalog.empty.text.ba3e4d081bdb' %}</span>
+</span>
+<span class="text-text-muted text-[11px]">(36)</span>
+</label>
+</div>
+</div>
+<!-- Filter Group: Schnittform -->
+<div class="mb-space-md pb-space-md border-b border-border-subtle/30">
+<h2 class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted mb-space-sm">{% text 'catalog.empty.text.ef54ebdfa485' %}</h2>
+<div class="space-y-2 font-body-sm text-body-sm">
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="flex items-center gap-2">
+<input checked="" class="w-4 h-4 rounded-none accent-brand-deep bg-surface-container-lowest" type="checkbox"/>
+<span class="font-semibold text-text-primary">{% text 'catalog.empty.text.b63cfad6252d' %}</span>
+</span>
+<span class="text-text-muted text-[11px]">(12)</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group text-text-muted hover:text-text-primary">
+<span class="flex items-center gap-2">
+<input class="w-4 h-4 rounded-none accent-brand-deep bg-surface-container-lowest" type="checkbox"/>
+<span>{% text 'catalog.empty.text.902746901af0' %}</span>
+</span>
+<span class="text-text-muted text-[11px]">(34)</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group text-text-muted hover:text-text-primary">
+<span class="flex items-center gap-2">
+<input class="w-4 h-4 rounded-none accent-brand-deep bg-surface-container-lowest" type="checkbox"/>
+<span>{% text 'catalog.empty.text.92ab306ba057' %}</span>
+</span>
+<span class="text-text-muted text-[11px]">(51)</span>
+</label>
+</div>
+</div>
+<!-- Filter Group: Konfektionsgröße -->
+<div class="mb-space-md pb-space-md border-b border-border-subtle/30">
+<div class="flex items-center justify-between mb-space-sm">
+<h2 class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'catalog.empty.text.d9130ae841c9' %}</h2>
+<span class="text-[10px] uppercase tracking-wider text-text-muted">{% text 'catalog.empty.text.17f577306532' %}</span>
+</div>
+<div class="grid grid-cols-4 gap-1.5">
+<button class="h-9 flex items-center justify-center font-label-sm text-label-sm bg-surface-container-lowest text-text-muted hover:text-text-primary" type="button">{% text 'catalog.empty.text.02aa629c8b16' %}</button>
+<button class="h-9 flex items-center justify-center font-label-sm text-label-sm bg-surface-container-lowest text-text-muted hover:text-text-primary" type="button">{% text 'catalog.empty.text.c63ae6dd4fc9' %}</button>
+<button class="h-9 flex items-center justify-center font-label-sm text-label-sm bg-surface-container-lowest text-text-muted hover:text-text-primary" type="button">{% text 'catalog.empty.text.d160e0986aca' %}</button>
+<button class="h-9 flex items-center justify-center font-label-sm text-label-sm bg-surface-container-lowest text-text-muted hover:text-text-primary" type="button">{% text 'catalog.empty.text.a2f9d0d16d02' %}</button>
+<button class="h-9 flex items-center justify-center font-label-sm text-label-sm bg-brand-deep text-surface-container-lowest font-semibold col-span-2" type="button">{% text 'catalog.empty.text.a00ccab4e36e' %}</button>
+<button class="h-9 flex items-center justify-center font-label-sm text-label-sm bg-surface-container-lowest text-text-muted/40 line-through col-span-2" type="button">{% text 'catalog.empty.text.ffa3b2b1e483' %}</button>
+</div>
+</div>
+<!-- Filter Group: Farbton -->
+<div class="mb-space-md pb-space-md border-b border-border-subtle/30">
+<h2 class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted mb-space-sm">{% text 'catalog.empty.text.89b7957dae43' %}</h2>
+<div class="flex flex-wrap gap-2">
+<div class="w-6 h-6 bg-black cursor-pointer hover:scale-105 transition-transform" title="{% text 'catalog.empty.label.4b436dc5eb76' %}"></div>
+<div class="w-6 h-6 bg-white border border-border-subtle cursor-pointer hover:scale-105 transition-transform" title="{% text 'catalog.empty.label.fb938e028855' %}"></div>
+<div class="w-6 h-6 bg-brand-deep cursor-pointer hover:scale-105 transition-transform" title="{% text 'catalog.empty.label.90e71d203e22' %}"></div>
+<div class="w-6 h-6 bg-[#6A1B29] outline outline-2 outline-offset-1 outline-brand-deep cursor-pointer" title="{% text 'catalog.empty.label.fe044df0bc73' %}"></div>
+<div class="w-6 h-6 bg-[#16253D] cursor-pointer hover:scale-105 transition-transform" title="{% text 'catalog.empty.label.2542850301ba' %}"></div>
+</div>
+</div>
+<!-- Filter Group: Preisspanne -->
+<div>
+<div class="flex items-center justify-between mb-2">
+<h2 class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'catalog.empty.text.1b7db6dad56a' %}</h2>
+<span class="font-label-sm text-label-sm text-text-primary font-semibold">{% text 'catalog.empty.text.56e379438e2d' %}</span>
+</div>
+<input class="w-full accent-brand-deep cursor-pointer" max="120" min="20" type="range" value="30"/>
+<div class="flex items-center justify-between text-[11px] text-text-muted mt-1">
+<span>20 €</span>
+<span>120 €+</span>
+</div>
+</div>
+</aside>
+<!-- RIGHT CONTENT AREA: ZERO RESULTS STATE -->
+<main class="lg:col-span-9 flex flex-col">
+<!-- EMPTY STATE MONUMENT -->
+<section class="bg-surface-muted/40 p-space-lg lg:p-space-xl mb-space-xl relative overflow-hidden">
+<!-- Subtle architectural watermarking -->
+<div class="absolute -right-8 -bottom-8 pointer-events-none opacity-5 text-text-primary">
+<span class="material-symbols-outlined text-[240px] leading-none">{% text 'catalog.empty.text.72c9a48976df' %}</span>
+</div>
+<div class="max-w-2xl relative z-10">
+<div class="w-12 h-12 bg-surface-container-highest text-brand-deep flex items-center justify-center mb-space-md">
+<span class="material-symbols-outlined text-[28px]">{% text 'catalog.empty.text.920ae2fa4bff' %}</span>
+</div>
+<h2 class="font-headline-md text-headline-md uppercase tracking-tight text-text-primary mb-space-xs">
+            {% text 'catalog.empty.text.612a4c46d21f' %}
+          </h2>
+<p class="font-body-md text-body-md text-text-muted mb-space-lg leading-relaxed">
+            {% text 'catalog.empty.text.9b1da07b0672' %}<span class="text-text-primary font-medium">{% text 'catalog.empty.text.050175d6a31c' %}</span>{% text 'catalog.empty.text.c624e5ab0257' %}
+          </p>
+<!-- Action & Suggestion Engine -->
+<div class="bg-surface-container-lowest p-space-md space-y-space-md mb-space-md shadow-sm">
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted mb-2">{% text 'catalog.empty.text.9a849d10b574' %}</p>
+<a class="inline-flex items-center justify-center gap-3 bg-brand-deep hover:bg-primary-container text-surface-container-lowest px-6 py-3 font-label-md text-label-md uppercase tracking-widest transition-colors w-full sm:w-auto" href="#">
+<span>{% text 'catalog.empty.text.d4a9a7e96d33' %}</span>
+<span class="material-symbols-outlined text-[18px]">{% text 'catalog.empty.text.26b56c1bdfb0' %}</span>
+</a>
+</div>
+<div class="pt-space-sm border-t border-border-subtle/40">
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted mb-space-sm">{% text 'catalog.empty.text.600254e71b5f' %}</p>
+<div class="flex flex-wrap gap-2">
+<a class="inline-flex items-center gap-1.5 bg-surface-muted hover:bg-surface-container-high px-3 py-2 text-text-primary font-label-sm text-label-sm tracking-wide transition-colors" href="#">
+<span class="material-symbols-outlined text-[15px] text-brand-deep">{% text 'catalog.empty.text.301c72615df0' %}</span>
+<span>{% text 'catalog.empty.text.c9624eeff3bc' %} <strong class="font-semibold">{% text 'catalog.empty.text.a7769b7586cf' %}</strong> {% text 'catalog.empty.text.cb97f79cd6de' %}</span>
+</a>
+<a class="inline-flex items-center gap-1.5 bg-surface-muted hover:bg-surface-container-high px-3 py-2 text-text-primary font-label-sm text-label-sm tracking-wide transition-colors" href="#">
+<span class="material-symbols-outlined text-[15px] text-brand-deep">{% text 'catalog.empty.text.301c72615df0' %}</span>
+<span>{% text 'catalog.empty.text.d71b1b511555' %} <strong class="font-semibold">{% text 'catalog.empty.text.a9a63fabb948' %}</strong> {% text 'catalog.empty.text.2f7ee2215a6b' %}</span>
+</a>
+<a class="inline-flex items-center gap-1.5 bg-surface-muted hover:bg-surface-container-high px-3 py-2 text-text-primary font-label-sm text-label-sm tracking-wide transition-colors" href="#">
+<span class="material-symbols-outlined text-[15px] text-brand-deep">{% text 'catalog.empty.text.301c72615df0' %}</span>
+<span>{% text 'catalog.empty.text.5af5713acf3a' %} <strong class="font-semibold">{% text 'catalog.empty.text.90e71d203e22' %}</strong></span>
+</a>
+</div>
+</div>
+</div>
+<!-- Concierge Advisory Callout -->
+<div class="flex items-start gap-3 bg-surface-container-high/60 p-space-sm font-body-sm text-body-sm text-text-muted">
+<span class="material-symbols-outlined text-[20px] text-brand-deep shrink-0 mt-0.5">{% text 'catalog.empty.text.98c33b164659' %}</span>
+<div>
+<span class="text-text-primary font-semibold">{% text 'catalog.empty.text.4c1cd4156cb7' %}</span>
+<span> {% text 'catalog.empty.text.f6a6c4f05f0f' %} </span>
+<a class="text-text-primary font-medium underline underline-offset-2 hover:text-brand-deep transition-colors" href="tel:+49892154890">+49 (0) 89 215 489 0</a>
+<span class="text-[11px] block text-text-muted mt-0.5">{% text 'catalog.empty.text.41b258f5acf2' %}</span>
+</div>
+</div>
+</div>
+</section>
+<!-- CURATED ALTERNATIVES ROW -->
+<section class="mt-space-md">
+<div class="flex items-center justify-between pb-3 border-b border-border-subtle/50 mb-space-md">
+<div>
+<h3 class="font-headline-md text-headline-md uppercase tracking-tight text-text-primary">{% text 'catalog.empty.text.2778f4e60cc5' %}</h3>
+<p class="font-body-sm text-body-sm text-text-muted">{% text 'catalog.empty.text.78b09704dd1b' %}</p>
+</div>
+<a class="hidden sm:inline-flex items-center gap-1 font-label-sm text-label-sm uppercase tracking-wider text-brand-deep hover:text-text-primary transition-colors" href="#">
+<span>{% text 'catalog.empty.text.ad62ffcb2481' %}</span>
+<span class="material-symbols-outlined text-[16px]">{% text 'catalog.empty.text.16d57c087f83' %}</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- PRODUCT CARD 1 -->
+<article class="bg-surface-container-lowest flex flex-col group p-3">
+<div class="relative overflow-hidden aspect-[4/5] bg-surface-muted mb-3">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="{% text 'catalog.empty.label.3e430e44092e' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0W8R-NdFV7YCAvuh8gs-NX5redph6_1-irtTJf8rSu6CfsXwt6kh4qLFhH7LJkfnMAxuX5FcKhPssZWD_RMO5buO1yP7ekJhdJN_JvrBGt5AezbdWlUx-g28y2Ur63oPvc4OhHVA5kj10ZiPwFulMHz_p3TYswyH-ApRZ4ZLEBFEd4zLc2IYx6kvXM6nErS-Phwqp9qHfezaq4xU2EQeaZAGfjG0eNlT2kdc-y2nRhyXps-uWe5cC"/>
+<div class="absolute top-2 left-2 bg-brand-deep text-surface-container-lowest font-label-sm text-[10px] tracking-widest px-2 py-0.5 uppercase">
+                {% text 'catalog.empty.text.df042dd291b5' %}
+              </div>
+</div>
+<div class="flex flex-col flex-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted mb-1">{% text 'catalog.empty.text.a7769b7586cf' %}</span>
+<h4 class="font-title-md text-title-md text-text-primary font-medium line-clamp-1 mb-1">{% text 'catalog.empty.text.883b796dd234' %}</h4>
+<div class="font-price-md text-price-md text-text-primary mb-3">39,95 €</div>
+<!-- Quick Selector Module -->
+<div class="mt-auto pt-2 border-t border-border-subtle/30 space-y-2">
+<div class="flex items-center justify-between text-[11px] font-label-sm">
+<span class="text-text-muted uppercase">{% text 'catalog.empty.text.bcd723249133' %}</span>
+<div class="flex items-center gap-1.5">
+<span class="w-3.5 h-3.5 bg-black outline outline-1 outline-offset-1 outline-black inline-block"></span>
+<span class="w-3.5 h-3.5 bg-brand-deep inline-block"></span>
+<span class="w-3.5 h-3.5 bg-[#4A1521] inline-block"></span>
+</div>
+</div>
+<div class="flex items-center justify-between gap-1">
+<span class="text-[10px] uppercase font-label-sm text-text-muted">{% text 'catalog.empty.text.1cce29119521' %}</span>
+<div class="flex gap-1">
+<span class="px-1.5 py-0.5 bg-surface-muted text-[10px] font-label-sm text-text-primary">{% text 'catalog.empty.text.c63ae6dd4fc9' %}</span>
+<span class="px-1.5 py-0.5 bg-surface-muted text-[10px] font-label-sm text-text-primary">{% text 'catalog.empty.text.d160e0986aca' %}</span>
+<span class="px-1.5 py-0.5 bg-surface-muted text-[10px] font-label-sm text-text-primary">{% text 'catalog.empty.text.a2f9d0d16d02' %}</span>
+</div>
+</div>
+<button class="w-full bg-surface-muted hover:bg-brand-deep hover:text-surface-container-lowest text-text-primary font-label-sm text-label-sm uppercase tracking-wider py-2 transition-colors flex items-center justify-center gap-1" type="button">
+<span>{% text 'catalog.empty.text.68199e47f757' %}</span>
+</button>
+</div>
+</div>
+</article>
+<!-- PRODUCT CARD 2 -->
+<article class="bg-surface-container-lowest flex flex-col group p-3">
+<div class="relative overflow-hidden aspect-[4/5] bg-surface-muted mb-3">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="{% text 'catalog.empty.label.b5c0c04e7405' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFFXMddYmBbZDeTl6WP0E0utOQzTnTM4SB-mnaxCOcZ6UAeq4R0LVFQH-U_UCc15g7hdVzEZK_pg1Rx7nAzmHRzdALkomqHjVyvULho_J0hGuRUz1qNs-eWKynSc5zqkf6T_tbuXzxR5JwIePz-MwexJMt1v-A1TfkYUy06bpTjUx-Lceu1W5nzU-KObBEju6IIhFPvs2har-i26Op_xW5bcEci79XUzEU8Py8TQEkx-_HUBMEbpoO"/>
+<div class="absolute top-2 left-2 bg-text-primary text-surface-container-lowest font-label-sm text-[10px] tracking-widest px-2 py-0.5 uppercase">
+                {% text 'catalog.empty.text.c90f10fb3ed7' %}
+              </div>
+</div>
+<div class="flex flex-col flex-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted mb-1">{% text 'catalog.empty.text.ba3e4d081bdb' %}</span>
+<h4 class="font-title-md text-title-md text-text-primary font-medium line-clamp-1 mb-1">{% text 'catalog.empty.text.9b8973772281' %}</h4>
+<div class="font-price-md text-price-md text-text-primary mb-3">34,90 €</div>
+<!-- Quick Selector Module -->
+<div class="mt-auto pt-2 border-t border-border-subtle/30 space-y-2">
+<div class="flex items-center justify-between text-[11px] font-label-sm">
+<span class="text-text-muted uppercase">{% text 'catalog.empty.text.bcd723249133' %}</span>
+<div class="flex items-center gap-1.5">
+<span class="w-3.5 h-3.5 bg-brand-deep outline outline-1 outline-offset-1 outline-brand-deep inline-block"></span>
+<span class="w-3.5 h-3.5 bg-black inline-block"></span>
+<span class="w-3.5 h-3.5 bg-[#CBD2C9] inline-block"></span>
+</div>
+</div>
+<div class="flex items-center justify-between gap-1">
+<span class="text-[10px] uppercase font-label-sm text-text-muted">{% text 'catalog.empty.text.1cce29119521' %}</span>
+<div class="flex gap-1">
+<span class="px-1.5 py-0.5 bg-surface-muted text-[10px] font-label-sm text-text-primary">{% text 'catalog.empty.text.02aa629c8b16' %}</span>
+<span class="px-1.5 py-0.5 bg-surface-muted text-[10px] font-label-sm text-text-primary">{% text 'catalog.empty.text.c63ae6dd4fc9' %}</span>
+<span class="px-1.5 py-0.5 bg-surface-muted text-[10px] font-label-sm text-text-primary">{% text 'catalog.empty.text.d160e0986aca' %}</span>
+<span class="px-1.5 py-0.5 bg-surface-muted text-[10px] font-label-sm text-text-primary">{% text 'catalog.empty.text.a2f9d0d16d02' %}</span>
+</div>
+</div>
+<button class="w-full bg-surface-muted hover:bg-brand-deep hover:text-surface-container-lowest text-text-primary font-label-sm text-label-sm uppercase tracking-wider py-2 transition-colors flex items-center justify-center gap-1" type="button">
+<span>{% text 'catalog.empty.text.68199e47f757' %}</span>
+</button>
+</div>
+</div>
+</article>
+<!-- PRODUCT CARD 3 -->
+<article class="bg-surface-container-lowest flex flex-col group p-3">
+<div class="relative overflow-hidden aspect-[4/5] bg-surface-muted mb-3">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="{% text 'catalog.empty.label.8f679c902cb0' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR9D3zKqApLbOLq9rqfYebpOC34ueAogESpdUEyJe13CaZh8C9wkpFYxHtRWRNHmGmuT81a76Ruitu8xcTR6ZL3OJ59Ypk2KkRGk0QMEBCqZ2Fr6q-lPPjsHbXWiyLfskt-03hmo1sqrruvNAXIle_2zc7082k2nSX4rD9cYomEikBUORCw6cIVmcx-fdpbJx7WBZh5sSMd_tYBv_93Nu4Y5heDONY6TZY8Q_evmnjlwb7AIPf2UhY"/>
+<div class="absolute top-2 left-2 bg-surface-container-highest text-text-primary font-label-sm text-[10px] tracking-widest px-2 py-0.5 uppercase">
+                {% text 'catalog.empty.text.1834e4266c78' %}
+              </div>
+</div>
+<div class="flex flex-col flex-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted mb-1">{% text 'catalog.empty.text.3b5534d8b3e9' %}</span>
+<h4 class="font-title-md text-title-md text-text-primary font-medium line-clamp-1 mb-1">{% text 'catalog.empty.text.841c7057f4e5' %}</h4>
+<div class="font-price-md text-price-md text-text-primary mb-3">44,95 €</div>
+<!-- Quick Selector Module -->
+<div class="mt-auto pt-2 border-t border-border-subtle/30 space-y-2">
+<div class="flex items-center justify-between text-[11px] font-label-sm">
+<span class="text-text-muted uppercase">{% text 'catalog.empty.text.bcd723249133' %}</span>
+<div class="flex items-center gap-1.5">
+<span class="w-3.5 h-3.5 bg-[#2E3133] outline outline-1 outline-offset-1 outline-text-primary inline-block"></span>
+<span class="w-3.5 h-3.5 bg-black inline-block"></span>
+<span class="w-3.5 h-3.5 bg-[#424B54] inline-block"></span>
+</div>
+</div>
+<div class="flex items-center justify-between gap-1">
+<span class="text-[10px] uppercase font-label-sm text-text-muted">{% text 'catalog.empty.text.1cce29119521' %}</span>
+<div class="flex gap-1">
+<span class="px-1.5 py-0.5 bg-surface-muted text-[10px] font-label-sm text-text-primary">{% text 'catalog.empty.text.c63ae6dd4fc9' %}</span>
+<span class="px-1.5 py-0.5 bg-surface-muted text-[10px] font-label-sm text-text-primary">{% text 'catalog.empty.text.d160e0986aca' %}</span>
+<span class="px-1.5 py-0.5 bg-brand-deep text-surface-container-lowest text-[10px] font-label-sm font-semibold">{% text 'catalog.empty.text.a9a63fabb948' %}</span>
+</div>
+</div>
+<button class="w-full bg-surface-muted hover:bg-brand-deep hover:text-surface-container-lowest text-text-primary font-label-sm text-label-sm uppercase tracking-wider py-2 transition-colors flex items-center justify-center gap-1" type="button">
+<span>{% text 'catalog.empty.text.68199e47f757' %}</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- BRAND HERITAGE ASSURANCE -->
+{% include 'includes/footer.html' %}
+</main>
+</div>
+</div></div></main><footer class="w-full bg-surface-muted text-text-primary mt-space-3xl"><div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin pt-space-2xl pb-space-lg"><div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-space-lg mb-space-2xl"><div class="col-span-2 lg:col-span-2 pr-6"><span class="font-headline-lg text-headline-md tracking-tight uppercase font-medium text-text-primary block mb-2">{% text 'catalog.empty.text.3b13dcee32f7' %}</span><p class="font-body-md text-body-sm text-text-muted mb-space-md max-w-sm">{% text 'catalog.empty.text.2026e3fd1de1' %}</p><div class="flex items-center gap-4 text-text-muted"><span class="material-symbols-outlined text-[20px] hover:text-text-primary cursor-pointer transition-colors">{% text 'catalog.empty.text.ec734b651574' %}</span><span class="material-symbols-outlined text-[20px] hover:text-text-primary cursor-pointer transition-colors">{% text 'catalog.empty.text.e117797422d3' %}</span><span class="material-symbols-outlined text-[20px] hover:text-text-primary cursor-pointer transition-colors">{% text 'catalog.empty.text.9c586571e3cb' %}</span><span class="material-symbols-outlined text-[20px] hover:text-text-primary cursor-pointer transition-colors">{% text 'catalog.empty.text.f1a915d3cbdb' %}</span></div></div><div><h4 class="font-label-md text-label-md uppercase tracking-wider text-text-primary mb-4">{% text 'catalog.empty.text.bab8d18be06b' %}</h4><ul class="space-y-2.5 font-body-sm text-body-sm text-text-muted"><li><a class="hover:text-text-primary transition-colors" data-path="unterwaesche" href="#">{% text 'catalog.empty.text.9a189399c338' %}</a></li><li><a class="hover:text-text-primary transition-colors" data-path="unterwaesche" href="#">{% text 'catalog.empty.text.73d4671dc3fb' %}</a></li><li><a class="hover:text-text-primary transition-colors" data-path="bademode" href="#">{% text 'catalog.empty.text.632a713fbe6a' %}</a></li><li><a class="hover:text-text-primary transition-colors" data-path="bademode" href="#">{% text 'catalog.empty.text.83eaf26160bc' %}</a></li><li><a class="hover:text-text-primary transition-colors" data-path="neuheiten" href="#">{% text 'catalog.empty.text.ac9fa9d565aa' %}</a></li></ul></div><div><h4 class="font-label-md text-label-md uppercase tracking-wider text-text-primary mb-4">{% text 'navigation.brands' %}</h4><ul class="space-y-2.5 font-body-sm text-body-sm text-text-muted"><li><a class="hover:text-text-primary transition-colors" data-path="marken" href="#">{% text 'catalog.empty.text.a7769b7586cf' %}</a></li><li><a class="hover:text-text-primary transition-colors" data-path="marken" href="#">{% text 'catalog.empty.text.ba3e4d081bdb' %}</a></li><li><a class="hover:text-text-primary transition-colors" data-path="marken" href="#">{% text 'catalog.empty.text.3b5534d8b3e9' %}</a></li><li><a class="hover:text-text-primary transition-colors" data-path="marken" href="#">{% text 'catalog.empty.text.8ddef5646c04' %}</a></li><li><a class="hover:text-error transition-colors" data-path="sale" href="#">{% text 'catalog.empty.text.1f647f0a01b3' %}</a></li></ul></div><div><h4 class="font-label-md text-label-md uppercase tracking-wider text-text-primary mb-4">{% text 'catalog.empty.text.329cb8b6ba8c' %}</h4><ul class="space-y-2.5 font-body-sm text-body-sm text-text-muted"><li><a class="hover:text-text-primary transition-colors" href="#">{% text 'catalog.empty.text.bb3f1cbf386f' %}</a></li><li><a class="hover:text-text-primary transition-colors" href="#">{% text 'catalog.empty.text.31e39ee3e41c' %}</a></li><li><a class="hover:text-text-primary transition-colors" href="#">{% text 'catalog.empty.text.2e4d3acc014d' %}</a></li><li><a class="hover:text-text-primary transition-colors" href="#">{% text 'catalog.empty.text.eafc6b56394c' %}</a></li><li><a class="hover:text-text-primary transition-colors" href="#">{% text 'catalog.empty.text.a30c1f5dd492' %}</a></li></ul></div></div><div class="pt-space-md flex flex-col md:flex-row items-center justify-between gap-4 font-body-sm text-body-sm text-text-muted"><p>{% text 'catalog.empty.text.2e5cf33f1396' %}</p><div class="flex items-center gap-6 font-label-sm text-label-sm uppercase tracking-wider"><a class="hover:text-text-primary transition-colors" href="#">{% text 'catalog.empty.text.5c3175413bb7' %}</a><a class="hover:text-text-primary transition-colors" href="#">{% text 'catalog.empty.text.606838b24795' %}</a><a class="hover:text-text-primary transition-colors" href="#">{% text 'catalog.empty.text.5850dc9aef33' %}</a><a class="hover:text-text-primary transition-colors" href="#">{% text 'catalog.empty.text.398dacb69752' %}</a></div></div></div></footer>
+{% endblock %}

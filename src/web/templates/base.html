@@ -1,18 +1,17 @@
-{% load static %}
+{% load static shop_i18n i18n %}
+{% get_current_language as current_language %}
 <!doctype html>
-<html lang="de">
+<html lang="{{ current_language }}" class="h-full scroll-smooth">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Männermasche — Entwurf für Herrenunterwäsche und besondere Styles.">
-  <title>{% block title %}Männermasche · Herrenunterwäsche & Bademode{% endblock %}</title>
-  <link rel="stylesheet" href="{% static 'shop/shop.css' %}">
-  <script src="{% static 'shop/shop.js' %}" defer></script>
+{{ shop_texts|json_script:'shop-texts' }}
+<script src="{% static 'storefront/localization.js' %}"></script>
+{% block page_head %}{% endblock %}
+<link rel="stylesheet" href="{% static 'storefront/django-preview.css' %}">
 </head>
-<body>
-  <a class="skip-link" href="#main">Zum Inhalt</a>
-  {% include 'includes/header.html' %}
-  <main id="main">{% block content %}{% endblock %}</main>
-  {% include 'includes/footer.html' %}
-</body>
-</html>
+<body {% block body_attrs %}{% endblock %}>
+{% block content %}{% endblock %}
+{% if demo_mode %}<aside class="shop-demo-notice" role="note">{% text 'demo.notice' %}</aside>{% endif %}
+{{ shop_routes|json_script:'shop-routes' }}
+<script src="{% static 'storefront/reference-navigation.js' %}"></script>
+<script src="{% static 'storefront/django-preview.js' %}"></script>
+</body></html>

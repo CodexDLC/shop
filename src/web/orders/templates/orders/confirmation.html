@@ -1,0 +1,529 @@
+{% extends 'base.html' %}
+{% load static shop_i18n %}
+{% block page_head %}
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>{% text 'orders.confirmation.text.62d58d48f882' %}</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="{% static 'storefront/vendor/tailwind-runtime.js' %}?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              page: '#F8F8F3',
+              surface: '#F1F1EB',
+              surfaceCard: '#EBEBE3',
+              dark: '#171E19',
+              muted: '#626960',
+              accent: '#183F30',
+              accentHover: '#133327',
+              border: '#DCDED5'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Core Page Styles -->
+<style data-purpose="base-styling">
+    body {
+      background-color: #F8F8F3;
+      color: #171E19;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    ::selection {
+      background-color: #183F30;
+      color: #F8F8F3;
+    }
+  </style>
+<!-- Component & Visual Effect Styles -->
+<style data-purpose="hero-layout">
+    .hero-blend-gradient {
+      background: linear-gradient(90deg, #F5F5EE 0%, #F5F5EE 45%, rgba(245, 245, 238, 0.94) 52%, rgba(245, 245, 238, 0.4) 68%, rgba(245, 245, 238, 0) 80%);
+    }
+    @media (max-width: 1024px) {
+      .hero-blend-gradient {
+        background: linear-gradient(180deg, #F5F5EE 0%, rgba(245, 245, 238, 0.85) 65%, rgba(245, 245, 238, 0.3) 100%);
+      }
+    }
+  </style>
+<meta content="web_dashboard" name="shell-type"/><script src="{% static 'storefront/reference-tokens.js' %}"></script>
+<link rel="stylesheet" href="{% static 'storefront/shared-chrome.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+<link rel="icon" href="{% static 'storefront/brand/favicon.ico' %}"><link rel="apple-touch-icon" href="{% static 'storefront/brand/apple-touch-icon.png' %}">
+{% endblock %}
+{% block body_attrs %} class="min-h-full flex flex-col bg-brand-page text-brand-dark" data-demo-page="confirmation.html"{% endblock %}
+{% block content %}
+<!-- BEGIN: TopBrandBar -->
+
+<!-- END: TopBrandBar -->
+<!-- BEGIN: MainHeader -->
+
+{% include 'includes/header.html' %}
+<!-- END: MainHeader -->
+<main class="flex-grow"><div class="flex flex-col w-full">
+<!-- Stepper Breadcrumb / Process Bar -->
+<section class="w-full bg-surface-muted py-5">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center space-x-2 text-text-muted">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-medium">{% text 'orders.confirmation.text.c15257a087e9' %}</span>
+<span class="text-xs opacity-40">/</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-medium">{% text 'orders.confirmation.text.3a0c9f6528b3' %}</span>
+<span class="text-xs opacity-40">/</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-semibold flex items-center gap-1.5">
+<span class="inline-block w-1.5 h-1.5 bg-primary"></span>
+            {% text 'orders.confirmation.text.0108f06c65ef' %}
+          </span>
+</div>
+<div class="flex items-center space-x-3 text-text-muted">
+<span class="font-label-sm text-label-sm uppercase tracking-wider flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-sm text-primary">{% text 'orders.confirmation.text.7be676cbf4b5' %}</span>
+            {% text 'orders.confirmation.text.2dd62fa6b33c' %}
+          </span>
+<span class="opacity-30">·</span>
+<span class="font-label-sm text-label-sm tracking-widest uppercase">{% text 'orders.confirmation.text.0c25762791a8' %}</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Editorial Hero Confirmation Banner -->
+<section class="w-full py-12 lg:py-16">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+<div class="lg:col-span-8 space-y-6">
+<div class="inline-flex items-center gap-2.5 px-3 py-1 bg-surface-container text-primary">
+<span class="material-symbols-outlined text-base">{% text 'orders.confirmation.text.aa8d0cb1881e' %}</span>
+<span class="font-label-md text-label-md tracking-widest uppercase">{% text 'orders.confirmation.text.ca0be9b318af' %}</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg lg:font-display-xl lg:text-display-xl text-text-primary tracking-tight">
+            {% text 'orders.confirmation.text.aab3c8b13b42' %}
+          </h1>
+<p class="font-body-lg text-body-lg text-text-muted max-w-2xl leading-relaxed">
+            {% text 'orders.confirmation.text.2b67414137d8' %} 
+            <span class="text-text-primary font-medium underline decoration-primary/40 underline-offset-4">{% text 'orders.confirmation.text.e07e0ef8c2d5' %}</span> 
+            {% text 'orders.confirmation.text.80a25b2b8230' %}
+          </p>
+</div>
+<!-- Quick Access Meta Badge -->
+<div class="lg:col-span-4 bg-surface-muted p-6 lg:p-8 flex flex-col justify-between">
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'orders.confirmation.text.bae7d5be7082' %}</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary bg-primary-fixed/40 px-2.5 py-0.5">{% text 'orders.confirmation.text.8c651cf10ae4' %}</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'orders.confirmation.text.32d8c331660a' %}</p>
+<p class="font-title-lg text-title-lg text-text-primary mt-1">{% text 'orders.confirmation.text.404b0bc1c20d' %}</p>
+<p class="font-body-sm text-body-sm text-text-muted mt-0.5">{% text 'orders.confirmation.text.c94441162af4' %}</p>
+</div>
+</div>
+<div class="pt-6 mt-6">
+<a class="inline-flex items-center justify-between w-full text-left font-label-md text-label-md text-primary uppercase tracking-wider group" href="#tracking-section">
+<span>{% text 'orders.confirmation.text.c1800e09de1a' %}</span>
+<span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">{% text 'orders.confirmation.text.16d57c087f83' %}</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Content Layout: Two Columns (Left Details & Logistics, Right Order Cart Summary) -->
+<section class="w-full pb-20">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<!-- Left Column: Logistics, Tracker, Instructions, Account Creation -->
+<div class="lg:col-span-7 space-y-12">
+<!-- Metadata Grid Card -->
+<div class="bg-surface-container p-6 sm:p-8 space-y-6">
+<div class="flex items-center justify-between">
+<h2 class="font-title-md text-title-md uppercase tracking-wider text-text-primary">{% text 'orders.confirmation.text.81f4e2004f92' %}</h2>
+<span class="font-label-sm text-label-sm text-text-muted">{% text 'orders.confirmation.text.4062c5e1dbd2' %}</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8">
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'orders.confirmation.text.e1cb25123dfb' %}</p>
+<p class="font-title-md text-title-md text-text-primary mt-1 tracking-wider">{{ order.reference }}</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'orders.confirmation.text.265ba1829b54' %}</p>
+<p class="font-title-md text-title-md text-text-primary mt-1">{% text 'orders.confirmation.text.f95269f475ba' %}</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'orders.confirmation.text.0c7b526fa7d6' %}</p>
+<p class="font-title-md text-title-md text-text-primary mt-1 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-primary">{% text 'orders.confirmation.text.74f82ee9efda' %}</span>
+                  {% text 'orders.confirmation.text.36a48b6d984b' %}
+                </p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'orders.confirmation.text.46202969e3a8' %}</p>
+<p class="font-title-md text-title-md text-text-primary mt-1 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-primary">{% text 'orders.confirmation.text.f1a915d3cbdb' %}</span>
+                  {% text 'orders.confirmation.text.7c2df646ef2f' %}
+                </p>
+</div>
+</div>
+<div class="pt-4 flex flex-col sm:flex-row sm:items-center justify-between text-text-muted gap-2">
+<span class="font-body-sm text-body-sm">{% text 'orders.confirmation.text.fb7714c88d55' %} <span class="text-text-primary font-mono select-all">{% text 'orders.confirmation.text.8733b124d3ec' %}</span></span>
+<button class="text-primary hover:text-brand-deep font-label-sm text-label-sm uppercase tracking-wider flex items-center gap-1 text-left" onclick="navigator.clipboard.writeText('JJD01.993.421.802 DE')" type="button">
+<span class="material-symbols-outlined text-sm">{% text 'orders.confirmation.text.827ad1a79906' %}</span>
+                {% text 'orders.confirmation.text.d3fbb859ed22' %}
+              </button>
+</div>
+</div>
+<!-- DHL GoGreen Live Tracker Widget -->
+<div class="bg-surface-muted p-6 sm:p-8 space-y-8" id="tracking-section">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div>
+<div class="flex items-center gap-2">
+<span class="inline-block w-2.5 h-2.5 bg-primary"></span>
+<h3 class="font-headline-md text-headline-md text-text-primary">{% text 'orders.confirmation.text.7c05d592c6c0' %}</h3>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mt-1">{% text 'orders.confirmation.text.ea982ab55466' %}</p>
+</div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-surface-container font-label-sm text-label-sm tracking-wider uppercase text-text-primary">
+<span class="material-symbols-outlined text-sm text-primary">{% text 'orders.confirmation.text.2b89d984fef3' %}</span>
+                {% text 'orders.confirmation.text.125f9ffa3be1' %}
+              </span>
+</div>
+<!-- Discrete Packaging Guarantee Callout -->
+<div class="bg-surface-container p-4 flex items-start gap-3.5">
+<span class="material-symbols-outlined text-primary text-xl flex-shrink-0 mt-0.5">{% text 'orders.confirmation.text.e117797422d3' %}</span>
+<div class="space-y-0.5">
+<p class="font-title-md text-title-md text-text-primary">{% text 'orders.confirmation.text.43be14d8af76' %}</p>
+<p class="font-body-sm text-body-sm text-text-muted">
+                  {% text 'orders.confirmation.text.3a1f8fc99c91' %}
+                </p>
+</div>
+</div>
+<!-- Vertical Timeline Component -->
+<div class="relative pl-6 sm:pl-8 space-y-8 before:absolute before:left-3 before:top-2 before:bottom-3 before:w-px before:bg-text-muted/30">
+<!-- Step 1: Completed -->
+<div class="relative flex items-start group">
+<div class="absolute -left-6 sm:-left-8 w-6 h-6 bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-sm">{% text 'orders.confirmation.text.d56d985300d4' %}</span>
+</div>
+<div class="pl-3 sm:pl-4">
+<div class="flex flex-wrap items-baseline gap-2">
+<p class="font-title-md text-title-md text-text-primary">{% text 'orders.confirmation.text.6489eee4c0a3' %}</p>
+<span class="font-label-sm text-label-sm text-text-muted">{% text 'orders.confirmation.text.986c94de0d03' %}</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mt-1">
+                    {% text 'orders.confirmation.text.0044c54d470c' %}
+                  </p>
+</div>
+</div>
+<!-- Step 2: In Progress -->
+<div class="relative flex items-start group">
+<div class="absolute -left-6 sm:-left-8 w-6 h-6 bg-text-primary flex items-center justify-center text-on-primary animate-pulse">
+<span class="inline-block w-2 h-2 bg-page-bg"></span>
+</div>
+<div class="pl-3 sm:pl-4">
+<div class="flex flex-wrap items-baseline gap-2">
+<p class="font-title-md text-title-md text-text-primary">{% text 'orders.confirmation.text.b61efca43a2d' %}</p>
+<span class="font-label-sm text-label-sm text-primary font-medium">{% text 'orders.confirmation.text.2502384448d8' %}</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mt-1">
+                    {% text 'orders.confirmation.text.204e5b437a87' %}
+                  </p>
+</div>
+</div>
+<!-- Step 3: Upcoming -->
+<div class="relative flex items-start opacity-60">
+<div class="absolute -left-6 sm:-left-8 w-6 h-6 bg-surface-container flex items-center justify-center text-text-muted">
+<span class="inline-block w-2 h-2 bg-text-muted/40"></span>
+</div>
+<div class="pl-3 sm:pl-4">
+<p class="font-title-md text-title-md text-text-primary">{% text 'orders.confirmation.text.62730f4abb6e' %}</p>
+<p class="font-body-sm text-body-sm text-text-muted mt-1">
+                    {% text 'orders.confirmation.text.d190d9caf7ff' %}
+                  </p>
+</div>
+</div>
+<!-- Step 4: Final Delivery -->
+<div class="relative flex items-start opacity-60">
+<div class="absolute -left-6 sm:-left-8 w-6 h-6 bg-surface-container flex items-center justify-center text-text-muted">
+<span class="inline-block w-2 h-2 bg-text-muted/40"></span>
+</div>
+<div class="pl-3 sm:pl-4">
+<p class="font-title-md text-title-md text-text-primary">{% text 'orders.confirmation.text.7cce47add7a6' %}</p>
+<p class="font-body-sm text-body-sm text-text-muted mt-1">
+                    {% text 'orders.confirmation.text.6b67f170e941' %}
+                  </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Home Fitting & Hygiene Policy Card -->
+<div class="bg-surface-container p-6 sm:p-8 space-y-6">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-medium">{% text 'orders.confirmation.text.8f7d8a171f22' %}</span>
+<h3 class="font-headline-md text-headline-md text-text-primary mt-1">{% text 'orders.confirmation.text.98565858c71b' %}</h3>
+</div>
+<span class="material-symbols-outlined text-3xl text-primary">{% text 'orders.confirmation.text.43cc3c1898e9' %}</span>
+</div>
+<p class="font-body-md text-body-md text-text-primary leading-relaxed">
+              {% text 'orders.confirmation.text.10ce36dc4c9f' %} <strong>{% text 'orders.confirmation.text.8d604d93e34e' %}</strong> {% text 'orders.confirmation.text.5a0225a5cbd2' %}
+            </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base">{% text 'orders.confirmation.text.d56d985300d4' %}</span>
+<h4 class="font-title-md text-title-md text-text-primary">{% text 'orders.confirmation.text.49ba118d2a83' %}</h4>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
+                  {% text 'orders.confirmation.text.16126be15ea2' %}
+                </p>
+</div>
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base">{% text 'orders.confirmation.text.9c586571e3cb' %}</span>
+<h4 class="font-title-md text-title-md text-text-primary">{% text 'orders.confirmation.text.59a5b148ea06' %}</h4>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
+                  {% text 'orders.confirmation.text.7ab66916cfbc' %}
+                </p>
+</div>
+</div>
+<div class="pt-4 flex flex-wrap items-center gap-4">
+<button class="px-5 py-2.5 bg-surface-muted text-text-primary hover:bg-surface-container-high transition-colors font-label-md text-label-md uppercase tracking-wider flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-base">{% text 'orders.confirmation.text.115c692372e8' %}</span>
+                {% text 'orders.confirmation.text.49ea809018ba' %}
+              </button>
+<a class="font-label-md text-label-md uppercase tracking-wider text-text-muted hover:text-text-primary transition-colors" href="#groessentabelle">
+                {% text 'orders.confirmation.text.b993c4b722c2' %}
+              </a>
+</div>
+</div>
+<!-- Quick 1-Click Guest Account Creation -->
+<div class="bg-surface-muted p-6 sm:p-8 space-y-4">
+<div class="space-y-1">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-medium">{% text 'orders.confirmation.text.067aae61686a' %}</span>
+<h3 class="font-headline-md text-headline-md text-text-primary">{% text 'orders.confirmation.text.9d84d1bbbe67' %}</h3>
+<p class="font-body-sm text-body-sm text-text-muted">
+                {% text 'orders.confirmation.text.c5898685650c' %}
+              </p>
+</div>
+<form class="flex flex-col sm:flex-row gap-3 pt-2" onsubmit="event.preventDefault(); document.getElementById('account-feedback').classList.remove('hidden');">
+<input class="w-full bg-page-bg text-text-primary px-4 py-3 font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-primary placeholder:text-text-muted/60" placeholder="{% text 'orders.confirmation.label.dda7ea069d7e' %}" required="" type="password"/>
+<button class="whitespace-nowrap px-6 py-3 bg-primary text-on-primary hover:bg-primary-container transition-colors font-label-md text-label-md uppercase tracking-wider" type="submit">
+                {% text 'orders.confirmation.text.d4b956407a77' %}
+              </button>
+</form>
+<div class="hidden text-primary font-body-sm text-body-sm flex items-center gap-1.5 pt-1" id="account-feedback">
+<span class="material-symbols-outlined text-base">{% text 'orders.confirmation.text.aa8d0cb1881e' %}</span>
+              {% text 'orders.confirmation.text.91f68bfe62ef' %}
+            </div>
+</div>
+</div>
+<!-- Right Column: Order Summary & Itemized Breakdown -->
+<div class="lg:col-span-5 space-y-8">
+<div class="bg-surface-muted p-6 sm:p-8 space-y-8 sticky top-28">
+<div class="flex items-center justify-between pb-4">
+<h3 class="font-title-lg text-title-lg text-text-primary">{% text 'orders.confirmation.text.ed26f12c3831' %}</h3>
+<span class="font-label-sm text-label-sm text-text-muted">{% text 'orders.confirmation.text.aaec4b1399ec' %}</span>
+</div>
+<!-- Items List -->
+<div class="space-y-6">
+<!-- Item 1: MANSTORE -->
+<div class="flex gap-4 items-start">
+<div class="w-20 h-24 bg-surface-container flex-shrink-0 overflow-hidden relative">
+<img class="w-full h-full object-cover" alt="{% text 'orders.confirmation.label.9637a9304f05' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqPZtWectcPObeGb8h5NhznT0-wXtkU3LQoSi-CA8UA1rz77H5678Ia7aCQ_X3uDlJnnXvgW9eePr-oW-_5D-m6jIadJ1UaDN1-P7J25UV9_noh3nXAfFnNOG6X7Mmn_8Ls75EB9mlCL450mLyJC2Qlp3mGgkcCYzJBV2E3O2fPjOSz1o-9Gg_ZL3aZop5wL0EedzADGzjU_cbb-5uChfO9IaAhVUqqOHx9kiKvMEK-4oyv_KF0n7E"/>
+<span class="absolute bottom-1 right-1 font-label-sm text-[9px] px-1 bg-primary text-on-primary">{% text 'orders.confirmation.text.6fe62d0dd7db' %}</span>
+</div>
+<div class="flex-grow space-y-1">
+<div class="flex items-start justify-between gap-2">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest">{% text 'orders.confirmation.text.a7769b7586cf' %}</span>
+<span class="font-price-md text-price-md text-text-primary font-semibold">49,95 €</span>
+</div>
+<h4 class="font-title-md text-title-md text-text-primary leading-tight">{% text 'orders.confirmation.text.5da1f251c896' %}</h4>
+<div class="flex items-center gap-3 text-text-muted font-body-sm text-body-sm pt-1">
+<span>{% text 'orders.confirmation.text.7983efffc1a2' %} <strong class="text-text-primary font-medium">{% text 'orders.confirmation.text.c63ae6dd4fc9' %}</strong></span>
+<span>·</span>
+<span class="flex items-center gap-1.5">
+                      {% text 'orders.confirmation.text.b66b4521b45b' %}
+                      <span class="inline-block w-2.5 h-2.5 bg-[#1F4A39]"></span>
+                      {% text 'orders.confirmation.text.90e71d203e22' %}
+                    </span>
+</div>
+</div>
+</div>
+<!-- Item 2: CALIDA -->
+<div class="flex gap-4 items-start">
+<div class="w-20 h-24 bg-surface-container flex-shrink-0 overflow-hidden relative">
+<img class="w-full h-full object-cover" alt="{% text 'orders.confirmation.label.d76318952bf1' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPLeHWaNIzl1LQe0oXIZ6-qM8uemMfOu9-aSHENHccAdZSEKeOGFbZNiMvXXOluzMvkKqiLYiQ476aMMAc0VWp9YtMC51qqOcDLMSn9SxgWPTw24Fqz1VE_FIDkEWBeb9WKvXV7G_w7piKdXgLex566wN5ELstwJroN-q95a1V6fgAw0IzW-Pu2sY1HdB0coFYUABeI7bs567ZrGp5ztfnQS4XSew8VwauIZHapwsHcZpPHP3YzxtF"/>
+<span class="absolute bottom-1 right-1 font-label-sm text-[9px] px-1 bg-primary text-on-primary">{% text 'orders.confirmation.text.6fe62d0dd7db' %}</span>
+</div>
+<div class="flex-grow space-y-1">
+<div class="flex items-start justify-between gap-2">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest">{% text 'orders.confirmation.text.3b5534d8b3e9' %}</span>
+<span class="font-price-md text-price-md text-text-primary font-semibold">44,95 €</span>
+</div>
+<h4 class="font-title-md text-title-md text-text-primary leading-tight">{{ cart.lines.1.name }}</h4>
+<div class="flex items-center gap-3 text-text-muted font-body-sm text-body-sm pt-1">
+<span>{% text 'orders.confirmation.text.7983efffc1a2' %} <strong class="text-text-primary font-medium">{% text 'orders.confirmation.text.d160e0986aca' %}</strong></span>
+<span>·</span>
+<span class="flex items-center gap-1.5">
+                      {% text 'orders.confirmation.text.b66b4521b45b' %}
+                      <span class="inline-block w-2.5 h-2.5 bg-[#183F30]"></span>
+                      {% text 'orders.confirmation.text.40c7ef6b6c40' %}
+                    </span>
+</div>
+</div>
+</div>
+<!-- Item 3: OLAF BENZ -->
+<div class="flex gap-4 items-start">
+<div class="w-20 h-24 bg-surface-container flex-shrink-0 overflow-hidden relative">
+<img class="w-full h-full object-cover" alt="{% text 'orders.confirmation.label.922edb75fc5a' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFhJNcw0uTul_LEdesGrH18OR-60i9iVrOeZZlmRp55Eb8dYU__3kZoVuVTi9t2KfBcIzJveMbTtOxuP-mZzNhq2b_SEH0QDryVCYkzexmWLuXvfrGldS4hU1-E3hcrSvujTYcESGCICC5kIsLslT6uAgiK1CF7cQPnIO-KBNCLKGKviZdmR_8MbxWoaHa8RTOqacgRTBRlpDw8oKOdLpkLVZsFOnza2r7I9Gsff_3zovsSaQE3Beg"/>
+<span class="absolute bottom-1 right-1 font-label-sm text-[9px] px-1 bg-primary text-on-primary">{% text 'orders.confirmation.text.6fe62d0dd7db' %}</span>
+</div>
+<div class="flex-grow space-y-1">
+<div class="flex items-start justify-between gap-2">
+<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest">{% text 'orders.confirmation.text.602372eec56b' %}</span>
+<span class="font-price-md text-price-md text-text-primary font-semibold">44,90 €</span>
+</div>
+<h4 class="font-title-md text-title-md text-text-primary leading-tight">{{ cart.lines.2.name }}</h4>
+<div class="flex items-center gap-3 text-text-muted font-body-sm text-body-sm pt-1">
+<span>{% text 'orders.confirmation.text.7983efffc1a2' %} <strong class="text-text-primary font-medium">{% text 'orders.confirmation.text.c63ae6dd4fc9' %}</strong></span>
+<span>·</span>
+<span class="flex items-center gap-1.5">
+                      {% text 'orders.confirmation.text.b66b4521b45b' %}
+                      <span class="inline-block w-2.5 h-2.5 bg-[#17202A]"></span>
+                      {% text 'orders.confirmation.text.0698cdb9c21e' %}
+                    </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Price Breakdown Calculation -->
+<div class="pt-6 space-y-3 font-body-md text-body-md">
+<div class="flex justify-between text-text-muted">
+<span>{% text 'orders.confirmation.text.4e29c83eb9f8' %}</span>
+<span class="text-text-primary">139,80 €</span>
+</div>
+<div class="flex justify-between text-text-muted">
+<span class="flex items-center gap-1.5">
+                  {% text 'orders.confirmation.text.cf13fb8cc610' %}
+                  <span class="material-symbols-outlined text-xs text-primary">{% text 'orders.confirmation.text.f1a915d3cbdb' %}</span>
+</span>
+<span class="text-primary uppercase tracking-wider font-semibold font-label-sm text-label-sm">{% text 'orders.confirmation.text.440355b1eb3b' %}</span>
+</div>
+<div class="flex justify-between text-text-muted">
+<span>{% text 'orders.confirmation.text.a7616fc64c5c' %}</span>
+<span class="text-text-primary">22,32 €</span>
+</div>
+<div class="pt-4 flex justify-between items-baseline">
+<span class="font-title-lg text-title-lg text-text-primary">{% text 'orders.confirmation.text.94ee95564c02' %}</span>
+<div class="text-right">
+<span class="font-price-lg text-price-lg text-text-primary font-bold">139,80 €</span>
+<span class="block font-label-sm text-label-sm text-text-muted">{% text 'orders.confirmation.text.891391281ece' %}</span>
+</div>
+</div>
+</div>
+<!-- Shipping Destination & Invoice Address Card -->
+<div class="bg-surface-container p-5 space-y-4">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'orders.confirmation.text.0d55ee90d0b9' %}</span>
+<span class="material-symbols-outlined text-sm text-primary">{% text 'orders.confirmation.text.f15d7fd5e623' %}</span>
+</div>
+<div class="font-body-md text-body-md text-text-primary space-y-0.5">
+<p class="font-medium">{% text 'orders.confirmation.text.93fddcc4deda' %}</p>
+<p>{% text 'orders.confirmation.text.2f2789b95ffd' %}</p>
+<p>{% text 'orders.confirmation.text.cf2a778948d9' %}</p>
+<p class="text-text-muted font-body-sm text-body-sm">{% text 'orders.confirmation.text.19174e8c9711' %}</p>
+</div>
+<div class="pt-2 font-body-sm text-body-sm text-text-muted">
+<span class="block">{% text 'orders.confirmation.text.577ed8df94d6' %}</span>
+</div>
+</div>
+<!-- Primary CTAs for Confirmation Screen -->
+<div class="space-y-3 pt-2">
+<a class="w-full py-4 bg-primary text-on-primary hover:bg-primary-container transition-colors font-label-md text-label-md uppercase tracking-wider text-center block" href="#tracking-section">
+                {% text 'orders.confirmation.text.8cb73a534ecd' %}
+              </a>
+<a class="w-full py-3.5 bg-surface-container text-text-primary hover:bg-surface-container-high transition-colors font-label-md text-label-md uppercase tracking-wider text-center block" href="#shop">
+                {% text 'orders.confirmation.text.fa4a1efd4502' %}
+              </a>
+</div>
+</div>
+<!-- Customer Service Contact Capsule -->
+<div class="bg-surface-container p-6 space-y-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">{% text 'orders.confirmation.text.79ac32b1d75f' %}</span>
+<h4 class="font-title-md text-title-md text-text-primary">{% text 'orders.confirmation.text.815d65ce8a8d' %}</h4>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
+              {% text 'orders.confirmation.text.1893cf878a35' %}
+            </p>
+<div class="pt-2 space-y-1.5 font-body-sm text-body-sm">
+<p class="flex items-center gap-2 text-text-primary">
+<span class="material-symbols-outlined text-base text-primary">{% text 'orders.confirmation.text.bc8d8647b02d' %}</span>
+<a class="hover:underline font-medium" href="tel:+49892154890">+49 (0) 89 215 489 0</a>
+<span class="text-text-muted font-label-sm text-label-sm">{% text 'orders.confirmation.text.5cfc5375b3de' %}</span>
+</p>
+<p class="flex items-center gap-2 text-text-primary">
+<span class="material-symbols-outlined text-base text-primary">{% text 'orders.confirmation.text.1d6e1cf70ec6' %}</span>
+<a class="hover:underline font-medium" href="mailto:hilfe@maennermasche.de">{% text 'orders.confirmation.text.36f8b41b0b46' %}</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Editorial Brand Footer Accents: Discretion & Craft Values -->
+<section class="w-full bg-surface-muted py-14">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="space-y-2">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-xl">{% text 'orders.confirmation.text.733aa03fdd44' %}</span>
+<span class="font-title-md text-title-md uppercase tracking-wider text-text-primary">{% text 'orders.confirmation.text.3d927f22c56e' %}</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
+            {% text 'orders.confirmation.text.8c1ecee3e4b1' %}
+          </p>
+</div>
+<div class="space-y-2">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-xl">{% text 'orders.confirmation.text.9a24010aa585' %}</span>
+<span class="font-title-md text-title-md uppercase tracking-wider text-text-primary">{% text 'orders.confirmation.text.d63df278fbae' %}</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
+            {% text 'orders.confirmation.text.a7e9b4148294' %}
+          </p>
+</div>
+<div class="space-y-2">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-xl">{% text 'orders.confirmation.text.ae59d83fcb10' %}</span>
+<span class="font-title-md text-title-md uppercase tracking-wider text-text-primary">{% text 'orders.confirmation.text.9275e2dd1f3b' %}</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
+            {% text 'orders.confirmation.text.1d52ef05e0cd' %}
+          </p>
+</div>
+</div>
+</div>
+</section>
+</div></main>
+<!-- BEGIN: SiteFooter -->
+{% include 'includes/footer.html' %}
+<!-- END: SiteFooter -->
+
+{% endblock %}

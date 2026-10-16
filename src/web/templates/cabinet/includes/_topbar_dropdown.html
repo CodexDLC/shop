@@ -1,0 +1,8 @@
+{% load shop_i18n %}
+<div class="dropdown">
+<button class="btn btn-sm d-flex align-items-center gap-2 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+{% if group.grouper == 'admin' %}<span class="bi bi-gear"></span>{% text 'staff.nav.management' %}{% else %}<span class="bi bi-shop"></span>{% text 'staff.nav.shop' %}{% endif %}
+</button>
+<ul class="dropdown-menu shadow">
+{% for entry in group.list %}<li><a class="dropdown-item d-flex align-items-center gap-2" href="{{ entry.url }}"><span class="bi {{ entry.icon }}"></span>{{ entry.label }}</a></li>{% endfor %}
+</ul></div>
