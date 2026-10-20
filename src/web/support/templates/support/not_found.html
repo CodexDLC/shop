@@ -70,10 +70,10 @@
         </p>
 <!-- Search Bar with Instant Query Triggers -->
 <div class="w-full max-w-xl pt-space-xs">
-<form class="flex flex-col sm:flex-row gap-0 shadow-md" onsubmit="event.preventDefault();">
+<form class="flex flex-col sm:flex-row gap-0 shadow-md" method="get" action="{% url 'catalog:search' %}" data-real-catalog="true">
 <div class="relative flex-1 bg-surface-container-lowest flex items-center px-4 min-h-[50px]">
 <span class="material-symbols-outlined text-text-muted mr-3 text-[20px]">{% text 'support.not_found.text.3559d7accf00' %}</span>
-<input class="w-full bg-transparent font-body-md text-body-md text-text-primary placeholder:text-text-muted focus:outline-none" id="luxury-search-input" placeholder="{% text 'support.not_found.label.a6d70adeec61' %}" type="text"/>
+<input class="w-full bg-transparent font-body-md text-body-md text-text-primary placeholder:text-text-muted focus:outline-none" id="luxury-search-input" name="q" maxlength="160" placeholder="{% text 'support.not_found.label.a6d70adeec61' %}" type="text"/>
 </div>
 <button class="bg-brand-deep hover:bg-primary transition-colors text-on-primary font-label-md text-label-md uppercase tracking-wider px-space-xl py-3.5 flex items-center justify-center gap-2" type="submit">
 <span>{% text 'support.not_found.text.20a96919554a' %}</span>
@@ -99,11 +99,11 @@
 </div>
 <!-- Primary & Secondary High-Impact CTAs -->
 <div class="flex flex-wrap items-center gap-space-md pt-space-sm w-full">
-<a class="bg-brand-deep hover:bg-primary text-on-primary font-label-md text-label-md uppercase tracking-widest px-space-xl py-3.5 inline-flex items-center gap-3 transition-colors shadow-sm" data-path="home" href="#">
+<a data-real-navigation class="bg-brand-deep hover:bg-primary text-on-primary font-label-md text-label-md uppercase tracking-widest px-space-xl py-3.5 inline-flex items-center gap-3 transition-colors shadow-sm" data-path="home" href="{% url 'shop:home' %}">
 <span>{% text 'support.not_found.text.0c93a33ca06c' %}</span>
 <span class="material-symbols-outlined text-[18px]">{% text 'support.not_found.text.16d57c087f83' %}</span>
 </a>
-<a class="bg-surface-muted hover:bg-surface-dim text-text-primary font-label-md text-label-md uppercase tracking-widest px-space-xl py-3.5 inline-flex items-center gap-2 transition-colors" data-path="neuheiten" href="#">
+<a class="bg-surface-muted hover:bg-surface-dim text-text-primary font-label-md text-label-md uppercase tracking-widest px-space-xl py-3.5 inline-flex items-center gap-2 transition-colors" data-real-navigation data-path="neuheiten" href="{% url 'catalog:list' %}?new=1">
 <span class="material-symbols-outlined text-[18px]">{% text 'support.not_found.text.c471ebe8ded4' %}</span>
 <span>{% text 'support.not_found.text.e8223f62ae0e' %}</span>
 </a>
@@ -127,7 +127,7 @@
 <!-- 4 High Fashion Category Cards -->
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-lg">
 <!-- Category Card 1 -->
-<a class="group bg-surface-container-lowest flex flex-col overflow-hidden shadow-sm hover:shadow-md transition-shadow relative" data-path="unterwaesche" href="#">
+<a data-real-navigation class="group bg-surface-container-lowest flex flex-col overflow-hidden shadow-sm hover:shadow-md transition-shadow relative" data-path="unterwaesche" href="{% url 'catalog:list' %}">
 <div class="relative w-full aspect-[4/5] bg-surface-muted overflow-hidden">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" alt="{% text 'support.not_found.label.ae44732c2cdc' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgkq60m6jaS18eSyCgncvfdo2mLfg8VM80SR_rtx7HwNqENxpt_TQ0mE0xUTho73hMa0Hqm13eKjyPgKC8wtLEeI5dLzksGgSIwWDmvR1YtSMgZdEjaIVosUKddKHafU9eq96VUhXlZ8A3DVX7EozyXIwzOnv6sJK11EgsiNaNdkyYkH65IQpbuf6Pc176tkcbcDnoVeY40byp1dHaHFRc_UhHnFbapyxmlO04-Cj1XG71PmJS2utB"/>
 <span class="absolute top-3 left-3 bg-brand-deep text-on-primary font-label-sm text-label-sm px-2 py-0.5 uppercase tracking-wider">
@@ -145,7 +145,7 @@
 </div>
 </a>
 <!-- Category Card 2 -->
-<a class="group bg-surface-container-lowest flex flex-col overflow-hidden shadow-sm hover:shadow-md transition-shadow relative" data-path="unterwaesche" href="#">
+<a data-real-navigation class="group bg-surface-container-lowest flex flex-col overflow-hidden shadow-sm hover:shadow-md transition-shadow relative" data-path="unterwaesche" href="{% url 'catalog:list' %}">
 <div class="relative w-full aspect-[4/5] bg-surface-muted overflow-hidden">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" alt="{% text 'support.not_found.label.f1960cbc90c7' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdbo2i1MZ1pKAfUdahJRv1Lf4FbmeHfpmGss7k4-JvGB2laaO3EpzpYbF_D5S-781UhkOKhoUL26fF54cUdImA0qcfIFU0WMavwyFpIvrqtU0cEZLKhSEXVM07wXqZXYK7GFvaYbKezEjX5J45404NhznlDFTFthS2gZCYzDNZGHd2IBFkuiBKbiaMTSwBQpr_3MThnLnivmYIesheNZ7gAebiHSXOOJf8fTNUQomjgqorOtCMgJZG"/>
 <span class="absolute top-3 left-3 bg-brand-deep text-on-primary font-label-sm text-label-sm px-2 py-0.5 uppercase tracking-wider">
@@ -163,7 +163,7 @@
 </div>
 </a>
 <!-- Category Card 3 -->
-<a class="group bg-surface-container-lowest flex flex-col overflow-hidden shadow-sm hover:shadow-md transition-shadow relative" data-path="bademode" href="#">
+<a class="group bg-surface-container-lowest flex flex-col overflow-hidden shadow-sm hover:shadow-md transition-shadow relative" data-real-navigation data-path="bademode" href="{% url 'catalog:list' %}?section=swimwear">
 <div class="relative w-full aspect-[4/5] bg-surface-muted overflow-hidden">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" alt="{% text 'support.not_found.label.09210b6f2577' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6srvDTeFHweAAx5B5Wg5qDYVZ8V-nginDRt17jkZLG3DHOx05blpJuyiKz73BoLN7x0k8vHbQUZNlwfltHxGtocbCZK_M02F-2oropshfL78au_VNYiV1xUqsS7x1vx28pUHcLZrXr-cwmRG4R2NEMSCHY-mpFxCDqawAdmtII94keV6TIAACKjgkevUd7B_cPAf37FhQLqb6CqDJPMgoDCWdP2gYa-LieHtHYRl7jJ8CzcFPz_l2"/>
 <span class="absolute top-3 left-3 bg-brand-deep text-on-primary font-label-sm text-label-sm px-2 py-0.5 uppercase tracking-wider">
@@ -181,7 +181,7 @@
 </div>
 </a>
 <!-- Category Card 4 -->
-<a class="group bg-surface-container-lowest flex flex-col overflow-hidden shadow-sm hover:shadow-md transition-shadow relative" data-path="neuheiten" href="#">
+<a class="group bg-surface-container-lowest flex flex-col overflow-hidden shadow-sm hover:shadow-md transition-shadow relative" data-real-navigation data-path="neuheiten" href="{% url 'catalog:list' %}?new=1">
 <div class="relative w-full aspect-[4/5] bg-surface-muted overflow-hidden">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" alt="{% text 'support.not_found.label.c269878b0299' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMyCGRBXCC_wyyFsxurnBKsuAnLXvNEixARJMr1HUNB4WwtEv1naB0sxGhV_KLxRIUAYDqTizDPAq3j263i-VKqnw1hETX8JvrgmTMhA8CD_VMk5uFJywPP8WWbeUcTi4ywBBNe4VnUxz-AUQkuY5puapmwNlrQd745RNgQqj5cOu-AkR_gB1xkylPPtm719yQadQuEiheXx__dfeHmQGNuLrp_C-rsBtia2OCrSKkMAj5cpF2wu-a"/>
 <span class="absolute top-3 left-3 bg-primary text-on-primary font-label-sm text-label-sm px-2 py-0.5 uppercase tracking-wider">
@@ -225,10 +225,10 @@
 <p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
           {% text 'support.not_found.text.3a8362b19400' %}
         </p>
-<!-- Communication Badges -->
+<p class="font-body-sm text-body-sm text-text-muted" role="note">{% text 'support.not_found.ui.contacts_draft' %}</p><!-- Communication Badges -->
 <div class="pt-space-sm flex flex-col sm:flex-row gap-space-md">
 <!-- Telephone Consultation -->
-<a class="flex items-center gap-space-sm p-space-md bg-surface-muted hover:bg-surface-dim transition-colors flex-1" href="tel:+498001234567">
+<a class="flex items-center gap-space-sm p-space-md bg-surface-muted hover:bg-surface-dim transition-colors flex-1" aria-disabled="true" data-contact-draft="true">
 <div class="w-10 h-10 bg-brand-deep text-on-primary flex items-center justify-center shrink-0">
 <span class="material-symbols-outlined text-[20px]">{% text 'support.not_found.text.bc8d8647b02d' %}</span>
 </div>
@@ -238,7 +238,7 @@
 </div>
 </a>
 <!-- WhatsApp Chat -->
-<a class="flex items-center gap-space-sm p-space-md bg-surface-muted hover:bg-surface-dim transition-colors flex-1" href="https://wa.me/491511234567" rel="noopener noreferrer" target="_blank">
+<a class="flex items-center gap-space-sm p-space-md bg-surface-muted hover:bg-surface-dim transition-colors flex-1" aria-disabled="true" data-contact-draft="true" rel="noopener noreferrer" target="_blank">
 <div class="w-10 h-10 bg-brand-deep text-on-primary flex items-center justify-center shrink-0">
 <span class="material-symbols-outlined text-[20px]">{% text 'support.not_found.text.7ecde348ff9c' %}</span>
 </div>
@@ -257,17 +257,6 @@
 </div>
 </section>
 <!-- Interactive Search Input Script for smooth behavior -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const searchInput = document.getElementById('luxury-search-input');
-      if (searchInput) {
-        searchInput.addEventListener('keydown', function(e) {
-          if (e.key === 'Enter' && this.value.trim() !== '') {
-            window.location.hash = '#search=' + encodeURIComponent(this.value.trim());
-          }
-        });
-      }
-    });
-  </script>
+
 </div></main>{% include 'includes/footer.html' %}
 {% endblock %}

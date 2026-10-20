@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static shop_i18n %}
-{% block page_head %}<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" rel="stylesheet"/>
+{% block page_head %}<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/><script src="{% static 'storefront/vendor/tailwind-runtime.js' %}?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-dim": "#d4dcd4", "on-error": "#ffffff", "text-muted": "#626960", "on-surface-variant": "#414944", "on-background": "#161d18", "surface-container-highest": "#dde5dc", "tertiary-fixed-dim": "#c5c7bf", "primary-fixed": "#beedd5", "page-bg": "#F8F8F3", "error-container": "#ffdad6", "on-tertiary-fixed": "#191c17", "on-secondary-fixed-variant": "#424940", "error": "#ba1a1a", "surface": "#f4fbf3", "on-tertiary-container": "#adb0a7", "tertiary": "#2a2d27", "brand-deep": "#183F30", "primary-container": "#1f4a39", "border-subtle": "#DCDED5", "on-primary-fixed-variant": "#244f3d", "secondary-container": "#dee5d9", "secondary-fixed-dim": "#c2c9be", "surface-muted": "#EEEEE7", "surface-container-high": "#e3eae2", "on-tertiary": "#ffffff", "primary-fixed-dim": "#a3d1ba", "tertiary-container": "#40433d", "outline": "#717974", "tertiary-fixed": "#e1e3da", "on-secondary-container": "#5f665d", "inverse-on-surface": "#ebf3ea", "secondary-fixed": "#dee5d9", "on-primary-fixed": "#002115", "surface-container": "#e8f0e7", "surface-variant": "#dde5dc", "surface-bright": "#f4fbf3", "secondary": "#596057", "on-secondary": "#ffffff", "on-error-container": "#93000a", "on-tertiary-fixed-variant": "#454841", "surface-tint": "#3c6754", "on-primary-container": "#8cb9a3", "outline-variant": "#c0c8c2", "background": "#f4fbf3", "inverse-primary": "#a3d1ba", "on-secondary-fixed": "#171d16", "primary": "#033324", "text-primary": "#171E19", "surface-container-lowest": "#ffffff", "surface-container-low": "#eef6ed", "inverse-surface": "#2b322d", "on-surface": "#161d18", "on-primary": "#ffffff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-lg": "1.5rem", "space-xl": "2.5rem", "space-2xl": "4rem", "margin-mobile": "1rem", "margin": "3rem", "space-md": "1rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "space-3xl": "6rem", "gutter": "1.5rem", "gutter-mobile": "0.75rem" }, "fontFamily": { "label-sm": ["Plus Jakarta Sans"], "headline-md": ["Bodoni Moda"], "headline-lg-mobile": ["Bodoni Moda"], "label-md": ["Plus Jakarta Sans"], "headline-lg": ["Bodoni Moda"], "price-lg": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "display-xl": ["Bodoni Moda"], "title-lg": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"], "price-md": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "display-xl-mobile": ["Bodoni Moda"] }, "fontSize": { "label-sm": ["0.6875rem", { "lineHeight": "1.2", "letterSpacing": "0.06em", "fontWeight": "500" }], "headline-md": ["1.5rem", { "lineHeight": "1.35", "fontWeight": "500" }], "headline-lg-mobile": ["1.75rem", { "lineHeight": "1.3", "fontWeight": "500" }], "label-md": ["0.8125rem", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }], "headline-lg": ["2.25rem", { "lineHeight": "1.25", "letterSpacing": "-0.01em", "fontWeight": "500" }], "price-lg": ["1.25rem", { "lineHeight": "1.2", "fontWeight": "600" }], "body-lg": ["1.125rem", { "lineHeight": "1.6", "fontWeight": "400" }], "body-md": ["0.9375rem", { "lineHeight": "1.5", "fontWeight": "400" }], "display-xl": ["3.5rem", { "lineHeight": "1.15", "letterSpacing": "-0.02em", "fontWeight": "500" }], "title-lg": ["1.125rem", { "lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "600" }], "title-md": ["1rem", { "lineHeight": "1.4", "fontWeight": "600" }], "price-md": ["0.9375rem", { "lineHeight": "1.2", "fontWeight": "600" }], "body-sm": ["0.8125rem", { "lineHeight": "1.4", "fontWeight": "400" }], "display-xl-mobile": ["2.25rem", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500" }] } } } };</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;min-height:100vh;background-color:#F8F8F3;color:#171E19;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="{% static 'storefront/reference-tokens.js' %}"></script>
 <link rel="stylesheet" href="{% static 'storefront/shared-chrome.css' %}">
@@ -9,7 +9,7 @@
 {% endblock %}
 {% block body_attrs %} class="bg-page-bg font-body-md text-text-primary antialiased flex flex-col min-h-screen" data-demo-page="help-mobile.html"{% endblock %}
 {% block content %}
-{% include 'includes/header.html' %}<main class="flex flex-col relative w-full pt-16 pb-24 bg-page-bg"><div class="flex flex-col w-full">
+{% include 'includes/header.html' %}<main class="flex flex-col relative w-full pt-16 pb-24 bg-page-bg"><div class="flex flex-col w-full"><p class="font-body-sm text-body-sm text-text-muted p-4" role="note">{% text 'support.help.ui.policy_draft' %} {% text 'support.help.ui.contacts_draft' %}</p>
 <!-- Subtle Header Sub-Bar -->
 <div class="px-4 py-3 bg-surface-muted flex items-center justify-between">
 <div class="flex items-center gap-2">
@@ -31,12 +31,12 @@
 <!-- Search Input -->
 <div class="relative w-full">
 <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-[20px] text-text-muted">{% text 'support.help_mobile.text.3559d7accf00' %}</span>
-<input class="w-full h-11 pl-11 pr-10 bg-surface-container text-text-primary font-body-md text-body-md placeholder:text-text-muted placeholder:font-body-sm focus:outline-none focus:bg-surface-container-highest transition-colors" id="faqSearchInput" placeholder="{% text 'support.help_mobile.label.3aba3cae20eb' %}" type="text"/>
+<input class="w-full h-11 pl-11 pr-10 bg-surface-container text-text-primary font-body-md text-body-md placeholder:text-text-muted placeholder:font-body-sm focus:outline-none focus:bg-surface-container-highest transition-colors" id="faqSearchInput" aria-label="{% text 'support.help.ui.search_label' %}" placeholder="{% text 'support.help_mobile.label.3aba3cae20eb' %}" type="text"/>
 <button aria-label="{% text 'support.help_mobile.label.ef11c470c6b0' %}" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-text-muted active:opacity-60" id="faqSearchClear" type="button">
 <span class="material-symbols-outlined text-[18px]">{% text 'support.help_mobile.text.da38860cb875' %}</span>
 </button>
 </div>
-<!-- Quick Filter Pills (Horizontal Scroll) -->
+<div class="px-4 py-3 font-body-sm text-body-sm text-text-muted"><p id="faq-no-results" role="status" hidden>{% text 'support.help.ui.empty' %}</p><button class="underline py-2" id="faq-reset" type="button" hidden>{% text 'support.help.ui.reset' %}</button></div><!-- Quick Filter Pills (Horizontal Scroll) -->
 <div class="flex items-center gap-2 overflow-x-auto pb-1 -mx-4 px-4 scrollbar-none">
 <button class="faq-pill whitespace-nowrap px-3.5 py-1.5 bg-brand-deep text-on-primary font-label-sm text-label-sm uppercase tracking-wider active:opacity-80" data-filter="all" type="button">{% text 'support.help_mobile.text.4c7a986ffe2b' %}</button>
 <button class="faq-pill whitespace-nowrap px-3.5 py-1.5 bg-surface-muted text-text-primary font-label-sm text-label-sm uppercase tracking-wider active:opacity-80" data-filter="versand" type="button">{% text 'support.help_mobile.text.31e5fb297756' %}</button>
@@ -54,7 +54,7 @@
 </div>
 <div class="grid grid-cols-2 gap-2.5">
 <!-- Card 1: Tracking -->
-<a class="group p-3.5 bg-surface-muted flex flex-col justify-between min-h-[110px] active:bg-surface-container transition-colors" href="#">
+<a class="group p-3.5 bg-surface-muted flex flex-col justify-between min-h-[110px] active:bg-surface-container transition-colors" data-real-navigation href="{% url 'support:help' %}#versand-lieferung">
 <div class="flex items-start justify-between">
 <span class="w-8 h-8 flex items-center justify-center bg-surface-container text-brand-deep">
 <span class="material-symbols-outlined text-[20px]">{% text 'support.help_mobile.text.9c586571e3cb' %}</span>
@@ -67,7 +67,7 @@
 </div>
 </a>
 <!-- Card 2: Return -->
-<a class="group p-3.5 bg-surface-muted flex flex-col justify-between min-h-[110px] active:bg-surface-container transition-colors" href="#">
+<a class="group p-3.5 bg-surface-muted flex flex-col justify-between min-h-[110px] active:bg-surface-container transition-colors" data-real-navigation href="{% url 'support:help' %}#heimanprobe-retoure">
 <div class="flex items-start justify-between">
 <span class="w-8 h-8 flex items-center justify-center bg-surface-container text-brand-deep">
 <span class="material-symbols-outlined text-[20px]">{% text 'support.help_mobile.text.2d4cf11d23a0' %}</span>
@@ -80,7 +80,7 @@
 </div>
 </a>
 <!-- Card 3: Fitting -->
-<a class="group p-3.5 bg-surface-muted flex flex-col justify-between min-h-[110px] active:bg-surface-container transition-colors" href="#">
+<a class="group p-3.5 bg-surface-muted flex flex-col justify-between min-h-[110px] active:bg-surface-container transition-colors" data-real-navigation href="{% url 'support:help' %}#zahlung-rechnung">
 <div class="flex items-start justify-between">
 <span class="w-8 h-8 flex items-center justify-center bg-surface-container text-brand-deep">
 <span class="material-symbols-outlined text-[20px]">{% text 'support.help_mobile.text.7be676cbf4b5' %}</span>
@@ -93,7 +93,7 @@
 </div>
 </a>
 <!-- Card 4: Size Advisor -->
-<a class="group p-3.5 bg-surface-muted flex flex-col justify-between min-h-[110px] active:bg-surface-container transition-colors" href="#">
+<a class="group p-3.5 bg-surface-muted flex flex-col justify-between min-h-[110px] active:bg-surface-container transition-colors" data-real-navigation href="{% url 'support:help' %}#passform-marken">
 <div class="flex items-start justify-between">
 <span class="w-8 h-8 flex items-center justify-center bg-surface-container text-brand-deep">
 <span class="material-symbols-outlined text-[20px]">{% text 'support.help_mobile.text.26d194e1f4e4' %}</span>
@@ -118,14 +118,14 @@
 </div>
 </div>
 <div class="flex flex-col gap-2">
-<a class="flex items-center justify-between px-4 py-3 bg-primary-container text-on-primary font-label-md text-label-md uppercase tracking-wider active:bg-brand-deep transition-colors" href="tel:+49892154890">
+<a class="flex items-center justify-between px-4 py-3 bg-primary-container text-on-primary font-label-md text-label-md uppercase tracking-wider active:bg-brand-deep transition-colors" aria-disabled="true" data-contact-draft="true">
 <div class="flex items-center gap-2.5">
 <span class="material-symbols-outlined text-[20px] text-primary-fixed">{% text 'support.help_mobile.text.bc8d8647b02d' %}</span>
-<span>+49 (0) 89 215 489 0</span>
+<span>{% text 'support.help.ui.phone_pending' %}</span>
 </div>
 <span class="font-body-sm text-body-sm text-primary-fixed text-[11px] lowercase">{% text 'support.help_mobile.text.7df316b35a9d' %}</span>
 </a>
-<a class="flex items-center justify-between px-4 py-3 bg-surface-container text-text-primary font-label-md text-label-md uppercase tracking-wider active:bg-surface-container-high transition-colors" href="https://wa.me/49892154890">
+<a class="flex items-center justify-between px-4 py-3 bg-surface-container text-text-primary font-label-md text-label-md uppercase tracking-wider active:bg-surface-container-high transition-colors" aria-disabled="true" data-contact-draft="true">
 <div class="flex items-center gap-2.5">
 <span class="material-symbols-outlined text-[20px] text-brand-deep">{% text 'support.help_mobile.text.7ecde348ff9c' %}</span>
 <span>{% text 'support.help_mobile.text.1e1c96a78ce5' %}</span>
@@ -140,7 +140,7 @@
 </div>
 <div class="flex items-center gap-1.5">
 <span class="material-symbols-outlined text-[14px]">{% text 'support.help_mobile.text.cfb20987c652' %}</span>
-<span>{% text 'support.help_mobile.text.3342f38b0a85' %} < 15 Min.</span>
+<span>{% text 'support.help_mobile.text.3342f38b0a85' %}</span>
 </div>
 </div>
 </div>
@@ -154,7 +154,7 @@
 <div class="flex flex-col gap-2" id="faqAccordionList">
 <!-- Item 1: Expanded by default -->
 <div class="faq-item bg-surface-muted overflow-hidden transition-colors" data-tags="heimanprobe hygiene retoure">
-<button class="faq-trigger w-full px-4 py-3.5 flex items-center justify-between text-left active:bg-surface-container" type="button">
+<button aria-expanded="false" class="faq-trigger focus-visible:ring-2 focus-visible:ring-brand-deep w-full px-4 py-3.5 flex items-center justify-between text-left active:bg-surface-container" type="button">
 <span class="font-title-md text-title-md text-text-primary pr-3">{% text 'support.help_mobile.text.f01256c8a85c' %}</span>
 <span class="faq-icon material-symbols-outlined text-[20px] text-brand-deep transition-transform duration-200 rotate-180">{% text 'support.help_mobile.text.4ff54d8d6bfa' %}</span>
 </button>
@@ -170,7 +170,7 @@
 </div>
 <!-- Item 2 -->
 <div class="faq-item bg-surface-muted overflow-hidden transition-colors" data-tags="versand packstation">
-<button class="faq-trigger w-full px-4 py-3.5 flex items-center justify-between text-left active:bg-surface-container" type="button">
+<button aria-expanded="false" class="faq-trigger focus-visible:ring-2 focus-visible:ring-brand-deep w-full px-4 py-3.5 flex items-center justify-between text-left active:bg-surface-container" type="button">
 <span class="font-title-md text-title-md text-text-primary pr-3">{% text 'support.help_mobile.text.66a19fbfaf33' %}</span>
 <span class="faq-icon material-symbols-outlined text-[20px] text-brand-deep transition-transform duration-200">{% text 'support.help_mobile.text.5dd226578843' %}</span>
 </button>
@@ -182,7 +182,7 @@
 </div>
 <!-- Item 3 -->
 <div class="faq-item bg-surface-muted overflow-hidden transition-colors" data-tags="retoure versand">
-<button class="faq-trigger w-full px-4 py-3.5 flex items-center justify-between text-left active:bg-surface-container" type="button">
+<button aria-expanded="false" class="faq-trigger focus-visible:ring-2 focus-visible:ring-brand-deep w-full px-4 py-3.5 flex items-center justify-between text-left active:bg-surface-container" type="button">
 <span class="font-title-md text-title-md text-text-primary pr-3">{% text 'support.help_mobile.text.886df5f4b83d' %}</span>
 <span class="faq-icon material-symbols-outlined text-[20px] text-brand-deep transition-transform duration-200">{% text 'support.help_mobile.text.5dd226578843' %}</span>
 </button>
@@ -194,7 +194,7 @@
 </div>
 <!-- Item 4 -->
 <div class="faq-item bg-surface-muted overflow-hidden transition-colors" data-tags="versand packstation">
-<button class="faq-trigger w-full px-4 py-3.5 flex items-center justify-between text-left active:bg-surface-container" type="button">
+<button aria-expanded="false" class="faq-trigger focus-visible:ring-2 focus-visible:ring-brand-deep w-full px-4 py-3.5 flex items-center justify-between text-left active:bg-surface-container" type="button">
 <span class="font-title-md text-title-md text-text-primary pr-3">{% text 'support.help_mobile.text.a1dc79d21871' %}</span>
 <span class="faq-icon material-symbols-outlined text-[20px] text-brand-deep transition-transform duration-200">{% text 'support.help_mobile.text.5dd226578843' %}</span>
 </button>
@@ -206,7 +206,7 @@
 </div>
 <!-- Item 5 -->
 <div class="faq-item bg-surface-muted overflow-hidden transition-colors" data-tags="zahlung heimanprobe">
-<button class="faq-trigger w-full px-4 py-3.5 flex items-center justify-between text-left active:bg-surface-container" type="button">
+<button aria-expanded="false" class="faq-trigger focus-visible:ring-2 focus-visible:ring-brand-deep w-full px-4 py-3.5 flex items-center justify-between text-left active:bg-surface-container" type="button">
 <span class="font-title-md text-title-md text-text-primary pr-3">{% text 'support.help_mobile.text.0e8fea9e9380' %}</span>
 <span class="faq-icon material-symbols-outlined text-[20px] text-brand-deep transition-transform duration-200">{% text 'support.help_mobile.text.5dd226578843' %}</span>
 </button>
@@ -218,7 +218,7 @@
 </div>
 </div>
 </div>
-<!-- Fast Contact Form -->
+<!-- Fast Contact Form --><div id="kontakt-formular" class="scroll-mt-36"></div>
 <div class="px-4 py-5">
 <div class="p-5 bg-surface-muted flex flex-col gap-4">
 <div>
@@ -226,41 +226,31 @@
 <h3 class="font-headline-md text-headline-md text-text-primary">{% text 'support.help_mobile.text.046badcb91fa' %}</h3>
 <p class="font-body-sm text-body-sm text-text-muted mt-0.5">{% text 'support.help_mobile.text.dae1981da662' %}</p>
 </div>
-<form class="flex flex-col gap-3" id="contactForm" onsubmit="event.preventDefault(); handleFormSubmit();">
+<p class="font-body-sm text-body-sm text-text-muted p-3" role="note">{% text 'support.help.ui.contacts_draft' %}</p>{% for message in messages %}{% if 'contact-saved' in message.tags %}<p id="contact-saved-status" role="status" class="p-4 mb-4 bg-primary-fixed text-on-primary-fixed">{{ message }}</p>{% endif %}{% endfor %}<form class="flex flex-col gap-3" id="contactForm" method="post" action="{% url 'support:contact' %}" data-real-support="true">{% csrf_token %}<input type="hidden" name="form_source" value="mobile">
+<input type="text" name="website" tabindex="-1" autocomplete="off" hidden aria-hidden="true">
+<p class="font-body-sm text-body-sm text-text-muted mb-4" role="note">{% text 'support.help.ui.contact_local' %} <a class="underline" href="{% url 'support:datenschutz' %}" data-real-navigation>{% text 'support.help.ui.contact_privacy' %}</a></p>
+{% if contact_form.errors %}<div role="alert" class="text-error font-body-sm mb-4">{% text 'support.help.ui.contact_errors' %}{{ contact_form.errors }}</div>{% endif %}
 <div class="flex flex-col gap-1">
 <label class="font-label-sm text-label-sm uppercase text-text-muted" for="contactName">{% text 'support.help_mobile.text.18a493008ffa' %}</label>
-<input class="h-11 px-3 bg-surface-container text-text-primary font-body-md text-body-md placeholder:text-text-muted/60 focus:outline-none focus:bg-surface-container-highest transition-colors" id="contactName" placeholder="{% text 'support.help_mobile.label.aeb19cfc77b0' %}" required="" type="text"/>
+<input class="h-11 px-3 bg-surface-container text-text-primary font-body-md text-body-md placeholder:text-text-muted/60 focus:outline-none focus:bg-surface-container-highest transition-colors" id="contactName" placeholder="{% text 'support.help_mobile.label.aeb19cfc77b0' %}" required="" type="text" name="name" maxlength="120" value="{{ contact_form.name.value|default_if_none:'' }}" aria-invalid="{% if contact_form.name.errors %}true{% else %}false{% endif %}">
 </div>
 <div class="flex flex-col gap-1">
 <label class="font-label-sm text-label-sm uppercase text-text-muted" for="contactEmail">{% text 'support.help_mobile.text.ce8fdbcbfea8' %}</label>
-<input class="h-11 px-3 bg-surface-container text-text-primary font-body-md text-body-md placeholder:text-text-muted/60 focus:outline-none focus:bg-surface-container-highest transition-colors" id="contactEmail" placeholder="{% text 'support.help_mobile.label.de3f93b14a44' %}" required="" type="email"/>
+<input class="h-11 px-3 bg-surface-container text-text-primary font-body-md text-body-md placeholder:text-text-muted/60 focus:outline-none focus:bg-surface-container-highest transition-colors" id="contactEmail" placeholder="{% text 'support.help_mobile.label.de3f93b14a44' %}" required="" type="email" name="email" maxlength="254" value="{{ contact_form.email.value|default_if_none:'' }}" aria-invalid="{% if contact_form.email.errors %}true{% else %}false{% endif %}">
 </div>
 <div class="flex flex-col gap-1">
 <label class="font-label-sm text-label-sm uppercase text-text-muted" for="contactSubject">{% text 'support.help_mobile.text.a66fb92ccad3' %}</label>
-<select class="h-11 px-3 bg-surface-container text-text-primary font-body-md text-body-md focus:outline-none focus:bg-surface-container-highest transition-colors" id="contactSubject">
-<option value="beratung">{% text 'support.help_mobile.text.ec51fa255467' %}</option>
-<option value="bestellung">{% text 'support.help_mobile.text.3139568cb77a' %}</option>
-<option value="retoure">{% text 'support.help_mobile.text.357c87dc6b4e' %}</option>
-<option value="sonstiges">{% text 'support.help_mobile.text.653bc1b4337b' %}</option>
-</select>
+<select class="h-11 px-3 bg-surface-container text-text-primary font-body-md text-body-md focus:outline-none focus:bg-surface-container-highest transition-colors" id="contactSubject" name="topic" aria-invalid="{% if contact_form.topic.errors %}true{% else %}false{% endif %}"><option value="retoure" {% if contact_form.topic.value == 'retoure' %}selected{% endif %}>{% text 'support.help.text.5e57befec732' %}</option><option value="versand" {% if contact_form.topic.value == 'versand' %}selected{% endif %}>{% text 'support.help.text.9f598b8ae0c9' %}</option><option value="groesse" {% if contact_form.topic.value == 'groesse' %}selected{% endif %}>{% text 'support.help.text.d7cfa063780c' %}</option><option value="zahlung" {% if contact_form.topic.value == 'zahlung' %}selected{% endif %}>{% text 'support.help.text.dd771ce48db1' %}</option><option value="reklamation" {% if contact_form.topic.value == 'reklamation' %}selected{% endif %}>{% text 'support.help.text.ea53f6496f9c' %}</option><option value="sonstiges" {% if contact_form.topic.value == 'sonstiges' %}selected{% endif %}>{% text 'support.help.text.c1f2cc662223' %}</option></select>
 </div>
 <div class="flex flex-col gap-1">
 <label class="font-label-sm text-label-sm uppercase text-text-muted" for="contactMessage">{% text 'support.help_mobile.text.816c03d4877e' %}</label>
-<textarea class="p-3 bg-surface-container text-text-primary font-body-md text-body-md placeholder:text-text-muted/60 focus:outline-none focus:bg-surface-container-highest transition-colors resize-none" id="contactMessage" placeholder="{% text 'support.help_mobile.label.c13e2465209e' %}" required="" rows="3"></textarea>
+<textarea class="p-3 bg-surface-container text-text-primary font-body-md text-body-md placeholder:text-text-muted/60 focus:outline-none focus:bg-surface-container-highest transition-colors resize-none" id="contactMessage" placeholder="{% text 'support.help_mobile.label.c13e2465209e' %}" required="" rows="3" name="message" maxlength="4000" aria-invalid="{% if contact_form.message.errors %}true{% else %}false{% endif %}">{{ contact_form.message.value|default_if_none:'' }}</textarea>
 </div>
 <button class="mt-1 h-12 bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider flex items-center justify-center gap-2 active:bg-brand-deep transition-colors" id="submitButton" type="submit">
 <span class="material-symbols-outlined text-[18px]">{% text 'support.help_mobile.text.37ed539c0cef' %}</span>
 <span>{% text 'support.help_mobile.text.cd9943ca9d7c' %}</span>
 </button>
 </form>
-<!-- Feedback Banner (Hidden by default) -->
-<div class="hidden p-4 bg-primary text-on-primary flex items-start gap-3" id="contactSuccess">
-<span class="material-symbols-outlined text-primary-fixed text-[22px]">{% text 'support.help_mobile.text.aa8d0cb1881e' %}</span>
-<div class="flex flex-col">
-<span class="font-title-md text-title-md">{% text 'support.help_mobile.text.f230174d4e43' %}</span>
-<span class="font-body-sm text-body-sm text-on-primary-container">{% text 'support.help_mobile.text.095d7235a2fc' %}</span>
-</div>
-</div>
 </div>
 </div>
 <!-- Trust & Guarantee Badges Strip -->
@@ -298,97 +288,78 @@
 </div>
 </div>
 <script>
-  (function initHelpCenter() {
-    // Accordion Logic
-    const accordionTriggers = document.querySelectorAll('.faq-trigger');
-    accordionTriggers.forEach(trigger => {
-      trigger.addEventListener('click', function() {
-        const item = this.closest('.faq-item');
-        const content = item.querySelector('.faq-content');
-        const icon = this.querySelector('.faq-icon');
-        const isCurrentlyOpen = !content.classList.contains('hidden');
-
-        // Toggle state
-        if (isCurrentlyOpen) {
-          content.classList.add('hidden');
-          icon.textContent = 'expand_more';
-          icon.classList.remove('rotate-180');
-        } else {
-          content.classList.remove('hidden');
-          icon.textContent = 'expand_less';
-          icon.classList.add('rotate-180');
-        }
-      });
-    });
-
-    // Search and Quick Pills Filtering
-    const searchInput = document.getElementById('faqSearchInput');
-    const searchClear = document.getElementById('faqSearchClear');
-    const filterPills = document.querySelectorAll('.faq-pill');
-    const faqItems = document.querySelectorAll('.faq-item');
-
-    function applyFilter(searchTerm, filterTag) {
-      const term = (searchTerm || '').trim().toLowerCase();
-
-      faqItems.forEach(item => {
-        const titleText = (item.querySelector('.faq-trigger span')?.textContent || '').toLowerCase();
-        const bodyText = (item.querySelector('.faq-content p')?.textContent || '').toLowerCase();
-        const itemTags = (item.getAttribute('data-tags') || '').toLowerCase();
-
-        const matchesSearch = !term || titleText.includes(term) || bodyText.includes(term) || itemTags.includes(term);
-        const matchesTag = !filterTag || filterTag === 'all' || itemTags.includes(filterTag);
-
-        if (matchesSearch && matchesTag) {
-          item.classList.remove('hidden');
-        } else {
-          item.classList.add('hidden');
-        }
-      });
-    }
-
-    if (searchInput) {
-      searchInput.addEventListener('input', function() {
-        if (this.value.length > 0) {
-          searchClear.classList.remove('hidden');
-        } else {
-          searchClear.classList.add('hidden');
-        }
-        applyFilter(this.value, null);
-      });
-    }
-
-    if (searchClear) {
-      searchClear.addEventListener('click', function() {
-        searchInput.value = '';
-        this.classList.add('hidden');
-        applyFilter('', 'all');
-      });
-    }
-
-    filterPills.forEach(pill => {
-      pill.addEventListener('click', function() {
-        filterPills.forEach(p => {
-          p.classList.remove('bg-brand-deep', 'text-on-primary');
-          p.classList.add('bg-surface-muted', 'text-text-primary');
-        });
-        this.classList.remove('bg-surface-muted', 'text-text-primary');
-        this.classList.add('bg-brand-deep', 'text-on-primary');
-
-        const tag = this.getAttribute('data-filter');
-        applyFilter(searchInput ? searchInput.value : '', tag);
-      });
-    });
-
-    // Form Simulation
-    window.handleFormSubmit = function() {
-      const form = document.getElementById('contactForm');
-      const success = document.getElementById('contactSuccess');
-      if (form && success) {
-        form.classList.add('hidden');
-        success.classList.remove('hidden');
-      }
-    };
-  })();
-</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-page-bg/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-brand-deep font-semibold"><div class="flex justify-around items-center h-16 px-2"><a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-text-muted active:opacity-70 transition-all" data-path="atelier" href="#"><span class="material-symbols-outlined text-[22px]">{% text 'support.help_mobile.text.781592fc9064' %}</span><span class="font-label-sm text-label-sm tracking-wider uppercase mt-1 text-[10px]">{% text 'support.help_mobile.text.e105f808eaa3' %}</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-text-muted active:opacity-70 transition-all" data-path="katalog" href="#"><span class="material-symbols-outlined text-[22px]">{% text 'support.help_mobile.text.0ffb08753481' %}</span><span class="font-label-sm text-label-sm tracking-wider uppercase mt-1 text-[10px]">{% text 'support.help_mobile.text.788fce56160f' %}</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-text-muted active:opacity-70 transition-all" data-path="suche" href="#"><span class="material-symbols-outlined text-[22px]">{% text 'support.help_mobile.text.3559d7accf00' %}</span><span class="font-label-sm text-label-sm tracking-wider uppercase mt-1 text-[10px]">{% text 'support.help_mobile.text.fd281588694a' %}</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-text-muted active:opacity-70 transition-all" data-path="merkliste" href="#"><span class="material-symbols-outlined text-[22px]">{% text 'support.help_mobile.text.b3452e179984' %}</span><span class="font-label-sm text-label-sm tracking-wider uppercase mt-1 text-[10px]">{% text 'support.help_mobile.text.096d0de1f53b' %}</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] h-12 active:opacity-70 transition-all text-brand-deep font-semibold" data-path="konto" href="#"><span class="material-symbols-outlined text-[22px]">{% text 'support.help_mobile.text.e88be33a3fba' %}</span><span class="font-label-sm text-label-sm tracking-wider uppercase mt-1 text-[10px]">{% text 'support.help_mobile.text.ff6b493aa40e' %}</span></a></div></nav>{% include 'includes/footer.html' %}
+(() => {
+ 'use strict';
+ const input = document.getElementById('faqSearchInput');
+ const empty = document.getElementById('faq-no-results');
+ const reset = document.getElementById('faq-reset');
+ const pills = Array.from(document.querySelectorAll('.faq-pill'));
+ let activeTag = 'all';
+ const mobile = document.querySelector('.faq-item') !== null;
+ const items = Array.from(document.querySelectorAll(mobile ? '.faq-item' : 'article.scroll-mt-36'));
+ const triggers = Array.from(document.querySelectorAll(mobile ? '.faq-trigger' : '[data-faq-trigger]'));
+ const panelFor = trigger => mobile ? trigger.nextElementSibling : document.getElementById(trigger.getAttribute('aria-controls'));
+ const expand = (trigger, open) => {
+  const panel = panelFor(trigger);
+  if (!panel) return;
+  panel.hidden = !open;
+  panel.classList.toggle('hidden', !open);
+  trigger.setAttribute('aria-expanded', String(open));
+  trigger.querySelector('.material-symbols-outlined')?.classList.toggle('rotate-180', open);
+ };
+ triggers.forEach((trigger, index) => {
+  const panel = panelFor(trigger);
+  if (!panel) return;
+  trigger.id ||= `faq-trigger-${index}`;
+  panel.id ||= `faq-panel-${index}`;
+  trigger.setAttribute('aria-controls', panel.id);
+  panel.setAttribute('aria-labelledby', trigger.id);
+  panel.setAttribute('role', 'region');
+  expand(trigger, !panel.classList.contains('hidden'));
+  trigger.addEventListener('click', () => expand(trigger, trigger.getAttribute('aria-expanded') !== 'true'));
+  trigger.addEventListener('keydown', event => {
+   const visible = triggers.filter(button => !button.closest(mobile ? '.faq-item' : 'article').hidden);
+   const current = visible.indexOf(trigger);
+   let target;
+   if (event.key === 'ArrowDown') target = visible[(current + 1) % visible.length];
+   if (event.key === 'ArrowUp') target = visible[(current - 1 + visible.length) % visible.length];
+   if (event.key === 'Home') target = visible[0];
+   if (event.key === 'End') target = visible[visible.length - 1];
+   if (target) { event.preventDefault(); target.focus(); }
+  });
+ });
+ const filter = () => {
+  const term = (input?.value || '').trim().toLocaleLowerCase(document.documentElement.lang);
+  let count = 0;
+  items.forEach(item => {
+   const tags = (item.dataset.tags || '').split(/\s+/);
+   const match = (!term || item.textContent.toLocaleLowerCase(document.documentElement.lang).includes(term)) && (activeTag === 'all' || tags.includes(activeTag));
+   item.hidden = !match;
+   if (match) count++;
+   item.querySelectorAll(mobile ? '.faq-trigger' : '[data-faq-trigger]').forEach(trigger => expand(trigger, Boolean(term) && match));
+  });
+  empty.hidden = count > 0;
+  reset.hidden = !term && activeTag === 'all';
+  document.getElementById('faqSearchClear')?.classList.toggle('hidden', !term);
+  pills.forEach(pill => {
+   const selected = pill.dataset.filter === activeTag;
+   pill.setAttribute('aria-pressed', String(selected));
+   pill.classList.toggle('bg-brand-deep', selected);
+   pill.classList.toggle('text-on-primary', selected);
+   pill.classList.toggle('bg-surface-muted', !selected);
+   pill.classList.toggle('text-text-primary', !selected);
+  });
+ };
+ window.searchHelpTopics = filter;
+ window.setQuickSearch = term => { input.value = term; activeTag = 'all'; filter(); };
+ input?.addEventListener('input', filter);
+ document.getElementById('faqSearchForm')?.addEventListener('submit', event => { event.preventDefault(); filter(); });
+ const clear = () => { input.value = ''; activeTag = 'all'; filter(); input.focus(); };
+ reset.addEventListener('click', clear);
+ document.getElementById('faqSearchClear')?.addEventListener('click', clear);
+ pills.forEach(pill => pill.addEventListener('click', () => { activeTag = pill.dataset.filter; filter(); }));
+ filter();
+})();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-page-bg/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-brand-deep font-semibold"><div class="flex justify-around items-center h-16 px-2"><a data-real-navigation class="flex flex-col items-center justify-center min-w-[56px] h-12 text-text-muted active:opacity-70 transition-all" data-path="atelier" href="{% url 'shop:home' %}"><span class="material-symbols-outlined text-[22px]">{% text 'support.help_mobile.text.781592fc9064' %}</span><span class="font-label-sm text-label-sm tracking-wider uppercase mt-1 text-[10px]">{% text 'support.help_mobile.text.e105f808eaa3' %}</span></a><a data-real-navigation class="flex flex-col items-center justify-center min-w-[56px] h-12 text-text-muted active:opacity-70 transition-all" data-path="katalog" href="{% url 'catalog:list' %}"><span class="material-symbols-outlined text-[22px]">{% text 'support.help_mobile.text.0ffb08753481' %}</span><span class="font-label-sm text-label-sm tracking-wider uppercase mt-1 text-[10px]">{% text 'support.help_mobile.text.788fce56160f' %}</span></a><a data-real-navigation class="flex flex-col items-center justify-center min-w-[56px] h-12 text-text-muted active:opacity-70 transition-all" data-path="suche" href="{% url 'catalog:search' %}"><span class="material-symbols-outlined text-[22px]">{% text 'support.help_mobile.text.3559d7accf00' %}</span><span class="font-label-sm text-label-sm tracking-wider uppercase mt-1 text-[10px]">{% text 'support.help_mobile.text.fd281588694a' %}</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-text-muted active:opacity-70 transition-all" data-real-navigation href="{% url 'wishlist:detail' %}"><span class="material-symbols-outlined text-[22px]">{% text 'support.help_mobile.text.b3452e179984' %}</span><span class="font-label-sm text-label-sm tracking-wider uppercase mt-1 text-[10px]">{% text 'support.help_mobile.text.096d0de1f53b' %}</span></a><a data-real-navigation aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] h-12 active:opacity-70 transition-all text-brand-deep font-semibold" data-path="konto" href="{% url 'customer:overview' %}"><span class="material-symbols-outlined text-[22px]">{% text 'support.help_mobile.text.e88be33a3fba' %}</span><span class="font-label-sm text-label-sm tracking-wider uppercase mt-1 text-[10px]">{% text 'support.help_mobile.text.ff6b493aa40e' %}</span></a></div></nav>{% include 'includes/footer.html' %}
 
 {% endblock %}

@@ -1,4 +1,5 @@
 import json
+import re
 from pathlib import Path
 
 import pytest
@@ -14,7 +15,7 @@ pytestmark = pytest.mark.django_db
 
 @pytest.mark.parametrize('page', page_manifest(), ids=lambda page: page['source'])
 def test_reference_pages_render_as_namespaced_django_templates(page):
-    if page['feature'] == 'shop' or page['name'] == 'product':
+    if page['feature'] in {'shop', 'cart', 'orders', 'payments'} or page['name'] == 'product':
         call_command('seed_demo_catalog')
     client = Client()
     if page['feature'] == 'customer' and page['source'] not in {
@@ -24,7 +25,23 @@ def test_reference_pages_render_as_namespaced_django_templates(page):
         from django.contrib.auth import get_user_model
         user = get_user_model().objects.create_user(username='reference-preview')
         client.force_login(user)
-    response = client.get(reverse(f"{page['feature']}:{page['name']}"), follow=True)
+    url = reverse(f"{page['feature']}:{page['name']}")
+    if page['feature'] in {'orders', 'payments'} or page['source'] == 'cart.html':
+        from web.catalog.models import ProductVariant
+        variant = ProductVariant.objects.filter(is_active=True, demo_quantity__gt=0).first()
+        client.post(reverse('cart:add'), {'sku': variant.sku, 'quantity': 1})
+        client.post(reverse('orders:address'), {'email': 'preview@example.test', 'first_name': 'Max',
+                    'last_name': 'Muster', 'street': 'Testweg 1', 'postal_code': '10115',
+                    'city': 'Berlin', 'country': 'DE'})
+        if page['name'] == 'confirmation':
+            review = client.get(reverse('payments:review'))
+            url = client.post(reverse('payments:review'), {'method': 'test',
+                'checkout_token': review.context['checkout_token']}).url
+    if page['source'] == 'account-order-detail.html':
+        from web.orders.models import Order
+        receipt = Order.objects.create(user=user, total_amount='0.00', is_test=True)
+        url = reverse('customer:order_receipt', kwargs={'reference': receipt.reference})
+    response = client.get(url, follow=True)
     assert response.status_code == 200
     html = response.content.decode()
     if page['feature'] == 'customer' and page['source'] in {
@@ -38,7 +55,9 @@ def test_reference_pages_render_as_namespaced_django_templates(page):
     if page['source'] == 'account-mobile.html':
         assert 'data-customer-reference' in html
     else:
-        assert 'data-demo-page="' + page['source'] + '"' in html
+        source = {'legal-mobile.html': 'legal.html', 'checkout-address-errors.html': 'checkout-address.html'}.get(
+            page['source'], page['source'])
+        assert 'data-demo-page="' + source + '"' in html
     assert 'id="shop-routes"' in html
     assert 'Designvorschau' in html
     assert 'src="assets/' not in html
@@ -51,9 +70,9 @@ def test_reference_pages_render_as_namespaced_django_templates(page):
 def test_demo_requests_do_not_write_financial_or_customer_data(django_assert_num_queries):
     client = Client(enforce_csrf_checks=True)
     with django_assert_num_queries(0):
-        assert client.get(reverse('payments:review')).status_code == 200
+        assert client.get(reverse('payments:review')).status_code == 302
     assert client.post(reverse('payments:review'), {'amount': '1.00'}).status_code == 403
-    assert Client().post(reverse('payments:review')).status_code == 405
+    assert Client().post(reverse('payments:review')).status_code == 400
 
 
 def test_routes_and_source_fallback_are_language_aware():
@@ -71,7 +90,10 @@ def test_mock_values_are_rendered_from_context():
     assert response.context['cart']['total'] == sum(
         row['line_amount'] for row in response.context['cart']['lines']
     )
-    assert '139,80' in response.content.decode()
+    assert response.context['cart']['lines'] == []
+    assert response.context['cart']['total'] == 0
+    visible = re.sub(r'<script\b[^>]*>.*?</script>', '', response.content.decode(), flags=re.S)
+    assert '139,80' not in visible
     html = Client().get(reverse('shop:home')).content.decode()
     assert 'M2223 Bungee Pants' in html
 

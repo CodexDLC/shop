@@ -24,6 +24,7 @@ def product_snapshot(product):
         "slug": product.slug,
         "description_key": product.description_key,
         "is_active": product.is_active,
+        "new_until": product.new_until.isoformat() if product.new_until else None,
         "tags": sorted(product.tags.values_list("pk", flat=True)) if product.pk else [],
     }
     return hashlib.sha256(json.dumps(state, sort_keys=True).encode()).hexdigest()
@@ -35,13 +36,14 @@ class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = [
-            "brand", "category", "model_name", "manufacturer_article", "slug", "description_key", "tags", "is_active",
+            "brand", "category", "model_name", "manufacturer_article", "slug", "description_key", "tags", "is_active", "new_until",
         ]
         labels = {name: text(f"staff.product_form.{name}") for name in fields}
         help_texts = {
             "slug": text("staff.product_form.slug_help"),
             "description_key": text("staff.product_form.description_key_help"),
             "is_active": text("staff.product_form.publication_help"),
+            "new_until": text("staff.product_form.new_until_help"),
         }
         error_messages = {
             name: {
@@ -54,7 +56,8 @@ class ProductForm(forms.ModelForm):
             }
             for name in fields
         }
-        widgets = {"tags": forms.SelectMultiple(attrs={"size": 5})}
+        widgets = {"tags": forms.SelectMultiple(attrs={"size": 5}),
+                   "new_until": forms.DateInput(format="%Y-%m-%d", attrs={"type": "date"})}
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

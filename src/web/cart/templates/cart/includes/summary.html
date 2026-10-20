@@ -1,0 +1,76 @@
+{% load shop_i18n %}
+<div class="bg-surface-container-lowest border border-border-subtle p-6 sm:p-7">
+<div class="flex items-baseline justify-between border-b border-border-subtle pb-4">
+<h2 class="font-title-lg text-title-lg text-text-primary">
+{% text 'commerce.summary.title' %}
+</h2>
+<span class="font-body-sm text-body-sm text-text-muted">{{ cart.item_count }} {% text 'commerce.summary.count' %}
+</span>
+</div>
+{% if mini_lines %}
+<ul class="space-y-5 py-5" role="list">
+{% for line in cart.lines %}
+<li class="flex items-center gap-3.5">
+<div class="w-16 h-20 bg-surface-muted shrink-0 overflow-hidden">
+{% if line.photo_url %}
+<img class="w-full h-full object-cover" src="{{ line.photo_url }}" alt="{{ line.name }}" width="64" height="80">
+{% endif %}
+</div>
+<div class="flex-1 min-w-0">
+<span class="font-label-sm text-label-sm uppercase text-text-muted">{{ line.brand }}</span>
+<h3 class="font-title-md text-title-md text-text-primary">{{ line.name }}</h3>
+<p class="font-body-sm text-body-sm text-text-muted">{{ line.colour_name }} · {{ line.size }} · {{ line.quantity }} × {{ line.unit_amount|floatformat:2 }} €</p>
+</div>
+<span class="font-price-md text-price-md text-text-primary whitespace-nowrap">{{ line.line_amount|floatformat:2 }} €</span>
+</li>
+{% endfor %}
+</ul>
+{% endif %}
+<dl class="space-y-3 py-5 border-b border-border-subtle font-body-sm text-body-sm">
+<div class="flex justify-between gap-3">
+<dt>
+{% text 'commerce.summary.subtotal' %}
+</dt>
+<dd class="whitespace-nowrap">{{ cart.subtotal|floatformat:2 }} €</dd>
+</div>
+<div class="flex justify-between gap-3">
+<dt>
+{% text 'commerce.shipping.demo' %}
+</dt>
+<dd class="whitespace-nowrap">{{ cart.shipping_amount|floatformat:2 }} €</dd>
+</div>
+</dl>
+<div class="flex justify-between items-baseline gap-3 py-5">
+<span class="font-title-md text-title-md">
+{% text 'commerce.summary.total' %}
+</span>
+<strong class="font-headline-md text-headline-md text-primary whitespace-nowrap">{{ cart.total|floatformat:2 }} €</strong>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted">
+{% text 'commerce.shipping.notice' %}
+</p>
+{% if cart_checkout %}
+<!-- Reference coupon accordion; no discount is applied in the local checkout. -->
+<div class="py-4 border-b border-border-subtle"><details class="group"><summary class="flex justify-between items-center font-body-sm text-body-sm font-medium cursor-pointer"><span class="flex gap-1.5 items-center"><span class="material-symbols-outlined text-sm" aria-hidden="true">sell</span>{% text 'commerce.reference.coupon.title' %}</span><span class="material-symbols-outlined text-base" aria-hidden="true">expand_more</span></summary><p class="font-body-sm text-body-sm text-text-muted mt-3">{% text 'commerce.reference.coupon.help' %}</p><fieldset disabled class="pt-3 flex gap-2"><legend class="sr-only">{% text 'commerce.reference.planned' %}</legend><input aria-label="{% text 'commerce.reference.coupon.placeholder' %}" class="w-full min-w-0 bg-surface-container-low border border-border-subtle px-3 py-2 font-body-sm text-body-sm opacity-50" placeholder="{% text 'commerce.reference.coupon.placeholder' %}" type="text"><button class="px-3 bg-surface-container-highest font-label-sm text-label-sm uppercase shrink-0 opacity-50" type="button">{% text 'commerce.reference.coupon.action' %}</button></fieldset></details></div>
+{% endif %}
+{% if cart_checkout %}{% if cart.can_checkout %}
+<a class="mt-6 w-full py-3.5 px-6 bg-primary text-on-primary flex items-center justify-center font-label-md text-label-md uppercase tracking-wider" href="{% url 'orders:address' %}">
+{% text 'commerce.cart.checkout' %}
+</a>
+{% endif %}{% endif %}
+{% if address_checkout %}
+<button form="checkout-address-form" class="mt-6 w-full h-12 bg-primary text-on-primary font-label-md text-label-md uppercase tracking-widest" type="submit">
+{% text 'commerce.checkout.continue' %}
+</button>
+{% endif %}
+{% if review_checkout %}
+<button form="test-order-form" class="mt-6 w-full bg-primary text-on-primary py-4 px-6 font-label-md text-label-md uppercase tracking-widest" type="submit" {% if not cart.can_checkout %}disabled{% endif %}>
+{% text 'commerce.payment.create' %}
+</button>
+<p class="font-body-sm text-body-sm text-text-muted mt-3">
+{% text 'commerce.payment.legal' %}
+</p>
+{% endif %}
+{% include 'cart/includes/express_preview.html' %}
+</div>
+{% include 'cart/includes/help_capsule.html' %}

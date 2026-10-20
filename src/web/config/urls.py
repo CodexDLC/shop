@@ -6,12 +6,15 @@ from django.urls import include, path
 from web.shop.views.engine_status_view import EngineStatusView
 
 admin.site.login = secure_admin_login(admin.site.login)
+handler404 = "web.support.not_found.not_found"
 urlpatterns = [path("health/", EngineStatusView.as_view(), name="health"), path("admin/", admin.site.urls)]
 urlpatterns += [path("staff/", include("web.staff.urls"))]
+urlpatterns += [path("integrations/ebay/", include("web.ebay_notifications.urls"))]
+urlpatterns += [path("integrations/ebay/oauth/", include("web.ebay_oauth.urls"))]
 urlpatterns += i18n_patterns(
     path("accounts/", include("allauth.urls")),
     *(path("", include(f"web.{feature}.urls")) for feature in (
-        "shop", "catalog", "cart", "orders", "payments", "customer", "support"
+        "shop", "catalog", "cart", "orders", "payments", "customer", "support", "wishlist"
     )),
     prefix_default_language=False,
 )

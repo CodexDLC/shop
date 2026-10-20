@@ -7,11 +7,16 @@
 <script src="{% static 'storefront/localization.js' %}"></script>
 {% block page_head %}{% endblock %}
 <link rel="stylesheet" href="{% static 'storefront/django-preview.css' %}">
+<link rel="stylesheet" href="{% static 'storefront/header-navigation.css' %}?v=header-20261020">
+<link rel="stylesheet" href="{% static 'storefront/site-fonts.css' %}?v=20261020">
 </head>
 <body {% block body_attrs %}{% endblock %}>
 {% block content %}{% endblock %}
+<form id="shop-add-to-cart" action="{% url 'cart:add' %}" method="post" data-real-commerce hidden>{% csrf_token %}<input name="sku"><input name="quantity" value="1"><input name="next" value="cart"></form>
+<form id="shop-save-wishlist" action="{% url 'wishlist:add' %}" method="post" data-real-commerce hidden>{% csrf_token %}<input name="product_id"></form>
 {% if demo_mode %}<aside class="shop-demo-notice" role="note">{% text 'demo.notice' %}</aside>{% endif %}
 {{ shop_routes|json_script:'shop-routes' }}
-<script src="{% static 'storefront/reference-navigation.js' %}"></script>
-<script src="{% static 'storefront/django-preview.js' %}"></script>
+<script src="{% static 'storefront/reference-navigation.js' %}?v=commerce-20261020"></script>
+<script src="{% static 'storefront/django-preview.js' %}?v=commerce-20261020"></script>
+<script src="{% static 'storefront/header-navigation.js' %}?v=header-20261020"></script>
 </body></html>

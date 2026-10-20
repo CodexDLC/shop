@@ -8,7 +8,8 @@ class AuthLogFilter(logging.Filter):
     def filter(self, record):
         def clean(value):
             if isinstance(value, str):
-                return re.sub(r"(/(?:[a-z]{2}/)?accounts/)[^\s]*", r"\1[redacted]", value)
+                value = re.sub(r"(/(?:[a-z]{2}/)?accounts/)[^\s]*", r"\1[redacted]", value)
+                return re.sub(r"(/integrations/ebay/oauth/)[^\s]*", r"\1[redacted]", value)
             return value
 
         record.msg = clean(record.msg)

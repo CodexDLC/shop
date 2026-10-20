@@ -23,7 +23,7 @@ class VariantMatrixView(PermissionRequiredMixin, StaffPageView):
     cabinet_module = "catalog"
     http_method_names = ["get", "post", "head", "options"]
     fields = ("id", "sku", "color_code", "color_name_key", "color_hex", "size", "price",
-              "currency", "demo_quantity", "is_active")
+              "currency", "demo_quantity", "is_active", "is_on_sale")
 
     def rows(self, product):
         return list(product.variants.order_by("pk").values(*self.fields))

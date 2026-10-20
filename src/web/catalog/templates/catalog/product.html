@@ -211,21 +211,21 @@
 <div class="flex flex-col sm:flex-row gap-3 mb-8">
 <!-- Quantity Stepper -->
 <div class="flex items-center bg-surface-muted h-12 px-2 self-start shrink-0">
-<button aria-label="{% text 'catalog.product.label.cc4db094f8c1' %}" class="w-9 h-full flex items-center justify-center text-text-primary hover:text-primary transition-colors text-base" type="button">
+<button data-quantity-step="-1" aria-label="{% text 'catalog.product.label.cc4db094f8c1' %}" class="w-9 h-full flex items-center justify-center text-text-primary hover:text-primary transition-colors text-base" type="button">
               −
             </button>
-<span class="w-9 text-center font-semibold text-text-primary text-sm">1</span>
-<button aria-label="{% text 'catalog.product.label.e5483f010fb0' %}" class="w-9 h-full flex items-center justify-center text-text-primary hover:text-primary transition-colors text-base" type="button">
+<span data-product-quantity aria-live="polite" class="w-9 text-center font-semibold text-text-primary text-sm">1</span>
+<button data-quantity-step="1" aria-label="{% text 'catalog.product.label.e5483f010fb0' %}" class="w-9 h-full flex items-center justify-center text-text-primary hover:text-primary transition-colors text-base" type="button">
               +
             </button>
 </div>
-<!-- Primary CTA Button: selection preview only -->
+<!-- Primary CTA: server-validated local cart -->
 <button data-product-action disabled class="flex-1 h-12 bg-primary hover:bg-[#133327] text-on-primary text-xs uppercase tracking-widest font-semibold flex items-center justify-center gap-3 transition-colors px-6" type="button">
 <span class="material-symbols-outlined text-[20px]">{% text 'catalog.product.text.52c70abd4468' %}</span>
 <span data-action-label>{{ catalog_selection_texts.preview_action }}</span>
 </button>
 <!-- Wishlist Button -->
-<button aria-label="{% text 'catalog.product.label.0d719afadb0e' %}" class="h-12 w-12 bg-surface-muted hover:bg-surface-variant text-text-primary flex items-center justify-center transition-colors shrink-0" type="button">
+<button data-wishlist-product aria-label="{% text 'catalog.product.label.0d719afadb0e' %}" class="h-12 w-12 bg-surface-muted hover:bg-surface-variant text-text-primary flex items-center justify-center transition-colors shrink-0" type="button">
 <span class="material-symbols-outlined text-[20px]">{% text 'catalog.product.text.a6459cb4ad3f' %}</span>
 </button>
 </div>
@@ -720,5 +720,5 @@
 
 {{ products|json_script:"catalog-products" }}
 {{ catalog_selection_texts|json_script:"catalog-selection-texts" }}
-<script src="{% static 'storefront/catalog-selection.js' %}" defer></script>
+<script src="{% static 'storefront/catalog-selection.js' %}?v=commerce-20261020" defer></script>
 {% endblock %}

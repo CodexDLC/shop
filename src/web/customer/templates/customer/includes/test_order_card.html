@@ -1,0 +1,7 @@
+{% load shop_i18n %}
+<article class="bg-surface-container-lowest p-space-lg md:p-space-xl mb-space-lg" data-test-order>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div><span class="font-label-sm text-label-sm uppercase tracking-widest text-brand-deep">{% text 'customer.test_orders.status' %}</span><h2 class="font-headline-md text-headline-md mt-2 break-words">{{ receipt.reference }}</h2><p class="font-body-sm text-body-sm text-text-muted mt-2">{{ receipt.created_at|date:'d.m.Y H:i' }}</p></div>
+<div><p class="font-price-lg text-price-lg text-brand-deep font-bold">{{ receipt.total_amount|floatformat:2 }} {{ receipt.currency }}</p><a data-real-navigation class="inline-flex items-center justify-center h-11 px-5 mt-space-md bg-brand-deep text-white font-label-md text-label-md uppercase tracking-wider" href="{% url 'customer:order_receipt' reference=receipt.reference %}">{% text 'customer.test_orders.details' %} →</a></div>
+</div><p class="mt-space-md font-body-sm text-body-sm text-text-muted">{% text 'customer.test_orders.notice' %}</p>
+</article>

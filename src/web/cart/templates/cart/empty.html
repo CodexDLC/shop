@@ -7,13 +7,13 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
 <link rel="icon" href="{% static 'storefront/brand/favicon.ico' %}"><link rel="apple-touch-icon" href="{% static 'storefront/brand/apple-touch-icon.png' %}">
 {% endblock %}
-{% block body_attrs %} class="bg-page-bg font-body-md text-text-primary antialiased" data-demo-page="empty-cart.html"{% endblock %}
+{% block body_attrs %} class="bg-page-bg font-body-md text-text-primary antialiased" data-real-commerce="true" data-demo-page="empty-cart.html"{% endblock %}
 {% block content %}
 {% include 'includes/header.html' %}<main class="w-full pt-[116px] bg-page-bg"><div class="flex flex-col w-full">
 <!-- Top Breadcrumb & Status Navigation -->
 <section class="max-w-[1440px] w-full mx-auto px-margin pt-space-md pb-space-sm">
 <nav aria-label="{% text 'cart.empty.label.c98d4dbd89b8' %}" class="flex items-center gap-2 font-label-sm text-label-sm text-text-muted uppercase tracking-widest">
-<a class="hover:text-primary transition-colors" data-path="home" href="#">{% text 'cart.empty.text.b660f83df4d6' %}</a>
+<a class="hover:text-primary transition-colors" data-real-navigation href="{% url 'shop:home' %}">{% text 'cart.empty.text.b660f83df4d6' %}</a>
 <span class="text-secondary/40">/</span>
 <span class="text-text-primary font-semibold">{% text 'cart.empty.text.f2d5d97cfeb8' %}</span>
 </nav>
@@ -58,254 +58,23 @@
 </div>
 <!-- CTA Buttons -->
 <div class="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-space-md mt-space-xl w-full max-w-md">
-<a class="w-full sm:w-auto h-12 px-8 bg-brand-deep hover:bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-sm" data-path="unterwaesche" href="#">
+<a class="w-full sm:w-auto h-12 px-8 bg-brand-deep hover:bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-sm" href="{% url 'catalog:list' %}">
 <span>{% text 'cart.empty.text.a59511fcdcb1' %}</span>
 <span class="material-symbols-outlined text-[18px]">{% text 'cart.empty.text.16d57c087f83' %}</span>
 </a>
-<a class="w-full sm:w-auto h-12 px-6 bg-transparent hover:bg-page-bg text-text-primary font-label-md text-label-md uppercase tracking-wider flex items-center justify-center transition-colors" href="#bestsellers">
+<a class="w-full sm:w-auto h-12 px-6 bg-transparent hover:bg-page-bg text-text-primary font-label-md text-label-md uppercase tracking-wider flex items-center justify-center transition-colors" href="{% url 'catalog:list' %}">
 <span>{% text 'cart.empty.text.3a5460027169' %}</span>
 </a>
 </div>
 <!-- Live Search Instant Shortcut -->
 <div class="relative z-10 mt-space-lg pt-space-md flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-text-muted font-label-sm text-label-sm tracking-wider uppercase">
 <span class="opacity-75">{% text 'cart.empty.text.8ca2f1eda391' %}</span>
-<a class="hover:text-primary transition-colors" href="#">{% text 'cart.empty.text.fc311bf94ee1' %}</a>
+<a class="hover:text-primary transition-colors" href="{% url 'catalog:list' %}">{% text 'cart.empty.text.fc311bf94ee1' %}</a>
 <span class="opacity-40">•</span>
-<a class="hover:text-primary transition-colors" href="#">{% text 'cart.empty.text.e6b47709bd9f' %}</a>
+<a class="hover:text-primary transition-colors" href="{% url 'catalog:list' %}">{% text 'cart.empty.text.e6b47709bd9f' %}</a>
 <span class="opacity-40">•</span>
-<a class="hover:text-primary transition-colors" href="#">{% text 'cart.empty.text.59fbc0310f37' %}</a>
+<a class="hover:text-primary transition-colors" href="{% url 'catalog:list' %}">{% text 'cart.empty.text.59fbc0310f37' %}</a>
 </div>
 </div>
 </section>
-<!-- 3 Atelier Value Propositions (Sleek Horizontal Band) -->
-<section class="max-w-[1440px] w-full mx-auto px-margin py-space-lg">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
-<!-- USP 1 -->
-<div class="bg-surface-muted/40 p-space-lg flex items-start gap-space-md group hover:bg-surface-muted transition-colors">
-<div class="w-10 h-10 bg-brand-deep text-on-primary flex-shrink-0 flex items-center justify-center">
-<span class="material-symbols-outlined text-[20px]">{% text 'cart.empty.text.4e91de8dbe90' %}</span>
-</div>
-<div>
-<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest block mb-1">{% text 'cart.empty.text.0a29920830a6' %}</span>
-<h2 class="font-title-md text-title-md text-text-primary mb-1">{% text 'cart.empty.text.753e838f6158' %}</h2>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-            {% text 'cart.empty.text.b8c1051e4b50' %}
-          </p>
-</div>
-</div>
-<!-- USP 2 -->
-<div class="bg-surface-muted/40 p-space-lg flex items-start gap-space-md group hover:bg-surface-muted transition-colors">
-<div class="w-10 h-10 bg-brand-deep text-on-primary flex-shrink-0 flex items-center justify-center">
-<span class="material-symbols-outlined text-[20px]">{% text 'cart.empty.text.5625ef4cc843' %}</span>
-</div>
-<div>
-<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest block mb-1">{% text 'cart.empty.text.362e15db0e8f' %}</span>
-<h2 class="font-title-md text-title-md text-text-primary mb-1">{% text 'cart.empty.text.6d57dc0609d5' %}</h2>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-            {% text 'cart.empty.text.c5d7ba32f80f' %}
-          </p>
-</div>
-</div>
-<!-- USP 3 -->
-<div class="bg-surface-muted/40 p-space-lg flex items-start gap-space-md group hover:bg-surface-muted transition-colors">
-<div class="w-10 h-10 bg-brand-deep text-on-primary flex-shrink-0 flex items-center justify-center">
-<span class="material-symbols-outlined text-[20px]">{% text 'cart.empty.text.9c586571e3cb' %}</span>
-</div>
-<div>
-<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest block mb-1">{% text 'cart.empty.text.23ef2df8d518' %}</span>
-<h2 class="font-title-md text-title-md text-text-primary mb-1">{% text 'cart.empty.text.2994b816a3b2' %}</h2>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-            {% text 'cart.empty.text.0dc056d93ef9' %}
-          </p>
-</div>
-</div>
-</div>
-</section>
-<!-- Curated Product Recommendations Carousel / 4-Card Grid -->
-<section class="max-w-[1440px] w-full mx-auto px-margin pt-space-2xl pb-space-xl" id="bestsellers">
-<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-xl gap-space-sm">
-<div>
-<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'cart.empty.text.02f0f3e14462' %}</span>
-<h2 class="font-headline-lg text-headline-lg text-primary mt-1">{% text 'cart.empty.text.eab1d912aac0' %}</h2>
-</div>
-<div class="flex items-center gap-space-md">
-<span class="font-body-sm text-body-sm text-text-muted hidden sm:inline">{% text 'cart.empty.text.63748eeeacfe' %}</span>
-<a class="font-label-md text-label-md uppercase tracking-wider text-primary hover:text-brand-deep flex items-center gap-1" data-path="bestseller" href="#">
-<span>{% text 'cart.empty.text.2dc6470ea870' %}</span>
-<span class="material-symbols-outlined text-[16px]">{% text 'cart.empty.text.c9d3fc0c45e5' %}</span>
-</a>
-</div>
-</div>
-<!-- Product Grid -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
-<!-- Product Card 1 -->
-<div class="group flex flex-col bg-surface-muted/30 p-space-md transition-all hover:bg-surface-muted/70">
-<!-- Visual Frame with studio model photography -->
-<div class="relative aspect-[3/4] bg-surface-muted overflow-hidden mb-space-md">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="{% text 'cart.empty.label.c0529c82fd9c' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWasvooROerXmWjPXBOcE-r47PiIurAr6ea5gWpIiVVM5td1r43uyJNTxR4ehBwmGAn9JVSGDdkqWZLAOAsMAT2x3NyBlc_lhJTi3htUlFk9-em8pO8yG4Q7oHKh88F9fIjRR8Y4iTAGwOZHLMifdbFX8kHSly4SVIPOB6cE6PDGYeUfbP_8QyIHUGNr-0jASp_BzkXOEQaONshc7wm1Q7tqOSLEO3yI854sfGp3VLhrGjvjJPUzZK"/>
-<span class="absolute top-3 left-3 bg-brand-deep text-on-primary font-label-sm text-[10px] tracking-widest px-2 py-0.5 uppercase">
-            {% text 'cart.empty.text.df042dd291b5' %}
-          </span>
-<button aria-label="{% text 'cart.empty.label.4d22f1914cfc' %}" class="absolute top-3 right-3 w-8 h-8 bg-page-bg/90 hover:bg-page-bg text-text-primary flex items-center justify-center transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">{% text 'cart.empty.text.75017a36ec07' %}</span>
-</button>
-</div>
-<div class="flex flex-col flex-grow justify-between space-y-space-sm">
-<div>
-<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest block">{% text 'cart.empty.text.a7769b7586cf' %}</span>
-<h3 class="font-title-md text-title-md text-text-primary mt-0.5 line-clamp-1">{% text 'cart.empty.text.ac2f4fc00d75' %}</h3>
-<span class="font-body-sm text-body-sm text-on-surface-variant block mt-0.5">{% text 'cart.empty.text.93c7d984901a' %}</span>
-</div>
-<div class="pt-space-xs flex items-center justify-between">
-<span class="font-price-md text-price-md text-text-primary">39,95 €</span>
-<div class="flex items-center gap-1.5">
-<span class="w-3.5 h-3.5 bg-brand-deep block outline outline-1 outline-offset-1 outline-brand-deep" title="{% text 'cart.empty.label.93c7d984901a' %}"></span>
-<span class="w-3.5 h-3.5 bg-[#171E19] block" title="{% text 'cart.empty.label.b406fb57b29f' %}"></span>
-</div>
-</div>
-<button class="w-full h-10 mt-space-sm bg-brand-deep hover:bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider flex items-center justify-center gap-2 transition-colors" onclick="triggerAddFeedback(this, 'MANSTORE M107 Tower String')" type="button">
-<span class="material-symbols-outlined text-[16px]">{% text 'cart.empty.text.5485acfe9480' %}</span>
-<span>{% text 'cart.empty.text.74bf1a6f9261' %}</span>
-</button>
-</div>
-</div>
-<!-- Product Card 2 -->
-<div class="group flex flex-col bg-surface-muted/30 p-space-md transition-all hover:bg-surface-muted/70">
-<div class="relative aspect-[3/4] bg-surface-muted overflow-hidden mb-space-md">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="{% text 'cart.empty.label.9b98718b9211' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUqCPc2LjWOLS-FQNz1xwLm7XYgtO1fX64MdWU5xqtpCb6hleaA1lBttmrjQ4ZhB1t6J5msedbGHqls2UdE0-9CuiXHjuoBldPSvzC-5BgIkJi1WcB7rDCr_CZM0TfERcSD16dega19IXwGLG_fT5gj7K987YgjY7rYpuarg3Mkl5j_vP3Ehqk_FRgC-ltFHacgkyvGcOeKpkzO9jl5sk7DkD79fafp8a_nWPLrt_E55swh1Y_F0FX"/>
-<span class="absolute top-3 left-3 bg-surface-container-highest text-text-primary font-label-sm text-[10px] tracking-widest px-2 py-0.5 uppercase">
-            {% text 'cart.empty.text.f2d583351fbb' %}
-          </span>
-<button aria-label="{% text 'cart.empty.label.4d22f1914cfc' %}" class="absolute top-3 right-3 w-8 h-8 bg-page-bg/90 hover:bg-page-bg text-text-primary flex items-center justify-center transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">{% text 'cart.empty.text.75017a36ec07' %}</span>
-</button>
-</div>
-<div class="flex flex-col flex-grow justify-between space-y-space-sm">
-<div>
-<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest block">{% text 'cart.empty.text.ba3e4d081bdb' %}</span>
-<h3 class="font-title-md text-title-md text-text-primary mt-0.5 line-clamp-1">{% text 'cart.empty.text.23be5234d16d' %}</h3>
-<span class="font-body-sm text-body-sm text-on-surface-variant block mt-0.5">{% text 'cart.empty.text.93c7d984901a' %}</span>
-</div>
-<div class="pt-space-xs flex items-center justify-between">
-<span class="font-price-md text-price-md text-text-primary">44,90 €</span>
-<div class="flex items-center gap-1.5">
-<span class="w-3.5 h-3.5 bg-brand-deep block outline outline-1 outline-offset-1 outline-brand-deep" title="{% text 'cart.empty.label.93c7d984901a' %}"></span>
-<span class="w-3.5 h-3.5 bg-[#4A4B46] block" title="{% text 'cart.empty.label.220c98deb148' %}"></span>
-</div>
-</div>
-<button class="w-full h-10 mt-space-sm bg-brand-deep hover:bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider flex items-center justify-center gap-2 transition-colors" onclick="triggerAddFeedback(this, 'Olaf Benz RED 2104 Pants')" type="button">
-<span class="material-symbols-outlined text-[16px]">{% text 'cart.empty.text.5485acfe9480' %}</span>
-<span>{% text 'cart.empty.text.74bf1a6f9261' %}</span>
-</button>
-</div>
-</div>
-<!-- Product Card 3 -->
-<div class="group flex flex-col bg-surface-muted/30 p-space-md transition-all hover:bg-surface-muted/70">
-<div class="relative aspect-[3/4] bg-surface-muted overflow-hidden mb-space-md">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="{% text 'cart.empty.label.e6cf3baa4c68' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3Uz279xp3nYk6_wfAybz9A56VJiV824-xmRE9lywtCyG2V1lWK9W0Ifv12bwex9rYLAZNuS8Xo_ssG5s6XONA73mHpbWMUm0qHpVnFWNyFeKwRNDSiaNFR4qol269-MZY4eZabKhlWrWXU0qcXZ2TBT4D-5VYuYAg0QsyD-9pattj6sJiSAP0f4NMDH6Z-fcLexydzOgiGlf0FEbPunUfZ1KS5EconJpWIyjZFCZH14qQG6e6pVoS"/>
-<span class="absolute top-3 left-3 bg-surface-container-highest text-text-primary font-label-sm text-[10px] tracking-widest px-2 py-0.5 uppercase">
-            {% text 'cart.empty.text.512ab0118627' %}
-          </span>
-<button aria-label="{% text 'cart.empty.label.4d22f1914cfc' %}" class="absolute top-3 right-3 w-8 h-8 bg-page-bg/90 hover:bg-page-bg text-text-primary flex items-center justify-center transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">{% text 'cart.empty.text.75017a36ec07' %}</span>
-</button>
-</div>
-<div class="flex flex-col flex-grow justify-between space-y-space-sm">
-<div>
-<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest block">{% text 'cart.empty.text.3b5534d8b3e9' %}</span>
-<h3 class="font-title-md text-title-md text-text-primary mt-0.5 line-clamp-1">{% text 'cart.empty.text.9a57112c3ec6' %}</h3>
-<span class="font-body-sm text-body-sm text-on-surface-variant block mt-0.5">{% text 'cart.empty.text.90e71d203e22' %}</span>
-</div>
-<div class="pt-space-xs flex items-center justify-between">
-<span class="font-price-md text-price-md text-text-primary">39,95 €</span>
-<div class="flex items-center gap-1.5">
-<span class="w-3.5 h-3.5 bg-brand-deep block outline outline-1 outline-offset-1 outline-brand-deep" title="{% text 'cart.empty.label.90e71d203e22' %}"></span>
-<span class="w-3.5 h-3.5 bg-[#EAE8E1] block" title="{% text 'cart.empty.label.5e51eaf88608' %}"></span>
-</div>
-</div>
-<button class="w-full h-10 mt-space-sm bg-brand-deep hover:bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider flex items-center justify-center gap-2 transition-colors" onclick="triggerAddFeedback(this, 'CALIDA Focus Cotton Boxer Brief')" type="button">
-<span class="material-symbols-outlined text-[16px]">{% text 'cart.empty.text.5485acfe9480' %}</span>
-<span>{% text 'cart.empty.text.74bf1a6f9261' %}</span>
-</button>
-</div>
-</div>
-<!-- Product Card 4 -->
-<div class="group flex flex-col bg-surface-muted/30 p-space-md transition-all hover:bg-surface-muted/70">
-<div class="relative aspect-[3/4] bg-surface-muted overflow-hidden mb-space-md">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="{% text 'cart.empty.label.a77d537e3e55' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPNrPJH-l5hG97fdtt9SPR8AViKYA7yraBXpqw9dkGqCOyCVeLnn5q2DNDyKzbieLaUCVTjWC9YntgXVMgThTbDt_a3BSDdrtT924w-xsR-4toVUwropa2uc3OYAxYsMmBrBtVGIbuOBqFqmUr6sL55Iibb_KdqbqrG-JbnAMLf-PLZSkQkgXp197FEE1QfHTfGSt5muT3BrdXlPpG9jdscxSrlMIOb8FA6NQSyl3yvNJtVX6tXiFl"/>
-<span class="absolute top-3 left-3 bg-brand-deep text-on-primary font-label-sm text-[10px] tracking-widest px-2 py-0.5 uppercase">
-            {% text 'cart.empty.text.fad6190c875f' %}
-          </span>
-<button aria-label="{% text 'cart.empty.label.4d22f1914cfc' %}" class="absolute top-3 right-3 w-8 h-8 bg-page-bg/90 hover:bg-page-bg text-text-primary flex items-center justify-center transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">{% text 'cart.empty.text.75017a36ec07' %}</span>
-</button>
-</div>
-<div class="flex flex-col flex-grow justify-between space-y-space-sm">
-<div>
-<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-widest block">{% text 'cart.empty.text.a7769b7586cf' %}</span>
-<h3 class="font-title-md text-title-md text-text-primary mt-0.5 line-clamp-1">{% text 'cart.empty.text.e9b3c8ed1295' %}</h3>
-<span class="font-body-sm text-body-sm text-on-surface-variant block mt-0.5">{% text 'cart.empty.text.90e71d203e22' %}</span>
-</div>
-<div class="pt-space-xs flex items-center justify-between">
-<span class="font-price-md text-price-md text-text-primary">54,00 €</span>
-<div class="flex items-center gap-1.5">
-<span class="w-3.5 h-3.5 bg-brand-deep block outline outline-1 outline-offset-1 outline-brand-deep" title="{% text 'cart.empty.label.90e71d203e22' %}"></span>
-<span class="w-3.5 h-3.5 bg-[#2A312B] block" title="{% text 'cart.empty.label.65dfe378d6ed' %}"></span>
-</div>
-</div>
-<button class="w-full h-10 mt-space-sm bg-brand-deep hover:bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider flex items-center justify-center gap-2 transition-colors" onclick="triggerAddFeedback(this, 'MANSTORE M219 Lounge Pants')" type="button">
-<span class="material-symbols-outlined text-[16px]">{% text 'cart.empty.text.5485acfe9480' %}</span>
-<span>{% text 'cart.empty.text.74bf1a6f9261' %}</span>
-</button>
-</div>
-</div>
-</div>
-</section>
-<!-- Service Concierge Note & Assistance Ribbon -->
-<section class="max-w-[1440px] w-full mx-auto px-margin pb-space-2xl">
-<div class="bg-primary-container text-on-primary p-space-lg md:p-space-xl flex flex-col md:flex-row items-center justify-between gap-space-lg">
-<div class="flex items-center gap-space-md">
-<div class="w-12 h-12 bg-on-primary/10 flex items-center justify-center flex-shrink-0">
-<span class="material-symbols-outlined text-on-primary text-[24px]">{% text 'cart.empty.text.79ac32b1d75f' %}</span>
-</div>
-<div>
-<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container block">
-            {% text 'cart.empty.text.1cc36e487ce3' %}
-          </span>
-<p class="font-body-md text-body-md text-on-primary mt-0.5">
-            {% text 'cart.empty.text.3cf00a1503bc' %}
-            <a class="font-title-md underline decoration-on-primary-container underline-offset-4 hover:text-on-primary-container transition-colors ml-1" href="tel:+49892154890">
-              +49 (0) 89 215 489 0
-            </a>
-</p>
-</div>
-</div>
-<div class="flex items-center gap-space-md flex-shrink-0">
-<a class="h-10 px-5 bg-on-primary text-primary font-label-md text-label-md uppercase tracking-wider flex items-center justify-center hover:bg-surface-bright transition-colors" data-path="groessentabelle" href="#">
-          {% text 'cart.empty.text.b50ea583687f' %}
-        </a>
-</div>
-</div>
-</section>
-<!-- Interactive Feedback Script -->
-<script>
-    function triggerAddFeedback(btn, productName) {
-      const originalHTML = btn.innerHTML;
-      btn.innerHTML = '<span class="material-symbols-outlined text-[16px]">check</span><span>Hinzugefügt</span>';
-      btn.classList.add('bg-primary');
-      
-      // Update shell cart badge indicator counter dynamically
-      const badges = document.querySelectorAll('header [data-path="warenkorb"] span.bg-brand-deep');
-      badges.forEach(badge => {
-        let count = parseInt(badge.textContent) || 0;
-        badge.textContent = count + 1;
-      });
-
-      setTimeout(() => {
-        btn.innerHTML = originalHTML;
-        btn.classList.remove('bg-primary');
-      }, 1800);
-    }
-  </script>
-</div></main>{% include 'includes/footer.html' %}
-{% endblock %}
+<section class="max-w-[1440px] w-full mx-auto px-margin py-space-lg">{% if cart_error %}<p role="alert" class="p-5 text-error">{% text cart_error %}</p>{% endif %}{% include 'cart/includes/test_notice.html' %}{% include 'catalog/includes/suggestions.html' %}</section></div></main>{% include 'includes/footer.html' %}{% endblock %}

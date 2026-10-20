@@ -5,189 +5,59 @@
 <link rel="stylesheet" href="{% static 'storefront/shared-chrome.css' %}">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
 <link rel="icon" href="{% static 'storefront/brand/favicon.ico' %}"><link rel="apple-touch-icon" href="{% static 'storefront/brand/apple-touch-icon.png' %}">
+<link rel="stylesheet" href="{% static 'storefront/catalog-listing.css' %}?v=catalog-20261020-r2">
 {% endblock %}
-{% block body_attrs %} class="bg-page-bg font-body-md text-text-primary antialiased min-h-screen flex flex-col selection:bg-brand-deep selection:text-surface-container-lowest" data-demo-page="catalog.html"{% endblock %}
+{% block body_attrs %} class="bg-page-bg font-body-md text-text-primary antialiased min-h-screen flex flex-col selection:bg-brand-deep selection:text-surface-container-lowest" data-demo-page="{{ catalog_source|default:'catalog.html' }}"{% endblock %}
 {% block content %}
-{% include 'includes/header.html' %}<main class="w-full pt-28 bg-page-bg flex-1"><div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin py-space-lg"><div class="flex flex-col w-full">
-<!-- BREADCRUMBS & EDITORIAL INTRO -->
+{% include 'includes/header.html' %}
+<main class="catalog-listing w-full pt-28 bg-page-bg flex-1" data-real-catalog>
+<div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin py-space-lg"><div class="flex flex-col w-full">
 <div class="flex flex-col gap-space-sm mb-space-xl">
-<nav class="flex items-center gap-2 font-label-sm text-label-sm uppercase tracking-wider text-text-muted">
-<a class="hover:text-text-primary transition-colors" href="#">{% text 'catalog.list.text.b660f83df4d6' %}</a>
-<span class="text-text-muted/40">/</span>
-<a class="hover:text-text-primary transition-colors" href="#">{% text 'navigation.underwear' %}</a>
-<span class="text-text-muted/40">/</span>
-<span class="text-text-primary font-semibold">{% text 'catalog.list.text.6c9119a84d53' %}</span>
+<nav aria-label="{% text 'catalog.listing.breadcrumbs' %}" class="flex items-center gap-2 font-label-sm text-label-sm uppercase tracking-wider text-text-muted">
+<a href="{% url 'shop:home' %}">{% text 'catalog.list.text.b660f83df4d6' %}</a><span>/</span><span aria-current="page">{% text 'catalog.listing.title' %}</span>
 </nav>
-<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md pt-space-xs">
-<div>
-<div class="flex items-center gap-3 mb-1">
-<span class="w-8 h-[2px] bg-brand-deep"></span>
-<span class="font-label-sm text-label-sm uppercase tracking-[0.25em] text-brand-deep font-semibold">{% text 'catalog.list.text.84c1f5933189' %}</span>
-</div>
-<h1 class="font-headline-lg text-headline-lg text-text-primary tracking-tight">{% text 'catalog.list.text.a994934ccae4' %}</h1>
-<p class="font-body-md text-body-md text-text-muted max-w-2xl mt-1">
-          {% text 'catalog.list.text.fa1dcb1a7d74' %}
-        </p>
-</div>
-<div class="flex items-center gap-6 text-text-muted text-body-sm font-body-sm self-start lg:self-end pb-1">
-<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-brand-deep">{% text 'catalog.list.text.ec734b651574' %}</span> {% text 'catalog.list.text.3a8ac911804d' %}</span>
-<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-brand-deep">{% text 'catalog.list.text.9c586571e3cb' %}</span> {% text 'catalog.list.text.9b98d77c7c02' %}</span>
-</div>
-</div>
-</div>
-<!-- CONTROL TOP BAR -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md pt-space-xs"><div>
+<div class="flex items-center gap-3 mb-1"><span class="w-8 h-[2px] bg-brand-deep"></span><span class="font-label-sm text-label-sm uppercase tracking-[0.25em] text-brand-deep font-semibold">{% text 'catalog.list.text.84c1f5933189' %}</span></div>
+<h1 class="font-headline-lg text-headline-lg text-text-primary tracking-tight">{% if catalog_listing.query %}{% text 'catalog.listing.search_title' %} „{{ catalog_listing.query }}“{% elif catalog_heading_key %}{% text catalog_heading_key %}{% else %}{% text 'catalog.listing.title' %}{% endif %}</h1>
+<p class="font-body-md text-body-md text-text-muted max-w-2xl mt-1">{% text 'catalog.listing.intro' %}</p>
+</div><div class="flex items-center gap-6 text-text-muted text-body-sm font-body-sm self-start lg:self-end pb-1" aria-describedby="catalog-service-preview"><span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-brand-deep">{% text 'catalog.list.text.ec734b651574' %}</span>{% text 'catalog.list.text.3a8ac911804d' %}</span><span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-brand-deep">{% text 'catalog.list.text.9c586571e3cb' %}</span>{% text 'catalog.list.text.9b98d77c7c02' %}</span></div></div><p id="catalog-service-preview" class="text-body-sm text-text-muted">{% text 'catalog.listing.editorial_preview' %}</p></div>
+<form id="catalog-filters" method="get" action="{{ catalog_listing.form_action }}" data-real-catalog>
+{% if catalog_listing.filters.section %}<input type="hidden" name="section" value="{{ catalog_listing.filters.section }}">{% endif %}
+{% if catalog_listing.filters.new %}<input type="hidden" name="new" value="1">{% endif %}
+{% if catalog_listing.filters.sale %}<input type="hidden" name="sale" value="1">{% endif %}
+</form>
 <div class="bg-surface-muted p-space-md mb-space-lg flex flex-col gap-space-sm">
+<div class="catalog-listing-search flex gap-2">
+<label class="sr-only" for="catalog-query">{% text 'catalog.listing.search' %}</label><input form="catalog-filters" id="catalog-query" name="q" type="search" value="{{ catalog_listing.query }}" class="bg-surface-container-lowest px-3 py-2 flex-1 min-w-0" placeholder="{% text 'catalog.listing.search_placeholder' %}">
+<button form="catalog-filters" class="bg-brand-deep text-white px-4 py-2" type="submit">{% text 'catalog.listing.search' %}</button>
+</div>
 <div class="flex flex-wrap items-center justify-between gap-space-sm">
-<div class="flex items-center gap-3">
-<span class="font-title-md text-title-md text-text-primary font-semibold">{% text 'catalog.list.text.001189bad8e6' %}</span>
-<span class="text-text-muted text-body-sm hidden sm:inline">|</span>
-<span class="text-text-muted text-body-sm hidden sm:inline">{% text 'catalog.list.text.11b83cc0676b' %}</span>
+<span class="font-title-md text-title-md font-semibold">{{ catalog_listing.total }} {% text 'catalog.listing.products' %}</span>
+<div class="catalog-sort-actions flex items-center gap-space-md ml-auto"><div class="catalog-sort-field flex items-center bg-surface-container-lowest px-3 py-2">
+<label for="sort-select" class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted mr-2">{% text 'catalog.list.text.a341ee1de63a' %}</label>
+<select form="catalog-filters" name="sort" id="sort-select" class="bg-transparent text-body-md pr-4">
+<option value="name" {% if catalog_listing.sort == 'name' %}selected{% endif %}>{% text 'catalog.listing.sort_name' %}</option>
+<option value="price_asc" {% if catalog_listing.sort == 'price_asc' %}selected{% endif %}>{% text 'catalog.list.text.ee6979eca6a8' %}</option>
+<option value="price_desc" {% if catalog_listing.sort == 'price_desc' %}selected{% endif %}>{% text 'catalog.list.text.67625566bf0b' %}</option>
+<option disabled>{% text 'catalog.list.text.772b16001734' %} — {% text 'catalog.listing.not_available' %}</option>
+<option disabled>{% text 'navigation.new' %} — {% text 'catalog.listing.not_available' %}</option>
+<option disabled>{% text 'catalog.list.text.113b7f24decb' %} — {% text 'catalog.listing.not_available' %}</option>
+</select></div>
+<div class="flex items-center bg-surface-container-lowest p-1"><span aria-label="{% text 'catalog.list.label.dc755714c6ed' %}" class="p-1.5 bg-brand-deep text-white flex"><span class="material-symbols-outlined text-[18px]">grid_view</span></span><button disabled aria-label="{% text 'catalog.list.label.0202b8960662' %}" title="{% text 'catalog.listing.not_available' %}" class="p-1.5 text-text-muted flex" type="button"><span class="material-symbols-outlined text-[18px]">view_list</span></button></div>
+<button form="catalog-filters" type="submit" class="bg-brand-deep text-white px-3 py-2">{% text 'catalog.listing.apply' %}</button></div></div>
+{% if catalog_listing.active_filters %}<div class="flex flex-wrap items-center gap-2 pt-space-xs"><span class="font-label-sm text-label-sm uppercase text-text-muted">{% text 'catalog.list.text.dc171088dfb8' %}</span>
+{% for chip in catalog_listing.active_filters %}<a href="{{ chip.remove_url }}" class="inline-flex items-center gap-1.5 bg-surface-container-lowest px-2.5 py-1 text-label-sm">{{ chip.label }} <span aria-hidden="true">×</span><span class="sr-only">{% text 'catalog.listing.remove_filter' %}</span></a>{% endfor %}
+<a href="{{ catalog_listing.clear_url }}" class="text-label-sm text-text-muted underline">{% text 'catalog.list.text.c714b23f00c2' %}</a></div>{% endif %}
+{% if catalog_listing.errors %}<ul role="alert" class="text-error text-body-sm">{% for error in catalog_listing.errors %}<li>{% text error %}</li>{% endfor %}</ul>{% endif %}
 </div>
-<div class="flex items-center gap-space-md ml-auto">
-<!-- Sort Dropdown -->
-<div class="relative inline-block text-left">
-<label class="sr-only" for="sort-select">{% text 'catalog.list.text.28645baec033' %}</label>
-<div class="flex items-center bg-surface-container-lowest px-3 py-2">
-<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted mr-2">{% text 'catalog.list.text.a341ee1de63a' %}</span>
-<select class="bg-transparent font-title-md text-body-md text-text-primary font-medium focus:outline-none cursor-pointer pr-4" id="sort-select">
-<option value="pop">{% text 'catalog.list.text.772b16001734' %}</option>
-<option value="price-asc">{% text 'catalog.list.text.ee6979eca6a8' %}</option>
-<option value="price-desc">{% text 'catalog.list.text.67625566bf0b' %}</option>
-<option value="new">{% text 'navigation.new' %}</option>
-<option value="rating">{% text 'catalog.list.text.113b7f24decb' %}</option>
-</select>
-</div>
-</div>
-<!-- Grid View Switcher -->
-<div class="flex items-center bg-surface-container-lowest p-1">
-<button aria-label="{% text 'catalog.list.label.dc755714c6ed' %}" class="p-1.5 bg-brand-deep text-surface-container-lowest flex items-center justify-center" type="button">
-<span class="material-symbols-outlined text-[18px]">{% text 'catalog.list.text.0ffb08753481' %}</span>
-</button>
-<button aria-label="{% text 'catalog.list.label.0202b8960662' %}" class="p-1.5 text-text-muted hover:text-text-primary transition-colors flex items-center justify-center" type="button">
-<span class="material-symbols-outlined text-[18px]">{% text 'catalog.list.text.a783a7881cd4' %}</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Active Filter Chips -->
-<div class="flex flex-wrap items-center gap-2 pt-space-xs">
-<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted text-[11px] mr-1">{% text 'catalog.list.text.dc171088dfb8' %}</span>
-<span class="inline-flex items-center gap-1.5 bg-surface-container-lowest px-2.5 py-1 text-text-primary font-label-sm text-label-sm">
-        {% text 'catalog.list.text.fd5df7a1e298' %}
-        <button class="hover:text-error transition-colors flex items-center text-[15px]" type="button">×</button>
-</span>
-<span class="inline-flex items-center gap-1.5 bg-surface-container-lowest px-2.5 py-1 text-text-primary font-label-sm text-label-sm">
-        {% text 'catalog.list.text.dba38f539cc6' %}
-        <button class="hover:text-error transition-colors flex items-center text-[15px]" type="button">×</button>
-</span>
-<span class="inline-flex items-center gap-1.5 bg-surface-container-lowest px-2.5 py-1 text-text-primary font-label-sm text-label-sm">
-        {% text 'catalog.list.text.e814ecfb4fb7' %}
-        <button class="hover:text-error transition-colors flex items-center text-[15px]" type="button">×</button>
-</span>
-<span class="inline-flex items-center gap-1.5 bg-surface-container-lowest px-2.5 py-1 text-text-primary font-label-sm text-label-sm">
-<span class="w-2.5 h-2.5 bg-brand-deep inline-block mr-0.5"></span>
-        {% text 'catalog.list.text.c5e493d79bc0' %}
-        <button class="hover:text-error transition-colors flex items-center text-[15px]" type="button">×</button>
-</span>
-<button class="font-label-sm text-label-sm text-text-muted hover:text-brand-deep underline underline-offset-4 ml-2 transition-colors" type="button">
-        {% text 'catalog.list.text.c714b23f00c2' %}
-      </button>
-</div>
-</div>
-<!-- MAIN CATALOG WORKSPACE (2-COLUMN) -->
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
-<!-- LEFT SIDEBAR: FILTERS (~280px / 3 cols on desktop) -->
-<aside class="lg:col-span-3 lg:sticky lg:top-28 flex flex-col gap-space-lg bg-surface-muted p-space-md">
-<div class="flex items-center justify-between pb-2">
-<span class="font-label-md text-label-md uppercase tracking-wider text-text-primary font-semibold flex items-center gap-2">
-<span class="material-symbols-outlined text-[18px]">{% text 'catalog.list.text.920ae2fa4bff' %}</span> {% text 'catalog.list.text.e57ac20631b3' %}
-        </span>
-<span class="text-label-sm font-label-sm text-brand-deep font-bold">{% text 'catalog.list.text.c82a77736e0e' %}</span>
-</div>
-<!-- Filter Section: Marke -->
-<div class="flex flex-col gap-2.5">
-<h2 class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted font-semibold">{% text 'catalog.list.text.be36224f95f4' %}</h2>
-<div class="flex flex-col gap-2">
-<label class="flex items-center justify-between cursor-pointer group">
-<div class="flex items-center gap-2.5">
-<input checked="" class="w-4 h-4 accent-brand-deep rounded-none cursor-pointer" type="checkbox"/>
-<span class="font-body-md text-body-md text-text-primary group-hover:text-brand-deep transition-colors">{% text 'catalog.list.text.a7769b7586cf' %}</span>
-</div>
-<span class="font-body-sm text-body-sm text-text-muted">(12)</span>
-</label>
-<label class="flex items-center justify-between cursor-pointer group">
-<div class="flex items-center gap-2.5">
-<input checked="" class="w-4 h-4 accent-brand-deep rounded-none cursor-pointer" type="checkbox"/>
-<span class="font-body-md text-body-md text-text-primary group-hover:text-brand-deep transition-colors">{% text 'catalog.list.text.ba3e4d081bdb' %}</span>
-</div>
-<span class="font-body-sm text-body-sm text-text-muted">(8)</span>
-</label>
-<label class="flex items-center justify-between cursor-pointer group">
-<div class="flex items-center gap-2.5">
-<input class="w-4 h-4 accent-brand-deep rounded-none cursor-pointer" type="checkbox"/>
-<span class="font-body-md text-body-md text-text-primary group-hover:text-brand-deep transition-colors">{% text 'catalog.list.text.3b5534d8b3e9' %}</span>
-</div>
-<span class="font-body-sm text-body-sm text-text-muted">(4)</span>
-</label>
-</div>
-</div>
-<!-- Filter Section: Schnitt / Passform -->
-<div class="flex flex-col gap-2.5 pt-space-xs">
-<h2 class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted font-semibold">{% text 'catalog.list.text.b68dad9cc020' %}</h2>
-<div class="flex flex-col gap-2">
-<label class="flex items-center gap-2.5 cursor-pointer group">
-<input checked="" class="w-4 h-4 accent-brand-deep rounded-none cursor-pointer" type="checkbox"/>
-<span class="font-body-md text-body-md text-text-primary group-hover:text-brand-deep transition-colors">{% text 'catalog.list.text.6c9119a84d53' %}</span>
-</label>
-<label class="flex items-center gap-2.5 cursor-pointer group">
-<input class="w-4 h-4 accent-brand-deep rounded-none cursor-pointer" type="checkbox"/>
-<span class="font-body-md text-body-md text-text-primary group-hover:text-brand-deep transition-colors">{% text 'catalog.list.text.7bb3049ab87e' %}</span>
-</label>
-<label class="flex items-center gap-2.5 cursor-pointer group">
-<input class="w-4 h-4 accent-brand-deep rounded-none cursor-pointer" type="checkbox"/>
-<span class="font-body-md text-body-md text-text-primary group-hover:text-brand-deep transition-colors">{% text 'catalog.list.text.96f2a0a31906' %}</span>
-</label>
-<label class="flex items-center gap-2.5 cursor-pointer group">
-<input class="w-4 h-4 accent-brand-deep rounded-none cursor-pointer" type="checkbox"/>
-<span class="font-body-md text-body-md text-text-primary group-hover:text-brand-deep transition-colors">{% text 'catalog.list.text.274ff9538d72' %}</span>
-</label>
-<label class="flex items-center gap-2.5 cursor-pointer group">
-<input class="w-4 h-4 accent-brand-deep rounded-none cursor-pointer" type="checkbox"/>
-<span class="font-body-md text-body-md text-text-primary group-hover:text-brand-deep transition-colors">{% text 'catalog.list.text.186393c415de' %}</span>
-</label>
-</div>
-</div>
-<!-- Filter Section: Größe -->
-<div class="flex flex-col gap-2.5 pt-space-xs">
-<div class="flex items-center justify-between">
-<h2 class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted font-semibold">{% text 'catalog.list.text.d9130ae841c9' %}</h2>
-<button class="font-label-sm text-label-sm text-text-muted underline hover:text-brand-deep" type="button">{% text 'catalog.list.text.13b2e5f4ca0b' %}</button>
-</div>
-<div class="grid grid-cols-5 gap-1.5" id="size-selector-group">
-<button class="h-10 bg-surface-container-lowest text-text-primary font-label-md text-label-md hover:bg-surface-variant flex flex-col items-center justify-center transition-colors" type="button">
-<span>{% text 'catalog.list.text.02aa629c8b16' %}</span>
-<span class="text-[9px] text-text-muted -mt-1">46</span>
-</button>
-<button class="h-10 bg-brand-deep text-surface-container-lowest font-label-md text-label-md flex flex-col items-center justify-center font-bold" type="button">
-<span>{% text 'catalog.list.text.c63ae6dd4fc9' %}</span>
-<span class="text-[9px] text-primary-fixed -mt-1">48</span>
-</button>
-<button class="h-10 bg-surface-container-lowest text-text-primary font-label-md text-label-md hover:bg-surface-variant flex flex-col items-center justify-center transition-colors" type="button">
-<span>{% text 'catalog.list.text.d160e0986aca' %}</span>
-<span class="text-[9px] text-text-muted -mt-1">50</span>
-</button>
-<button class="h-10 bg-surface-container-lowest text-text-primary font-label-md text-label-md hover:bg-surface-variant flex flex-col items-center justify-center transition-colors" type="button">
-<span>{% text 'catalog.list.text.a2f9d0d16d02' %}</span>
-<span class="text-[9px] text-text-muted -mt-1">52</span>
-</button>
-<button class="h-10 bg-surface-container-lowest text-text-primary font-label-md text-label-md hover:bg-surface-variant flex flex-col items-center justify-center transition-colors" type="button">
-<span>{% text 'catalog.list.text.a9a63fabb948' %}</span>
-<span class="text-[9px] text-text-muted -mt-1">54</span>
-</button>
-</div>
-</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start catalog-workspace">
+<aside aria-label="{% text 'catalog.list.text.e57ac20631b3' %}" class="lg:col-span-3 lg:sticky lg:top-28 flex flex-col gap-space-lg bg-surface-muted p-space-md catalog-filter-sidebar">
+<div class="flex items-center justify-between pb-2"><h2 class="font-label-md text-label-md uppercase tracking-wider font-semibold flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">tune</span>{% text 'catalog.list.text.e57ac20631b3' %}</h2><a class="text-label-sm underline" href="{{ catalog_listing.clear_url }}">{% text 'catalog.listing.reset' %}</a></div>
+{% include 'catalog/includes/filter_options.html' with options=catalog_listing.facets.brands name='brand' title='catalog.list.text.be36224f95f4' %}
+{% include 'catalog/includes/filter_options.html' with options=catalog_listing.facets.categories name='category' title='catalog.list.text.b68dad9cc020' %}
+{% include 'catalog/includes/filter_options.html' with options=catalog_listing.facets.sizes name='size' title='catalog.list.text.d9130ae841c9' tiles=True %}
 <!-- Filter Section: Material -->
-<div class="flex flex-col gap-2.5 pt-space-xs">
+<fieldset disabled aria-describedby="unsupported-filters" class="flex flex-col gap-2.5 pt-space-xs">
 <h2 class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted font-semibold">{% text 'catalog.list.text.d8169782b57c' %}</h2>
 <div class="flex flex-col gap-2">
 <label class="flex items-center gap-2.5 cursor-pointer group">
@@ -199,7 +69,7 @@
 <span class="font-body-md text-body-md text-text-primary group-hover:text-brand-deep transition-colors">{% text 'catalog.list.text.f8795ff68484' %}</span>
 </label>
 <label class="flex items-center gap-2.5 cursor-pointer group">
-<input checked="" class="w-4 h-4 accent-brand-deep rounded-none cursor-pointer" type="checkbox"/>
+<input class="w-4 h-4 accent-brand-deep rounded-none cursor-pointer" type="checkbox"/>
 <span class="font-body-md text-body-md text-text-primary group-hover:text-brand-deep transition-colors">{% text 'catalog.list.text.a4e76b8c3772' %}</span>
 </label>
 <label class="flex items-center gap-2.5 cursor-pointer group">
@@ -211,73 +81,27 @@
 <span class="font-body-md text-body-md text-text-primary group-hover:text-brand-deep transition-colors">{% text 'catalog.list.text.672bdc950c21' %}</span>
 </label>
 </div>
-</div>
-<!-- Filter Section: Farbe -->
-<div class="flex flex-col gap-2.5 pt-space-xs">
-<h2 class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted font-semibold">{% text 'catalog.list.text.89b7957dae43' %}</h2>
-<div class="grid grid-cols-2 gap-2">
-<button class="flex items-center gap-2.5 p-1.5 bg-surface-container-lowest text-left text-body-sm font-medium text-text-primary ring-2 ring-brand-deep" type="button">
-<span class="w-4 h-4 bg-brand-deep flex-shrink-0"></span>
-<span class="truncate">{% text 'catalog.list.text.90e71d203e22' %}</span>
-</button>
-<button class="flex items-center gap-2.5 p-1.5 bg-surface-container-lowest text-left text-body-sm font-medium text-text-primary hover:bg-surface-variant transition-colors" type="button">
-<span class="w-4 h-4 bg-[#14213d] flex-shrink-0"></span>
-<span class="truncate">{% text 'catalog.list.text.0698cdb9c21e' %}</span>
-</button>
-<button class="flex items-center gap-2.5 p-1.5 bg-surface-container-lowest text-left text-body-sm font-medium text-text-primary hover:bg-surface-variant transition-colors" type="button">
-<span class="w-4 h-4 bg-[#111111] flex-shrink-0"></span>
-<span class="truncate">{% text 'catalog.list.text.7535d686f275' %}</span>
-</button>
-<button class="flex items-center gap-2.5 p-1.5 bg-surface-container-lowest text-left text-body-sm font-medium text-text-primary hover:bg-surface-variant transition-colors" type="button">
-<span class="w-4 h-4 bg-[#f8f9fa] shadow-sm flex-shrink-0"></span>
-<span class="truncate">{% text 'catalog.list.text.b354ee2dc7d4' %}</span>
-</button>
-<button class="flex items-center gap-2.5 p-1.5 bg-surface-container-lowest text-left text-body-sm font-medium text-text-primary hover:bg-surface-variant transition-colors" type="button">
-<span class="w-4 h-4 bg-[#6b1426] flex-shrink-0"></span>
-<span class="truncate">{% text 'catalog.list.text.360e67400111' %}</span>
-</button>
-<button class="flex items-center gap-2.5 p-1.5 bg-surface-container-lowest text-left text-body-sm font-medium text-text-primary hover:bg-surface-variant transition-colors" type="button">
-<span class="w-4 h-4 bg-[#d4af94] flex-shrink-0"></span>
-<span class="truncate">{% text 'catalog.list.text.9cdf60bed455' %}</span>
-</button>
-</div>
-</div>
-<!-- Filter Section: Preis Range -->
-<div class="flex flex-col gap-2.5 pt-space-xs">
-<h2 class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted font-semibold">{% text 'catalog.list.text.5cab8017a991' %}</h2>
-<div class="flex flex-col gap-2">
-<!-- Visual Dual Range Track Representation -->
-<div class="relative w-full h-1.5 bg-surface-variant my-2">
-<div class="absolute left-[15%] right-[25%] h-full bg-brand-deep"></div>
-<div class="absolute left-[15%] -top-1.5 w-4 h-4 bg-brand-deep cursor-pointer"></div>
-<div class="absolute right-[25%] -top-1.5 w-4 h-4 bg-brand-deep cursor-pointer"></div>
-</div>
-<div class="flex items-center justify-between gap-2">
-<div class="flex flex-col w-1/2">
-<span class="text-[10px] uppercase font-label-sm text-text-muted">{% text 'catalog.list.text.7eb0cee888ab' %}</span>
-<input class="bg-surface-container-lowest px-2 py-1 text-title-md font-medium text-text-primary text-center focus:outline-none" type="text" value="35 €"/>
-</div>
-<span class="text-text-muted pt-3">-</span>
-<div class="flex flex-col w-1/2">
-<span class="text-[10px] uppercase font-label-sm text-text-muted">{% text 'catalog.list.text.a95e85aed563' %}</span>
-<input class="bg-surface-container-lowest px-2 py-1 text-title-md font-medium text-text-primary text-center focus:outline-none" type="text" value="95 €"/>
-</div>
-</div>
-<button class="w-full bg-surface-container-lowest text-text-primary hover:bg-brand-deep hover:text-surface-container-lowest py-2 font-label-sm text-label-sm uppercase tracking-wider transition-colors mt-1 font-semibold" type="button">
-            {% text 'catalog.list.text.b18093c48b47' %}
-          </button>
-</div>
-</div>
+</fieldset>
+
+{% include 'catalog/includes/filter_options.html' with options=catalog_listing.facets.colors name='color' title='catalog.list.text.89b7957dae43' %}
+<div class="flex flex-col gap-2.5 pt-space-xs"><h2 class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted font-semibold">{% text 'catalog.list.text.5cab8017a991' %}</h2>
+<div class="relative w-full h-1.5 bg-surface-variant my-2" aria-hidden="true"><div class="absolute left-[15%] right-[25%] h-full bg-brand-deep"></div><div class="absolute left-[15%] -top-1.5 w-4 h-4 bg-brand-deep"></div><div class="absolute right-[25%] -top-1.5 w-4 h-4 bg-brand-deep"></div></div>
+<div class="flex items-center gap-2">
+<label class="flex flex-col w-1/2 text-label-sm">{% text 'catalog.list.text.7eb0cee888ab' %}<input form="catalog-filters" name="min_price" value="{{ catalog_listing.filters.min_price|default_if_none:'' }}" type="number" min="0" step="0.01" inputmode="decimal" class="bg-surface-container-lowest px-2 py-1 w-full"></label>
+<span>–</span><label class="flex flex-col w-1/2 text-label-sm">{% text 'catalog.list.text.a95e85aed563' %}<input form="catalog-filters" name="max_price" value="{{ catalog_listing.filters.max_price|default_if_none:'' }}" type="number" min="0" step="0.01" inputmode="decimal" class="bg-surface-container-lowest px-2 py-1 w-full"></label>
+</div><button form="catalog-filters" type="submit" class="w-full bg-surface-container-lowest py-2 text-label-sm font-semibold">{% text 'catalog.list.text.b18093c48b47' %}</button></div>
+{% include 'catalog/includes/filter_options.html' with options=catalog_listing.facets.tags name='tag' title='catalog.listing.tags' %}
+<label class="flex gap-2 items-center text-body-sm"><input form="catalog-filters" name="in_stock" type="checkbox" value="1" {% if catalog_listing.filters.in_stock %}checked{% endif %}>{% text 'catalog.listing.in_stock' %}</label>
 <!-- Filter Section: Besonderheiten -->
-<div class="flex flex-col gap-2.5 pt-space-xs">
+<fieldset disabled aria-describedby="unsupported-filters" class="flex flex-col gap-2.5 pt-space-xs">
 <h2 class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted font-semibold">{% text 'catalog.list.text.945084720175' %}</h2>
 <div class="flex flex-col gap-2">
 <label class="flex items-center gap-2.5 cursor-pointer group">
-<input checked="" class="w-4 h-4 accent-brand-deep rounded-none cursor-pointer" type="checkbox"/>
+<input class="w-4 h-4 accent-brand-deep rounded-none cursor-pointer" type="checkbox"/>
 <span class="font-body-md text-body-md text-text-primary group-hover:text-brand-deep transition-colors">{% text 'catalog.list.text.b2132ac185bc' %}</span>
 </label>
 <label class="flex items-center gap-2.5 cursor-pointer group">
-<input checked="" class="w-4 h-4 accent-brand-deep rounded-none cursor-pointer" type="checkbox"/>
+<input class="w-4 h-4 accent-brand-deep rounded-none cursor-pointer" type="checkbox"/>
 <span class="font-body-md text-body-md text-text-primary group-hover:text-brand-deep transition-colors">{% text 'catalog.list.text.173ef11a4cdb' %}</span>
 </label>
 <label class="flex items-center gap-2.5 cursor-pointer group">
@@ -285,316 +109,26 @@
 <span class="font-body-md text-body-md text-text-primary group-hover:text-brand-deep transition-colors">{% text 'catalog.list.text.0e5ef33448f6' %}</span>
 </label>
 </div>
-</div>
+</fieldset>
+
+<p id="unsupported-filters" class="text-body-sm text-text-muted">{% text 'catalog.listing.unsupported_filters' %}</p>
+<button form="catalog-filters" type="submit" class="bg-brand-deep text-white py-2.5 text-label-md">{% text 'catalog.listing.apply' %}</button>
 </aside>
-<!-- RIGHT CONTENT AREA: PRODUCT GRID (9 cols desktop) -->
-<main class="lg:col-span-9 flex flex-col gap-space-xl">
-<!-- PRODUCT CARDS GRID (3 Columns) -->
-<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-space-md">
-<!-- PRODUCT ITEM 1 -->
-<article class="bg-surface-container-lowest flex flex-col group relative">
-<!-- Image Box -->
-<div class="relative w-full aspect-[4/5] bg-surface-muted overflow-hidden">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" alt="{% text 'catalog.list.label.4b597f6a279a' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_Oja1Qxkj7BDTmmYlYbkz9wiPMDljgKNPWVpVme0KTc4dscLMBdt_jZ1MiTBhw1_qmm3Uzk7DkWLrtLmr1X31IT0sYxZyjm8FHgW2pnuL7dLTlCAz_qfs2b0VukeYiMJjddCb8gl2ElRPSj9r-krDqA18tnqg8G3H5l64Ov8_oDYx6QtDnuOmvR4gAloIpDX87-S7oE4t5EYAdTYIVWq4KmWqy6rAeCBV1CrCj01cbGlV8faMCh6k"/>
-<div class="absolute top-3 left-3 bg-brand-deep text-surface-container-lowest font-label-sm text-label-sm px-2.5 py-1 tracking-wider uppercase font-semibold">
-              {% text 'catalog.list.text.df042dd291b5' %}
-            </div>
-<button aria-label="{% text 'catalog.list.label.4d22f1914cfc' %}" class="absolute top-3 right-3 w-8 h-8 bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-text-primary hover:text-error transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">{% text 'catalog.list.text.75017a36ec07' %}</span>
-</button>
-</div>
-<!-- Product Details -->
-<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
-<div>
-<div class="flex items-center justify-between mb-1">
-<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted font-semibold">{% text 'catalog.list.text.a7769b7586cf' %}</span>
-<span class="font-price-md text-price-md text-text-primary">49,95 €</span>
-</div>
-<h3 class="font-title-md text-title-md text-text-primary font-semibold group-hover:text-brand-deep transition-colors">
-                {% text 'catalog.list.text.5da1f251c896' %}
-              </h3>
-<p class="font-body-sm text-body-sm text-text-muted mt-0.5">{% text 'catalog.list.text.ce5990075904' %}</p>
-</div>
-<!-- Color Swatches -->
-<div class="flex items-center justify-between pt-1">
-<div class="flex items-center gap-2">
-<button aria-label="{% text 'catalog.list.label.90e71d203e22' %}" class="w-4 h-4 bg-brand-deep ring-2 ring-offset-2 ring-brand-deep" type="button"></button>
-<button aria-label="{% text 'catalog.list.label.7535d686f275' %}" class="w-4 h-4 bg-[#111111] hover:scale-110 transition-transform" type="button"></button>
-<button aria-label="{% text 'catalog.list.label.73e9da5d640e' %}" class="w-4 h-4 bg-[#4a5568] hover:scale-110 transition-transform" type="button"></button>
-<button aria-label="{% text 'catalog.list.label.0698cdb9c21e' %}" class="w-4 h-4 bg-[#14213d] hover:scale-110 transition-transform" type="button"></button>
-</div>
-<span class="text-[11px] font-label-sm text-text-muted uppercase">{% text 'catalog.list.text.b242790825f7' %}</span>
-</div>
-<!-- Size Pills -->
-<div class="grid grid-cols-4 gap-1 pt-1">
-<button class="py-1 bg-surface-muted text-text-primary font-label-sm text-label-sm hover:bg-surface-variant transition-colors" type="button">{% text 'catalog.list.text.02aa629c8b16' %}</button>
-<button class="py-1 bg-brand-deep text-surface-container-lowest font-label-sm text-label-sm font-semibold" type="button">{% text 'catalog.list.text.c63ae6dd4fc9' %}</button>
-<button class="py-1 bg-surface-muted text-text-primary font-label-sm text-label-sm hover:bg-surface-variant transition-colors" type="button">{% text 'catalog.list.text.d160e0986aca' %}</button>
-<button class="py-1 bg-surface-muted text-text-primary font-label-sm text-label-sm hover:bg-surface-variant transition-colors" type="button">{% text 'catalog.list.text.a2f9d0d16d02' %}</button>
-</div>
-<!-- Add to Cart Action -->
-<button class="w-full bg-brand-deep text-surface-container-lowest py-2.5 font-label-md text-label-md uppercase tracking-wider hover:bg-primary transition-colors flex items-center justify-center gap-2 font-medium mt-1" type="button">
-<span class="material-symbols-outlined text-[18px]">{% text 'catalog.list.text.52c70abd4468' %}</span> {% text 'catalog.list.text.74bf1a6f9261' %}
-            </button>
-</div>
-</article>
-<!-- PRODUCT ITEM 2 -->
-<article class="bg-surface-container-lowest flex flex-col group relative">
-<!-- Image Box -->
-<div class="relative w-full aspect-[4/5] bg-surface-muted overflow-hidden">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" alt="{% text 'catalog.list.label.f269845110b6' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0CWWHSW2bFvR2g5N2bSVerC88tIu-E1ZrwshUM0ZBzQ0Q_VWzrnT1j59OgWmOeUBnSovxZ9IM3aztZCV0STA8nxCr-kXiX0677HR8uq87LQ8QQOzJuE5Bo_x0h5r_tTjefD7AEyri3KHhEkavg04iY3g0-BJxMAg0GZhiNC9jkBrP-3uvL1H6rTiUxU72D9S-vyF0IpWgd2g3nP5rhMxO8qY8KtRz5R9C2YncXAUixWPFNm15Wtuk"/>
-<div class="absolute top-3 left-3 bg-surface-container-lowest text-text-primary font-label-sm text-label-sm px-2.5 py-1 tracking-wider uppercase font-semibold">
-              {% text 'catalog.list.text.e5683279e563' %}
-            </div>
-<button aria-label="{% text 'catalog.list.label.4d22f1914cfc' %}" class="absolute top-3 right-3 w-8 h-8 bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-text-primary hover:text-error transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">{% text 'catalog.list.text.75017a36ec07' %}</span>
-</button>
-</div>
-<!-- Product Details -->
-<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
-<div>
-<div class="flex items-center justify-between mb-1">
-<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted font-semibold">{% text 'catalog.list.text.ba3e4d081bdb' %}</span>
-<span class="font-price-md text-price-md text-text-primary">54,90 €</span>
-</div>
-<h3 class="font-title-md text-title-md text-text-primary font-semibold group-hover:text-brand-deep transition-colors">
-                {% text 'catalog.list.text.48c40968c8e2' %}
-              </h3>
-<p class="font-body-sm text-body-sm text-text-muted mt-0.5">{% text 'catalog.list.text.aa3b0b2ac3ac' %}</p>
-</div>
-<!-- Color Swatches -->
-<div class="flex items-center justify-between pt-1">
-<div class="flex items-center gap-2">
-<button aria-label="{% text 'catalog.list.label.90e71d203e22' %}" class="w-4 h-4 bg-brand-deep ring-2 ring-offset-2 ring-brand-deep" type="button"></button>
-<button aria-label="{% text 'catalog.list.label.7535d686f275' %}" class="w-4 h-4 bg-[#111111] hover:scale-110 transition-transform" type="button"></button>
-<button aria-label="{% text 'catalog.list.label.360e67400111' %}" class="w-4 h-4 bg-[#6b1426] hover:scale-110 transition-transform" type="button"></button>
-</div>
-<span class="text-[11px] font-label-sm text-text-muted uppercase">{% text 'catalog.list.text.5f52fca10945' %}</span>
-</div>
-<!-- Size Pills -->
-<div class="grid grid-cols-4 gap-1 pt-1">
-<button class="py-1 bg-surface-muted text-text-primary font-label-sm text-label-sm hover:bg-surface-variant transition-colors" type="button">{% text 'catalog.list.text.02aa629c8b16' %}</button>
-<button class="py-1 bg-brand-deep text-surface-container-lowest font-label-sm text-label-sm font-semibold" type="button">{% text 'catalog.list.text.c63ae6dd4fc9' %}</button>
-<button class="py-1 bg-surface-muted text-text-primary font-label-sm text-label-sm hover:bg-surface-variant transition-colors" type="button">{% text 'catalog.list.text.d160e0986aca' %}</button>
-<button class="py-1 bg-surface-muted text-text-muted font-label-sm text-label-sm opacity-50 cursor-not-allowed line-through" type="button">{% text 'catalog.list.text.a2f9d0d16d02' %}</button>
-</div>
-<!-- Add to Cart Action -->
-<button class="w-full bg-brand-deep text-surface-container-lowest py-2.5 font-label-md text-label-md uppercase tracking-wider hover:bg-primary transition-colors flex items-center justify-center gap-2 font-medium mt-1" type="button">
-<span class="material-symbols-outlined text-[18px]">{% text 'catalog.list.text.52c70abd4468' %}</span> {% text 'catalog.list.text.74bf1a6f9261' %}
-            </button>
-</div>
-</article>
-<!-- PRODUCT ITEM 3 -->
-<article class="bg-surface-container-lowest flex flex-col group relative">
-<!-- Image Box -->
-<div class="relative w-full aspect-[4/5] bg-surface-muted overflow-hidden">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" alt="{% text 'catalog.list.label.80a9167e82fc' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbJgvzTZGLM9wY8NIqEapUhVUD7v3nbweZ4d0g1xFVj-L36d4vC-9JmM8vhZB1KfglXv3D-_KziwKLuyR205ErYeLO9J7GBrojYBeueq8IUpRDo5OHZJPp9S13oJ_a5U87zKsAVLO1X2vRyLpLKaF-b5XtllONhlL39LWpgUplvLTTUvEM5Cz0lnDYP9e174CP15JjRIZikBi7wzkhp7wczkJyzYS2b5NPsKZoEtfM0B30TlrDrawQ"/>
-<div class="absolute top-3 left-3 bg-surface-container-lowest text-brand-deep font-label-sm text-label-sm px-2.5 py-1 tracking-wider uppercase font-semibold flex items-center gap-1">
-<span class="material-symbols-outlined text-[13px]">{% text 'catalog.list.text.7be676cbf4b5' %}</span> {% text 'catalog.list.text.b600bbc5708f' %}
-            </div>
-<button aria-label="{% text 'catalog.list.label.4d22f1914cfc' %}" class="absolute top-3 right-3 w-8 h-8 bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-text-primary hover:text-error transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">{% text 'catalog.list.text.75017a36ec07' %}</span>
-</button>
-</div>
-<!-- Product Details -->
-<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
-<div>
-<div class="flex items-center justify-between mb-1">
-<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted font-semibold">{% text 'catalog.list.text.a7769b7586cf' %}</span>
-<span class="font-price-md text-price-md text-text-primary">59,95 €</span>
-</div>
-<h3 class="font-title-md text-title-md text-text-primary font-semibold group-hover:text-brand-deep transition-colors">
-                {% text 'catalog.list.text.bb555b10a3a5' %}
-              </h3>
-<p class="font-body-sm text-body-sm text-text-muted mt-0.5">{% text 'catalog.list.text.b5500553255d' %}</p>
-</div>
-<!-- Color Swatches -->
-<div class="flex items-center justify-between pt-1">
-<div class="flex items-center gap-2">
-<button aria-label="{% text 'catalog.list.label.90e71d203e22' %}" class="w-4 h-4 bg-brand-deep ring-2 ring-offset-2 ring-brand-deep" type="button"></button>
-<button aria-label="{% text 'catalog.list.label.7535d686f275' %}" class="w-4 h-4 bg-[#111111] hover:scale-110 transition-transform" type="button"></button>
-<button aria-label="{% text 'catalog.list.label.d0fdcf2560ba' %}" class="w-4 h-4 bg-[#f8f9fa] shadow-sm hover:scale-110 transition-transform" type="button"></button>
-<button aria-label="{% text 'catalog.list.label.0698cdb9c21e' %}" class="w-4 h-4 bg-[#14213d] hover:scale-110 transition-transform" type="button"></button>
-</div>
-<span class="text-[11px] font-label-sm text-text-muted uppercase">{% text 'catalog.list.text.b242790825f7' %}</span>
-</div>
-<!-- Size Pills -->
-<div class="grid grid-cols-4 gap-1 pt-1">
-<button class="py-1 bg-surface-muted text-text-primary font-label-sm text-label-sm hover:bg-surface-variant transition-colors" type="button">{% text 'catalog.list.text.02aa629c8b16' %}</button>
-<button class="py-1 bg-brand-deep text-surface-container-lowest font-label-sm text-label-sm font-semibold" type="button">{% text 'catalog.list.text.c63ae6dd4fc9' %}</button>
-<button class="py-1 bg-surface-muted text-text-primary font-label-sm text-label-sm hover:bg-surface-variant transition-colors" type="button">{% text 'catalog.list.text.d160e0986aca' %}</button>
-<button class="py-1 bg-surface-muted text-text-primary font-label-sm text-label-sm hover:bg-surface-variant transition-colors" type="button">{% text 'catalog.list.text.a2f9d0d16d02' %}</button>
-</div>
-<!-- Add to Cart Action -->
-<button class="w-full bg-brand-deep text-surface-container-lowest py-2.5 font-label-md text-label-md uppercase tracking-wider hover:bg-primary transition-colors flex items-center justify-center gap-2 font-medium mt-1" type="button">
-<span class="material-symbols-outlined text-[18px]">{% text 'catalog.list.text.52c70abd4468' %}</span> {% text 'catalog.list.text.74bf1a6f9261' %}
-            </button>
-</div>
-</article>
-<!-- PRODUCT ITEM 4 -->
-<article class="bg-surface-container-lowest flex flex-col group relative">
-<!-- Image Box -->
-<div class="relative w-full aspect-[4/5] bg-surface-muted overflow-hidden">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" alt="{% text 'catalog.list.label.7e51e6a5d378' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRJ9ksx9D4MrlXGf6WEHwR_4QKzlCAXPA-Czpkas2gg1WVSR9hcCCVB1IsuEvvKz_TaRtlAJI7C11566EIh__YXatsRpR7SKMCmdffDXw-hf8X6eOytK2Z-ii5Jj-fx-8RCHIkHDalHp5D6tdD6Iq4dEJpl4GY8GG0dUYC7317ViAk1r5ofapmSGQM1R02JOBV9wCZuotUU39Jyhi9KeapAkZT8VItp6-aRbt55wYHFxmAXbO5jyE-"/>
-<div class="absolute top-3 left-3 bg-brand-deep text-surface-container-lowest font-label-sm text-label-sm px-2.5 py-1 tracking-wider uppercase font-semibold">
-              {% text 'catalog.list.text.df042dd291b5' %}
-            </div>
-<button aria-label="{% text 'catalog.list.label.4d22f1914cfc' %}" class="absolute top-3 right-3 w-8 h-8 bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-text-primary hover:text-error transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">{% text 'catalog.list.text.75017a36ec07' %}</span>
-</button>
-</div>
-<!-- Product Details -->
-<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
-<div>
-<div class="flex items-center justify-between mb-1">
-<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted font-semibold">{% text 'catalog.list.text.ba3e4d081bdb' %}</span>
-<span class="font-price-md text-price-md text-text-primary">47,95 €</span>
-</div>
-<h3 class="font-title-md text-title-md text-text-primary font-semibold group-hover:text-brand-deep transition-colors">
-                {% text 'catalog.list.text.74116bd524ce' %}
-              </h3>
-<p class="font-body-sm text-body-sm text-text-muted mt-0.5">{% text 'catalog.list.text.e13eb3eafc78' %}</p>
-</div>
-<!-- Color Swatches -->
-<div class="flex items-center justify-between pt-1">
-<div class="flex items-center gap-2">
-<button aria-label="{% text 'catalog.list.label.90e71d203e22' %}" class="w-4 h-4 bg-brand-deep ring-2 ring-offset-2 ring-brand-deep" type="button"></button>
-<button aria-label="{% text 'catalog.list.label.7535d686f275' %}" class="w-4 h-4 bg-[#111111] hover:scale-110 transition-transform" type="button"></button>
-<button aria-label="{% text 'catalog.list.label.9cdf60bed455' %}" class="w-4 h-4 bg-[#d4af94] hover:scale-110 transition-transform" type="button"></button>
-</div>
-<span class="text-[11px] font-label-sm text-text-muted uppercase">{% text 'catalog.list.text.5f52fca10945' %}</span>
-</div>
-<!-- Size Pills -->
-<div class="grid grid-cols-4 gap-1 pt-1">
-<button class="py-1 bg-surface-muted text-text-primary font-label-sm text-label-sm hover:bg-surface-variant transition-colors" type="button">{% text 'catalog.list.text.02aa629c8b16' %}</button>
-<button class="py-1 bg-brand-deep text-surface-container-lowest font-label-sm text-label-sm font-semibold" type="button">{% text 'catalog.list.text.c63ae6dd4fc9' %}</button>
-<button class="py-1 bg-surface-muted text-text-primary font-label-sm text-label-sm hover:bg-surface-variant transition-colors" type="button">{% text 'catalog.list.text.d160e0986aca' %}</button>
-<button class="py-1 bg-surface-muted text-text-primary font-label-sm text-label-sm hover:bg-surface-variant transition-colors" type="button">{% text 'catalog.list.text.a2f9d0d16d02' %}</button>
-</div>
-<!-- Add to Cart Action -->
-<button class="w-full bg-brand-deep text-surface-container-lowest py-2.5 font-label-md text-label-md uppercase tracking-wider hover:bg-primary transition-colors flex items-center justify-center gap-2 font-medium mt-1" type="button">
-<span class="material-symbols-outlined text-[18px]">{% text 'catalog.list.text.52c70abd4468' %}</span> {% text 'catalog.list.text.74bf1a6f9261' %}
-            </button>
-</div>
-</article>
-<!-- PRODUCT ITEM 5 -->
-<article class="bg-surface-container-lowest flex flex-col group relative">
-<!-- Image Box -->
-<div class="relative w-full aspect-[4/5] bg-surface-muted overflow-hidden">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" alt="{% text 'catalog.list.label.966359921166' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4JZRJXUjaPVFg0KWvPJm9yEfwDVvnb7Idy9JK3xTrIq9rwLI0kDFak9OBXZOu8usE0ogPJRmtqym01w4f2qMgbqezU4sFJYHunYlIGliGrjGsCj095aVWgAp2YDFVi1S4938tVUOv1iLi_7pBqGB68PbXz_uCFQCRN6jPrTQg2h2UERfFmefb1e7YgY7xUTngmY_NIPs7aExEFdqKKsa5mSmDbQgduMzVNgEzh2k2yi2ZSMZqvQIF"/>
-<div class="absolute top-3 left-3 bg-surface-container-lowest text-text-primary font-label-sm text-label-sm px-2.5 py-1 tracking-wider uppercase font-semibold">
-              {% text 'catalog.list.text.e9d687388062' %}
-            </div>
-<button aria-label="{% text 'catalog.list.label.4d22f1914cfc' %}" class="absolute top-3 right-3 w-8 h-8 bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-text-primary hover:text-error transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">{% text 'catalog.list.text.75017a36ec07' %}</span>
-</button>
-</div>
-<!-- Product Details -->
-<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
-<div>
-<div class="flex items-center justify-between mb-1">
-<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted font-semibold">{% text 'catalog.list.text.3b5534d8b3e9' %}</span>
-<span class="font-price-md text-price-md text-text-primary">39,95 €</span>
-</div>
-<h3 class="font-title-md text-title-md text-text-primary font-semibold group-hover:text-brand-deep transition-colors">
-                {% text 'catalog.list.text.9a57112c3ec6' %}
-              </h3>
-<p class="font-body-sm text-body-sm text-text-muted mt-0.5">{% text 'catalog.list.text.f36581c41f05' %}</p>
-</div>
-<!-- Color Swatches -->
-<div class="flex items-center justify-between pt-1">
-<div class="flex items-center gap-2">
-<button aria-label="{% text 'catalog.list.label.90e71d203e22' %}" class="w-4 h-4 bg-brand-deep ring-2 ring-offset-2 ring-brand-deep" type="button"></button>
-<button aria-label="{% text 'catalog.list.label.0698cdb9c21e' %}" class="w-4 h-4 bg-[#14213d] hover:scale-110 transition-transform" type="button"></button>
-<button aria-label="{% text 'catalog.list.label.7535d686f275' %}" class="w-4 h-4 bg-[#111111] hover:scale-110 transition-transform" type="button"></button>
-</div>
-<span class="text-[11px] font-label-sm text-text-muted uppercase">{% text 'catalog.list.text.5f52fca10945' %}</span>
-</div>
-<!-- Size Pills -->
-<div class="grid grid-cols-4 gap-1 pt-1">
-<button class="py-1 bg-surface-muted text-text-primary font-label-sm text-label-sm hover:bg-surface-variant transition-colors" type="button">{% text 'catalog.list.text.02aa629c8b16' %}</button>
-<button class="py-1 bg-brand-deep text-surface-container-lowest font-label-sm text-label-sm font-semibold" type="button">{% text 'catalog.list.text.c63ae6dd4fc9' %}</button>
-<button class="py-1 bg-surface-muted text-text-primary font-label-sm text-label-sm hover:bg-surface-variant transition-colors" type="button">{% text 'catalog.list.text.d160e0986aca' %}</button>
-<button class="py-1 bg-surface-muted text-text-primary font-label-sm text-label-sm hover:bg-surface-variant transition-colors" type="button">{% text 'catalog.list.text.a2f9d0d16d02' %}</button>
-</div>
-<!-- Add to Cart Action -->
-<button class="w-full bg-brand-deep text-surface-container-lowest py-2.5 font-label-md text-label-md uppercase tracking-wider hover:bg-primary transition-colors flex items-center justify-center gap-2 font-medium mt-1" type="button">
-<span class="material-symbols-outlined text-[18px]">{% text 'catalog.list.text.52c70abd4468' %}</span> {% text 'catalog.list.text.74bf1a6f9261' %}
-            </button>
-</div>
-</article>
-<!-- PRODUCT ITEM 6 -->
-<article class="bg-surface-container-lowest flex flex-col group relative">
-<!-- Image Box -->
-<div class="relative w-full aspect-[4/5] bg-surface-muted overflow-hidden">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" alt="{% text 'catalog.list.label.1106ee243b58' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQWuWczqGGwa53j2DMxSeMhjQCafyS5o5vByvnPdFM6MknsNl_2hHgBPxj5vo-vSSzpAsiQJcwDoFiTkEWP028sih-2QJbQBO47AR1Wca8yvUlGfeQR65OX5tFRvNRmLm88uGt9k2nnHy1xW4B4QHMxkjIBkn_hqbz3FaAGrDCtUCrJG_XrAuRYJ5ucPMFxrC3pkVa36kHbBALc-GNLZUi1cw8EHQwbE3gcuDgaA--MAgJd_KTGLCK"/>
-<div class="absolute top-3 left-3 bg-brand-deep text-surface-container-lowest font-label-sm text-label-sm px-2.5 py-1 tracking-wider uppercase font-semibold">
-              {% text 'catalog.list.text.aad5b515be64' %}
-            </div>
-<button aria-label="{% text 'catalog.list.label.4d22f1914cfc' %}" class="absolute top-3 right-3 w-8 h-8 bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center text-text-primary hover:text-error transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">{% text 'catalog.list.text.75017a36ec07' %}</span>
-</button>
-</div>
-<!-- Product Details -->
-<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
-<div>
-<div class="flex items-center justify-between mb-1">
-<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted font-semibold">{% text 'catalog.list.text.a7769b7586cf' %}</span>
-<span class="font-price-md text-price-md text-text-primary">64,95 €</span>
-</div>
-<h3 class="font-title-md text-title-md text-text-primary font-semibold group-hover:text-brand-deep transition-colors">
-                {% text 'catalog.list.text.c35176c4f904' %}
-              </h3>
-<p class="font-body-sm text-body-sm text-text-muted mt-0.5">{% text 'catalog.list.text.5e421c910815' %}</p>
-</div>
-<!-- Color Swatches -->
-<div class="flex items-center justify-between pt-1">
-<div class="flex items-center gap-2">
-<button aria-label="{% text 'catalog.list.label.90e71d203e22' %}" class="w-4 h-4 bg-brand-deep ring-2 ring-offset-2 ring-brand-deep" type="button"></button>
-<button aria-label="{% text 'catalog.list.label.7535d686f275' %}" class="w-4 h-4 bg-[#111111] hover:scale-110 transition-transform" type="button"></button>
-<button aria-label="{% text 'catalog.list.label.360e67400111' %}" class="w-4 h-4 bg-[#6b1426] hover:scale-110 transition-transform" type="button"></button>
-</div>
-<span class="text-[11px] font-label-sm text-text-muted uppercase">{% text 'catalog.list.text.5f52fca10945' %}</span>
-</div>
-<!-- Size Pills -->
-<div class="grid grid-cols-4 gap-1 pt-1">
-<button class="py-1 bg-surface-muted text-text-primary font-label-sm text-label-sm hover:bg-surface-variant transition-colors" type="button">{% text 'catalog.list.text.02aa629c8b16' %}</button>
-<button class="py-1 bg-brand-deep text-surface-container-lowest font-label-sm text-label-sm font-semibold" type="button">{% text 'catalog.list.text.c63ae6dd4fc9' %}</button>
-<button class="py-1 bg-surface-muted text-text-primary font-label-sm text-label-sm hover:bg-surface-variant transition-colors" type="button">{% text 'catalog.list.text.d160e0986aca' %}</button>
-<button class="py-1 bg-surface-muted text-text-primary font-label-sm text-label-sm hover:bg-surface-variant transition-colors" type="button">{% text 'catalog.list.text.a2f9d0d16d02' %}</button>
-</div>
-<!-- Add to Cart Action -->
-<button class="w-full bg-brand-deep text-surface-container-lowest py-2.5 font-label-md text-label-md uppercase tracking-wider hover:bg-primary transition-colors flex items-center justify-center gap-2 font-medium mt-1" type="button">
-<span class="material-symbols-outlined text-[18px]">{% text 'catalog.list.text.52c70abd4468' %}</span> {% text 'catalog.list.text.74bf1a6f9261' %}
-            </button>
-</div>
-</article>
-</div>
-<!-- PAGINATION CONTROLS -->
-<div class="bg-surface-muted p-space-md flex flex-col sm:flex-row items-center justify-between gap-space-md">
-<span class="font-body-sm text-body-sm text-text-muted">
-          {% text 'catalog.list.text.6e7156111137' %} <strong class="text-text-primary font-semibold">1 - 6</strong> {% text 'catalog.list.text.445584edc4cc' %} <strong class="text-text-primary font-semibold">24</strong> {% text 'catalog.list.text.1297c3914408' %}
-        </span>
-<div class="flex items-center gap-1.5">
-<button aria-label="{% text 'catalog.list.label.f6bc60bc537b' %}" class="w-9 h-9 bg-surface-container-lowest/50 text-text-muted opacity-40 cursor-not-allowed flex items-center justify-center" disabled="" type="button">
-<span class="material-symbols-outlined text-[18px]">{% text 'catalog.list.text.c43129fafcf9' %}</span>
-</button>
-<button aria-current="page" class="w-9 h-9 bg-brand-deep text-surface-container-lowest font-label-md text-label-md flex items-center justify-center font-bold" type="button">
-            1
-          </button>
-<button class="w-9 h-9 bg-surface-container-lowest text-text-primary hover:bg-surface-variant font-label-md text-label-md flex items-center justify-center transition-colors" type="button">
-            2
-          </button>
-<button class="w-9 h-9 bg-surface-container-lowest text-text-primary hover:bg-surface-variant font-label-md text-label-md flex items-center justify-center transition-colors" type="button">
-            3
-          </button>
-<button aria-label="{% text 'catalog.list.label.d3e6a4a47b5f' %}" class="h-9 px-3 bg-surface-container-lowest text-text-primary hover:bg-surface-variant font-label-sm text-label-sm uppercase flex items-center gap-1 transition-colors" type="button">
-            {% text 'catalog.list.text.aeff967b37f0' %} <span class="material-symbols-outlined text-[18px]">{% text 'catalog.list.text.d031e2061b1a' %}</span>
-</button>
-</div>
-</div>
+<section aria-label="{% text 'catalog.listing.products' %}" class="lg:col-span-9 min-w-0 flex flex-col gap-space-xl">
+{% if catalog_listing.products %}<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-space-md catalog-product-rail">
+{% for product in catalog_listing.products %}{% include 'catalog/includes/listing_card.html' %}{% endfor %}
+</div>{% else %}<div class="bg-surface-container-lowest text-center p-space-xl"><span class="material-symbols-outlined text-4xl">search_off</span><h2 class="font-headline-md text-headline-md mt-4">{% text 'catalog.listing.empty_title' %}</h2><p class="text-body-md text-text-muted mt-2">{% text 'catalog.listing.empty_help' %}</p><a class="inline-block bg-brand-deep text-white px-6 py-3 mt-4" href="{{ catalog_listing.clear_url }}">{% text 'catalog.listing.reset' %}</a></div>{% endif %}
+<nav aria-label="{% text 'catalog.listing.pagination' %}" class="bg-surface-muted p-space-md flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<span class="font-body-sm text-body-sm text-text-muted">{% text 'catalog.list.text.6e7156111137' %} <strong>{{ catalog_listing.page_start }}–{{ catalog_listing.page_end }}</strong> {% text 'catalog.list.text.445584edc4cc' %} <strong>{{ catalog_listing.total }}</strong> {% text 'catalog.listing.products' %}</span>
+<div class="flex flex-wrap items-center gap-1.5">
+{% if catalog_listing.previous_url %}<a href="{{ catalog_listing.previous_url }}" aria-label="{% text 'catalog.list.label.f6bc60bc537b' %}" class="w-9 h-9 bg-surface-container-lowest flex items-center justify-center">‹</a>{% endif %}
+{% for link in catalog_listing.page_links %}<a href="{{ link.url }}" {% if link.current %}aria-current="page"{% endif %} class="w-9 h-9 {% if link.current %}bg-brand-deep text-white{% else %}bg-surface-container-lowest{% endif %} flex items-center justify-center">{{ link.number }}</a>{% endfor %}
+{% if catalog_listing.next_url %}<a href="{{ catalog_listing.next_url }}" aria-label="{% text 'catalog.list.label.d3e6a4a47b5f' %}" class="h-9 px-3 bg-surface-container-lowest flex items-center gap-1">{% text 'catalog.list.text.aeff967b37f0' %} ›</a>{% endif %}
+</div></nav>
 <!-- VALUE PROPOSITION EDITORIAL BANNER -->
-<section class="bg-brand-deep text-surface-container-lowest p-space-lg lg:p-space-xl flex flex-col md:flex-row items-center justify-between gap-space-lg">
+<p id="catalog-editorial-preview" class="text-body-sm">{% text 'catalog.listing.editorial_preview' %}</p>
+
+<section aria-describedby="catalog-editorial-preview" class="bg-brand-deep text-surface-container-lowest p-space-lg lg:p-space-xl flex flex-col md:flex-row items-center justify-between gap-space-lg">
 <div class="flex items-start gap-space-md max-w-xl">
 <div class="w-12 h-12 bg-surface-container-lowest/10 flex items-center justify-center flex-shrink-0">
 <span class="material-symbols-outlined text-[28px] text-primary-fixed">{% text 'catalog.list.text.e3793011a061' %}</span>
@@ -616,67 +150,10 @@
           </a>
 </div>
 </section>
-</main>
-</div>
-<!-- INTERACTIVE CLIENT BEHAVIOR SCRIPT -->
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Swatch color selection simulator on product cards
-      const articles = document.querySelectorAll('article');
-      articles.forEach(article => {
-        const swatches = article.querySelectorAll('[aria-label="Forest Green"], [aria-label="Tiefschwarz"], [aria-label="Slate Gray"], [aria-label="Night Navy"], [aria-label="Bordeaux"], [aria-label="Pure White"], [aria-label="Nude"]');
-        swatches.forEach(swatch => {
-          swatch.addEventListener('click', (e) => {
-            e.preventDefault();
-            swatches.forEach(s => s.classList.remove('ring-2', 'ring-offset-2', 'ring-brand-deep'));
-            swatch.classList.add('ring-2', 'ring-offset-2', 'ring-brand-deep');
-          });
-        });
 
-        // Size pills toggle inside card
-        const sizePills = article.querySelectorAll('.grid-cols-4 button:not(.line-through)');
-        sizePills.forEach(pill => {
-          pill.addEventListener('click', (e) => {
-            e.preventDefault();
-            sizePills.forEach(p => {
-              p.classList.remove('bg-brand-deep', 'text-surface-container-lowest', 'font-semibold');
-              p.classList.add('bg-surface-muted', 'text-text-primary');
-            });
-            pill.classList.remove('bg-surface-muted', 'text-text-primary');
-            pill.classList.add('bg-brand-deep', 'text-surface-container-lowest', 'font-semibold');
-          });
-        });
-
-        // Quick add feedback
-        const quickAddBtn = article.querySelector('button:has(.material-symbols-outlined)');
-        if (quickAddBtn) {
-          quickAddBtn.addEventListener('click', () => {
-            const originalText = quickAddBtn.innerHTML;
-            quickAddBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">check</span> Im Warenkorb';
-            quickAddBtn.classList.add('bg-[#143528]');
-            setTimeout(() => {
-              quickAddBtn.innerHTML = originalText;
-              quickAddBtn.classList.remove('bg-[#143528]');
-            }, 1800);
-          });
-        }
-      });
-
-      // Sidebar size selectors toggle
-      const sizeTiles = document.querySelectorAll('#size-selector-group button');
-      sizeTiles.forEach(tile => {
-        tile.addEventListener('click', () => {
-          sizeTiles.forEach(t => {
-            t.className = 'h-10 bg-surface-container-lowest text-text-primary font-label-md text-label-md hover:bg-surface-variant flex flex-col items-center justify-center transition-colors';
-            const sub = t.querySelector('span:last-child');
-            if (sub) sub.className = 'text-[9px] text-text-muted -mt-1';
-          });
-          tile.className = 'h-10 bg-brand-deep text-surface-container-lowest font-label-md text-label-md flex flex-col items-center justify-center font-bold';
-          const subActive = tile.querySelector('span:last-child');
-          if (subActive) subActive.className = 'text-[9px] text-primary-fixed -mt-1';
-        });
-      });
-    });
-  </script>
-</div></div></main>{% include 'includes/footer.html' %}
+</section></div></div></div></main>
+{% include 'includes/footer.html' %}
+{{ products|json_script:'catalog-products' }}
+{{ catalog_selection_texts|json_script:'catalog-selection-texts' }}
+<script src="{% static 'storefront/catalog-selection.js' %}?v=commerce-20261020"></script>
 {% endblock %}

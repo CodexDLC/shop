@@ -10,6 +10,7 @@ class Product(models.Model):
     description_key = models.CharField(max_length=160, blank=True)
     tags = models.ManyToManyField("catalog.Tag", related_name="products", blank=True)
     is_active = models.BooleanField(default=True)
+    new_until = models.DateField(null=True, blank=True, db_index=True)
 
     class Meta:
         ordering = ["pk"]

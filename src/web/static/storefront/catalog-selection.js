@@ -1,4 +1,4 @@
-/* Shared read-only variant presentation. Server validation remains authoritative. */
+/* Variant presentation and local-cart handoff. Server validation remains authoritative. */
 (() => {
   'use strict';
   const boot = () => {
@@ -20,9 +20,9 @@
       const product = products[code];
       if (!product) return;
       let color = product.default_color || '', size = product.default_size || '';
-      let variant = null, toastTimer, controller, sequence = 0, validated = false;
+      let variant = null, controller, sequence = 0, validated = false;
       const setText = (selector, value) => root.querySelectorAll(selector).forEach(el => { el.textContent = value || ''; });
-      const update = async () => {
+      const update = async (initial = false) => {
         const requestSequence = ++sequence;
         controller?.abort(); controller = new AbortController(); validated = false;
         variant = product.variants.find(item => item.color === color && item.size === size) || null;
@@ -36,7 +36,7 @@
         setText('[data-product-size-label]', size);
         setText('[data-product-sku]', variant?.sku || '');
         setText('[data-product-price]', money(variant?.price ?? product.price, variant?.currency));
-        setText('[data-action-label]', code === 'pdp' ? texts.preview_action : texts.quick_buy);
+        setText('[data-action-label]', texts.cart_action);
         setText('[data-stock-status], [data-product-availability]', variant ? (variant.available ? texts.available : texts.unavailable) : texts.select_variant);
         root.querySelectorAll('[data-product-photo]').forEach(img => {
           const url = gallery[0];
@@ -69,6 +69,18 @@
           button.style.cursor = button.disabled ? 'not-allowed' : '';
         });
         root.dispatchEvent(new CustomEvent('catalog:selection', {detail: {product, color, size, variant, gallery}}));
+        // Listing HTML already contains the server-selected ORM snapshot. Do not
+        // multiply the page's bounded SQL reads by fetching every card on boot.
+        // The subsequent POST always rechecks SKU, price and available quantity.
+        if (initial && root.hasAttribute('data-preview-only')) {
+          validated = Boolean(variant);
+          root.querySelectorAll('[data-product-action]').forEach(button => {
+            button.disabled = !variant?.available;
+            button.style.opacity = button.disabled ? '0.5' : '';
+            button.style.cursor = button.disabled ? 'not-allowed' : '';
+          });
+          return;
+        }
         setText('[data-stock-status], [data-product-availability]', texts.loading);
         try {
           const url = new URL(product.preview_url, window.location.href);
@@ -88,7 +100,7 @@
           root.dataset.selectedSku = variant.sku || '';
           setText('[data-product-sku]', variant.sku);
           setText('[data-product-price]', money(variant.price, variant.currency));
-          if (code !== 'pdp') setText('[data-action-label]', `${texts.quick_buy} · ${money(variant.price, variant.currency)}`);
+          setText('[data-action-label]', texts.cart_action);
           setText('[data-stock-status], [data-product-availability]', variant.available ? texts.available : texts.unavailable);
           root.querySelectorAll('[data-product-action]').forEach(button => {
             button.disabled = !variant.available; button.style.opacity = button.disabled ? '0.5' : '';
@@ -109,6 +121,20 @@
 
       };
       root.addEventListener('click', event => {
+        const wish = event.target.closest('[data-wishlist-product]');
+        if (wish) {
+          event.preventDefault();
+          const form = document.getElementById('shop-save-wishlist');
+          if (form && product.id) { form.elements.product_id.value = String(product.id); form.requestSubmit(); }
+          return;
+        }
+        const quantityStep = event.target.closest('[data-quantity-step]');
+        if (quantityStep) {
+          const label = root.querySelector('[data-product-quantity]');
+          if (label) label.textContent = String(Math.max(1, Math.min(20,
+            Number(label.textContent || '1') + Number(quantityStep.dataset.quantityStep))));
+          return;
+        }
         const colorButton = event.target.closest('[data-color]');
         const sizeButton = event.target.closest('[data-size]');
         if (colorButton && root.contains(colorButton)) { color = colorButton.dataset.color; update(); }
@@ -120,19 +146,13 @@
           if (modal) modal.dataset.detailUrl = product.detail_url;
         }
         if (event.target.closest('[data-product-action]') && validated && variant?.available) {
-          const toast = document.getElementById('cart-notification-toast');
-          if (toast) {
-            document.getElementById('toast-title').textContent = texts.demo_action || '';
-            document.getElementById('toast-desc').textContent = [product.name, color, size, variant.sku].join(' · ');
-            toast.setAttribute('role', 'status');
-            toast.classList.remove('translate-y-24', 'opacity-0');
-            toast.classList.add('translate-y-0', 'opacity-100');
-            clearTimeout(toastTimer);
-            toastTimer = setTimeout(() => {
-              toast.classList.add('translate-y-24', 'opacity-0');
-              toast.classList.remove('translate-y-0', 'opacity-100');
-            }, 3400);
-          } else setText('[data-product-availability]', texts.demo_action);
+          event.preventDefault();
+          const form = document.getElementById('shop-add-to-cart');
+          if (!form) { setText('[data-product-availability]', texts.error); return; }
+          form.elements.sku.value = variant.sku;
+          form.elements.quantity.value = root.querySelector('[data-product-quantity]')?.textContent.trim() || '1';
+          root.querySelectorAll('[data-product-action]').forEach(button => { button.disabled = true; });
+          form.requestSubmit();
         }
       });
       // Native buttons keep all options keyboard reachable; arrows follow radio-group conventions.
@@ -146,7 +166,7 @@
         const index = event.key === 'Home' ? 0 : event.key === 'End' ? buttons.length - 1 : (buttons.indexOf(current) + step + buttons.length) % buttons.length;
         event.preventDefault(); buttons[index].focus(); buttons[index].click();
       });
-      update();
+      update(true);
     });
     const modal = document.getElementById('quick-view-modal');
     modal?.querySelector('.space-y-3 button')?.addEventListener('click', event => {

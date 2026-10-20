@@ -14,6 +14,7 @@ class ProductVariant(models.Model):
     # Demonstration stock only. Reservations and real channel inventory are separate future features.
     demo_quantity = models.PositiveIntegerField(default=0)
     is_active = models.BooleanField(default=True)
+    is_on_sale = models.BooleanField(default=False)
 
     class Meta:
         ordering = ["pk"]

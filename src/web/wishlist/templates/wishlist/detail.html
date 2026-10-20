@@ -1,0 +1,17 @@
+{% extends 'catalog/list.html' %}
+{% load shop_i18n %}
+{% block body_attrs %}class="bg-page-bg font-body-md text-text-primary antialiased min-h-screen flex flex-col" data-demo-page="wishlist.html"{% endblock %}
+{% block content %}
+{% include 'includes/header.html' %}
+<main class="w-full pt-28 bg-page-bg flex-1" data-real-navigation><div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin py-space-xl">
+<h1 class="font-headline-lg text-headline-lg mb-space-md">{% text 'wishlist.title' %}</h1>
+<p class="text-body-md text-text-muted mb-space-xl">{% text 'wishlist.intro' %}</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-lg">
+{% for product in wishlist_products %}<article class="bg-surface-container-lowest flex flex-col catalog-listing-card">
+<a href="{{ product.detail_url }}" class="block aspect-[4/5] bg-surface-muted">{% if product.photo_url %}<img src="{{ product.photo_url }}" alt="{{ product.brand }} {{ product.name }}" class="w-full h-full object-cover" loading="lazy">{% endif %}</a>
+<div class="p-space-md flex flex-col gap-space-sm"><span class="text-label-sm uppercase text-text-muted">{{ product.brand }}</span><h2 class="font-title-md text-title-md"><a href="{{ product.detail_url }}">{{ product.name }}</a></h2><p>{{ product.price|default_if_none:'—' }} €</p>
+<a href="{{ product.detail_url }}" class="py-2 text-brand-deep underline">{% text 'wishlist.open_product' %}</a>
+<form action="{% url 'wishlist:remove' %}" method="post" data-real-support>{% csrf_token %}<input type="hidden" name="product_id" value="{{ product.id }}"><button class="py-2 text-text-muted underline" type="submit">{% text 'wishlist.remove' %}</button></form>
+</div></article>{% empty %}<p class="text-body-md text-text-muted">{% text 'wishlist.empty' %} <a class="text-brand-deep underline" href="{% url 'catalog:list' %}">{% text 'wishlist.discover' %}</a></p>{% endfor %}
+</div></div></main>{% include 'includes/footer.html' %}
+{% endblock %}

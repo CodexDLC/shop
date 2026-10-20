@@ -11,11 +11,14 @@ INSTALLED_APPS = [
     "codex_django.cabinet", "web.shop.apps.ShopConfig",
     "web.localization.apps.LocalizationConfig", "web.catalog.apps.CatalogConfig",
     "web.cart.apps.CartConfig", "web.orders.apps.OrdersConfig", "web.payments.apps.PaymentsConfig",
-    "web.customer.apps.CustomerConfig", "web.support.apps.SupportConfig",
+    "web.customer.apps.CustomerConfig", "web.support.apps.SupportConfig", "web.wishlist.apps.WishlistConfig",
     "web.staff.apps.StaffConfig",
     "web.identity.apps.IdentityConfig", "allauth", "allauth.account", "allauth.mfa",
+    "web.ebay_notifications.apps.EbayNotificationsConfig",
+    "web.ebay_oauth.apps.EbayOAuthConfig",
 ]
 MIDDLEWARE = [
+    "web.ebay_oauth.middleware.OAuthPrivacyMiddleware",
     "django.middleware.security.SecurityMiddleware", "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware", "django.middleware.csrf.CsrfViewMiddleware",
@@ -59,3 +62,12 @@ LOGIN_REDIRECT_URL = "staff:home"
 LOGOUT_REDIRECT_URL = "staff:login"
 CODEX_CABINET_SPACES = {"staff": {"prefixes": ("/staff/",), "default_module": "overview", "settings_url_name": "staff:settings"}}
 from .identity import *  # noqa: E402,F403
+
+# Notification verification may only authenticate and read eBay public keys.
+EBAY_APP_ID = os.environ.get("EBAY_APP_ID", "")
+EBAY_CERT_ID = os.environ.get("EBAY_CERT_ID", "")
+EBAY_OAUTH_RUNAME = os.environ.get("EBAY_OAUTH_RUNAME", "")
+EBAY_OAUTH_BASE_URL = os.environ.get("EBAY_OAUTH_BASE_URL", "https://shop.pinlite.dev")
+EBAY_OAUTH_ENCRYPTION_KEYS = os.environ.get("EBAY_OAUTH_ENCRYPTION_KEYS", "")
+EBAY_NOTIFICATION_ENDPOINT = os.environ.get("EBAY_NOTIFICATION_ENDPOINT", "")
+EBAY_NOTIFICATION_VERIFICATION_TOKEN = os.environ.get("EBAY_NOTIFICATION_VERIFICATION_TOKEN", "")

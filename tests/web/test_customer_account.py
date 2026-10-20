@@ -116,11 +116,15 @@ def test_customer_reference_keeps_navigation_and_real_security_actions(client, c
 
 def test_overview_retains_the_reference_kpi_and_order_composition(client, customer):
     client.force_login(customer)
-    html = client.get(reverse("customer:overview")).content.decode()
+    response = client.get(reverse("customer:overview"))
+    html = response.content.decode()
     assert "md:grid-cols-3" in html
-    assert "MM-849204" in html
+    assert response.context["customer_order_count"] == 0
+    parser = AccountPageParser()
+    parser.feed(html)
+    assert "MM-849204" not in " ".join(parser.visible_parts)
     assert "data-demo-page=\"account.html\"" in html
-    assert "Designvorschau" in html
+    assert "Testshop" in html
 
 
 def test_profile_mock_cannot_change_identity_or_password(client, customer):

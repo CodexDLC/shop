@@ -1,12 +1,14 @@
 from django.urls import path
 from django.views.generic import RedirectView
 
+from web.catalog.brand_directory_view import BrandDirectoryView
 from web.catalog.product_detail_view import ProductDetailView
 from web.catalog.variant_preview_view import VariantPreviewView
 from web.catalog.views import CatalogPageView
 
 app_name = "catalog"
 urlpatterns = [
+    path("marken/", BrandDirectoryView.as_view(), name="brands"),
     path("produkt/<slug:slug>/variante/", VariantPreviewView.as_view(), name="variant_preview"),
     path("katalog/", CatalogPageView.as_view(template_name="catalog/list.html"), name="list"),
     path("katalog/leer/", CatalogPageView.as_view(template_name="catalog/empty.html"), name="empty"),

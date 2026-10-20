@@ -11,6 +11,12 @@ class OrderLine(models.Model):
     size_name = models.CharField(max_length=40, blank=True)
     quantity = models.PositiveIntegerField(default=1)
     unit_amount = models.DecimalField(max_digits=12, decimal_places=2)
+    brand_name = models.CharField(max_length=160, blank=True)
+    photo_url = models.URLField(max_length=1000, blank=True)
+
+    @property
+    def line_amount(self):
+        return self.unit_amount * self.quantity
 
     class Meta:
         constraints = [

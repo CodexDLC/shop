@@ -35,5 +35,9 @@ LOGGING = {
     "version": 1, "disable_existing_loggers": False,
     "filters": {"auth_redaction": {"()": "web.identity.auth_log_filter.AuthLogFilter"}},
     "handlers": {"auth_console": {"class": "logging.StreamHandler", "filters": ["auth_redaction"]}},
-    "loggers": {"django.server": {"handlers": ["auth_console"], "level": "INFO", "propagate": False}},
+    "loggers": {
+        "django.server": {"handlers": ["auth_console"], "level": "INFO", "propagate": False},
+        "django.request": {"handlers": ["auth_console"], "level": "WARNING", "propagate": False},
+        "django.security.csrf": {"handlers": ["auth_console"], "level": "WARNING", "propagate": False},
+    },
 }

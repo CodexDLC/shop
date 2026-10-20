@@ -1,0 +1,23 @@
+/* Shared navigation extends the approved shell without changing its brand tokens. */
+[data-shared-chrome="header"] .shop-header-action{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;flex-shrink:0;color:var(--shop-text)}
+[data-shared-chrome="header"] .shop-header-action:focus-visible,.shop-mobile-menu-panel a:focus-visible{outline:2px solid var(--shop-accent);outline-offset:3px}
+[data-shared-chrome="header"] button:disabled{opacity:.45;cursor:not-allowed}
+.shop-mobile-menu{display:none}.shop-mobile-menu>summary{list-style:none;cursor:pointer;border-radius:9999px}.shop-mobile-menu>summary::-webkit-details-marker{display:none}
+.shop-mobile-menu-panel{position:absolute;top:100%;left:0;right:0;border-block:1px solid var(--shop-border);background:var(--shop-page);padding:1rem;max-height:calc(100dvh - 8rem);overflow-y:auto;box-shadow:0 8px 12px #171e1908}
+.shop-mobile-menu-panel nav{display:flex;flex-direction:column}.shop-mobile-menu-panel a,.shop-mobile-menu-panel button{display:flex;align-items:center;min-height:44px;padding:.6rem .75rem;text-align:left;color:var(--shop-text);font-size:.9375rem;font-weight:500;overflow-wrap:anywhere;text-decoration:none}
+.shop-mobile-menu-panel nav a:hover,.shop-mobile-utilities a:hover{background:#EEEEE7}
+.shop-mobile-utilities{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.25rem;border-top:1px solid var(--shop-border);margin-top:.75rem;padding-top:.75rem}
+.shop-mobile-menu-panel button{font:inherit;background:transparent;border:0}
+@media(max-width:1099px){
+[data-shared-chrome="header"] .shop-desktop-navigation{display:none!important}
+.shop-mobile-menu{display:block;margin-left:.5rem}
+[data-shared-chrome="header"] .shop-header-row{flex-wrap:nowrap;min-width:0;gap:.5rem}
+[data-shared-chrome="header"] .shop-desktop-utilities{margin-left:auto}
+}
+@media(max-width:767px){
+[data-shared-chrome="header"] .shop-header-row{height:80px;padding-block:12px;gap:.5rem}
+[data-shared-chrome="header"] .shop-desktop-utilities{display:none!important}
+[data-shared-chrome="header"] .shop-header-row>a{min-width:0;max-width:calc(100% - 60px)}
+[data-shared-chrome="header"] .shop-brand-logo{width:220px;max-width:100%}
+.shop-mobile-menu{margin-left:auto}
+}

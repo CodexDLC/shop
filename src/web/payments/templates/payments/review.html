@@ -3,9 +3,12 @@
 {% block page_head %}
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>{% text 'payments.review.text.62d58d48f882' %}</title>
+<title>
+{% text 'payments.review.text.62d58d48f882' %}
+</title>
 <!-- Tailwind CSS v3 with Plugins -->
-<script src="{% static 'storefront/vendor/tailwind-runtime.js' %}?plugins=forms,container-queries"></script>
+<script src="{% static 'storefront/vendor/tailwind-runtime.js' %}?plugins=forms,container-queries">
+</script>
 <script id="tailwind-config">
     tailwind.config = {
       theme: {
@@ -60,12 +63,15 @@
       }
     }
   </style>
-<meta content="web_dashboard" name="shell-type"/><script src="{% static 'storefront/reference-tokens.js' %}"></script>
+<meta content="web_dashboard" name="shell-type"/>
+<script src="{% static 'storefront/reference-tokens.js' %}">
+</script>
 <link rel="stylesheet" href="{% static 'storefront/shared-chrome.css' %}">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
-<link rel="icon" href="{% static 'storefront/brand/favicon.ico' %}"><link rel="apple-touch-icon" href="{% static 'storefront/brand/apple-touch-icon.png' %}">
+<link rel="icon" href="{% static 'storefront/brand/favicon.ico' %}">
+<link rel="apple-touch-icon" href="{% static 'storefront/brand/apple-touch-icon.png' %}">
 {% endblock %}
-{% block body_attrs %} class="min-h-full flex flex-col bg-brand-page text-brand-dark" data-demo-page="checkout-payment.html"{% endblock %}
+{% block body_attrs %} class="min-h-full flex flex-col bg-brand-page text-brand-dark" data-real-commerce="true" data-demo-page="checkout-payment.html"{% endblock %}
 {% block content %}
 <!-- BEGIN: TopBrandBar -->
 
@@ -74,7 +80,8 @@
 
 {% include 'includes/header.html' %}
 <!-- END: MainHeader -->
-<main class="flex-grow"><div class="flex flex-col w-full">
+<main class="flex-grow">
+<div class="flex flex-col w-full">
 <!-- Stepper Bar (Progress indicator) -->
 <section class="w-full bg-surface-muted py-6">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -84,398 +91,143 @@
 <!-- Step 1 Complete -->
 <li class="flex items-center gap-2 text-primary font-medium">
 <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-primary text-on-primary">
-<span class="material-symbols-outlined text-sm">{% text 'payments.review.text.d56d985300d4' %}</span>
+<span class="material-symbols-outlined text-sm">
+{% text 'payments.review.text.d56d985300d4' %}
 </span>
-<span class="tracking-wide uppercase text-label-sm font-label-sm">{% text 'payments.review.text.54445a68b6e0' %}</span>
-<span class="material-symbols-outlined text-outline-variant text-base ml-2">{% text 'payments.review.text.d031e2061b1a' %}</span>
+</span>
+<span class="tracking-wide uppercase text-label-sm font-label-sm">
+{% text 'payments.review.text.54445a68b6e0' %}
+</span>
+<span class="material-symbols-outlined text-outline-variant text-base ml-2">
+{% text 'payments.review.text.d031e2061b1a' %}
+</span>
 </li>
 <!-- Step 2 Complete -->
 <li class="flex items-center gap-2 text-primary font-medium">
 <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-primary text-on-primary">
-<span class="material-symbols-outlined text-sm">{% text 'payments.review.text.d56d985300d4' %}</span>
+<span class="material-symbols-outlined text-sm">
+{% text 'payments.review.text.d56d985300d4' %}
 </span>
-<span class="tracking-wide uppercase text-label-sm font-label-sm">{% text 'payments.review.text.96444e1a6d62' %}</span>
-<span class="material-symbols-outlined text-outline-variant text-base ml-2">{% text 'payments.review.text.d031e2061b1a' %}</span>
+</span>
+<span class="tracking-wide uppercase text-label-sm font-label-sm">
+{% text 'payments.review.text.96444e1a6d62' %}
+</span>
+<span class="material-symbols-outlined text-outline-variant text-base ml-2">
+{% text 'payments.review.text.d031e2061b1a' %}
+</span>
 </li>
 <!-- Step 3 Active -->
 <li class="flex items-center gap-2 text-primary font-semibold">
 <span class="inline-flex items-center justify-center px-2.5 py-0.5 rounded-full bg-brand-deep text-on-primary text-label-sm font-label-sm tracking-wider uppercase">
               {% text 'payments.review.text.d48ab0c1d9c8' %}
             </span>
-<span class="text-text-primary uppercase tracking-wider text-label-sm font-label-sm">{% text 'payments.review.text.d637e82a224d' %}</span>
+<span class="text-text-primary uppercase tracking-wider text-label-sm font-label-sm">
+{% text 'payments.review.text.d637e82a224d' %}
+</span>
 </li>
 </ol>
 <!-- Right Side Discreet Assurance -->
 <div class="hidden lg:flex items-center gap-2 text-text-muted text-label-sm font-label-sm uppercase tracking-wider">
-<span class="material-symbols-outlined text-base text-primary">{% text 'payments.review.text.7be676cbf4b5' %}</span>
-<span>{% text 'payments.review.text.6fb7aa6cee24' %}</span>
+<span class="material-symbols-outlined text-base text-primary">
+{% text 'payments.review.text.7be676cbf4b5' %}
+</span>
+<span>
+{% text 'commerce.test.title' %}
+</span>
 </div>
 </div>
 </div>
 </section>
-<!-- Main Content Stage -->
 <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
-<!-- Editorial Headline Anchor -->
 <header class="mb-10">
 <div class="flex items-center gap-3 mb-2">
-<span class="w-8 h-px bg-primary"></span>
-<span class="uppercase tracking-widest text-primary text-label-sm font-label-sm">{% text 'payments.review.text.cf0a5c24621a' %}</span>
-</div>
-<h1 class="text-headline-lg font-headline-lg text-text-primary tracking-tight">{% text 'payments.review.text.d637e82a224d' %}</h1>
-<p class="mt-2 text-body-md font-body-md text-text-muted max-w-2xl">
-        {% text 'payments.review.text.d539d48a6f9a' %}
-      </p>
-</header>
-<!-- Two-Column Checkout Architecture (65% / 35%) -->
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-<!-- LEFT COLUMN: Payment Configuration & Review (65% -> 8 of 12 cols) -->
-<section class="lg:col-span-7 xl:col-span-8 space-y-10">
-<!-- Recap Box 1: Address & Method Review Cards -->
-<div class="space-y-4">
-<h2 class="text-label-md font-label-md uppercase tracking-wider text-text-muted">
-            {% text 'payments.review.text.4d0d8d5bdbf5' %}
-          </h2>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-<!-- Delivery Address Card -->
-<div class="p-5 bg-surface-muted flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between pb-3 mb-3">
-<span class="inline-flex items-center gap-2 text-label-sm font-label-sm uppercase tracking-wider text-primary font-semibold">
-<span class="material-symbols-outlined text-base">{% text 'payments.review.text.29b29baa2112' %}</span>
-                    {% text 'payments.review.text.aa47e4500f7d' %}
-                  </span>
-<a class="text-label-sm font-label-sm text-primary uppercase tracking-wider hover:underline focus:outline-none focus:ring-2 focus:ring-primary" href="#change-address">
-                    {% text 'payments.review.text.e2398a51af99' %}
-                  </a>
-</div>
-<p class="text-body-md font-body-md text-text-primary font-medium">{% text 'payments.review.text.57d950a48336' %}</p>
-<p class="text-body-sm font-body-sm text-text-muted leading-relaxed">
-                  {% text 'payments.review.text.03e1e0d9af6d' %}<br/>
-                  {% text 'payments.review.text.87ccf9a9d8b4' %}<br/>
-                  {% text 'payments.review.text.19174e8c9711' %}
-                </p>
-</div>
-<div class="mt-4 pt-3 flex items-center gap-2 text-body-sm font-body-sm text-primary">
-<span class="material-symbols-outlined text-base">{% text 'payments.review.text.9c586571e3cb' %}</span>
-<span>{% text 'payments.review.text.61c2d6ae7218' %}</span>
-</div>
-</div>
-<!-- Packaging & Return Guarantee Card -->
-<div class="p-5 bg-surface-muted flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between pb-3 mb-3">
-<span class="inline-flex items-center gap-2 text-label-sm font-label-sm uppercase tracking-wider text-primary font-semibold">
-<span class="material-symbols-outlined text-base">{% text 'payments.review.text.43cc3c1898e9' %}</span>
-                    {% text 'payments.review.text.73f629b86724' %}
-                  </span>
-<a class="text-label-sm font-label-sm text-primary uppercase tracking-wider hover:underline focus:outline-none focus:ring-2 focus:ring-primary" href="#change-packaging">
-                    {% text 'payments.review.text.e2398a51af99' %}
-                  </a>
-</div>
-<p class="text-body-md font-body-md text-text-primary font-medium">{% text 'payments.review.text.3f361adf9d20' %}</p>
-<p class="text-body-sm font-body-sm text-text-muted leading-relaxed">
-                  {% text 'payments.review.text.5f43271c3c5d' %}
-                </p>
-</div>
-<div class="mt-4 pt-3 flex items-center gap-2 text-body-sm font-body-sm text-primary">
-<span class="material-symbols-outlined text-base">{% text 'payments.review.text.bc8b09d01a00' %}</span>
-<span>{% text 'payments.review.text.93c54516a8fa' %}</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Payment Selection Module -->
-<fieldset class="space-y-4">
-<legend class="text-label-md font-label-md uppercase tracking-wider text-text-muted mb-2">
-            {% text 'payments.review.text.5ca3add2b593' %}
-          </legend>
-<div class="space-y-3" id="payment-accordion">
-<!-- OPTION 1: PayPal (Default Active) -->
-<div class="bg-surface-container-lowest p-5 transition-colors">
-<label class="flex items-start gap-4 cursor-pointer">
-<input checked="" class="mt-1 h-4 w-4 text-primary focus:ring-primary" name="payment_method" onchange="switchPayment('paypal')" type="radio" value="paypal"/>
-<div class="flex-1">
-<div class="flex items-center justify-between flex-wrap gap-2">
-<span class="text-title-md font-title-md text-text-primary">{% text 'payments.review.text.559ef5544c82' %}</span>
-<span class="inline-block px-2 py-0.5 bg-surface-muted text-label-sm font-label-sm text-primary uppercase tracking-widest">
-                      {% text 'payments.review.text.d254ea88989a' %}
-                    </span>
-</div>
-<p class="mt-1 text-body-sm font-body-sm text-text-muted">
-                    {% text 'payments.review.text.3fb8e5358bb1' %} <strong>{% text 'payments.review.text.c94d6c26b4f3' %}</strong> {% text 'payments.review.text.e67a088dc605' %}
-                  </p>
-</div>
-</label>
-<!-- Expanded Child Detail -->
-<div class="mt-4 pt-4 text-body-sm font-body-sm text-text-muted pl-8 flex items-center gap-3" id="paypal-detail">
-<span class="material-symbols-outlined text-primary text-xl">{% text 'payments.review.text.8eec7bc46180' %}</span>
-<span>{% text 'payments.review.text.28b6eac0780e' %}</span>
-</div>
-</div>
-<!-- OPTION 2: Klarna Rechnungskauf -->
-<div class="bg-surface-muted p-5 transition-colors">
-<label class="flex items-start gap-4 cursor-pointer">
-<input class="mt-1 h-4 w-4 text-primary focus:ring-primary" name="payment_method" onchange="switchPayment('klarna')" type="radio" value="klarna"/>
-<div class="flex-1">
-<div class="flex items-center justify-between flex-wrap gap-2">
-<span class="text-title-md font-title-md text-text-primary">{% text 'payments.review.text.6df64193dda5' %}</span>
-<span class="inline-block px-2 py-0.5 bg-surface-container text-label-sm font-label-sm text-primary uppercase tracking-widest font-medium">
-                      {% text 'payments.review.text.7a821b304286' %}
-                    </span>
-</div>
-<p class="mt-1 text-body-sm font-body-sm text-text-muted">
-                    {% text 'payments.review.text.f931a9625105' %}
-                  </p>
-</div>
-</label>
-<div class="hidden mt-4 pt-4 text-body-sm font-body-sm text-text-muted pl-8" id="klarna-detail">
-<span>{% text 'payments.review.text.1690151ff93f' %}</span>
-</div>
-</div>
-<!-- OPTION 3: Kreditkarte -->
-<div class="bg-surface-muted p-5 transition-colors">
-<label class="flex items-start gap-4 cursor-pointer">
-<input class="mt-1 h-4 w-4 text-primary focus:ring-primary" name="payment_method" onchange="switchPayment('creditcard')" type="radio" value="creditcard"/>
-<div class="flex-1">
-<div class="flex items-center justify-between flex-wrap gap-2">
-<span class="text-title-md font-title-md text-text-primary">{% text 'payments.review.text.7a9b03d1756f' %}</span>
-<div class="flex items-center gap-1.5 text-label-sm font-label-sm text-text-muted">
-<span>{% text 'payments.review.text.8201464a0e80' %}</span>
-<span>·</span>
-<span>{% text 'payments.review.text.4aa503717135' %}</span>
-<span>·</span>
-<span>{% text 'payments.review.text.d80e349990cf' %}</span>
-</div>
-</div>
-<p class="mt-1 text-body-sm font-body-sm text-text-muted">
-                    {% text 'payments.review.text.328889b2a7ab' %}
-                  </p>
-</div>
-</label>
-<!-- Card form inputs (Inline Clean Architectural) -->
-<div class="hidden mt-5 pt-4 pl-8 space-y-4" id="creditcard-detail">
-<div>
-<label class="block text-label-sm font-label-sm uppercase tracking-wider text-text-muted mb-1">{% text 'payments.review.text.bd887de5a7b3' %}</label>
-<input class="w-full bg-surface-container-lowest px-3.5 py-2.5 text-body-md font-body-md text-text-primary placeholder:text-outline-variant focus:outline-none focus:ring-2 focus:ring-primary" maxlength="19" placeholder="•••• •••• •••• ••••" type="text"/>
-</div>
-<div class="grid grid-cols-2 gap-4">
-<div>
-<label class="block text-label-sm font-label-sm uppercase tracking-wider text-text-muted mb-1">{% text 'payments.review.text.05ac1d855a95' %}</label>
-<input class="w-full bg-surface-container-lowest px-3.5 py-2.5 text-body-md font-body-md text-text-primary placeholder:text-outline-variant focus:outline-none focus:ring-2 focus:ring-primary" maxlength="5" placeholder="{% text 'payments.review.label.9f06dd8c1e37' %}" type="text"/>
-</div>
-<div>
-<label class="block text-label-sm font-label-sm uppercase tracking-wider text-text-muted mb-1">{% text 'payments.review.text.038b63d5a4f0' %}</label>
-<input class="w-full bg-surface-container-lowest px-3.5 py-2.5 text-body-md font-body-md text-text-primary placeholder:text-outline-variant focus:outline-none focus:ring-2 focus:ring-primary" maxlength="4" placeholder="•••" type="password"/>
-</div>
-</div>
-</div>
-</div>
-<!-- OPTION 4: Apple Pay / Google Pay -->
-<div class="bg-surface-muted p-5 transition-colors">
-<label class="flex items-start gap-4 cursor-pointer">
-<input class="mt-1 h-4 w-4 text-primary focus:ring-primary" name="payment_method" onchange="switchPayment('wallet')" type="radio" value="wallet"/>
-<div class="flex-1">
-<div class="flex items-center justify-between flex-wrap gap-2">
-<span class="text-title-md font-title-md text-text-primary">{% text 'payments.review.text.a220c06ae7f2' %}</span>
-<span class="text-label-sm font-label-sm text-text-muted uppercase tracking-wider">{% text 'payments.review.text.8b6520409617' %}</span>
-</div>
-<p class="mt-1 text-body-sm font-body-sm text-text-muted">
-                    {% text 'payments.review.text.b746735462f2' %}
-                  </p>
-</div>
-</label>
-<div class="hidden mt-4 pt-4 text-body-sm font-body-sm text-text-muted pl-8" id="wallet-detail">
-<span>{% text 'payments.review.text.d2f47f56d362' %}</span>
-</div>
-</div>
-<!-- OPTION 5: SEPA-Lastschrift -->
-<div class="bg-surface-muted p-5 transition-colors">
-<label class="flex items-start gap-4 cursor-pointer">
-<input class="mt-1 h-4 w-4 text-primary focus:ring-primary" name="payment_method" onchange="switchPayment('sepa')" type="radio" value="sepa"/>
-<div class="flex-1">
-<div class="flex items-center justify-between flex-wrap gap-2">
-<span class="text-title-md font-title-md text-text-primary">{% text 'payments.review.text.0932d9d99e65' %}</span>
-<span class="text-label-sm font-label-sm text-text-muted uppercase tracking-wider">{% text 'payments.review.text.61deca1d8fc9' %}</span>
-</div>
-<p class="mt-1 text-body-sm font-body-sm text-text-muted">
-                    {% text 'payments.review.text.8c1a92c3fda7' %}
-                  </p>
-</div>
-</label>
-<div class="hidden mt-4 pt-4 pl-8 space-y-3" id="sepa-detail">
-<label class="block text-label-sm font-label-sm uppercase tracking-wider text-text-muted">{% text 'payments.review.text.e81566a5d524' %}</label>
-<input class="w-full bg-surface-container-lowest px-3.5 py-2.5 text-body-md font-body-md text-text-primary placeholder:text-outline-variant focus:outline-none focus:ring-2 focus:ring-primary" placeholder="{% text 'payments.review.label.fc347f75733e' %}" type="text"/>
-</div>
-</div>
-</div>
-</fieldset>
-<!-- Notice Box: Heimanprobe & Hygienehinweise -->
-<div class="p-6 bg-surface-container flex items-start gap-4">
-<span class="material-symbols-outlined text-primary text-2xl flex-shrink-0 mt-0.5">{% text 'payments.review.text.124a6c968e17' %}</span>
-<div class="space-y-1">
-<h3 class="text-title-md font-title-md text-primary tracking-wide">
-              {% text 'payments.review.text.d631c190abc9' %}
-            </h3>
-<p class="text-body-sm font-body-sm text-text-primary leading-relaxed">
-<strong>{% text 'payments.review.text.82f8765dd908' %}</strong> {% text 'payments.review.text.3bafa94bdfcb' %}
-            </p>
-</div>
-</div>
-<!-- Mandatory and Optional Consents -->
-<div class="space-y-4 pt-2">
-<!-- Legal T&C Consent (Mandatory) -->
-<label class="flex items-start gap-3.5 cursor-pointer group">
-<input checked="" class="mt-1 h-4 w-4 text-primary focus:ring-primary" required="" type="checkbox"/>
-<span class="text-body-sm font-body-sm text-text-primary leading-snug">
-              {% text 'payments.review.text.d703f8da7d70' %} <a class="underline decoration-outline hover:text-primary" href="#agb">{% text 'payments.review.text.4d47fa5c3833' %}</a> {% text 'payments.review.text.ff8b70716bd0' %} <a class="underline decoration-outline hover:text-primary" href="#widerruf">{% text 'payments.review.text.a30c1f5dd492' %}</a> {% text 'payments.review.text.fd238d003e37' %}
-            </span>
-</label>
-<!-- Shipping Status via SMS/WhatsApp (Optional) -->
-<label class="flex items-start gap-3.5 cursor-pointer group">
-<input class="mt-1 h-4 w-4 text-primary focus:ring-primary" type="checkbox"/>
-<span class="text-body-sm font-body-sm text-text-muted leading-snug">
-              {% text 'payments.review.text.711f35bb86ae' %}
-            </span>
-</label>
-</div>
-</section>
-<!-- RIGHT COLUMN: Sticky Order Summary & Direct Final CTA (35% -> 4 or 5 of 12 cols) -->
-<aside class="lg:col-span-5 xl:col-span-4 lg:sticky lg:top-28 space-y-6">
-<!-- Summary Container -->
-<div class="bg-surface-container-low p-6 sm:p-7 shadow-sm">
-<div class="flex items-baseline justify-between pb-4">
-<h2 class="text-title-lg font-title-lg text-text-primary uppercase tracking-wider">
-              {% text 'payments.review.text.71d1f0cce20e' %}
-            </h2>
-<span class="text-label-sm font-label-sm text-text-muted uppercase">{% text 'payments.review.text.32d109aa5d94' %}</span>
-</div>
-<!-- Itemized Breakdown with Thumbnails -->
-<ul class="divide-y-0 space-y-4 py-4" role="list">
-<!-- Item 1: MANSTORE -->
-<li class="flex items-center gap-3.5">
-<div class="w-16 h-20 bg-surface-muted flex-shrink-0 overflow-hidden">
-<img class="w-full h-full object-cover" alt="{% text 'payments.review.label.8fd1a9ff8ff6' %}" height="80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYEwtkRZzwjOcYtked5dyrWTDrt8Ykeq9TjDkTre-Lb4ubrIRrFZOUTbp7lgF-sYQHLygF0OqZRYeq0KWrBRQfFCz3r_odYat7PvLBAUr3w1aucgGeZuX1wG1m10LfBJqOTzKvUELzA6Gz9GSiLUqZx0GYxnHnnY2_DXk9Kc3EweWb0xdUmpQWKq1VIIlIrtbE87LC_jDgft0weB-iKAHJKcsmMbtQoviZFrSancLwzF8nCRg0ISSi" width="64"/>
-</div>
-<div class="flex-1 min-w-0">
-<span class="text-label-sm font-label-sm text-text-muted uppercase tracking-wider block">{% text 'payments.review.text.a7769b7586cf' %}</span>
-<h3 class="text-title-md font-title-md text-text-primary truncate">{% text 'payments.review.text.2b82a2ab24bc' %}</h3>
-<span class="text-body-sm font-body-sm text-text-muted">{% text 'payments.review.text.75fb1026821f' %}</span>
-</div>
-<div class="text-right flex-shrink-0">
-<span class="text-price-md font-price-md text-text-primary">49,95 €</span>
-</div>
-</li>
-<!-- Item 2: CALIDA -->
-<li class="flex items-center gap-3.5">
-<div class="w-16 h-20 bg-surface-muted flex-shrink-0 overflow-hidden">
-<img class="w-full h-full object-cover" alt="{% text 'payments.review.label.cf1fbd8df859' %}" height="80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiOtk-QOZB-HVy0mKkzyB-y4hVWOR9t4TqI3y6A8IPhbAz9ROBPlqaJco8uIfuZBdRkySTLTrzEon05zxe-xu0Fnb_PTt4AcYyQ9n6lwU91nCeCt83RFbgEUkGYB3LEG9AOAL41IVI-Jg89Vm_4pWYPc6osDXM26vlrElV4KgzNdkHQs2vz4PiSbX4u--Cr-i6kDXGGmEiYopLXRnQZsOIx7rFndXxffrWII1mRRwnOuWXb0ZKek5g" width="64"/>
-</div>
-<div class="flex-1 min-w-0">
-<span class="text-label-sm font-label-sm text-text-muted uppercase tracking-wider block">{% text 'payments.review.text.3b5534d8b3e9' %}</span>
-<h3 class="text-title-md font-title-md text-text-primary truncate">{{ cart.lines.1.name }}</h3>
-<span class="text-body-sm font-body-sm text-text-muted">{% text 'payments.review.text.86fad37b55b5' %}</span>
-</div>
-<div class="text-right flex-shrink-0">
-<span class="text-price-md font-price-md text-text-primary">44,95 €</span>
-</div>
-</li>
-<!-- Item 3: OLAF BENZ -->
-<li class="flex items-center gap-3.5">
-<div class="w-16 h-20 bg-surface-muted flex-shrink-0 overflow-hidden">
-<img class="w-full h-full object-cover" alt="{% text 'payments.review.label.3699170a233a' %}" height="80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2oVALZY2cOm3X6oxHIEMTGq7FqiO9a_NfQjwTcxGLGG-9wtG4T_H2WxZYu1t3jv5--0sZ91BPw4SxgTBlbMGYdpgA9aQZPymISdQs2YeWVgd8qzqFEYkzCcfzJlL3g0v7ufgOStBuBRTnKOEnFBvXF_w1kCa7aMiNBHwCcHzqq348kx7V9BcS8Xn8hFJS7lwEaFF5qyhseMAM5Yk3kbLf1yTV-KbRp7FFGxtIxFTyFcIuV70x5D6r" width="64"/>
-</div>
-<div class="flex-1 min-w-0">
-<span class="text-label-sm font-label-sm text-text-muted uppercase tracking-wider block">{% text 'payments.review.text.ba3e4d081bdb' %}</span>
-<h3 class="text-title-md font-title-md text-text-primary truncate">{{ cart.lines.2.name }}</h3>
-<span class="text-body-sm font-body-sm text-text-muted">{% text 'payments.review.text.d6c388f21134' %}</span>
-</div>
-<div class="text-right flex-shrink-0">
-<span class="text-price-md font-price-md text-text-primary">44,90 €</span>
-</div>
-</li>
-</ul>
-<!-- Cost Calculation Table -->
-<div class="space-y-2.5 py-4 text-body-sm font-body-sm">
-<div class="flex justify-between text-text-muted">
-<span>{% text 'payments.review.text.4e29c83eb9f8' %}</span>
-<span class="text-text-primary font-medium">139,80 €</span>
-</div>
-<div class="flex justify-between text-text-muted items-center">
-<span class="flex items-center gap-1.5">
-<span>{% text 'payments.review.text.ef4cfa797184' %}</span>
-<span class="material-symbols-outlined text-sm text-primary">{% text 'payments.review.text.f1a915d3cbdb' %}</span>
+<span class="w-8 h-px bg-primary">
 </span>
-<span class="text-primary font-semibold uppercase tracking-wider text-label-sm font-label-sm">{% text 'payments.review.text.440355b1eb3b' %}</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">
+{% text 'commerce.test.title' %}
+</span>
 </div>
-<div class="flex justify-between text-text-muted text-body-sm font-body-sm">
-<span>{% text 'payments.review.text.82e07a9dada4' %}</span>
-<span>22,32 €</span>
+<h1 class="font-headline-lg text-headline-lg">
+{% text 'commerce.checkout.review' %}
+</h1>
+<p class="font-body-md text-body-md text-text-muted mt-2">
+{% text 'commerce.payment.legal' %}
+</p>
+</header>
+{% if checkout_error %}
+<div class="p-5 bg-surface-container text-error mb-6" role="alert">
+{% text checkout_error %}
+</div>
+{% endif %}{% for error in cart.errors %}
+<div class="p-5 bg-surface-container text-error mb-6" role="alert">
+{% text error %}
+</div>
+{% endfor %}
+<form id="test-order-form" action="{% url 'payments:review' %}" method="post" data-real-commerce>
+{% csrf_token %}
+<input type="hidden" name="checkout_token" value="{{ checkout_token }}">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+<section class="lg:col-span-7 xl:col-span-8 space-y-10">
+<div class="space-y-4">
+<h2 class="font-label-md text-label-md uppercase tracking-wider text-text-muted">
+{% text 'commerce.checkout.review' %}
+</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="p-5 bg-surface-muted flex flex-col justify-between">
+<div class="flex items-center justify-between pb-3 mb-3">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary">
+{% text 'commerce.checkout.address' %}
+</span>
+<a href="{% url 'orders:address' %}" class="font-label-sm text-label-sm text-primary underline">
+{% text 'commerce.checkout.edit' %}
+</a>
+</div>
+<address class="not-italic font-body-md text-body-md">{{ checkout_address.first_name }} {{ checkout_address.last_name }}<br>{{ checkout_address.street }}<br>{{ checkout_address.postal_code }} {{ checkout_address.city }}<br>
+{% text 'commerce.checkout.country.de' %}
+<br>{{ checkout_address.email }}</address>
+</div>
+<div class="p-5 bg-surface-muted flex flex-col justify-between">
+<h3 class="font-label-sm text-label-sm uppercase tracking-wider text-primary mb-4">
+{% text 'commerce.shipping.demo' %}
+</h3>
+<p class="font-body-sm text-body-sm text-text-muted">
+{% text 'commerce.shipping.notice' %}
+</p>
 </div>
 </div>
-<!-- Total Due -->
-<div class="pt-4 pb-6 flex items-baseline justify-between">
-<div>
-<span class="text-title-lg font-title-lg text-text-primary font-bold">{% text 'payments.review.text.94ee95564c02' %}</span>
-<span class="block text-label-sm font-label-sm text-text-muted">{% text 'payments.review.text.986661d82051' %}</span>
 </div>
-<span class="text-headline-md font-headline-md text-primary font-bold">139,80 €</span>
-</div>
-<!-- High-Impact Primary CTA -->
-<button class="w-full bg-primary hover:bg-on-primary-fixed-variant text-on-primary py-4 px-6 flex items-center justify-center gap-2.5 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary shadow-sm group" type="button">
-<span class="material-symbols-outlined text-lg transition-transform group-hover:scale-110">{% text 'payments.review.text.e117797422d3' %}</span>
-<span class="text-label-md font-label-md uppercase tracking-widest font-bold">
-              {% text 'payments.review.text.a48ffb92e43d' %}
-            </span>
-</button>
-<!-- Disclaimer directly under button -->
-<p class="mt-3 text-center text-label-sm font-label-sm text-text-muted leading-tight">
-            {% text 'payments.review.text.8cd1a032ed4e' %}
-          </p>
-<!-- Step Back Navigation Link -->
-<div class="mt-5 text-center">
-<a class="inline-flex items-center gap-1 text-label-sm font-label-sm text-text-muted hover:text-primary uppercase tracking-wider transition-colors" href="#back-to-shipping">
-<span class="material-symbols-outlined text-sm">{% text 'payments.review.text.85532e1a12b5' %}</span>
-              {% text 'payments.review.text.6160393d48e9' %}
-            </a>
-</div>
-</div>
-<!-- Trust Badges & Guarantee Badges Card -->
-<div class="bg-surface-muted p-5 space-y-3">
-<div class="flex items-center gap-3 text-body-sm font-body-sm text-text-primary">
-<span class="material-symbols-outlined text-primary text-xl flex-shrink-0">{% text 'payments.review.text.733aa03fdd44' %}</span>
-<span><strong>{% text 'payments.review.text.fdccfb7f2d6d' %}</strong> {% text 'payments.review.text.2caa9b773efb' %}</span>
-</div>
-<div class="flex items-center gap-3 text-body-sm font-body-sm text-text-primary">
-<span class="material-symbols-outlined text-primary text-xl flex-shrink-0">{% text 'payments.review.text.ec734b651574' %}</span>
-<span><strong>{% text 'payments.review.text.056363678415' %}</strong> {% text 'payments.review.text.b82cac6da61d' %}</span>
-</div>
-<div class="flex items-center gap-3 text-body-sm font-body-sm text-text-primary">
-<span class="material-symbols-outlined text-primary text-xl flex-shrink-0">{% text 'payments.review.text.7f848c7283fc' %}</span>
-<span><strong>{% text 'payments.review.text.8761a7dca360' %}</strong> {% text 'payments.review.text.afcb6b154cb0' %}</span>
-</div>
-</div>
+<fieldset class="space-y-4">
+<legend class="font-label-md text-label-md uppercase tracking-wider text-text-muted mb-2">
+{% text 'commerce.payment.title' %}
+</legend>
+<label class="bg-surface-container-lowest border border-primary p-5 flex gap-3 items-start">
+<input class="mt-1" name="method" type="radio" value="test" checked required>
+<span>
+<strong class="font-title-md text-title-md">
+{% text 'commerce.payment.test' %}
+</strong>
+<span class="block font-body-sm text-body-sm text-text-muted mt-2">
+{% text 'commerce.test.notice' %}
+</span>
+</span>
+</label>
+<fieldset disabled class="space-y-3"><legend class="font-label-sm text-label-sm text-text-muted uppercase mb-2">{% text 'commerce.reference.planned' %}</legend>
+<label class="bg-surface-container-lowest border border-outline-variant p-5 flex gap-3 items-start opacity-50"><input type="radio" class="mt-1"><span><strong class="font-title-md text-title-md">PayPal</strong><span class="block font-body-sm text-body-sm text-text-muted mt-2">{% text 'commerce.reference.payment.provider_help' %}</span></span></label>
+<label class="bg-surface-container-lowest border border-outline-variant p-5 flex gap-3 items-start opacity-50"><input type="radio" class="mt-1"><span><strong class="font-title-md text-title-md">{% text 'commerce.reference.payment.card' %}</strong><span class="block font-body-sm text-body-sm text-text-muted mt-2">{% text 'commerce.reference.payment.secure_help' %}</span></span></label>
+<label class="bg-surface-container-lowest border border-outline-variant p-5 flex gap-3 items-start opacity-50"><input type="radio" class="mt-1"><span><strong class="font-title-md text-title-md">{% text 'commerce.reference.payment.wallet' %}</strong><span class="block font-body-sm text-body-sm text-text-muted mt-2">{% text 'commerce.reference.planned' %}</span></span></label>
+</fieldset>
+</fieldset>
+{% include 'cart/includes/service_preview.html' with service_context='payment' %}
+{% include 'cart/includes/test_notice.html' %}
+<a class="font-label-md text-label-md uppercase text-primary" href="{% url 'orders:address' %}">← {% text 'commerce.checkout.edit' %}
+</a>
+</section>
+<aside class="lg:col-span-5 xl:col-span-4 lg:sticky lg:top-28 space-y-6">
+{% include 'cart/includes/summary.html' with mini_lines=True review_checkout=True %}
 </aside>
 </div>
+</form>
 </main>
 </div>
-<!-- Inline Interaction Behavior for Payment Switching -->
-<script>
-  function switchPayment(selectedMethod) {
-    var details = ['paypal', 'klarna', 'creditcard', 'wallet', 'sepa'];
-    details.forEach(function(method) {
-      var elem = document.getElementById(method + '-detail');
-      if (elem) {
-        if (method === selectedMethod) {
-          elem.classList.remove('hidden');
-        } else {
-          elem.classList.add('hidden');
-        }
-      }
-    });
-  }
-</script></main>
-<!-- BEGIN: SiteFooter -->
-{% include 'includes/footer.html' %}
-<!-- END: SiteFooter -->
-
-{% endblock %}
+</main>
+{% include 'includes/footer.html' %}{% endblock %}

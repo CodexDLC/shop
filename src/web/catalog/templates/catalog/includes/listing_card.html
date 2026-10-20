@@ -1,0 +1,16 @@
+{% load shop_i18n %}
+<article class="bg-surface-container-lowest flex flex-col group relative catalog-listing-card" data-catalog-product="{{ product.code }}" data-preview-only>
+<div class="relative w-full aspect-[4/5] bg-surface-muted overflow-hidden">
+<a href="{{ product.detail_url }}" data-product-link class="block w-full h-full" aria-label="{{ product.brand }} {{ product.name }}"><img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" {% if product.photo_url %}src="{{ product.photo_url }}"{% else %}hidden{% endif %} data-product-photo alt="{{ product.brand }} {{ product.name }}" loading="lazy"></a>
+<div class="absolute top-3 left-3 bg-brand-deep text-white font-label-sm text-label-sm px-2.5 py-1 uppercase">{% text 'catalog.listing.preview_badge' %}</div>
+<button data-wishlist-product aria-label="{% text 'catalog.list.label.4d22f1914cfc' %}" title="{% text 'wishlist.title' %}" class="absolute top-3 right-3 w-8 h-8 bg-white/80 flex items-center justify-center text-text-muted" type="button"><span class="material-symbols-outlined text-[18px]">favorite</span></button>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm"><div>
+<div class="flex items-center justify-between mb-1 gap-2"><span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted font-semibold">{{ product.brand }}</span><span class="font-price-md text-price-md" data-product-price>{{ product.price|default_if_none:'—' }} €</span></div>
+<h3 class="font-title-md text-title-md font-semibold group-hover:text-brand-deep"><a href="{{ product.detail_url }}" data-product-link>{{ product.name }}</a></h3>
+<p class="font-body-sm text-body-sm text-text-muted mt-0.5">{{ product.description }}</p></div>
+<div class="flex items-center justify-between pt-1 gap-2"><div class="flex items-center flex-wrap gap-2" role="group" aria-label="{% text 'catalog.list.text.89b7957dae43' %}">{% for color in product.colors %}<button type="button" data-color="{{ color.code }}" aria-label="{{ color.label }}" aria-pressed="{% if color.code == product.default_color %}true{% else %}false{% endif %}" title="{{ color.label }}" class="w-5 h-5 border border-border-subtle" style="background-color:{{ color.hex }}"></button>{% endfor %}</div><span class="text-label-sm text-text-muted" data-color-label></span></div>
+<div class="grid grid-cols-4 gap-1 pt-1" role="group" aria-label="{% text 'catalog.list.text.d9130ae841c9' %}">{% for size in product.sizes %}<button class="py-1.5 bg-surface-muted text-text-primary font-label-sm text-label-sm" data-size="{{ size }}" aria-pressed="{% if size == product.default_size %}true{% else %}false{% endif %}" type="button">{{ size }}</button>{% endfor %}</div>
+<p class="text-body-sm text-text-muted" data-product-sku></p><p class="text-body-sm text-text-muted" data-product-availability role="status" aria-live="polite">{% text 'catalog.selection.loading' %}</p>
+<button class="w-full bg-brand-deep text-white py-2.5 font-label-md text-label-md uppercase tracking-wider hover:bg-primary flex items-center justify-center gap-2 mt-1" disabled data-product-action type="button"><span class="material-symbols-outlined text-[18px]">visibility</span><span data-action-label>{% text 'catalog.selection.preview_action' %}</span></button>
+</div></article>

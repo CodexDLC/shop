@@ -12,3 +12,11 @@ Compose local only: DEBUG local settings, web loopback, DB/Redis без host por
 - [pyproject.toml](../../../../pyproject.toml)
 - [deploy/compose.yml](../../../../deploy/compose.yml)
 - [deploy/worker/Dockerfile](../../../../deploy/worker/Dockerfile)
+
+## Изолированный HTTPS-стенд
+
+С 16.10.2026 настроен отдельный `shop-staging` на `shop.pinlite.dev`: собственные PostgreSQL/Redis/Mailpit/web/ARQ, Basic Auth и noindex. Это не production и не live-интеграция оплаты/DHL. Руководство и фактические проверки: [staging-deployment.md](../../../../docs/project/staging-deployment.md).
+
+Менять только shop Compose-проект и отдельный shop vhost; конфиги, контейнеры и volumes DLC не затрагивать. Перед обновлением сверить health DLC и его конфиги, после — повторить. Worker без Django. Почта только внутренний Mailpit, доступ через SSH-туннель на loopback 8026. Все секреты в приватных env/access файлах, никогда не в Git или выводе команд.
+
+Только точный eBay callback открыт без Basic Auth; подпись обязательна для POST. GET challenge не доказывает приём подписанного события или завершение удаления данных. Исходящие запросы eBay ограничены OAuth token и чтением public key, любые записи требуют отдельного разрешения. Подробнее: [ebay-notifications.md](../../../../docs/project/ebay-notifications.md).

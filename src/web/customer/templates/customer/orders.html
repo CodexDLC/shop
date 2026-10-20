@@ -19,7 +19,11 @@
 <span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted">{% text 'customer.orders.text.c62458682cda' %}</span>
 </div>
 </div>
-<section class="bg-surface-container-lowest p-space-xl md:p-space-2xl mb-space-3xl relative overflow-hidden">
+{% if customer_orders %}
+<section data-order-history>{% for receipt in customer_orders %}{% include 'customer/includes/test_order_card.html' %}{% endfor %}
+<nav aria-label="{% text 'customer.test_orders.pages' %}" class="flex justify-between min-h-11 my-space-lg">
+{% if customer_orders.has_previous %}<a href="?page={{ customer_orders.previous_page_number }}">← {% text 'customer.test_orders.previous' %}</a>{% endif %}<span>{{ customer_orders.number }} / {{ customer_orders.paginator.num_pages }}</span>{% if customer_orders.has_next %}<a href="?page={{ customer_orders.next_page_number }}">{% text 'customer.test_orders.next' %} →</a>{% endif %}</nav></section>
+{% else %}<section class="bg-surface-container-lowest p-space-xl md:p-space-2xl mb-space-3xl relative overflow-hidden">
 <div class="absolute -right-16 -top-16 w-80 h-80 rounded-full bg-surface-muted/60 blur-3xl pointer-events-none"></div>
 <div class="max-w-2xl mx-auto flex flex-col items-center text-center relative z-10">
 <div class="w-24 h-24 mb-space-lg flex items-center justify-center bg-surface-muted text-brand-deep">
@@ -37,7 +41,7 @@
         {% text 'customer.orders.text.2eaab1263e77' %}
       </p>
 <div class="flex flex-col sm:flex-row items-center gap-space-md w-full sm:w-auto">
-<a class="w-full sm:w-auto inline-flex items-center justify-center h-12 px-7 bg-brand-deep text-on-primary font-label-md text-label-md uppercase tracking-wider transition-colors hover:bg-primary-container" href="#">
+<a class="w-full sm:w-auto inline-flex items-center justify-center h-12 px-7 bg-brand-deep text-on-primary font-label-md text-label-md uppercase tracking-wider transition-colors hover:bg-primary-container" data-real-navigation href="{% url 'catalog:list' %}">
 <span>{% text 'customer.orders.text.eb61cd13fa0e' %}</span>
 </a>
 <a class="w-full sm:w-auto inline-flex items-center justify-center h-12 px-6 bg-surface-muted text-text-primary font-label-md text-label-md uppercase tracking-wider transition-colors hover:bg-surface-variant" href="#empfehlungen">
@@ -45,7 +49,7 @@
 </a>
 </div>
 </div>
-</section>
+</section>{% endif %}
 <section class="mb-space-3xl">
 <div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
 <div class="bg-surface-muted p-space-lg transition-transform hover:-translate-y-1 duration-200">
@@ -80,107 +84,7 @@
 </div>
 </div>
 </section>
-<section class="mb-space-xl" id="empfehlungen">
-<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-lg pb-space-sm bg-surface-muted/40 p-space-md">
-<div>
-<span class="font-label-sm text-label-sm uppercase tracking-widest text-brand-deep">{% text 'customer.orders.text.def056cf566e' %}</span>
-<h2 class="font-headline-md text-headline-md text-text-primary mt-0.5">{% text 'customer.orders.text.a2f0fd14d27a' %}</h2>
-</div>
-<a class="mt-2 md:mt-0 font-label-md text-label-md uppercase tracking-wider text-brand-deep inline-flex items-center gap-1 hover:underline" href="#">
-<span>{% text 'customer.orders.text.00f97f0634d6' %}</span>
-<span class="material-symbols-outlined text-[16px]">{% text 'customer.orders.text.16d57c087f83' %}</span>
-</a>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
-<article class="bg-surface-container-lowest flex flex-col group relative">
-<div class="relative w-full aspect-[4/5] bg-surface-muted overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="{% text 'customer.orders.label.140933840074' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3UgVsaHscIJAjrQyyPqNLAAtLfz_ftXEk_4e-9B60MnYnr77-vDclOVwRiLbQzynFTIqOpeZcxnXRtqJlFBV4IJrq9RVMJvLTzGAdhVvvWyNCz86vUifXBNrHKkj_T47IqaU_ojDqI-uiYtT5IKKVRNfwNmia70X9sFD8rSYw1v-633qsVAUKsbmRXP46ZzBWN0LQ58BUNSLZW-zXmvJwqQrhOaYnIi1G_IwBTQZQGlWV8J89vqtt"/>
-<span class="absolute top-3 left-3 bg-brand-deep text-on-primary font-label-sm text-label-sm px-2.5 py-1 uppercase tracking-wider">{% text 'customer.orders.text.9051c7ee4d29' %}</span>
-<div class="absolute inset-x-0 bottom-0 p-3 bg-surface-container-lowest/90 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-between">
-<span class="font-label-sm text-label-sm text-text-muted uppercase">{% text 'customer.orders.text.9a6b38bd75bf' %}</span>
-<button class="font-label-sm text-label-sm uppercase font-semibold text-brand-deep hover:underline" onclick="alert('Schnellansicht M107 Tower String geöffnet')" type="button">{% text 'customer.orders.text.dc3decbb9384' %}</button>
-</div>
-</div>
-<div class="p-space-md flex flex-col flex-1 justify-between">
-<div>
-<div class="flex justify-between items-baseline mb-1">
-<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'customer.orders.text.a7769b7586cf' %}</span>
-<span class="font-price-md text-price-md text-text-primary">39,95 €</span>
-</div>
-<h3 class="font-title-md text-title-md text-text-primary">{% text 'customer.orders.text.ac2f4fc00d75' %}</h3>
-<p class="font-body-sm text-body-sm text-text-muted mt-1">{% text 'customer.orders.text.90530d21e61e' %}</p>
-</div>
-<div class="pt-space-md mt-space-md flex items-center gap-2">
-<button class="flex-1 h-10 bg-brand-deep text-on-primary font-label-sm text-label-sm uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-primary-container transition-colors" onclick="this.innerHTML=window.shopText('customer.orders.script.af33c0b40965'); setTimeout(()=&gt;this.innerHTML='In den Warenkorb', 2000)" type="button">
-<span class="material-symbols-outlined text-[16px]">{% text 'customer.orders.text.52c70abd4468' %}</span>
-<span>{% text 'customer.orders.text.68199e47f757' %}</span>
-</button>
-<button aria-label="{% text 'customer.orders.label.22f3081df115' %}" class="w-10 h-10 bg-surface-muted text-text-primary hover:text-brand-deep flex items-center justify-center transition-colors" onclick="this.classList.toggle('text-error')" type="button">
-<span class="material-symbols-outlined text-[18px]">{% text 'customer.orders.text.75017a36ec07' %}</span>
-</button>
-</div>
-</div>
-</article>
-<article class="bg-surface-container-lowest flex flex-col group relative">
-<div class="relative w-full aspect-[4/5] bg-surface-muted overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="{% text 'customer.orders.label.fbc6ed07e415' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpMf5wh_NP--QoC8CJytcnV-2Vj-ERmeng9Z4KeIuQ1bUrcEOUgOqHqqNK1mwofWXPlpv8s9NjZvZp554552FOkXTEokUdXZJcmQC_NtO0essLqX2oy3op-NjQC9OEXFPvE_IxdU6i-uHrKbn7H2SvLncLUsw5EmSwSCNeLHNpXm0FHz7O_dX_kTBGEp-RVZ4o42SEZCy2afkPxejL1dcYArfrjVUQ9is5lwmE2ybhJt64IGroO7lk"/>
-<span class="absolute top-3 left-3 bg-surface-muted text-text-primary font-label-sm text-label-sm px-2.5 py-1 uppercase tracking-wider">{% text 'customer.orders.text.98bd0354e23a' %}</span>
-<div class="absolute inset-x-0 bottom-0 p-3 bg-surface-container-lowest/90 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-between">
-<span class="font-label-sm text-label-sm text-text-muted uppercase">{% text 'customer.orders.text.c7542538c2f7' %}</span>
-<button class="font-label-sm text-label-sm uppercase font-semibold text-brand-deep hover:underline" onclick="alert('Schnellansicht RED2004 Minipants geöffnet')" type="button">{% text 'customer.orders.text.dc3decbb9384' %}</button>
-</div>
-</div>
-<div class="p-space-md flex flex-col flex-1 justify-between">
-<div>
-<div class="flex justify-between items-baseline mb-1">
-<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'customer.orders.text.602372eec56b' %}</span>
-<span class="font-price-md text-price-md text-text-primary">49,90 €</span>
-</div>
-<h3 class="font-title-md text-title-md text-text-primary">{% text 'customer.orders.text.73feee93fbd1' %}</h3>
-<p class="font-body-sm text-body-sm text-text-muted mt-1">{% text 'customer.orders.text.291e7a413467' %}</p>
-</div>
-<div class="pt-space-md mt-space-md flex items-center gap-2">
-<button class="flex-1 h-10 bg-brand-deep text-on-primary font-label-sm text-label-sm uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-primary-container transition-colors" onclick="this.innerHTML=window.shopText('customer.orders.script.af33c0b40965'); setTimeout(()=&gt;this.innerHTML='In den Warenkorb', 2000)" type="button">
-<span class="material-symbols-outlined text-[16px]">{% text 'customer.orders.text.52c70abd4468' %}</span>
-<span>{% text 'customer.orders.text.68199e47f757' %}</span>
-</button>
-<button aria-label="{% text 'customer.orders.label.22f3081df115' %}" class="w-10 h-10 bg-surface-muted text-text-primary hover:text-brand-deep flex items-center justify-center transition-colors" onclick="this.classList.toggle('text-error')" type="button">
-<span class="material-symbols-outlined text-[18px]">{% text 'customer.orders.text.75017a36ec07' %}</span>
-</button>
-</div>
-</div>
-</article>
-<article class="bg-surface-container-lowest flex flex-col group relative">
-<div class="relative w-full aspect-[4/5] bg-surface-muted overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="{% text 'customer.orders.label.e57846f061c9' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCG_L_FgGn2auNRIX8ivrip9OAYQZiE-ngWTuMIyC8FPCv1kF6Au6lBqq5DXNB5DUi35qCPd0I2C_sMOGTBRb7OjbXDOwwNkMc1cQO4sroo4nbHAlYkmTA8WZdDDGGs0SFrmkW1unRmphwfZdyaP7IXkDTx1kjAytM8EVJeFgVrvoxtaK3StoMef59vrdBRAyBBtKUzQy2goHGGlZUuANgshj3YqvZxfnaNN9jnVYsL-PzFszD52uBY"/>
-<span class="absolute top-3 left-3 bg-surface-tint text-on-primary font-label-sm text-label-sm px-2.5 py-1 uppercase tracking-wider">{% text 'customer.orders.text.1834e4266c78' %}</span>
-<div class="absolute inset-x-0 bottom-0 p-3 bg-surface-container-lowest/90 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-between">
-<span class="font-label-sm text-label-sm text-text-muted uppercase">{% text 'customer.orders.text.9a6b38bd75bf' %}</span>
-<button class="font-label-sm text-label-sm uppercase font-semibold text-brand-deep hover:underline" onclick="alert('Schnellansicht Focus Cotton Boxer Brief geöffnet')" type="button">{% text 'customer.orders.text.dc3decbb9384' %}</button>
-</div>
-</div>
-<div class="p-space-md flex flex-col flex-1 justify-between">
-<div>
-<div class="flex justify-between items-baseline mb-1">
-<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'customer.orders.text.3b5534d8b3e9' %}</span>
-<span class="font-price-md text-price-md text-text-primary">39,95 €</span>
-</div>
-<h3 class="font-title-md text-title-md text-text-primary">{% text 'customer.orders.text.9a57112c3ec6' %}</h3>
-<p class="font-body-sm text-body-sm text-text-muted mt-1">{% text 'customer.orders.text.f6f5dd60c882' %}</p>
-</div>
-<div class="pt-space-md mt-space-md flex items-center gap-2">
-<button class="flex-1 h-10 bg-brand-deep text-on-primary font-label-sm text-label-sm uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-primary-container transition-colors" onclick="this.innerHTML=window.shopText('customer.orders.script.af33c0b40965'); setTimeout(()=&gt;this.innerHTML='In den Warenkorb', 2000)" type="button">
-<span class="material-symbols-outlined text-[16px]">{% text 'customer.orders.text.52c70abd4468' %}</span>
-<span>{% text 'customer.orders.text.68199e47f757' %}</span>
-</button>
-<button aria-label="{% text 'customer.orders.label.22f3081df115' %}" class="w-10 h-10 bg-surface-muted text-text-primary hover:text-brand-deep flex items-center justify-center transition-colors" onclick="this.classList.toggle('text-error')" type="button">
-<span class="material-symbols-outlined text-[18px]">{% text 'customer.orders.text.75017a36ec07' %}</span>
-</button>
-</div>
-</div>
-</article>
-</div>
-</section>
+<div id="empfehlungen">{% include 'catalog/includes/suggestions.html' %}</div>
 <aside class="p-space-lg bg-surface-muted flex flex-col sm:flex-row items-center justify-between gap-space-md">
 <div class="flex items-center gap-space-md">
 <span class="material-symbols-outlined text-brand-deep text-[24px]">{% text 'customer.orders.text.98c33b164659' %}</span>
@@ -189,7 +93,7 @@
 <p class="font-body-sm text-body-sm text-text-muted">{% text 'customer.orders.text.73f320023574' %}</p>
 </div>
 </div>
-<a class="shrink-0 px-5 py-2.5 bg-surface-container-lowest text-text-primary font-label-sm text-label-sm uppercase tracking-widest hover:bg-brand-deep hover:text-on-primary transition-colors" href="#">
+<a class="shrink-0 px-5 py-2.5 bg-surface-container-lowest text-text-primary font-label-sm text-label-sm uppercase tracking-widest hover:bg-brand-deep hover:text-on-primary transition-colors" data-real-navigation href="{% url 'catalog:list' %}">
       {% text 'customer.orders.text.aeb4567cc6a2' %}
     </a>
 </aside>

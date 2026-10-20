@@ -21,7 +21,7 @@ class Command(BaseCommand):
         categories = {}
         for slug in ("boxershorts", "slips", "strings", "bodies"):
             categories[slug], _ = Category.objects.update_or_create(
-                slug=slug, defaults={"name_key": f"catalog.category.{slug}"}
+                slug=slug, defaults={"name_key": f"catalog.category.{slug}", "section": "underwear"}
             )
         demo_tag, _ = Tag.objects.update_or_create(
             slug="demo", defaults={"label_key": "catalog.tag.demo"}

@@ -3,9 +3,12 @@
 {% block page_head %}
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>{% text 'cart.detail.text.62d58d48f882' %}</title>
+<title>
+{% text 'cart.detail.text.62d58d48f882' %}
+</title>
 <!-- Tailwind CSS v3 with Plugins -->
-<script src="{% static 'storefront/vendor/tailwind-runtime.js' %}?plugins=forms,container-queries"></script>
+<script src="{% static 'storefront/vendor/tailwind-runtime.js' %}?plugins=forms,container-queries">
+</script>
 <script id="tailwind-config">
     tailwind.config = {
       theme: {
@@ -59,12 +62,15 @@
       }
     }
   </style>
-<meta content="web_dashboard" name="shell-type"/><script src="{% static 'storefront/reference-tokens.js' %}"></script>
+<meta content="web_dashboard" name="shell-type"/>
+<script src="{% static 'storefront/reference-tokens.js' %}">
+</script>
 <link rel="stylesheet" href="{% static 'storefront/shared-chrome.css' %}">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
-<link rel="icon" href="{% static 'storefront/brand/favicon.ico' %}"><link rel="apple-touch-icon" href="{% static 'storefront/brand/apple-touch-icon.png' %}">
+<link rel="icon" href="{% static 'storefront/brand/favicon.ico' %}">
+<link rel="apple-touch-icon" href="{% static 'storefront/brand/apple-touch-icon.png' %}">
 {% endblock %}
-{% block body_attrs %} class="min-h-full flex flex-col bg-brand-page text-brand-dark" data-demo-page="cart.html"{% endblock %}
+{% block body_attrs %} class="min-h-full flex flex-col bg-brand-page text-brand-dark" data-real-commerce="true" data-demo-page="cart.html"{% endblock %}
 {% block content %}
 <!-- BEGIN: TopBrandBar -->
 
@@ -73,465 +79,144 @@
 
 {% include 'includes/header.html' %}
 <!-- END: MainHeader -->
-<main class="flex-grow"><div class="flex flex-col w-full">
+<main class="flex-grow">
+<div class="flex flex-col w-full">
 <!-- Top Checkout Context & Stepper -->
 <section class="w-full bg-surface-container-low border-b border-border-subtle py-6">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
 <div>
-<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'cart.detail.text.6481d93fcaec' %}</span>
-<h1 class="font-headline-md text-headline-md text-text-primary tracking-tight mt-0.5">{% text 'cart.detail.text.1d29f7bdec24' %}</h1>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">
+{% text 'cart.detail.text.6481d93fcaec' %}
+</span>
+<h1 class="font-headline-md text-headline-md text-text-primary tracking-tight mt-0.5">
+{% text 'cart.detail.text.1d29f7bdec24' %}
+</h1>
 </div>
 <!-- 3-Step Checkout Indicator -->
 <nav aria-label="{% text 'cart.detail.label.d91503220ccb' %}" class="flex items-center space-x-3 sm:space-x-8 text-xs sm:text-sm font-medium">
 <!-- Step 1 (Active) -->
 <div class="flex items-center gap-2 text-primary font-semibold">
 <span class="w-6 h-6 rounded-none bg-primary text-on-primary flex items-center justify-center font-label-sm text-label-sm">1</span>
-<span class="tracking-wide">{% text 'cart.detail.text.f7e4e225e5a5' %}</span>
+<span class="tracking-wide">
+{% text 'cart.detail.text.f7e4e225e5a5' %}
+</span>
 </div>
-<div aria-hidden="true" class="w-8 sm:w-12 h-px bg-border-subtle"></div>
+<div aria-hidden="true" class="w-8 sm:w-12 h-px bg-border-subtle">
+</div>
 <!-- Step 2 -->
 <div class="flex items-center gap-2 text-text-muted">
 <span class="w-6 h-6 rounded-none bg-surface-container-highest text-secondary flex items-center justify-center font-label-sm text-label-sm">2</span>
-<span class="tracking-wide hidden sm:inline">{% text 'cart.detail.text.c66011ec94b9' %}</span>
-<span class="tracking-wide sm:hidden">{% text 'cart.detail.text.31e5fb297756' %}</span>
+<span class="tracking-wide hidden sm:inline">
+{% text 'cart.detail.text.c66011ec94b9' %}
+</span>
+<span class="tracking-wide sm:hidden">
+{% text 'cart.detail.text.31e5fb297756' %}
+</span>
 </div>
-<div aria-hidden="true" class="w-8 sm:w-12 h-px bg-border-subtle"></div>
+<div aria-hidden="true" class="w-8 sm:w-12 h-px bg-border-subtle">
+</div>
 <!-- Step 3 -->
 <div class="flex items-center gap-2 text-text-muted">
 <span class="w-6 h-6 rounded-none bg-surface-container-highest text-secondary flex items-center justify-center font-label-sm text-label-sm">3</span>
-<span class="tracking-wide hidden sm:inline">{% text 'cart.detail.text.d637e82a224d' %}</span>
-<span class="tracking-wide sm:hidden">{% text 'cart.detail.text.6c0f368a40f0' %}</span>
+<span class="tracking-wide hidden sm:inline">
+{% text 'cart.detail.text.d637e82a224d' %}
+</span>
+<span class="tracking-wide sm:hidden">
+{% text 'cart.detail.text.6c0f368a40f0' %}
+</span>
 </div>
 </nav>
 </div>
 </div>
 </section>
 <!-- Main Content Space (2 Columns Grid) -->
-<main class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
-<!-- Free Shipping Indicator Notification Banner -->
-<div class="mb-8 p-4 bg-surface-container-lowest border border-border-subtle flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-none bg-primary-container text-on-primary flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-base">{% text 'cart.detail.text.9c586571e3cb' %}</span>
+<div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
+{% if cart_error %}
+<div role="alert" class="bg-surface-container p-5 text-error mb-6">
+{% text cart_error %}
 </div>
-<div>
-<p class="font-title-md text-title-md text-text-primary">{% text 'cart.detail.text.c26cdfe74ccd' %}</p>
-<p class="font-body-sm text-body-sm text-text-muted">{% text 'cart.detail.text.877cd24048a0' %}</p>
+{% endif %}
+{% for error in cart.errors %}
+<div role="alert" class="bg-surface-container p-5 text-error mb-6">
+{% text error %}
 </div>
-</div>
-<div class="w-full sm:w-64 flex flex-col gap-1.5 self-center">
-<div class="flex justify-between font-label-sm text-label-sm text-text-muted">
-<span>{% text 'cart.detail.text.6738e9e5dde3' %}</span>
-<span class="text-primary font-semibold">139,80 € (100%)</span>
-</div>
-<div class="w-full h-1.5 bg-surface-container-highest overflow-hidden">
-<div class="h-full bg-primary transition-all duration-500" style="width: 100%;"></div>
-</div>
-</div>
-</div>
-<!-- Core Grid Area -->
+{% endfor %}
+<!-- Reference shipping notification frame; no invented free-shipping progress. -->
+<section class="mb-8 p-4 bg-surface-container-lowest border border-border-subtle flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"><div class="flex items-center gap-3"><div class="w-8 h-8 bg-primary-container text-on-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-base" aria-hidden="true">local_shipping</span></div><div><h2 class="font-title-md text-title-md text-text-primary">{% text 'commerce.reference.shipping.title' %}</h2><p class="font-body-sm text-body-sm text-text-muted">{% text 'commerce.reference.shipping.description' %}</p></div></div><div class="w-full sm:w-64 flex flex-col gap-1.5 shrink-0"><p class="font-label-sm text-label-sm text-text-muted">{% text 'commerce.reference.shipping.progress' %}</p><div class="w-full h-1.5 bg-surface-container-highest" aria-hidden="true"></div></div></section>
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-<!-- Left Column: Cart Items & Try-At-Home Guarantee (approx 65% = 8 cols) -->
 <section class="lg:col-span-7 xl:col-span-8 flex flex-col gap-8">
-<!-- Cart Items Section -->
 <div class="bg-surface-container-lowest border border-border-subtle p-6 sm:p-8">
-<div class="flex flex-col sm:flex-row sm:items-baseline justify-between border-b border-border-subtle pb-5 mb-6 gap-2">
-<h2 class="font-title-lg text-title-lg text-text-primary tracking-tight">{% text 'cart.detail.text.acd9eb62ef78' %}</h2>
-<span class="font-body-sm text-body-sm text-text-muted">{% text 'cart.detail.text.c4cea2d66b4c' %}</span>
+<div class="flex items-baseline justify-between border-b border-border-subtle pb-5 mb-6">
+<h2 class="font-title-lg text-title-lg">
+{% text 'commerce.cart.items' %}
+</h2>
+<span class="font-body-sm text-body-sm text-text-muted">{{ cart.item_count }} {% text 'commerce.summary.count' %}
+</span>
 </div>
-<!-- Items Stack -->
 <div class="divide-y divide-border-subtle" id="cart-items-container">
-<!-- Item 1: MANSTORE M107 -->
+{% for line in cart.lines %}
 <article class="py-6 first:pt-0 last:pb-0 flex flex-col sm:flex-row gap-6">
-<!-- Item Thumbnail -->
-<div class="w-full sm:w-28 sm:h-36 h-48 bg-surface-muted overflow-hidden shrink-0 relative">
-<img class="w-full h-full object-cover object-top" alt="{% text 'cart.detail.label.97c4df2b7014' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQdzPV0WMNUpuZ6uVK8dn3HRvUPe0Si3Ki8xg48yUgxJIMlljPNOg81hDjHmHil_bzp2yzZGpAT_anvT8fomWnzm7NcgGBsL1kcrhE7sp5MetP2V2EEiLUI_VVLOLgkjswvAY2Y8gM2y_XzRuZBmYty9SMUPwruZxm6jLNFVaYm_mKb2Y7ftU7dSQURxRa-epQYeILLlYO1evPAuhxWuTvHVxXvNVk35AFb9FR13-vYXWEzba8lSK6"/>
-<span class="absolute top-2 left-2 bg-primary text-on-primary font-label-sm text-[10px] uppercase px-1.5 py-0.5 tracking-wider">{% text 'cart.detail.text.fad6190c875f' %}</span>
-</div>
-<!-- Item Body -->
-<div class="flex-grow flex flex-col justify-between">
-<div>
-<div class="flex items-start justify-between gap-4">
-<div>
-<span class="font-label-sm text-label-sm uppercase text-text-muted tracking-wider block">{% text 'cart.detail.text.a7769b7586cf' %}</span>
-<h3 class="font-title-md text-title-md text-text-primary mt-0.5">{{ cart.lines.0.name }}</h3>
-<p class="font-body-sm text-body-sm text-text-muted mt-0.5">{% text 'cart.detail.text.41a3a18c1fce' %}</p>
-</div>
-<span class="font-price-lg text-price-lg text-text-primary font-semibold whitespace-nowrap">49,95 €</span>
-</div>
-<!-- Quick Attribute Configurator inside Cart -->
-<div class="flex flex-wrap items-center gap-4 mt-4 pt-3 border-t border-border-subtle/60 text-xs">
-<div class="flex items-center gap-2">
-<label class="font-label-sm text-label-sm text-text-muted uppercase" for="size-item-1">{% text 'cart.detail.text.7983efffc1a2' %}</label>
-<select class="bg-surface-container-low border border-border-subtle font-body-sm text-body-sm text-text-primary py-1 px-2.5 focus:border-primary focus:outline-none focus:ring-0" id="size-item-1">
-<option value="S">{% text 'cart.detail.text.78400afd9181' %}</option>
-<option selected="" value="M">{% text 'cart.detail.text.a57fbec62115' %}</option>
-<option value="L">{% text 'cart.detail.text.81069074c5a9' %}</option>
-<option value="XL">{% text 'cart.detail.text.22c04bdaec73' %}</option>
-</select>
-</div>
-<div class="flex items-center gap-2">
-<span class="font-label-sm text-label-sm text-text-muted uppercase">{% text 'cart.detail.text.f96e919ded49' %}</span>
-<div class="inline-flex items-center border border-border-subtle bg-surface-container-low">
-<button aria-label="{% text 'cart.detail.label.cc4db094f8c1' %}" class="w-7 h-7 flex items-center justify-center text-text-primary hover:bg-surface-container-highest transition-colors" type="button">-</button>
-<span class="w-8 text-center font-body-sm text-body-sm font-medium">1</span>
-<button aria-label="{% text 'cart.detail.label.e5483f010fb0' %}" class="w-7 h-7 flex items-center justify-center text-text-primary hover:bg-surface-container-highest transition-colors" type="button">+</button>
-</div>
-</div>
-<span class="text-primary font-label-sm text-label-sm flex items-center gap-1">
-<span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
-                      {% text 'cart.detail.text.7c01af1e8675' %}
-                    </span>
-</div>
-</div>
-<!-- Row Utility Actions -->
-<div class="flex items-center justify-between mt-5 pt-3 border-t border-border-subtle/50 font-body-sm text-body-sm">
-<button class="text-text-muted hover:text-text-primary transition-colors flex items-center gap-1.5" type="button">
-<span class="material-symbols-outlined text-sm">{% text 'cart.detail.text.75017a36ec07' %}</span>
-<span>{% text 'cart.detail.text.0d719afadb0e' %}</span>
-</button>
-<button class="text-text-muted hover:text-error transition-colors flex items-center gap-1" type="button">
-<span class="material-symbols-outlined text-sm">{% text 'cart.detail.text.145cfa0345c2' %}</span>
-<span>{% text 'cart.detail.text.f78b6376e028' %}</span>
-</button>
-</div>
-</div>
-</article>
-<!-- Item 2: CALIDA Natural Skin -->
-<article class="py-6 flex flex-col sm:flex-row gap-6">
-<!-- Item Thumbnail -->
 <div class="w-full sm:w-28 sm:h-36 h-48 bg-surface-muted overflow-hidden shrink-0">
-<img class="w-full h-full object-cover" alt="{% text 'cart.detail.label.0b24fab795c1' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQ9Wp_dw-AEiQ92IC5jVXNp8yy0y68uKpdqjtzu9JfVEHQrI-vWqElG_QSFTZmEEgrj9uWRxMcRCFbcYBJgFtcOxf4-xzt2Vdp60D7XCBc6RMVQLQuofBxi-gkD4xrPN9yNB6Scx5SelPIOWXYdQ8r45n9h1yy0D4aCZGn5qRzBxbnBVboY_t_zXYx_pKvOhHfDSiufeK0hMSWAyonFcgVOqvRU7IINieVZCoAlvoY5TUOpt2gOnbH"/>
+{% if line.photo_url %}
+<img class="w-full h-full object-cover object-top" src="{{ line.photo_url }}" alt="{{ line.name }}">
+{% endif %}
 </div>
-<!-- Item Body -->
-<div class="flex-grow flex flex-col justify-between">
-<div>
+<div class="flex-grow flex flex-col justify-between min-w-0">
 <div class="flex items-start justify-between gap-4">
 <div>
-<span class="font-label-sm text-label-sm uppercase text-text-muted tracking-wider block">{% text 'cart.detail.text.3b5534d8b3e9' %}</span>
-<h3 class="font-title-md text-title-md text-text-primary mt-0.5">{{ cart.lines.1.name }}</h3>
-<p class="font-body-sm text-body-sm text-text-muted mt-0.5">{% text 'cart.detail.text.e6032cf37566' %}</p>
+<span class="font-label-sm text-label-sm uppercase text-text-muted tracking-wider">{{ line.brand }}</span>
+<h3 class="font-title-md text-title-md mt-0.5">
+{% if line.detail_url %}
+<a href="{{ line.detail_url }}">{{ line.name }}</a>
+{% else %}{{ line.name }}{% endif %}
+</h3>
+<p class="font-body-sm text-body-sm text-text-muted mt-1">{{ line.colour_name }} · {{ line.size }}</p>
+<p class="font-label-sm text-label-sm text-text-muted mt-1">{{ line.sku }}</p>
 </div>
-<span class="font-price-lg text-price-lg text-text-primary font-semibold whitespace-nowrap">44,95 €</span>
+<span class="font-price-lg text-price-lg font-semibold whitespace-nowrap">{{ line.line_amount|floatformat:2 }} €</span>
 </div>
-<div class="flex flex-wrap items-center gap-4 mt-4 pt-3 border-t border-border-subtle/60 text-xs">
-<div class="flex items-center gap-2">
-<label class="font-label-sm text-label-sm text-text-muted uppercase" for="size-item-2">{% text 'cart.detail.text.7983efffc1a2' %}</label>
-<select class="bg-surface-container-low border border-border-subtle font-body-sm text-body-sm text-text-primary py-1 px-2.5 focus:border-primary focus:outline-none focus:ring-0" id="size-item-2">
-<option value="S">{% text 'cart.detail.text.8d8408efd734' %}</option>
-<option value="M">{% text 'cart.detail.text.8aab92fe70dc' %}</option>
-<option selected="" value="L">{% text 'cart.detail.text.4cc1556518e1' %}</option>
-<option value="XL">{% text 'cart.detail.text.8c0e7870ec57' %}</option>
-</select>
-</div>
-<div class="flex items-center gap-2">
-<span class="font-label-sm text-label-sm text-text-muted uppercase">{% text 'cart.detail.text.f96e919ded49' %}</span>
-<div class="inline-flex items-center border border-border-subtle bg-surface-container-low">
-<button aria-label="{% text 'cart.detail.label.cc4db094f8c1' %}" class="w-7 h-7 flex items-center justify-center text-text-primary hover:bg-surface-container-highest transition-colors" type="button">-</button>
-<span class="w-8 text-center font-body-sm text-body-sm font-medium">1</span>
-<button aria-label="{% text 'cart.detail.label.e5483f010fb0' %}" class="w-7 h-7 flex items-center justify-center text-text-primary hover:bg-surface-container-highest transition-colors" type="button">+</button>
-</div>
-</div>
-<span class="text-primary font-label-sm text-label-sm flex items-center gap-1">
-<span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
-                      {% text 'cart.detail.text.043ab7aca78b' %}
-                    </span>
-</div>
-</div>
-<div class="flex items-center justify-between mt-5 pt-3 border-t border-border-subtle/50 font-body-sm text-body-sm">
-<button class="text-text-muted hover:text-text-primary transition-colors flex items-center gap-1.5" type="button">
-<span class="material-symbols-outlined text-sm">{% text 'cart.detail.text.75017a36ec07' %}</span>
-<span>{% text 'cart.detail.text.0d719afadb0e' %}</span>
+<div class="flex flex-wrap gap-4 mt-4 pt-3 border-t border-border-subtle">
+<form method="post" action="{% url 'cart:update' %}" data-real-commerce class="flex flex-wrap items-center gap-2">
+{% csrf_token %}
+<input type="hidden" name="sku" value="{{ line.sku }}">
+<label class="font-label-sm text-label-sm uppercase text-text-muted" for="qty-{{ forloop.counter }}">
+{% text 'commerce.cart.quantity' %}
+</label>
+<input class="w-20 bg-surface-container-low border border-border-subtle px-2 py-1.5" id="qty-{{ forloop.counter }}" name="quantity" type="number" min="1" max="{{ line.max_quantity|default:20 }}" value="{{ line.quantity }}" required>
+<button class="px-3 py-2 bg-surface-container font-label-sm text-label-sm uppercase" type="submit">
+{% text 'commerce.cart.update' %}
 </button>
-<button class="text-text-muted hover:text-error transition-colors flex items-center gap-1" type="button">
-<span class="material-symbols-outlined text-sm">{% text 'cart.detail.text.145cfa0345c2' %}</span>
-<span>{% text 'cart.detail.text.f78b6376e028' %}</span>
+</form>
+<form method="post" action="{% url 'cart:remove' %}" data-real-commerce>
+{% csrf_token %}
+<input type="hidden" name="sku" value="{{ line.sku }}">
+<button class="px-3 py-2 text-text-muted underline font-body-sm text-body-sm" type="submit">
+{% text 'commerce.cart.remove' %}
 </button>
+</form>
 </div>
+{% if not line.available %}
+<p class="font-body-sm text-body-sm text-error mt-3">
+{% text 'commerce.cart.unavailable' %}
+</p>
+{% endif %}
 </div>
 </article>
-<!-- Item 3: OLAF BENZ RED 2004 -->
-<article class="py-6 flex flex-col sm:flex-row gap-6">
-<!-- Item Thumbnail -->
-<div class="w-full sm:w-28 sm:h-36 h-48 bg-surface-muted overflow-hidden shrink-0">
-<img class="w-full h-full object-cover" alt="{% text 'cart.detail.label.49b9c52bacf3' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSW8dMWxOBgzjJo7bUImncQUVT1TuvFg1uHYTuJiCIU-0bbAmTQG9gZcEVfEGvaGij_hHFo_vxvCMO4pV0KPv_XQCYwnn2ZP4G0EEgLXUNw8YBZfwYKrk0nza7D13-r4NQuj5Uw137Uwabq2eY1QxMRx86u0bPi7m0yWKjaKIxBXmzKb8eAS0boSYjfEvw5_LqqYJE4PJ_0yAdtdkagTp-D3MgOH63ulYcCUpNB4WKhto9Yv43kN-f"/>
-</div>
-<!-- Item Body -->
-<div class="flex-grow flex flex-col justify-between">
-<div>
-<div class="flex items-start justify-between gap-4">
-<div>
-<span class="font-label-sm text-label-sm uppercase text-text-muted tracking-wider block">{% text 'cart.detail.text.ba3e4d081bdb' %}</span>
-<h3 class="font-title-md text-title-md text-text-primary mt-0.5">{{ cart.lines.2.name }}</h3>
-<p class="font-body-sm text-body-sm text-text-muted mt-0.5">{% text 'cart.detail.text.90249f5615ef' %}</p>
-</div>
-<span class="font-price-lg text-price-lg text-text-primary font-semibold whitespace-nowrap">44,90 €</span>
-</div>
-<div class="flex flex-wrap items-center gap-4 mt-4 pt-3 border-t border-border-subtle/60 text-xs">
-<div class="flex items-center gap-2">
-<label class="font-label-sm text-label-sm text-text-muted uppercase" for="size-item-3">{% text 'cart.detail.text.7983efffc1a2' %}</label>
-<select class="bg-surface-container-low border border-border-subtle font-body-sm text-body-sm text-text-primary py-1 px-2.5 focus:border-primary focus:outline-none focus:ring-0" id="size-item-3">
-<option value="S">{% text 'cart.detail.text.8d8408efd734' %}</option>
-<option selected="" value="M">{% text 'cart.detail.text.8aab92fe70dc' %}</option>
-<option value="L">{% text 'cart.detail.text.4cc1556518e1' %}</option>
-<option value="XL">{% text 'cart.detail.text.8c0e7870ec57' %}</option>
-</select>
-</div>
-<div class="flex items-center gap-2">
-<span class="font-label-sm text-label-sm text-text-muted uppercase">{% text 'cart.detail.text.f96e919ded49' %}</span>
-<div class="inline-flex items-center border border-border-subtle bg-surface-container-low">
-<button aria-label="{% text 'cart.detail.label.cc4db094f8c1' %}" class="w-7 h-7 flex items-center justify-center text-text-primary hover:bg-surface-container-highest transition-colors" type="button">-</button>
-<span class="w-8 text-center font-body-sm text-body-sm font-medium">1</span>
-<button aria-label="{% text 'cart.detail.label.e5483f010fb0' %}" class="w-7 h-7 flex items-center justify-center text-text-primary hover:bg-surface-container-highest transition-colors" type="button">+</button>
+{% endfor %}
 </div>
 </div>
-<span class="text-primary font-label-sm text-label-sm flex items-center gap-1">
-<span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
-                      {% text 'cart.detail.text.043ab7aca78b' %}
-                    </span>
-</div>
-</div>
-<div class="flex items-center justify-between mt-5 pt-3 border-t border-border-subtle/50 font-body-sm text-body-sm">
-<button class="text-text-muted hover:text-text-primary transition-colors flex items-center gap-1.5" type="button">
-<span class="material-symbols-outlined text-sm">{% text 'cart.detail.text.75017a36ec07' %}</span>
-<span>{% text 'cart.detail.text.0d719afadb0e' %}</span>
-</button>
-<button class="text-text-muted hover:text-error transition-colors flex items-center gap-1" type="button">
-<span class="material-symbols-outlined text-sm">{% text 'cart.detail.text.145cfa0345c2' %}</span>
-<span>{% text 'cart.detail.text.f78b6376e028' %}</span>
-</button>
-</div>
-</div>
-</article>
-</div>
-</div>
-<!-- Try-At-Home & Fitting Guarantee Feature Card -->
-<div class="bg-surface-container-low border border-border-subtle p-6 sm:p-8">
-<div class="flex items-center gap-3 mb-4">
-<span class="material-symbols-outlined text-primary text-2xl">{% text 'cart.detail.text.7be676cbf4b5' %}</span>
-<div>
-<h3 class="font-title-lg text-title-lg text-text-primary">{% text 'cart.detail.text.3e0809281d80' %}</h3>
-<p class="font-body-sm text-body-sm text-text-muted">{% text 'cart.detail.text.434567b48c30' %}</p>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-border-subtle">
-<!-- Feature 1 -->
-<div class="flex flex-col gap-1.5">
-<div class="flex items-center gap-2 font-title-md text-title-md text-text-primary">
-<span class="material-symbols-outlined text-primary text-base">{% text 'cart.detail.text.d56d985300d4' %}</span>
-<span>{% text 'cart.detail.text.fc9d30cac6a7' %}</span>
-</div>
-<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
-                {% text 'cart.detail.text.5964efe02c67' %}
-              </p>
-</div>
-<!-- Feature 2 -->
-<div class="flex flex-col gap-1.5">
-<div class="flex items-center gap-2 font-title-md text-title-md text-text-primary">
-<span class="material-symbols-outlined text-primary text-base">{% text 'cart.detail.text.e117797422d3' %}</span>
-<span>{% text 'cart.detail.text.2d4a7e8bcf3e' %}</span>
-</div>
-<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
-                {% text 'cart.detail.text.bd450d4dc4b4' %}
-              </p>
-</div>
-<!-- Feature 3 -->
-<div class="flex flex-col gap-1.5">
-<div class="flex items-center gap-2 font-title-md text-title-md text-text-primary">
-<span class="material-symbols-outlined text-primary text-base">{% text 'cart.detail.text.26d194e1f4e4' %}</span>
-<span>{% text 'cart.detail.text.37828b80484b' %}</span>
-</div>
-<p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
-                {% text 'cart.detail.text.67846cfe3c7d' %}
-              </p>
-</div>
-</div>
-</div>
-</section>
-<!-- Right Column: Sticky Order Summary & Checkout (approx 35% = 4-5 cols) -->
-<aside class="lg:col-span-5 xl:col-span-4 sticky top-28 flex flex-col gap-6">
-<div class="bg-surface-container-lowest border border-border-subtle p-6 sm:p-7">
-<h2 class="font-title-lg text-title-lg text-text-primary border-b border-border-subtle pb-4">{% text 'cart.detail.text.71d1f0cce20e' %}</h2>
-<!-- Price Calculations -->
-<div class="space-y-3 py-5 border-b border-border-subtle text-sm">
-<div class="flex justify-between text-text-muted font-body-md text-body-md">
-<span>{% text 'cart.detail.text.4e29c83eb9f8' %}</span>
-<span class="text-text-primary font-medium">139,80 €</span>
-</div>
-<div class="flex justify-between text-text-muted font-body-md text-body-md">
-<div class="flex items-center gap-1.5">
-<span>{% text 'cart.detail.text.cf13fb8cc610' %}</span>
-<span class="material-symbols-outlined text-xs text-text-muted" title="{% text 'cart.detail.label.decbb81933a2' %}">{% text 'cart.detail.text.59bd0a3ff43b' %}</span>
-</div>
-<span class="text-primary font-medium">{% text 'cart.detail.text.440355b1eb3b' %}</span>
-</div>
-<div class="flex justify-between text-text-muted font-body-sm text-body-sm pt-1">
-<span>{% text 'cart.detail.text.15cd1be6393a' %}</span>
-<span>22,32 €</span>
-</div>
-</div>
-<!-- Total -->
-<div class="flex justify-between items-baseline py-4 border-b border-border-subtle">
-<span class="font-title-md text-title-md text-text-primary font-bold">{% text 'cart.detail.text.94ee95564c02' %}</span>
-<div class="text-right">
-<span class="font-headline-md text-headline-md text-text-primary font-bold">139,80 €</span>
-<span class="block font-label-sm text-[11px] text-text-muted">{% text 'cart.detail.text.b27c6cb6be1f' %}</span>
-</div>
-</div>
-<!-- Promo Code Accordion / Input -->
-<div class="py-4 border-b border-border-subtle">
-<details class="group cursor-pointer">
-<summary class="flex justify-between items-center list-none font-body-sm text-body-sm text-text-primary font-medium hover:text-primary transition-colors">
-<span class="flex items-center gap-1.5">
-<span class="material-symbols-outlined text-sm">{% text 'cart.detail.text.dee2dd34f4ff' %}</span>
-                  {% text 'cart.detail.text.8a106def6297' %}
-                </span>
-<span class="material-symbols-outlined text-base transition-transform group-open:rotate-180">{% text 'cart.detail.text.5dd226578843' %}</span>
-</summary>
-<div class="pt-3 flex gap-2">
-<input class="w-full bg-surface-container-low border border-border-subtle px-3 py-2 font-body-sm text-body-sm text-text-primary placeholder:text-text-muted/60 focus:border-primary focus:outline-none focus:ring-0" placeholder="{% text 'cart.detail.label.ccd88997da1e' %}" type="text"/>
-<button class="px-4 bg-surface-container-highest text-text-primary hover:bg-border-subtle font-label-sm text-label-sm uppercase tracking-wider transition-colors shrink-0" type="button">
-                  {% text 'cart.detail.text.829bcfc2e0ce' %}
-                </button>
-</div>
-</details>
-</div>
-<!-- Primary CTA Button -->
-<div class="mt-6 flex flex-col gap-3">
-<a class="w-full py-3.5 px-6 bg-primary text-on-primary hover:bg-[#133327] transition-all flex items-center justify-center gap-3 font-label-md text-label-md uppercase tracking-wider text-center" href="#checkout-step-2">
-<span>{% text 'cart.detail.text.4e8c5bc52d31' %}</span>
-<span class="material-symbols-outlined text-sm">{% text 'cart.detail.text.16d57c087f83' %}</span>
+{% include 'cart/includes/service_preview.html' %}
+{% include 'cart/includes/test_notice.html' %}
+<a class="font-label-md text-label-md text-primary uppercase tracking-wider" href="{% url 'catalog:list' %}">← {% text 'commerce.cart.back' %}
 </a>
-<!-- Express Checkout Separator -->
-<div class="relative flex items-center justify-center my-1">
-<div class="w-full border-t border-border-subtle"></div>
-<span class="absolute bg-surface-container-lowest px-3 font-label-sm text-[10px] text-text-muted uppercase tracking-widest">{% text 'cart.detail.text.dc34d4197bec' %}</span>
-</div>
-<!-- Express Buttons -->
-<div class="grid grid-cols-3 gap-2">
-<button aria-label="{% text 'cart.detail.label.39c0689113a1' %}" class="h-10 border border-border-subtle bg-surface-container-low hover:bg-surface-container-highest transition-colors flex items-center justify-center" type="button">
-<span class="font-bold text-xs tracking-tighter text-[#003087]">{% text 'cart.detail.text.80c37573afed' %}<span class="text-[#0079C1]">{% text 'cart.detail.text.ea65259b8b0f' %}</span></span>
-</button>
-<button aria-label="{% text 'cart.detail.label.7d4c468279fe' %}" class="h-10 border border-border-subtle bg-surface-container-low hover:bg-surface-container-highest transition-colors flex items-center justify-center" type="button">
-<span class="font-semibold text-xs tracking-tight text-text-primary">{% text 'cart.detail.text.255152c902e7' %}</span>
-</button>
-<button aria-label="{% text 'cart.detail.label.03a6db3e811a' %}" class="h-10 border border-border-subtle bg-surface-container-low hover:bg-surface-container-highest transition-colors flex items-center justify-center" type="button">
-<span class="font-bold text-xs tracking-wide text-text-primary">{% text 'cart.detail.text.5b311f143bf7' %}</span>
-</button>
-</div>
-</div>
-<!-- Trust Badges List -->
-<div class="mt-6 pt-5 border-t border-border-subtle flex flex-col gap-2.5 font-body-sm text-body-sm text-text-muted">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-base">{% text 'cart.detail.text.43cc3c1898e9' %}</span>
-<span>{% text 'cart.detail.text.6a48a0398e05' %}</span>
-</div>
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-base">{% text 'cart.detail.text.f1a915d3cbdb' %}</span>
-<span>{% text 'cart.detail.text.4d516aafff38' %}</span>
-</div>
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-base">{% text 'cart.detail.text.e117797422d3' %}</span>
-<span>{% text 'cart.detail.text.de43000ec46b' %}</span>
-</div>
-</div>
-</div>
-<!-- Help / Contact Box -->
-<div class="p-4 bg-surface-container-low border border-border-subtle text-xs text-text-muted flex items-start gap-3">
-<span class="material-symbols-outlined text-text-primary text-lg shrink-0 mt-0.5">{% text 'cart.detail.text.79ac32b1d75f' %}</span>
-<div>
-<p class="font-semibold text-text-primary">{% text 'cart.detail.text.c8eefd0bb675' %}</p>
-<p class="mt-0.5">{% text 'cart.detail.text.e24fa02bec35' %} <span class="text-text-primary font-medium">0800 240 40 80</span> {% text 'cart.detail.text.a54d6af6651c' %}</p>
-</div>
-</div>
+</section>
+<aside class="lg:col-span-5 xl:col-span-4 lg:sticky top-28 flex flex-col gap-6">
+{% include 'cart/includes/summary.html' with cart_checkout=True %}
 </aside>
 </div>
-<!-- Curated Upsell Carousel: "Dazu passt" -->
-<section class="mt-16 pt-12 border-t border-border-subtle">
-<div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-2">
-<div>
-<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-muted">{% text 'cart.detail.text.f5e4ca8874e0' %}</span>
-<h2 class="font-headline-md text-headline-md text-text-primary tracking-tight mt-1">{% text 'cart.detail.text.d3594fea2cdd' %}</h2>
-</div>
-<p class="font-body-sm text-body-sm text-text-muted">{% text 'cart.detail.text.05d21f700a57' %}</p>
-</div>
-<!-- Upsell Cards Grid -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-<!-- Upsell Item 1 -->
-<div class="bg-surface-container-lowest border border-border-subtle flex flex-col justify-between p-4 group">
-<div>
-<div class="aspect-square bg-surface-muted overflow-hidden relative mb-3">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="{% text 'cart.detail.label.2fb9187ca5e8' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcxdKZqyZ3PdMElPpNku4YsMsHGFx8Z2k6nMxSmw1WRGTreM4FRkJubRAJWaDUKhWbRmc9YnGcY5A29urpTdpAKqnsWRQq-AEcmTlx5APhlZgczf91_ms4XSgaN1AueqEXvvLgVHx63rFGjLVOmy8G3ZCQ-PVbw5_ff1GFMnIufDXUSMajYcmAsczS03fDQJpK80OmEiwPUMuv8UW4t8Tj5l_aSvekxuGhoBWJl86Y3KSBml-_lj2s"/>
-</div>
-<span class="font-label-sm text-label-sm uppercase text-text-muted tracking-wider block">{% text 'cart.detail.text.a95e7d41cffa' %}</span>
-<h3 class="font-title-md text-title-md text-text-primary mt-0.5">{% text 'cart.detail.text.3757ae6af647' %}</h3>
-<p class="font-body-sm text-body-sm text-text-muted mt-1">{% text 'cart.detail.text.036ada594418' %}</p>
-</div>
-<div class="mt-4 pt-3 border-t border-border-subtle flex items-center justify-between">
-<span class="font-price-md text-price-md text-text-primary font-semibold">14,90 €</span>
-<button class="font-label-sm text-label-sm uppercase tracking-wider py-1.5 px-3 border border-text-primary text-text-primary hover:bg-primary hover:border-primary hover:text-on-primary transition-colors flex items-center gap-1" type="button">
-<span>{% text 'cart.detail.text.fe11952b757b' %}</span>
-</button>
+{% include 'catalog/includes/suggestions.html' %}
 </div>
 </div>
-<!-- Upsell Item 2 -->
-<div class="bg-surface-container-lowest border border-border-subtle flex flex-col justify-between p-4 group">
-<div>
-<div class="aspect-square bg-surface-muted overflow-hidden relative mb-3">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="{% text 'cart.detail.label.cebdb9822e65' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTBVDGQuPE7EAK1Isrekpnz-5ijoeyOpgBh6a8q5j4QE0ZlJBoI0XfZL_c3gMNfeWLRBlQ_YFIln6mslP-GaRsjnbO9hOaqR4YXS3rOWLTEcvrINKruWYAZgmZvaOws3TICo5Qxqh0zlyPkuyjD54JC9JVoZlqfBPaDVoXzw2x7IiU3JjB7Ro0sG64l20M96FetrJqUfvS6gKs9WJVY2sotA1Nr_WTBp4JbqpXrkkZQxBpwvRHNuL_"/>
-</div>
-<span class="font-label-sm text-label-sm uppercase text-text-muted tracking-wider block">{% text 'cart.detail.text.569fef27818f' %}</span>
-<h3 class="font-title-md text-title-md text-text-primary mt-0.5">{% text 'cart.detail.text.26284a7a9e5e' %}</h3>
-<p class="font-body-sm text-body-sm text-text-muted mt-1">{% text 'cart.detail.text.d643a6ebf72f' %}</p>
-</div>
-<div class="mt-4 pt-3 border-t border-border-subtle flex items-center justify-between">
-<span class="font-price-md text-price-md text-text-primary font-semibold">12,00 €</span>
-<button class="font-label-sm text-label-sm uppercase tracking-wider py-1.5 px-3 border border-text-primary text-text-primary hover:bg-primary hover:border-primary hover:text-on-primary transition-colors flex items-center gap-1" type="button">
-<span>{% text 'cart.detail.text.fe11952b757b' %}</span>
-</button>
-</div>
-</div>
-<!-- Upsell Item 3 -->
-<div class="bg-surface-container-lowest border border-border-subtle flex flex-col justify-between p-4 group">
-<div>
-<div class="aspect-square bg-surface-muted overflow-hidden relative mb-3">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="{% text 'cart.detail.label.4153e8c80b24' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiLObwblzDwBC7rB66eEePiXNJwipZBI08q4IJ-dhk1kreKE1iahcVGPJtDn34mz5hLIP-fnVDpgxtwnkOEYDv6qxlhucjH5smRgcr9Ii5ZcBbsA2t3iwjk5ilI6lCNEx6THOOPBIpZ_ocsEXdyieTJlzDIWxgyCZMUQ6GBgs-lvaLFmdsyfsYhk9bsF6cUYW8UPPTBfjQP_RSMszQJAGLmFXMIkqfyXDwmuJDdaI3TurF6ipUTrwl"/>
-</div>
-<span class="font-label-sm text-label-sm uppercase text-text-muted tracking-wider block">{% text 'cart.detail.text.ba3e4d081bdb' %}</span>
-<h3 class="font-title-md text-title-md text-text-primary mt-0.5">{% text 'cart.detail.text.e922670f40cb' %}</h3>
-<p class="font-body-sm text-body-sm text-text-muted mt-1">{% text 'cart.detail.text.7f7fe3498542' %}</p>
-</div>
-<div class="mt-4 pt-3 border-t border-border-subtle flex items-center justify-between">
-<span class="font-price-md text-price-md text-text-primary font-semibold">16,90 €</span>
-<button class="font-label-sm text-label-sm uppercase tracking-wider py-1.5 px-3 border border-text-primary text-text-primary hover:bg-primary hover:border-primary hover:text-on-primary transition-colors flex items-center gap-1" type="button">
-<span>{% text 'cart.detail.text.fe11952b757b' %}</span>
-</button>
-</div>
-</div>
-<!-- Upsell Item 4 -->
-<div class="bg-surface-container-lowest border border-border-subtle flex flex-col justify-between p-4 group">
-<div>
-<div class="aspect-square bg-surface-muted overflow-hidden relative mb-3">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="{% text 'cart.detail.label.2de7ca28bdfb' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdxEtwJz31lpqDhWRFWTBMOx3eDOnAcsjm9bcVJmx962Nl7FZed_qyS7lNrJ_OTaxsbTmzxnG6z5jjJm84bWTV5F3XjatVnzsTh52KtmawzQM0jXikGADzaVV_TWbL-6kYsGb4q5nOVu2ItWVi-h-DMBmwgw2xpFrZ-DjO2KXpBiIeRC3-CpDZLxrDW66Jmu28FoE0TGWXfsDgwwurRgat4HZaFU8anaz2LrYRN9uemmlrSkHLZAa_"/>
-</div>
-<span class="font-label-sm text-label-sm uppercase text-text-muted tracking-wider block">{% text 'cart.detail.text.08d893f071f5' %}</span>
-<h3 class="font-title-md text-title-md text-text-primary mt-0.5">{% text 'cart.detail.text.0e09a8f5a03e' %}</h3>
-<p class="font-body-sm text-body-sm text-text-muted mt-1">{% text 'cart.detail.text.5983a0ac5165' %}</p>
-</div>
-<div class="mt-4 pt-3 border-t border-border-subtle flex items-center justify-between">
-<span class="font-price-md text-price-md text-text-primary font-semibold">24,95 €</span>
-<button class="font-label-sm text-label-sm uppercase tracking-wider py-1.5 px-3 border border-text-primary text-text-primary hover:bg-primary hover:border-primary hover:text-on-primary transition-colors flex items-center gap-1" type="button">
-<span>{% text 'cart.detail.text.fe11952b757b' %}</span>
-</button>
-</div>
-</div>
-</div>
-</section>
 </main>
-</div></main>
-<!-- BEGIN: SiteFooter -->
-{% include 'includes/footer.html' %}
-<!-- END: SiteFooter -->
-
-{% endblock %}
+{% include 'includes/footer.html' %}{% endblock %}

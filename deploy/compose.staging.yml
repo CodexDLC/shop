@@ -1,0 +1,133 @@
+name: shop-staging
+
+x-web: &web
+  image: shop-staging-web:${SHOP_RELEASE:-local}
+  build:
+    context: ..
+    dockerfile: deploy/web/Dockerfile
+  env_file: ["${SHOP_ENV_FILE:?Set SHOP_ENV_FILE to the absolute staging env path}"]
+  environment:
+    DJANGO_SETTINGS_MODULE: web.config.settings.staging
+    POSTGRES_HOST: postgres
+    POSTGRES_PORT: "5432"
+    REDIS_URL: redis://redis:6379/0
+  networks: [shop]
+  security_opt: [no-new-privileges:true]
+  cap_drop: [ALL]
+  mem_limit: 768m
+  cpus: 1.0
+  pids_limit: 128
+  logging: &logging
+    driver: json-file
+    options: {max-size: "10m", max-file: "3"}
+
+services:
+  postgres:
+    image: postgres:17
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:?Set POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER:?Set POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}
+    volumes: [postgres-data:/var/lib/postgresql/data]
+    networks: [shop]
+    mem_limit: 512m
+    cpus: 1.0
+    pids_limit: 128
+    logging: *logging
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U "$$POSTGRES_USER" -d "$$POSTGRES_DB"']
+      interval: 10s
+      timeout: 5s
+      retries: 10
+  redis:
+    image: redis:7-alpine
+    command: [redis-server, --appendonly, "yes", --maxmemory, 192mb, --maxmemory-policy, noeviction]
+    restart: unless-stopped
+    volumes: [redis-data:/data]
+    networks: [shop]
+    mem_limit: 256m
+    cpus: 0.5
+    pids_limit: 64
+    logging: *logging
+    healthcheck:
+      test: [CMD, redis-cli, ping]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+  mailpit:
+    image: axllent/mailpit:v1.26
+    restart: unless-stopped
+    environment:
+      MP_MAX_MESSAGES: "200"
+      MP_DATABASE: /data/mailpit.db
+    volumes: [mailpit-data:/data]
+    ports: ["127.0.0.1:8026:8025"]
+    networks: [shop]
+    mem_limit: 128m
+    cpus: 0.25
+    pids_limit: 64
+    logging: *logging
+    healthcheck:
+      test: [CMD, /mailpit, readyz]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+  web:
+    <<: *web
+    restart: unless-stopped
+    ports: ["127.0.0.1:8030:8000"]
+    command: [gunicorn, web.config.wsgi:application, --bind, "0.0.0.0:8000", --workers, "2", --timeout, "45", --error-logfile, "-"]
+    depends_on:
+      postgres: {condition: service_healthy}
+      redis: {condition: service_healthy}
+      mailpit: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; r=urllib.request.Request('http://127.0.0.1:8000/health/', headers={'Host':'shop.pinlite.dev','X-Forwarded-Proto':'https'}); urllib.request.urlopen(r, timeout=5).read()"]
+      interval: 20s
+      timeout: 6s
+      start_period: 30s
+      retries: 5
+  migrate:
+    <<: *web
+    profiles: [tools]
+    restart: "no"
+    command: [python, manage.py, migrate, --noinput]
+    depends_on:
+      postgres: {condition: service_healthy}
+      redis: {condition: service_healthy}
+  collectstatic:
+    <<: *web
+    profiles: [tools]
+    restart: "no"
+    command: [python, manage.py, collectstatic, --noinput]
+  worker:
+    image: shop-staging-worker:${SHOP_RELEASE:-local}
+    build:
+      context: ..
+      dockerfile: deploy/worker/Dockerfile
+    restart: unless-stopped
+    environment:
+      REDIS_URL: redis://redis:6379/0
+    networks: [shop]
+    depends_on:
+      redis: {condition: service_healthy}
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    mem_limit: 256m
+    cpus: 0.5
+    pids_limit: 64
+    logging: *logging
+    healthcheck:
+      test: [CMD, arq, --check, workers.worker.WorkerSettings]
+      interval: 30s
+      timeout: 10s
+      start_period: 45s
+      retries: 5
+
+networks:
+  shop: {}
+volumes:
+  postgres-data: {}
+  redis-data: {}
+  mailpit-data: {}

@@ -12,3 +12,9 @@ data
 assets
 imports
 backups
+.local
+.pytest_tmp
+.pytest-localization
+*.log
+*.pem
+*.key

@@ -111,3 +111,17 @@ def test_dev_access_log_redacts_auth_tokens():
     assert AuthLogFilter().filter(record)
     assert "private-token" not in record.getMessage()
     assert "/ru/accounts/[redacted]" in record.getMessage()
+
+
+def test_oauth_access_and_csrf_logs_redact_capability_and_query():
+    import logging
+
+    from web.identity.auth_log_filter import AuthLogFilter
+
+    for path in ("/integrations/ebay/oauth/connect/private-capability/",
+                 "/integrations/ebay/oauth/callback/?code=private-code&state=private-state"):
+        record = logging.LogRecord("django.security.csrf", logging.WARNING, "", 0,
+                                   "Forbidden (CSRF): %s", (path,), None)
+        AuthLogFilter().filter(record)
+        assert "private-" not in record.getMessage()
+        assert "/integrations/ebay/oauth/[redacted]" in record.getMessage()

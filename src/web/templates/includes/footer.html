@@ -1,5 +1,5 @@
 {% load static shop_i18n %}
-<footer data-shared-chrome="footer" class="bg-[#121814] text-neutral-300 pt-16 pb-12 border-t border-neutral-800" data-purpose="main-footer">
+<footer data-shared-chrome="footer" data-real-navigation class="bg-[#121814] text-neutral-300 pt-16 pb-12 border-t border-neutral-800" data-purpose="main-footer">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <!-- Footer Columns -->
 <div class="grid grid-cols-2 md:grid-cols-5 gap-8 pb-12 border-b border-neutral-800 text-sm">
@@ -18,32 +18,33 @@
 <div>
 <h4 class="text-white text-xs font-semibold uppercase tracking-wider mb-4">{% text 'layout.footer.text.bab8d18be06b' %}</h4>
 <ul class="space-y-2.5 text-xs sm:text-sm text-neutral-400">
-<li><a class="hover:text-white transition-colors" href="#">{% text 'layout.footer.text.af7af2e3a0ac' %}</a></li>
-<li><a class="hover:text-white transition-colors" href="#">{% text 'layout.footer.text.0b8c47a739ce' %}</a></li>
-<li><a class="hover:text-white transition-colors" href="#">{% text 'layout.footer.text.274ff9538d72' %}</a></li>
-<li><a class="hover:text-white transition-colors" href="#">{% text 'layout.footer.text.186393c415de' %}</a></li>
-<li><a class="hover:text-white transition-colors" href="#">{% text 'layout.footer.text.dd5711f78dda' %}</a></li>
+<li><a class="hover:text-white transition-colors" data-real-navigation href="{% url 'catalog:list' %}?category=boxershorts">{% text 'layout.footer.text.af7af2e3a0ac' %}</a></li>
+<li><a class="hover:text-white transition-colors" data-real-navigation href="{% url 'catalog:list' %}?category=slips">{% text 'layout.footer.text.0b8c47a739ce' %}</a></li>
+<li><a class="hover:text-white transition-colors" data-real-navigation href="{% url 'catalog:list' %}?category=strings">{% text 'layout.footer.text.274ff9538d72' %}</a></li>
+<li><a class="hover:text-white transition-colors" data-real-navigation href="{% url 'catalog:list' %}?category=bodies">{% text 'layout.footer.text.186393c415de' %}</a></li>
+<li><a class="hover:text-white transition-colors" data-real-navigation href="{% url 'catalog:list' %}?section=swimwear">{% text 'layout.footer.text.dd5711f78dda' %}</a></li>
 </ul>
 </div>
 <!-- Marken -->
 <div>
 <h4 class="text-white text-xs font-semibold uppercase tracking-wider mb-4">{% text 'navigation.brands' %}</h4>
 <ul class="space-y-2.5 text-xs sm:text-sm text-neutral-400">
-<li><a class="hover:text-white transition-colors" href="#">{% text 'layout.footer.text.a7769b7586cf' %}</a></li>
-<li><a class="hover:text-white transition-colors" href="#">{% text 'layout.footer.text.ba3e4d081bdb' %}</a></li>
-<li><a class="hover:text-white transition-colors" href="#">{% text 'layout.footer.text.3b5534d8b3e9' %}</a></li>
-<li><a class="hover:text-white transition-colors" href="#">{% text 'layout.footer.text.ccc1afcadc4a' %}</a></li>
+<li><a class="hover:text-white transition-colors" data-real-navigation href="{% url 'catalog:list' %}?brand=manstore">{% text 'layout.footer.text.a7769b7586cf' %}</a></li>
+<li><a class="hover:text-white transition-colors" data-real-navigation href="{% url 'catalog:list' %}?brand=olaf-benz">{% text 'layout.footer.text.ba3e4d081bdb' %}</a></li>
+<li><a class="hover:text-white transition-colors" data-real-navigation href="{% url 'catalog:list' %}?brand=calida">{% text 'layout.footer.text.3b5534d8b3e9' %}</a></li>
+<li><a class="hover:text-white transition-colors" data-real-navigation href="{% url 'catalog:brands' %}">{% text 'layout.footer.text.ccc1afcadc4a' %}</a></li>
 </ul>
 </div>
 <!-- Kundenservice -->
 <div>
 <h4 class="text-white text-xs font-semibold uppercase tracking-wider mb-4">{% text 'layout.footer.text.8ae249b9e88d' %}</h4>
 <ul class="space-y-2.5 text-xs sm:text-sm text-neutral-400">
-<li><a class="hover:text-white transition-colors" href="#">{% text 'layout.footer.text.bb3f1cbf386f' %}</a></li>
-<li><a class="hover:text-white transition-colors" href="#">{% text 'layout.footer.text.31e39ee3e41c' %}</a></li>
-<li><a class="hover:text-white transition-colors" href="#">{% text 'layout.footer.text.5c3175413bb7' %}</a></li>
-<li><a class="hover:text-white transition-colors" href="#">{% text 'layout.footer.text.606838b24795' %}</a></li>
-<li><a class="hover:text-white transition-colors" href="#">{% text 'layout.footer.text.bbe5b1aca466' %}</a></li>
+<li><a class="hover:text-white transition-colors" data-real-navigation href="{% url 'support:help' %}#passform-marken">{% text 'layout.footer.text.bb3f1cbf386f' %}</a></li>
+<li><a class="hover:text-white transition-colors" data-real-navigation href="{% url 'support:versand_zahlung' %}">{% text 'layout.footer.text.31e39ee3e41c' %}</a></li>
+<li><a class="hover:text-white transition-colors" data-real-navigation href="{% url 'support:impressum' %}">{% text 'layout.footer.text.5c3175413bb7' %}</a></li>
+<li><a class="hover:text-white transition-colors" data-real-navigation href="{% url 'support:datenschutz' %}">{% text 'layout.footer.text.606838b24795' %}</a></li>
+<li><a class="hover:text-white transition-colors" data-real-navigation href="{% url 'support:agb' %}">{% text 'legal.agb.title' %}</a></li>
+<li><a class="hover:text-white transition-colors" href="{% url 'support:widerruf' %}">{% text 'legal.widerruf.title' %}</a></li>
 </ul>
 </div>
 </div>

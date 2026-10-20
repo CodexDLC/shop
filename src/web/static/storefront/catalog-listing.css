@@ -1,0 +1,27 @@
+/* Catalog reference layout: real forms and cards use the original semantic tokens. */
+.catalog-listing button:disabled,.catalog-listing fieldset:disabled{opacity:.55;cursor:not-allowed}
+.catalog-listing input:focus-visible,.catalog-listing button:focus-visible,.catalog-listing a:focus-visible,.catalog-listing select:focus-visible{outline:2px solid var(--shop-accent,#183F30);outline-offset:3px}
+.catalog-listing-card{min-width:0}.catalog-listing-card h3,.catalog-listing-card p{overflow-wrap:anywhere}
+.catalog-listing input[type=checkbox]{flex-shrink:0}.catalog-listing fieldset{min-width:0}
+.catalog-listing .catalog-product-rail{min-width:0}
+@media(max-width:767px){
+.catalog-listing .catalog-workspace{display:flex;flex-direction:column}
+.catalog-listing .catalog-filter-sidebar{position:static;width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.catalog-filter-sidebar>div:first-child,.catalog-filter-sidebar>p,.catalog-filter-sidebar>button{grid-column:1/-1}
+.catalog-listing .catalog-product-rail{display:flex;overflow-x:auto;scroll-snap-type:x proximity;gap:1rem;padding:.25rem .25rem 1rem;scroll-padding-left:.25rem}
+.catalog-listing .catalog-listing-card{flex:0 0 88%;scroll-snap-align:start}
+.catalog-listing .catalog-workspace>section{width:100%}
+.catalog-listing .catalog-listing-card [data-product-photo]{object-fit:contain}
+.catalog-listing .catalog-listing-search{width:100%}
+}
+
+.catalog-color-filter{position:relative;min-width:0}.catalog-color-filter span:last-child{overflow-wrap:anywhere}
+.catalog-color-filter:has(input:focus-visible){outline:2px solid #183F30;outline-offset:3px}
+.catalog-color-filter:has(input:checked){outline:2px solid #183F30;outline-offset:1px}
+@media(max-width:767px){
+.catalog-listing .catalog-sort-actions{width:100%;min-width:0;flex-wrap:wrap;margin-left:0;gap:.75rem}
+.catalog-listing .catalog-sort-field{width:100%;min-width:0}
+.catalog-listing #sort-select{min-width:0;max-width:100%;flex:1;width:0}
+.catalog-listing .catalog-sort-field label{flex-shrink:0}
+.catalog-listing .catalog-color-filters{grid-template-columns:1fr}
+}

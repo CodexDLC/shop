@@ -7,9 +7,9 @@ from codex_ecommerce.catalog import Gallery, Variant, VariantSelector
 from web.localization import translate_text
 
 
-def product_presentation(product, *, code):
+def product_presentation(product, *, code, selected_sku=None, currency=None):
     """Project a prefetched ORM snapshot; no queries, writes or invented variants."""
-    rows = [row for row in product.variants.all() if row.is_active]
+    rows = [row for row in product.variants.all() if row.is_active and (currency is None or row.currency == currency)]
     images = defaultdict(list)
     for image in product.images.all():
         images[image.color_code or None].append(image.image_url)
@@ -24,7 +24,8 @@ def product_presentation(product, *, code):
         currency=row.currency, available=row.is_available,
     ) for row in rows)
     # An initial selection is explicit; subsequent changes never substitute size or color.
-    default = next((row for row in rows if row.is_available and row.size == "M"), None)
+    default = next((row for row in rows if row.sku == selected_sku), None)
+    default = default or next((row for row in rows if row.is_available and row.size == "M"), None)
     default = default or next((row for row in rows if row.is_available), None) or next(iter(rows), None)
     galleries = {color: images.get(color) or images.get(None, []) for color in colors}
     initial_images = images.get(None, [])
@@ -37,7 +38,7 @@ def product_presentation(product, *, code):
         initial_images = list(selected.gallery.images)
         price = selected.variant.price
     return {
-        "code": code, "slug": product.slug, "brand": product.brand.name,
+        "id": product.pk, "code": code, "slug": product.slug, "brand": product.brand.name,
         "name": product.model_name, "price": price,
         "description": translate_text(product.description_key) if product.description_key else "",
         "photo_url": initial_images[0] if initial_images else "",
@@ -55,5 +56,5 @@ def product_presentation(product, *, code):
 def selection_texts():
     return {name: translate_text(f"catalog.selection.{name}") for name in (
         "available", "unavailable", "select_variant", "loading", "error", "demo_action", "quick_buy",
-        "preview_action",
+        "preview_action", "cart_action",
     )}

@@ -59,7 +59,7 @@
 <span class="w-2.5 h-2.5 rounded-full bg-surface-tint animate-ping"></span>
 </div>
 <div class="flex items-baseline gap-space-xs mb-1">
-<span class="font-headline-md text-headline-md text-text-primary">1</span>
+<span class="font-headline-md text-headline-md text-text-primary">{{ customer_order_count }}</span>
 <span class="font-title-md text-title-md text-brand-deep font-semibold">{% text 'customer.overview.text.704da9cd621f' %}</span>
 </div>
 <p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
@@ -79,7 +79,7 @@
 <span class="material-symbols-outlined text-text-muted text-[18px]">{% text 'customer.overview.text.4e91de8dbe90' %}</span>
 </div>
 <div class="flex items-baseline gap-space-xs mb-1">
-<span class="font-headline-md text-headline-md text-text-primary">18</span>
+<span class="font-headline-md text-headline-md text-text-primary">—</span>
 <span class="font-title-md text-title-md text-secondary font-medium">{% text 'customer.overview.text.08df817a5e3e' %}</span>
 </div>
 <p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
@@ -122,128 +122,8 @@
 </div>
 </div>
 </section>
-<!-- Recent Order Hero Card with Live Tracking Architecture -->
-<section class="bg-surface-container-lowest shadow-sm mb-space-xl p-space-xl">
-<!-- Header of the hero card -->
-<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pb-space-lg">
-<div class="space-y-1">
-<div class="flex items-center gap-space-sm">
-<span class="font-label-sm text-label-sm tracking-widest uppercase bg-surface-muted px-2.5 py-1 text-text-primary">
-            {% text 'customer.overview.text.959023be60b7' %}
-          </span>
-<span class="font-body-sm text-body-sm text-text-muted">
-            {% text 'customer.overview.text.29371db123f8' %}
-          </span>
-</div>
-<h2 class="font-headline-md text-headline-md text-text-primary">
-          {% text 'customer.overview.text.77b0c470d43f' %}
-        </h2>
-</div>
-<div class="flex items-center gap-space-md">
-<div class="text-right">
-<span class="block font-label-sm text-label-sm uppercase tracking-wider text-text-muted">{% text 'customer.overview.text.94ee95564c02' %}</span>
-<span class="font-price-lg text-price-lg text-brand-deep font-bold">114,80 €</span>
-</div>
-<span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-brand-deep text-on-primary font-label-sm text-label-sm tracking-wider uppercase">
-<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-          {% text 'customer.overview.text.c3706654a64c' %}
-        </span>
-</div>
-</div>
-<!-- Stepped Dispatch Timeline -->
-<div class="my-space-xl bg-page-bg p-space-lg">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-space-md relative">
-<!-- Stage 1 -->
-<div class="flex flex-col space-y-2">
-<div class="flex items-center gap-2">
-<span class="w-6 h-6 rounded-full bg-brand-deep text-on-primary flex items-center justify-center font-label-sm text-[11px] font-bold">
-              ✓
-            </span>
-<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-primary font-semibold">{% text 'customer.overview.text.94cfe9324a0b' %}</span>
-</div>
-<p class="font-body-sm text-body-sm text-text-muted pl-8">{% text 'customer.overview.text.136d21839b10' %}</p>
-</div>
-<!-- Stage 2 -->
-<div class="flex flex-col space-y-2">
-<div class="flex items-center gap-2">
-<span class="w-6 h-6 rounded-full bg-brand-deep text-on-primary flex items-center justify-center font-label-sm text-[11px] font-bold">
-              ✓
-            </span>
-<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-primary font-semibold">{% text 'customer.overview.text.bd9433cc7258' %}</span>
-</div>
-<p class="font-body-sm text-body-sm text-text-muted pl-8">{% text 'customer.overview.text.11da35d17826' %}</p>
-</div>
-<!-- Stage 3 -->
-<div class="flex flex-col space-y-2">
-<div class="flex items-center gap-2">
-<span class="w-6 h-6 rounded-full bg-brand-deep text-on-primary flex items-center justify-center font-label-sm text-[11px] font-bold">
-              ✓
-            </span>
-<span class="font-label-sm text-label-sm uppercase tracking-widest text-text-primary font-semibold">{% text 'customer.overview.text.63aa57784ae8' %}</span>
-</div>
-<p class="font-body-sm text-body-sm text-text-muted pl-8">{% text 'customer.overview.text.b67158e5763a' %}</p>
-</div>
-<!-- Stage 4: Active Stage -->
-<div class="flex flex-col space-y-2 relative">
-<div class="flex items-center gap-2">
-<span class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-label-sm text-[11px] font-bold animate-pulse">
-<span class="material-symbols-outlined text-[14px]">{% text 'customer.overview.text.9c586571e3cb' %}</span>
-</span>
-<span class="font-label-sm text-label-sm uppercase tracking-widest text-brand-deep font-bold">{% text 'customer.overview.text.415598e081ec' %}</span>
-</div>
-<p class="font-body-sm text-body-sm text-brand-deep font-semibold pl-8">{% text 'customer.overview.text.3e9612b71ec4' %}</p>
-</div>
-</div>
-<!-- Linear visual progress track bar -->
-<div class="w-full bg-surface-muted h-1.5 mt-space-lg overflow-hidden">
-<div class="bg-brand-deep h-full w-[88%] transition-all duration-700"></div>
-</div>
-</div>
-<!-- Mini Product Line Items Preview -->
-<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg py-space-md">
-<!-- Item 1 -->
-<div class="flex items-center gap-space-md bg-surface-muted p-space-md">
-<div class="w-20 h-24 bg-page-bg shrink-0 overflow-hidden relative">
-<img class="w-full h-full object-cover" alt="{% text 'customer.overview.label.98b390d77e52' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQvDIIJzbvwAifUPfOXyMvb3uTsloAutl4TkJagOV4CEWUrBLiHzxmtpA3tQEILOpgATkjMoDYpICAhF4UqfFnXpX57lKKrdPfkJRay6zRkuwY3N7eqsO68_1dlPaLdXE5UvBt__J62OoMujVtzb3TsTz1qdQBM_QdWk4AzIZbijHECp-Ajo7l01Z3qD6nfJZrKWLYXHCOifa6B6eNWWw3_JrZdsiOYbQ1iAfbdR164bdzi9OLB4VD"/>
-</div>
-<div class="space-y-1">
-<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider">{% text 'customer.overview.text.f02eda741c74' %}</span>
-<h4 class="font-title-md text-title-md text-text-primary leading-tight">{% text 'customer.overview.text.c5f1f37eddd3' %}</h4>
-<p class="font-body-sm text-body-sm text-secondary">{% text 'customer.overview.text.a15ef07decd2' %}</p>
-<p class="font-price-md text-price-md text-brand-deep font-bold">59,90 €</p>
-</div>
-</div>
-<!-- Item 2 -->
-<div class="flex items-center gap-space-md bg-surface-muted p-space-md">
-<div class="w-20 h-24 bg-page-bg shrink-0 overflow-hidden relative">
-<img class="w-full h-full object-cover" alt="{% text 'customer.overview.label.631a70fcae2f' %}" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEpbDVzZWR7alivFzW3tnmfjmCqNvYmdpcwd6mx62uMfXRx1kuF9bjP_83lFAjm1kASeBSveU3eHOHHnaE7tuLesioOPwViLTDY4Jy4yqbPeS-xdSa3VzIwGEvRaeY8qSN6uuDPqB3i7gYhqj5jvQoxjEiLRRK5lmP_c_H3JoCjZba3pS_5xqSNbwGiVr2LCz0UC0iBAe-8Xl-s8mfPM-jP4Ezz9qrp_lVPDBV-_4MXq1tPJgYkdaj"/>
-</div>
-<div class="space-y-1">
-<span class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider">{% text 'customer.overview.text.1734104a346c' %}</span>
-<h4 class="font-title-md text-title-md text-text-primary leading-tight">{% text 'customer.overview.text.b8e12d870fac' %}</h4>
-<p class="font-body-sm text-body-sm text-secondary">{% text 'customer.overview.text.ba46c435873a' %}</p>
-<p class="font-price-md text-price-md text-brand-deep font-bold">54,90 €</p>
-</div>
-</div>
-</div>
-<!-- Hero Actions Rail -->
-<div class="pt-space-lg mt-space-md flex flex-wrap items-center justify-between gap-space-md">
-<div class="flex items-center gap-space-md flex-wrap">
-<button class="px-space-lg h-12 bg-brand-deep text-on-primary font-label-md text-label-md uppercase tracking-wider hover:bg-primary transition-colors flex items-center gap-2" type="button">
-<span class="material-symbols-outlined text-[18px]">{% text 'customer.overview.text.f15d7fd5e623' %}</span>
-          {% text 'customer.overview.text.d4c8816ad93a' %}
-        </button>
-<button class="px-space-md h-12 bg-surface-muted text-text-primary font-label-md text-label-md uppercase tracking-wider hover:bg-page-bg transition-colors flex items-center gap-2" type="button">
-<span class="material-symbols-outlined text-[18px]">{% text 'customer.overview.text.d07f1aed0104' %}</span>
-          {% text 'customer.overview.text.f24296a1a828' %}
-        </button>
-</div>
-<button class="font-label-md text-label-md uppercase tracking-wider text-text-muted hover:text-text-primary transition-colors flex items-center gap-1" type="button">
-<span class="material-symbols-outlined text-[18px]">{% text 'customer.overview.text.bc8b09d01a00' %}</span>
-        {% text 'customer.overview.text.ab5e2938bf32' %}
-      </button>
-</div>
-</section>
+<!-- Recent Order Hero Card -->
+<section class="bg-surface-container-lowest shadow-sm mb-space-xl p-space-xl"><h2 class="font-headline-md text-headline-md mb-space-lg">{% text 'customer.test_orders.latest' %}</h2>{% if customer_latest_order %}{% include 'customer/includes/test_order_card.html' with receipt=customer_latest_order %}{% else %}<p class="text-text-muted">{% text 'customer.test_orders.empty' %}</p><a class="inline-flex min-h-11 items-center mt-space-md text-brand-deep underline" data-real-navigation href="{% url 'catalog:list' %}">{% text 'customer.test_orders.shop' %}</a>{% endif %}</section>
 <!-- Two-Column Architectural Foundation Modules -->
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-space-xl mb-space-xl">
 <!-- Left Module: Standard Shipping & Invoice Address -->
@@ -316,7 +196,7 @@
 </div>
 </div>
 <div class="pt-space-lg mt-space-md">
-<a class="w-full h-11 bg-surface-muted hover:bg-page-bg text-text-primary font-label-md text-label-md uppercase tracking-wider transition-colors flex items-center justify-center gap-2" href="#">
+<a class="w-full h-11 bg-surface-muted text-text-muted font-label-md text-label-md uppercase tracking-wider flex items-center justify-center gap-2" aria-disabled="true" data-customer-demo-action href="{% url 'customer:profile' %}#tab-preferences">
 <span>{% text 'customer.overview.text.802ba4d5368e' %}</span>
 <span class="material-symbols-outlined text-[16px]">{% text 'customer.overview.text.c9d3fc0c45e5' %}</span>
 </a>
@@ -340,12 +220,12 @@
 </div>
 <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md shrink-0">
 <!-- Direct Telephone Line -->
-<a class="px-space-lg h-12 bg-primary-container hover:bg-page-bg hover:text-text-primary text-on-primary font-label-md text-label-md uppercase tracking-wider transition-colors flex items-center justify-center gap-2" href="#" data-customer-demo-action>
+<a class="px-space-lg h-12 bg-primary-container hover:bg-page-bg hover:text-text-primary text-on-primary font-label-md text-label-md uppercase tracking-wider transition-colors flex items-center justify-center gap-2" data-real-navigation href="{% url 'support:help' %}">
 <span class="material-symbols-outlined text-[18px]">{% text 'customer.overview.text.f6be6ca91098' %}</span>
-<span>+49 (0) 89 215 489 0</span>
+<span>{% text 'customer.test_orders.help' %}</span>
 </a>
 <!-- Direct WhatsApp Chat -->
-<a class="px-space-lg h-12 bg-page-bg text-brand-deep hover:bg-surface-variant font-label-md text-label-md uppercase tracking-wider transition-colors flex items-center justify-center gap-2 font-semibold" href="#" data-customer-demo-action rel="noopener noreferrer" target="_blank">
+<a class="px-space-lg h-12 bg-page-bg text-brand-deep hover:bg-surface-variant font-label-md text-label-md uppercase tracking-wider transition-colors flex items-center justify-center gap-2 font-semibold" data-real-navigation href="{% url 'support:help' %}" rel="noopener noreferrer" target="_blank">
 <span class="material-symbols-outlined text-[18px]">{% text 'customer.overview.text.7ecde348ff9c' %}</span>
 <span>{% text 'customer.overview.text.a210f2b47855' %}</span>
 </a>

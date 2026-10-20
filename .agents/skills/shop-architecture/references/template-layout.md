@@ -32,3 +32,16 @@ Auth templates account/mfa принадлежат customer/templates и имею
 
 
 Кабинет: имя и адреса сохраняются (customer.0001). Реальные формы с data-real-auth: profile-name-form и customer-address-form, card default/delete POST. Не перехватывать их demo-JS. CustomerPageView теперь в views/customer_page_view.py, owner-list одним запросом, json_script для редактирования/одна primary наUser. Empty address list — пустое состояние, не придуманные адреса. Name/email/addresses реальные; маркетинг/счета/заказы остаются demo. Customer-account.js/addresses.js разделяют mock и live; пароль остаётся allauth. Детали: docs/project/customer-account.md, tests/web/test_customer_persistence.py.
+
+## Общий каталог и поиск — 20.10.2026
+
+Общий каталог больше не presentation mock: CatalogPageView → ListingRequest → ListingContext → listing_products/listing_facets → product_presentation; основной /katalog/ и исторические search/mobile/empty aliases используют общую композицию. См. docs/project/catalog-listing.md и tasks/active/2026-10-20-catalog-database-binding.md. У карточек реальные ссылки/варианты, действие preview, checkout выключен.
+
+data-real-catalog исключает GET формы из demo-перехватчиков reference-navigation.js/django-preview.js. Не убирать исключения и не возвращать статические карточки или счётчики. При изменении общих обработчиков проверить главную/PDP/auth: для listing_page static URLs получают версию, остальные страницы сохраняют контракт. Начальный catalog snapshot не дублируется запросами вариантов; явная смена цвета/размера проверяется сервером. Mobile rail — одна карточка и край следующей; toolbar должен переноситься без document overflow. Исходные unsupported filter-компоненты disabled с пояснением; не выдавать их за работающие.
+
+
+## Витрина: актуализация 20.10.2026
+
+Вместо прежних commerce-mock: реальная локальная сессионная корзина/выбор количества, адрес, signed review и атомарный TEST order; personal history/details — собственные snapshots. Настоящие платежи/резерв/доставка/возвраты/письма заказа выключены. Home/PDP/listing используют catalog-selection.js и hidden native POST формы base с CSRF; data-real-commerce/data-real-support исключены из legacy form interception. Избранное тоже native POST, ограниченная session feature. Не восстанавливать fake payment navigation к confirmation и auto-linking каждого article h3.
+
+Футер/категории — явные Django links, юридические документы — отдельные public routes/reader, контакт — локальный ContactTicket. Рекомендательные блоки используют bounded реальные ORM модели, не выдуманные upsell/SKU. Неподключённые provider/club/fit-профили обозначать planned; нельзя давать фиктивные success/доставку или обещать, что все будущие функции реализованы. [Инвентаризация и ограничения](../../../../docs/project/prototype-functionality.md).

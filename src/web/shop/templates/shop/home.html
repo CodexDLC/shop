@@ -106,7 +106,7 @@
 <!-- 4-Column Category Grid -->
 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
 <!-- Category Card 1: Boxershorts -->
-<a class="group flex flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-2xl" href="#boxershorts">
+<a class="group flex flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-2xl" data-real-navigation href="{% url 'catalog:list' %}?category=boxershorts">
 <div class="w-full aspect-[4/3] rounded-2xl bg-[#EBEBE3] overflow-hidden flex items-center justify-center p-4 transition-transform duration-300 group-hover:scale-[1.02]">
 <img data-shop-photo="true" alt="{% text 'shop.home.label.1f80a8579100' %}" class="w-full h-full object-cover rounded-xl mix-blend-multiply opacity-90 transition-opacity group-hover:opacity-100" src="https://i.ebayimg.com/images/g/f98AAeSwBGFqxLls/s-l1600.webp"/>
 </div>
@@ -116,7 +116,7 @@
 </div>
 </a>
 <!-- Category Card 2: Slips & Pants -->
-<a class="group flex flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-2xl" href="#slips-pants">
+<a class="group flex flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-2xl" data-real-navigation href="{% url 'catalog:list' %}?category=slips">
 <div class="w-full aspect-[4/3] rounded-2xl bg-[#EBEBE3] overflow-hidden flex items-center justify-center p-4 transition-transform duration-300 group-hover:scale-[1.02]">
 <img data-shop-photo="true" alt="{% text 'shop.home.label.e93ac7a25ea0' %}" class="w-full h-full object-cover rounded-xl mix-blend-multiply opacity-90 transition-opacity group-hover:opacity-100" src="https://i.ebayimg.com/images/g/R0wAAeSwAGRqvDOf/s-l1600.webp"/>
 </div>
@@ -126,7 +126,7 @@
 </div>
 </a>
 <!-- Category Card 3: Strings -->
-<a class="group flex flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-2xl" href="#strings">
+<a class="group flex flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-2xl" data-real-navigation href="{% url 'catalog:list' %}?category=strings">
 <div class="w-full aspect-[4/3] rounded-2xl bg-[#EBEBE3] overflow-hidden flex items-center justify-center p-4 transition-transform duration-300 group-hover:scale-[1.02]">
 <img data-shop-photo="true" alt="{% text 'shop.home.label.90c463668c9e' %}" class="w-full h-full object-cover rounded-xl mix-blend-multiply opacity-90 transition-opacity group-hover:opacity-100" src="https://i.ebayimg.com/images/g/SN0AAeSwwD1qv9bW/s-l1600.webp"/>
 </div>
@@ -136,7 +136,7 @@
 </div>
 </a>
 <!-- Category Card 4: Bodies -->
-<a class="group flex flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-2xl" href="#bodies">
+<a class="group flex flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-2xl" data-real-navigation href="{% url 'catalog:list' %}?category=bodies">
 <div class="w-full aspect-[4/3] rounded-2xl bg-[#EBEBE3] overflow-hidden flex items-center justify-center p-4 transition-transform duration-300 group-hover:scale-[1.02]">
 <img data-shop-photo="true" alt="{% text 'shop.home.label.ec4293123f64' %}" class="w-full h-full object-cover rounded-xl mix-blend-multiply opacity-90 transition-opacity group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3wyZn8diYgFeOIuvw2hLY9jQXn4I5PTqCV1RGyzv496aeCJOkdgeT7JGtAL0DYfGwTLoe67GWZUfWAt2tkniYzVfRMpKsyJYRQEPRfc3t7_fMq5w8ORQov3V6fdNoFuKCJxE9ynU3H8MqsLsJFn-rYw1BwyZuhe50BVvZKkBZ3aoVwGWgfWQaD7WwM-pqHMeEvs2zC2JuQgSi2K_YIl6VkY0Yk-0a5ZAcZLHgESpI-ZPc_jV9vYez"/>
 </div>
@@ -185,7 +185,7 @@
 <span class="px-2.5 py-1 rounded-md bg-[#183F30] text-white text-[11px] font-semibold tracking-wider uppercase shadow-sm pointer-events-auto">
         {% text 'shop.home.text.898bbe36068a' %}
       </span>
-<button aria-label="{% text 'shop.home.label.0d719afadb0e' %}" class="wishlist-btn p-2 rounded-full bg-white/90 backdrop-blur-md text-brand-dark hover:text-red-700 hover:bg-white shadow-sm transition-all pointer-events-auto active:scale-95 focus:outline-none" onclick="toggleWishlist(this)">
+<button aria-label="{% text 'shop.home.label.0d719afadb0e' %}" class="wishlist-btn p-2 rounded-full bg-white/90 backdrop-blur-md text-brand-dark hover:text-red-700 hover:bg-white shadow-sm transition-all pointer-events-auto active:scale-95 focus:outline-none" data-wishlist-product type="button">
 <svg class="w-4 h-4 stroke-[2] transition-colors" fill="none" stroke="currentColor" viewbox="0 0 24 24">
 <path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" stroke-linecap="round" stroke-linejoin="round"></path>
 </svg>
@@ -256,7 +256,7 @@
 <span class="px-2.5 py-1 rounded-md bg-[#2B3A42] text-white text-[11px] font-semibold tracking-wider uppercase shadow-sm pointer-events-auto">
         {% text 'shop.home.text.fad6190c875f' %}
       </span>
-<button aria-label="{% text 'shop.home.label.0d719afadb0e' %}" class="wishlist-btn p-2 rounded-full bg-white/90 backdrop-blur-md text-brand-dark hover:text-red-700 hover:bg-white shadow-sm transition-all pointer-events-auto active:scale-95 focus:outline-none" onclick="toggleWishlist(this)">
+<button aria-label="{% text 'shop.home.label.0d719afadb0e' %}" class="wishlist-btn p-2 rounded-full bg-white/90 backdrop-blur-md text-brand-dark hover:text-red-700 hover:bg-white shadow-sm transition-all pointer-events-auto active:scale-95 focus:outline-none" data-wishlist-product type="button">
 <svg class="w-4 h-4 stroke-[2] transition-colors" fill="none" stroke="currentColor" viewbox="0 0 24 24">
 <path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" stroke-linecap="round" stroke-linejoin="round"></path>
 </svg>
@@ -321,7 +321,7 @@
 <span class="px-2.5 py-1 rounded-md bg-[#64748B] text-white text-[11px] font-semibold tracking-wider uppercase shadow-sm pointer-events-auto">
         {% text 'shop.home.text.a438211dd3ed' %}
       </span>
-<button aria-label="{% text 'shop.home.label.0d719afadb0e' %}" class="wishlist-btn p-2 rounded-full bg-white/90 backdrop-blur-md text-brand-dark hover:text-red-700 hover:bg-white shadow-sm transition-all pointer-events-auto active:scale-95 focus:outline-none" onclick="toggleWishlist(this)">
+<button aria-label="{% text 'shop.home.label.0d719afadb0e' %}" class="wishlist-btn p-2 rounded-full bg-white/90 backdrop-blur-md text-brand-dark hover:text-red-700 hover:bg-white shadow-sm transition-all pointer-events-auto active:scale-95 focus:outline-none" data-wishlist-product type="button">
 <svg class="w-4 h-4 stroke-[2] transition-colors" fill="none" stroke="currentColor" viewbox="0 0 24 24">
 <path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" stroke-linecap="round" stroke-linejoin="round"></path>
 </svg>
@@ -386,7 +386,7 @@
 <span class="px-2.5 py-1 rounded-md bg-neutral-900 text-white text-[11px] font-semibold tracking-wider uppercase shadow-sm pointer-events-auto">
         {% text 'shop.home.text.52c129b59af9' %}
       </span>
-<button aria-label="{% text 'shop.home.label.0d719afadb0e' %}" class="wishlist-btn p-2 rounded-full bg-white/90 backdrop-blur-md text-brand-dark hover:text-red-700 hover:bg-white shadow-sm transition-all pointer-events-auto active:scale-95 focus:outline-none" onclick="toggleWishlist(this)">
+<button aria-label="{% text 'shop.home.label.0d719afadb0e' %}" class="wishlist-btn p-2 rounded-full bg-white/90 backdrop-blur-md text-brand-dark hover:text-red-700 hover:bg-white shadow-sm transition-all pointer-events-auto active:scale-95 focus:outline-none" data-wishlist-product type="button">
 <svg class="w-4 h-4 stroke-[2] transition-colors" fill="none" stroke="currentColor" viewbox="0 0 24 24">
 <path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" stroke-linecap="round" stroke-linejoin="round"></path>
 </svg>
@@ -486,7 +486,7 @@
 </div>
 {{ products|json_script:"catalog-products" }}
 {{ catalog_selection_texts|json_script:"catalog-selection-texts" }}
-<script src="{% static 'storefront/catalog-selection.js' %}" defer></script>
+<script src="{% static 'storefront/catalog-selection.js' %}?v=commerce-20261020" defer></script>
 <!-- Local presentation interactions -->
 <script>
   // Wishlist heart toggle

@@ -8,6 +8,8 @@ from web.customer.views import (
     SaveAddressView,
     SaveProfileView,
 )
+from web.customer.views.customer_order_detail_view import CustomerOrderDetailView
+from web.customer.views.customer_orders_view import CustomerOrdersView
 from web.identity.customer_overview_view import CustomerOverviewView
 
 app_name = "customer"
@@ -19,8 +21,9 @@ urlpatterns = [
     path("konto/passwort/", RedirectView.as_view(pattern_name="account_reset_password"), name="password_reset"),
     path("konto/", CustomerOverviewView.as_view(), name="overview"),
     path("konto/mobil/", RedirectView.as_view(pattern_name="customer:overview"), name="mobile"),
-    path("konto/bestellungen/", CustomerPageView.as_view(template_name="customer/orders.html"), name="orders"),
-    path("konto/bestellungen/demo/", CustomerPageView.as_view(template_name="customer/order_detail.html"), name="order_detail"),
+    path("konto/bestellungen/", CustomerOrdersView.as_view(), name="orders"),
+    path("konto/bestellungen/demo/", CustomerOrderDetailView.as_view(), name="order_detail"),
+    path("konto/bestellungen/<uuid:reference>/", CustomerOrderDetailView.as_view(), name="order_receipt"),
     path("konto/profil/speichern/", SaveProfileView.as_view(), name="save_profile"),
     path("konto/adressen/neu/", SaveAddressView.as_view(), name="address_create"),
     path("konto/adressen/<int:pk>/speichern/", SaveAddressView.as_view(), name="address_update"),

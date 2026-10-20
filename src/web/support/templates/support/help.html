@@ -8,12 +8,12 @@
 {% endblock %}
 {% block body_attrs %} class="bg-page-bg font-body-md text-text-primary antialiased selection:bg-primary-container selection:text-on-primary" data-demo-page="help.html"{% endblock %}
 {% block content %}
-{% include 'includes/header.html' %}<main class="w-full pt-28 bg-page-bg min-h-[calc(100vh-280px)]"><div class="flex flex-col w-full">
+{% include 'includes/header.html' %}<main class="w-full pt-28 bg-page-bg min-h-[calc(100vh-280px)]"><div class="flex flex-col w-full"><p class="font-body-sm text-body-sm text-text-muted p-4" role="note">{% text 'support.help.ui.policy_draft' %} {% text 'support.help.ui.contacts_draft' %}</p>
 <!-- Subtle Hero Scrim & Top Breadcrumb Bar -->
 <div class="w-full bg-surface-muted/60">
 <div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin py-space-sm">
 <nav aria-label="{% text 'support.help.label.c766e665183d' %}" class="flex items-center gap-space-xs font-label-sm text-label-sm uppercase tracking-wider text-text-muted">
-<a class="hover:text-brand-deep transition-colors" href="#">{% text 'support.help.text.b660f83df4d6' %}</a>
+<a class="hover:text-brand-deep transition-colors" data-real-navigation href="{% url 'shop:home' %}">{% text 'support.help.text.b660f83df4d6' %}</a>
 <span class="opacity-40">/</span>
 <span class="text-brand-deep font-semibold">{% text 'support.help.text.fdcd0a54dadd' %}</span>
 </nav>
@@ -35,7 +35,7 @@
         </p>
 <!-- Search Input Bar -->
 <div class="mt-space-xl bg-surface-container-lowest p-2 lg:p-3 shadow-sm">
-<form class="flex items-center gap-space-md w-full" id="faqSearchForm" onsubmit="event.preventDefault(); window.searchHelpTopics();">
+<form class="flex items-center gap-space-md w-full" id="faqSearchForm" data-real-navigation onsubmit="event.preventDefault(); window.searchHelpTopics();">
 <div class="w-10 h-10 flex items-center justify-center text-brand-deep">
 <span class="material-symbols-outlined text-[24px]">{% text 'support.help.text.3559d7accf00' %}</span>
 </div>
@@ -43,7 +43,7 @@
 <button class="hidden sm:inline-flex items-center justify-center bg-primary-container text-on-primary font-label-md text-label-md uppercase tracking-wider px-space-lg h-11 hover:bg-brand-deep transition-colors" type="submit">
               {% text 'support.help.text.407d963a825a' %}
             </button>
-</form>
+</form><div class="px-4 py-3 font-body-sm text-body-sm text-text-muted"><p id="faq-no-results" role="status" hidden>{% text 'support.help.ui.empty' %}</p><button class="underline py-2" id="faq-reset" type="button" hidden>{% text 'support.help.ui.reset' %}</button></div>
 </div>
 <!-- Quick Tags -->
 <div class="mt-space-md flex flex-wrap items-center gap-2 font-label-sm text-label-sm">
@@ -182,8 +182,8 @@
 <div class="flex items-start gap-3">
 <span class="material-symbols-outlined text-[20px] text-primary-fixed shrink-0">{% text 'support.help.text.bc8d8647b02d' %}</span>
 <div>
-<a class="font-price-md text-price-md tracking-wider text-on-primary hover:text-primary-fixed transition-colors" href="tel:+49892154890">
-                        +49 (0) 89 215 489 0
+<a class="font-price-md text-price-md tracking-wider text-on-primary hover:text-primary-fixed transition-colors" aria-disabled="true" data-contact-draft="true">
+                        {% text 'support.help.ui.phone_pending' %}
                       </a>
 <p class="text-white/70 text-[11px] uppercase tracking-wider">{% text 'support.help.text.c5d1ee933285' %}</p>
 </div>
@@ -191,14 +191,14 @@
 <div class="flex items-start gap-3">
 <span class="material-symbols-outlined text-[20px] text-primary-fixed shrink-0">{% text 'support.help.text.1d6e1cf70ec6' %}</span>
 <div>
-<a class="text-on-primary font-medium hover:text-primary-fixed transition-colors" href="mailto:service@maennermasche.de">
+<a class="text-on-primary font-medium hover:text-primary-fixed transition-colors" aria-disabled="true" data-contact-draft="true">
                         {% text 'support.help.text.311edcc927a4' %}
                       </a>
 <p class="text-white/70 text-[11px]">{% text 'support.help.text.eebe9d7d6101' %}</p>
 </div>
 </div>
 <div class="pt-2">
-<a class="w-full flex items-center justify-center gap-2 bg-primary-fixed text-on-primary-fixed font-label-md text-label-md uppercase tracking-wider py-3 px-4 hover:bg-white transition-colors" href="https://wa.me/49892154890" rel="noopener noreferrer" target="_blank">
+<a class="w-full flex items-center justify-center gap-2 bg-primary-fixed text-on-primary-fixed font-label-md text-label-md uppercase tracking-wider py-3 px-4 hover:bg-white transition-colors" aria-disabled="true" data-contact-draft="true" rel="noopener noreferrer" target="_blank">
 <span class="material-symbols-outlined text-[18px]">{% text 'support.help.text.7ecde348ff9c' %}</span>
 <span>{% text 'support.help.text.1e1c96a78ce5' %}</span>
 </a>
@@ -298,7 +298,7 @@
 <div class="space-y-3" id="accordion-group-1">
 <!-- Item 1 -->
 <div class="bg-surface-container-lowest shadow-sm">
-<button class="w-full p-space-md text-left flex items-center justify-between gap-4 font-title-md text-title-md text-brand-deep focus:outline-none" onclick="toggleAccordion('faq-1')" type="button">
+<button class="w-full p-space-md text-left flex items-center justify-between gap-4 font-title-md text-title-md text-brand-deep focus-visible:ring-2 focus-visible:ring-brand-deep" aria-expanded="false" data-faq-trigger="faq-1" aria-controls="content-faq-1" type="button">
 <span>{% text 'support.help.text.40b8f0bf0b3e' %}</span>
 <span class="material-symbols-outlined text-[20px] transition-transform duration-200" id="icon-faq-1">{% text 'support.help.text.5dd226578843' %}</span>
 </button>
@@ -310,7 +310,7 @@
 </div>
 <!-- Item 2 -->
 <div class="bg-surface-container-lowest shadow-sm">
-<button class="w-full p-space-md text-left flex items-center justify-between gap-4 font-title-md text-title-md text-brand-deep focus:outline-none" onclick="toggleAccordion('faq-2')" type="button">
+<button class="w-full p-space-md text-left flex items-center justify-between gap-4 font-title-md text-title-md text-brand-deep focus-visible:ring-2 focus-visible:ring-brand-deep" aria-expanded="false" data-faq-trigger="faq-2" aria-controls="content-faq-2" type="button">
 <span>{% text 'support.help.text.0f13e9626f50' %}</span>
 <span class="material-symbols-outlined text-[20px] transition-transform duration-200" id="icon-faq-2">{% text 'support.help.text.5dd226578843' %}</span>
 </button>
@@ -357,7 +357,7 @@
 <div class="space-y-3" id="accordion-group-2">
 <!-- Item 3 -->
 <div class="bg-surface-container-lowest shadow-sm">
-<button class="w-full p-space-md text-left flex items-center justify-between gap-4 font-title-md text-title-md text-brand-deep focus:outline-none" onclick="toggleAccordion('faq-3')" type="button">
+<button class="w-full p-space-md text-left flex items-center justify-between gap-4 font-title-md text-title-md text-brand-deep focus-visible:ring-2 focus-visible:ring-brand-deep" aria-expanded="false" data-faq-trigger="faq-3" aria-controls="content-faq-3" type="button">
 <span>{% text 'support.help.text.8404316db538' %}</span>
 <span class="material-symbols-outlined text-[20px] transition-transform duration-200" id="icon-faq-3">{% text 'support.help.text.5dd226578843' %}</span>
 </button>
@@ -369,7 +369,7 @@
 </div>
 <!-- Item 4 -->
 <div class="bg-surface-container-lowest shadow-sm">
-<button class="w-full p-space-md text-left flex items-center justify-between gap-4 font-title-md text-title-md text-brand-deep focus:outline-none" onclick="toggleAccordion('faq-4')" type="button">
+<button class="w-full p-space-md text-left flex items-center justify-between gap-4 font-title-md text-title-md text-brand-deep focus-visible:ring-2 focus-visible:ring-brand-deep" aria-expanded="false" data-faq-trigger="faq-4" aria-controls="content-faq-4" type="button">
 <span>{% text 'support.help.text.c9319cc94ab7' %}</span>
 <span class="material-symbols-outlined text-[20px] transition-transform duration-200" id="icon-faq-4">{% text 'support.help.text.5dd226578843' %}</span>
 </button>
@@ -448,7 +448,7 @@
 <!-- Accordion FAQ 5 -->
 <div class="space-y-3" id="accordion-group-3">
 <div class="bg-surface-container-lowest shadow-sm">
-<button class="w-full p-space-md text-left flex items-center justify-between gap-4 font-title-md text-title-md text-brand-deep focus:outline-none" onclick="toggleAccordion('faq-5')" type="button">
+<button class="w-full p-space-md text-left flex items-center justify-between gap-4 font-title-md text-title-md text-brand-deep focus-visible:ring-2 focus-visible:ring-brand-deep" aria-expanded="false" data-faq-trigger="faq-5" aria-controls="content-faq-5" type="button">
 <span>{% text 'support.help.text.3b75d2e60a77' %}</span>
 <span class="material-symbols-outlined text-[20px] transition-transform duration-200" id="icon-faq-5">{% text 'support.help.text.5dd226578843' %}</span>
 </button>
@@ -473,7 +473,7 @@
 <div class="space-y-3" id="accordion-group-4">
 <!-- FAQ 6 -->
 <div class="bg-surface-container-lowest shadow-sm">
-<button class="w-full p-space-md text-left flex items-center justify-between gap-4 font-title-md text-title-md text-brand-deep focus:outline-none" onclick="toggleAccordion('faq-6')" type="button">
+<button class="w-full p-space-md text-left flex items-center justify-between gap-4 font-title-md text-title-md text-brand-deep focus-visible:ring-2 focus-visible:ring-brand-deep" aria-expanded="false" data-faq-trigger="faq-6" aria-controls="content-faq-6" type="button">
 <span>{% text 'support.help.text.5ac426e1c8b5' %}</span>
 <span class="material-symbols-outlined text-[20px] transition-transform duration-200" id="icon-faq-6">{% text 'support.help.text.5dd226578843' %}</span>
 </button>
@@ -493,13 +493,13 @@
 </div>
 <!-- FAQ 7 -->
 <div class="bg-surface-container-lowest shadow-sm">
-<button class="w-full p-space-md text-left flex items-center justify-between gap-4 font-title-md text-title-md text-brand-deep focus:outline-none" onclick="toggleAccordion('faq-7')" type="button">
+<button class="w-full p-space-md text-left flex items-center justify-between gap-4 font-title-md text-title-md text-brand-deep focus-visible:ring-2 focus-visible:ring-brand-deep" aria-expanded="false" data-faq-trigger="faq-7" aria-controls="content-faq-7" type="button">
 <span>{% text 'support.help.text.25a6cca637cc' %}</span>
 <span class="material-symbols-outlined text-[20px] transition-transform duration-200" id="icon-faq-7">{% text 'support.help.text.5dd226578843' %}</span>
 </button>
 <div class="hidden px-space-md pb-space-md font-body-md text-body-md text-text-muted" id="content-faq-7">
 <p class="leading-relaxed">
-                    {% text 'support.help.text.f1d5bfbc2eea' %} <strong>+49 (0) 89 215 489 0</strong> {% text 'support.help.text.560adccf6c16' %}
+                    {% text 'support.help.text.f1d5bfbc2eea' %} <strong>{% text 'support.help.ui.phone_pending' %}</strong> {% text 'support.help.text.560adccf6c16' %}
                   </p>
 </div>
 </div>
@@ -524,71 +524,49 @@
             {% text 'support.help.text.86d5dae9d714' %}
           </p>
 </div>
-<form class="space-y-space-md" id="serviceContactForm" onsubmit="event.preventDefault(); window.handleFormSubmit();">
+{% for message in messages %}{% if 'contact-saved' in message.tags %}<p id="contact-saved-status" role="status" class="p-4 mb-4 bg-primary-fixed text-on-primary-fixed">{{ message }}</p>{% endif %}{% endfor %}<form class="space-y-space-md" id="serviceContactForm" method="post" action="{% url 'support:contact' %}" data-real-support="true">{% csrf_token %}<input type="hidden" name="form_source" value="desktop">
+<input type="text" name="website" tabindex="-1" autocomplete="off" hidden aria-hidden="true">
+<p class="font-body-sm text-body-sm text-text-muted mb-4" role="note">{% text 'support.help.ui.contact_local' %} <a class="underline" href="{% url 'support:datenschutz' %}" data-real-navigation>{% text 'support.help.ui.contact_privacy' %}</a></p>
+{% if contact_form.errors %}<div role="alert" class="text-error font-body-sm mb-4">{% text 'support.help.ui.contact_errors' %}{{ contact_form.errors }}</div>{% endif %}
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
 <div>
 <label class="block font-label-md text-label-md uppercase tracking-wider text-text-primary mb-1" for="contact-name">
                 {% text 'support.help.text.18a493008ffa' %} <span class="text-error">*</span>
 </label>
-<input class="w-full h-11 px-3 bg-page-bg font-body-md text-body-md text-text-primary focus:outline-none focus:bg-surface-container-high transition-colors" id="contact-name" placeholder="{% text 'support.help.label.e3290bde1034' %}" required="" type="text"/>
+<input class="w-full h-11 px-3 bg-page-bg font-body-md text-body-md text-text-primary focus:outline-none focus:bg-surface-container-high transition-colors" id="contact-name" placeholder="{% text 'support.help.label.e3290bde1034' %}" required="" type="text" name="name" maxlength="120" value="{{ contact_form.name.value|default_if_none:'' }}" aria-invalid="{% if contact_form.name.errors %}true{% else %}false{% endif %}">
 </div>
 <div>
 <label class="block font-label-md text-label-md uppercase tracking-wider text-text-primary mb-1" for="contact-email">
                 {% text 'support.help.text.ce8fdbcbfea8' %} <span class="text-error">*</span>
 </label>
-<input class="w-full h-11 px-3 bg-page-bg font-body-md text-body-md text-text-primary focus:outline-none focus:bg-surface-container-high transition-colors" id="contact-email" placeholder="{% text 'support.help.label.68ff7c3e008c' %}" required="" type="email"/>
+<input class="w-full h-11 px-3 bg-page-bg font-body-md text-body-md text-text-primary focus:outline-none focus:bg-surface-container-high transition-colors" id="contact-email" placeholder="{% text 'support.help.label.68ff7c3e008c' %}" required="" type="email" name="email" maxlength="254" value="{{ contact_form.email.value|default_if_none:'' }}" aria-invalid="{% if contact_form.email.errors %}true{% else %}false{% endif %}">
 </div>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
-<div>
-<label class="block font-label-md text-label-md uppercase tracking-wider text-text-primary mb-1" for="contact-order">
-                {% text 'support.help.text.e1cb25123dfb' %} <span class="text-text-muted text-[11px]">{% text 'support.help.text.b16c7ac6faff' %}</span>
-</label>
-<input class="w-full h-11 px-3 bg-page-bg font-body-md text-body-md text-text-primary focus:outline-none focus:bg-surface-container-high transition-colors" id="contact-order" placeholder="{% text 'support.help.label.e40afc0b4619' %}" type="text"/>
-</div>
+
 <div>
 <label class="block font-label-md text-label-md uppercase tracking-wider text-text-primary mb-1" for="contact-topic">
                 {% text 'support.help.text.177549c4e26c' %} <span class="text-error">*</span>
 </label>
-<select class="w-full h-11 px-3 bg-page-bg font-body-md text-body-md text-text-primary focus:outline-none focus:bg-surface-container-high transition-colors cursor-pointer" id="contact-topic" required="">
-<option value="retoure">{% text 'support.help.text.5e57befec732' %}</option>
-<option value="versand">{% text 'support.help.text.9f598b8ae0c9' %}</option>
-<option value="groesse">{% text 'support.help.text.d7cfa063780c' %}</option>
-<option value="zahlung">{% text 'support.help.text.dd771ce48db1' %}</option>
-<option value="reklamation">{% text 'support.help.text.ea53f6496f9c' %}</option>
-<option value="sonstiges">{% text 'support.help.text.c1f2cc662223' %}</option>
-</select>
+<select class="w-full h-11 px-3 bg-page-bg font-body-md text-body-md text-text-primary focus:outline-none focus:bg-surface-container-high transition-colors cursor-pointer" id="contact-topic" required="" name="topic" aria-invalid="{% if contact_form.topic.errors %}true{% else %}false{% endif %}"><option value="retoure" {% if contact_form.topic.value == 'retoure' %}selected{% endif %}>{% text 'support.help.text.5e57befec732' %}</option><option value="versand" {% if contact_form.topic.value == 'versand' %}selected{% endif %}>{% text 'support.help.text.9f598b8ae0c9' %}</option><option value="groesse" {% if contact_form.topic.value == 'groesse' %}selected{% endif %}>{% text 'support.help.text.d7cfa063780c' %}</option><option value="zahlung" {% if contact_form.topic.value == 'zahlung' %}selected{% endif %}>{% text 'support.help.text.dd771ce48db1' %}</option><option value="reklamation" {% if contact_form.topic.value == 'reklamation' %}selected{% endif %}>{% text 'support.help.text.ea53f6496f9c' %}</option><option value="sonstiges" {% if contact_form.topic.value == 'sonstiges' %}selected{% endif %}>{% text 'support.help.text.c1f2cc662223' %}</option></select>
 </div>
 </div>
 <div>
 <label class="block font-label-md text-label-md uppercase tracking-wider text-text-primary mb-1" for="contact-message">
               {% text 'support.help.text.816c03d4877e' %} <span class="text-error">*</span>
 </label>
-<textarea class="w-full p-3 bg-page-bg font-body-md text-body-md text-text-primary focus:outline-none focus:bg-surface-container-high transition-colors" id="contact-message" placeholder="{% text 'support.help.label.f63e7d9f902c' %}" required="" rows="5"></textarea>
+<textarea class="w-full p-3 bg-page-bg font-body-md text-body-md text-text-primary focus:outline-none focus:bg-surface-container-high transition-colors" id="contact-message" placeholder="{% text 'support.help.label.f63e7d9f902c' %}" required="" rows="5" name="message" maxlength="4000" aria-invalid="{% if contact_form.message.errors %}true{% else %}false{% endif %}">{{ contact_form.message.value|default_if_none:'' }}</textarea>
 </div>
-<div class="flex items-start gap-2 pt-1">
-<input class="mt-1 h-4 w-4 rounded-none accent-brand-deep cursor-pointer" id="contact-consent" required="" type="checkbox"/>
-<label class="font-body-sm text-body-sm text-text-muted leading-tight cursor-pointer" for="contact-consent">
-              {% text 'support.help.text.aaa546a0cd9a' %}
-            </label>
-</div>
+
 <div class="pt-space-sm flex flex-col sm:flex-row items-center justify-between gap-space-md">
 <div class="flex items-center gap-2 font-body-sm text-body-sm text-text-muted">
 <span class="material-symbols-outlined text-[18px] text-brand-deep">{% text 'support.help.text.e117797422d3' %}</span>
-<span>{% text 'support.help.text.165617614056' %}</span>
+<span>{% text 'support.help.ui.contact_storage' %}</span>
 </div>
 <button class="w-full sm:w-auto h-12 px-space-xl bg-primary-container text-on-primary font-label-md text-label-md uppercase tracking-wider hover:bg-brand-deep transition-colors flex items-center justify-center gap-2" type="submit">
 <span>{% text 'support.help.text.408a0d03706a' %}</span>
 <span class="material-symbols-outlined text-[18px]">{% text 'support.help.text.37ed539c0cef' %}</span>
 </button>
-</div>
-<!-- Success Message Container -->
-<div class="hidden p-space-md bg-primary-fixed text-on-primary-fixed font-body-md text-body-md mt-4" id="contact-success">
-<div class="flex items-center gap-2 font-semibold">
-<span class="material-symbols-outlined text-[20px]">{% text 'support.help.text.aa8d0cb1881e' %}</span>
-<span>{% text 'support.help.text.05443ee8b946' %}</span>
-</div>
-<p class="text-[13px] mt-1 opacity-90">{% text 'support.help.text.bab828f67c2d' %}</p>
 </div>
 </form>
 </div>
@@ -596,73 +574,78 @@
 </section>
 <!-- Inline Micro-Interactions Script -->
 <script>
-    // Accordion Toggle Logic
-    window.toggleAccordion = function(id) {
-      const content = document.getElementById('content-' + id);
-      const icon = document.getElementById('icon-' + id);
-      if (!content || !icon) return;
-
-      const isHidden = content.classList.contains('hidden');
-      if (isHidden) {
-        content.classList.remove('hidden');
-        icon.classList.add('rotate-180');
-      } else {
-        content.classList.add('hidden');
-        icon.classList.remove('rotate-180');
-      }
-    };
-
-    // Quick Search Pill Click
-    window.setQuickSearch = function(term) {
-      const input = document.getElementById('faqSearchInput');
-      if (input) {
-        input.value = term;
-        window.searchHelpTopics();
-      }
-    };
-
-    // FAQ Search & Filter Simulation
-    window.searchHelpTopics = function() {
-      const input = document.getElementById('faqSearchInput');
-      if (!input) return;
-      const term = input.value.trim().toLowerCase();
-      if (!term) return;
-
-      // Expand all accordions containing the term, collapse others
-      const accordions = document.querySelectorAll('[id^="content-faq-"]');
-      let foundFirst = null;
-
-      accordions.forEach(acc => {
-        const id = acc.id.replace('content-', '');
-        const parentBtn = acc.previousElementSibling;
-        const btnText = parentBtn ? parentBtn.textContent.toLowerCase() : '';
-        const accText = acc.textContent.toLowerCase();
-
-        if (btnText.includes(term) || accText.includes(term)) {
-          acc.classList.remove('hidden');
-          const icon = document.getElementById('icon-' + id);
-          if (icon) icon.classList.add('rotate-180');
-          if (!foundFirst) foundFirst = parentBtn;
-        }
-      });
-
-      if (foundFirst) {
-        foundFirst.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-    };
-
-    // Form Submission Simulation
-    window.handleFormSubmit = function() {
-      const successBox = document.getElementById('contact-success');
-      const form = document.getElementById('serviceContactForm');
-      if (successBox) {
-        successBox.classList.remove('hidden');
-        if (form) {
-          const inputs = form.querySelectorAll('input:not([type="checkbox"]), textarea');
-          inputs.forEach(i => i.value = '');
-        }
-      }
-    };
-  </script>
+(() => {
+ 'use strict';
+ const input = document.getElementById('faqSearchInput');
+ const empty = document.getElementById('faq-no-results');
+ const reset = document.getElementById('faq-reset');
+ const pills = Array.from(document.querySelectorAll('.faq-pill'));
+ let activeTag = 'all';
+ const mobile = document.querySelector('.faq-item') !== null;
+ const items = Array.from(document.querySelectorAll(mobile ? '.faq-item' : 'article.scroll-mt-36'));
+ const triggers = Array.from(document.querySelectorAll(mobile ? '.faq-trigger' : '[data-faq-trigger]'));
+ const panelFor = trigger => mobile ? trigger.nextElementSibling : document.getElementById(trigger.getAttribute('aria-controls'));
+ const expand = (trigger, open) => {
+  const panel = panelFor(trigger);
+  if (!panel) return;
+  panel.hidden = !open;
+  panel.classList.toggle('hidden', !open);
+  trigger.setAttribute('aria-expanded', String(open));
+  trigger.querySelector('.material-symbols-outlined')?.classList.toggle('rotate-180', open);
+ };
+ triggers.forEach((trigger, index) => {
+  const panel = panelFor(trigger);
+  if (!panel) return;
+  trigger.id ||= `faq-trigger-${index}`;
+  panel.id ||= `faq-panel-${index}`;
+  trigger.setAttribute('aria-controls', panel.id);
+  panel.setAttribute('aria-labelledby', trigger.id);
+  panel.setAttribute('role', 'region');
+  expand(trigger, !panel.classList.contains('hidden'));
+  trigger.addEventListener('click', () => expand(trigger, trigger.getAttribute('aria-expanded') !== 'true'));
+  trigger.addEventListener('keydown', event => {
+   const visible = triggers.filter(button => !button.closest(mobile ? '.faq-item' : 'article').hidden);
+   const current = visible.indexOf(trigger);
+   let target;
+   if (event.key === 'ArrowDown') target = visible[(current + 1) % visible.length];
+   if (event.key === 'ArrowUp') target = visible[(current - 1 + visible.length) % visible.length];
+   if (event.key === 'Home') target = visible[0];
+   if (event.key === 'End') target = visible[visible.length - 1];
+   if (target) { event.preventDefault(); target.focus(); }
+  });
+ });
+ const filter = () => {
+  const term = (input?.value || '').trim().toLocaleLowerCase(document.documentElement.lang);
+  let count = 0;
+  items.forEach(item => {
+   const tags = (item.dataset.tags || '').split(/\s+/);
+   const match = (!term || item.textContent.toLocaleLowerCase(document.documentElement.lang).includes(term)) && (activeTag === 'all' || tags.includes(activeTag));
+   item.hidden = !match;
+   if (match) count++;
+   item.querySelectorAll(mobile ? '.faq-trigger' : '[data-faq-trigger]').forEach(trigger => expand(trigger, Boolean(term) && match));
+  });
+  empty.hidden = count > 0;
+  reset.hidden = !term && activeTag === 'all';
+  document.getElementById('faqSearchClear')?.classList.toggle('hidden', !term);
+  pills.forEach(pill => {
+   const selected = pill.dataset.filter === activeTag;
+   pill.setAttribute('aria-pressed', String(selected));
+   pill.classList.toggle('bg-brand-deep', selected);
+   pill.classList.toggle('text-on-primary', selected);
+   pill.classList.toggle('bg-surface-muted', !selected);
+   pill.classList.toggle('text-text-primary', !selected);
+  });
+ };
+ window.searchHelpTopics = filter;
+ window.setQuickSearch = term => { input.value = term; activeTag = 'all'; filter(); };
+ input?.addEventListener('input', filter);
+ document.getElementById('faqSearchForm')?.addEventListener('submit', event => { event.preventDefault(); filter(); });
+ const clear = () => { input.value = ''; activeTag = 'all'; filter(); input.focus(); };
+ reset.addEventListener('click', clear);
+ document.getElementById('faqSearchClear')?.addEventListener('click', clear);
+ pills.forEach(pill => pill.addEventListener('click', () => { activeTag = pill.dataset.filter; filter(); }));
+ filter();
+})();
+</script>
 </div></main>{% include 'includes/footer.html' %}
 {% endblock %}

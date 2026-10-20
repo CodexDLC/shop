@@ -17,12 +17,13 @@ class VariantForm(forms.Form):
     currency = forms.CharField(max_length=3, validators=[RegexValidator(r"^[A-Z]{3}$")])
     demo_quantity = forms.IntegerField(min_value=0, max_value=2147483647)
     is_active = forms.BooleanField(required=False)
+    is_on_sale = forms.BooleanField(required=False)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for name, field in self.fields.items():
             field.label = translate_text(f"staff.variants.{name}")
-            field.widget.attrs["class"] = "form-check-input" if name == "is_active" else "form-control"
+            field.widget.attrs["class"] = "form-check-input" if isinstance(field.widget, forms.CheckboxInput) else "form-control"
         if self.initial.get("id"):
             self.fields["sku"].disabled = True
 

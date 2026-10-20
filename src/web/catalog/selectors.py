@@ -56,3 +56,91 @@ def gallery_for_color(product, color_code):
     return [image for image in images if image.color_code == color_code] or [
         image for image in images if not image.color_code
     ]
+
+
+def listing_variant_conditions(criteria):
+    """All variant constraints must be evaluated together, on one active EUR SKU."""
+    conditions = Q(is_active=True, currency="EUR")
+    for field, model_field in (("color", "color_code"), ("size", "size")):
+        if criteria.filters.get(field):
+            conditions &= Q(**{f"{model_field}__in": criteria.filters[field]})
+    for field, lookup in (("min_price", "price__gte"), ("max_price", "price__lte")):
+        if field in criteria.filters:
+            conditions &= Q(**{lookup: criteria.filters[field]})
+    if criteria.filters.get("in_stock"):
+        conditions &= Q(demo_quantity__gt=0)
+    if criteria.filters.get("sale"):
+        conditions &= Q(is_on_sale=True)
+    return conditions
+
+
+def listing_products(criteria):
+    """Unsliced queryset for count/pagination; no join multiplication or N+1."""
+    from django.db.models import Subquery
+
+    matching = ProductVariant.objects.filter(
+        listing_variant_conditions(criteria), product_id=OuterRef("pk"),
+    )
+    products = Product.objects.filter(is_active=True).filter(Exists(matching))
+    if criteria.filters.get("section"):
+        products = products.filter(category__section=criteria.filters["section"])
+    if criteria.filters.get("new"):
+        from django.utils import timezone
+
+        products = products.filter(new_until__gte=timezone.localdate())
+    for field in ("brand", "category"):
+        if criteria.filters.get(field):
+            products = products.filter(**{f"{field}__slug__in": criteria.filters[field]})
+    if criteria.filters.get("tag"):
+        products = products.filter(Exists(Product.tags.through.objects.filter(
+            product_id=OuterRef("pk"), tag__slug__in=criteria.filters["tag"],
+        )))
+    if criteria.query:
+        sku_match = ProductVariant.objects.filter(
+            product_id=OuterRef("pk"), is_active=True, currency="EUR", sku__icontains=criteria.query,
+        )
+        tag_match = Product.tags.through.objects.filter(
+            product_id=OuterRef("pk"), tag__slug__icontains=criteria.query,
+        )
+        products = products.filter(
+            Q(model_name__icontains=criteria.query) | Q(brand__name__icontains=criteria.query)
+            | Q(Exists(sku_match)) | Q(Exists(tag_match))
+        )
+    # The displayed SKU and sorting price share the same matching-variant subquery.
+    matching = matching.order_by("price", "pk")
+    products = products.annotate(
+        listing_sku=Subquery(matching.values("sku")[:1]),
+        listing_price=Subquery(matching.values("price")[:1]),
+    )
+    orders = {
+        "name": ("model_name", "pk"),
+        "price_asc": ("listing_price", "pk"),
+        "price_desc": ("-listing_price", "pk"),
+    }
+    return products.select_related("brand", "category").prefetch_related(
+        Prefetch("variants", queryset=ProductVariant.objects.filter(is_active=True, currency="EUR")),
+        "images", "tags",
+    ).order_by(*orders[criteria.sort])
+
+
+def listing_facets():
+    """Five bounded facet queries across visible base products; no gallery/card loading."""
+    from .models import Brand, Category, Tag
+
+    active_variant = ProductVariant.objects.filter(
+        product_id=OuterRef("pk"), is_active=True, currency="EUR",
+    )
+    visible = Product.objects.filter(is_active=True).filter(Exists(active_variant)).order_by().values("pk")
+    variants = ProductVariant.objects.filter(product_id__in=visible, is_active=True, currency="EUR")
+    # Cap values server-side. Selection URLs keep filters even outside the facet window.
+    return {
+        "brands": list(Brand.objects.filter(products__pk__in=visible).order_by("name", "slug")
+                       .values_list("slug", "name").distinct()[:200]),
+        "categories": list(Category.objects.filter(products__pk__in=visible).order_by("slug")
+                           .values_list("slug", "name_key").distinct()[:200]),
+        "tags": list(Tag.objects.filter(products__pk__in=visible).order_by("slug")
+                     .values_list("slug", "label_key").distinct()[:200]),
+        "colors": list(variants.order_by("color_code", "color_name_key")
+                       .values_list("color_code", "color_name_key", "color_hex").distinct()[:200]),
+        "sizes": list(variants.order_by("size").values_list("size", flat=True).distinct()[:200]),
+    }
