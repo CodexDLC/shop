@@ -19,6 +19,12 @@ class CatalogPageView(StorefrontPageView):
         listing = ListingContext(ListingRequest.from_query(self.request.GET)).build()
         context["catalog_listing"] = listing
         filters = listing["filters"]
+        if len(filters.get("category", [])) == 1:
+            from .category_visibility import visible_category_ids
+            from .models import Category
+
+            context["selected_category"] = Category.objects.filter(
+                slug=filters["category"][0], pk__in=visible_category_ids()).first()
         heading = "new" if filters.get("new") else "sale" if filters.get("sale") else filters.get("section")
         context["catalog_heading_key"] = f"catalog.heading.{heading}" if heading else ""
         context["catalog_products"] = listing["products"]

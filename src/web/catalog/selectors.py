@@ -1,11 +1,12 @@
-from django.db.models import Exists, OuterRef, Prefetch, Q
+from django.db.models import Avg, Count, Exists, F, OuterRef, Prefetch, Q, Subquery
 
-from .models import Product, ProductVariant
+from .category_visibility import descendant_category_ids, visible_category_ids
+from .models import Product, ProductReview, ProductVariant
 
 
 def storefront_products():
     """Lazy queryset: callers must bound the page before evaluation (four SQL queries)."""
-    return Product.objects.filter(is_active=True).select_related("brand", "category").prefetch_related(
+    return Product.objects.filter(is_active=True, category_id__in=visible_category_ids()).select_related("brand", "category").prefetch_related(
         Prefetch("variants", queryset=ProductVariant.objects.filter(is_active=True)), "images", "tags"
     )
 
@@ -26,7 +27,7 @@ def catalog_products(*, query="", category="", brand="", tag="", limit=24, offse
 
     products = storefront_products()
     if category.strip():
-        products = products.filter(category__slug=category.strip())
+        products = products.filter(category_id__in=descendant_category_ids([category.strip()]))
     if brand.strip():
         products = products.filter(brand__slug=brand.strip())
     if tag.strip():
@@ -76,25 +77,33 @@ def listing_variant_conditions(criteria):
 
 def listing_products(criteria):
     """Unsliced queryset for count/pagination; no join multiplication or N+1."""
-    from django.db.models import Subquery
-
     matching = ProductVariant.objects.filter(
         listing_variant_conditions(criteria), product_id=OuterRef("pk"),
     )
-    products = Product.objects.filter(is_active=True).filter(Exists(matching))
+    products = Product.objects.filter(is_active=True, category_id__in=visible_category_ids()).filter(Exists(matching))
     if criteria.filters.get("section"):
         products = products.filter(category__section=criteria.filters["section"])
     if criteria.filters.get("new"):
         from django.utils import timezone
 
         products = products.filter(new_until__gte=timezone.localdate())
-    for field in ("brand", "category"):
+    if criteria.filters.get("category"):
+        products = products.filter(category_id__in=descendant_category_ids(criteria.filters["category"]))
+    for field in ("brand",):
         if criteria.filters.get(field):
             products = products.filter(**{f"{field}__slug__in": criteria.filters[field]})
     if criteria.filters.get("tag"):
         products = products.filter(Exists(Product.tags.through.objects.filter(
             product_id=OuterRef("pk"), tag__slug__in=criteria.filters["tag"],
         )))
+    for field, relation, related_field in (
+        ("material", "materials", "material"), ("property", "properties", "productproperty"),
+    ):
+        if criteria.filters.get(field):
+            through = getattr(Product, relation).through
+            products = products.filter(Exists(through.objects.filter(
+                product_id=OuterRef("pk"), **{f"{related_field}__slug__in": criteria.filters[field]},
+            )))
     if criteria.query:
         sku_match = ProductVariant.objects.filter(
             product_id=OuterRef("pk"), is_active=True, currency="EUR", sku__icontains=criteria.query,
@@ -112,10 +121,21 @@ def listing_products(criteria):
         listing_sku=Subquery(matching.values("sku")[:1]),
         listing_price=Subquery(matching.values("price")[:1]),
     )
+    if criteria.sort == "rating":
+        approved = ProductReview.objects.filter(
+            product_id=OuterRef("pk"), status="approved",
+        ).order_by().values("product_id").annotate(average=Avg("rating"), count=Count("pk"))
+        products = products.alias(
+            approved_rating=Subquery(approved.values("average")[:1]),
+            approved_review_count=Subquery(approved.values("count")[:1]),
+        )
     orders = {
         "name": ("model_name", "pk"),
         "price_asc": ("listing_price", "pk"),
         "price_desc": ("-listing_price", "pk"),
+        "newest": (F("published_at").desc(nulls_last=True), "model_name", "pk"),
+        "rating": (F("approved_rating").desc(nulls_last=True),
+                   F("approved_review_count").desc(nulls_last=True), "model_name", "pk"),
     }
     return products.select_related("brand", "category").prefetch_related(
         Prefetch("variants", queryset=ProductVariant.objects.filter(is_active=True, currency="EUR")),
@@ -124,22 +144,26 @@ def listing_products(criteria):
 
 
 def listing_facets():
-    """Five bounded facet queries across visible base products; no gallery/card loading."""
-    from .models import Brand, Category, Tag
+    """Seven bounded facet queries across visible base products; no gallery/card loading."""
+    from .models import Brand, Category, Material, ProductProperty, Tag
 
     active_variant = ProductVariant.objects.filter(
         product_id=OuterRef("pk"), is_active=True, currency="EUR",
     )
-    visible = Product.objects.filter(is_active=True).filter(Exists(active_variant)).order_by().values("pk")
+    visible = Product.objects.filter(is_active=True, category_id__in=visible_category_ids()).filter(Exists(active_variant)).order_by().values("pk")
     variants = ProductVariant.objects.filter(product_id__in=visible, is_active=True, currency="EUR")
     # Cap values server-side. Selection URLs keep filters even outside the facet window.
     return {
         "brands": list(Brand.objects.filter(products__pk__in=visible).order_by("name", "slug")
                        .values_list("slug", "name").distinct()[:200]),
-        "categories": list(Category.objects.filter(products__pk__in=visible).order_by("slug")
-                           .values_list("slug", "name_key").distinct()[:200]),
+        "categories": [(row.slug, row.name) for row in Category.objects.filter(
+            products__pk__in=visible).order_by("position", "slug").distinct()[:200]],
         "tags": list(Tag.objects.filter(products__pk__in=visible).order_by("slug")
                      .values_list("slug", "label_key").distinct()[:200]),
+        "materials": list(Material.objects.filter(products__pk__in=visible).order_by("name", "slug")
+                          .values_list("slug", "name").distinct()[:200]),
+        "properties": list(ProductProperty.objects.filter(products__pk__in=visible).order_by("name", "slug")
+                           .values_list("slug", "name").distinct()[:200]),
         "colors": list(variants.order_by("color_code", "color_name_key")
                        .values_list("color_code", "color_name_key", "color_hex").distinct()[:200]),
         "sizes": list(variants.order_by("size").values_list("size", flat=True).distinct()[:200]),

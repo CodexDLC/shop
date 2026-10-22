@@ -3,8 +3,10 @@ from django.core import signing
 from django.db import IntegrityError, transaction
 
 from codex_ecommerce.cart import CartError
+from web.cart.promotions import coupon_key, selected_code
 from web.cart.session_cart import cart_key, quantities, quote
 from web.orders.address_form import CheckoutAddressForm
+from web.orders.address_snapshot import billing_address, shipping_address
 from web.orders.checkout_state import address_key, checkout_fingerprint, read_token, session_owner, token_key
 from web.orders.models import Order, OrderLine
 
@@ -24,18 +26,21 @@ def create_test_order(request, token):
     if not form.is_valid():
         raise CartError("commerce.error.address")
     values = quantities(request)
+    coupon_code = selected_code(request)
     try:
         with transaction.atomic():
             cart = quote(request, values=values, lock=True)
             if not cart["can_checkout"]:
-                raise CartError("commerce.error.unavailable")
+                raise CartError(cart["errors"][0] if cart["errors"] else "commerce.error.unavailable")
             if payload["fingerprint"] != checkout_fingerprint(cart, form.cleaned_data):
                 raise CartError("commerce.error.stale")
             order = Order.objects.create(
                 status="test_created", currency="EUR", total_amount=cart["total"],
                 user=request.user if request.user.is_authenticated else None,
-                session_owner=owner, checkout_token=identity, address=form.cleaned_data, is_test=True,
-                shipping_amount=cart["shipping_amount"],
+                session_owner=owner, checkout_token=identity, address=shipping_address(form.cleaned_data),
+                billing_address=billing_address(form.cleaned_data), is_test=True,
+                shipping_amount=cart["shipping_amount"], subtotal_amount=cart["subtotal"],
+                discount_amount=cart["discount_amount"], coupon_code=cart["coupon_code"],
             )
             OrderLine.objects.bulk_create([OrderLine(
                 order=order, sku=line["sku"], product_name=line["name"], brand_name=line["brand"],
@@ -48,7 +53,8 @@ def create_test_order(request, token):
         if existing is None:
             raise
         return existing
-    if quantities(request) == values:
+    if quantities(request) == values and selected_code(request) == coupon_code:
         request.session[cart_key(request)] = {}
+        request.session.pop(coupon_key(request), None)
     request.session.pop(address_key(request) + "_nonce", None)
     return order

@@ -9,6 +9,7 @@ from web.catalog.models import Product
 from web.localization.translation import translate_text
 from web.staff.audit import record_staff_action
 from web.staff.forms.product_form import ProductForm
+from web.staff.product_editing import mark_changed, require_editable
 from web.staff.views.staff_page_view import StaffPageView
 
 
@@ -40,9 +41,11 @@ class ProductEditView(StaffPageView):
             with transaction.atomic():
                 if kwargs.get("pk"):
                     product = get_object_or_404(Product.objects.select_for_update(), pk=kwargs["pk"])
+                    require_editable(product)
                 form = ProductForm(request.POST, instance=product)
                 if form.is_valid():
                     product = form.save()
+                    mark_changed(product)
                     record_staff_action(
                         request, "product.updated" if kwargs.get("pk") else "product.created", product,
                     )

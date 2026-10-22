@@ -1,0 +1,3 @@
+{% extends "admin/change_form.html" %}
+{% load shop_i18n %}
+{% block object-tools-items %}{{ block.super }}{% if original and perms.catalog.change_category %}<li><a href="{% url 'staff:category_edit' pk=original.pk %}">{% text 'staff.workspace_catalog.edit' %}</a></li>{% endif %}{% endblock %}

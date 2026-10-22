@@ -1,0 +1,1997 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8\nMIME-Version: 1.0\nLanguage: ru\n"
+
+msgid "My account"
+msgstr "Мой аккаунт"
+
+msgid "No notifications"
+msgstr "Нет уведомлений"
+
+msgid "Notifications"
+msgstr "Уведомления"
+
+msgid "Open navigation"
+msgstr "Открыть меню"
+
+msgid "Sign Out"
+msgstr "Выйти"
+
+msgid "Site"
+msgstr "Сайт"
+
+msgid "auth.mfa.optional"
+msgstr "Двухфакторная защита добровольна для всех аккаунтов. Если вы её включите, при входе потребуется дополнительный код."
+
+msgid "common.shop_name"
+msgstr "Männermasche"
+
+msgid "staff.cards.action.other"
+msgstr "Другое изменение"
+
+msgid "staff.cards.action.photos.add"
+msgstr "Фото добавлено"
+
+msgid "staff.cards.action.photos.create"
+msgstr "Фото добавлено"
+
+msgid "staff.cards.action.photos.delete"
+msgstr "Фото удалено"
+
+msgid "staff.cards.action.photos.reorder"
+msgstr "Порядок фото изменён"
+
+msgid "staff.cards.action.photos.update"
+msgstr "Фото изменено"
+
+msgid "staff.cards.action.product.created"
+msgstr "Товар создан"
+
+msgid "staff.cards.action.product.information_updated"
+msgstr "Характеристики товара изменены"
+
+msgid "staff.cards.action.product.publish"
+msgstr "Товар опубликован"
+
+msgid "staff.cards.action.product.reject"
+msgstr "Товар отклонён"
+
+msgid "staff.cards.action.product.review"
+msgstr "Товар проверен"
+
+msgid "staff.cards.action.product.submit"
+msgstr "Товар передан на проверку"
+
+msgid "staff.cards.action.product.updated"
+msgstr "Товар изменён"
+
+msgid "staff.cards.action.product.withdraw"
+msgstr "Товар снят с публикации"
+
+msgid "staff.cards.action.promo.created"
+msgstr "Промокод создан"
+
+msgid "staff.cards.action.promo.updated"
+msgstr "Промокод изменён"
+
+msgid "staff.cards.action.quick_access.updated"
+msgstr "Быстрый доступ изменён"
+
+msgid "staff.cards.action.reference.brand.saved"
+msgstr "Бренд сохранён"
+
+msgid "staff.cards.action.reference.category.saved"
+msgstr "Категория сохранён"
+
+msgid "staff.cards.action.reference.material.saved"
+msgstr "Материал сохранён"
+
+msgid "staff.cards.action.reference.property.saved"
+msgstr "Свойство сохранён"
+
+msgid "staff.cards.action.reference.size_guide.saved"
+msgstr "Таблица размеров сохранён"
+
+msgid "staff.cards.action.reference.tag.saved"
+msgstr "Тег сохранён"
+
+msgid "staff.cards.action.support.reopened"
+msgstr "Обращение открыто повторно"
+
+msgid "staff.cards.action.support.resolved"
+msgstr "Обращение закрыто"
+
+msgid "staff.cards.action.variants.updated"
+msgstr "Варианты изменены"
+
+msgid "staff.cards.object.brand"
+msgstr "Бренд"
+
+msgid "staff.cards.object.category"
+msgstr "Категория"
+
+msgid "staff.cards.object.material"
+msgstr "Материал"
+
+msgid "staff.cards.object.other"
+msgstr "Запись"
+
+msgid "staff.cards.object.preferences"
+msgstr "Быстрый доступ"
+
+msgid "staff.cards.object.product"
+msgstr "Товар"
+
+msgid "staff.cards.object.promo"
+msgstr "Промокод"
+
+msgid "staff.cards.object.property"
+msgstr "Свойство"
+
+msgid "staff.cards.object.size_guide"
+msgstr "Таблица размеров"
+
+msgid "staff.cards.object.support"
+msgstr "Обращение"
+
+msgid "staff.cards.object.tag"
+msgstr "Тег"
+
+msgid "staff.cards.overview"
+msgstr "Основное"
+
+msgid "staff.cards.tag_notice"
+msgstr "Название тега берётся из существующего перевода."
+
+msgid "staff.cards.technical"
+msgstr "Технические реквизиты"
+
+msgid "staff.catalog_settings.identity"
+msgstr "Товар и вариант"
+
+msgid "staff.catalog_settings.identity_text"
+msgstr "На одной странице модели представлены варианты цветов и размеров с отдельными SKU. Артикул производителя, SKU и EAN хранятся отдельно."
+
+msgid "staff.catalog_settings.intro"
+msgstr "На этой странице описаны действующие правила. Редактирование правил SKU, обязательных полей и справочника цветов появится позже."
+
+msgid "staff.catalog_settings.photo"
+msgstr "Изображения"
+
+msgid "staff.catalog_settings.photo_text"
+msgstr "У каждого цвета есть своя галерея; также можно использовать общие фотографии. Фотографии другого цвета не используются в качестве замены."
+
+msgid "staff.categories.add"
+msgstr "Создать категорию"
+
+msgid "staff.categories.assignment_help"
+msgstr "Ссылка на товар открывает действующий редактор. Категорию можно изменить только в черновике; опубликованный товар сначала нужно явно снять с публикации."
+
+msgid "staff.categories.branch_products"
+msgstr "Товары вместе с подкатегориями"
+
+msgid "staff.categories.cancel"
+msgstr "Отмена"
+
+msgid "staff.categories.children"
+msgstr "Подкатегории"
+
+msgid "staff.categories.choose_products"
+msgstr "Выбрать товары из черновиков"
+
+msgid "staff.categories.confirm_required"
+msgstr "Подтвердите влияние на опубликованные товары."
+
+msgid "staff.categories.cycle"
+msgstr "Категория не может быть подкатегорией себя или своего потомка."
+
+msgid "staff.categories.direct_counts"
+msgstr "Счётчик показывает товары непосредственно в категории. В карточке категории также показаны товары подкатегорий."
+
+msgid "staff.categories.draft"
+msgstr "Черновик / проверка"
+
+msgid "staff.categories.field.confirm_visibility"
+msgstr "Подтверждаю влияние структуры и видимости на опубликованные товары"
+
+msgid "staff.categories.field.description_de"
+msgstr "Описание на немецком"
+
+msgid "staff.categories.field.description_ru"
+msgstr "Описание на русском (необязательно)"
+
+msgid "staff.categories.field.image_alt"
+msgstr "Описание фото"
+
+msgid "staff.categories.field.is_visible"
+msgstr "Видна на витрине, если видны все родительские категории"
+
+msgid "staff.categories.field.name_de"
+msgstr "Название на немецком"
+
+msgid "staff.categories.field.name_ru"
+msgstr "Название на русском (необязательно)"
+
+msgid "staff.categories.field.parent"
+msgstr "Родительская категория"
+
+msgid "staff.categories.field.position"
+msgstr "Порядок"
+
+msgid "staff.categories.field.remove_image"
+msgstr "Убрать текущее фото"
+
+msgid "staff.categories.field.section"
+msgstr "Раздел магазина"
+
+msgid "staff.categories.field.seo_description"
+msgstr "SEO-описание (немецкий)"
+
+msgid "staff.categories.field.seo_title"
+msgstr "SEO-заголовок (немецкий)"
+
+msgid "staff.categories.field.slug"
+msgstr "Адрес в каталоге"
+
+msgid "staff.categories.field.upload"
+msgstr "Загрузить фото (JPEG, PNG, WebP; до 8 МБ)"
+
+msgid "staff.categories.form_help"
+msgstr "Немецкий — основной язык категории. Русский необязателен. Меньший номер порядка показывается раньше; при совпадении сохраняется исходный порядок."
+
+msgid "staff.categories.group.description"
+msgstr "Описание"
+
+msgid "staff.categories.group.display"
+msgstr "Порядок и видимость"
+
+msgid "staff.categories.group.identity"
+msgstr "Название и структура"
+
+msgid "staff.categories.group.image"
+msgstr "Фото категории"
+
+msgid "staff.categories.group.seo"
+msgstr "Предпросмотр для поиска"
+
+msgid "staff.categories.hidden"
+msgstr "Скрыта"
+
+msgid "staff.categories.hidden_parent"
+msgstr "Скрыта родительская категория"
+
+msgid "staff.categories.image_conflict"
+msgstr "Выберите загрузку нового фото или удаление текущего."
+
+msgid "staff.categories.intro"
+msgstr "Структура каталога, содержимое категорий и видимость на витрине."
+
+msgid "staff.categories.next"
+msgstr "Далее"
+
+msgid "staff.categories.open_storefront"
+msgstr "Открыть категорию на витрине"
+
+msgid "staff.categories.pages"
+msgstr "Страницы товаров"
+
+msgid "staff.categories.position"
+msgstr "Порядок"
+
+msgid "staff.categories.preview"
+msgstr "Предпросмотр"
+
+msgid "staff.categories.preview_notice"
+msgstr "Закрытый предпросмотр сохранённой категории. Несохранённые изменения здесь ещё не показаны."
+
+msgid "staff.categories.previous"
+msgstr "Назад"
+
+msgid "staff.categories.product"
+msgstr "Товар"
+
+msgid "staff.categories.products"
+msgstr "товаров"
+
+msgid "staff.categories.publish_permission"
+msgstr "Для изменения видимости этой опубликованной ветки требуется право публикации товаров."
+
+msgid "staff.categories.published"
+msgstr "Опубликован"
+
+msgid "staff.categories.published_affected"
+msgstr "опубликованных товаров в этой ветке"
+
+msgid "staff.categories.root"
+msgstr "Корневая категория"
+
+msgid "staff.categories.section_mismatch"
+msgstr "Родительская и дочерняя категории должны относиться к одному разделу магазина."
+
+msgid "staff.categories.seo_help"
+msgstr "SEO-поля относятся к немецкой странице категории. Страницы каталога с фильтрами сохраняют noindex по действующим правилам."
+
+msgid "staff.categories.slug_help"
+msgstr "Существующий адрес сохраняется."
+
+msgid "staff.categories.status"
+msgstr "Статус"
+
+msgid "staff.categories.visibility_warning"
+msgstr "Видимость и родительская категория влияют на все подкатегории. Изменения могут скрыть опубликованные товары или вернуть их на витрину. Статус и категория товаров сохраняются. Подтвердите изменение перед сохранением."
+
+msgid "staff.categories.visible"
+msgstr "Видна"
+
+msgid "staff.dashboard.intro"
+msgstr "Рабочий кабинет магазина. Редактируйте черновики товаров, их варианты, тексты и фотографии. После проверки товары можно опубликовать при наличии соответствующего права."
+
+msgid "staff.information.care"
+msgstr "Уход"
+
+msgid "staff.information.certification"
+msgstr "Сертификация"
+
+msgid "staff.information.composition"
+msgstr "Состав"
+
+msgid "staff.information.description"
+msgstr "Описание (на немецком)"
+
+msgid "staff.information.fit"
+msgstr "Посадка"
+
+msgid "staff.information.no_size_guide"
+msgstr "Для этого бренда ещё нет таблицы размеров."
+
+msgid "staff.information.notice"
+msgstr "Сведения сохраняются как текст на немецком языке. Вносите только подтверждённую информацию; не заполняйте пустые поля вымышленными данными."
+
+msgid "staff.information.origin"
+msgstr "Происхождение"
+
+msgid "staff.information.size_guides"
+msgstr "Таблицы размеров бренда"
+
+msgid "staff.information.size_guides_help"
+msgstr "Таблицы размеров ведутся совместно для каждого бренда и категории, а не копируются для каждой модели. Здесь показаны существующие таблицы бренда; в предпросмотре используется опубликованная таблица для категории товара."
+
+msgid "staff.language.apply"
+msgstr "Применить"
+
+msgid "staff.language.label"
+msgstr "Язык"
+
+msgid "staff.login.denied"
+msgstr "У этой учётной записи нет доступа к кабинету сотрудников."
+
+msgid "staff.login.password"
+msgstr "Пароль"
+
+msgid "staff.login.submit"
+msgstr "Войти"
+
+msgid "staff.login.title"
+msgstr "Вход для сотрудников"
+
+msgid "staff.login.username"
+msgstr "Имя пользователя"
+
+msgid "staff.logout.title"
+msgstr "Выйти"
+
+msgid "staff.nav.catalog"
+msgstr "Каталог"
+
+msgid "staff.nav.collapse"
+msgstr "Свернуть или развернуть меню"
+
+msgid "staff.nav.group_admin"
+msgstr "Управление"
+
+msgid "staff.nav.group_sections"
+msgstr "Разделы"
+
+msgid "staff.nav.group_services"
+msgstr "Магазин"
+
+msgid "staff.nav.management"
+msgstr "Управление"
+
+msgid "staff.nav.overview"
+msgstr "Обзор"
+
+msgid "staff.nav.products"
+msgstr "Товары"
+
+msgid "staff.nav.quick_access"
+msgstr "Быстрый доступ"
+
+msgid "staff.nav.section"
+msgstr "Навигация по разделу"
+
+msgid "staff.nav.section_settings"
+msgstr "Настройки раздела"
+
+msgid "staff.nav.settings"
+msgstr "Настройки магазина"
+
+msgid "staff.nav.shop"
+msgstr "Магазин"
+
+msgid "staff.order.attempt_created"
+msgstr "Попытка оплаты создана"
+
+msgid "staff.order.attempt_updated"
+msgstr "Последнее обновление попытки"
+
+msgid "staff.order.copied"
+msgstr "ID скопирован."
+
+msgid "staff.order.copy"
+msgstr "Копировать ID"
+
+msgid "staff.order.copy_failed"
+msgstr "Не удалось скопировать. Выделите ID и скопируйте вручную."
+
+msgid "staff.order.country_de"
+msgstr "Германия"
+
+msgid "staff.order.heading"
+msgstr "Заказ"
+
+msgid "staff.order.history"
+msgstr "История"
+
+msgid "staff.order.history_note"
+msgstr "Показаны только сохранённые даты событий."
+
+msgid "staff.order.no_address"
+msgstr "Адрес не сохранён."
+
+msgid "staff.order.no_photo"
+msgstr "Фото товара не сохранено"
+
+msgid "staff.order.packstation"
+msgstr "Постамат DHL"
+
+msgid "staff.order.post_number"
+msgstr "Postnummer"
+
+msgid "staff.order.readonly_note"
+msgstr "Только просмотр. Оплата, отправка и возврат средств здесь недоступны."
+
+msgid "staff.order.record_created"
+msgstr "Заказ создан"
+
+msgid "staff.order.record_updated"
+msgstr "Последнее обновление заказа"
+
+msgid "staff.order.requisites"
+msgstr "Реквизиты заказа"
+
+msgid "staff.order.summary"
+msgstr "Сумма заказа"
+
+msgid "staff.order.uuid"
+msgstr "Идентификатор заказа (UUID)"
+
+msgid "staff.photos.add"
+msgstr "Добавить фотографию"
+
+msgid "staff.photos.alt"
+msgstr "Описание изображения (альтернативный текст)"
+
+msgid "staff.photos.color"
+msgstr "Галерея цвета"
+
+msgid "staff.photos.conflict"
+msgstr "Не удалось сохранить изменение из-за конфликта данных. Перезагрузите страницу."
+
+msgid "staff.photos.delete"
+msgstr "Убрать фотографию из товара"
+
+msgid "staff.photos.empty"
+msgstr "Фотографий пока нет."
+
+msgid "staff.photos.general"
+msgstr "Общая фотография для всех цветов"
+
+msgid "staff.photos.instructions"
+msgstr "JPEG, PNG или WebP до 8 МБ и 16 мегапикселей (не более 8000 пикселей по каждой стороне). Изображения пересохраняются без метаданных. Цвета берутся из вариантов; у всех размеров одного цвета общая галерея. Общие фотографии используются как замена. Позиции начинаются с 0; перемещение меняет порядок галереи."
+
+msgid "staff.photos.invalid_upload"
+msgstr "Загрузите корректное одиночное изображение JPEG, PNG или WebP: не более 8 МБ, 16 мегапикселей и 8000 пикселей по каждой стороне. Анимированные изображения запрещены."
+
+msgid "staff.photos.legacy_alt"
+msgstr "Прежнее описание изображения"
+
+msgid "staff.photos.limit"
+msgstr "У одного товара может быть не более 100 фотографий."
+
+msgid "staff.photos.position"
+msgstr "Позиция (0 — первая фотография)"
+
+msgid "staff.photos.published"
+msgstr "Для редактирования сначала явно верните товар в черновик во вкладке «Публикация»."
+
+msgid "staff.photos.save"
+msgstr "Сохранить фотографию"
+
+msgid "staff.photos.saved"
+msgstr "Фотографии сохранены. Предыдущая проверка больше не действительна."
+
+msgid "staff.photos.stale"
+msgstr "Товар уже был изменён. Перезагрузите страницу и проверьте изменение заново."
+
+msgid "staff.photos.title"
+msgstr "Фотографии товара"
+
+msgid "staff.photos.upload"
+msgstr "Файл фотографии"
+
+msgid "staff.product_form.active_without_variants"
+msgstr "У опубликованного товара должен быть хотя бы один активный вариант."
+
+msgid "staff.product_form.add_title"
+msgstr "Создание черновика товара"
+
+msgid "staff.product_form.back"
+msgstr "К списку товаров"
+
+msgid "staff.product_form.brand"
+msgstr "Бренд"
+
+msgid "staff.product_form.cancel"
+msgstr "Отмена"
+
+msgid "staff.product_form.category"
+msgstr "Категория"
+
+msgid "staff.product_form.conflict"
+msgstr "Не удалось сохранить товар из-за одновременного изменения данных. Перезагрузите страницу."
+
+msgid "staff.product_form.description_key"
+msgstr "Ключ описания"
+
+msgid "staff.product_form.description_key_help"
+msgstr "Существующий ключ перевода (прежние данные, только для чтения). Описание на немецком редактируется во вкладке «Описание»."
+
+msgid "staff.product_form.edit_title"
+msgstr "Редактирование товара"
+
+msgid "staff.product_form.invalid"
+msgstr "Проверьте это значение."
+
+msgid "staff.product_form.invalid_choice"
+msgstr "Выберите допустимый вариант."
+
+msgid "staff.product_form.invalid_key"
+msgstr "Введите допустимый ключ перевода."
+
+msgid "staff.product_form.invalid_state"
+msgstr "Сеанс редактирования недействителен или истёк. Перезагрузите страницу."
+
+msgid "staff.product_form.is_active"
+msgstr "Опубликован"
+
+msgid "staff.product_form.manufacturer_article"
+msgstr "Артикул производителя"
+
+msgid "staff.product_form.materials"
+msgstr "Материалы"
+
+msgid "staff.product_form.model_name"
+msgstr "Название модели"
+
+msgid "staff.product_form.new_until"
+msgstr "Новинка до даты включительно"
+
+msgid "staff.product_form.new_until_help"
+msgstr "Необязательная дата: по этот день включительно модель отображается в новинках. Без даты модель не считается новинкой."
+
+msgid "staff.product_form.properties"
+msgstr "Свойства"
+
+msgid "staff.product_form.publication_help"
+msgstr "Статус можно изменить только во вкладке «Публикация»."
+
+msgid "staff.product_form.required"
+msgstr "Заполните это поле."
+
+msgid "staff.product_form.save"
+msgstr "Сохранить"
+
+msgid "staff.product_form.saved"
+msgstr "Товар сохранён."
+
+msgid "staff.product_form.scope_notice"
+msgstr "Сохраните основные данные, материалы и свойства. Тексты и фотографии редактируются в отдельных вкладках. Сохранение не публикует черновик."
+
+msgid "staff.product_form.slug"
+msgstr "Идентификатор в URL"
+
+msgid "staff.product_form.slug_help"
+msgstr "Уникальный идентификатор для адреса страницы товара."
+
+msgid "staff.product_form.slug_taken"
+msgstr "Этот идентификатор в URL уже занят."
+
+msgid "staff.product_form.stale"
+msgstr "Товар уже был изменён. Перезагрузите страницу и внесите свои изменения заново."
+
+msgid "staff.product_form.tags"
+msgstr "Теги"
+
+msgid "staff.product_form.too_long"
+msgstr "Введённое значение слишком длинное."
+
+msgid "staff.product_tabs.information"
+msgstr "Описание"
+
+msgid "staff.product_tabs.label"
+msgstr "Разделы товара"
+
+msgid "staff.product_tabs.main"
+msgstr "Основное"
+
+msgid "staff.product_tabs.photos"
+msgstr "Фото"
+
+msgid "staff.product_tabs.preview"
+msgstr "Предпросмотр"
+
+msgid "staff.product_tabs.publication"
+msgstr "Публикация"
+
+msgid "staff.product_tabs.storefront"
+msgstr "На сайте"
+
+msgid "staff.product_tabs.variants"
+msgstr "Варианты"
+
+msgid "staff.products.active"
+msgstr "Активен"
+
+msgid "staff.products.all_brands"
+msgstr "Все бренды"
+
+msgid "staff.products.all_categories"
+msgstr "Все категории"
+
+msgid "staff.products.brand"
+msgstr "Бренд"
+
+msgid "staff.products.category"
+msgstr "Категория"
+
+msgid "staff.products.demo_notice"
+msgstr "Остатки по-прежнему являются демонстрационными данными. Черновики товаров можно редактировать, проверять и при наличии отдельного права публиковать в локальном магазине."
+
+msgid "staff.products.demo_quantity"
+msgstr "Демоостаток"
+
+msgid "staff.products.empty"
+msgstr "Подходящие товары не найдены."
+
+msgid "staff.products.filter"
+msgstr "Применить фильтры"
+
+msgid "staff.products.inactive"
+msgstr "Неактивен"
+
+msgid "staff.products.mixed_currency"
+msgstr "Несколько валют"
+
+msgid "staff.products.model"
+msgstr "Бренд / модель"
+
+msgid "staff.products.next"
+msgstr "Далее"
+
+msgid "staff.products.pagination"
+msgstr "Страницы списка товаров"
+
+msgid "staff.products.previous"
+msgstr "Назад"
+
+msgid "staff.products.price"
+msgstr "Цена"
+
+msgid "staff.products.search"
+msgstr "Поиск по модели, бренду или SKU"
+
+msgid "staff.products.status"
+msgstr "Статус"
+
+msgid "staff.products.table_caption"
+msgstr "Модели товаров с вариантами и демонстрационными остатками"
+
+msgid "staff.products.title"
+msgstr "Товары"
+
+msgid "staff.products.total"
+msgstr "Всего моделей"
+
+msgid "staff.products.variants"
+msgstr "Варианты: активные / всего"
+
+msgid "staff.records.action"
+msgstr "Действие"
+
+msgid "staff.records.active"
+msgstr "Активно"
+
+msgid "staff.records.actor"
+msgstr "ID сотрудника"
+
+msgid "staff.records.addresses"
+msgstr "Адреса"
+
+msgid "staff.records.all"
+msgstr "Все"
+
+msgid "staff.records.amount"
+msgstr "Сумма"
+
+msgid "staff.records.audit"
+msgstr "Журнал изменений"
+
+msgid "staff.records.back"
+msgstr "К списку"
+
+msgid "staff.records.billing_address"
+msgstr "Платёжный адрес"
+
+msgid "staff.records.city"
+msgstr "Город"
+
+msgid "staff.records.code"
+msgstr "Код"
+
+msgid "staff.records.colour"
+msgstr "Цвет"
+
+msgid "staff.records.country"
+msgstr "Страна"
+
+msgid "staff.records.created"
+msgstr "Создано"
+
+msgid "staff.records.customer"
+msgstr "Покупатель"
+
+msgid "staff.records.customers"
+msgstr "Покупатели"
+
+msgid "staff.records.demo_payments"
+msgstr "Локальные demo/sandbox операции. Платежи и возвраты средств здесь не выполняются."
+
+msgid "staff.records.demo_stock"
+msgstr "Демонстрационные остатки: без резервирования и сверки с каналами продаж."
+
+msgid "staff.records.discount"
+msgstr "Скидка"
+
+msgid "staff.records.email"
+msgstr "Эл. почта"
+
+msgid "staff.records.empty"
+msgstr "Подходящих записей нет."
+
+msgid "staff.records.ends"
+msgstr "Действует до"
+
+msgid "staff.records.filter"
+msgstr "Применить"
+
+msgid "staff.records.first_name"
+msgstr "Имя"
+
+msgid "staff.records.form.code"
+msgstr "Промокод"
+
+msgid "staff.records.form.currency"
+msgstr "Валюта (EUR)"
+
+msgid "staff.records.form.ends_at"
+msgstr "Действует до"
+
+msgid "staff.records.form.is_active"
+msgstr "Активен"
+
+msgid "staff.records.form.kind"
+msgstr "Тип скидки"
+
+msgid "staff.records.form.min_subtotal"
+msgstr "Минимальная сумма"
+
+msgid "staff.records.form.starts_at"
+msgstr "Действует с"
+
+msgid "staff.records.form.value"
+msgstr "Размер скидки"
+
+msgid "staff.records.groups"
+msgstr "Роли"
+
+msgid "staff.records.inactive"
+msgstr "Неактивно"
+
+msgid "staff.records.invalid"
+msgstr "Проверьте значения полей. Запись не сохранена."
+
+msgid "staff.records.items"
+msgstr "Позиции"
+
+msgid "staff.records.kind"
+msgstr "Тип"
+
+msgid "staff.records.kind.fixed"
+msgstr "Фиксированная сумма"
+
+msgid "staff.records.kind.percent"
+msgstr "Процент"
+
+msgid "staff.records.last_login"
+msgstr "Последний вход"
+
+msgid "staff.records.last_name"
+msgstr "Фамилия"
+
+msgid "staff.records.local_records"
+msgstr "Существующие локальные записи."
+
+msgid "staff.records.message"
+msgstr "Сообщение"
+
+msgid "staff.records.method"
+msgstr "Способ оплаты"
+
+msgid "staff.records.method.card"
+msgstr "Карта"
+
+msgid "staff.records.method.paypal"
+msgstr "PayPal"
+
+msgid "staff.records.minimum"
+msgstr "Минимальная сумма"
+
+msgid "staff.records.mode"
+msgstr "Режим"
+
+msgid "staff.records.mode.demo"
+msgstr "ДЕМО"
+
+msgid "staff.records.mode.sandbox"
+msgstr "Sandbox"
+
+msgid "staff.records.name"
+msgstr "Имя"
+
+msgid "staff.records.next"
+msgstr "Далее"
+
+msgid "staff.records.no"
+msgstr "Нет"
+
+msgid "staff.records.object"
+msgstr "Объект"
+
+msgid "staff.records.open"
+msgstr "Открыто"
+
+msgid "staff.records.order"
+msgstr "Заказ"
+
+msgid "staff.records.orders"
+msgstr "Заказы"
+
+msgid "staff.records.owner"
+msgstr "Полный доступ"
+
+msgid "staff.records.packstation_number"
+msgstr "Номер Packstation"
+
+msgid "staff.records.pagination"
+msgstr "Навигация по страницам"
+
+msgid "staff.records.payments"
+msgstr "Платежи"
+
+msgid "staff.records.post_number"
+msgstr "Postnummer"
+
+msgid "staff.records.postal_code"
+msgstr "Индекс"
+
+msgid "staff.records.previous"
+msgstr "Назад"
+
+msgid "staff.records.price"
+msgstr "Цена"
+
+msgid "staff.records.product"
+msgstr "Товар"
+
+msgid "staff.records.promo_add"
+msgstr "Создать промокод"
+
+msgid "staff.records.promo_edit"
+msgstr "Изменить промокод"
+
+msgid "staff.records.promo_error.code"
+msgstr "Используйте 1–32 символа: A–Z, 0–9, подчёркивание или дефис. Начните с буквы или цифры."
+
+msgid "staff.records.promo_error.currency"
+msgstr "Для промокодов доступна только валюта EUR. Укажите EUR."
+
+msgid "staff.records.promo_error.date"
+msgstr "Введите корректную дату и время."
+
+msgid "staff.records.promo_error.date_order"
+msgstr "Дата окончания должна быть позже даты начала."
+
+msgid "staff.records.promo_error.duplicate"
+msgstr "Такой промокод уже существует. Выберите другой код."
+
+msgid "staff.records.promo_error.invalid"
+msgstr "Проверьте значения промокода и попробуйте снова."
+
+msgid "staff.records.promo_error.kind"
+msgstr "Выберите процент или фиксированную сумму."
+
+msgid "staff.records.promo_error.minimum"
+msgstr "Минимальная сумма заказа должна быть не меньше 0."
+
+msgid "staff.records.promo_error.number"
+msgstr "Введите корректное число не более чем с двумя знаками после запятой."
+
+msgid "staff.records.promo_error.percent"
+msgstr "Введите скидку больше 0 и не больше 100 %."
+
+msgid "staff.records.promo_error.positive"
+msgstr "Введите сумму скидки больше 0."
+
+msgid "staff.records.promo_error.required"
+msgstr "Заполните это поле."
+
+msgid "staff.records.promos"
+msgstr "Акции"
+
+msgid "staff.records.quantity"
+msgstr "Количество"
+
+msgid "staff.records.readonly"
+msgstr "Просмотр существующих записей. Изменения здесь недоступны."
+
+msgid "staff.records.recipient"
+msgstr "Получатель"
+
+msgid "staff.records.reference"
+msgstr "Номер"
+
+msgid "staff.records.refunds"
+msgstr "Попытки возврата средств"
+
+msgid "staff.records.reload"
+msgstr "Загрузить актуальную версию"
+
+msgid "staff.records.reopen"
+msgstr "Открыть повторно"
+
+msgid "staff.records.resolve"
+msgstr "Отметить решённым"
+
+msgid "staff.records.resolved"
+msgstr "Решено"
+
+msgid "staff.records.roles_readonly"
+msgstr "Роли и доступы доступны только для просмотра. Автоматического назначения прав нет."
+
+msgid "staff.records.save"
+msgstr "Сохранить"
+
+msgid "staff.records.saved"
+msgstr "Изменения сохранены."
+
+msgid "staff.records.search"
+msgstr "Поиск"
+
+msgid "staff.records.shipping"
+msgstr "Стоимость доставки"
+
+msgid "staff.records.shipping_address"
+msgstr "Адрес доставки"
+
+msgid "staff.records.shipping_type"
+msgstr "Способ доставки"
+
+msgid "staff.records.size"
+msgstr "Размер"
+
+msgid "staff.records.sku"
+msgstr "SKU"
+
+msgid "staff.records.stale"
+msgstr "Запись изменилась или время редактирования истекло. Загрузите актуальную версию."
+
+msgid "staff.records.standard"
+msgstr "Обычный"
+
+msgid "staff.records.starts"
+msgstr "Действует с"
+
+msgid "staff.records.status"
+msgstr "Статус"
+
+msgid "staff.records.status.awaiting_payment"
+msgstr "Ожидает оплаты"
+
+msgid "staff.records.status.cancelled"
+msgstr "Отменено"
+
+msgid "staff.records.status.confirmed"
+msgstr "Подтверждено"
+
+msgid "staff.records.status.created"
+msgstr "Создано"
+
+msgid "staff.records.status.draft"
+msgstr "Черновик"
+
+msgid "staff.records.status.failed"
+msgstr "Ошибка"
+
+msgid "staff.records.status.pending"
+msgstr "В обработке"
+
+msgid "staff.records.status.requested"
+msgstr "Запрошено"
+
+msgid "staff.records.status.succeeded"
+msgstr "Успешно"
+
+msgid "staff.records.status.test_created"
+msgstr "ТЕСТ создан"
+
+msgid "staff.records.status.unknown"
+msgstr "Неизвестно"
+
+msgid "staff.records.stock"
+msgstr "Остатки"
+
+msgid "staff.records.street"
+msgstr "Улица и дом"
+
+msgid "staff.records.subtotal"
+msgstr "Подытог"
+
+msgid "staff.records.support"
+msgstr "Поддержка"
+
+msgid "staff.records.team"
+msgstr "Сотрудники"
+
+msgid "staff.records.test"
+msgstr "ТЕСТ"
+
+msgid "staff.records.topic"
+msgstr "Тема"
+
+msgid "staff.records.topic.groesse"
+msgstr "Размер и посадка"
+
+msgid "staff.records.topic.reklamation"
+msgstr "Рекламация"
+
+msgid "staff.records.topic.retoure"
+msgstr "Возврат"
+
+msgid "staff.records.topic.sonstiges"
+msgstr "Другое"
+
+msgid "staff.records.topic.versand"
+msgstr "Доставка"
+
+msgid "staff.records.topic.zahlung"
+msgstr "Оплата"
+
+msgid "staff.records.total"
+msgstr "Итого"
+
+msgid "staff.records.username"
+msgstr "Имя пользователя"
+
+msgid "staff.records.value"
+msgstr "Скидка"
+
+msgid "staff.records.yes"
+msgstr "Да"
+
+msgid "staff.settings.choose"
+msgstr "Выберите ссылки для верхней панели"
+
+msgid "staff.settings.conflict"
+msgstr "Быстрый доступ уже изменён или срок действия формы истёк. Откройте актуальный список и проверьте свой выбор."
+
+msgid "staff.settings.intro"
+msgstr "Этот набор ссылок действует для всего кабинета сотрудников. Отображаются только ссылки, для которых у вас есть необходимые права."
+
+msgid "staff.settings.save"
+msgstr "Сохранить"
+
+msgid "staff.settings.saved"
+msgstr "Настройки быстрого доступа сохранены."
+
+msgid "staff.settings_workspace.available"
+msgstr "Уже доступно"
+
+msgid "staff.settings_workspace.card.attributes"
+msgstr "Характеристики и размеры"
+
+msgid "staff.settings_workspace.card.attributes.description"
+msgstr "Действующие материалы, свойства и таблицы размеров. Правила обязательных характеристик пока не настраиваются."
+
+msgid "staff.settings_workspace.card.company"
+msgstr "Компания и контакты"
+
+msgid "staff.settings_workspace.card.company.description"
+msgstr "Юридическое название и общие контакты для магазина и документов."
+
+msgid "staff.settings_workspace.card.documents"
+msgstr "Документы и юридические тексты"
+
+msgid "staff.settings_workspace.card.documents.description"
+msgstr "Нумерация документов и поставщик юридических текстов. Тексты тестового магазина пока черновые."
+
+msgid "staff.settings_workspace.card.languages"
+msgstr "Языки и уведомления"
+
+msgid "staff.settings_workspace.card.languages.description"
+msgstr "Общие настройки магазина. Личный язык интерфейса по-прежнему переключается справа вверху."
+
+msgid "staff.settings_workspace.card.packing"
+msgstr "Упаковка"
+
+msgid "staff.settings_workspace.card.packing.description"
+msgstr "Правила подготовки посылок и внутренние инструкции по упаковке."
+
+msgid "staff.settings_workspace.card.publication"
+msgstr "Фото и публикация"
+
+msgid "staff.settings_workspace.card.publication.description"
+msgstr "Переход к товарам и фото. Действует существующий процесс: черновик — проверка — публикация."
+
+msgid "staff.settings_workspace.card.returns"
+msgstr "Возвраты и проверка"
+
+msgid "staff.settings_workspace.card.returns.description"
+msgstr "Будущие сроки и правила проверки возвратов. Возмещение денег здесь не запускается."
+
+msgid "staff.settings_workspace.card.shipping"
+msgstr "Правила доставки"
+
+msgid "staff.settings_workspace.card.shipping.description"
+msgstr "Будущие зоны доставки и ценовые правила. Эта страница не создаёт отправления и не вызывает DHL."
+
+msgid "staff.settings_workspace.card.structure"
+msgstr "Структура и распределение"
+
+msgid "staff.settings_workspace.card.structure.description"
+msgstr "Управление категориями, брендами и тегами. Принадлежность товара меняется в действующем редакторе товара."
+
+msgid "staff.settings_workspace.card.taxes"
+msgstr "Налоги и цены"
+
+msgid "staff.settings_workspace.card.taxes.description"
+msgstr "Налоговые реквизиты, валюта и отображение цен."
+
+msgid "staff.settings_workspace.design_notice"
+msgstr "Проект настроек: отключённые поля показывают будущую структуру. Значения пока не сохраняются, внешние сервисы не вызываются. Ссылки на действующие разделы уже работают."
+
+msgid "staff.settings_workspace.eyebrow"
+msgstr "Настройки рабочего пространства"
+
+msgid "staff.settings_workspace.field.company_address"
+msgstr "Адрес компании"
+
+msgid "staff.settings_workspace.field.company_email"
+msgstr "Общая контактная почта"
+
+msgid "staff.settings_workspace.field.company_name"
+msgstr "Юридическое название"
+
+msgid "staff.settings_workspace.field.currency"
+msgstr "Валюта магазина"
+
+msgid "staff.settings_workspace.field.default_language"
+msgstr "Основной язык магазина"
+
+msgid "staff.settings_workspace.field.default_visibility"
+msgstr "Видимость новых категорий"
+
+msgid "staff.settings_workspace.field.document_prefix"
+msgstr "Префикс номера документа"
+
+msgid "staff.settings_workspace.field.free_shipping_threshold"
+msgstr "Порог бесплатной доставки"
+
+msgid "staff.settings_workspace.field.inspection_rule"
+msgstr "Проверка перед возвратом денег"
+
+msgid "staff.settings_workspace.field.legal_provider"
+msgstr "Поставщик юридических текстов"
+
+msgid "staff.settings_workspace.field.notification_email"
+msgstr "Почта для внутренних уведомлений"
+
+msgid "staff.settings_workspace.field.packing_note"
+msgstr "Инструкция по упаковке"
+
+msgid "staff.settings_workspace.field.parcel_weight"
+msgstr "Типичный вес посылки (кг)"
+
+msgid "staff.settings_workspace.field.photo_requirements"
+msgstr "Требования к фото товара"
+
+msgid "staff.settings_workspace.field.price_display"
+msgstr "Отображение цен"
+
+msgid "staff.settings_workspace.field.required_attributes"
+msgstr "Обязательные характеристики по группе товаров"
+
+msgid "staff.settings_workspace.field.return_days"
+msgstr "Срок возврата (дней)"
+
+msgid "staff.settings_workspace.field.review_rule"
+msgstr "Правило проверки перед публикацией"
+
+msgid "staff.settings_workspace.field.shipping_country"
+msgstr "Зоны доставки"
+
+msgid "staff.settings_workspace.field.vat_id"
+msgstr "Номер плательщика НДС"
+
+msgid "staff.settings_workspace.intro.catalog"
+msgstr "Структура, характеристики и публикация. Действующие справочники доступны по ссылкам; будущие общие правила отмечены ниже как проект."
+
+msgid "staff.settings_workspace.intro.operations_settings"
+msgstr "Общие правила доставки, упаковки и возвратов. Заказы и остатки находятся в своих рабочих списках."
+
+msgid "staff.settings_workspace.intro.store_settings"
+msgstr "Данные компании и правила всего магазина. Эти настройки отделены от навигации рабочего кабинета."
+
+msgid "staff.settings_workspace.nav.catalog"
+msgstr "Настройки каталога"
+
+msgid "staff.settings_workspace.nav.operations_settings"
+msgstr "Настройки операций"
+
+msgid "staff.settings_workspace.nav.quick_access"
+msgstr "Быстрый доступ кабинета"
+
+msgid "staff.settings_workspace.nav.store_settings"
+msgstr "Настройки магазина"
+
+msgid "staff.settings_workspace.navigation"
+msgstr "Разделы настроек"
+
+msgid "staff.settings_workspace.permission_notice"
+msgstr "Вы меняете только доступные вам ссылки. Другие сохранённые закрепления остаются на месте."
+
+msgid "staff.settings_workspace.planned_fields"
+msgstr "Будущие общие настройки"
+
+msgid "staff.settings_workspace.quick_intro"
+msgstr "Общие ссылки в верхней панели. Изменения действуют для всех сотрудников; каждому видны только разрешённые разделы."
+
+msgid "staff.settings_workspace.reload"
+msgstr "Открыть актуальный список"
+
+msgid "staff.settings_workspace.shared"
+msgstr "Для всех сотрудников"
+
+msgid "staff.title"
+msgstr "Рабочий кабинет"
+
+msgid "staff.variants.add_denied"
+msgstr "У вас нет права создавать новые варианты."
+
+msgid "staff.variants.add_row"
+msgstr "Добавить строку"
+
+msgid "staff.variants.back"
+msgstr "К списку товаров"
+
+msgid "staff.variants.caption"
+msgstr "Цвета и размеры вариантов товара"
+
+msgid "staff.variants.color_code"
+msgstr "Код цвета"
+
+msgid "staff.variants.color_hex"
+msgstr "Значение цвета"
+
+msgid "staff.variants.color_name_key"
+msgstr "Ключ названия цвета"
+
+msgid "staff.variants.conflict"
+msgstr "Не удалось сохранить варианты из-за конфликта данных. Перезагрузите страницу."
+
+msgid "staff.variants.currency"
+msgstr "Валюта"
+
+msgid "staff.variants.demo_notice"
+msgstr "Количество указывает только демонстрационные остатки. Это не реальный складской учёт."
+
+msgid "staff.variants.demo_quantity"
+msgstr "Демоколичество"
+
+msgid "staff.variants.duplicate"
+msgstr "Такой SKU или сочетание цвета и размера уже существует."
+
+msgid "staff.variants.id"
+msgstr "ID"
+
+msgid "staff.variants.instructions"
+msgstr "Существующие SKU не меняются. Новые варианты добавляйте в последней строке. Варианты, которые больше не предлагаются, отключайте."
+
+msgid "staff.variants.invalid_rows"
+msgstr "Строки вариантов заполнены не полностью или содержат недопустимые значения. Перезагрузите страницу."
+
+msgid "staff.variants.is_active"
+msgstr "Активен"
+
+msgid "staff.variants.is_on_sale"
+msgstr "Показывать в распродаже"
+
+msgid "staff.variants.mixed_currency"
+msgstr "У всех вариантов одной карточки товара должна быть одинаковая валюта."
+
+msgid "staff.variants.price"
+msgstr "Цена"
+
+msgid "staff.variants.save"
+msgstr "Сохранить варианты"
+
+msgid "staff.variants.saved"
+msgstr "Варианты сохранены."
+
+msgid "staff.variants.size"
+msgstr "Размер"
+
+msgid "staff.variants.sku"
+msgstr "SKU"
+
+msgid "staff.variants.stale"
+msgstr "Варианты уже были изменены или срок действия формы истёк. Перезагрузите страницу и проверьте изменения."
+
+msgid "staff.variants.title"
+msgstr "Редактирование вариантов"
+
+msgid "staff.workflow.check"
+msgstr "Проверить текущие данные"
+
+msgid "staff.workflow.complete"
+msgstr "Обязательные сведения заполнены. Также проверьте закрытый предпросмотр."
+
+msgid "staff.workflow.demo_notice"
+msgstr "Публикация затрагивает только локальную витрину магазина. Демонстрационные остатки не подтверждают наличие товаров на складе. Реальные платежи и внешние каналы остаются отключёнными; индексация тестового сайта поисковиками по-прежнему запрещена."
+
+msgid "staff.workflow.draft"
+msgstr "Черновик"
+
+msgid "staff.workflow.explanation"
+msgstr "Сохраните черновик → проверьте текущие данные → опубликуйте при наличии права на публикацию. Изменение данных, вариантов или фотографий требует повторной проверки."
+
+msgid "staff.workflow.incomplete"
+msgstr "Проверка ещё не завершена. Заполните недостающие сведения."
+
+msgid "staff.workflow.invalid_action"
+msgstr "Это действие недоступно в текущем статусе. Перезагрузите страницу."
+
+msgid "staff.workflow.missing"
+msgstr "Заполните перед публикацией"
+
+msgid "staff.workflow.missing_base"
+msgstr "Обязательны название модели, идентификатор в URL, бренд и категория."
+
+msgid "staff.workflow.missing_description"
+msgstr "Необходимо описание на немецком или допустимый существующий перевод."
+
+msgid "staff.workflow.missing_images"
+msgstr "Для каждого активного цвета нужна хотя бы одна фотография этого цвета или общая фотография."
+
+msgid "staff.workflow.missing_variant"
+msgstr "Нужен хотя бы один активный вариант с SKU. У каждого активного варианта должна быть положительная конечная цена в EUR."
+
+msgid "staff.workflow.no_publish_permission"
+msgstr "Для публикации или снятия с публикации необходимо отдельное право на публикацию."
+
+msgid "staff.workflow.preview_notice"
+msgstr "Закрытый предпросмотр для сотрудников — этот черновик не опубликован. Корзина и покупка в предпросмотре отключены."
+
+msgid "staff.workflow.publish"
+msgstr "Опубликовать в магазине"
+
+msgid "staff.workflow.published"
+msgstr "Опубликован"
+
+msgid "staff.workflow.published_warning"
+msgstr "Товар опубликован и защищён от изменений. Для редактирования нужно явно вернуть его в черновик. При этом товар исчезнет из магазина."
+
+msgid "staff.workflow.review"
+msgstr "Проверен — готов к публикации"
+
+msgid "staff.workflow.review_again"
+msgstr "Проверка отсутствует или уже неактуальна. Проверьте текущие данные заново."
+
+msgid "staff.workflow.saved"
+msgstr "Статус товара сохранён."
+
+msgid "staff.workflow.status"
+msgstr "Статус"
+
+msgid "staff.workflow.withdraw"
+msgstr "Убрать из магазина и редактировать как черновик"
+
+msgid "staff.workflow.withdraw_warning"
+msgstr "При снятии с публикации товар сразу исчезнет из магазина. После этого его можно редактировать и проверить заново."
+
+msgid "staff.workspace.add_product"
+msgstr "Добавить товар"
+
+msgid "staff.workspace.all_states"
+msgstr "Все статусы"
+
+msgid "staff.workspace.capability.company"
+msgstr "Реквизиты"
+
+msgid "staff.workspace.capability.company.description"
+msgstr "Данные продавца для витрины и документов."
+
+msgid "staff.workspace.capability.dhl"
+msgstr "DHL"
+
+msgid "staff.workspace.capability.dhl.description"
+msgstr "Этикетки, забор посылок и отслеживание."
+
+msgid "staff.workspace.capability.documents"
+msgstr "Документы"
+
+msgid "staff.workspace.capability.documents.description"
+msgstr "Нумерация, реквизиты и шаблоны PDF."
+
+msgid "staff.workspace.capability.ebay"
+msgstr "eBay"
+
+msgid "staff.workspace.capability.ebay.description"
+msgstr "Каталог и сверка остатков. Запись через API остаётся выключенной."
+
+msgid "staff.workspace.capability.email"
+msgstr "Письма"
+
+msgid "staff.workspace.capability.email.description"
+msgstr "Примеры писем уже доступны; автоматическая отправка заказов ещё не подключена."
+
+msgid "staff.workspace.capability.homepage"
+msgstr "Главная и подборки"
+
+msgid "staff.workspace.capability.homepage.description"
+msgstr "Порядок блоков, баннеры и товарные подборки."
+
+msgid "staff.workspace.capability.inspection"
+msgstr "Приёмка возврата"
+
+msgid "staff.workspace.capability.inspection.description"
+msgstr "Проверка полученных товаров перед ручным решением о возмещении."
+
+msgid "staff.workspace.capability.labels"
+msgstr "Этикетки DHL"
+
+msgid "staff.workspace.capability.labels.description"
+msgstr "Создание и печать PDF из заказа."
+
+msgid "staff.workspace.capability.legal"
+msgstr "Юридические страницы"
+
+msgid "staff.workspace.capability.legal.description"
+msgstr "Просмотр существующих черновиков; подключение поставщика текстов позже."
+
+msgid "staff.workspace.capability.mail"
+msgstr "Почтовая доставка"
+
+msgid "staff.workspace.capability.mail.description"
+msgstr "Настройки отправителя и проверка доставки. Действующий локальный Mailpit сохраняется."
+
+msgid "staff.workspace.capability.notifications"
+msgstr "Уведомления"
+
+msgid "staff.workspace.capability.notifications.description"
+msgstr "Рабочие оповещения сотрудников и уведомления покупателей."
+
+msgid "staff.workspace.capability.packing"
+msgstr "Сборка и упаковка"
+
+msgid "staff.workspace.capability.packing.description"
+msgstr "Очередь сборки, проверка позиций и готовность к передаче."
+
+msgid "staff.workspace.capability.pickup"
+msgstr "Групповой забор"
+
+msgid "staff.workspace.capability.pickup.description"
+msgstr "Выбор готовых посылок и один запрос курьеру."
+
+msgid "staff.workspace.capability.profit"
+msgstr "Прибыльность"
+
+msgid "staff.workspace.capability.profit.description"
+msgstr "Себестоимость, комиссии, скидки и возвраты."
+
+msgid "staff.workspace.capability.return_label"
+msgstr "Этикетка и QR"
+
+msgid "staff.workspace.capability.return_label.description"
+msgstr "Выдача покупателю этикетки и отслеживание обратной посылки."
+
+msgid "staff.workspace.capability.return_request"
+msgstr "Заявки на возврат"
+
+msgid "staff.workspace.capability.return_request.description"
+msgstr "Позиции заказа, причина и состояние заявки."
+
+msgid "staff.workspace.capability.return_rules"
+msgstr "Правила возврата"
+
+msgid "staff.workspace.capability.return_rules.description"
+msgstr "Сроки и последовательность обработки заявок."
+
+msgid "staff.workspace.capability.s3"
+msgstr "Хранилище фотографий"
+
+msgid "staff.workspace.capability.s3.description"
+msgstr "Будущая доставка фотографий из S3; сейчас используется локальное хранилище."
+
+msgid "staff.workspace.capability.sales"
+msgstr "Продажи"
+
+msgid "staff.workspace.capability.sales.description"
+msgstr "Реальные продажи и тестовые заказы учитываются отдельно."
+
+msgid "staff.workspace.capability.shipping_rules"
+msgstr "Правила доставки"
+
+msgid "staff.workspace.capability.shipping_rules.description"
+msgstr "Способы доставки, вес и ограничения посылки."
+
+msgid "staff.workspace.capability.sources"
+msgstr "Источники заказов"
+
+msgid "staff.workspace.capability.sources.description"
+msgstr "Источники трафика с учётом согласий и сроков хранения."
+
+msgid "staff.workspace.capability.stripe"
+msgstr "Stripe и PayPal"
+
+msgid "staff.workspace.capability.stripe.description"
+msgstr "Единый платёжный API, сначала sandbox."
+
+msgid "staff.workspace.capability.taxes"
+msgstr "Налоги и цены"
+
+msgid "staff.workspace.capability.taxes.description"
+msgstr "Налоговые правила и отображение цен."
+
+msgid "staff.workspace.capability.tracking"
+msgstr "Отслеживание"
+
+msgid "staff.workspace.capability.tracking.description"
+msgstr "Состояния доставки в заказе и письмо после передачи курьеру."
+
+msgid "staff.workspace.connection_design"
+msgstr "Настройки будущего раздела"
+
+msgid "staff.workspace.connection_explanation"
+msgstr "Поля показаны для согласования интерфейса. Они не сохраняют данные и не запускают внешние операции."
+
+msgid "staff.workspace.connection_status"
+msgstr "Состояние подключения"
+
+msgid "staff.workspace.environment"
+msgstr "Среда"
+
+msgid "staff.workspace.field.company"
+msgstr "Реквизиты продавца"
+
+msgid "staff.workspace.field.connection_status"
+msgstr "Состояние"
+
+msgid "staff.workspace.field.contract"
+msgstr "Договор доставки"
+
+msgid "staff.workspace.field.documents"
+msgstr "Нумерация документов"
+
+msgid "staff.workspace.field.email"
+msgstr "Шаблоны писем"
+
+msgid "staff.workspace.field.environment"
+msgstr "Среда"
+
+msgid "staff.workspace.field.homepage"
+msgstr "Блоки главной"
+
+msgid "staff.workspace.field.inspection"
+msgstr "Проверка посылки"
+
+msgid "staff.workspace.field.label_format"
+msgstr "Формат этикетки"
+
+msgid "staff.workspace.field.languages"
+msgstr "Языки и переводы"
+
+msgid "staff.workspace.field.notifications"
+msgstr "Рабочие уведомления"
+
+msgid "staff.workspace.field.packing"
+msgstr "Правила сборки"
+
+msgid "staff.workspace.field.parcel"
+msgstr "Тип посылки"
+
+msgid "staff.workspace.field.period"
+msgstr "Период отчёта"
+
+msgid "staff.workspace.field.profit"
+msgstr "Правила расчёта прибыли"
+
+msgid "staff.workspace.field.provider"
+msgstr "Провайдер"
+
+msgid "staff.workspace.field.return_rules"
+msgstr "Правила возврата"
+
+msgid "staff.workspace.field.return_window"
+msgstr "Срок возврата"
+
+msgid "staff.workspace.field.shipping_rules"
+msgstr "Правила доставки"
+
+msgid "staff.workspace.field.sources"
+msgstr "Источники данных"
+
+msgid "staff.workspace.field.vat"
+msgstr "Налоговый номер / USt-IdNr."
+
+msgid "staff.workspace.group.management"
+msgstr "Управление"
+
+msgid "staff.workspace.group.operations"
+msgstr "Операции"
+
+msgid "staff.workspace.group.shop"
+msgstr "Магазин"
+
+msgid "staff.workspace.nav.analytics"
+msgstr "Аналитика"
+
+msgid "staff.workspace.nav.audit"
+msgstr "Журнал действий"
+
+msgid "staff.workspace.nav.brands"
+msgstr "Бренды"
+
+msgid "staff.workspace.nav.categories"
+msgstr "Категории"
+
+msgid "staff.workspace.nav.content"
+msgstr "Витрина и тексты"
+
+msgid "staff.workspace.nav.customers"
+msgstr "Покупатели"
+
+msgid "staff.workspace.nav.integrations"
+msgstr "Интеграции"
+
+msgid "staff.workspace.nav.materials"
+msgstr "Материалы"
+
+msgid "staff.workspace.nav.operations_settings"
+msgstr "Настройки операций"
+
+msgid "staff.workspace.nav.orders"
+msgstr "Заказы"
+
+msgid "staff.workspace.nav.payments"
+msgstr "Платежи"
+
+msgid "staff.workspace.nav.photos"
+msgstr "Фотографии"
+
+msgid "staff.workspace.nav.promos"
+msgstr "Акции и промокоды"
+
+msgid "staff.workspace.nav.properties"
+msgstr "Свойства"
+
+msgid "staff.workspace.nav.returns"
+msgstr "Возвраты"
+
+msgid "staff.workspace.nav.reviews"
+msgstr "Отзывы"
+
+msgid "staff.workspace.nav.shipping"
+msgstr "Доставка"
+
+msgid "staff.workspace.nav.size_guides"
+msgstr "Таблицы размеров"
+
+msgid "staff.workspace.nav.stock"
+msgstr "Остатки"
+
+msgid "staff.workspace.nav.store_settings"
+msgstr "Настройки магазина"
+
+msgid "staff.workspace.nav.support"
+msgstr "Поддержка"
+
+msgid "staff.workspace.nav.tags"
+msgstr "Теги"
+
+msgid "staff.workspace.nav.team"
+msgstr "Сотрудники"
+
+msgid "staff.workspace.navigation"
+msgstr "Разделы кабинета"
+
+msgid "staff.workspace.not_configured"
+msgstr "Не настроено"
+
+msgid "staff.workspace.not_connected"
+msgstr "Не подключено"
+
+msgid "staff.workspace.overview.actions"
+msgstr "Начать работу"
+
+msgid "staff.workspace.overview.drafts"
+msgstr "Черновики"
+
+msgid "staff.workspace.overview.empty_permissions"
+msgstr "Разделы появятся после назначения рабочих прав."
+
+msgid "staff.workspace.overview.latest"
+msgstr "Недавно добавленные товары"
+
+msgid "staff.workspace.overview.no_changes"
+msgstr "Изменений пока нет."
+
+msgid "staff.workspace.overview.orders"
+msgstr "Тестовые заказы"
+
+msgid "staff.workspace.overview.products"
+msgstr "Товары"
+
+msgid "staff.workspace.overview.review"
+msgstr "На проверке"
+
+msgid "staff.workspace.overview.subtitle"
+msgstr "Текущие задачи магазина и быстрый переход к работе."
+
+msgid "staff.workspace.overview.support"
+msgstr "Открытые обращения"
+
+msgid "staff.workspace.overview.test_notice"
+msgstr "Заказы и остатки пока тестовые. Реальные оплаты и отправка посылок не выполняются."
+
+msgid "staff.workspace.overview.title"
+msgstr "Рабочий стол"
+
+msgid "staff.workspace.planned"
+msgstr "Запланировано"
+
+msgid "staff.workspace.preview"
+msgstr "Проект раздела"
+
+msgid "staff.workspace.preview_notice"
+msgstr "Это проект будущего раздела. Ниже видны его состав и настройки; выполнение операций и сохранение здесь ещё не подключены."
+
+msgid "staff.workspace_catalog.add"
+msgstr "Добавить"
+
+msgid "staff.workspace_catalog.back"
+msgstr "К списку"
+
+msgid "staff.workspace_catalog.binding_help"
+msgstr "Существующая привязка к бренду и категории сохраняется."
+
+msgid "staff.workspace_catalog.brands"
+msgstr "Бренды"
+
+msgid "staff.workspace_catalog.categories"
+msgstr "Категории"
+
+msgid "staff.workspace_catalog.conflict"
+msgstr "Запись не сохранена из-за конфликта данных."
+
+msgid "staff.workspace_catalog.details"
+msgstr "Данные"
+
+msgid "staff.workspace_catalog.edit"
+msgstr "Редактировать"
+
+msgid "staff.workspace_catalog.edit_notice"
+msgstr "Изменения записываются в журнал. Перед изменением справочников снимите связанные опубликованные товары с витрины."
+
+msgid "staff.workspace_catalog.empty"
+msgstr "Записей нет."
+
+msgid "staff.workspace_catalog.field.alt_key"
+msgstr "Старый ключ описания фото"
+
+msgid "staff.workspace_catalog.field.alt_text"
+msgstr "Описание фото"
+
+msgid "staff.workspace_catalog.field.author_display"
+msgstr "Имя автора"
+
+msgid "staff.workspace_catalog.field.body"
+msgstr "Текст"
+
+msgid "staff.workspace_catalog.field.brand"
+msgstr "Бренд"
+
+msgid "staff.workspace_catalog.field.category"
+msgstr "Категория"
+
+msgid "staff.workspace_catalog.field.color_code"
+msgstr "Код цвета"
+
+msgid "staff.workspace_catalog.field.created_at"
+msgstr "Дата создания"
+
+msgid "staff.workspace_catalog.field.hip_max_cm"
+msgstr "Бёдра до, см"
+
+msgid "staff.workspace_catalog.field.hip_min_cm"
+msgstr "Бёдра от, см"
+
+msgid "staff.workspace_catalog.field.instructions"
+msgstr "Инструкции"
+
+msgid "staff.workspace_catalog.field.is_published"
+msgstr "Опубликована"
+
+msgid "staff.workspace_catalog.field.label_key"
+msgstr "Ключ перевода"
+
+msgid "staff.workspace_catalog.field.name"
+msgstr "Название"
+
+msgid "staff.workspace_catalog.field.name_key"
+msgstr "Ключ перевода"
+
+msgid "staff.workspace_catalog.field.position"
+msgstr "Позиция"
+
+msgid "staff.workspace_catalog.field.rating"
+msgstr "Оценка (1–5)"
+
+msgid "staff.workspace_catalog.field.section"
+msgstr "Раздел"
+
+msgid "staff.workspace_catalog.field.size"
+msgstr "Размер"
+
+msgid "staff.workspace_catalog.field.slug"
+msgstr "Идентификатор URL"
+
+msgid "staff.workspace_catalog.field.source_label"
+msgstr "Источник"
+
+msgid "staff.workspace_catalog.field.source_url"
+msgstr "Ссылка на источник"
+
+msgid "staff.workspace_catalog.field.status"
+msgstr "Статус"
+
+msgid "staff.workspace_catalog.field.title"
+msgstr "Заголовок"
+
+msgid "staff.workspace_catalog.field.waist_max_cm"
+msgstr "Талия до, см"
+
+msgid "staff.workspace_catalog.field.waist_min_cm"
+msgstr "Талия от, см"
+
+msgid "staff.workspace_catalog.hip"
+msgstr "Бёдра, см"
+
+msgid "staff.workspace_catalog.invalid"
+msgstr "Проверьте введённые данные."
+
+msgid "staff.workspace_catalog.materials"
+msgstr "Материалы"
+
+msgid "staff.workspace_catalog.no"
+msgstr "Нет"
+
+msgid "staff.workspace_catalog.photo_notice"
+msgstr "Существующие фото товаров. Управление — в редакторе товара. Внешние источники не импортируются."
+
+msgid "staff.workspace_catalog.photos"
+msgstr "Фото"
+
+msgid "staff.workspace_catalog.products"
+msgstr "Связанные товары"
+
+msgid "staff.workspace_catalog.products_limit"
+msgstr "До 30 связанных товаров."
+
+msgid "staff.workspace_catalog.properties"
+msgstr "Свойства"
+
+msgid "staff.workspace_catalog.publish_help"
+msgstr "Публикуйте явно после проверки источника. Новая таблица без отметки остаётся неопубликованной."
+
+msgid "staff.workspace_catalog.published_block"
+msgstr "Сначала снимите связанные опубликованные товары с витрины в редакторе товара."
+
+msgid "staff.workspace_catalog.record"
+msgstr "Запись"
+
+msgid "staff.workspace_catalog.review_notice"
+msgstr "Отзывы с сохранённым статусом. Модерация здесь пока недоступна."
+
+msgid "staff.workspace_catalog.reviews"
+msgstr "Отзывы"
+
+msgid "staff.workspace_catalog.row"
+msgstr "Строка размера"
+
+msgid "staff.workspace_catalog.rows"
+msgstr "Измерения"
+
+msgid "staff.workspace_catalog.saved"
+msgstr "Запись сохранена."
+
+msgid "staff.workspace_catalog.search"
+msgstr "Поиск"
+
+msgid "staff.workspace_catalog.section.other"
+msgstr "Другое"
+
+msgid "staff.workspace_catalog.section.swimwear"
+msgstr "Пляжная одежда"
+
+msgid "staff.workspace_catalog.section.underwear"
+msgstr "Нижнее бельё"
+
+msgid "staff.workspace_catalog.size_guides"
+msgstr "Размерные таблицы"
+
+msgid "staff.workspace_catalog.stable_key"
+msgstr "Существующий ключ перевода; здесь не изменяется."
+
+msgid "staff.workspace_catalog.stale"
+msgstr "Запись изменилась. Перезагрузите страницу и проверьте данные."
+
+msgid "staff.workspace_catalog.status.approved"
+msgstr "Одобрен"
+
+msgid "staff.workspace_catalog.status.pending"
+msgstr "Ожидает проверки"
+
+msgid "staff.workspace_catalog.status.rejected"
+msgstr "Отклонён"
+
+msgid "staff.workspace_catalog.tags"
+msgstr "Теги"
+
+msgid "staff.workspace_catalog.total"
+msgstr "Записи"
+
+msgid "staff.workspace_catalog.waist"
+msgstr "Талия, см"
+
+msgid "staff.workspace_catalog.yes"
+msgstr "Да"

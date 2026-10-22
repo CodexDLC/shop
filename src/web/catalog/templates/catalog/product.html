@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% load static shop_i18n %}
 {% block page_head %}
+<link rel="stylesheet" href="{% static 'storefront/product-information.css' %}?v=20261020">
+<link rel="stylesheet" href="{% static 'storefront/product-gallery.css' %}?v=20261020">
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>{{ product.brand }} {{ product.name }} — Männermasche</title>
 <!-- Tailwind CSS v3 with Plugins -->
 <script src="{% static 'storefront/vendor/tailwind-runtime.js' %}?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
@@ -74,6 +75,7 @@
 {% endblock %}
 {% block body_attrs %} class="min-h-full flex flex-col bg-brand-page text-brand-dark relative" data-demo-page="product.html"{% endblock %}
 {% block content %}
+{% if staff_product_preview %}<aside class="p-4 border-b bg-yellow-50" role="status">{% text 'staff.workflow.preview_notice' %} <a href="{% url 'staff:product_publication' pk=staff_product_pk %}">{% text 'staff.product_tabs.publication' %}</a></aside>{% endif %}
 <!-- BEGIN: TopBrandBar -->
 
 <!-- END: TopBrandBar -->
@@ -97,35 +99,38 @@
 <!-- 2. Main Product Grid (Editorial 2-Column Split) -->
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
 <!-- Left Column: Media Gallery (7 Cols Desktop) -->
-<div class="lg:col-span-7 flex flex-col-reverse md:flex-row gap-4 lg:gap-6 sticky lg:top-28">
+<div data-product-gallery data-gallery-color="{{ product.default_color }}" class="lg:col-span-7 flex flex-col-reverse md:flex-row gap-4 lg:gap-6 sticky lg:top-28">
 <!-- Thumbnails Rail (Vertical on desktop) -->
-<div class="flex md:flex-col gap-3 shrink-0 overflow-x-auto md:overflow-visible pb-2 md:pb-0 select-none">
-<button aria-label="{{ product.name }}" class="relative w-16 h-20 sm:w-20 sm:h-24 bg-surface-muted p-1 transition-all focus:outline-none ring-2 ring-primary" type="button" disabled>
-<img class="w-full h-full object-cover" data-product-photo alt="{{ product.brand }} {{ product.name }}" src="{{ product.photo_url }}"/>
-</button>
+<div data-gallery-thumbnails data-gallery-photo-label="{% text 'catalog.gallery.photo' %}" class="flex md:flex-col gap-3 shrink-0 overflow-x-auto md:overflow-visible pb-2 md:pb-0 select-none">
+{% for photo, photo_alt in product.initial_gallery_items %}
+<a data-gallery-thumbnail href="{{ photo }}" aria-label="{% text 'catalog.gallery.photo' %} {{ forloop.counter }}" {% if forloop.first %}aria-current="true"{% endif %} class="relative w-16 h-20 sm:w-20 sm:h-24 bg-surface-muted p-1 transition-all shrink-0">
+<img class="w-full h-full object-cover" alt="{{ photo_alt }}" src="{{ photo }}" loading="lazy"/>
+</a>
+{% endfor %}
 </div>
 <!-- Featured High-Res Display Container -->
 <div class="relative flex-1 bg-surface-muted overflow-hidden group">
 <!-- Curated Badge -->
 <div class="absolute top-4 left-4 z-10 flex flex-col gap-2">
 <span class="bg-primary text-on-primary text-[11px] font-semibold px-3 py-1.5 uppercase tracking-widest">
-              {% text 'catalog.product.text.df042dd291b5' %}
+              {{ product.brand }}
             </span>
 <span class="bg-surface-container-lowest text-text-primary text-[11px] font-semibold px-3 py-1 uppercase tracking-wider">
-              {% text 'catalog.product.text.caf2807ebaa0' %}
+              {% if product_information.certification %}{{ product_information.certification }}{% else %}{% text 'catalog.information.certification_pending' %}{% endif %}
             </span>
 </div>
 <!-- Zoom / Fullscreen Button -->
-<button aria-label="{% text 'catalog.product.label.8e2b92d73566' %}" class="absolute top-4 right-4 z-10 w-10 h-10 bg-surface-container-lowest/90 backdrop-blur-sm text-text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors" type="button">
+<button data-gallery-zoom {% if not product.initial_gallery %}disabled{% endif %} aria-label="{% text 'catalog.product.label.8e2b92d73566' %}" class="absolute top-4 right-4 z-10 w-10 h-10 bg-surface-container-lowest/90 backdrop-blur-sm text-text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors" type="button">
 <span class="material-symbols-outlined text-[20px]">{% text 'catalog.product.text.c9676fb36b98' %}</span>
 </button>
 <!-- Main Image -->
 <div class="aspect-[3/4] w-full relative overflow-hidden">
-<img data-product-photo class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" alt="{{ product.brand }} {{ product.name }}" src="{{ product.photo_url }}"/>
+<img data-gallery-main class="w-full h-full object-cover object-center" alt="{{ product.photo_alt }}" {% if product.photo_url %}src="{{ product.photo_url }}"{% else %}hidden{% endif %}/>
 </div>
+{% include 'catalog/includes/gallery_dialog.html' %}
 <!-- Bottom Micro-Bar on Image -->
 <div class="absolute bottom-4 left-4 right-4 flex justify-between items-center text-text-muted text-xs uppercase tracking-widest bg-surface-container-lowest/70 backdrop-blur-sm px-4 py-2">
-<span>{% text 'catalog.product.text.8fbd3a581b34' %}</span>
+<span>{% text 'catalog.information.product_photo' %}</span>
 <span class="text-text-primary font-medium" data-product-sku></span>
 </div>
 </div>
@@ -137,19 +142,10 @@
 <a class="text-xs uppercase tracking-widest text-primary font-semibold hover:opacity-80 transition-opacity" href="#">
             {{ product.brand }}
           </a>
-<!-- Rating pill -->
-<div class="flex items-center gap-1.5 text-text-muted text-xs">
-<div class="flex text-[#D4AF37]">
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">{% text 'catalog.product.text.4e3e01b9af84' %}</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">{% text 'catalog.product.text.4e3e01b9af84' %}</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">{% text 'catalog.product.text.4e3e01b9af84' %}</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">{% text 'catalog.product.text.4e3e01b9af84' %}</span>
-<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">{% text 'catalog.product.text.4e3e01b9af84' %}</span>
-</div>
-<span class="font-semibold text-text-primary">4.9</span>
-<span class="text-text-muted">(48)</span>
-</div>
-</div>
+<!-- Real published review summary -->
+<a data-review-link data-real-navigation href="#product-reviews" class="flex items-center gap-1.5 text-text-muted text-xs">
+{% if review_summary.count %}<span class="font-semibold text-text-primary">{{ review_summary.average|floatformat:1 }} / 5</span><span>({{ review_summary.count }})</span>{% else %}<span>{% text 'catalog.information.reviews_empty_short' %}</span>{% endif %}
+</a></div>
 <!-- Product Title -->
 <h1 class="text-3xl font-medium tracking-tight text-text-primary leading-tight mb-4">
           {{ product.name }}
@@ -191,7 +187,7 @@
               {% text 'catalog.product.text.7983efffc1a2' %} <strong class="font-bold" data-product-size-label></strong>
 </span>
 <!-- Trigger Button for Size Guide Modal -->
-<button class="inline-flex items-center gap-1.5 text-text-muted hover:text-primary transition-colors text-xs font-semibold uppercase tracking-wider group focus:outline-none" id="openSizeGuideBtn" type="button">
+<button class="inline-flex items-center gap-1.5 text-text-muted hover:text-primary transition-colors text-xs font-semibold uppercase tracking-wider group focus:outline-none" id="openSizeGuideBtn" aria-haspopup="dialog" aria-controls="sizeGuideModal" disabled type="button">
 <span class="material-symbols-outlined text-[18px] group-hover:scale-110 transition-transform">{% text 'catalog.product.text.26d194e1f4e4' %}</span>
 <span class="underline decoration-border-subtle underline-offset-4 group-hover:decoration-primary">{% text 'catalog.product.text.865c0f405185' %}</span>
 </button>
@@ -204,7 +200,7 @@
 </div>
 <p class="text-xs text-text-muted mt-2" data-product-sku></p>
 <p class="text-xs text-text-muted mt-2">
-            {% text 'catalog.product.text.b51f5bf75699' %}
+            {{ product_information.fit|default:information_not_provided }}
           </p>
 </div>
 <!-- Purchase Actions (Quantity + CTA + Wishlist) -->
@@ -220,12 +216,12 @@
             </button>
 </div>
 <!-- Primary CTA: server-validated local cart -->
-<button data-product-action disabled class="flex-1 h-12 bg-primary hover:bg-[#133327] text-on-primary text-xs uppercase tracking-widest font-semibold flex items-center justify-center gap-3 transition-colors px-6" type="button">
+<button {% if not staff_product_preview %}data-product-action{% endif %} disabled class="flex-1 h-12 bg-primary hover:bg-[#133327] text-on-primary text-xs uppercase tracking-widest font-semibold flex items-center justify-center gap-3 transition-colors px-6" type="button">
 <span class="material-symbols-outlined text-[20px]">{% text 'catalog.product.text.52c70abd4468' %}</span>
 <span data-action-label>{{ catalog_selection_texts.preview_action }}</span>
 </button>
 <!-- Wishlist Button -->
-<button data-wishlist-product aria-label="{% text 'catalog.product.label.0d719afadb0e' %}" class="h-12 w-12 bg-surface-muted hover:bg-surface-variant text-text-primary flex items-center justify-center transition-colors shrink-0" type="button">
+<button {% if staff_product_preview %}disabled{% else %}data-wishlist-product{% endif %} aria-label="{% text 'catalog.product.label.0d719afadb0e' %}" class="h-12 w-12 bg-surface-muted hover:bg-surface-variant text-text-primary flex items-center justify-center transition-colors shrink-0" type="button">
 <span class="material-symbols-outlined text-[20px]">{% text 'catalog.product.text.a6459cb4ad3f' %}</span>
 </button>
 </div>
@@ -234,108 +230,29 @@
 <div class="flex items-start gap-3 text-text-primary">
 <span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">{% text 'catalog.product.text.9c586571e3cb' %}</span>
 <div class="flex flex-col">
-<span class="text-xs font-semibold text-text-primary uppercase tracking-wider">{% text 'catalog.product.text.baf59c50e0e8' %}</span>
-<span class="text-xs text-text-muted">{% text 'catalog.product.text.82e8cde100c8' %}</span>
+<span class="text-xs font-semibold text-text-primary uppercase tracking-wider">{% text 'catalog.information.delivery_heading' %}</span>
+<span class="text-xs text-text-muted">{% text 'catalog.information.delivery_test' %}</span>
 </div>
 </div>
 <div class="flex items-start gap-3 text-text-primary">
 <span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">{% text 'catalog.product.text.733aa03fdd44' %}</span>
 <div class="flex flex-col">
-<span class="text-xs font-semibold text-text-primary uppercase tracking-wider">{% text 'catalog.product.text.4a1d1162bd86' %}</span>
-<span class="text-xs text-text-muted">{% text 'catalog.product.text.b6bef6ec32dc' %}</span>
+<span class="text-xs font-semibold text-text-primary uppercase tracking-wider">{% text 'catalog.information.packaging' %}</span>
+<span class="text-xs text-text-muted">{% text 'catalog.information.packaging_pending' %}</span>
 </div>
 </div>
 <div class="flex items-start gap-3 text-text-primary">
 <span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">{% text 'catalog.product.text.ec734b651574' %}</span>
 <div class="flex flex-col">
-<span class="text-xs font-semibold text-text-primary uppercase tracking-wider">{% text 'catalog.product.text.892db9f3e6bc' %}</span>
-<span class="text-xs text-text-muted">{% text 'catalog.product.text.a696d22efecf' %}</span>
+<span class="text-xs font-semibold text-text-primary uppercase tracking-wider">{% text 'catalog.information.certification' %}</span>
+<span class="text-xs text-text-muted">{{ product_information.certification|default:information_not_provided }}</span>
 </div>
 </div>
 </div>
 </div>
 </div>
-<!-- 3. Editorial Tabs Section: Specifications, Care, Fitting -->
-<div class="mt-20 lg:mt-28">
-<p class="text-xs text-text-muted mb-4">{% text 'catalog.product.demo_description' %}</p>
-<!-- Tab Headers -->
-<div class="flex flex-wrap gap-2 md:gap-4 bg-surface-muted p-1.5 select-none">
-<button class="px-6 py-3 bg-surface-container-lowest text-xs uppercase tracking-wider text-text-primary font-semibold" type="button">
-          {% text 'catalog.product.text.d9b17845faa7' %}
-        </button>
-<button class="px-6 py-3 hover:bg-surface-container-lowest/60 text-xs uppercase tracking-wider text-text-muted transition-colors" type="button">
-          {% text 'catalog.product.text.03ba06083d67' %}
-        </button>
-<button class="px-6 py-3 hover:bg-surface-container-lowest/60 text-xs uppercase tracking-wider text-text-muted transition-colors" type="button">
-          {% text 'catalog.product.text.4b6e17b232fe' %}
-        </button>
-<button class="px-6 py-3 hover:bg-surface-container-lowest/60 text-xs uppercase tracking-wider text-text-muted transition-colors" type="button">
-          {% text 'catalog.product.text.e8a7b304def8' %}
-        </button>
-</div>
-<!-- Active Tab Body -->
-<div class="bg-surface-container-lowest p-6 md:p-12 mt-2">
-<div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-16">
-<div class="md:col-span-7 space-y-6">
-<h3 class="text-2xl font-serif text-text-primary font-medium">
-              {% text 'catalog.product.text.f5d824d98584' %}
-            </h3>
-<p class="text-base text-text-muted leading-relaxed">
-              {% text 'catalog.product.text.226dbb4d2281' %} <strong>{% text 'catalog.product.text.cbbf493a9d67' %}</strong> {% text 'catalog.product.text.281a031215c4' %}
-            </p>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-<div class="bg-surface-muted p-4">
-<span class="text-xs uppercase tracking-wider text-text-muted block mb-1">{% text 'catalog.product.text.0dd18c6dbb9c' %}</span>
-<span class="text-sm text-text-primary block font-semibold">{% text 'catalog.product.text.61b1f2281505' %}</span>
-<p class="text-xs text-text-muted mt-1">{% text 'catalog.product.text.0b6eabfebb70' %}</p>
-</div>
-<div class="bg-surface-muted p-4">
-<span class="text-xs uppercase tracking-wider text-text-muted block mb-1">{% text 'catalog.product.text.c7942d475cb5' %}</span>
-<span class="text-sm text-text-primary block font-semibold">{% text 'catalog.product.text.eb248a5ae240' %}</span>
-<p class="text-xs text-text-muted mt-1">{% text 'catalog.product.text.4d5f257dfa67' %}</p>
-</div>
-</div>
-</div>
-<div class="md:col-span-5 bg-surface-muted p-6 md:p-8 flex flex-col justify-between">
-<div>
-<h4 class="text-xs uppercase tracking-wider text-text-primary font-bold mb-4">
-                {% text 'catalog.product.text.1698b84f31f7' %}
-              </h4>
-<ul class="space-y-3 text-sm text-text-primary">
-<li class="flex justify-between">
-<span class="text-text-muted">{% text 'catalog.product.text.0b36ab9788f2' %}</span>
-<span class="font-medium text-right">{% text 'catalog.product.text.38ce36c6b6a4' %}</span>
-</li>
-<li class="flex justify-between">
-<span class="text-text-muted">{% text 'catalog.product.text.1d21ec3b0dde' %}</span>
-<span class="font-medium">{% text 'catalog.product.text.8a3053e0d09b' %}</span>
-</li>
-<li class="flex justify-between">
-<span class="text-text-muted">{% text 'catalog.product.text.5b5db862744b' %}</span>
-<span class="font-medium">{% text 'catalog.product.text.22c2234e11e9' %}</span>
-</li>
-<li class="flex justify-between">
-<span class="text-text-muted">{% text 'catalog.product.text.dcee18f3eb01' %}</span>
-<span class="font-medium">{% text 'catalog.product.text.13c430679a1c' %}</span>
-</li>
-<li class="flex justify-between">
-<span class="text-text-muted">{% text 'catalog.product.text.f9033ba075d3' %}</span>
-<span class="font-medium">{% text 'catalog.product.text.562cb6c1d8b6' %}</span>
-</li>
-</ul>
-</div>
-<div class="mt-8 pt-6 bg-surface-container-lowest/80 p-4">
-<span class="text-xs uppercase tracking-wider text-primary font-semibold block mb-1">
-                {% text 'catalog.product.text.094bd6668548' %}
-              </span>
-<p class="text-xs text-text-muted">
-                {% text 'catalog.product.text.8fe8b39ba083' %}
-              </p>
-</div>
-</div>
-</div>
-</div>
-</div>
+<!-- 3. Editorial Tabs Section: real product data -->
+{% include 'catalog/includes/product_information.html' %}
 <!-- 4. Cross-sell / Recommendations Carousel Grid ("Dazu passt auch") -->
 <div class="mt-20 lg:mt-28 mb-12">
 <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
@@ -463,262 +380,10 @@
 <!-- BEGIN: SiteFooter -->
 {% include 'includes/footer.html' %}
 <!-- END: SiteFooter -->
-<!-- BEGIN: Size Guide Modal Dialog (Architectural & Interactive) -->
-<div aria-labelledby="modalTitle" aria-modal="true" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 md:p-6 select-text overflow-y-auto" id="sizeGuideModal" role="dialog">
-<!-- Backdrop Blur Overlay -->
-<div class="fixed inset-0 bg-[#171E19]/65 backdrop-blur-sm transition-opacity duration-300" id="modalBackdrop"></div>
-<!-- Modal Dialog Window -->
-<div class="relative w-full max-w-3xl bg-[#F8F8F3] border border-border-subtle shadow-2xl z-10 my-auto flex flex-col max-h-[92vh] overflow-hidden transition-all duration-300 transform scale-100 opacity-100">
-<!-- Modal Header -->
-<div class="px-6 py-5 bg-[#EEEEE7] border-b border-border-subtle flex items-start justify-between gap-4">
-<div>
-<div class="flex items-center gap-2 mb-1">
-<span class="text-[11px] font-bold tracking-widest uppercase text-primary bg-primary/10 px-2 py-0.5">{% text 'catalog.product.text.73fd7ccac414' %}</span>
-<span class="text-xs text-text-muted">{% text 'catalog.product.text.ca42bc0f2d3d' %}</span>
-</div>
-<h2 class="text-xl sm:text-2xl font-serif text-text-primary font-medium tracking-tight" id="modalTitle">
-          {% text 'catalog.product.text.d51a6b26c09b' %}
-        </h2>
-<p class="text-xs sm:text-sm text-text-muted mt-0.5">
-          {% text 'catalog.product.text.b1bacc497050' %}
-        </p>
-</div>
-<!-- Close Button -->
-<button aria-label="{% text 'catalog.product.label.488e263349c4' %}" class="p-2 -mr-1 text-text-muted hover:text-text-primary hover:bg-[#DCDED5]/50 transition-colors focus:outline-none" id="closeSizeGuideBtn" type="button">
-<span class="material-symbols-outlined text-[24px]">{% text 'catalog.product.text.da38860cb875' %}</span>
-</button>
-</div>
-<!-- Navigation Sub-Bar & Unit Switcher -->
-<div class="px-6 py-3 border-b border-border-subtle bg-white/70 flex flex-wrap items-center justify-between gap-3">
-<!-- Category Tabs -->
-<div class="flex items-center gap-1 sm:gap-2">
-<button class="px-3.5 py-1.5 text-xs uppercase tracking-wider font-semibold bg-primary text-on-primary transition-all" type="button">
-          {% text 'catalog.product.text.a5470ecd86a0' %}
-        </button>
-<button class="px-3.5 py-1.5 text-xs uppercase tracking-wider font-medium text-text-muted hover:text-text-primary hover:bg-surface-muted transition-all" type="button">
-          {% text 'navigation.swimwear' %}
-        </button>
-<button class="px-3.5 py-1.5 text-xs uppercase tracking-wider font-medium text-text-muted hover:text-text-primary hover:bg-surface-muted transition-all" type="button">
-          {% text 'catalog.product.text.fd773c2800ad' %}
-        </button>
-</div>
-<!-- Unit Toggle (CM / INCH) -->
-<div class="flex items-center bg-surface-muted p-0.5 border border-border-subtle">
-<button class="px-3 py-1 text-xs font-bold tracking-wider uppercase bg-primary text-on-primary transition-all shadow-sm" id="unitCmBtn" type="button">
-          {% text 'catalog.product.text.1060274bc900' %}
-        </button>
-<button class="px-3 py-1 text-xs font-medium tracking-wider uppercase text-text-muted hover:text-text-primary transition-all" id="unitInchBtn" type="button">
-          {% text 'catalog.product.text.12ea2fd6f5b7' %}
-        </button>
-</div>
-</div>
-<!-- Scrollable Modal Content Body -->
-<div class="p-6 overflow-y-auto space-y-6">
-<!-- Size Chart Table Container -->
-<div class="border border-border-subtle bg-white overflow-hidden shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
-<div class="overflow-x-auto">
-<table class="w-full text-left border-collapse text-xs sm:text-sm">
-<thead>
-<tr class="bg-surface-muted border-b border-border-subtle text-text-muted text-[11px] uppercase tracking-wider font-semibold">
-<th class="py-3 px-4">{% text 'catalog.product.text.b0f8d7ed0bea' %}</th>
-<th class="py-3 px-4">
-                  {% text 'catalog.product.text.606617bfdd2b' %}<span class="unitLabel">{% text 'catalog.product.text.e283e1df945b' %}</span>)
-                </th>
-<th class="py-3 px-4">
-                  {% text 'catalog.product.text.dd7498d902d7' %}<span class="unitLabel">{% text 'catalog.product.text.e283e1df945b' %}</span>)
-                </th>
-<th class="py-3 px-4">{% text 'catalog.product.text.729640184777' %}</th>
-<th class="py-3 px-4 text-right">{% text 'catalog.product.text.bae7d5be7082' %}</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-border-subtle/80 text-text-primary font-normal">
-<!-- S -->
-<tr class="hover:bg-brand-surface/40 transition-colors">
-<td class="py-3 px-4 font-semibold">{% text 'catalog.product.text.02aa629c8b16' %}</td>
-<td class="py-3 px-4 val-waist" data-cm="78 – 83" data-inch="30.7 – 32.7">78 – 83</td>
-<td class="py-3 px-4 val-hip" data-cm="92 – 97" data-inch="36.2 – 38.2">92 – 97</td>
-<td class="py-3 px-4 text-text-muted">4 / 46–48</td>
-<td class="py-3 px-4 text-right">
-<span class="inline-block w-2 h-2 rounded-full bg-emerald-600 mr-1.5 align-middle"></span>
-<span class="text-xs text-text-muted">{% text 'catalog.product.text.043ab7aca78b' %}</span>
-</td>
-</tr>
-<!-- M (Selected / Highlighted) -->
-<tr class="bg-[#183F30]/10 font-medium relative border-l-4 border-l-primary">
-<td class="py-3 px-4 font-bold text-primary flex items-center gap-2">
-<span>{% text 'catalog.product.text.c63ae6dd4fc9' %}</span>
-<span class="text-[10px] bg-primary text-on-primary px-1.5 py-0.5 uppercase tracking-wider font-semibold">{% text 'catalog.product.text.f6752774f252' %}</span>
-</td>
-<td class="py-3 px-4 font-semibold text-text-primary val-waist" data-cm="84 – 89" data-inch="33.1 – 35.0">84 – 89</td>
-<td class="py-3 px-4 font-semibold text-text-primary val-hip" data-cm="98 – 103" data-inch="38.6 – 40.6">98 – 103</td>
-<td class="py-3 px-4 font-semibold text-text-primary">5 / 50</td>
-<td class="py-3 px-4 text-right">
-<span class="inline-block w-2 h-2 rounded-full bg-emerald-600 mr-1.5 align-middle"></span>
-<span class="text-xs font-semibold text-primary">{% text 'catalog.product.text.7a4f8eac30d5' %}</span>
-</td>
-</tr>
-<!-- L -->
-<tr class="hover:bg-brand-surface/40 transition-colors">
-<td class="py-3 px-4 font-semibold">{% text 'catalog.product.text.d160e0986aca' %}</td>
-<td class="py-3 px-4 val-waist" data-cm="90 – 95" data-inch="35.4 – 37.4">90 – 95</td>
-<td class="py-3 px-4 val-hip" data-cm="104 – 109" data-inch="40.9 – 42.9">104 – 109</td>
-<td class="py-3 px-4 text-text-muted">6 / 52</td>
-<td class="py-3 px-4 text-right">
-<span class="inline-block w-2 h-2 rounded-full bg-emerald-600 mr-1.5 align-middle"></span>
-<span class="text-xs text-text-muted">{% text 'catalog.product.text.043ab7aca78b' %}</span>
-</td>
-</tr>
-<!-- XL -->
-<tr class="hover:bg-brand-surface/40 transition-colors">
-<td class="py-3 px-4 font-semibold">{% text 'catalog.product.text.a2f9d0d16d02' %}</td>
-<td class="py-3 px-4 val-waist" data-cm="96 – 102" data-inch="37.8 – 40.2">96 – 102</td>
-<td class="py-3 px-4 val-hip" data-cm="110 – 115" data-inch="43.3 – 45.3">110 – 115</td>
-<td class="py-3 px-4 text-text-muted">7 / 54</td>
-<td class="py-3 px-4 text-right">
-<span class="inline-block w-2 h-2 rounded-full bg-emerald-600 mr-1.5 align-middle"></span>
-<span class="text-xs text-text-muted">{% text 'catalog.product.text.043ab7aca78b' %}</span>
-</td>
-</tr>
-<!-- XXL -->
-<tr class="opacity-60 bg-surface-muted/30">
-<td class="py-3 px-4 font-semibold">{% text 'catalog.product.text.a9a63fabb948' %}</td>
-<td class="py-3 px-4 val-waist" data-cm="103 – 109" data-inch="40.6 – 42.9">103 – 109</td>
-<td class="py-3 px-4 val-hip" data-cm="116 – 122" data-inch="45.7 – 48.0">116 – 122</td>
-<td class="py-3 px-4 text-text-muted">8 / 56</td>
-<td class="py-3 px-4 text-right text-xs text-text-muted italic">{% text 'catalog.product.text.61b078f6ec81' %}</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<!-- Expert Tip Banner -->
-<div class="bg-surface-muted border-l-4 border-primary p-4 flex gap-3.5 items-start">
-<span class="material-symbols-outlined text-primary text-[22px] shrink-0 mt-0.5">{% text 'catalog.product.text.4ca482dabe52' %}</span>
-<div>
-<h4 class="text-xs font-bold uppercase tracking-wider text-primary mb-1">{% text 'catalog.product.text.85118b00fe57' %}</h4>
-<p class="text-xs sm:text-sm text-text-primary leading-relaxed">
-            {% text 'catalog.product.text.ef155af8d0f7' %}
-          </p>
-</div>
-</div>
-<!-- Measuring Guide: "So messen Sie richtig" -->
-<div class="bg-white p-5 border border-border-subtle">
-<h4 class="text-xs font-bold uppercase tracking-wider text-text-primary mb-3.5 flex items-center gap-2">
-<span class="material-symbols-outlined text-[18px] text-primary">{% text 'catalog.product.text.26d194e1f4e4' %}</span>
-<span>{% text 'catalog.product.text.77839f64ae7a' %}</span>
-</h4>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
-<div class="space-y-1.5">
-<div class="flex items-center gap-2 font-semibold text-text-primary">
-<span class="w-5 h-5 bg-surface-muted text-primary flex items-center justify-center font-bold text-xs">1</span>
-<span>{% text 'catalog.product.text.4f84cec93386' %}</span>
-</div>
-<p class="text-text-muted pl-7 text-xs leading-relaxed">
-              {% text 'catalog.product.text.36b1ae43d7d0' %}
-            </p>
-</div>
-<div class="space-y-1.5">
-<div class="flex items-center gap-2 font-semibold text-text-primary">
-<span class="w-5 h-5 bg-surface-muted text-primary flex items-center justify-center font-bold text-xs">2</span>
-<span>{% text 'catalog.product.text.a49068f86c78' %}</span>
-</div>
-<p class="text-text-muted pl-7 text-xs leading-relaxed">
-              {% text 'catalog.product.text.1384890dcb6b' %}
-            </p>
-</div>
-</div>
-</div>
-</div>
-<!-- Modal Footer Actions -->
-<div class="px-6 py-4 bg-surface-muted border-t border-border-subtle flex flex-col sm:flex-row items-center justify-between gap-3 select-none">
-<div class="flex items-center gap-2 text-xs text-text-muted">
-<span class="material-symbols-outlined text-[16px] text-primary">{% text 'catalog.product.text.aa8d0cb1881e' %}</span>
-<span>{% text 'catalog.product.text.e020c3f7e2bc' %}</span>
-</div>
-<button class="w-full sm:w-auto px-6 py-3 bg-primary hover:bg-[#133327] text-on-primary text-xs uppercase tracking-widest font-semibold transition-colors flex items-center justify-center gap-2" id="confirmSizeBtn" type="button">
-<span>{% text 'catalog.product.text.f8ad556caace' %}</span>
-<span class="material-symbols-outlined text-[18px]">{% text 'catalog.product.text.e5fd9cfe0e80' %}</span>
-</button>
-</div>
-</div>
-</div>
-<!-- END: Size Guide Modal Dialog -->
-<script>
-  // Size Guide Modal Interactions & Unit Switcher
-  document.addEventListener('DOMContentLoaded', () => {
-    // 1. Gallery Thumbnails switching
-    const thumbs = document.querySelectorAll('[aria-label^="Ansicht"]');
-    thumbs.forEach(thumb => {
-      thumb.addEventListener('click', () => {
-        thumbs.forEach(t => t.classList.remove('ring-2', 'ring-primary'));
-        thumb.classList.add('ring-2', 'ring-primary');
-      });
-    });
-
-    // 2. Size Guide Modal Controls
-    const modal = document.getElementById('sizeGuideModal');
-    const openBtn = document.getElementById('openSizeGuideBtn');
-    const closeBtn = document.getElementById('closeSizeGuideBtn');
-    const confirmBtn = document.getElementById('confirmSizeBtn');
-    const backdrop = document.getElementById('modalBackdrop');
-
-    const openModal = () => {
-      modal.classList.remove('hidden');
-      document.body.classList.add('overflow-hidden');
-    };
-
-    const closeModal = () => {
-      modal.classList.add('hidden');
-      document.body.classList.remove('overflow-hidden');
-    };
-
-    if (openBtn) openBtn.addEventListener('click', openModal);
-    if (closeBtn) closeBtn.addEventListener('click', closeModal);
-    if (confirmBtn) confirmBtn.addEventListener('click', closeModal);
-    if (backdrop) backdrop.addEventListener('click', closeModal);
-
-    // Escape Key listener
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
-        closeModal();
-      }
-    });
-
-    // 3. Unit Toggle (CM vs INCH)
-    const unitCmBtn = document.getElementById('unitCmBtn');
-    const unitInchBtn = document.getElementById('unitInchBtn');
-    const unitLabels = document.querySelectorAll('.unitLabel');
-    const waistCells = document.querySelectorAll('.val-waist');
-    const hipCells = document.querySelectorAll('.val-hip');
-
-    const setUnit = (unit) => {
-      if (unit === 'inch') {
-        unitInchBtn.classList.remove('text-text-muted', 'font-medium');
-        unitInchBtn.classList.add('bg-primary', 'text-on-primary', 'font-bold', 'shadow-sm');
-        unitCmBtn.classList.remove('bg-primary', 'text-on-primary', 'font-bold', 'shadow-sm');
-        unitCmBtn.classList.add('text-text-muted', 'font-medium');
-
-        unitLabels.forEach(el => el.textContent = 'inch');
-        waistCells.forEach(cell => cell.textContent = cell.getAttribute('data-inch'));
-        hipCells.forEach(cell => cell.textContent = cell.getAttribute('data-inch'));
-      } else {
-        unitCmBtn.classList.remove('text-text-muted', 'font-medium');
-        unitCmBtn.classList.add('bg-primary', 'text-on-primary', 'font-bold', 'shadow-sm');
-        unitInchBtn.classList.remove('bg-primary', 'text-on-primary', 'font-bold', 'shadow-sm');
-        unitInchBtn.classList.add('text-text-muted', 'font-medium');
-
-        unitLabels.forEach(el => el.textContent = 'cm');
-        waistCells.forEach(cell => cell.textContent = cell.getAttribute('data-cm'));
-        hipCells.forEach(cell => cell.textContent = cell.getAttribute('data-cm'));
-      }
-    };
-
-    if (unitCmBtn) unitCmBtn.addEventListener('click', () => setUnit('cm'));
-    if (unitInchBtn) unitInchBtn.addEventListener('click', () => setUnit('inch'));
-  });
-</script>
-
+{% include 'catalog/includes/size_guide.html' %}
+<script src="{% static 'storefront/product-information.js' %}?v=20261020" defer></script>
 {{ products|json_script:"catalog-products" }}
 {{ catalog_selection_texts|json_script:"catalog-selection-texts" }}
-<script src="{% static 'storefront/catalog-selection.js' %}?v=commerce-20261020" defer></script>
+<script src="{% static 'storefront/product-gallery.js' %}?v=20261020" defer></script>
+<script src="{% static 'storefront/catalog-selection.js' %}?v=gallery-20261020" defer></script>
 {% endblock %}

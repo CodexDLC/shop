@@ -149,16 +149,15 @@ def test_authenticator_secret_is_encrypted_and_roundtrips():
     assert ShopMFAAdapter().decrypt(auth.data["secret"]) == secret
 
 
-def test_staff_cannot_deactivate_authenticator_via_allauth(client):
+def test_staff_can_deactivate_own_authenticator_via_allauth(client):
     account = user()
     auth = totp(account)
     client.force_login(account)
     record(client, auth)
-    assert not ShopMFAAdapter().can_delete_authenticator(auth)
+    assert ShopMFAAdapter().can_delete_authenticator(auth)
     response = client.post(reverse("mfa_deactivate_totp"))
-    assert response.status_code == 200
-    assert Authenticator.objects.filter(pk=auth.pk).exists()
-    assert response.context["form"].errors
+    assert response.status_code == 302
+    assert not Authenticator.objects.filter(pk=auth.pk).exists()
 
 
 def test_real_recovery_code_is_accepted_only_once():
@@ -250,4 +249,19 @@ def test_direct_enrollment_post_cannot_bypass_missing_verified_email(client):
     response = client.post(reverse("mfa_activate_totp"), {"code": code})
     assert response.status_code == 200
     assert response.context["form"].errors.as_data()["code"][0].code == "unverified_email"
+    assert not Authenticator.objects.filter(user=account).exists()
+
+
+def test_default_mfa_policy_is_voluntary():
+    from web.config.settings.identity import SHOP_STAFF_MFA_REQUIRED
+    assert SHOP_STAFF_MFA_REQUIRED is False
+
+
+@pytest.mark.parametrize('endpoint', ['staff:home', 'admin:index'])
+def test_optional_mfa_does_not_require_enrollment_for_staff(client, settings, endpoint):
+    settings.SHOP_STAFF_MFA_REQUIRED = False
+    account = user()
+    client.force_login(account)
+    response = client.get(reverse(endpoint))
+    assert response.status_code == 200
     assert not Authenticator.objects.filter(user=account).exists()

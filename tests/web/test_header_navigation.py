@@ -8,9 +8,10 @@ import pytest
 from django.core.management import call_command
 from django.template.loader import render_to_string
 from django.urls import reverse
+from django.utils import timezone
 from django.utils.translation import override
 
-from web.catalog.models import Brand
+from web.catalog.models import Brand, Product, ProductVariant
 
 pytestmark = pytest.mark.django_db
 
@@ -25,8 +26,18 @@ class HeaderElements(HTMLParser):
         self.elements.append((tag, dict(attrs)))
 
 
-def test_header_links_are_explicit_real_destinations_without_database_queries(django_assert_num_queries):
-    with override("de"), django_assert_num_queries(0):
+@pytest.fixture
+def populated_navigation():
+    call_command("seed_demo_catalog")
+    Product.objects.update(new_until=timezone.localdate())
+    ProductVariant.objects.update(is_on_sale=True)
+    category = Product.objects.first().category
+    category.section = "swimwear"
+    category.save(update_fields=["section"])
+
+
+def test_header_links_are_explicit_real_destinations_with_one_visibility_query(populated_navigation, django_assert_num_queries):
+    with override("de"), django_assert_num_queries(1):
         html = render_to_string("includes/header.html")
         root = reverse("catalog:list")
         expected = [root + "?new=1", root + "?section=underwear", root + "?section=swimwear",
@@ -58,7 +69,7 @@ def test_mobile_navigation_has_native_disclosure_and_real_wishlist():
     assert reverse("cart:detail") in html
 
 
-def test_header_destinations_respect_language_prefix():
+def test_header_destinations_respect_language_prefix(populated_navigation):
     with override("ru"):
         html = render_to_string("includes/header.html")
     assert 'href="/ru/katalog/?section=underwear"' in html

@@ -1,0 +1,34 @@
+{% load shop_i18n %}
+{# [LIBRARY] Topbar dropdown segment — used for regrouped nav groups (V1 or V2) #}
+<div class="dropdown">
+  <button class="btn btn-sm d-flex align-items-center gap-2 dropdown-toggle"
+          type="button" data-bs-toggle="dropdown"
+          style="color: var(--cab-text); font-size: 0.875rem; font-weight: 500;">
+    {% if group.grouper == 'admin' %}
+      <span class="bi bi-grid-3x3-gap fs-6"></span>
+      {% text 'staff.nav.group_admin' %}
+    {% else %}
+      <span class="bi bi-plug fs-6"></span>
+      {% text 'staff.nav.group_services' %}
+    {% endif %}
+  </button>
+  <ul class="dropdown-menu shadow" style="min-width:210px;">
+    <li>
+      <h6 class="dropdown-header" style="font-size:.7rem;letter-spacing:.06em;">
+        {% if group.grouper == 'admin' %}{% text 'staff.nav.group_sections' %}{% else %}{% text 'staff.nav.group_services' %}{% endif %}
+      </h6>
+    </li>
+    {% for entry in group.list %}
+      <li>
+        <a class="dropdown-item d-flex align-items-center gap-2 py-2"
+           href="{{ entry.url }}">
+          <span class="bi {{ entry.icon }}" style="color:var(--cab-primary);width:16px;"></span>
+          {{ entry.label }}
+          {% if request.path == entry.url %}
+            <span class="ms-auto bi bi-check2" style="color:var(--cab-primary);"></span>
+          {% endif %}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

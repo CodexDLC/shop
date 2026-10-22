@@ -1,0 +1,17 @@
+{% load static cabinet_tags %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{# 1. Library defaults: tokens → layout → components → Bootstrap #}
+<link rel="stylesheet" href="{% static 'cabinet/css/cab_tokens.css' %}">
+<link rel="stylesheet" href="{% static 'cabinet/css/cab_layout.css' %}">
+<link rel="stylesheet" href="{% static 'cabinet/css/cab_components.css' %}">
+<link rel="stylesheet" href="{% static 'cabinet/css/vendor/tippy.css' %}">
+<link rel="stylesheet" href="{% static 'cabinet/css/codex_cabinet.css' %}">
+
+{# 2. Optional project theme layer and explicit project overrides #}
+<link rel="stylesheet" href="{% static 'cabinet/css/app_cabinet.css' %}?v=workspace-20261022-ready2">
+{% block cabinet_css %}{% endblock %}
+
+{# 3. Page-specific styles #}
+{% block extra_css %}{% endblock %}

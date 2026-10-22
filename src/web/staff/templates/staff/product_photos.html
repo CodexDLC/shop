@@ -1,0 +1,38 @@
+{% extends "staff/base.html" %}
+{% load shop_i18n %}
+{% block cabinet_content %}
+<section aria-labelledby="photos-title">
+  <h1 id="photos-title" class="h3">{% text 'staff.photos.title' %} — {{ product.model_name }}</h1>
+  {% include 'staff/includes/product_tabs.html' %}
+  <p class="text-muted">{% text 'staff.photos.instructions' %}</p>
+  {% if photo_error %}<div class="alert alert-danger" role="alert">{{ photo_error }}</div>{% endif %}
+  {% if product.is_active %}<div class="alert alert-warning">{% text 'staff.photos.published' %}</div>{% endif %}
+  <div class="row g-3">
+  {% for row in photo_rows %}
+  <div class="col-12 col-md-6 col-xl-4"><article class="card h-100"><div class="card-body">
+    <img src="{{ row.image.public_url }}" alt="{% if row.image.alt_text %}{{ row.image.alt_text }}{% else %}{% text row.image.alt_key %}{% endif %}" class="img-fluid rounded mb-3" width="320" height="320" style="object-fit:contain;max-height:240px">
+    {% if row.image.alt_key and not row.image.alt_text %}<p class="small text-muted">{% text 'staff.photos.legacy_alt' %}: {% text row.image.alt_key %}</p>{% endif %}
+    {% if not product.is_active %}
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}<input type="hidden" name="original_state" value="{{ original_state }}"><input type="hidden" name="image_id" value="{{ row.image.pk }}">
+      {{ row.form.non_field_errors }}
+      {% for field in row.form %}<div class="mb-3">{{ field.label_tag }}{{ field }}{{ field.errors }}</div>{% endfor %}
+      <button class="btn btn-primary" name="action" value="update" type="submit">{% text 'staff.photos.save' %}</button>
+      {% if perms.catalog.delete_productimage %}<button class="btn btn-outline-danger" name="action" value="delete" type="submit" formnovalidate>{% text 'staff.photos.delete' %}</button>{% endif %}
+    </form>
+    {% endif %}
+  </div></article></div>
+  {% empty %}<p>{% text 'staff.photos.empty' %}</p>{% endfor %}
+  </div>
+  {% if not product.is_active and perms.catalog.add_productimage and perms.catalog.change_product %}
+  <div class="card mt-4"><div class="card-body">
+    <h2 class="h5">{% text 'staff.photos.add' %}</h2>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}<input type="hidden" name="original_state" value="{{ original_state }}">
+      {{ new_form.non_field_errors }}
+      {% for field in new_form %}<div class="mb-3">{{ field.label_tag }}{{ field }}{{ field.errors }}</div>{% endfor %}
+      <button class="btn btn-primary" name="action" value="create" type="submit">{% text 'staff.photos.add' %}</button>
+    </form>
+  </div></div>{% endif %}
+</section>
+{% endblock %}

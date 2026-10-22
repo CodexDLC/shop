@@ -3,6 +3,9 @@
 .catalog-listing input:focus-visible,.catalog-listing button:focus-visible,.catalog-listing a:focus-visible,.catalog-listing select:focus-visible{outline:2px solid var(--shop-accent,#183F30);outline-offset:3px}
 .catalog-listing-card{min-width:0}.catalog-listing-card h3,.catalog-listing-card p{overflow-wrap:anywhere}
 .catalog-listing input[type=checkbox]{flex-shrink:0}.catalog-listing fieldset{min-width:0}
+.catalog-filter-sidebar label{min-width:0}
+.catalog-filter-sidebar label>span:last-child{min-width:0;overflow-wrap:anywhere}
+.catalog-listing .catalog-filter-chip{max-width:100%;min-width:0;overflow-wrap:anywhere}
 .catalog-listing .catalog-product-rail{min-width:0}
 @media(max-width:767px){
 .catalog-listing .catalog-workspace{display:flex;flex-direction:column}

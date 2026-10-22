@@ -20,3 +20,5 @@ description: "Use when placing or changing code across the independent commerce 
 - [Контракт ошибок](references/error-contract.md) — при новых фичах, ответах API/HTML, обработке исключений и внешних сбоев; общий формат, ошибки фич, понятные тексты и безопасные действия.
 
 - [Аналитика каждой фичи](references/analytics-and-consent.md) — при разработке любой фичи: события/поля, основания и согласия, хранение, отзыв и проверки; не откладывать на завершение магазина.
+
+- [SEO магазина](references/seo.md) — при изменениях head, публичных URL, JSON-LD, фильтров, sitemap и опубликованных языков; применять вместе с глобальным seo-architecture.

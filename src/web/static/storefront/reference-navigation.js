@@ -50,7 +50,4 @@
  },true);
  const tab=location.hash.slice(1);
  if(page==='account-profile.html'&&/^tab-/.test(tab)&&typeof window.switchTab==='function')setTimeout(()=>window.switchTab(tab),0);
- // The supplied modal reference is shown open for design review; in the linked
- // storefront it opens from the existing size-guide control or a direct hash.
- if(page==='product.html'&&location.hash!=='#sizeGuideModal')document.getElementById('sizeGuideModal')?.classList.add('hidden');
 })();

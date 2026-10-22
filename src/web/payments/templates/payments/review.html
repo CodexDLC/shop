@@ -3,9 +3,6 @@
 {% block page_head %}
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>
-{% text 'payments.review.text.62d58d48f882' %}
-</title>
 <!-- Tailwind CSS v3 with Plugins -->
 <script src="{% static 'storefront/vendor/tailwind-runtime.js' %}?plugins=forms,container-queries">
 </script>
@@ -182,9 +179,7 @@
 {% text 'commerce.checkout.edit' %}
 </a>
 </div>
-<address class="not-italic font-body-md text-body-md">{{ checkout_address.first_name }} {{ checkout_address.last_name }}<br>{{ checkout_address.street }}<br>{{ checkout_address.postal_code }} {{ checkout_address.city }}<br>
-{% text 'commerce.checkout.country.de' %}
-<br>{{ checkout_address.email }}</address>
+{% include 'orders/includes/address_snapshot.html' with address=checkout_address %}{% if checkout_billing_address %}<h3 class="font-label-md uppercase mt-5 mb-2">{% text 'commerce.checkout.billing_address' %}</h3>{% include 'orders/includes/address_snapshot.html' with address=checkout_billing_address %}{% endif %}
 </div>
 <div class="p-5 bg-surface-muted flex flex-col justify-between">
 <h3 class="font-label-sm text-label-sm uppercase tracking-wider text-primary mb-4">

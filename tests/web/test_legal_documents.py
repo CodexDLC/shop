@@ -8,12 +8,14 @@ from django.utils.translation import override
 from web.localization.translation import source_messages
 from web.support.legal_documents import legal_documents
 
+pytestmark = pytest.mark.django_db
+
 
 @pytest.mark.django_db
 @pytest.mark.parametrize("document", legal_documents(), ids=lambda item: item.slug)
 def test_public_documents_read_without_database_mutation(document, django_assert_num_queries):
     client = Client(enforce_csrf_checks=True)
-    with django_assert_num_queries(0):
+    with django_assert_num_queries(1):
         response = client.get(reverse(f"support:{document.url_name}"))
     assert response.status_code == 200
     assert not response.wsgi_request.user.is_authenticated

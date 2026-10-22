@@ -1,0 +1,15 @@
+{% extends "staff/base.html" %}
+{% load shop_i18n static %}
+{% block staff_page_css %}<link rel="stylesheet" href="{% static 'cabinet/css/record-cards.css' %}">{% endblock %}
+{% block cabinet_content %}
+<section class="staff-record" aria-labelledby="reference-title">
+  <a class="btn btn-outline-secondary mb-3" href="{{ back_url }}">{% text 'staff.workspace_catalog.back' %}</a>
+  <div class="d-flex flex-wrap justify-content-between gap-3 mb-3"><h1 class="h3" id="reference-title">{% text title_key %}: {{ object_label }}</h1>{% if edit_url %}<a class="btn btn-primary" href="{{ edit_url }}">{% text 'staff.workspace_catalog.edit' %}</a>{% endif %}</div>
+  {% if resource == 'reviews' %}<p class="text-muted">{% text 'staff.workspace_catalog.review_notice' %}</p>{% endif %}
+  {% if resource == 'photos' %}<p class="text-muted">{% text 'staff.workspace_catalog.photo_notice' %}</p>{% if photo_url %}<img src="{{ photo_url }}" alt="{{ object.alt_text }}" class="img-fluid rounded mb-3" width="240" loading="lazy">{% endif %}{% endif %}
+  <section class="record-panel"><h2 class="h5">{% text 'staff.cards.overview' %}</h2><dl class="record-facts">{% for label, value in values %}<div{% if label == 'staff.workspace_catalog.field.body' or label == 'staff.workspace_catalog.field.instructions' %} class="record-wide"{% endif %}><dt>{% text label %}</dt><dd class="record-prose">{{ value|default_if_none:'—' }}</dd></div>{% empty %}<p>{% text 'staff.cards.tag_notice' %}</p>{% endfor %}</dl></section>
+  {% if technical %}<details class="record-panel"><summary>{% text 'staff.cards.technical' %}</summary><dl class="record-facts">{% for label,value in technical %}<div><dt>{% text label %}</dt><dd>{{ value }}</dd></div>{% endfor %}</dl></details>{% endif %}
+  {% if resource == 'size_guides' %}<h2 class="h5">{% text 'staff.workspace_catalog.rows' %}</h2><div class="table-responsive"><table class="table"><thead><tr><th scope="col">{% text 'staff.workspace_catalog.field.size' %}</th><th scope="col">{% text 'staff.workspace_catalog.waist' %}</th><th scope="col">{% text 'staff.workspace_catalog.hip' %}</th></tr></thead><tbody>{% for row in guide_rows %}<tr><td>{{ row.size }}</td><td>{{ row.waist_min_cm|default_if_none:'—' }} – {{ row.waist_max_cm|default_if_none:'—' }}</td><td>{{ row.hip_min_cm|default_if_none:'—' }} – {{ row.hip_max_cm|default_if_none:'—' }}</td></tr>{% empty %}<tr><td colspan="3">{% text 'staff.workspace_catalog.empty' %}</td></tr>{% endfor %}</tbody></table></div>{% endif %}
+  {% if products %}<h2 class="h5">{% text 'staff.workspace_catalog.products' %}</h2><p class="text-muted">{% text 'staff.workspace_catalog.products_limit' %}</p><ul>{% for product in products %}<li>{% if perms.catalog.change_product %}<a href="{% url 'staff:product_edit' pk=product.pk %}">{{ product.brand.name }} · {{ product.model_name }}</a>{% else %}{{ product.brand.name }} · {{ product.model_name }}{% endif %}</li>{% endfor %}</ul>{% endif %}
+</section>
+{% endblock %}

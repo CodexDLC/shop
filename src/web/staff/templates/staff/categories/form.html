@@ -1,0 +1,20 @@
+{% extends "staff/base.html" %}
+{% load static shop_i18n %}
+{% block staff_page_css %}<link rel="stylesheet" href="{% static 'cabinet/css/category-management.css' %}?v=20261022">{% endblock %}
+{% block cabinet_content %}
+<section class="category-manager" aria-labelledby="category-title">
+  <a class="btn btn-outline-secondary mb-3" href="{% url 'staff:categories' %}">{% text 'staff.workspace_catalog.back' %}</a>
+  <div class="category-heading"><h1 class="h3" id="category-title">{% if category.pk %}{{ category.name }}{% else %}{% text 'staff.categories.add' %}{% endif %}</h1>{% if category.pk %}<a class="btn btn-outline-secondary" href="{% url 'staff:category_preview' pk=category.pk %}">{% text 'staff.categories.preview' %}</a>{% endif %}</div>
+  <p class="text-muted">{% text 'staff.categories.form_help' %}</p>
+  {% if published_count %}<div class="alert alert-warning"><strong>{{ published_count }} {% text 'staff.categories.published_affected' %}</strong><p class="mb-0">{% text 'staff.categories.visibility_warning' %}</p></div>{% endif %}
+  <form method="post" enctype="multipart/form-data" class="category-edit-form" data-real-auth>
+    {% csrf_token %}<input type="hidden" name="original_state" value="{{ original_state }}">
+    {% if form.non_field_errors %}<div class="alert alert-danger" role="alert">{{ form.non_field_errors }}</div>{% endif %}
+    {% for group in form.field_groups %}<fieldset class="card card-body mb-3"><legend class="h5">{% text group.key %}</legend>
+    {% if group.key == 'staff.categories.group.image' and category.image %}<img class="category-current-image mb-3" src="{{ category.image.url }}" alt="{{ category.image_alt }}" width="160" height="160">{% endif %}
+    {% for field in group.fields %}<div class="mb-3">{% if field.field.widget.input_type == 'checkbox' %}<div class="form-check">{{ field }}<label class="form-check-label" for="{{ field.id_for_label }}">{{ field.label }}</label></div>{% else %}<label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}{% if field.field.required %} *{% endif %}</label>{{ field }}{% endif %}{% if field.help_text %}<div class="form-text">{{ field.help_text }}</div>{% endif %}{% for error in field.errors %}<div class="text-danger small" role="alert">{{ error }}</div>{% endfor %}</div>{% endfor %}
+    </fieldset>{% endfor %}
+    <div class="category-form-actions"><button class="btn btn-primary" type="submit">{% text 'staff.records.save' %}</button><a class="btn btn-outline-secondary" href="{% url 'staff:categories' %}">{% text 'staff.categories.cancel' %}</a></div>
+  </form>
+</section>
+{% endblock %}

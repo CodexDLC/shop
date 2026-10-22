@@ -17,6 +17,7 @@ def variant_editor(client):
                                                                       "add_productvariant"]))
     client.force_login(user)
     product = Product.objects.create(slug="matrix", model_name="Matrix",
+                                     is_active=False,
                                      brand=Brand.objects.create(slug="matrix", name="Matrix"),
                                      category=Category.objects.create(slug="matrix", name_key="matrix"))
     variant = ProductVariant.objects.create(product=product, sku="matrix-black-m", color_code="black",
@@ -149,10 +150,12 @@ def test_invalid_values_rejected(variant_editor, field, value):
 
 def test_published_product_cannot_lose_all_active_variants(variant_editor):
     client, _, product, variant = variant_editor
+    product.is_active = True
+    product.save(update_fields=['is_active'])
     data = editor_data(client, product)
     data.pop("variants-0-is_active")
     data["variants-0-price"] = "99.00"
-    assert client.post(reverse("staff:variants", kwargs={"pk": product.pk}), data).status_code == 400
+    assert client.post(reverse("staff:variants", kwargs={"pk": product.pk}), data).status_code == 403
     variant.refresh_from_db()
     assert variant.is_active and str(variant.price) == "12.50"
     assert not StaffAuditEvent.objects.exists()

@@ -3,6 +3,7 @@ from django import forms
 
 
 class QuickAccessForm(forms.Form):
+    state = forms.CharField(widget=forms.HiddenInput)
     links = forms.MultipleChoiceField(required=False, widget=forms.CheckboxSelectMultiple)
 
     def __init__(self, *args, user, **kwargs):

@@ -1,0 +1,1 @@
+{% load shop_i18n %}<dl class="row mb-3">{% for cell in fields %}<dt class="col-sm-4">{% text cell.label %}</dt><dd class="col-sm-8 text-break" style="white-space:pre-line">{% include 'staff/operations/cell.html' %}</dd>{% endfor %}</dl>

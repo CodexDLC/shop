@@ -127,6 +127,10 @@ def test_staff_can_save_new_until_without_changing_prices(sections, django_user_
     user.user_permissions.add(Permission.objects.get(content_type__app_label="catalog", codename="change_product"))
     client.force_login(user)
     product = sections[0]
+    # This test exercises draft metadata editing; published writes have their own guard tests.
+    product.is_active = False
+    product.editorial_state = 'draft'
+    product.save(update_fields=['is_active', 'editorial_state'])
     data = {"brand": product.brand_id, "category": product.category_id, "model_name": product.model_name,
             "slug": product.slug, "new_until": "2026-12-31",
             "original_state": ProductForm(instance=product).initial["original_state"]}
@@ -134,6 +138,7 @@ def test_staff_can_save_new_until_without_changing_prices(sections, django_user_
     assert response.status_code == 302
     product.refresh_from_db()
     assert product.new_until == date(2026, 12, 31)
+    assert not product.is_active and product.editorial_state == 'draft'
     assert product.variants.get().price == Decimal("20.00")
     # New merchandising date participates in optimistic concurrency protection.
     assert client.post(reverse("staff:product_edit", kwargs={"pk": product.pk}), data).status_code == 400
@@ -145,6 +150,9 @@ def test_sale_flag_participates_in_variant_edit_and_stale_protection(sections, d
                                                         codename__in=["change_product", "change_productvariant"]))
     client.force_login(user)
     product = sections[0]
+    product.is_active = False
+    product.editorial_state = 'draft'
+    product.save(update_fields=['is_active', 'editorial_state'])
     url = reverse("staff:variants", kwargs={"pk": product.pk})
     response = client.get(url)
     rows = response.context["formset"].initial
@@ -157,6 +165,8 @@ def test_sale_flag_participates_in_variant_edit_and_stale_protection(sections, d
     assert client.post(url, data).status_code == 302
     variant = product.variants.get()
     assert variant.is_on_sale is True and variant.price == Decimal("20.00") and variant.demo_quantity == 2
+    product.refresh_from_db()
+    assert not product.is_active and product.editorial_state == 'draft'
     assert client.post(url, data).status_code == 409
 
 
@@ -194,10 +204,10 @@ def test_combined_merchandising_keeps_fixed_query_budget(sections, django_assert
                                       category=product.category, new_until=timezone.localdate())
         ProductVariant.objects.create(product=item, sku=f"BUDGET-{index}", color_code="black",
                                       color_name_key="Black", size="M", price=20, is_on_sale=True)
-    with django_assert_num_queries(10):
+    with django_assert_num_queries(12):
         result = listing("section=underwear&new=1&sale=1")
         assert len(result["products"]) == 12
-    with django_assert_num_queries(10):
+    with django_assert_num_queries(12):
         result = listing("section=underwear&new=1&sale=1&q=SKU-0")
         assert len(result["products"]) == 1
 

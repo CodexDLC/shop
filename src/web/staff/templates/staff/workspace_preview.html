@@ -1,0 +1,10 @@
+{% extends 'staff/base.html' %}{% load shop_i18n %}
+{% block cabinet_content %}
+<section class="staff-workspace" aria-labelledby="workspace-title">
+<header class="staff-page-heading"><div><p class="staff-eyebrow">{% text 'staff.workspace.preview' %}</p><h1 id="workspace-title">{% text title_key %}</h1></div><span class="badge text-bg-secondary">{% text 'staff.workspace.not_connected' %}</span></header>
+<p class="staff-page-intro">{% text 'staff.workspace.preview_notice' %}</p>
+{% if existing_links %}<div class="staff-linked-resources">{% for item in existing_links %}<a class="btn btn-outline-secondary" href="{{ item.url }}">{% text item.label %} <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>{% endfor %}</div>{% endif %}
+<div class="staff-capability-grid">{% for item in capabilities %}<article class="card"><div class="card-body"><h2 class="h5">{% text item.title %}</h2><p class="text-muted">{% text item.description %}</p><span class="staff-muted-status"><i class="bi bi-clock" aria-hidden="true"></i> {% text 'staff.workspace.planned' %}</span></div></article>{% endfor %}</div>
+<section class="card mt-4"><div class="card-body"><h2 class="h5">{% text 'staff.workspace.connection_design' %}</h2><p class="text-muted">{% text 'staff.workspace.connection_explanation' %}</p><fieldset disabled aria-label="{% text 'staff.workspace.connection_design' %}"><div class="row g-3">{% for field in design_fields %}{% with key='staff.workspace.field.'|add:field %}<div class="col-md-6"><label class="form-label" for="workspace-{{ field }}">{% text key %}</label><input id="workspace-{{ field }}" class="form-control" placeholder="{% text 'staff.workspace.not_configured' %}" readonly></div>{% endwith %}{% endfor %}</div></fieldset></div></section>
+</section>
+{% endblock %}

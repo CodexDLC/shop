@@ -1,0 +1,13 @@
+{% extends 'staff/base.html' %}{% load shop_i18n static %}
+{% block staff_page_css %}<link rel="stylesheet" href="{% static 'cabinet/css/settings-workspace.css' %}">{% endblock %}
+{% block cabinet_content %}
+<section class="staff-settings-workspace" aria-labelledby="settings-title">
+<header class="staff-page-heading"><div><p class="staff-eyebrow">{% text 'staff.settings_workspace.eyebrow' %}</p><h1 id="settings-title">{% text settings_title %}</h1></div><span class="badge text-bg-secondary">{% text 'staff.workspace.not_connected' %}</span></header>
+<p class="staff-page-intro">{% text settings_intro %}</p>
+{% include 'staff/settings_navigation.html' %}
+<p class="alert alert-info">{% text 'staff.settings_workspace.design_notice' %}</p>
+<div class="staff-settings-grid">{% for card in settings_cards %}<section class="card" aria-labelledby="settings-{{ card.key }}"><div class="card-body"><h2 id="settings-{{ card.key }}" class="h5">{% text card.title %}</h2><p class="text-muted">{% text card.description %}</p>
+{% if card.links %}<div class="staff-settings-links"><span>{% text 'staff.settings_workspace.available' %}</span>{% for link in card.links %}<a href="{{ link.url }}">{% text link.label %} <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>{% endfor %}</div>{% endif %}
+<fieldset disabled class="staff-settings-design"><legend>{% text 'staff.settings_workspace.planned_fields' %}</legend>{% for field in card.fields %}<div class="staff-settings-field"><label for="settings-field-{{ field.key }}">{% text field.label %}</label>{% if field.type == 'textarea' %}<textarea id="settings-field-{{ field.key }}" class="form-control" rows="2" placeholder="{% text 'staff.workspace.not_configured' %}"></textarea>{% elif field.type == 'select' %}<select id="settings-field-{{ field.key }}" class="form-select"><option>{% text 'staff.workspace.not_configured' %}</option></select>{% else %}<input id="settings-field-{{ field.key }}" class="form-control" type="{{ field.type }}" placeholder="{% text 'staff.workspace.not_configured' %}">{% endif %}</div>{% endfor %}</fieldset>
+</div></section>{% endfor %}</div>
+</section>{% endblock %}

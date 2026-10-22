@@ -4,7 +4,9 @@
 
 [Собранная основа: установка и локальный запуск](project/foundation-run.md).
 
-[Текущий план разработки](project/development-workplan.md) · [Каталог, варианты и привязка ORM](project/catalog-read-api.md).
+[Остаток функций витрины вне кабинета](../tasks/active/2026-10-20-storefront-remaining.md) · [Текущий план разработки](project/development-workplan.md) · [Каталог, варианты и привязка ORM](project/catalog-read-api.md).
+
+[Характеристики товара, размерные таблицы и отзывы](project/product-information-size-reviews.md).
 
 [Общий каталог из базы, поиск и фильтры](project/catalog-listing.md) · [Задача и независимая приёмка](../tasks/active/2026-10-20-catalog-database-binding.md).
 
@@ -17,6 +19,8 @@
 [Единый вход и MFA: настройка и ограничения](project/identity-and-mfa.md).
 
 [Реализованный рабочий кабинет: вход, права и ограничения](project/staff-cabinet-run.md).
+
+[Редактор товара: фото, характеристики и публикация](project/staff-product-editor.md) · [Следующие задачи кабинета K1–K8](project/staff-cabinet-roadmap.md).
 
 [Перенос витрины в Django: статус и запуск](project/django-template-migration.md), [ключи локализации](project/django-localization.md).
 
@@ -40,3 +44,9 @@ Foundation, общий каталог из ORM, выбор вариантов, �
 Правила реализации: [AGENTS.md](../AGENTS.md). [Оплата: методы и выбор PSP](project/payment-selection.md).
 
 Проектные навыки в `.agents/skills/shop-*`: архитектура, каталог/фото, остатки/eBay, заказы/оплата и эксплуатация/безопасность. Короткий SKILL.md маршрутизирует к нужным references, включая подразделы будущих фич. Точки входа перечислены в AGENTS.md; библиотечные навыки управляются отдельно установщиками.
+
+[Промокоды, платёжный адрес и Packstation в тестовом checkout](project/checkout-promotions-addresses.md).
+
+[SEO-каркас: head, правила индексации, sitemap и языки](project/seo-foundation.md).
+
+[Рабочий кабинет: верхние группы, левое меню, реальные разделы и проекты настроек](project/staff-workspace.md).

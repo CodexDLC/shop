@@ -1,0 +1,56 @@
+{% load shop_i18n %}
+<dialog id="sizeGuideModal" class="product-size-dialog" aria-labelledby="modalTitle">
+<div class="relative w-full bg-[#F8F8F3] flex flex-col max-h-[92vh] overflow-hidden">
+  <div class="px-6 py-5 bg-[#EEEEE7] border-b border-border-subtle flex items-start justify-between gap-4">
+    <div><div class="flex items-center gap-2 mb-1"><span class="text-[11px] font-bold tracking-widest uppercase text-primary bg-primary/10 px-2 py-0.5">{{ product.brand }}</span><span class="text-xs text-text-muted">{{ product.name }}</span></div>
+    <h2 class="text-xl sm:text-2xl font-serif text-text-primary font-medium tracking-tight" id="modalTitle">{% text 'catalog.information.size_title' %}</h2>
+    <p class="text-xs sm:text-sm text-text-muted mt-0.5">{% if size_guide %}{{ size_guide.title }}{% else %}{% text 'catalog.information.size_subtitle' %}{% endif %}</p></div>
+    <button data-size-guide-close autofocus aria-label="{% text 'catalog.information.close' %}" class="product-info-control p-2 text-text-muted hover:text-text-primary" type="button">×</button>
+  </div>
+  <div class="px-6 py-3 border-b border-border-subtle bg-white/70 flex flex-wrap items-center justify-between gap-3">
+    <a href="#size-measuring-instructions" class="text-xs uppercase tracking-wider text-primary underline">{% text 'catalog.product.text.fd773c2800ad' %}</a>
+    <div class="flex items-center bg-surface-muted p-0.5 border border-border-subtle" role="group" aria-label="{% text 'catalog.information.units' %}">
+      <button data-guide-unit="cm" aria-pressed="true" class="product-info-control px-3 py-1 text-xs font-bold tracking-wider uppercase bg-primary text-on-primary" type="button">{% text 'catalog.information.cm' %}</button>
+      <button data-guide-unit="inch" aria-pressed="false" class="product-info-control px-3 py-1 text-xs tracking-wider uppercase text-text-muted" type="button">{% text 'catalog.information.inch' %}</button>
+    </div>
+  </div>
+  <div class="p-6 overflow-y-auto space-y-6">
+    {% if size_guide and size_guide.rows %}
+    <div class="border border-border-subtle bg-white overflow-x-auto">
+      <table class="w-full text-left border-collapse text-xs sm:text-sm">
+        <caption class="sr-only">{{ size_guide.title }}</caption>
+        <thead><tr class="bg-surface-muted border-b border-border-subtle text-text-muted text-[11px] uppercase tracking-wider font-semibold">
+          <th scope="col" class="py-3 px-4">{% text 'catalog.information.size' %}</th>
+          <th scope="col" class="py-3 px-4">{% text 'catalog.information.waist' %} (<span data-guide-unit-label>cm</span>)</th>
+          <th scope="col" class="py-3 px-4">{% text 'catalog.information.hip' %} (<span data-guide-unit-label>cm</span>)</th>
+          <th scope="col" class="py-3 px-4">{% text 'catalog.information.selection' %}</th>
+        </tr></thead>
+        <tbody class="divide-y divide-border-subtle/80 text-text-primary">
+          {% for row in size_guide.rows %}<tr data-guide-row="{{ row.size }}" class="hover:bg-brand-surface/40">
+            <th scope="row" class="py-3 px-4 font-semibold">{{ row.size }}</th>
+            <td class="py-3 px-4" data-measurement-cm="{{ row.waist_cm }}" data-measurement-inch="{{ row.waist_inch }}">{{ row.waist_cm }}</td>
+            <td class="py-3 px-4" data-measurement-cm="{{ row.hip_cm }}" data-measurement-inch="{{ row.hip_inch }}">{{ row.hip_cm }}</td>
+            <td class="py-3 px-4"><span data-guide-selected hidden>{% text 'catalog.information.selected_size' %}</span></td>
+          </tr>{% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p class="text-xs text-text-muted">{% text 'catalog.information.size_no_stock_claim' %}</p>
+    {% else %}<p data-size-guide-empty class="text-sm text-text-muted">{% text 'catalog.information.size_empty' %}</p>{% endif %}
+    {% if size_guide %}<div class="bg-surface-muted border-l-4 border-primary p-4">
+      {% if size_guide.instructions %}<p class="text-sm text-text-primary product-information-text">{{ size_guide.instructions }}</p>{% endif %}
+      <p class="text-xs text-text-muted mt-2">{% text 'catalog.information.source' %}: {% if size_guide.source_url %}<a data-real-navigation href="{{ size_guide.source_url }}" rel="noopener noreferrer" target="_blank" class="underline">{{ size_guide.source_label|default:size_guide.title }}</a>{% else %}{{ size_guide.source_label }}{% endif %}</p>
+    </div>{% endif %}
+    <div id="size-measuring-instructions" class="bg-white p-5 border border-border-subtle">
+      <h3 class="text-xs font-bold uppercase tracking-wider text-text-primary mb-3.5">{% text 'catalog.product.text.77839f64ae7a' %}</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+        <div><h4 class="font-semibold mb-1.5">{% text 'catalog.product.text.4f84cec93386' %}</h4><p class="text-text-muted">{% text 'catalog.product.text.36b1ae43d7d0' %}</p></div>
+        <div><h4 class="font-semibold mb-1.5">{% text 'catalog.product.text.a49068f86c78' %}</h4><p class="text-text-muted">{% text 'catalog.product.text.1384890dcb6b' %}</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="px-6 py-4 bg-surface-muted border-t border-border-subtle flex flex-col sm:flex-row items-center justify-between gap-3">
+    <p class="text-xs text-text-muted">{% text 'catalog.information.size_no_auto_selection' %}</p>
+    <button data-size-guide-close type="button" class="product-info-control w-full sm:w-auto px-6 py-3 bg-primary text-on-primary text-xs uppercase tracking-widest font-semibold">{% text 'catalog.information.close' %}</button>
+  </div>
+</div></dialog>

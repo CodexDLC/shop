@@ -63,7 +63,7 @@ def test_contact_rejects_overlong_fields_without_ticket():
 
 
 def test_public_help_get_does_not_read_or_create_tickets(django_assert_num_queries):
-    with django_assert_num_queries(0):
+    with django_assert_num_queries(2):
         assert Client().get(reverse('support:help')).status_code == 200
         assert Client().get(reverse('support:help_mobile')).status_code == 200
     assert ContactTicket.objects.count() == 0

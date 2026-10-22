@@ -19,6 +19,9 @@ class ProductListView(PermissionRequiredMixin, StaffPageView):
         query = self.request.GET.get("q", "").strip()[:200]
         brand = self.request.GET.get("brand", "").strip()[:120]
         category = self.request.GET.get("category", "").strip()[:120]
+        state = self.request.GET.get("state", "")
+        if state not in {"draft", "review", "published"}:
+            state = ""
         active = Q(variants__is_active=True)
         products = Product.objects.select_related("brand", "category").annotate(
             variant_count=Count("variants"),
@@ -38,6 +41,12 @@ class ProductListView(PermissionRequiredMixin, StaffPageView):
             products = products.filter(brand__slug=brand)
         if category:
             products = products.filter(category__slug=category)
+        if state == "published":
+            products = products.filter(is_active=True)
+        elif state == "review":
+            products = products.filter(is_active=False, editorial_state="review")
+        elif state == "draft":
+            products = products.filter(is_active=False).exclude(editorial_state="review")
         page = Paginator(products.order_by("pk"), self.page_size).get_page(self.request.GET.get("page"))
         parameters = self.request.GET.copy()
         parameters.pop("page", None)
@@ -50,6 +59,7 @@ class ProductListView(PermissionRequiredMixin, StaffPageView):
             search_query=query,
             selected_brand=brand,
             selected_category=category,
+            selected_state=state,
             brands=Brand.objects.order_by("name", "pk"),
             categories=Category.objects.order_by("slug", "pk"),
             page_query=parameters.urlencode(),

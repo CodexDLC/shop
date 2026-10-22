@@ -9,6 +9,7 @@ description: "Use for inet_mag product grouping, size and colour variants, colou
 
 - [Товары и варианты](references/products-and-variants.md) — читать при соответствующей задаче.
 - [Галерея цвета](references/features/color-gallery.md) — читать при соответствующей задаче.
+- [Staff-редактор и публикация](references/features/staff-product-editor.md) — читать при изменениях форм, фото, проверки и статусов публикации.
 - [Мобильный ряд товаров](references/features/mobile-product-rail.md) — одна карточка и край следующей, горизонтальный скролл товаров; переключение фото пока открыто.
 - [Импорт производителя](references/features/photo-import.md) — читать при соответствующей задаче.
 - [S3 и видимость](references/s3-storage.md) — читать при соответствующей задаче.

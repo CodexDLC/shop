@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{% static 'storefront/shared-chrome.css' %}">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
 <link rel="icon" href="{% static 'storefront/brand/favicon.ico' %}"><link rel="apple-touch-icon" href="{% static 'storefront/brand/apple-touch-icon.png' %}">
-<link rel="stylesheet" href="{% static 'storefront/catalog-listing.css' %}?v=catalog-20261020-r2">
+<link rel="stylesheet" href="{% static 'storefront/catalog-listing.css' %}?v=catalog-20261020-r3">
 {% endblock %}
 {% block body_attrs %} class="bg-page-bg font-body-md text-text-primary antialiased min-h-screen flex flex-col selection:bg-brand-deep selection:text-surface-container-lowest" data-demo-page="{{ catalog_source|default:'catalog.html' }}"{% endblock %}
 {% block content %}
@@ -18,8 +18,9 @@
 </nav>
 <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md pt-space-xs"><div>
 <div class="flex items-center gap-3 mb-1"><span class="w-8 h-[2px] bg-brand-deep"></span><span class="font-label-sm text-label-sm uppercase tracking-[0.25em] text-brand-deep font-semibold">{% text 'catalog.list.text.84c1f5933189' %}</span></div>
-<h1 class="font-headline-lg text-headline-lg text-text-primary tracking-tight">{% if catalog_listing.query %}{% text 'catalog.listing.search_title' %} „{{ catalog_listing.query }}“{% elif catalog_heading_key %}{% text catalog_heading_key %}{% else %}{% text 'catalog.listing.title' %}{% endif %}</h1>
-<p class="font-body-md text-body-md text-text-muted max-w-2xl mt-1">{% text 'catalog.listing.intro' %}</p>
+<h1 class="font-headline-lg text-headline-lg text-text-primary tracking-tight">{% if catalog_listing.query %}{% text 'catalog.listing.search_title' %} „{{ catalog_listing.query }}“{% elif selected_category %}{{ selected_category.name }}{% elif catalog_heading_key %}{% text catalog_heading_key %}{% else %}{% text 'catalog.listing.title' %}{% endif %}</h1>
+{% if selected_category.image %}<img class="rounded-lg mt-4 max-w-full object-cover" src="{{ selected_category.image.url }}" alt="{{ selected_category.image_alt }}" width="240" height="160">{% endif %}
+<p class="font-body-md text-body-md text-text-muted max-w-2xl mt-1">{% if selected_category.description %}{{ selected_category.description|linebreaksbr }}{% else %}{% text 'catalog.listing.intro' %}{% endif %}</p>
 </div><div class="flex items-center gap-6 text-text-muted text-body-sm font-body-sm self-start lg:self-end pb-1" aria-describedby="catalog-service-preview"><span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-brand-deep">{% text 'catalog.list.text.ec734b651574' %}</span>{% text 'catalog.list.text.3a8ac911804d' %}</span><span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-brand-deep">{% text 'catalog.list.text.9c586571e3cb' %}</span>{% text 'catalog.list.text.9b98d77c7c02' %}</span></div></div><p id="catalog-service-preview" class="text-body-sm text-text-muted">{% text 'catalog.listing.editorial_preview' %}</p></div>
 <form id="catalog-filters" method="get" action="{{ catalog_listing.form_action }}" data-real-catalog>
 {% if catalog_listing.filters.section %}<input type="hidden" name="section" value="{{ catalog_listing.filters.section }}">{% endif %}
@@ -35,18 +36,19 @@
 <span class="font-title-md text-title-md font-semibold">{{ catalog_listing.total }} {% text 'catalog.listing.products' %}</span>
 <div class="catalog-sort-actions flex items-center gap-space-md ml-auto"><div class="catalog-sort-field flex items-center bg-surface-container-lowest px-3 py-2">
 <label for="sort-select" class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted mr-2">{% text 'catalog.list.text.a341ee1de63a' %}</label>
-<select form="catalog-filters" name="sort" id="sort-select" class="bg-transparent text-body-md pr-4">
+<select form="catalog-filters" name="sort" id="sort-select" aria-describedby="catalog-sort-help" class="bg-transparent text-body-md pr-4">
 <option value="name" {% if catalog_listing.sort == 'name' %}selected{% endif %}>{% text 'catalog.listing.sort_name' %}</option>
 <option value="price_asc" {% if catalog_listing.sort == 'price_asc' %}selected{% endif %}>{% text 'catalog.list.text.ee6979eca6a8' %}</option>
 <option value="price_desc" {% if catalog_listing.sort == 'price_desc' %}selected{% endif %}>{% text 'catalog.list.text.67625566bf0b' %}</option>
-<option disabled>{% text 'catalog.list.text.772b16001734' %} — {% text 'catalog.listing.not_available' %}</option>
-<option disabled>{% text 'navigation.new' %} — {% text 'catalog.listing.not_available' %}</option>
-<option disabled>{% text 'catalog.list.text.113b7f24decb' %} — {% text 'catalog.listing.not_available' %}</option>
+<option value="popular" disabled>{% text 'catalog.list.text.772b16001734' %} — {% text 'catalog.listing.popularity_pending' %}</option>
+<option value="newest" {% if catalog_listing.sort == 'newest' %}selected{% endif %}>{% text 'catalog.listing.sort_newest' %}</option>
+<option value="rating" {% if catalog_listing.sort == 'rating' %}selected{% endif %}>{% text 'catalog.list.text.113b7f24decb' %}</option>
 </select></div>
 <div class="flex items-center bg-surface-container-lowest p-1"><span aria-label="{% text 'catalog.list.label.dc755714c6ed' %}" class="p-1.5 bg-brand-deep text-white flex"><span class="material-symbols-outlined text-[18px]">grid_view</span></span><button disabled aria-label="{% text 'catalog.list.label.0202b8960662' %}" title="{% text 'catalog.listing.not_available' %}" class="p-1.5 text-text-muted flex" type="button"><span class="material-symbols-outlined text-[18px]">view_list</span></button></div>
 <button form="catalog-filters" type="submit" class="bg-brand-deep text-white px-3 py-2">{% text 'catalog.listing.apply' %}</button></div></div>
+<p id="catalog-sort-help" class="text-body-sm text-text-muted">{% if catalog_listing.sort == 'newest' %}{% text 'catalog.listing.newest_help' %}{% elif catalog_listing.sort == 'rating' %}{% text 'catalog.listing.rating_help' %}{% else %}{% text 'catalog.listing.popularity_help' %}{% endif %}</p>
 {% if catalog_listing.active_filters %}<div class="flex flex-wrap items-center gap-2 pt-space-xs"><span class="font-label-sm text-label-sm uppercase text-text-muted">{% text 'catalog.list.text.dc171088dfb8' %}</span>
-{% for chip in catalog_listing.active_filters %}<a href="{{ chip.remove_url }}" class="inline-flex items-center gap-1.5 bg-surface-container-lowest px-2.5 py-1 text-label-sm">{{ chip.label }} <span aria-hidden="true">×</span><span class="sr-only">{% text 'catalog.listing.remove_filter' %}</span></a>{% endfor %}
+{% for chip in catalog_listing.active_filters %}<a href="{{ chip.remove_url }}" class="catalog-filter-chip inline-flex items-center gap-1.5 bg-surface-container-lowest px-2.5 py-1 text-label-sm">{{ chip.label }} <span aria-hidden="true">×</span><span class="sr-only">{% text 'catalog.listing.remove_filter' %}</span></a>{% endfor %}
 <a href="{{ catalog_listing.clear_url }}" class="text-label-sm text-text-muted underline">{% text 'catalog.list.text.c714b23f00c2' %}</a></div>{% endif %}
 {% if catalog_listing.errors %}<ul role="alert" class="text-error text-body-sm">{% for error in catalog_listing.errors %}<li>{% text error %}</li>{% endfor %}</ul>{% endif %}
 </div>
@@ -56,33 +58,7 @@
 {% include 'catalog/includes/filter_options.html' with options=catalog_listing.facets.brands name='brand' title='catalog.list.text.be36224f95f4' %}
 {% include 'catalog/includes/filter_options.html' with options=catalog_listing.facets.categories name='category' title='catalog.list.text.b68dad9cc020' %}
 {% include 'catalog/includes/filter_options.html' with options=catalog_listing.facets.sizes name='size' title='catalog.list.text.d9130ae841c9' tiles=True %}
-<!-- Filter Section: Material -->
-<fieldset disabled aria-describedby="unsupported-filters" class="flex flex-col gap-2.5 pt-space-xs">
-<h2 class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted font-semibold">{% text 'catalog.list.text.d8169782b57c' %}</h2>
-<div class="flex flex-col gap-2">
-<label class="flex items-center gap-2.5 cursor-pointer group">
-<input class="w-4 h-4 accent-brand-deep rounded-none cursor-pointer" type="checkbox"/>
-<span class="font-body-md text-body-md text-text-primary group-hover:text-brand-deep transition-colors">{% text 'catalog.list.text.06824673a1dc' %}</span>
-</label>
-<label class="flex items-center gap-2.5 cursor-pointer group">
-<input class="w-4 h-4 accent-brand-deep rounded-none cursor-pointer" type="checkbox"/>
-<span class="font-body-md text-body-md text-text-primary group-hover:text-brand-deep transition-colors">{% text 'catalog.list.text.f8795ff68484' %}</span>
-</label>
-<label class="flex items-center gap-2.5 cursor-pointer group">
-<input class="w-4 h-4 accent-brand-deep rounded-none cursor-pointer" type="checkbox"/>
-<span class="font-body-md text-body-md text-text-primary group-hover:text-brand-deep transition-colors">{% text 'catalog.list.text.a4e76b8c3772' %}</span>
-</label>
-<label class="flex items-center gap-2.5 cursor-pointer group">
-<input class="w-4 h-4 accent-brand-deep rounded-none cursor-pointer" type="checkbox"/>
-<span class="font-body-md text-body-md text-text-primary group-hover:text-brand-deep transition-colors">{% text 'catalog.list.text.d8fe12e09a7d' %}</span>
-</label>
-<label class="flex items-center gap-2.5 cursor-pointer group">
-<input class="w-4 h-4 accent-brand-deep rounded-none cursor-pointer" type="checkbox"/>
-<span class="font-body-md text-body-md text-text-primary group-hover:text-brand-deep transition-colors">{% text 'catalog.list.text.672bdc950c21' %}</span>
-</label>
-</div>
-</fieldset>
-
+{% include 'catalog/includes/filter_options.html' with options=catalog_listing.facets.materials name='material' title='catalog.list.text.d8169782b57c' %}
 {% include 'catalog/includes/filter_options.html' with options=catalog_listing.facets.colors name='color' title='catalog.list.text.89b7957dae43' %}
 <div class="flex flex-col gap-2.5 pt-space-xs"><h2 class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted font-semibold">{% text 'catalog.list.text.5cab8017a991' %}</h2>
 <div class="relative w-full h-1.5 bg-surface-variant my-2" aria-hidden="true"><div class="absolute left-[15%] right-[25%] h-full bg-brand-deep"></div><div class="absolute left-[15%] -top-1.5 w-4 h-4 bg-brand-deep"></div><div class="absolute right-[25%] -top-1.5 w-4 h-4 bg-brand-deep"></div></div>
@@ -92,26 +68,7 @@
 </div><button form="catalog-filters" type="submit" class="w-full bg-surface-container-lowest py-2 text-label-sm font-semibold">{% text 'catalog.list.text.b18093c48b47' %}</button></div>
 {% include 'catalog/includes/filter_options.html' with options=catalog_listing.facets.tags name='tag' title='catalog.listing.tags' %}
 <label class="flex gap-2 items-center text-body-sm"><input form="catalog-filters" name="in_stock" type="checkbox" value="1" {% if catalog_listing.filters.in_stock %}checked{% endif %}>{% text 'catalog.listing.in_stock' %}</label>
-<!-- Filter Section: Besonderheiten -->
-<fieldset disabled aria-describedby="unsupported-filters" class="flex flex-col gap-2.5 pt-space-xs">
-<h2 class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted font-semibold">{% text 'catalog.list.text.945084720175' %}</h2>
-<div class="flex flex-col gap-2">
-<label class="flex items-center gap-2.5 cursor-pointer group">
-<input class="w-4 h-4 accent-brand-deep rounded-none cursor-pointer" type="checkbox"/>
-<span class="font-body-md text-body-md text-text-primary group-hover:text-brand-deep transition-colors">{% text 'catalog.list.text.b2132ac185bc' %}</span>
-</label>
-<label class="flex items-center gap-2.5 cursor-pointer group">
-<input class="w-4 h-4 accent-brand-deep rounded-none cursor-pointer" type="checkbox"/>
-<span class="font-body-md text-body-md text-text-primary group-hover:text-brand-deep transition-colors">{% text 'catalog.list.text.173ef11a4cdb' %}</span>
-</label>
-<label class="flex items-center gap-2.5 cursor-pointer group">
-<input class="w-4 h-4 accent-brand-deep rounded-none cursor-pointer" type="checkbox"/>
-<span class="font-body-md text-body-md text-text-primary group-hover:text-brand-deep transition-colors">{% text 'catalog.list.text.0e5ef33448f6' %}</span>
-</label>
-</div>
-</fieldset>
-
-<p id="unsupported-filters" class="text-body-sm text-text-muted">{% text 'catalog.listing.unsupported_filters' %}</p>
+{% include 'catalog/includes/filter_options.html' with options=catalog_listing.facets.properties name='property' title='catalog.list.text.945084720175' %}
 <button form="catalog-filters" type="submit" class="bg-brand-deep text-white py-2.5 text-label-md">{% text 'catalog.listing.apply' %}</button>
 </aside>
 <section aria-label="{% text 'catalog.listing.products' %}" class="lg:col-span-9 min-w-0 flex flex-col gap-space-xl">

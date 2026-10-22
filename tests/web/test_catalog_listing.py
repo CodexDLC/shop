@@ -102,11 +102,11 @@ def test_tag_search_has_no_duplicates_and_query_budget_is_constant(items, django
         items[0].tags.add(tag)
     request = ListingRequest.from_query(QueryDict("q=cotton"))
     assert list(listing_products(request).values_list("pk", flat=True)) == [items[0].pk]
-    # Count and five bounded facet queries plus four prefetch queries; no per-card SQL.
-    with django_assert_num_queries(10):
+    # Count and seven bounded facet queries plus four prefetch queries; no per-card SQL.
+    with django_assert_num_queries(12):
         result = listing_context()
         assert len(result["catalog_listing"]["products"]) == 12
-    with django_assert_num_queries(10):
+    with django_assert_num_queries(12):
         result = listing_context("q=Model%2000")
         assert len(result["catalog_listing"]["products"]) == 1
 

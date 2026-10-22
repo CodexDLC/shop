@@ -1,0 +1,24 @@
+{% extends 'staff/base.html' %}
+{% load shop_i18n %}
+{% block cabinet_content %}
+<section aria-labelledby="publication-title">
+  <h1 class="h3" id="publication-title">{% text 'staff.product_tabs.publication' %} — {{ product.model_name }}</h1>
+  {% include 'staff/includes/product_tabs.html' %}
+  {% if error %}<div class="alert alert-danger" role="alert">{% text error %}</div>{% endif %}
+  <div class="card card-body">
+    <h2 class="h5">{% text 'staff.workflow.status' %}: {% if product.is_active %}{% text 'staff.workflow.published' %}{% elif product.publication_state == 'review' %}{% text 'staff.workflow.review' %}{% else %}{% text 'staff.workflow.draft' %}{% endif %}</h2>
+    <p>{% text 'staff.workflow.explanation' %}</p>
+    {% if issues %}<h3 class="h6">{% text 'staff.workflow.missing' %}</h3><ul>{% for issue in issues %}<li>{% text issue %}</li>{% endfor %}</ul>{% else %}<p class="text-success">{% text 'staff.workflow.complete' %}</p>{% endif %}
+    <a class="align-self-start btn btn-outline-secondary mb-3" href="{% url 'staff:product_preview' pk=product.pk %}">{% text 'staff.product_tabs.preview' %}</a>
+    <form method="post">{% csrf_token %}<input type="hidden" name="original_state" value="{{ original_state }}">
+      {% if product.is_active %}
+        {% if perms.catalog.publish_product %}<p>{% text 'staff.workflow.withdraw_warning' %}</p><button class="btn btn-warning" type="submit" name="action" value="withdraw">{% text 'staff.workflow.withdraw' %}</button>{% endif %}
+      {% else %}
+        <button class="btn btn-outline-primary" type="submit" name="action" value="review">{% text 'staff.workflow.check' %}</button>
+        {% if perms.catalog.publish_product %}<button class="btn btn-primary" type="submit" name="action" value="publish"{% if product.publication_state != 'review' or issues %} disabled{% endif %}>{% text 'staff.workflow.publish' %}</button>{% else %}<p>{% text 'staff.workflow.no_publish_permission' %}</p>{% endif %}
+      {% endif %}
+    </form>
+    <p class="text-muted mt-3 mb-0">{% text 'staff.workflow.demo_notice' %}</p>
+  </div>
+</section>
+{% endblock %}

@@ -4,6 +4,8 @@ from decimal import Decimal
 from django.urls import reverse
 
 from codex_ecommerce.cart import CartError, CartItem, quote_total, validate_quantity
+from web.cart.promotions import promotion_quote, selected_code
+from web.catalog.category_visibility import visible_category_ids
 from web.catalog.models import ProductVariant
 from web.localization import translate_text
 
@@ -17,12 +19,12 @@ def quantities(request):
     return dict(request.session.get(cart_key(request), {}))
 
 
-def quote(request, *, values=None, lock=False):
+def quote(request, *, values=None, lock=False, ignore_coupon=False):
     values = quantities(request) if values is None else values
     variants = ProductVariant.objects.select_related("product__brand").prefetch_related("product__images")
     if lock:
         variants = variants.select_for_update()
-    rows = {variant.sku: variant for variant in variants.filter(sku__in=values)}
+    rows = {variant.sku: variant for variant in variants.filter(sku__in=values, product__category_id__in=visible_category_ids())}
     items, lines, errors = [], [], []
     for sku, quantity in values.items():
         variant = rows.get(sku)
@@ -46,7 +48,7 @@ def quote(request, *, values=None, lock=False):
             "brand": variant.product.brand.name if variant else "",
             "colour_name": translate_text(variant.color_name_key) if variant else "",
             "size": variant.size if variant else "", "max_quantity": available,
-            "photo_url": image.image_url if image else "",
+            "photo_url": image.public_url if image else "",
             "detail_url": reverse("catalog:detail", kwargs={"slug": variant.product.slug}) if valid else "",
             "available": bool(valid and quantity <= available),
         })
@@ -58,7 +60,19 @@ def quote(request, *, values=None, lock=False):
             total = quote_total(tuple(items))
         except CartError as exc:
             errors.append(str(exc))
-    return {"currency": "EUR", "lines": lines, "subtotal": total, "total": total,
+    subtotal = total
+    code = '' if ignore_coupon else selected_code(request)
+    coupon = None
+    discount = Decimal('0.00')
+    if code:
+        try:
+            coupon = promotion_quote(code, subtotal, lock=lock)
+            discount = coupon['discount_amount']
+        except CartError as exc:
+            errors.append(str(exc))
+    return {"currency": "EUR", "lines": lines, "subtotal": subtotal, "total": subtotal - discount,
+            "discount_amount": discount, "coupon_code": code, "coupon": coupon,
+            "coupon_signature": coupon['signature'] if coupon else '',
             "shipping_amount": Decimal("0.00"), "item_count": sum(values.values()),
             "errors": list(dict.fromkeys(errors)), "can_checkout": bool(lines) and not errors}
 
@@ -79,7 +93,7 @@ def change_cart(request, sku, value=None, *, remove=False, add=False):
         # Validate the changed SKU only; unavailable older lines can still be removed/repaired.
         if len(values) > 50:
             raise CartError("commerce.error.lines")
-        result = quote(request, values={sku: quantity})
+        result = quote(request, values={sku: quantity}, ignore_coupon=True)
         if result["errors"]:
             raise CartError(result["errors"][0])
     request.session[cart_key(request)] = values

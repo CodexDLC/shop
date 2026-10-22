@@ -1,6 +1,7 @@
 from .base import *  # noqa: F403
 
 DEBUG = True
+SEO_FORCE_NOINDEX = True
 SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = False
 # Shared local Mailpit; no external SMTP delivery or credentials.

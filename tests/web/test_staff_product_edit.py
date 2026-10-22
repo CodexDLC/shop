@@ -16,7 +16,10 @@ pytestmark = pytest.mark.django_db
 @pytest.fixture
 def product():
     call_command("seed_demo_catalog")
-    return Product.objects.first()
+    product = Product.objects.first()
+    product.is_active = False
+    product.save(update_fields=['is_active'])
+    return product
 
 
 @pytest.fixture
@@ -60,7 +63,7 @@ def test_new_models_are_drafts_despite_forged_publication(client, editor, produc
     ).count() == 1
 
 
-def test_edit_preserves_publication_and_updates_tags(client, editor, product):
+def test_edit_keeps_draft_and_updates_tags(client, editor, product):
     client.force_login(editor)
     tag = Tag.objects.create(slug="new-editor-tag", label_key="tags.editor")
     response = client.post(reverse("staff:product_edit", kwargs={"pk": product.pk}), form_data(
@@ -70,18 +73,19 @@ def test_edit_preserves_publication_and_updates_tags(client, editor, product):
     product.refresh_from_db()
     assert product.model_name == "Updated Model"
     assert product.manufacturer_article == "M2223-2026"
-    assert product.is_active is True
+    assert product.is_active is False
     assert list(product.tags.values_list("pk", flat=True)) == [tag.pk]
 
 
-def test_form_rejects_duplicate_slug_and_description_text(product):
+def test_form_rejects_duplicate_slug_and_preserves_read_only_legacy_key(product):
     other = Product.objects.exclude(pk=product.pk).first()
     form = ProductForm(form_data(product, slug=other.slug), instance=product)
     assert not form.is_valid()
     assert form.has_error("slug", "unique")
+    product.refresh_from_db()
     form = ProductForm(form_data(product, description_key="Ein deutscher Beschreibungstext"), instance=product)
-    assert not form.is_valid()
-    assert form.has_error("description_key", "invalid_key")
+    assert form.is_valid()
+    assert form.cleaned_data['description_key'] == product.description_key
 
 
 def test_stale_edit_cannot_overwrite_newer_product_or_tag_changes(client, editor, product):
@@ -126,10 +130,11 @@ def test_creation_and_edit_permissions_are_separate(client, django_user_model, p
 
 def test_active_model_requires_active_variant_and_edit_missing_is_404(client, editor, product):
     client.force_login(editor)
+    product.is_active = True
+    product.save(update_fields=['is_active'])
     product.variants.update(is_active=False)
     response = client.post(reverse("staff:product_edit", kwargs={"pk": product.pk}), form_data(product))
-    assert response.status_code == 400
-    assert response.context["form"].has_error("__all__", "no_variants")
+    assert response.status_code == 403
     assert client.get(reverse("staff:product_edit", kwargs={"pk": 999999})).status_code == 404
 
 

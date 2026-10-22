@@ -1,0 +1,22 @@
+{
+  "environment": "isolated SQLite QA on localhost:8032",
+  "working_data_demo_edits": false,
+  "categories": {
+    "created_child_via_form": true,
+    "reopened_persisted_fields": true,
+    "uploaded_photo_via_form": true,
+    "hidden_state_persisted": true,
+    "de_save_button": "Speichern",
+    "mobile_viewport_width": 390,
+    "mobile_scroll_width": 390,
+    "mobile_content_left": 24,
+    "mobile_content_width": 327
+  },
+  "order": {
+    "snapshot_demo_order": 2,
+    "copy_feedback": "ID скопирован.",
+    "mobile_viewport_width": 390,
+    "mobile_scroll_width": 390,
+    "desktop_items_totals_addresses_checked": true
+  }
+}

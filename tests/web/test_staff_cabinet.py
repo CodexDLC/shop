@@ -39,7 +39,8 @@ def test_quick_access_persists_and_rejects_unknown_keys(client):
     client.force_login(make_user(staff=True, owner=True))
     groups = get_staff_quick_access_candidates()
     key = next(item["key"] for group in groups for item in group["items"] if group["module"] == "catalog")
-    response = client.post(reverse("staff:settings"), {"links": [key]})
+    state = client.get(reverse("staff:settings")).context["form"]["state"].value()
+    response = client.post(reverse("staff:settings"), {"links": [key], "state": state})
     assert response.status_code == 302
     assert CabinetPreferences.objects.get(pk=1).quick_access_keys == [key]
     response = client.get(reverse("staff:home"))

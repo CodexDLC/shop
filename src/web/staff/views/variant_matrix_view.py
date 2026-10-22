@@ -14,6 +14,7 @@ from web.localization.translation import translate_text
 from web.staff.audit import record_staff_action
 from web.staff.forms.variant_form import VariantForm
 from web.staff.forms.variant_formset import VariantFormSet
+from web.staff.product_editing import content_fingerprint, mark_changed, require_editable
 from web.staff.views.staff_page_view import StaffPageView
 
 
@@ -29,7 +30,8 @@ class VariantMatrixView(PermissionRequiredMixin, StaffPageView):
         return list(product.variants.order_by("pk").values(*self.fields))
 
     def fingerprint(self, product, rows):
-        payload = json.dumps([product.pk, rows], sort_keys=True, default=str)
+        payload = json.dumps([product.pk, product.publication_state, product.review_fingerprint,
+                              content_fingerprint(product), rows], sort_keys=True, default=str)
         return hashlib.sha256(payload.encode()).hexdigest()
 
     def make_formset(self, rows, data=None, *, requires_active=False):
@@ -58,6 +60,7 @@ class VariantMatrixView(PermissionRequiredMixin, StaffPageView):
         try:
             with transaction.atomic():
                 product = get_object_or_404(Product.objects.select_for_update(), pk=kwargs["pk"])
+                require_editable(product)
                 rows = self.rows(product)
                 formset = self.make_formset(rows, request.POST, requires_active=product.is_active)
                 valid = formset.is_valid()
@@ -80,6 +83,7 @@ class VariantMatrixView(PermissionRequiredMixin, StaffPageView):
                             ProductVariant.objects.filter(pk=variant_id, product=product).update(**values)
                         else:
                             ProductVariant.objects.create(product=product, **values)
+                    mark_changed(product)
                     record_staff_action(request, "variants.updated", product)
                     messages.success(request, translate_text("staff.variants.saved"))
                     return redirect("staff:variants", pk=product.pk)

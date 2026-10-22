@@ -1,0 +1,31 @@
+{% extends 'staff/base.html' %}{% load shop_i18n static %}
+{% block staff_page_css %}<link rel="stylesheet" href="{% static 'cabinet/css/order-detail.css' %}">{% endblock %}
+{% block cabinet_content %}
+<section class="order-workspace" aria-labelledby="order-title">
+<a class="order-back" href="{{ list_url }}">← {% text 'staff.records.back' %}</a>
+<header class="order-heading"><div><h1 id="order-title">{% text 'staff.order.heading' %} #{{ order_detail.id }}</h1><p><time datetime="{{ order_detail.created_at|date:'c' }}">{{ order_detail.created_at|date:'d.m.Y H:i' }}</time>{% if order_detail.is_test %}<span class="order-badge">TEST</span>{% endif %}<span class="order-badge">{% text order_detail.status %}</span></p></div></header>
+<div class="order-layout">
+<div class="order-main">
+<section class="order-panel" aria-labelledby="order-items"><h2 id="order-items">{% text 'staff.records.items' %} <span class="text-muted">({{ order_detail.lines|length }})</span></h2>
+<div class="order-lines">{% for line in order_detail.lines %}<article class="order-line">
+{% if line.photo_url %}<img class="order-photo" src="{{ line.photo_url }}" alt="{{ line.name }}" loading="lazy">{% else %}<div class="order-photo order-photo-empty" aria-label="{% text 'staff.order.no_photo' %}"><i class="bi bi-image" aria-hidden="true"></i></div>{% endif %}
+<div class="order-product"><p class="order-brand">{{ line.brand }}</p><h3>{{ line.name }}</h3><p class="order-variant">{% if line.colour %}{{ line.colour }}{% endif %}{% if line.colour and line.size %} · {% endif %}{{ line.size }}</p><small>{{ line.sku }}</small></div>
+<div class="order-line-price"><span>{{ line.quantity }} × {{ line.unit }}</span><strong>{{ line.total }}</strong></div>
+</article>{% empty %}<p class="text-muted">{% text 'staff.records.empty' %}</p>{% endfor %}</div></section>
+{% if order_detail.can_view_addresses %}<div class="order-addresses">
+{% include 'staff/operations/order_address.html' with address=order_detail.shipping heading='staff.records.shipping_address' %}
+{% include 'staff/operations/order_address.html' with address=order_detail.billing heading='staff.records.billing_address' %}
+</div>{% endif %}
+<section class="order-panel" aria-labelledby="order-history"><h2 id="order-history">{% text 'staff.order.history' %}</h2>
+<ol class="order-history"><li><time datetime="{{ order_detail.created_at|date:'c' }}">{{ order_detail.created_at|date:'d.m.Y H:i' }}</time><span>{% text 'staff.order.record_created' %}</span></li>
+{% if order_detail.show_updated %}<li><time datetime="{{ order_detail.updated_at|date:'c' }}">{{ order_detail.updated_at|date:'d.m.Y H:i' }}</time><span>{% text 'staff.order.record_updated' %}</span></li>{% endif %}</ol>
+{% for payment in order_detail.payments %}<div class="order-payment" data-payment-attempt><div><strong>{% text payment.status %}</strong> · {% text payment.method %}<small>{% text payment.mode %} · {{ payment.amount }}</small></div><dl><div><dt>{% text 'staff.order.attempt_created' %}</dt><dd><time datetime="{{ payment.created_at|date:'c' }}">{{ payment.created_at|date:'d.m.Y H:i' }}</time></dd></div>{% if payment.show_updated %}<div><dt>{% text 'staff.order.attempt_updated' %}</dt><dd><time datetime="{{ payment.updated_at|date:'c' }}">{{ payment.updated_at|date:'d.m.Y H:i' }}</time></dd></div>{% endif %}</dl></div>{% endfor %}
+<p class="order-notice">{% text 'staff.order.history_note' %}</p></section>
+</div>
+<aside class="order-side"><section class="order-panel" aria-labelledby="order-totals"><h2 id="order-totals">{% text 'staff.order.summary' %}</h2><dl class="order-totals">{% for total in order_detail.totals %}<div><dt>{% text total.label %}</dt><dd>{{ total.value }}</dd></div>{% endfor %}<div class="order-grand-total"><dt>{% text 'staff.records.total' %}</dt><dd>{{ order_detail.total }}</dd></div></dl>{% if order_detail.coupon %}<p class="order-coupon" data-order-coupon>{% text 'staff.records.code' %}: {{ order_detail.coupon }}</p>{% endif %}</section>
+<details class="order-panel order-requisites"><summary>{% text 'staff.order.requisites' %}</summary><dl><dt>{% text 'staff.order.uuid' %}</dt><dd><span id="order-reference">{{ order_detail.reference }}</span><button class="btn btn-sm btn-outline-secondary" type="button" data-copy-target="order-reference">{% text 'staff.order.copy' %}</button></dd>{% if order_detail.customer_email %}<dt>{% text 'staff.records.customer' %}</dt><dd>{{ order_detail.customer_email }}</dd>{% endif %}</dl><p role="status" aria-live="polite" data-copy-status data-copied="{% text 'staff.order.copied' %}" data-copy-failed="{% text 'staff.order.copy_failed' %}"></p></details>
+<p class="order-notice">{% text 'staff.order.readonly_note' %}</p>
+</aside></div></section>
+{% endblock %}
+{% block extra_js %}{{ block.super }}<script src="{% static 'cabinet/js/order-detail.js' %}" defer></script>{% endblock %}
+

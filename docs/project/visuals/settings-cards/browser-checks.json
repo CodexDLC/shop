@@ -1,0 +1,26 @@
+{
+  "environment": "isolated SQLite QA localhost:8032",
+  "working_settings_changed_for_demo": false,
+  "quick_access": {
+    "save_success_observed": true,
+    "stale_second_tab_conflict_observed": true,
+    "original_selected_pins_retained_after_reload": true,
+    "manual_pins": ["categories", "orders"]
+  },
+  "settings": {
+    "ru_store_catalog_operations_navigation_checked": true,
+    "de_catalog_checked": true,
+    "mobile_viewport_width": 390,
+    "mobile_scroll_width": 390
+  },
+  "cards": {
+    "customer_postal_and_packstation_addresses_checked": true,
+    "payment_to_order_link_followed": true,
+    "tag_name_and_collapsed_requisites_checked": true,
+    "de_payment_checked": true,
+    "keyboard_summary_enter_opens_details": true,
+    "keyboard_focus_tag": "SUMMARY",
+    "customer_mobile_viewport_width": 390,
+    "customer_mobile_scroll_width": 390
+  }
+}

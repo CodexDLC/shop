@@ -20,7 +20,10 @@ class ListingRequest:
         if len(query) > 160:
             errors.append("catalog.listing.error.invalid_filter")
             query = query[:160]
-        for key, length in (("brand", 120), ("category", 120), ("tag", 120), ("color", 40), ("size", 20)):
+        for key, length in (
+            ("brand", 120), ("category", 120), ("tag", 120), ("material", 120), ("property", 120),
+            ("color", 40), ("size", 20),
+        ):
             raw = params.getlist(key)
             values = list(dict.fromkeys(value.strip() for value in raw if value.strip()))
             if len(values) > 20 or any(len(value) > length for value in values):
@@ -67,7 +70,7 @@ class ListingRequest:
             elif flag not in ("", "0", "false", "off"):
                 errors.append("catalog.listing.error.invalid_filter")
         sort = params.get("sort", "name")
-        if sort not in ("name", "price_asc", "price_desc"):
+        if sort not in ("name", "price_asc", "price_desc", "newest", "rating"):
             sort = "name"
             errors.append("catalog.listing.error.invalid_sort")
         raw_page = params.get("page", "1")

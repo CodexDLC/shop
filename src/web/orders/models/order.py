@@ -2,6 +2,7 @@ import uuid
 
 from django.conf import settings
 from django.db import models
+from django.db.models.functions import Round
 
 
 class Order(models.Model):
@@ -27,7 +28,27 @@ class Order(models.Model):
     is_test = models.BooleanField(default=True)
     shipping_amount = models.DecimalField(max_digits=12, decimal_places=2, default=0)
 
+    subtotal_amount = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
+    discount_amount = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+    coupon_code = models.CharField(max_length=32, blank=True)
+    billing_address = models.JSONField(default=dict, blank=True)
+
     class Meta:
         constraints = [models.CheckConstraint(
             condition=models.Q(total_amount__gte=0), name="order_total_nonnegative",
+        ), models.CheckConstraint(
+            condition=models.Q(discount_amount__gte=0), name="order_discount_nonnegative",
+        ), models.CheckConstraint(
+            condition=models.Q(shipping_amount__gte=0), name="order_shipping_nonnegative",
+        ), models.CheckConstraint(
+            condition=models.Q(subtotal_amount__isnull=True) | models.Q(subtotal_amount__gte=0),
+            name="order_subtotal_nonnegative",
+        ), models.CheckConstraint(
+            condition=models.Q(subtotal_amount__isnull=True) | models.Q(discount_amount__lte=models.F('subtotal_amount')),
+            name="order_discount_within_subtotal",
+        ), models.CheckConstraint(
+            condition=models.Q(subtotal_amount__isnull=True) | models.Q(
+                total_amount=Round(models.F('subtotal_amount') - models.F('discount_amount')
+                                   + models.F('shipping_amount'), precision=2)),
+            name="order_total_matches_discount",
         )]

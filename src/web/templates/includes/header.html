@@ -1,4 +1,5 @@
-{% load static shop_i18n %}
+{% load static shop_i18n catalog_navigation %}
+{% header_section_visibility as header_sections %}
 <aside class="w-full bg-[#183F30] py-2 text-center text-xs tracking-widest text-[#E3E8E4] font-medium uppercase select-none" data-purpose="top-announcement-bar">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <span>{% text 'layout.header.text.a7769b7586cf' %}</span>
@@ -12,11 +13,11 @@
 <div class="shop-header-row max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
 <a aria-label="{% text 'layout.header.label.243e5da9c281' %}" class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-lg p-1" href="{% url 'shop:home' %}" data-real-navigation><img class="shop-brand-logo" src="{% static 'storefront/brand/logo-horizontal.png' %}" alt="{% text 'layout.header.label.e3ef0a77e9ec' %}" width="900" height="172"></a>
 <nav aria-label="{% text 'layout.header.label.1970d9e843f3' %}" class="shop-desktop-navigation hidden md:flex items-center space-x-8 text-sm font-medium text-brand-dark" data-purpose="main-navigation">
-<a class="hover:text-brand-accent transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="{% url 'catalog:list' %}?new=1" data-real-navigation>{% text 'navigation.new' %}</a>
-<a class="hover:text-brand-accent transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="{% url 'catalog:list' %}?section=underwear" data-real-navigation>{% text 'navigation.underwear' %}</a>
-<a class="hover:text-brand-accent transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="{% url 'catalog:list' %}?section=swimwear" data-real-navigation>{% text 'navigation.swimwear' %}</a>
-<a class="hover:text-brand-accent transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="{% url 'catalog:brands' %}" data-real-navigation>{% text 'navigation.brands' %}</a>
-<a class="text-red-700 hover:text-red-800 transition-colors py-1" href="{% url 'catalog:list' %}?sale=1" data-real-navigation>{% text 'navigation.sale' %}</a>
+{% if header_sections.new %}<a class="hover:text-brand-accent transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="{% url 'catalog:list' %}?new=1" data-real-navigation>{% text 'navigation.new' %}</a>{% endif %}
+{% if header_sections.underwear %}<a class="hover:text-brand-accent transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="{% url 'catalog:list' %}?section=underwear" data-real-navigation>{% text 'navigation.underwear' %}</a>{% endif %}
+{% if header_sections.swimwear %}<a class="hover:text-brand-accent transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="{% url 'catalog:list' %}?section=swimwear" data-real-navigation>{% text 'navigation.swimwear' %}</a>{% endif %}
+{% if header_sections.brands %}<a class="hover:text-brand-accent transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-brand-accent after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="{% url 'catalog:brands' %}" data-real-navigation>{% text 'navigation.brands' %}</a>{% endif %}
+{% if header_sections.sale %}<a class="text-red-700 hover:text-red-800 transition-colors py-1" href="{% url 'catalog:list' %}?sale=1" data-real-navigation>{% text 'navigation.sale' %}</a>{% endif %}
 </nav>
 <div class="shop-desktop-utilities flex items-center space-x-4 sm:space-x-5 text-brand-dark" data-purpose="utility-actions">
 <a data-real-navigation href="{% url 'catalog:list' %}#catalog-query" aria-label="{% text 'layout.header.label.10c8d4dd3c0a' %}" class="shop-header-action p-2 text-brand-dark hover:text-brand-accent transition-colors rounded-full hover:bg-brand-surface focus:outline-none focus:ring-2 focus:ring-brand-accent"><svg class="w-5 h-5 stroke-[1.8]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
@@ -34,11 +35,11 @@
 </div>
 <details class="shop-mobile-menu" data-header-menu>
 <summary aria-controls="shop-mobile-navigation" class="shop-header-action" title="{% text 'navigation.menu' %}"><span class="sr-only">{% text 'navigation.menu' %}</span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round"/></svg></summary>
-<div id="shop-mobile-navigation" class="shop-mobile-menu-panel"><nav aria-label="{% text 'navigation.mobile' %}" data-purpose="mobile-navigation"><a data-real-navigation href="{% url 'catalog:list' %}?new=1">{% text 'navigation.new' %}</a>
-<a data-real-navigation href="{% url 'catalog:list' %}?section=underwear">{% text 'navigation.underwear' %}</a>
-<a data-real-navigation href="{% url 'catalog:list' %}?section=swimwear">{% text 'navigation.swimwear' %}</a>
-<a data-real-navigation href="{% url 'catalog:brands' %}">{% text 'navigation.brands' %}</a>
-<a data-real-navigation href="{% url 'catalog:list' %}?sale=1" class="text-red-700">{% text 'navigation.sale' %}</a></nav>
+<div id="shop-mobile-navigation" class="shop-mobile-menu-panel"><nav aria-label="{% text 'navigation.mobile' %}" data-purpose="mobile-navigation">{% if header_sections.new %}<a data-real-navigation href="{% url 'catalog:list' %}?new=1">{% text 'navigation.new' %}</a>{% endif %}
+{% if header_sections.underwear %}<a data-real-navigation href="{% url 'catalog:list' %}?section=underwear">{% text 'navigation.underwear' %}</a>{% endif %}
+{% if header_sections.swimwear %}<a data-real-navigation href="{% url 'catalog:list' %}?section=swimwear">{% text 'navigation.swimwear' %}</a>{% endif %}
+{% if header_sections.brands %}<a data-real-navigation href="{% url 'catalog:brands' %}">{% text 'navigation.brands' %}</a>{% endif %}
+{% if header_sections.sale %}<a data-real-navigation href="{% url 'catalog:list' %}?sale=1" class="text-red-700">{% text 'navigation.sale' %}</a>{% endif %}</nav>
 <div class="shop-mobile-utilities">
 <a data-real-navigation href="{% url 'catalog:list' %}#catalog-query">{% text 'catalog.listing.search' %}</a>
 <a data-real-navigation href="{% url 'customer:overview' %}">{% text 'navigation.account' %}</a>

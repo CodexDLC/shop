@@ -1,11 +1,9 @@
 {% extends 'base.html' %}
 {% load static shop_i18n %}
 {% block page_head %}
+<style>#checkout-address-form [hidden] { display: none !important; }</style>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>
-{% text 'orders.address.text.62d58d48f882' %}
-</title>
 <!-- Tailwind CSS v3 with Plugins -->
 <script src="{% static 'storefront/vendor/tailwind-runtime.js' %}?plugins=forms,container-queries">
 </script>
@@ -172,7 +170,14 @@
 {% text 'commerce.checkout.address' %}
 </h2>
 </div>
-<div class="flex border-b border-border-subtle gap-5 pb-3"><span class="font-label-md text-label-md text-primary border-b-2 border-primary pb-2">{% text 'commerce.reference.address.standard' %}</span><button type="button" disabled class="font-label-md text-label-md text-text-muted opacity-50 pb-2" title="{% text 'commerce.reference.planned' %}">{% text 'commerce.reference.address.packstation' %} · {% text 'commerce.reference.planned' %}</button></div>
+<fieldset class="flex border-b border-border-subtle gap-5 pb-3"><legend class="sr-only">{% text 'commerce.checkout.shipping_type' %}</legend>
+<label class="font-label-md text-label-md text-primary pb-2"><input type="radio" name="shipping_type" value="home" {% if address_form.shipping_type.value != 'packstation' %}checked{% endif %}> {% text 'commerce.reference.address.standard' %}</label>
+<label class="font-label-md text-label-md text-primary pb-2"><input type="radio" name="shipping_type" value="packstation" {% if address_form.shipping_type.value == 'packstation' %}checked{% endif %}> {% text 'commerce.reference.address.packstation' %}</label></fieldset>
+{% if address_form.shipping_type.errors %}<p role="alert" class="text-error">{% text 'commerce.error.address' %}</p>{% endif %}
+<div data-packstation-fields class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+{% include 'orders/includes/address_field.html' with field=address_form.post_number label='commerce.checkout.post_number' numeric=True %}
+{% include 'orders/includes/address_field.html' with field=address_form.packstation_number label='commerce.checkout.packstation_number' numeric=True %}
+</div>
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
 <div class="flex flex-col gap-1.5">
 <label class="font-label-md text-label-md uppercase tracking-wider" for="id-first_name">
@@ -245,7 +250,16 @@
 <p class="font-body-sm text-body-sm text-text-muted">
 {% text 'commerce.checkout.packstation' %}
 </p>
-<div class="pt-4 border-t border-border-subtle"><fieldset disabled><label class="flex gap-3 items-start font-body-md text-body-md text-text-muted"><input type="checkbox" class="mt-1"><span>{% text 'commerce.reference.address.billing' %}</span></label><p class="font-body-sm text-body-sm text-text-muted mt-3">{% text 'commerce.reference.address.billing_help' %}</p></fieldset></div>
+<div class="pt-4 border-t border-border-subtle"><label class="flex gap-3 items-start font-body-md text-body-md"><input id="id-billing_separate" name="billing_separate" type="checkbox" {% if address_form.billing_separate.value %}checked{% endif %} class="mt-1"><span>{% text 'commerce.checkout.billing_separate' %}</span></label>
+{% if address_form.billing_separate.errors %}<p role="alert" class="font-body-sm text-body-sm text-error">{% text 'commerce.checkout.billing_required' %}</p>{% endif %}
+<div data-billing-fields class="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-4">
+{% include 'orders/includes/address_field.html' with field=address_form.billing_first_name label='commerce.checkout.first_name' %}
+{% include 'orders/includes/address_field.html' with field=address_form.billing_last_name label='commerce.checkout.last_name' %}
+{% include 'orders/includes/address_field.html' with field=address_form.billing_street label='commerce.checkout.street' %}
+{% include 'orders/includes/address_field.html' with field=address_form.billing_postal_code label='commerce.checkout.postal_code' numeric=True %}
+{% include 'orders/includes/address_field.html' with field=address_form.billing_city label='commerce.checkout.city' %}
+<div><label for="id_billing_country" class="font-label-md text-label-md uppercase">{% text 'commerce.checkout.country' %} *</label><select name="billing_country" id="id_billing_country" class="w-full px-4 py-3 bg-surface-container-lowest"><option value="DE">{% text 'commerce.checkout.country.de' %}</option></select>{% if address_form.billing_country.errors %}<p class="text-error">{% text 'commerce.error.address' %}</p>{% endif %}</div>
+</div></div>
 </section>
 <section class="bg-surface-bright p-6 sm:p-8">
 <h2 class="font-title-md text-title-md uppercase tracking-wider mb-4">
@@ -272,4 +286,4 @@
 </main>
 </div>
 </main>
-{% include 'includes/footer.html' %}{% endblock %}
+{% include 'includes/footer.html' %}<script src="{% static 'shop/checkout-address.js' %}" defer></script>{% endblock %}

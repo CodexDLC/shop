@@ -1,0 +1,21 @@
+.category-manager {max-width:1200px; margin-inline:auto; overflow-wrap:anywhere}
+.category-heading {display:flex; justify-content:space-between; align-items:start; gap:1rem; flex-wrap:wrap; margin-bottom:1rem}
+.category-search {display:flex; gap:.5rem; max-width:38rem; margin-bottom:1rem}
+.category-search input {flex:1; min-width:0}
+.category-search button {flex-shrink:0; white-space:nowrap}
+.category-tree {border:1px solid var(--bs-border-color,#ddd); border-radius:.5rem; overflow:hidden}
+.category-tree-row {display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.85rem 1rem; border-bottom:1px solid var(--bs-border-color,#ddd)}
+.category-tree-row:last-child {border-bottom:0}
+.category-tree-name {display:flex; align-items:center; gap:.8rem; padding-inline-start:var(--category-indent,0); min-width:0}
+.category-tree-name img,.category-image-empty {width:52px; height:52px; flex-shrink:0; object-fit:cover; border-radius:.4rem; background:var(--bs-tertiary-bg,#eee)}
+.category-image-empty {display:grid; place-items:center; color:var(--bs-secondary-color,#777); font-size:1.6rem}
+.category-row-meta {display:flex; align-items:center; flex-wrap:wrap; gap:.75rem}
+.category-count {white-space:nowrap}
+.category-edit-form {max-width:780px}
+.category-edit-form legend {float:none; width:auto; padding-inline:.25rem}
+.category-edit-form fieldset {min-width:0}
+.category-edit-form .form-control,.category-edit-form .form-select {max-width:100%}
+.category-current-image {object-fit:cover; border-radius:.5rem; max-width:100%; height:auto}
+.category-summary {display:grid; grid-template-columns:auto 1fr; gap:1.5rem}
+.category-form-actions {display:flex; gap:.75rem; margin-block:1.5rem}
+@media(max-width:640px) {.category-tree-row {align-items:start; flex-direction:column; gap:.7rem; padding:.8rem}.category-tree-name {padding-inline-start:min(var(--category-indent,0px),40px)}.category-row-meta {gap:.5rem}.category-summary {grid-template-columns:1fr}.category-search {max-width:100%}.category-search input {min-width:0}}

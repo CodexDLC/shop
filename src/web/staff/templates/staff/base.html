@@ -1,12 +1,15 @@
 {% extends 'cabinet/base_cabinet.html' %}
-{% load shop_i18n %}
+{% load shop_i18n i18n %}
 {% block title %}{% text 'staff.title' %}{% endblock %}
+{% block cabinet_vendor_js %}{{ block.super }}{% block staff_page_css %}{% endblock %}{% endblock %}
 {% block sidebar %}
 <div class="cab-sidebar__logo"><span class="cab-sidebar__logo-icon bi bi-shop"></span><span class="cab-sidebar__logo-name">Männermasche</span></div>
 <nav class="cab-sidebar__nav" aria-label="{% text 'staff.nav.section' %}"><div class="flex-grow-1 overflow-auto py-2"><ul class="list-unstyled mb-0">
-{% for item in cabinet_sidebar %}{% include 'cabinet/includes/_nav_item.html' with item=item active=False %}{% endfor %}
+<li><a class="cab-nav__item" href="{% url 'staff:home' %}"{% if request.resolver_match.url_name == 'home' %} aria-current="page"{% endif %}><i class="bi bi-grid cab-nav__icon"></i><span class="cab-nav__label">{% text 'staff.nav.overview' %}</span></a></li>
+{% for row in staff_sidebar_rows %}{% include 'cabinet/includes/_nav_item.html' with item=row.item active=row.active %}{% endfor %}
 </ul></div></nav>
 <div class="cab-sidebar__footer" data-staff-settings>
+
 {% if cabinet_settings_url %}<a class="cab-nav__item" href="{{ cabinet_settings_url }}"><i class="bi bi-sliders cab-nav__icon"></i><span class="cab-nav__label">{% text 'staff.nav.section_settings' %}</span></a>{% endif %}
 {% if staff_global_settings_url %}<a class="cab-nav__item" href="{{ staff_global_settings_url }}"><i class="bi bi-gear cab-nav__icon"></i><span class="cab-nav__label">{% text 'staff.nav.settings' %}</span></a>{% endif %}
 <button class="cab-sidebar__collapse-btn" type="button" @click="sidebarCollapsed = !sidebarCollapsed" aria-label="{% text 'staff.nav.collapse' %}"><i class="bi bi-layout-sidebar cab-nav__icon"></i><span class="cab-nav__label">{% text 'staff.nav.collapse' %}</span></button>

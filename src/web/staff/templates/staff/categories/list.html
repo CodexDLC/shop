@@ -1,0 +1,23 @@
+{% extends "staff/base.html" %}
+{% load static shop_i18n %}
+{% block staff_page_css %}<link rel="stylesheet" href="{% static 'cabinet/css/category-management.css' %}?v=20261022">{% endblock %}
+{% block cabinet_content %}
+<section class="category-manager" aria-labelledby="category-title">
+  <div class="category-heading"><div><h1 class="h3" id="category-title">{% text 'staff.workspace_catalog.categories' %}</h1><p class="text-muted">{% text 'staff.categories.intro' %}</p></div>{% if perms.catalog.add_category %}<a class="btn btn-primary" href="{% url 'staff:category_add' %}">{% text 'staff.categories.add' %}</a>{% endif %}</div>
+  <form method="get" class="category-search"><label for="category-search" class="visually-hidden">{% text 'staff.workspace_catalog.search' %}</label><input class="form-control" id="category-search" name="q" value="{{ search_query }}" type="search" placeholder="{% text 'staff.workspace_catalog.search' %}"><button class="btn btn-outline-secondary" type="submit">{% text 'staff.workspace_catalog.search' %}</button></form>
+  <p class="text-muted small">{% text 'staff.categories.direct_counts' %}</p>
+  <div class="category-tree">
+  {% for row in category_rows %}
+    <article class="category-tree-row" style="--category-indent:{{ row.indent }}px">
+      <div class="category-tree-name">
+        {% if row.object.image %}<img src="{{ row.object.image.url }}" alt="{{ row.object.image_alt }}" width="52" height="52" loading="lazy">{% else %}<span class="category-image-empty" aria-hidden="true">▧</span>{% endif %}
+        <div><a class="fw-semibold" href="{% url 'staff:category_detail' pk=row.object.pk %}">{{ row.object.name }}</a>{% if search_query %}<div class="small text-muted">{{ row.path }}</div>{% endif %}<div class="small text-muted">{% text 'staff.categories.position' %} {{ row.object.position }}</div></div>
+      </div>
+      <div class="category-row-meta"><span class="badge {% if row.visible %}text-bg-success{% else %}text-bg-secondary{% endif %}">{% if row.visible %}{% text 'staff.categories.visible' %}{% elif row.object.is_visible %}{% text 'staff.categories.hidden_parent' %}{% else %}{% text 'staff.categories.hidden' %}{% endif %}</span>
+      {% if perms.catalog.view_product %}<a class="category-count" href="{% url 'staff:products' %}?category={{ row.object.slug|urlencode }}">{{ row.object.product_count }} {% text 'staff.categories.products' %}</a>{% endif %}
+      {% if perms.catalog.change_category %}<a class="btn btn-sm btn-outline-secondary" href="{% url 'staff:category_edit' pk=row.object.pk %}">{% text 'staff.workspace_catalog.edit' %}</a>{% endif %}</div>
+    </article>
+  {% empty %}<div class="card card-body">{% text 'staff.workspace_catalog.empty' %}</div>{% endfor %}
+  </div>
+</section>
+{% endblock %}

@@ -1,6 +1,24 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8\nMIME-Version: 1.0\nLanguage: de\n"
 
+msgid "My account"
+msgstr "Mein Konto"
+
+msgid "No notifications"
+msgstr "Keine Benachrichtigungen"
+
+msgid "Notifications"
+msgstr "Benachrichtigungen"
+
+msgid "Open navigation"
+msgstr "Navigation öffnen"
+
+msgid "Sign Out"
+msgstr "Abmelden"
+
+msgid "Site"
+msgstr "Website"
+
 msgid "auth.account"
 msgstr "Mein Konto"
 
@@ -153,6 +171,9 @@ msgstr "Für dieses Konto ist noch keine Authenticator-App eingerichtet."
 
 msgid "auth.mfa.manual"
 msgstr "Manuell mit Einrichtungsschlüssel verbinden"
+
+msgid "auth.mfa.optional"
+msgstr "Die Zwei-Faktor-Authentifizierung ist für alle Konten freiwillig. Nach der Aktivierung ist beim Anmelden ein zusätzlicher Code erforderlich."
 
 msgid "auth.mfa.qr"
 msgstr "QR-Code zur Einrichtung Ihrer Authenticator-App"
@@ -1174,6 +1195,27 @@ msgstr "Wir prüfen für Sie gerne Verfügbarkeiten direkt ab Manufakturlager. T
 msgid "catalog.empty.text.ffa3b2b1e483"
 msgstr "3XL"
 
+msgid "catalog.gallery.close"
+msgstr "Vergrößerung schließen"
+
+msgid "catalog.gallery.empty"
+msgstr "Für diese Farbe sind noch keine Fotos verfügbar."
+
+msgid "catalog.gallery.error"
+msgstr "Das Foto konnte nicht geladen werden. Bitte wählen Sie ein anderes Foto oder versuchen Sie es erneut."
+
+msgid "catalog.gallery.next"
+msgstr "Nächstes Foto"
+
+msgid "catalog.gallery.photo"
+msgstr "Foto"
+
+msgid "catalog.gallery.previous"
+msgstr "Vorheriges Foto"
+
+msgid "catalog.gallery.title"
+msgstr "Produktfotos"
+
 msgid "catalog.heading.new"
 msgstr "Neuheiten"
 
@@ -1188,6 +1230,129 @@ msgstr "Bademode"
 
 msgid "catalog.heading.underwear"
 msgstr "Unterwäsche"
+
+msgid "catalog.information.article"
+msgstr "Herstellerartikel"
+
+msgid "catalog.information.care"
+msgstr "Pflege"
+
+msgid "catalog.information.certification"
+msgstr "Zertifizierung"
+
+msgid "catalog.information.certification_pending"
+msgstr "Zertifizierung noch nicht hinterlegt"
+
+msgid "catalog.information.close"
+msgstr "Schließen"
+
+msgid "catalog.information.cm"
+msgstr "cm"
+
+msgid "catalog.information.composition"
+msgstr "Materialzusammensetzung"
+
+msgid "catalog.information.content_language"
+msgstr "Produktangaben in:"
+
+msgid "catalog.information.delivery_heading"
+msgstr "Versand & Rückgabe"
+
+msgid "catalog.information.delivery_terms"
+msgstr "Versand- und Rückgabebedingungen ansehen"
+
+msgid "catalog.information.delivery_test"
+msgstr "Im Testshop werden keine Sendungen oder kostenpflichtigen Bestellungen ausgelöst."
+
+msgid "catalog.information.description_empty"
+msgstr "Eine Beschreibung für dieses Modell wurde noch nicht hinterlegt."
+
+msgid "catalog.information.fit"
+msgstr "Passform"
+
+msgid "catalog.information.hip"
+msgstr "Hüfte"
+
+msgid "catalog.information.inch"
+msgstr "inch"
+
+msgid "catalog.information.not_provided"
+msgstr "Noch keine bestätigten Angaben vorhanden."
+
+msgid "catalog.information.origin"
+msgstr "Herkunft"
+
+msgid "catalog.information.packaging"
+msgstr "Verpackung"
+
+msgid "catalog.information.packaging_pending"
+msgstr "Verpackungsdetails werden vor dem Verkaufsstart bestätigt."
+
+msgid "catalog.information.product_photo"
+msgstr "Produktfoto"
+
+msgid "catalog.information.rating"
+msgstr "Durchschnittliche Bewertung"
+
+msgid "catalog.information.review_anonymous"
+msgstr "Ohne Namensangabe"
+
+msgid "catalog.information.reviews"
+msgstr "Kundenbewertungen"
+
+msgid "catalog.information.reviews_empty"
+msgstr "Für dieses Modell liegen noch keine veröffentlichten Bewertungen vor."
+
+msgid "catalog.information.reviews_empty_short"
+msgstr "Noch keine Bewertungen"
+
+msgid "catalog.information.reviews_limited"
+msgstr "Angezeigt werden die zehn neuesten veröffentlichten Bewertungen."
+
+msgid "catalog.information.reviews_submission_planned"
+msgstr "Die Abgabe neuer Bewertungen wird in einem späteren Schritt freigeschaltet."
+
+msgid "catalog.information.selected_size"
+msgstr "Aktuell ausgewählt"
+
+msgid "catalog.information.selection"
+msgstr "Auswahl"
+
+msgid "catalog.information.size"
+msgstr "Größe"
+
+msgid "catalog.information.size_advice"
+msgstr "Größenberatung"
+
+msgid "catalog.information.size_advice_text"
+msgstr "Beachten Sie die veröffentlichte Größentabelle des Herstellers. Fehlt sie, können wir noch keine konkrete Größenempfehlung geben."
+
+msgid "catalog.information.size_empty"
+msgstr "Für diese Marke und Kategorie ist noch keine bestätigte Größentabelle veröffentlicht."
+
+msgid "catalog.information.size_no_auto_selection"
+msgstr "Die Tabelle ändert Ihre Größenauswahl nicht automatisch."
+
+msgid "catalog.information.size_no_stock_claim"
+msgstr "Die Maßtabelle beschreibt Körpermaße. Die Verfügbarkeit wird für die gewählte Farbe und Größe separat geprüft."
+
+msgid "catalog.information.size_subtitle"
+msgstr "Maße für dieses Modell und seine Marke"
+
+msgid "catalog.information.size_title"
+msgstr "Größentabelle & Passformberater"
+
+msgid "catalog.information.source"
+msgstr "Quelle"
+
+msgid "catalog.information.tabs"
+msgstr "Produktinformationen"
+
+msgid "catalog.information.units"
+msgstr "Maßeinheit"
+
+msgid "catalog.information.waist"
+msgstr "Taille"
 
 msgid "catalog.list.label.0202b8960662"
 msgstr "Dichte Ansicht"
@@ -1603,6 +1768,9 @@ msgstr "Nur verfügbare Varianten"
 msgid "catalog.listing.intro"
 msgstr "Entdecken Sie unsere Modelle und wählen Sie Farbe und Größe direkt in der Übersicht. Warenkorb und Bestellungen können Sie ohne Zahlung im Testshop ausprobieren."
 
+msgid "catalog.listing.newest_help"
+msgstr "Sortiert nach hinterlegtem Veröffentlichungsdatum. Produkte ohne Datum stehen am Ende."
+
 msgid "catalog.listing.no_options"
 msgstr "Noch keine Auswahl vorhanden"
 
@@ -1612,11 +1780,20 @@ msgstr "Noch nicht verfügbar"
 msgid "catalog.listing.pagination"
 msgstr "Katalogseiten"
 
+msgid "catalog.listing.popularity_help"
+msgstr "Die Sortierung nach Beliebtheit wird erst mit bestätigten echten Verkäufen verfügbar. Testbestellungen zählen nicht."
+
+msgid "catalog.listing.popularity_pending"
+msgstr "erst mit bestätigten Verkäufen"
+
 msgid "catalog.listing.preview_badge"
 msgstr "Vorschau"
 
 msgid "catalog.listing.products"
 msgstr "Produkte"
+
+msgid "catalog.listing.rating_help"
+msgstr "Es zählen nur veröffentlichte Bewertungen. Produkte ohne Bewertungen stehen am Ende."
 
 msgid "catalog.listing.remove_filter"
 msgstr "Filter entfernen"
@@ -1635,6 +1812,9 @@ msgstr "Suchergebnisse für"
 
 msgid "catalog.listing.sort_name"
 msgstr "Name: A–Z"
+
+msgid "catalog.listing.sort_newest"
+msgstr "Neueste Veröffentlichungen"
 
 msgid "catalog.listing.tags"
 msgstr "Tags"
@@ -3094,6 +3274,15 @@ msgstr "Aktualisieren"
 msgid "commerce.checkout.address"
 msgstr "Lieferadresse"
 
+msgid "commerce.checkout.billing_address"
+msgstr "Rechnungsadresse"
+
+msgid "commerce.checkout.billing_required"
+msgstr "Für Packstation bitte eine separate Rechnungsadresse angeben."
+
+msgid "commerce.checkout.billing_separate"
+msgstr "Abweichende Rechnungsadresse verwenden"
+
 msgid "commerce.checkout.city"
 msgstr "Ort"
 
@@ -3113,7 +3302,7 @@ msgid "commerce.checkout.country.de"
 msgstr "Deutschland"
 
 msgid "commerce.checkout.country.notice"
-msgstr "Im lokalen Checkout werden ausschließlich Standardadressen in Deutschland unterstützt."
+msgstr "Im lokalen Checkout werden Liefer- und Rechnungsadressen in Deutschland unterstützt."
 
 msgid "commerce.checkout.edit"
 msgstr "Adresse ändern"
@@ -3128,7 +3317,13 @@ msgid "commerce.checkout.last_name"
 msgstr "Nachname"
 
 msgid "commerce.checkout.packstation"
-msgstr "Packstation und abweichende Rechnungsadresse sind im lokalen Test nicht verfügbar."
+msgstr "Packstation: persönliche Postnummer (6–10 Ziffern), dreistellige Stationsnummer sowie PLZ und Ort der Station. Im Test erfolgt keine Prüfung oder Übermittlung an DHL."
+
+msgid "commerce.checkout.packstation_number"
+msgstr "Packstation-Nummer"
+
+msgid "commerce.checkout.post_number"
+msgstr "Postnummer"
 
 msgid "commerce.checkout.postal_code"
 msgstr "Postleitzahl"
@@ -3139,14 +3334,32 @@ msgstr "Pflichtfelder"
 msgid "commerce.checkout.review"
 msgstr "Testbestellung prüfen"
 
+msgid "commerce.checkout.shipping_type"
+msgstr "Lieferadresse wählen"
+
 msgid "commerce.checkout.street"
 msgstr "Straße und Hausnummer"
+
+msgid "commerce.coupon.discount"
+msgstr "Rabatt"
+
+msgid "commerce.coupon.remove"
+msgstr "Gutscheincode entfernen"
 
 msgid "commerce.empty.discover"
 msgstr "Entdecken Sie die aktuelle Auswahl im Katalog."
 
 msgid "commerce.error.address"
 msgstr "Bitte prüfen Sie die Adresse."
+
+msgid "commerce.error.coupon_expired"
+msgstr "Dieser Gutscheincode ist derzeit nicht gültig. Bitte entfernen oder ersetzen."
+
+msgid "commerce.error.coupon_invalid"
+msgstr "Dieser Gutscheincode ist nicht gültig. Bitte prüfen oder entfernen."
+
+msgid "commerce.error.coupon_minimum"
+msgstr "Der Mindestwarenwert für diesen Gutschein ist nicht erreicht. Bitte entfernen oder ersetzen."
 
 msgid "commerce.error.lines"
 msgstr "Der lokale Warenkorb unterstützt höchstens 50 verschiedene Artikel."
@@ -8767,6 +8980,39 @@ msgstr "Erstattet"
 msgid "refund.status.unknown"
 msgstr "Ergebnis wird geprüft"
 
+msgid "seo.catalog.brands.description"
+msgstr "Unterwäsche-Marken und ihre Modelle bei Männermasche entdecken."
+
+msgid "seo.catalog.list.description"
+msgstr "Modelle, Größen und Farben im Unterwäsche-Katalog von Männermasche entdecken."
+
+msgid "seo.contact.title"
+msgstr "Kontakt"
+
+msgid "seo.default.description"
+msgstr "Informationen und Service von Männermasche."
+
+msgid "seo.help.title"
+msgstr "Hilfe und Service"
+
+msgid "seo.home.title"
+msgstr "Herrenunterwäsche und Marken"
+
+msgid "seo.page"
+msgstr "Seite {page}"
+
+msgid "seo.shop.home.description"
+msgstr "Herrenunterwäsche und Marken im Katalog von Männermasche entdecken."
+
+msgid "seo.support.contact.description"
+msgstr "Kontaktieren Sie Männermasche mit Ihrer Frage."
+
+msgid "seo.support.help.description"
+msgstr "Hilfe und Informationen zum Einkauf bei Männermasche."
+
+msgid "seo.utility.title"
+msgstr "Service und Konto"
+
 msgid "shop.home.label.0698cdb9c21e"
 msgstr "Night Navy"
 
@@ -9037,6 +9283,126 @@ msgstr "Auf Lager (L)"
 msgid "shop.home.text.fad6190c875f"
 msgstr "Neuheit"
 
+msgid "staff.cards.action.other"
+msgstr "Weitere Änderung"
+
+msgid "staff.cards.action.photos.add"
+msgstr "Foto hinzugefügt"
+
+msgid "staff.cards.action.photos.create"
+msgstr "Foto hinzugefügt"
+
+msgid "staff.cards.action.photos.delete"
+msgstr "Foto entfernt"
+
+msgid "staff.cards.action.photos.reorder"
+msgstr "Fotoreihenfolge geändert"
+
+msgid "staff.cards.action.photos.update"
+msgstr "Foto geändert"
+
+msgid "staff.cards.action.product.created"
+msgstr "Produkt angelegt"
+
+msgid "staff.cards.action.product.information_updated"
+msgstr "Produktinformationen geändert"
+
+msgid "staff.cards.action.product.publish"
+msgstr "Produkt veröffentlicht"
+
+msgid "staff.cards.action.product.reject"
+msgstr "Produkt zurückgewiesen"
+
+msgid "staff.cards.action.product.review"
+msgstr "Produkt geprüft"
+
+msgid "staff.cards.action.product.submit"
+msgstr "Produkt zur Prüfung eingereicht"
+
+msgid "staff.cards.action.product.updated"
+msgstr "Produkt geändert"
+
+msgid "staff.cards.action.product.withdraw"
+msgstr "Produkt zurückgezogen"
+
+msgid "staff.cards.action.promo.created"
+msgstr "Aktionscode erstellt"
+
+msgid "staff.cards.action.promo.updated"
+msgstr "Aktionscode geändert"
+
+msgid "staff.cards.action.quick_access.updated"
+msgstr "Schnellzugriff geändert"
+
+msgid "staff.cards.action.reference.brand.saved"
+msgstr "Marke gespeichert"
+
+msgid "staff.cards.action.reference.category.saved"
+msgstr "Kategorie gespeichert"
+
+msgid "staff.cards.action.reference.material.saved"
+msgstr "Material gespeichert"
+
+msgid "staff.cards.action.reference.property.saved"
+msgstr "Eigenschaft gespeichert"
+
+msgid "staff.cards.action.reference.size_guide.saved"
+msgstr "Größentabelle gespeichert"
+
+msgid "staff.cards.action.reference.tag.saved"
+msgstr "Etikett gespeichert"
+
+msgid "staff.cards.action.support.reopened"
+msgstr "Anfrage wieder geöffnet"
+
+msgid "staff.cards.action.support.resolved"
+msgstr "Anfrage abgeschlossen"
+
+msgid "staff.cards.action.variants.updated"
+msgstr "Varianten geändert"
+
+msgid "staff.cards.object.brand"
+msgstr "Marke"
+
+msgid "staff.cards.object.category"
+msgstr "Kategorie"
+
+msgid "staff.cards.object.material"
+msgstr "Material"
+
+msgid "staff.cards.object.other"
+msgstr "Datensatz"
+
+msgid "staff.cards.object.preferences"
+msgstr "Schnellzugriff"
+
+msgid "staff.cards.object.product"
+msgstr "Produkt"
+
+msgid "staff.cards.object.promo"
+msgstr "Aktionscode"
+
+msgid "staff.cards.object.property"
+msgstr "Eigenschaft"
+
+msgid "staff.cards.object.size_guide"
+msgstr "Größentabelle"
+
+msgid "staff.cards.object.support"
+msgstr "Anfrage"
+
+msgid "staff.cards.object.tag"
+msgstr "Etikett"
+
+msgid "staff.cards.overview"
+msgstr "Übersicht"
+
+msgid "staff.cards.tag_notice"
+msgstr "Das Etikett verwendet die vorhandene Übersetzung."
+
+msgid "staff.cards.technical"
+msgstr "Technische Angaben"
+
 msgid "staff.catalog_settings.identity"
 msgstr "Produkt und Variante"
 
@@ -9052,8 +9418,206 @@ msgstr "Bilder"
 msgid "staff.catalog_settings.photo_text"
 msgstr "Farben haben eigene Galerien oder gemeinsame Bilder. Bilder anderer Farben werden nicht als Ersatz verwendet."
 
+msgid "staff.categories.add"
+msgstr "Kategorie anlegen"
+
+msgid "staff.categories.assignment_help"
+msgstr "Eine Produktkarte öffnet den bestehenden Produkteditor. Die Kategorie lässt sich dort nur im Entwurf ändern; veröffentlichte Produkte müssen vorher ausdrücklich zurückgezogen werden."
+
+msgid "staff.categories.branch_products"
+msgstr "Produkte einschließlich Unterkategorien"
+
+msgid "staff.categories.cancel"
+msgstr "Abbrechen"
+
+msgid "staff.categories.children"
+msgstr "Unterkategorien"
+
+msgid "staff.categories.choose_products"
+msgstr "Produkte im Entwurf auswählen"
+
+msgid "staff.categories.confirm_required"
+msgstr "Bitte die Auswirkung auf veröffentlichte Produkte bestätigen."
+
+msgid "staff.categories.cycle"
+msgstr "Eine Kategorie kann nicht sich selbst oder einer eigenen Unterkategorie untergeordnet werden."
+
+msgid "staff.categories.direct_counts"
+msgstr "Die Anzahl zeigt direkt zugeordnete Produkte. Unterkategorien sind in der Kategoriedetailseite enthalten."
+
+msgid "staff.categories.draft"
+msgstr "Entwurf / Prüfung"
+
+msgid "staff.categories.field.confirm_visibility"
+msgstr "Auswirkung von Struktur und Sichtbarkeit auf veröffentlichte Produkte bestätigen"
+
+msgid "staff.categories.field.description_de"
+msgstr "Beschreibung auf Deutsch"
+
+msgid "staff.categories.field.description_ru"
+msgstr "Beschreibung auf Russisch (optional)"
+
+msgid "staff.categories.field.image_alt"
+msgstr "Bildbeschreibung"
+
+msgid "staff.categories.field.is_visible"
+msgstr "Im Shop sichtbar (sofern auch alle übergeordneten Kategorien sichtbar sind)"
+
+msgid "staff.categories.field.name_de"
+msgstr "Name auf Deutsch"
+
+msgid "staff.categories.field.name_ru"
+msgstr "Name auf Russisch (optional)"
+
+msgid "staff.categories.field.parent"
+msgstr "Übergeordnete Kategorie"
+
+msgid "staff.categories.field.position"
+msgstr "Reihenfolge"
+
+msgid "staff.categories.field.remove_image"
+msgstr "Aktuelles Bild entfernen"
+
+msgid "staff.categories.field.section"
+msgstr "Shopbereich"
+
+msgid "staff.categories.field.seo_description"
+msgstr "SEO-Beschreibung (Deutsch)"
+
+msgid "staff.categories.field.seo_title"
+msgstr "SEO-Titel (Deutsch)"
+
+msgid "staff.categories.field.slug"
+msgstr "Adresse im Katalog"
+
+msgid "staff.categories.field.upload"
+msgstr "Bild hochladen (JPEG, PNG, WebP; bis 8 MB)"
+
+msgid "staff.categories.form_help"
+msgstr "Deutsch ist die Hauptsprache der Kategorie. Russisch ist optional. Kleinere Positionsnummern stehen zuerst; bei Gleichstand gilt die bestehende Reihenfolge."
+
+msgid "staff.categories.group.description"
+msgstr "Beschreibung"
+
+msgid "staff.categories.group.display"
+msgstr "Reihenfolge und Sichtbarkeit"
+
+msgid "staff.categories.group.identity"
+msgstr "Name und Struktur"
+
+msgid "staff.categories.group.image"
+msgstr "Kategoriebild"
+
+msgid "staff.categories.group.seo"
+msgstr "Suchmaschinen-Vorschau"
+
+msgid "staff.categories.hidden"
+msgstr "Ausgeblendet"
+
+msgid "staff.categories.hidden_parent"
+msgstr "Übergeordnete Kategorie ausgeblendet"
+
+msgid "staff.categories.image_conflict"
+msgstr "Bitte entweder ein neues Bild hochladen oder das bisherige Bild entfernen."
+
+msgid "staff.categories.intro"
+msgstr "Kategorien strukturieren, Inhalte pflegen und die Sichtbarkeit im Shop steuern."
+
+msgid "staff.categories.next"
+msgstr "Weiter"
+
+msgid "staff.categories.open_storefront"
+msgstr "Kategorie im Shop ansehen"
+
+msgid "staff.categories.pages"
+msgstr "Produktseiten"
+
+msgid "staff.categories.position"
+msgstr "Reihenfolge"
+
+msgid "staff.categories.preview"
+msgstr "Vorschau"
+
+msgid "staff.categories.preview_notice"
+msgstr "Private Vorschau der gespeicherten Kategorie. Nicht gespeicherte Änderungen sind hier noch nicht enthalten."
+
+msgid "staff.categories.previous"
+msgstr "Zurück"
+
+msgid "staff.categories.product"
+msgstr "Produkt"
+
+msgid "staff.categories.products"
+msgstr "Produkte"
+
+msgid "staff.categories.publish_permission"
+msgstr "Für Änderungen an der Sichtbarkeit dieses veröffentlichten Zweigs ist die Berechtigung zur Produktveröffentlichung erforderlich."
+
+msgid "staff.categories.published"
+msgstr "Veröffentlicht"
+
+msgid "staff.categories.published_affected"
+msgstr "veröffentlichte Produkte in diesem Zweig"
+
+msgid "staff.categories.root"
+msgstr "Hauptkategorie"
+
+msgid "staff.categories.section_mismatch"
+msgstr "Über- und Unterkategorien müssen zum gleichen Shopbereich gehören."
+
+msgid "staff.categories.seo_help"
+msgstr "SEO-Felder betreffen die deutsche Kategorieansicht. Gefilterte Katalogseiten bleiben nach der bestehenden Indexierungsregel noindex."
+
+msgid "staff.categories.slug_help"
+msgstr "Die bestehende Adresse bleibt erhalten."
+
+msgid "staff.categories.status"
+msgstr "Status"
+
+msgid "staff.categories.visibility_warning"
+msgstr "Sichtbarkeit und übergeordnete Kategorie wirken auch auf Unterkategorien. Änderungen können veröffentlichte Produkte aus dem Shop ausblenden oder wieder anzeigen. Produktstatus und Zuordnung bleiben erhalten. Bitte die Auswirkung vor dem Speichern bestätigen."
+
+msgid "staff.categories.visible"
+msgstr "Sichtbar"
+
 msgid "staff.dashboard.intro"
-msgstr "Arbeitsbereich des Shops. Der Katalog ist lesbar; weitere Arbeitsabläufe werden schrittweise ergänzt."
+msgstr "Arbeitsbereich des Shops. Produktentwürfe mit Varianten, Texten und Fotos bearbeiten und mit dem erforderlichen Recht nach Prüfung veröffentlichen."
+
+msgid "staff.information.care"
+msgstr "Pflege"
+
+msgid "staff.information.certification"
+msgstr "Zertifizierung"
+
+msgid "staff.information.composition"
+msgstr "Zusammensetzung"
+
+msgid "staff.information.description"
+msgstr "Beschreibung (Deutsch)"
+
+msgid "staff.information.fit"
+msgstr "Passform"
+
+msgid "staff.information.no_size_guide"
+msgstr "Für diese Marke ist noch keine Größentabelle hinterlegt."
+
+msgid "staff.information.notice"
+msgstr "Die Angaben werden als deutscher Text gespeichert. Nur belegte Informationen eintragen; leere Felder bleiben ohne erfundene Angaben."
+
+msgid "staff.information.origin"
+msgstr "Herkunft"
+
+msgid "staff.information.size_guides"
+msgstr "Größentabellen der Marke"
+
+msgid "staff.information.size_guides_help"
+msgstr "Größentabellen werden gemeinsam je Marke und Kategorie gepflegt. Sie werden hier nicht pro Modell kopiert. Angezeigt werden vorhandene Tabellen der Marke; in der Vorschau gilt die veröffentlichte Tabelle für die Produktkategorie."
+
+msgid "staff.language.apply"
+msgstr "Übernehmen"
+
+msgid "staff.language.label"
+msgstr "Sprache"
 
 msgid "staff.login.denied"
 msgstr "Dieses Konto hat keinen Mitarbeiterzugang."
@@ -9079,6 +9643,15 @@ msgstr "Katalog"
 msgid "staff.nav.collapse"
 msgstr "Navigation umschalten"
 
+msgid "staff.nav.group_admin"
+msgstr "Verwaltung"
+
+msgid "staff.nav.group_sections"
+msgstr "Bereiche"
+
+msgid "staff.nav.group_services"
+msgstr "Shop"
+
 msgid "staff.nav.management"
 msgstr "Verwaltung"
 
@@ -9102,6 +9675,117 @@ msgstr "Shop-Einstellungen"
 
 msgid "staff.nav.shop"
 msgstr "Shop"
+
+msgid "staff.order.attempt_created"
+msgstr "Zahlungsversuch angelegt"
+
+msgid "staff.order.attempt_updated"
+msgstr "Versuch zuletzt aktualisiert"
+
+msgid "staff.order.copied"
+msgstr "ID kopiert."
+
+msgid "staff.order.copy"
+msgstr "ID kopieren"
+
+msgid "staff.order.copy_failed"
+msgstr "Kopieren nicht möglich. Bitte die ID auswählen und kopieren."
+
+msgid "staff.order.country_de"
+msgstr "Deutschland"
+
+msgid "staff.order.heading"
+msgstr "Bestellung"
+
+msgid "staff.order.history"
+msgstr "Verlauf"
+
+msgid "staff.order.history_note"
+msgstr "Es werden nur gespeicherte Zeitpunkte angezeigt."
+
+msgid "staff.order.no_address"
+msgstr "Keine Adresse gespeichert."
+
+msgid "staff.order.no_photo"
+msgstr "Kein Produktfoto gespeichert"
+
+msgid "staff.order.packstation"
+msgstr "DHL Packstation"
+
+msgid "staff.order.post_number"
+msgstr "Postnummer"
+
+msgid "staff.order.readonly_note"
+msgstr "Nur Ansicht. Zahlung, Versand und Erstattung sind hier nicht verfügbar."
+
+msgid "staff.order.record_created"
+msgstr "Bestellung angelegt"
+
+msgid "staff.order.record_updated"
+msgstr "Bestellung zuletzt aktualisiert"
+
+msgid "staff.order.requisites"
+msgstr "Bestelldaten"
+
+msgid "staff.order.summary"
+msgstr "Bestellsumme"
+
+msgid "staff.order.uuid"
+msgstr "Bestell-ID (UUID)"
+
+msgid "staff.photos.add"
+msgstr "Foto hinzufügen"
+
+msgid "staff.photos.alt"
+msgstr "Bildbeschreibung (Alternativtext)"
+
+msgid "staff.photos.color"
+msgstr "Farbgalerie"
+
+msgid "staff.photos.conflict"
+msgstr "Die Änderung konnte wegen eines Konflikts nicht gespeichert werden. Bitte die Seite neu laden."
+
+msgid "staff.photos.delete"
+msgstr "Fotozuordnung entfernen"
+
+msgid "staff.photos.empty"
+msgstr "Noch keine Fotos vorhanden."
+
+msgid "staff.photos.general"
+msgstr "Allgemeines Foto für alle Farben"
+
+msgid "staff.photos.instructions"
+msgstr "JPEG, PNG oder WebP bis 8 MB und 16 Megapixel (maximal 8000 Pixel je Seite). Bilder werden ohne Metadaten neu gespeichert. Farben stammen aus den Varianten; Größen teilen dieselbe Galerie. Allgemeine Fotos dienen als Ersatz. Die Position beginnt bei 0; Verschieben ordnet die Galerie neu."
+
+msgid "staff.photos.invalid_upload"
+msgstr "Bitte ein gültiges JPEG-, PNG- oder WebP-Einzelbild hochladen: höchstens 8 MB, 16 Megapixel und 8000 Pixel je Seite. Animierte Bilder sind nicht erlaubt."
+
+msgid "staff.photos.legacy_alt"
+msgstr "Bisherige Bildbeschreibung"
+
+msgid "staff.photos.limit"
+msgstr "Pro Produkt sind höchstens 100 Fotos erlaubt."
+
+msgid "staff.photos.position"
+msgstr "Position (0 = erstes Foto)"
+
+msgid "staff.photos.published"
+msgstr "Zum Bearbeiten zuerst auf der Registerkarte Prüfung und Veröffentlichung ausdrücklich in den Entwurf zurücksetzen."
+
+msgid "staff.photos.save"
+msgstr "Foto speichern"
+
+msgid "staff.photos.saved"
+msgstr "Die Fotos wurden gespeichert. Eine frühere Prüfung ist nicht mehr gültig."
+
+msgid "staff.photos.stale"
+msgstr "Der Artikel wurde inzwischen geändert. Bitte die Seite neu laden und die Änderung erneut prüfen."
+
+msgid "staff.photos.title"
+msgstr "Produktfotos"
+
+msgid "staff.photos.upload"
+msgstr "Fotodatei"
 
 msgid "staff.product_form.active_without_variants"
 msgstr "Ein veröffentlichtes Produkt benötigt mindestens eine aktive Variante."
@@ -9128,7 +9812,7 @@ msgid "staff.product_form.description_key"
 msgstr "Beschreibungsschlüssel"
 
 msgid "staff.product_form.description_key_help"
-msgstr "Nur Übersetzungsschlüssel, beispielsweise products.manstore.description; kein Beschreibungstext."
+msgstr "Bestehender Übersetzungsschlüssel (Altbestand, nur lesbar). Die deutsche Beschreibung bearbeiten Sie unter Texte & Details."
 
 msgid "staff.product_form.edit_title"
 msgstr "Produkt bearbeiten"
@@ -9151,6 +9835,9 @@ msgstr "Veröffentlicht"
 msgid "staff.product_form.manufacturer_article"
 msgstr "Herstellerartikel"
 
+msgid "staff.product_form.materials"
+msgstr "Materialien"
+
 msgid "staff.product_form.model_name"
 msgstr "Modellname"
 
@@ -9160,8 +9847,11 @@ msgstr "Neuheit bis einschließlich"
 msgid "staff.product_form.new_until_help"
 msgstr "Optionales Datum: Bis einschließlich dieses Tages erscheint das Modell unter Neuheiten. Ohne Datum ist es keine Neuheit."
 
+msgid "staff.product_form.properties"
+msgstr "Eigenschaften"
+
 msgid "staff.product_form.publication_help"
-msgstr "Der Veröffentlichungsstatus kann hier nicht geändert werden."
+msgstr "Der Status wird ausschließlich unter Prüfung & Veröffentlichung geändert."
 
 msgid "staff.product_form.required"
 msgstr "Bitte füllen Sie dieses Feld aus."
@@ -9173,7 +9863,7 @@ msgid "staff.product_form.saved"
 msgstr "Das Produkt wurde gespeichert."
 
 msgid "staff.product_form.scope_notice"
-msgstr "Hier bearbeiten Sie die Modelldaten. Neue Modelle werden als Entwurf gespeichert; Veröffentlichung ist eine separate Aktion."
+msgstr "Grunddaten, Materialien und Eigenschaften speichern. Texte und Fotos bearbeiten Sie in den eigenen Reitern. Speichern veröffentlicht den Entwurf nicht."
 
 msgid "staff.product_form.slug"
 msgstr "URL-Kennung"
@@ -9193,14 +9883,26 @@ msgstr "Tags"
 msgid "staff.product_form.too_long"
 msgstr "Der eingegebene Wert ist zu lang."
 
+msgid "staff.product_tabs.information"
+msgstr "Beschreibung"
+
 msgid "staff.product_tabs.label"
 msgstr "Produktbereiche"
 
 msgid "staff.product_tabs.main"
-msgstr "Grunddaten"
+msgstr "Produkt"
+
+msgid "staff.product_tabs.photos"
+msgstr "Fotos"
+
+msgid "staff.product_tabs.preview"
+msgstr "Vorschau"
+
+msgid "staff.product_tabs.publication"
+msgstr "Freigabe"
 
 msgid "staff.product_tabs.storefront"
-msgstr "Im Shop ansehen"
+msgstr "Im Shop"
 
 msgid "staff.product_tabs.variants"
 msgstr "Varianten"
@@ -9221,7 +9923,7 @@ msgid "staff.products.category"
 msgstr "Kategorie"
 
 msgid "staff.products.demo_notice"
-msgstr "Bestände sind Demonstrationsdaten. Änderungen und Veröffentlichung sind hier noch nicht verfügbar."
+msgstr "Bestände sind weiterhin Demonstrationsdaten. Produktentwürfe lassen sich bearbeiten, prüfen und mit gesondertem Recht in der lokalen Shop-Darstellung veröffentlichen."
 
 msgid "staff.products.demo_quantity"
 msgstr "Demobestand"
@@ -9271,8 +9973,404 @@ msgstr "Modelle insgesamt"
 msgid "staff.products.variants"
 msgstr "Varianten aktiv / gesamt"
 
+msgid "staff.records.action"
+msgstr "Aktion"
+
+msgid "staff.records.active"
+msgstr "Aktiv"
+
+msgid "staff.records.actor"
+msgstr "Mitarbeiter-ID"
+
+msgid "staff.records.addresses"
+msgstr "Adressen"
+
+msgid "staff.records.all"
+msgstr "Alle"
+
+msgid "staff.records.amount"
+msgstr "Betrag"
+
+msgid "staff.records.audit"
+msgstr "Änderungsprotokoll"
+
+msgid "staff.records.back"
+msgstr "Zur Liste"
+
+msgid "staff.records.billing_address"
+msgstr "Rechnungsadresse"
+
+msgid "staff.records.city"
+msgstr "Ort"
+
+msgid "staff.records.code"
+msgstr "Code"
+
+msgid "staff.records.colour"
+msgstr "Farbe"
+
+msgid "staff.records.country"
+msgstr "Land"
+
+msgid "staff.records.created"
+msgstr "Erstellt"
+
+msgid "staff.records.customer"
+msgstr "Kunde"
+
+msgid "staff.records.customers"
+msgstr "Kunden"
+
+msgid "staff.records.demo_payments"
+msgstr "Lokale Demo-/Sandbox-Vorgänge. Hier werden keine Zahlungen oder Erstattungen ausgeführt."
+
+msgid "staff.records.demo_stock"
+msgstr "Demo-Bestände: keine Reservierungen oder Bestandsabgleiche mit Verkaufskanälen."
+
+msgid "staff.records.discount"
+msgstr "Rabatt"
+
+msgid "staff.records.email"
+msgstr "E-Mail"
+
+msgid "staff.records.empty"
+msgstr "Keine passenden Datensätze."
+
+msgid "staff.records.ends"
+msgstr "Gültig bis"
+
+msgid "staff.records.filter"
+msgstr "Filtern"
+
+msgid "staff.records.first_name"
+msgstr "Vorname"
+
+msgid "staff.records.form.code"
+msgstr "Aktionscode"
+
+msgid "staff.records.form.currency"
+msgstr "Währung (EUR)"
+
+msgid "staff.records.form.ends_at"
+msgstr "Gültig bis"
+
+msgid "staff.records.form.is_active"
+msgstr "Aktiv"
+
+msgid "staff.records.form.kind"
+msgstr "Rabattart"
+
+msgid "staff.records.form.min_subtotal"
+msgstr "Mindestbestellwert"
+
+msgid "staff.records.form.starts_at"
+msgstr "Gültig ab"
+
+msgid "staff.records.form.value"
+msgstr "Rabattwert"
+
+msgid "staff.records.groups"
+msgstr "Rollen"
+
+msgid "staff.records.inactive"
+msgstr "Inaktiv"
+
+msgid "staff.records.invalid"
+msgstr "Bitte Eingaben prüfen. Der Datensatz wurde nicht gespeichert."
+
+msgid "staff.records.items"
+msgstr "Positionen"
+
+msgid "staff.records.kind"
+msgstr "Art"
+
+msgid "staff.records.kind.fixed"
+msgstr "Festbetrag"
+
+msgid "staff.records.kind.percent"
+msgstr "Prozent"
+
+msgid "staff.records.last_login"
+msgstr "Letzte Anmeldung"
+
+msgid "staff.records.last_name"
+msgstr "Nachname"
+
+msgid "staff.records.local_records"
+msgstr "Vorhandene lokale Datensätze."
+
+msgid "staff.records.message"
+msgstr "Nachricht"
+
+msgid "staff.records.method"
+msgstr "Zahlungsart"
+
+msgid "staff.records.method.card"
+msgstr "Karte"
+
+msgid "staff.records.method.paypal"
+msgstr "PayPal"
+
+msgid "staff.records.minimum"
+msgstr "Mindestbestellwert"
+
+msgid "staff.records.mode"
+msgstr "Modus"
+
+msgid "staff.records.mode.demo"
+msgstr "DEMO"
+
+msgid "staff.records.mode.sandbox"
+msgstr "Sandbox"
+
+msgid "staff.records.name"
+msgstr "Name"
+
+msgid "staff.records.next"
+msgstr "Weiter"
+
+msgid "staff.records.no"
+msgstr "Nein"
+
+msgid "staff.records.object"
+msgstr "Objekt"
+
+msgid "staff.records.open"
+msgstr "Offen"
+
+msgid "staff.records.order"
+msgstr "Bestellung"
+
+msgid "staff.records.orders"
+msgstr "Bestellungen"
+
+msgid "staff.records.owner"
+msgstr "Vollzugriff"
+
+msgid "staff.records.packstation_number"
+msgstr "Packstation"
+
+msgid "staff.records.pagination"
+msgstr "Seitennavigation"
+
+msgid "staff.records.payments"
+msgstr "Zahlungen"
+
+msgid "staff.records.post_number"
+msgstr "Postnummer"
+
+msgid "staff.records.postal_code"
+msgstr "Postleitzahl"
+
+msgid "staff.records.previous"
+msgstr "Zurück"
+
+msgid "staff.records.price"
+msgstr "Preis"
+
+msgid "staff.records.product"
+msgstr "Artikel"
+
+msgid "staff.records.promo_add"
+msgstr "Aktionscode anlegen"
+
+msgid "staff.records.promo_edit"
+msgstr "Aktionscode bearbeiten"
+
+msgid "staff.records.promo_error.code"
+msgstr "Verwenden Sie 1–32 Zeichen: A–Z, 0–9, Unterstrich oder Bindestrich. Beginnen Sie mit einem Buchstaben oder einer Ziffer."
+
+msgid "staff.records.promo_error.currency"
+msgstr "Aktionscodes sind nur in EUR verfügbar. Tragen Sie EUR ein."
+
+msgid "staff.records.promo_error.date"
+msgstr "Geben Sie ein gültiges Datum mit Uhrzeit ein."
+
+msgid "staff.records.promo_error.date_order"
+msgstr "Das Enddatum muss nach dem Startdatum liegen."
+
+msgid "staff.records.promo_error.duplicate"
+msgstr "Dieser Aktionscode ist bereits vorhanden. Wählen Sie einen anderen Code."
+
+msgid "staff.records.promo_error.invalid"
+msgstr "Prüfen Sie die Angaben zum Aktionscode und versuchen Sie es erneut."
+
+msgid "staff.records.promo_error.kind"
+msgstr "Wählen Sie Prozent oder Festbetrag."
+
+msgid "staff.records.promo_error.minimum"
+msgstr "Der Mindestbestellwert muss 0 oder größer sein."
+
+msgid "staff.records.promo_error.number"
+msgstr "Geben Sie eine gültige Zahl mit höchstens zwei Nachkommastellen ein."
+
+msgid "staff.records.promo_error.percent"
+msgstr "Geben Sie einen Rabatt größer als 0 und höchstens 100 % ein."
+
+msgid "staff.records.promo_error.positive"
+msgstr "Geben Sie einen Rabattbetrag größer als 0 ein."
+
+msgid "staff.records.promo_error.required"
+msgstr "Dieses Feld ist erforderlich."
+
+msgid "staff.records.promos"
+msgstr "Aktionen"
+
+msgid "staff.records.quantity"
+msgstr "Menge"
+
+msgid "staff.records.readonly"
+msgstr "Vorhandene Datensätze ansehen. Änderungen sind hier nicht verfügbar."
+
+msgid "staff.records.recipient"
+msgstr "Empfänger"
+
+msgid "staff.records.reference"
+msgstr "Referenz"
+
+msgid "staff.records.refunds"
+msgstr "Erstattungsversuche"
+
+msgid "staff.records.reload"
+msgstr "Aktuellen Stand laden"
+
+msgid "staff.records.reopen"
+msgstr "Wieder öffnen"
+
+msgid "staff.records.resolve"
+msgstr "Als erledigt markieren"
+
+msgid "staff.records.resolved"
+msgstr "Erledigt"
+
+msgid "staff.records.roles_readonly"
+msgstr "Rollen und Zugriffe werden hier nur angezeigt. Keine automatische Vergabe von Berechtigungen."
+
+msgid "staff.records.save"
+msgstr "Speichern"
+
+msgid "staff.records.saved"
+msgstr "Änderungen gespeichert."
+
+msgid "staff.records.search"
+msgstr "Suchen"
+
+msgid "staff.records.shipping"
+msgstr "Versandkosten"
+
+msgid "staff.records.shipping_address"
+msgstr "Lieferadresse"
+
+msgid "staff.records.shipping_type"
+msgstr "Zustellart"
+
+msgid "staff.records.size"
+msgstr "Größe"
+
+msgid "staff.records.sku"
+msgstr "SKU"
+
+msgid "staff.records.stale"
+msgstr "Der Datensatz wurde geändert oder die Bearbeitung ist abgelaufen. Bitte den aktuellen Stand laden."
+
+msgid "staff.records.standard"
+msgstr "Standard"
+
+msgid "staff.records.starts"
+msgstr "Gültig ab"
+
+msgid "staff.records.status"
+msgstr "Status"
+
+msgid "staff.records.status.awaiting_payment"
+msgstr "Wartet auf Zahlung"
+
+msgid "staff.records.status.cancelled"
+msgstr "Storniert"
+
+msgid "staff.records.status.confirmed"
+msgstr "Bestätigt"
+
+msgid "staff.records.status.created"
+msgstr "Erstellt"
+
+msgid "staff.records.status.draft"
+msgstr "Entwurf"
+
+msgid "staff.records.status.failed"
+msgstr "Fehlgeschlagen"
+
+msgid "staff.records.status.pending"
+msgstr "In Bearbeitung"
+
+msgid "staff.records.status.requested"
+msgstr "Angefordert"
+
+msgid "staff.records.status.succeeded"
+msgstr "Erfolgreich"
+
+msgid "staff.records.status.test_created"
+msgstr "TEST erstellt"
+
+msgid "staff.records.status.unknown"
+msgstr "Ungeklärt"
+
+msgid "staff.records.stock"
+msgstr "Bestände"
+
+msgid "staff.records.street"
+msgstr "Straße und Hausnummer"
+
+msgid "staff.records.subtotal"
+msgstr "Zwischensumme"
+
+msgid "staff.records.support"
+msgstr "Kundenservice"
+
+msgid "staff.records.team"
+msgstr "Mitarbeiter"
+
+msgid "staff.records.test"
+msgstr "TEST"
+
+msgid "staff.records.topic"
+msgstr "Thema"
+
+msgid "staff.records.topic.groesse"
+msgstr "Größe und Passform"
+
+msgid "staff.records.topic.reklamation"
+msgstr "Reklamation"
+
+msgid "staff.records.topic.retoure"
+msgstr "Rückgabe"
+
+msgid "staff.records.topic.sonstiges"
+msgstr "Sonstiges"
+
+msgid "staff.records.topic.versand"
+msgstr "Versand"
+
+msgid "staff.records.topic.zahlung"
+msgstr "Zahlung"
+
+msgid "staff.records.total"
+msgstr "Gesamt"
+
+msgid "staff.records.username"
+msgstr "Benutzername"
+
+msgid "staff.records.value"
+msgstr "Rabatt"
+
+msgid "staff.records.yes"
+msgstr "Ja"
+
 msgid "staff.settings.choose"
 msgstr "Links für die obere Leiste auswählen"
+
+msgid "staff.settings.conflict"
+msgstr "Die Schnellzugriffe wurden inzwischen geändert oder das Formular ist abgelaufen. Laden Sie die aktuelle Auswahl neu und prüfen Sie Ihre Änderungen."
 
 msgid "staff.settings.intro"
 msgstr "Diese Auswahl gilt gemeinsam für den Mitarbeiterbereich. Sichtbar sind nur Links mit den erforderlichen Berechtigungen."
@@ -9282,6 +10380,174 @@ msgstr "Speichern"
 
 msgid "staff.settings.saved"
 msgstr "Schnellzugriff gespeichert."
+
+msgid "staff.settings_workspace.available"
+msgstr "Bereits verfügbar"
+
+msgid "staff.settings_workspace.card.attributes"
+msgstr "Merkmale & Größen"
+
+msgid "staff.settings_workspace.card.attributes.description"
+msgstr "Vorhandene Materialien, Eigenschaften und Größentabellen. Regeln für Pflichtangaben sind noch nicht konfigurierbar."
+
+msgid "staff.settings_workspace.card.company"
+msgstr "Unternehmen & Kontakt"
+
+msgid "staff.settings_workspace.card.company.description"
+msgstr "Rechtlicher Name und zentrale Kontaktdaten für den Shop und Dokumente."
+
+msgid "staff.settings_workspace.card.documents"
+msgstr "Dokumente & Rechtliches"
+
+msgid "staff.settings_workspace.card.documents.description"
+msgstr "Nummerierung und Bereitstellung rechtlicher Texte. Die Texte im Testshop sind Entwürfe."
+
+msgid "staff.settings_workspace.card.languages"
+msgstr "Sprachen & Benachrichtigungen"
+
+msgid "staff.settings_workspace.card.languages.description"
+msgstr "Shopweite Standards. Die persönliche Sprache wechseln Sie weiterhin oben rechts."
+
+msgid "staff.settings_workspace.card.packing"
+msgstr "Verpackung"
+
+msgid "staff.settings_workspace.card.packing.description"
+msgstr "Vorgaben für Pakete und interne Verpackungshinweise."
+
+msgid "staff.settings_workspace.card.publication"
+msgstr "Fotos & Veröffentlichung"
+
+msgid "staff.settings_workspace.card.publication.description"
+msgstr "Produkte und Fotos öffnen. Der bestehende Ablauf Entwurf – Prüfung – Veröffentlichung bleibt maßgeblich."
+
+msgid "staff.settings_workspace.card.returns"
+msgstr "Retouren & Prüfung"
+
+msgid "staff.settings_workspace.card.returns.description"
+msgstr "Künftige Fristen und Prüfvorgaben. Erstattungen werden hier nicht ausgelöst."
+
+msgid "staff.settings_workspace.card.shipping"
+msgstr "Versandregeln"
+
+msgid "staff.settings_workspace.card.shipping.description"
+msgstr "Künftige Versandgebiete und Preisregeln. Keine Buchung oder DHL-Aktion auf dieser Seite."
+
+msgid "staff.settings_workspace.card.structure"
+msgstr "Struktur & Zuordnung"
+
+msgid "staff.settings_workspace.card.structure.description"
+msgstr "Kategorien, Marken und Tags verwalten. Produktzuordnungen ändern Sie im bestehenden Produkteditor."
+
+msgid "staff.settings_workspace.card.taxes"
+msgstr "Steuern & Preise"
+
+msgid "staff.settings_workspace.card.taxes.description"
+msgstr "Umsatzsteuerangaben, Währung und Darstellung der Preise."
+
+msgid "staff.settings_workspace.design_notice"
+msgstr "Entwurf: Die deaktivierten Felder zeigen die geplante Struktur. Es werden keine Werte gespeichert und keine externen Dienste aufgerufen. Links zu bestehenden Bereichen funktionieren bereits."
+
+msgid "staff.settings_workspace.eyebrow"
+msgstr "Arbeitsbereich konfigurieren"
+
+msgid "staff.settings_workspace.field.company_address"
+msgstr "Unternehmensanschrift"
+
+msgid "staff.settings_workspace.field.company_email"
+msgstr "Zentrale Kontakt-E-Mail"
+
+msgid "staff.settings_workspace.field.company_name"
+msgstr "Rechtlicher Unternehmensname"
+
+msgid "staff.settings_workspace.field.currency"
+msgstr "Shop-Währung"
+
+msgid "staff.settings_workspace.field.default_language"
+msgstr "Standardsprache des Shops"
+
+msgid "staff.settings_workspace.field.default_visibility"
+msgstr "Sichtbarkeit neuer Kategorien"
+
+msgid "staff.settings_workspace.field.document_prefix"
+msgstr "Präfix der Dokumentnummern"
+
+msgid "staff.settings_workspace.field.free_shipping_threshold"
+msgstr "Schwelle für kostenlosen Versand"
+
+msgid "staff.settings_workspace.field.inspection_rule"
+msgstr "Prüfung vor Erstattung"
+
+msgid "staff.settings_workspace.field.legal_provider"
+msgstr "Anbieter rechtlicher Texte"
+
+msgid "staff.settings_workspace.field.notification_email"
+msgstr "Interne Benachrichtigungsadresse"
+
+msgid "staff.settings_workspace.field.packing_note"
+msgstr "Verpackungsanweisung"
+
+msgid "staff.settings_workspace.field.parcel_weight"
+msgstr "Standard-Paketgewicht (kg)"
+
+msgid "staff.settings_workspace.field.photo_requirements"
+msgstr "Anforderungen an Produktfotos"
+
+msgid "staff.settings_workspace.field.price_display"
+msgstr "Preisdarstellung"
+
+msgid "staff.settings_workspace.field.required_attributes"
+msgstr "Pflichtmerkmale nach Warengruppe"
+
+msgid "staff.settings_workspace.field.return_days"
+msgstr "Rückgabefrist (Tage)"
+
+msgid "staff.settings_workspace.field.review_rule"
+msgstr "Prüfregel vor Veröffentlichung"
+
+msgid "staff.settings_workspace.field.shipping_country"
+msgstr "Versandgebiete"
+
+msgid "staff.settings_workspace.field.vat_id"
+msgstr "Umsatzsteuer-ID"
+
+msgid "staff.settings_workspace.intro.catalog"
+msgstr "Struktur, Merkmale und Veröffentlichung. Vorhandene Verzeichnisse öffnen Sie direkt; zusätzliche gemeinsame Regeln sind unten als Entwurf gekennzeichnet."
+
+msgid "staff.settings_workspace.intro.operations_settings"
+msgstr "Gemeinsame Vorgaben für Versand, Verpackung und Retouren. Aufträge und Bestand bleiben in ihren Arbeitslisten."
+
+msgid "staff.settings_workspace.intro.store_settings"
+msgstr "Unternehmensdaten und shopweite Regeln. Diese Einstellungen sind von der Navigation des Arbeitsbereichs getrennt."
+
+msgid "staff.settings_workspace.nav.catalog"
+msgstr "Katalog-Einstellungen"
+
+msgid "staff.settings_workspace.nav.operations_settings"
+msgstr "Betriebseinstellungen"
+
+msgid "staff.settings_workspace.nav.quick_access"
+msgstr "Schnellzugriff im Arbeitsbereich"
+
+msgid "staff.settings_workspace.nav.store_settings"
+msgstr "Shop-Einstellungen"
+
+msgid "staff.settings_workspace.navigation"
+msgstr "Einstellungsbereiche"
+
+msgid "staff.settings_workspace.permission_notice"
+msgstr "Sie bearbeiten nur Ziele, auf die Sie zugreifen dürfen. Andere gespeicherte Verknüpfungen bleiben erhalten."
+
+msgid "staff.settings_workspace.planned_fields"
+msgstr "Geplante gemeinsame Einstellungen"
+
+msgid "staff.settings_workspace.quick_intro"
+msgstr "Gemeinsame Verknüpfungen in der oberen Leiste. Änderungen gelten für alle Mitarbeitenden; jede Person sieht nur erlaubte Ziele."
+
+msgid "staff.settings_workspace.reload"
+msgstr "Aktuelle Auswahl laden"
+
+msgid "staff.settings_workspace.shared"
+msgstr "Für alle Mitarbeitenden"
 
 msgid "staff.title"
 msgstr "Arbeitsbereich"
@@ -9360,6 +10626,633 @@ msgstr "Diese Varianten wurden inzwischen geändert oder das Formular ist abgela
 
 msgid "staff.variants.title"
 msgstr "Varianten bearbeiten"
+
+msgid "staff.workflow.check"
+msgstr "Aktuelle Inhalte prüfen"
+
+msgid "staff.workflow.complete"
+msgstr "Die Pflichtangaben sind vorhanden. Bitte kontrollieren Sie außerdem die private Vorschau."
+
+msgid "staff.workflow.demo_notice"
+msgstr "Veröffentlichung betrifft nur die lokale Shop-Darstellung. Demo-Bestand bestätigt keinen echten Lagerbestand. Reale Zahlungen und externe Kanäle bleiben deaktiviert; die Suchmaschinen-Sperre der Testseite bleibt erhalten."
+
+msgid "staff.workflow.draft"
+msgstr "Entwurf"
+
+msgid "staff.workflow.explanation"
+msgstr "Entwurf speichern → aktuelle Inhalte prüfen → mit Veröffentlichungsrecht freigeben. Änderungen an Daten, Varianten oder Fotos erfordern eine neue Prüfung."
+
+msgid "staff.workflow.incomplete"
+msgstr "Die Prüfung ist noch nicht abgeschlossen. Ergänzen Sie die fehlenden Angaben."
+
+msgid "staff.workflow.invalid_action"
+msgstr "Diese Aktion ist im aktuellen Status nicht möglich. Laden Sie die Seite neu."
+
+msgid "staff.workflow.missing"
+msgstr "Vor der Veröffentlichung ergänzen"
+
+msgid "staff.workflow.missing_base"
+msgstr "Modellname, URL-Kennung, Marke und Kategorie sind erforderlich."
+
+msgid "staff.workflow.missing_description"
+msgstr "Eine deutsche Beschreibung oder eine gültige vorhandene Übersetzung ist erforderlich."
+
+msgid "staff.workflow.missing_images"
+msgstr "Für jede aktive Farbe wird mindestens ein Farbfoto oder ein gemeinsames Foto benötigt."
+
+msgid "staff.workflow.missing_variant"
+msgstr "Mindestens eine aktive Variante mit SKU ist erforderlich. Jede aktive Variante braucht eine endliche positive EUR-Preisangabe."
+
+msgid "staff.workflow.no_publish_permission"
+msgstr "Zum Veröffentlichen oder Zurücknehmen ist ein gesondertes Veröffentlichungsrecht erforderlich."
+
+msgid "staff.workflow.preview_notice"
+msgstr "Private Mitarbeitervorschau – dieser Entwurf ist nicht öffentlich. Warenkorb und Kauf sind in dieser Vorschau deaktiviert."
+
+msgid "staff.workflow.publish"
+msgstr "Im Shop veröffentlichen"
+
+msgid "staff.workflow.published"
+msgstr "Veröffentlicht"
+
+msgid "staff.workflow.published_warning"
+msgstr "Dieses Produkt ist veröffentlicht und schreibgeschützt. Vor Änderungen müssen Sie es ausdrücklich in einen Entwurf zurücknehmen. Dabei verschwindet es aus dem Shop."
+
+msgid "staff.workflow.review"
+msgstr "Geprüft – bereit zur Veröffentlichung"
+
+msgid "staff.workflow.review_again"
+msgstr "Die Prüfung ist nicht mehr aktuell oder fehlt. Prüfen Sie die aktuellen Inhalte erneut."
+
+msgid "staff.workflow.saved"
+msgstr "Produktstatus gespeichert."
+
+msgid "staff.workflow.status"
+msgstr "Status"
+
+msgid "staff.workflow.withdraw"
+msgstr "Aus dem Shop nehmen und als Entwurf bearbeiten"
+
+msgid "staff.workflow.withdraw_warning"
+msgstr "Beim Zurücknehmen wird das Produkt sofort aus dem Shop entfernt. Danach können Sie es bearbeiten und erneut prüfen."
+
+msgid "staff.workspace.add_product"
+msgstr "Produkt anlegen"
+
+msgid "staff.workspace.all_states"
+msgstr "Alle Status"
+
+msgid "staff.workspace.capability.company"
+msgstr "Unternehmensdaten"
+
+msgid "staff.workspace.capability.company.description"
+msgstr "Verkäuferangaben für Shop und Dokumente."
+
+msgid "staff.workspace.capability.dhl"
+msgstr "DHL"
+
+msgid "staff.workspace.capability.dhl.description"
+msgstr "Etiketten, Abholung und Sendungsverfolgung."
+
+msgid "staff.workspace.capability.documents"
+msgstr "Dokumente"
+
+msgid "staff.workspace.capability.documents.description"
+msgstr "Nummerierung, Firmendaten und PDF-Vorlagen."
+
+msgid "staff.workspace.capability.ebay"
+msgstr "eBay"
+
+msgid "staff.workspace.capability.ebay.description"
+msgstr "Katalog und Bestandsabgleich. Schreibzugriffe per API bleiben ausgeschaltet."
+
+msgid "staff.workspace.capability.email"
+msgstr "E-Mails"
+
+msgid "staff.workspace.capability.email.description"
+msgstr "Vorlagen sind sichtbar; automatische Bestellnachrichten sind noch nicht angebunden."
+
+msgid "staff.workspace.capability.homepage"
+msgstr "Startseite & Kollektionen"
+
+msgid "staff.workspace.capability.homepage.description"
+msgstr "Abschnitte, Banner und Produktauswahl verwalten."
+
+msgid "staff.workspace.capability.inspection"
+msgstr "Retourenprüfung"
+
+msgid "staff.workspace.capability.inspection.description"
+msgstr "Wareneingang prüfen, bevor eine Erstattung manuell freigegeben wird."
+
+msgid "staff.workspace.capability.labels"
+msgstr "DHL-Etiketten"
+
+msgid "staff.workspace.capability.labels.description"
+msgstr "PDF aus einer Bestellung erstellen und drucken."
+
+msgid "staff.workspace.capability.legal"
+msgstr "Rechtliche Seiten"
+
+msgid "staff.workspace.capability.legal.description"
+msgstr "Vorhandene Entwürfe ansehen; Textanbieter später anbinden."
+
+msgid "staff.workspace.capability.mail"
+msgstr "E-Mail-Zustellung"
+
+msgid "staff.workspace.capability.mail.description"
+msgstr "Absender und Zustellung prüfen. Das bestehende lokale Mailpit bleibt erhalten."
+
+msgid "staff.workspace.capability.notifications"
+msgstr "Benachrichtigungen"
+
+msgid "staff.workspace.capability.notifications.description"
+msgstr "Hinweise für Mitarbeiter und Benachrichtigungen für Kunden."
+
+msgid "staff.workspace.capability.packing"
+msgstr "Kommissionierung"
+
+msgid "staff.workspace.capability.packing.description"
+msgstr "Packliste, Positionsprüfung und Versandbereitschaft."
+
+msgid "staff.workspace.capability.pickup"
+msgstr "Sammelabholung"
+
+msgid "staff.workspace.capability.pickup.description"
+msgstr "Fertige Pakete auswählen und gemeinsam zur Abholung anmelden."
+
+msgid "staff.workspace.capability.profit"
+msgstr "Rentabilität"
+
+msgid "staff.workspace.capability.profit.description"
+msgstr "Wareneinsatz, Gebühren, Rabatte und Retouren."
+
+msgid "staff.workspace.capability.return_label"
+msgstr "Retourenlabel & QR"
+
+msgid "staff.workspace.capability.return_label.description"
+msgstr "Rücksendeetikett und Verfolgung der Retoure."
+
+msgid "staff.workspace.capability.return_request"
+msgstr "Retourenanträge"
+
+msgid "staff.workspace.capability.return_request.description"
+msgstr "Bestellpositionen, Grund und Bearbeitungsstand."
+
+msgid "staff.workspace.capability.return_rules"
+msgstr "Retourenregeln"
+
+msgid "staff.workspace.capability.return_rules.description"
+msgstr "Fristen und Bearbeitungsschritte für Rücksendungen."
+
+msgid "staff.workspace.capability.s3"
+msgstr "Fotospeicher"
+
+msgid "staff.workspace.capability.s3.description"
+msgstr "Künftige Fotoauslieferung aus S3; derzeit lokaler Speicher."
+
+msgid "staff.workspace.capability.sales"
+msgstr "Verkäufe"
+
+msgid "staff.workspace.capability.sales.description"
+msgstr "Echte Verkäufe und Testbestellungen getrennt auswerten."
+
+msgid "staff.workspace.capability.shipping_rules"
+msgstr "Versandregeln"
+
+msgid "staff.workspace.capability.shipping_rules.description"
+msgstr "Versandarten, Gewicht und Paketgrenzen."
+
+msgid "staff.workspace.capability.sources"
+msgstr "Bestellquellen"
+
+msgid "staff.workspace.capability.sources.description"
+msgstr "Zugriffsquellen unter Beachtung von Einwilligung und Aufbewahrung."
+
+msgid "staff.workspace.capability.stripe"
+msgstr "Stripe & PayPal"
+
+msgid "staff.workspace.capability.stripe.description"
+msgstr "Eine Zahlungsanbindung, zunächst in der Sandbox."
+
+msgid "staff.workspace.capability.taxes"
+msgstr "Steuern & Preise"
+
+msgid "staff.workspace.capability.taxes.description"
+msgstr "Steuerregeln und Preisdarstellung."
+
+msgid "staff.workspace.capability.tracking"
+msgstr "Sendungsverfolgung"
+
+msgid "staff.workspace.capability.tracking.description"
+msgstr "Lieferstatus in der Bestellung und E-Mail nach Übergabe an den Zusteller."
+
+msgid "staff.workspace.connection_design"
+msgstr "Geplante Einstellungen"
+
+msgid "staff.workspace.connection_explanation"
+msgstr "Die Felder dienen zur Abstimmung der Oberfläche. Sie speichern keine Daten und starten keine externen Vorgänge."
+
+msgid "staff.workspace.connection_status"
+msgstr "Anbindungsstatus"
+
+msgid "staff.workspace.environment"
+msgstr "Umgebung"
+
+msgid "staff.workspace.field.company"
+msgstr "Verkäuferdaten"
+
+msgid "staff.workspace.field.connection_status"
+msgstr "Status"
+
+msgid "staff.workspace.field.contract"
+msgstr "Versandvertrag"
+
+msgid "staff.workspace.field.documents"
+msgstr "Dokumentnummerierung"
+
+msgid "staff.workspace.field.email"
+msgstr "E-Mail-Vorlagen"
+
+msgid "staff.workspace.field.environment"
+msgstr "Umgebung"
+
+msgid "staff.workspace.field.homepage"
+msgstr "Startseitenbereiche"
+
+msgid "staff.workspace.field.inspection"
+msgstr "Wareneingangsprüfung"
+
+msgid "staff.workspace.field.label_format"
+msgstr "Etikettenformat"
+
+msgid "staff.workspace.field.languages"
+msgstr "Sprachen & Übersetzungen"
+
+msgid "staff.workspace.field.notifications"
+msgstr "Betriebliche Hinweise"
+
+msgid "staff.workspace.field.packing"
+msgstr "Kommissionierregeln"
+
+msgid "staff.workspace.field.parcel"
+msgstr "Pakettyp"
+
+msgid "staff.workspace.field.period"
+msgstr "Berichtszeitraum"
+
+msgid "staff.workspace.field.profit"
+msgstr "Ergebnisberechnung"
+
+msgid "staff.workspace.field.provider"
+msgstr "Anbieter"
+
+msgid "staff.workspace.field.return_rules"
+msgstr "Retourenregeln"
+
+msgid "staff.workspace.field.return_window"
+msgstr "Rückgabefrist"
+
+msgid "staff.workspace.field.shipping_rules"
+msgstr "Versandregeln"
+
+msgid "staff.workspace.field.sources"
+msgstr "Datenquellen"
+
+msgid "staff.workspace.field.vat"
+msgstr "Steuernummer / USt-IdNr."
+
+msgid "staff.workspace.group.management"
+msgstr "Verwaltung"
+
+msgid "staff.workspace.group.operations"
+msgstr "Betrieb"
+
+msgid "staff.workspace.group.shop"
+msgstr "Shop"
+
+msgid "staff.workspace.nav.analytics"
+msgstr "Auswertungen"
+
+msgid "staff.workspace.nav.audit"
+msgstr "Aktivitätsprotokoll"
+
+msgid "staff.workspace.nav.brands"
+msgstr "Marken"
+
+msgid "staff.workspace.nav.categories"
+msgstr "Kategorien"
+
+msgid "staff.workspace.nav.content"
+msgstr "Shop & Inhalte"
+
+msgid "staff.workspace.nav.customers"
+msgstr "Kunden"
+
+msgid "staff.workspace.nav.integrations"
+msgstr "Anbindungen"
+
+msgid "staff.workspace.nav.materials"
+msgstr "Materialien"
+
+msgid "staff.workspace.nav.operations_settings"
+msgstr "Betriebseinstellungen"
+
+msgid "staff.workspace.nav.orders"
+msgstr "Bestellungen"
+
+msgid "staff.workspace.nav.payments"
+msgstr "Zahlungen"
+
+msgid "staff.workspace.nav.photos"
+msgstr "Fotos"
+
+msgid "staff.workspace.nav.promos"
+msgstr "Aktionen & Gutscheine"
+
+msgid "staff.workspace.nav.properties"
+msgstr "Eigenschaften"
+
+msgid "staff.workspace.nav.returns"
+msgstr "Retouren"
+
+msgid "staff.workspace.nav.reviews"
+msgstr "Bewertungen"
+
+msgid "staff.workspace.nav.shipping"
+msgstr "Versand"
+
+msgid "staff.workspace.nav.size_guides"
+msgstr "Größentabellen"
+
+msgid "staff.workspace.nav.stock"
+msgstr "Bestand"
+
+msgid "staff.workspace.nav.store_settings"
+msgstr "Shop-Einstellungen"
+
+msgid "staff.workspace.nav.support"
+msgstr "Kundenservice"
+
+msgid "staff.workspace.nav.tags"
+msgstr "Tags"
+
+msgid "staff.workspace.nav.team"
+msgstr "Mitarbeiter"
+
+msgid "staff.workspace.navigation"
+msgstr "Arbeitsbereiche"
+
+msgid "staff.workspace.not_configured"
+msgstr "Nicht eingerichtet"
+
+msgid "staff.workspace.not_connected"
+msgstr "Nicht angebunden"
+
+msgid "staff.workspace.overview.actions"
+msgstr "Direkt bearbeiten"
+
+msgid "staff.workspace.overview.drafts"
+msgstr "Entwürfe"
+
+msgid "staff.workspace.overview.empty_permissions"
+msgstr "Arbeitsbereiche werden nach Zuweisung der Berechtigungen angezeigt."
+
+msgid "staff.workspace.overview.latest"
+msgstr "Zuletzt hinzugefügte Produkte"
+
+msgid "staff.workspace.overview.no_changes"
+msgstr "Noch keine Änderungen."
+
+msgid "staff.workspace.overview.orders"
+msgstr "Testbestellungen"
+
+msgid "staff.workspace.overview.products"
+msgstr "Produkte"
+
+msgid "staff.workspace.overview.review"
+msgstr "Zur Prüfung"
+
+msgid "staff.workspace.overview.subtitle"
+msgstr "Aktuelle Aufgaben und direkte Wege zur Bearbeitung."
+
+msgid "staff.workspace.overview.support"
+msgstr "Offene Anfragen"
+
+msgid "staff.workspace.overview.test_notice"
+msgstr "Bestellungen und Bestände sind Testdaten. Echte Zahlungen und Paketversand werden nicht ausgeführt."
+
+msgid "staff.workspace.overview.title"
+msgstr "Arbeitsübersicht"
+
+msgid "staff.workspace.planned"
+msgstr "Geplant"
+
+msgid "staff.workspace.preview"
+msgstr "Bereichsvorschau"
+
+msgid "staff.workspace.preview_notice"
+msgstr "Dies ist der Entwurf eines künftigen Bereichs. Aufbau und Einstellungen sind sichtbar; Ausführung und Speicherung sind noch nicht angebunden."
+
+msgid "staff.workspace_catalog.add"
+msgstr "Hinzufügen"
+
+msgid "staff.workspace_catalog.back"
+msgstr "Zur Liste"
+
+msgid "staff.workspace_catalog.binding_help"
+msgstr "Die bestehende Zuordnung zu Marke und Kategorie bleibt erhalten."
+
+msgid "staff.workspace_catalog.brands"
+msgstr "Marken"
+
+msgid "staff.workspace_catalog.categories"
+msgstr "Kategorien"
+
+msgid "staff.workspace_catalog.conflict"
+msgstr "Der Eintrag konnte wegen eines Datenkonflikts nicht gespeichert werden."
+
+msgid "staff.workspace_catalog.details"
+msgstr "Details"
+
+msgid "staff.workspace_catalog.edit"
+msgstr "Bearbeiten"
+
+msgid "staff.workspace_catalog.edit_notice"
+msgstr "Änderungen werden protokolliert. Verknüpfte veröffentlichte Produkte vor Änderungen an ihren Stammdaten zurückziehen."
+
+msgid "staff.workspace_catalog.empty"
+msgstr "Keine Einträge vorhanden."
+
+msgid "staff.workspace_catalog.field.alt_key"
+msgstr "Alter Bildtextschlüssel"
+
+msgid "staff.workspace_catalog.field.alt_text"
+msgstr "Bildbeschreibung"
+
+msgid "staff.workspace_catalog.field.author_display"
+msgstr "Anzeigename"
+
+msgid "staff.workspace_catalog.field.body"
+msgstr "Text"
+
+msgid "staff.workspace_catalog.field.brand"
+msgstr "Marke"
+
+msgid "staff.workspace_catalog.field.category"
+msgstr "Kategorie"
+
+msgid "staff.workspace_catalog.field.color_code"
+msgstr "Farbcode"
+
+msgid "staff.workspace_catalog.field.created_at"
+msgstr "Erstellt"
+
+msgid "staff.workspace_catalog.field.hip_max_cm"
+msgstr "Hüfte bis, cm"
+
+msgid "staff.workspace_catalog.field.hip_min_cm"
+msgstr "Hüfte ab, cm"
+
+msgid "staff.workspace_catalog.field.instructions"
+msgstr "Hinweise"
+
+msgid "staff.workspace_catalog.field.is_published"
+msgstr "Veröffentlicht"
+
+msgid "staff.workspace_catalog.field.label_key"
+msgstr "Übersetzungsschlüssel"
+
+msgid "staff.workspace_catalog.field.name"
+msgstr "Name"
+
+msgid "staff.workspace_catalog.field.name_key"
+msgstr "Übersetzungsschlüssel"
+
+msgid "staff.workspace_catalog.field.position"
+msgstr "Position"
+
+msgid "staff.workspace_catalog.field.rating"
+msgstr "Bewertung (1–5)"
+
+msgid "staff.workspace_catalog.field.section"
+msgstr "Bereich"
+
+msgid "staff.workspace_catalog.field.size"
+msgstr "Größe"
+
+msgid "staff.workspace_catalog.field.slug"
+msgstr "URL-Kennung"
+
+msgid "staff.workspace_catalog.field.source_label"
+msgstr "Quelle"
+
+msgid "staff.workspace_catalog.field.source_url"
+msgstr "Quellen-URL"
+
+msgid "staff.workspace_catalog.field.status"
+msgstr "Status"
+
+msgid "staff.workspace_catalog.field.title"
+msgstr "Titel"
+
+msgid "staff.workspace_catalog.field.waist_max_cm"
+msgstr "Taille bis, cm"
+
+msgid "staff.workspace_catalog.field.waist_min_cm"
+msgstr "Taille ab, cm"
+
+msgid "staff.workspace_catalog.hip"
+msgstr "Hüfte, cm"
+
+msgid "staff.workspace_catalog.invalid"
+msgstr "Bitte die eingegebenen Daten prüfen."
+
+msgid "staff.workspace_catalog.materials"
+msgstr "Materialien"
+
+msgid "staff.workspace_catalog.no"
+msgstr "Nein"
+
+msgid "staff.workspace_catalog.photo_notice"
+msgstr "Vorhandene Produktbilder. Bilder im Produkteditor verwalten. Externe Quellen werden nicht importiert."
+
+msgid "staff.workspace_catalog.photos"
+msgstr "Fotos"
+
+msgid "staff.workspace_catalog.products"
+msgstr "Verknüpfte Produkte"
+
+msgid "staff.workspace_catalog.products_limit"
+msgstr "Bis zu 30 verknüpfte Produkte."
+
+msgid "staff.workspace_catalog.properties"
+msgstr "Eigenschaften"
+
+msgid "staff.workspace_catalog.publish_help"
+msgstr "Nur nach Prüfung der Quelle ausdrücklich veröffentlichen. Neue Tabellen bleiben ohne Auswahl unveröffentlicht."
+
+msgid "staff.workspace_catalog.published_block"
+msgstr "Zuerst die verknüpften veröffentlichten Produkte im Produkteditor zurückziehen."
+
+msgid "staff.workspace_catalog.record"
+msgstr "Eintrag"
+
+msgid "staff.workspace_catalog.review_notice"
+msgstr "Bewertungen mit ihrem gespeicherten Status. Moderation ist hier noch nicht verfügbar."
+
+msgid "staff.workspace_catalog.reviews"
+msgstr "Bewertungen"
+
+msgid "staff.workspace_catalog.row"
+msgstr "Größenzeile"
+
+msgid "staff.workspace_catalog.rows"
+msgstr "Maße"
+
+msgid "staff.workspace_catalog.saved"
+msgstr "Eintrag gespeichert."
+
+msgid "staff.workspace_catalog.search"
+msgstr "Suchen"
+
+msgid "staff.workspace_catalog.section.other"
+msgstr "Sonstiges"
+
+msgid "staff.workspace_catalog.section.swimwear"
+msgstr "Bademode"
+
+msgid "staff.workspace_catalog.section.underwear"
+msgstr "Unterwäsche"
+
+msgid "staff.workspace_catalog.size_guides"
+msgstr "Größentabellen"
+
+msgid "staff.workspace_catalog.stable_key"
+msgstr "Bestehender Übersetzungsschlüssel, hier nicht änderbar."
+
+msgid "staff.workspace_catalog.stale"
+msgstr "Der Eintrag wurde geändert. Seite neu laden und erneut prüfen."
+
+msgid "staff.workspace_catalog.status.approved"
+msgstr "Freigegeben"
+
+msgid "staff.workspace_catalog.status.pending"
+msgstr "Ausstehend"
+
+msgid "staff.workspace_catalog.status.rejected"
+msgstr "Abgelehnt"
+
+msgid "staff.workspace_catalog.tags"
+msgstr "Tags"
+
+msgid "staff.workspace_catalog.total"
+msgstr "Einträge"
+
+msgid "staff.workspace_catalog.waist"
+msgstr "Taille, cm"
+
+msgid "staff.workspace_catalog.yes"
+msgstr "Ja"
 
 msgid "support.emails.label.70755381342b"
 msgstr "High luxury editorial campaign photo of male model wearing fine dark underwear in architectural brutalist concrete interior with warm ambient spotlight"

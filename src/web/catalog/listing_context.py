@@ -55,7 +55,7 @@ class ListingContext:
             for name, entries in facets.items() for item in entries
         }
         plural = {"brand": "brands", "category": "categories", "tag": "tags",
-                  "color": "colors", "size": "sizes"}
+                  "color": "colors", "size": "sizes", "material": "materials", "property": "properties"}
         active = []
         if self.criteria.query:
             active.append({"label": self.criteria.query, "value": self.criteria.query,
@@ -91,13 +91,13 @@ class ListingContext:
         raw = listing_facets()
         result = {}
         singular = {"brands": "brand", "categories": "category", "tags": "tag",
-                    "colors": "color", "sizes": "size"}
+                    "colors": "color", "sizes": "size", "materials": "material", "properties": "property"}
         for name, rows in raw.items():
             entries = {}
             selected = self.criteria.filters.get(singular[name], [])
             for row in rows:
                 value, label = (row, row) if name == "sizes" else row[:2]
-                if name not in ("brands", "sizes"):
+                if name not in ("brands", "categories", "sizes", "materials", "properties"):
                     label = translate_text(label)
                 entry = {"value": value, "label": label, "selected": value in selected}
                 if name == "colors" and re.fullmatch(r"#[0-9a-fA-F]{6}", row[2]):

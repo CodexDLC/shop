@@ -1,0 +1,13 @@
+{% load shop_i18n %}
+<p data-gallery-empty class="product-gallery-message" {% if product.initial_gallery %}hidden{% endif %}>{% text 'catalog.gallery.empty' %}</p>
+<p data-gallery-error class="product-gallery-message" role="status" hidden>{% text 'catalog.gallery.error' %}</p>
+<dialog data-gallery-dialog class="product-gallery-dialog" aria-label="{% text 'catalog.gallery.title' %}">
+  <div class="product-gallery-toolbar">
+    <button type="button" data-gallery-previous aria-label="{% text 'catalog.gallery.previous' %}">←</button>
+    <span data-gallery-count aria-live="polite"></span>
+    <button type="button" data-gallery-next aria-label="{% text 'catalog.gallery.next' %}">→</button>
+    <button type="button" data-gallery-close autofocus aria-label="{% text 'catalog.gallery.close' %}">×</button>
+  </div>
+  <div class="product-gallery-enlargement"><img data-gallery-enlarged alt="{{ product.brand }} {{ product.name }}"/></div>
+  <p data-gallery-dialog-error role="status" hidden>{% text 'catalog.gallery.error' %}</p>
+</dialog>

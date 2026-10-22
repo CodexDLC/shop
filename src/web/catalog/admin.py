@@ -1,5 +1,25 @@
 from django.contrib import admin
 
-from .models import Brand, Category, Product, ProductImage, ProductVariant, Tag
+from .category_admin import CategoryAdmin
+from .models import (
+    Brand,
+    Category,
+    Material,
+    Product,
+    ProductImage,
+    ProductInformation,
+    ProductProperty,
+    ProductReview,
+    ProductVariant,
+    SizeGuide,
+    SizeGuideRow,
+    Tag,
+)
+from .readonly_product_admin import ReadonlyProductAdmin
 
-admin.site.register([Brand, Category, Product, ProductImage, ProductVariant, Tag])
+admin.site.register([
+    Brand, Material, ProductProperty, ProductReview,
+    SizeGuide, SizeGuideRow, Tag,
+])
+admin.site.register([Product, ProductImage, ProductInformation, ProductVariant], ReadonlyProductAdmin)
+admin.site.register(Category, CategoryAdmin)

@@ -4,6 +4,7 @@ from collections import defaultdict
 from django.urls import reverse
 
 from codex_ecommerce.catalog import Gallery, Variant, VariantSelector
+from web.catalog.descriptions import legacy_description
 from web.localization import translate_text
 
 
@@ -11,8 +12,12 @@ def product_presentation(product, *, code, selected_sku=None, currency=None):
     """Project a prefetched ORM snapshot; no queries, writes or invented variants."""
     rows = [row for row in product.variants.all() if row.is_active and (currency is None or row.currency == currency)]
     images = defaultdict(list)
+    image_alts = {}
     for image in product.images.all():
-        images[image.color_code or None].append(image.image_url)
+        images[image.color_code or None].append(image.public_url)
+        image_alts[image.public_url] = image.alt_text or (
+            translate_text(image.alt_key) if image.alt_key else f'{product.brand.name} {product.model_name}'
+        )
     colors = {}
     for row in rows:
         colors.setdefault(row.color_code, {
@@ -40,8 +45,12 @@ def product_presentation(product, *, code, selected_sku=None, currency=None):
     return {
         "id": product.pk, "code": code, "slug": product.slug, "brand": product.brand.name,
         "name": product.model_name, "price": price,
-        "description": translate_text(product.description_key) if product.description_key else "",
+        "description": legacy_description(product),
         "photo_url": initial_images[0] if initial_images else "",
+        "photo_alt": image_alts.get(initial_images[0], '') if initial_images else '',
+        "image_alts": image_alts,
+        "initial_gallery_items": [(url, image_alts.get(url, '')) for url in initial_images],
+        "initial_gallery": initial_images,
         "detail_url": reverse("catalog:detail", kwargs={"slug": product.slug}),
         "preview_url": reverse("catalog:variant_preview", kwargs={"slug": product.slug}),
         "colors": list(colors.values()), "sizes": list(dict.fromkeys(row.size for row in rows)),

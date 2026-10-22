@@ -17,6 +17,3 @@ class ShopMFAAdapter(DefaultMFAAdapter):
     def decrypt(self, encrypted_text):
         return self.cipher().decrypt(encrypted_text.encode("ascii")).decode("utf-8")
 
-    def can_delete_authenticator(self, authenticator):
-        user = authenticator.user
-        return not (user.is_staff or user.is_superuser)

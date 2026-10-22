@@ -21,10 +21,10 @@
       <label for="product-category" class="form-label">{% text 'staff.products.category' %}</label>
       <select id="product-category" name="category" class="form-select">
         <option value="">{% text 'staff.products.all_categories' %}</option>
-        {% for category in categories %}<option value="{{ category.slug }}"{% if category.slug == selected_category %} selected{% endif %}>{% text category.name_key %}</option>{% endfor %}
+        {% for category in categories %}<option value="{{ category.slug }}"{% if category.slug == selected_category %} selected{% endif %}>{{ category.name }}</option>{% endfor %}
       </select>
     </div>
-    <div class="col-md-1 align-self-end"><button type="submit" class="btn btn-primary">{% text 'staff.products.filter' %}</button></div>
+    <div class="col-md-3"><label for="product-state" class="form-label">{% text 'staff.products.status' %}</label><select id="product-state" name="state" class="form-select"><option value="">{% text 'staff.workspace.all_states' %}</option><option value="draft"{% if selected_state == 'draft' %} selected{% endif %}>{% text 'staff.workflow.draft' %}</option><option value="review"{% if selected_state == 'review' %} selected{% endif %}>{% text 'staff.workflow.review' %}</option><option value="published"{% if selected_state == 'published' %} selected{% endif %}>{% text 'staff.workflow.published' %}</option></select></div><div class="col-md-2 align-self-end"><button type="submit" class="btn btn-primary">{% text 'staff.products.filter' %}</button></div>
   </form>
   <p>{% text 'staff.products.total' %}: {{ page_obj.paginator.count }}</p>
   <div class="table-responsive">
@@ -40,11 +40,11 @@
       </tr></thead>
       <tbody>{% for product in products %}<tr>
         <td><strong>{{ product.brand.name }}</strong><br>{% if perms.catalog.change_product %}<a href="{% url 'staff:product_edit' pk=product.pk %}">{{ product.model_name }}</a>{% else %}{{ product.model_name }}{% endif %}{% if product.manufacturer_article %}<br><small>{{ product.manufacturer_article }}</small>{% endif %}</td>
-        <td>{% text product.category.name_key %}</td>
+        <td>{{ product.category.name }}</td>
         <td>{{ product.active_variant_count }} / {{ product.variant_count }}</td>
         <td>{{ product.available_quantity }}</td>
         <td>{% if product.currency_count > 1 %}{% text 'staff.products.mixed_currency' %}{% elif product.minimum_price != None %}{{ product.minimum_price|floatformat:2 }}{% if product.minimum_price != product.maximum_price %} – {{ product.maximum_price|floatformat:2 }}{% endif %} {{ product.price_currency }}{% else %}—{% endif %}</td>
-        <td>{% if product.is_active %}<span class="badge text-bg-success">{% text 'staff.products.active' %}</span>{% else %}<span class="badge text-bg-secondary">{% text 'staff.products.inactive' %}</span>{% endif %}</td>
+        <td>{% if product.is_active %}<span class="badge text-bg-success">{% text 'staff.workflow.published' %}</span>{% elif product.publication_state == 'review' %}<span class="badge text-bg-info">{% text 'staff.workflow.review' %}</span>{% else %}<span class="badge text-bg-secondary">{% text 'staff.workflow.draft' %}</span>{% endif %}</td>
       </tr>{% empty %}<tr><td colspan="6">{% text 'staff.products.empty' %}</td></tr>{% endfor %}</tbody>
     </table>
   </div>

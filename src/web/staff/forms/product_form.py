@@ -1,13 +1,13 @@
-import hashlib
-import json
 import re
 
 from django import forms
 from django.core import signing
 from django.utils.functional import lazy
 
-from web.catalog.models import Product
+from web.catalog.models import Category, Product
 from web.localization.translation import translate_text
+from web.staff.catalog_workspace.category_tree import tree_rows
+from web.staff.product_editing import content_fingerprint
 
 text = lazy(translate_text, str)
 SIGNING_SALT = "staff.product.edit.v1"
@@ -15,19 +15,7 @@ SIGNING_SALT = "staff.product.edit.v1"
 
 def product_snapshot(product):
     """Fingerprint editable state and tags; callers lock the product before saving."""
-    state = {
-        "pk": product.pk,
-        "brand": product.brand_id,
-        "category": product.category_id,
-        "model_name": product.model_name,
-        "manufacturer_article": product.manufacturer_article,
-        "slug": product.slug,
-        "description_key": product.description_key,
-        "is_active": product.is_active,
-        "new_until": product.new_until.isoformat() if product.new_until else None,
-        "tags": sorted(product.tags.values_list("pk", flat=True)) if product.pk else [],
-    }
-    return hashlib.sha256(json.dumps(state, sort_keys=True).encode()).hexdigest()
+    return f'{product.publication_state}:{product.review_fingerprint}:{content_fingerprint(product)}'
 
 
 class ProductForm(forms.ModelForm):
@@ -36,7 +24,7 @@ class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = [
-            "brand", "category", "model_name", "manufacturer_article", "slug", "description_key", "tags", "is_active", "new_until",
+            "brand", "category", "model_name", "manufacturer_article", "slug", "description_key", "tags", "materials", "properties", "is_active", "new_until",
         ]
         labels = {name: text(f"staff.product_form.{name}") for name in fields}
         help_texts = {
@@ -61,9 +49,13 @@ class ProductForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.fields["category"].choices = [("", "---------"), *[
+            (row["object"].pk, row["path"]) for row in tree_rows(list(Category.objects.order_by("position", "pk")))]]
         self.fields["is_active"].disabled = True
+        self.fields["description_key"].disabled = True
         if not self.instance.pk:
             self.instance.is_active = False
+            self.instance.editorial_state = "draft"
             self.initial["is_active"] = False
         self.current_snapshot = product_snapshot(self.instance)
         if self.instance.pk:
@@ -96,6 +88,4 @@ class ProductForm(forms.ModelForm):
                 raise forms.ValidationError(text("staff.product_form.invalid_state"), code="invalid_state")
             if original.get("snapshot") != self.current_snapshot:
                 raise forms.ValidationError(text("staff.product_form.stale"), code="stale")
-            if self.instance.is_active and not self.instance.variants.filter(is_active=True).exists():
-                raise forms.ValidationError(text("staff.product_form.active_without_variants"), code="no_variants")
         return cleaned

@@ -1,0 +1,18 @@
+{
+  "mobile": {
+    "menus": [
+      {
+        "left": 0.4375,
+        "right": 344.4375,
+        "width": 344
+      }
+    ],
+    "scrollWidth": 360,
+    "viewport": 360
+  },
+  "afterEscape": {
+    "expanded": "false",
+    "focusLabel": "Уведомления",
+    "openMenus": 0
+  }
+}

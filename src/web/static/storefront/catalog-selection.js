@@ -19,6 +19,7 @@
       const code = root.dataset.productCode || root.dataset.catalogProduct;
       const product = products[code];
       if (!product) return;
+      const galleries = {...product.galleries};
       let color = product.default_color || '', size = product.default_size || '';
       let variant = null, controller, sequence = 0, validated = false;
       const setText = (selector, value) => root.querySelectorAll(selector).forEach(el => { el.textContent = value || ''; });
@@ -27,7 +28,7 @@
         controller?.abort(); controller = new AbortController(); validated = false;
         variant = product.variants.find(item => item.color === color && item.size === size) || null;
         const selectedColor = product.colors.find(item => item.code === color);
-        const gallery = product.galleries[color] || [];
+        const gallery = galleries[color] || [];
         root.dataset.selectedSku = variant?.sku || '';
         root.dataset.selectedColor = color;
         root.dataset.selectedSize = size;
@@ -43,8 +44,12 @@
           img.hidden = !url;
           if (url) img.src = url;
           else img.removeAttribute('src');
-          img.alt = [product.name, selectedColor?.label].filter(Boolean).join(' — ');
+          img.alt = product.image_alts?.[url] || [product.name, selectedColor?.label].filter(Boolean).join(' — ');
         });
+        const notifyGallery = images => root.dispatchEvent(new CustomEvent('catalog:gallery', {
+          detail: {color, gallery: images, alts: product.image_alts || {}, alt: [product.name, selectedColor?.label].filter(Boolean).join(' — ')},
+        }));
+        notifyGallery(gallery);
         root.querySelectorAll('[data-color]').forEach(button => {
           const selected = button.dataset.color === color;
           button.setAttribute(button.getAttribute('role') === 'radio' ? 'aria-checked' : 'aria-pressed', String(selected));
@@ -107,11 +112,13 @@
             button.style.cursor = button.disabled ? 'not-allowed' : '';
           });
           const confirmedGallery = result.gallery?.images || [];
+          galleries[color] = confirmedGallery;
           root.querySelectorAll('[data-product-photo]').forEach(img => {
             img.hidden = !confirmedGallery.length;
             if (confirmedGallery.length) img.src = confirmedGallery[0]; else img.removeAttribute('src');
           });
           root.dataset.gallery = JSON.stringify(confirmedGallery);
+          notifyGallery(confirmedGallery);
         } catch (error) {
           if (requestSequence !== sequence || error.name === 'AbortError') return;
           root.dataset.selectedSku = '';

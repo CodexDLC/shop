@@ -3,9 +3,6 @@
 {% block page_head %}
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>
-{% text 'orders.confirmation.text.62d58d48f882' %}
-</title>
 <!-- Tailwind CSS v3 with Plugins -->
 <script src="{% static 'storefront/vendor/tailwind-runtime.js' %}?plugins=forms,container-queries">
 </script>
@@ -206,9 +203,7 @@
 <h2 class="font-title-md text-title-md uppercase tracking-wider">
 {% text 'commerce.checkout.address' %}
 </h2>
-<address class="font-body-md text-body-md not-italic">{{ order.address.first_name }} {{ order.address.last_name }}<br>{{ order.address.street }}<br>{{ order.address.postal_code }} {{ order.address.city }}<br>
-{% text 'commerce.checkout.country.de' %}
-<br>{{ order.address.email }}</address>
+{% include 'orders/includes/address_snapshot.html' with address=order.address %}{% if order.billing_address %}<h3 class="font-label-md uppercase mt-5 mb-2">{% text 'commerce.checkout.billing_address' %}</h3>{% include 'orders/includes/address_snapshot.html' with address=order.billing_address %}{% endif %}
 </section>
 {% include 'cart/includes/service_preview.html' with service_context='confirmation' %}<div class="flex flex-wrap gap-4 items-center"><button type="button" disabled class="px-5 py-2.5 bg-surface-muted text-text-muted font-label-md text-label-md uppercase flex gap-2 items-center opacity-50"><span class="material-symbols-outlined text-base" aria-hidden="true">picture_as_pdf</span>{% text 'commerce.reference.returns.pdf_planned' %}</button><a data-real-navigation href="{% url 'support:widerruf' %}" class="font-label-md text-label-md text-primary underline">{% text 'commerce.reference.returns.info' %}</a></div>
 {% if not request.user.is_authenticated %}<section class="bg-surface-muted p-6 sm:p-8 space-y-4"><h3 class="font-headline-md text-headline-md text-text-primary">{% text 'commerce.reference.account.title' %}</h3><p class="font-body-sm text-body-sm text-text-muted">{% text 'commerce.reference.account.intro' %}</p><a data-real-navigation class="inline-block px-6 py-3 bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider" href="{% url 'account_signup' %}">{% text 'commerce.reference.account.action' %}</a></section>{% endif %}
@@ -240,6 +235,8 @@
 {% endfor %}
 </div>
 <dl class="space-y-3 pt-6 border-t border-border-subtle">
+{% if order.subtotal_amount != None %}<div class="flex justify-between"><dt>{% text 'commerce.summary.subtotal' %}</dt><dd>{{ order.subtotal_amount|floatformat:2 }} €</dd></div>{% endif %}
+{% if order.coupon_code %}<div class="flex justify-between"><dt>{% text 'commerce.coupon.discount' %} ({{ order.coupon_code }})</dt><dd>−{{ order.discount_amount|floatformat:2 }} €</dd></div>{% endif %}
 <div class="flex justify-between gap-4">
 <dt class="font-body-sm text-body-sm">
 {% text 'commerce.shipping.demo' %}

@@ -1,0 +1,10 @@
+{% extends 'staff/base.html' %}{% load shop_i18n %}
+{% block cabinet_content %}<section aria-labelledby="promo-form-title">
+<a class="btn btn-outline-secondary mb-3" href="{% url 'staff:promos' %}">{% text 'staff.records.back' %}</a>
+<h1 id="promo-form-title" class="h3">{% if promo %}{% text 'staff.records.promo_edit' %}{% else %}{% text 'staff.records.promo_add' %}{% endif %}</h1>
+<form method="post" class="mt-3">{% csrf_token %}{{ form.original_state }}
+{% if form.non_field_errors %}<div class="alert alert-danger" role="alert">{{ form.non_field_errors }}</div>{% endif %}
+{% for field in form.visible_fields %}<div class="mb-3">{{ field.label_tag }} {{ field }}{% if field.errors %}<div class="text-danger" role="alert">{{ field.errors }}</div>{% endif %}</div>{% endfor %}
+<button class="btn btn-primary" type="submit">{% text 'staff.records.save' %}</button>
+<a class="btn btn-outline-secondary" href="">{% text 'staff.records.reload' %}</a>
+</form></section>{% endblock %}

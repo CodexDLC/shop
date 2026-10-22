@@ -1,0 +1,1 @@
+{% load shop_i18n %}<nav class="staff-settings-navigation" aria-label="{% text 'staff.settings_workspace.navigation' %}">{% for item in settings_navigation %}<a href="{{ item.url }}"{% if item.active %} aria-current="page"{% endif %}>{% text item.label %}</a>{% endfor %}</nav>

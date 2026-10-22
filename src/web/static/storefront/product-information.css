@@ -1,0 +1,12 @@
+.product-information-text {white-space: pre-line; overflow-wrap: anywhere;}
+.product-info-panel[hidden], [data-guide-selected][hidden] {display: none;}
+.product-info-panel {scroll-margin-top: 7rem;}
+.product-size-dialog {width: min(94vw, 48rem); max-height: 92dvh; padding: 0; margin: auto; overflow: hidden; border: 1px solid #DCDED5; background: #F8F8F3; color: #171E19;}
+.product-size-dialog > div {max-height: calc(92dvh - 2px);}
+.product-size-dialog td[data-measurement-cm] {white-space: nowrap;}
+.product-size-dialog::backdrop {background: rgb(23 30 25 / 65%); backdrop-filter: blur(4px);}
+.product-info-control {min-height: 44px; min-width: 44px;}
+[data-information-tab]:focus-visible, .product-info-control:focus-visible, #openSizeGuideBtn:focus-visible {outline: 2px solid #183F30; outline-offset: 3px;}
+[data-information-tab][aria-selected="true"] {background: #fff; color: #171E19; font-weight: 600;}
+[data-guide-row][data-selected="true"] {background: rgb(24 63 48 / 10%); color: #183F30; font-weight: 600;}
+@media (max-width: 640px) {[data-information-tab] {flex: 1 1 45%; padding-inline: .5rem;} }

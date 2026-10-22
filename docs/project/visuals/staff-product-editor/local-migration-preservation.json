@@ -1,0 +1,31 @@
+{
+  "before": {
+    "catalog_product": {
+      "rows": 4,
+      "sha256": "495e26abf472646fe0d2c7f013806afca45914bf3bef52e90c6f0e567e2058ca"
+    },
+    "catalog_productvariant": {
+      "rows": 32,
+      "sha256": "3f64e1ab0c7354e07a37cbb35cdf55317d9b2e2592adf27d8abb65731a8138ea"
+    },
+    "catalog_productimage": {
+      "rows": 4,
+      "sha256": "175a974587d7234c6abe26cdae69d500598accf4b71a3c643cfbee904a01a168"
+    }
+  },
+  "after": {
+    "catalog_product": {
+      "rows": 4,
+      "sha256": "495e26abf472646fe0d2c7f013806afca45914bf3bef52e90c6f0e567e2058ca"
+    },
+    "catalog_productvariant": {
+      "rows": 32,
+      "sha256": "3f64e1ab0c7354e07a37cbb35cdf55317d9b2e2592adf27d8abb65731a8138ea"
+    },
+    "catalog_productimage": {
+      "rows": 4,
+      "sha256": "175a974587d7234c6abe26cdae69d500598accf4b71a3c643cfbee904a01a168"
+    }
+  },
+  "unchanged": true
+}

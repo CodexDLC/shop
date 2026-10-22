@@ -1,12 +1,14 @@
-{% extends 'staff/base.html' %}{% load shop_i18n %}
+{% extends 'staff/base.html' %}{% load shop_i18n static %}
+{% block staff_page_css %}<link rel="stylesheet" href="{% static 'cabinet/css/settings-workspace.css' %}">{% endblock %}
 {% block cabinet_content %}
-<h1 class="h3">{% text 'staff.nav.settings' %}</h1>
-<h2 class="h5 mt-4">{% text 'staff.nav.quick_access' %}</h2>
-<p class="text-muted">{% text 'staff.settings.intro' %}</p>
+<section class="staff-settings-workspace" aria-labelledby="settings-title"><header class="staff-page-heading"><div><p class="staff-eyebrow">{% text 'staff.settings_workspace.eyebrow' %}</p><h1 id="settings-title">{% text 'staff.nav.quick_access' %}</h1></div><span class="badge text-bg-secondary">{% text 'staff.settings_workspace.shared' %}</span></header>
+<p class="staff-page-intro">{% text 'staff.settings_workspace.quick_intro' %}</p>
+{% include 'staff/settings_navigation.html' %}
 {% for message in messages %}<div class="alert alert-success" role="status">{{ message }}</div>{% endfor %}
-<form method="post" class="staff-settings-form">{% csrf_token %}
-{{ form.non_field_errors }}{{ form.links.errors }}
-<fieldset><legend class="fs-6">{% text 'staff.settings.choose' %}</legend>{{ form.links }}</fieldset>
+<div class="card"><div class="card-body"><form method="post" class="staff-settings-form">{% csrf_token %}{{ form.state }}
+{% if form.non_field_errors %}<div class="alert alert-danger" role="alert">{{ form.non_field_errors }}<a href="{% url 'staff:settings' %}">{% text 'staff.settings_workspace.reload' %}</a></div>{% endif %}
+{{ form.state.errors }}{{ form.links.errors }}
+<fieldset><legend class="h5">{% text 'staff.settings.choose' %}</legend><p class="text-muted">{% text 'staff.settings_workspace.permission_notice' %}</p>{{ form.links }}</fieldset>
 <button type="submit" class="btn btn-primary mt-3">{% text 'staff.settings.save' %}</button>
-</form>
+</form></div></div></section>
 {% endblock %}

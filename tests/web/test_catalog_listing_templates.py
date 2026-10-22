@@ -63,13 +63,13 @@ def test_orm_product_and_query_are_escaped_and_links_target_actual_model(client)
     assert any(item["name"] == product.model_name for item in data.values())
 
 
-def test_unsupported_filter_groups_are_disabled_with_explanation(client):
+def test_material_and_property_groups_are_real_and_no_longer_preview_only(client):
     response = client.get(reverse("catalog:list"))
     elements = ListingParser(response.content.decode()).elements
     disabled = [attrs for tag, attrs in elements if tag == "fieldset" and "disabled" in attrs]
-    assert len(disabled) == 2
-    assert all(attrs.get("aria-describedby") == "unsupported-filters" for attrs in disabled)
-    assert 'id="unsupported-filters"' in response.content.decode()
+    assert disabled == []
+    assert 'id="unsupported-filters"' not in response.content.decode()
+    assert 'id="catalog-sort-help"' in response.content.decode()
 
 def test_listing_boot_reuses_snapshot_but_variant_changes_validate_with_server():
     import shutil

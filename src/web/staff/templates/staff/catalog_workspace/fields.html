@@ -1,0 +1,4 @@
+{% load shop_i18n %}
+{% for hidden in form.hidden_fields %}{{ hidden }}{% if hidden.errors %}<div class="alert alert-danger" role="alert">{% text 'staff.workspace_catalog.invalid' %}</div>{% endif %}{% endfor %}
+{% if form.non_field_errors %}<div class="alert alert-danger" role="alert">{% if form.workspace_notice %}{{ form.workspace_notice }}{% else %}{% text 'staff.workspace_catalog.invalid' %}{% endif %}</div>{% endif %}
+{% for field in form.visible_fields %}<div class="mb-3"><label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}{% if field.field.required %} *{% endif %}</label>{{ field }}{% if field.help_text %}<div class="form-text">{{ field.help_text }}</div>{% endif %}{% if field.errors %}<div class="text-danger" role="alert">{% text 'staff.workspace_catalog.invalid' %}</div>{% endif %}</div>{% endfor %}

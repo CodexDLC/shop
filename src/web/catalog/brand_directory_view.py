@@ -5,6 +5,7 @@ from django.urls import reverse
 
 from web.storefront.page_view import StorefrontPageView
 
+from .category_visibility import visible_category_ids
 from .listing_request import ListingRequest
 from .models import Brand, Product, ProductVariant
 
@@ -20,7 +21,7 @@ class BrandDirectoryView(StorefrontPageView):
             product_id=OuterRef("pk"), is_active=True, currency="EUR",
         )
         visible_product = Product.objects.filter(
-            brand_id=OuterRef("pk"), is_active=True,
+            brand_id=OuterRef("pk"), is_active=True, category_id__in=visible_category_ids(),
         ).filter(Exists(active_variant))
         brands = Brand.objects.filter(Exists(visible_product)).order_by("name", "pk")
         paginator = Paginator(brands, 24)

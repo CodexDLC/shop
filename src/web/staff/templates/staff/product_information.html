@@ -1,0 +1,21 @@
+{% extends 'staff/base.html' %}
+{% load shop_i18n %}
+{% block cabinet_content %}
+<section aria-labelledby="information-title">
+  <h1 id="information-title" class="h3">{% text 'staff.product_tabs.information' %} — {{ product.model_name }}</h1>
+  {% include 'staff/includes/product_tabs.html' %}
+  <p class="text-muted">{% text 'staff.information.notice' %}</p>
+  <form method="post" class="card card-body" novalidate>
+    {% csrf_token %}{{ form.original_state }}
+    {% if form.non_field_errors %}<div class="alert alert-danger" role="alert">{{ form.non_field_errors }}</div>{% endif %}
+    <fieldset{% if product.is_active %} disabled{% endif %}>
+    {% for field in form.visible_fields %}<div class="mb-3"><label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}{% if field.errors %}<div class="text-danger" role="alert">{{ field.errors }}</div>{% endif %}</div>{% endfor %}
+    <button type="submit" class="btn btn-primary">{% text 'staff.product_form.save' %}</button>
+    </fieldset>
+  </form>
+  <section class="card card-body mt-4" aria-labelledby="size-guides-title"><h2 class="h5" id="size-guides-title">{% text 'staff.information.size_guides' %}</h2>
+    <p>{% text 'staff.information.size_guides_help' %}</p>
+    <ul>{% for guide in size_guides %}<li>{{ guide.title }}{% if guide.category %} — {{ guide.category }}{% endif %}{% if not guide.is_published %} ({% text 'staff.workflow.draft' %}){% endif %}</li>{% empty %}<li>{% text 'staff.information.no_size_guide' %}</li>{% endfor %}</ul>
+  </section>
+</section>
+{% endblock %}

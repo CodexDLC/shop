@@ -6,6 +6,7 @@ class CabinetPreferences(models.Model):
 
     id = models.PositiveSmallIntegerField(primary_key=True, default=1, editable=False)
     quick_access_keys = models.JSONField(default=list, blank=True)
+    revision = models.PositiveBigIntegerField(default=0, editable=False)
 
     class Meta:
         constraints = [models.CheckConstraint(condition=models.Q(id=1), name="staff_single_preferences")]

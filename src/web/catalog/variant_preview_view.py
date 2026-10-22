@@ -12,13 +12,16 @@ class VariantPreviewView(View):
 
     http_method_names = ["get", "head", "options"]
 
+    def select(self, slug, color, size):
+        return CatalogVariantSelection().select(product_slug=slug, color=color, size=size)
+
     def get(self, request, slug):
         color = request.GET.get("color", "")
         size = request.GET.get("size", "")
         if not color or not size or len(color) > 40 or len(size) > 20:
             return self.error("catalog.selection_required", 400)
         try:
-            result = CatalogVariantSelection().select(product_slug=slug, color=color, size=size)
+            result = self.select(slug, color, size)
         except Product.DoesNotExist:
             return self.error("catalog.product_not_found", 404)
         except CatalogSelectionError as exc:

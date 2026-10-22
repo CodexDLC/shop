@@ -1,0 +1,104 @@
+{% load i18n cabinet_tags shop_i18n %}
+<header class="cab-topbar">
+  <button class="btn btn-sm d-lg-none d-flex align-items-center justify-content-center"
+          type="button"
+          style="color: var(--cab-text-muted);"
+          @click="sidebarMobileOpen = true"
+          aria-label="{% trans 'Open navigation' %}">
+    <span class="bi bi-list fs-4"></span>
+  </button>
+
+  <nav class="staff-top-groups" aria-label="{% text 'staff.workspace.navigation' %}">
+  {% for group in staff_primary_groups %}<a href="{{ group.url }}" class="staff-top-group{% if group.active %} is-active{% endif %}"{% if group.active %} aria-current="true"{% endif %}>{% text group.label_key %}</a>{% endfor %}
+  </nav>
+  {% if cabinet_quick_access or cabinet_topbar_actions %}
+    <nav class="d-flex align-items-center gap-1 flex-wrap">
+      {% for item in cabinet_quick_access %}
+        <a href="{{ item.url }}" class="btn btn-sm d-flex align-items-center gap-1" style="color: var(--cab-text-muted); font-size: 0.875rem;">
+          {% if item.icon %}<span class="bi {{ item.icon }}"></span>{% endif %}
+          {{ item.label }}
+        </a>
+      {% endfor %}
+      {% for action in cabinet_topbar_actions %}
+        <a href="{{ action.url }}" class="btn btn-sm d-flex align-items-center gap-1" style="color: var(--cab-text-muted); font-size: 0.875rem;">
+          {% if action.icon %}<span class="bi {{ action.icon }}"></span>{% endif %}
+          {{ action.label }}
+        </a>
+      {% endfor %}
+    </nav>
+  {% endif %}
+
+  <div class="flex-grow-1"></div>
+
+  <div class="d-flex align-items-center gap-2">
+    {% include 'staff/includes/language_switcher.html' %}
+    {% if cabinet_site_url %}
+      <a class="btn btn-sm d-flex align-items-center gap-1"
+         href="{{ cabinet_site_url }}"
+         style="color: var(--cab-text-muted); font-size: 0.875rem;">
+        <span class="bi bi-globe2"></span>
+        {% trans "Site" %}
+      </a>
+    {% endif %}
+
+    <div class="dropdown">
+      {% with notification_total=notification_items|length %}
+      <button class="btn btn-sm position-relative" style="color: var(--cab-text-muted);"
+              type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-label="{% trans 'Notifications' %}">
+        <span class="bi bi-bell fs-5"></span>
+        {% if notification_items %}
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size:.6rem;">{{ notification_total }}</span>
+        {% endif %}
+      </button>
+      <div class="dropdown-menu dropdown-menu-end shadow p-0" style="width:360px;border-radius:12px;overflow:hidden;">
+        <div class="d-flex align-items-center justify-content-between px-3 py-2 border-bottom" style="background:#f8fafc;">
+          <span class="fw-semibold" style="font-size:.875rem;color:#374151;">{% trans "Notifications" %}</span>
+        </div>
+        {% if notification_items %}
+          {% for item in notification_items %}
+          <a href="{{ item.url }}" class="d-flex align-items-center gap-3 px-3 py-2 border-bottom text-decoration-none" style="color:#374151;transition:background .12s;" onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background=''">
+            <span class="bi {{ item.icon }} fs-5" style="color:var(--cab-primary,#6366f1);flex-shrink:0;"></span>
+            <div class="flex-grow-1">
+              <div style="font-size:.85rem;font-weight:600;">{{ item.label }}</div>
+            </div>
+            <span class="badge rounded-pill" style="background:var(--cab-primary,#6366f1);color:#fff;font-size:.72rem;">{{ item.count }}</span>
+          </a>
+          {% endfor %}
+        {% else %}
+          <div class="text-center py-4 text-muted" style="font-size:.82rem;">
+            <span class="bi bi-bell-slash d-block mb-1" style="font-size:1.5rem;opacity:.3;"></span>
+            {% trans "No notifications" %}
+          </div>
+        {% endif %}
+      </div>
+      {% endwith %}
+    </div>
+
+    <div class="dropdown">
+      <button class="btn btn-sm d-flex align-items-center gap-2 dropdown-toggle staff-user-button" type="button" data-bs-toggle="dropdown" style="color: var(--cab-text); font-size: 0.875rem;">
+        <span class="rounded-circle d-flex align-items-center justify-content-center fw-bold text-white" style="width:32px;height:32px;background:var(--cab-primary);font-size:.75rem;flex-shrink:0;">
+          {{ request.user|cab_initials }}
+        </span>
+        <span class="staff-user-name">{{ request.user.get_full_name|default:request.user.username }}</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+        {% if cabinet_client_switch_url %}
+        <li>
+          <a class="dropdown-item" href="{{ cabinet_client_switch_url }}">
+            <span class="bi bi-person me-2"></span>{% trans "My account" %}
+          </a>
+        </li>
+        {% endif %}
+        {% block user_dropdown_items %}{% endblock %}
+        <li><hr class="dropdown-divider"></li>
+        {% if cabinet_logout_url %}
+        <li>
+          <a class="dropdown-item text-danger" href="{{ cabinet_logout_url }}">
+            <span class="bi bi-box-arrow-right me-2"></span>{% trans "Sign Out" %}
+          </a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</header>

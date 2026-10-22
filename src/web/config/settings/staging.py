@@ -5,6 +5,7 @@ import os
 from .base import *  # noqa: F403
 
 DEBUG = False
+SEO_FORCE_NOINDEX = True
 MIDDLEWARE = ["web.staging.noindex_middleware.NoIndexMiddleware", *MIDDLEWARE]  # noqa: F405
 ALLOWED_HOSTS = ["shop.pinlite.dev"]
 CSRF_TRUSTED_ORIGINS = ["https://shop.pinlite.dev"]

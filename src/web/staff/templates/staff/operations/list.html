@@ -1,0 +1,18 @@
+{% extends 'staff/base.html' %}{% load shop_i18n %}
+{% block cabinet_content %}
+<section aria-labelledby="records-title">
+<h1 id="records-title" class="h3 mb-3">{% text title_key %}</h1>
+{% if kind == 'promos' and perms.cart.add_promocode %}<a class="btn btn-primary mb-3" href="{% url 'staff:promo_add' %}">{% text 'staff.records.promo_add' %}</a>{% endif %}
+<p class="text-muted">{% if kind == 'promos' or kind == 'support' %}{% text 'staff.records.local_records' %}{% else %}{% text 'staff.records.readonly' %}{% endif %}</p>
+{% if kind == 'stock' %}<p class="alert alert-info">{% text 'staff.records.demo_stock' %}</p>{% endif %}
+{% if kind == 'payments' %}<p class="alert alert-info">{% text 'staff.records.demo_payments' %}</p>{% endif %}
+{% if kind == 'team' %}<p class="alert alert-info">{% text 'staff.records.roles_readonly' %}</p>{% endif %}
+<form method="get" role="search" class="row g-2 align-items-end mb-3">
+<div class="col-md-6"><label for="records-q" class="form-label">{% text 'staff.records.search' %}</label><input class="form-control" id="records-q" name="q" type="search" maxlength="200" value="{{ search_query }}"></div>
+{% if status_options %}<div class="col-md-4"><label class="form-label" for="records-status">{% text 'staff.records.status' %}</label><select class="form-select" id="records-status" name="status"><option value="">{% text 'staff.records.all' %}</option>{% for value,label in status_options %}<option value="{{ value }}"{% if value == selected_status %} selected{% endif %}>{% text label %}</option>{% endfor %}</select></div>{% endif %}
+<div class="col-md-2"><button class="btn btn-primary" type="submit">{% text 'staff.records.filter' %}</button></div>
+</form>
+<p>{% text 'staff.records.total' %}: {{ page_obj.paginator.count }}</p>
+<div class="table-responsive"><table class="table table-hover align-middle"><caption class="visually-hidden">{% text title_key %}</caption><thead><tr>{% for column in columns %}<th scope="col">{% text column %}</th>{% endfor %}</tr></thead><tbody>{% for row in rows %}<tr>{% for cell in row %}<td class="text-break">{% include 'staff/operations/cell.html' %}</td>{% endfor %}</tr>{% empty %}<tr><td colspan="{{ columns|length }}">{% text 'staff.records.empty' %}</td></tr>{% endfor %}</tbody></table></div>
+{% if page_obj.has_other_pages %}<nav class="d-flex gap-3 align-items-center" aria-label="{% text 'staff.records.pagination' %}">{% if page_obj.has_previous %}<a class="btn btn-outline-secondary" href="?{{ page_query }}&amp;page={{ page_obj.previous_page_number }}">{% text 'staff.records.previous' %}</a>{% endif %}<span>{{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</span>{% if page_obj.has_next %}<a class="btn btn-outline-secondary" href="?{{ page_query }}&amp;page={{ page_obj.next_page_number }}">{% text 'staff.records.next' %}</a>{% endif %}</nav>{% endif %}
+</section>{% endblock %}

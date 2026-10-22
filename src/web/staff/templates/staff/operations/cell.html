@@ -1,0 +1,1 @@
+{% load shop_i18n %}{% if cell.url %}<a href="{{ cell.url }}">{% endif %}{% if cell.key %}{% text cell.value %}{% else %}{{ cell.value|default_if_none:'—' }}{% endif %}{% if cell.url %}</a>{% endif %}

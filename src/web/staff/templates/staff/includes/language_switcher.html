@@ -1,0 +1,7 @@
+{% load shop_i18n %}
+<div class="dropdown staff-language" data-staff-language>
+<button class="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-label="{% text 'staff.language.label' %}"><i class="bi bi-translate" aria-hidden="true"></i> {% if LANGUAGE_CODE == 'ru' %}RU{% else %}DE{% endif %}</button>
+<form class="dropdown-menu dropdown-menu-end p-1" method="post" action="{% url 'set_language' %}">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}">
+<button class="dropdown-item{% if LANGUAGE_CODE == 'ru' %} active{% endif %}" type="submit" name="language" value="ru" lang="ru">Русский</button>
+<button class="dropdown-item{% if LANGUAGE_CODE == 'de' %} active{% endif %}" type="submit" name="language" value="de" lang="de">Deutsch</button>
+</form></div>

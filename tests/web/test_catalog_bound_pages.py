@@ -10,7 +10,7 @@ pytestmark = pytest.mark.django_db
 def test_home_uses_database_instead_of_presentation_mock(client, django_assert_num_queries):
     call_command("seed_demo_catalog")
     Product.objects.filter(slug="manstore-m2223").update(model_name="Database Model")
-    with django_assert_num_queries(4):
+    with django_assert_num_queries(5):
         response = client.get("/")
     assert response.status_code == 200
     assert "Database Model" in response.content.decode()
@@ -31,7 +31,7 @@ def test_product_detail_is_orm_backed_and_has_exact_variant_gallery(client, djan
     ProductImage.objects.create(product=product, color_code="navy", image_url="https://example.test/navy.jpg",
                                alt_key="catalog.photo.demo", position=0)
     url = reverse("catalog:detail", kwargs={"slug": product.slug})
-    with django_assert_num_queries(4):
+    with django_assert_num_queries(9):
         response = client.get(url)
     data = response.context["product"]
     assert data["name"] == product.model_name

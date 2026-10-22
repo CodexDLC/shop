@@ -23,7 +23,9 @@ def checkout_fingerprint(cart, address):
     payload = {"address": address, "lines": [
         {key: line[key] for key in ("sku", "quantity", "unit_amount", "name", "brand", "colour_name", "size")}
         for line in cart["lines"]
-    ], "shipping": cart["shipping_amount"], "currency": cart["currency"]}
+    ], "shipping": cart["shipping_amount"], "currency": cart["currency"],
+        "subtotal": cart['subtotal'], "discount": cart['discount_amount'], "total": cart['total'],
+        "coupon_code": cart['coupon_code'], "coupon_signature": cart['coupon_signature']}
     return hashlib.sha256(json.dumps(payload, default=str, sort_keys=True).encode()).hexdigest()
 
 

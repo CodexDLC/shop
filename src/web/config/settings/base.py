@@ -18,6 +18,7 @@ INSTALLED_APPS = [
     "web.ebay_oauth.apps.EbayOAuthConfig",
 ]
 MIDDLEWARE = [
+    "web.seo.middleware.SeoMiddleware",
     "web.ebay_oauth.middleware.OAuthPrivacyMiddleware",
     "django.middleware.security.SecurityMiddleware", "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
@@ -32,7 +33,8 @@ WSGI_APPLICATION = "web.config.wsgi.application"
 TEMPLATES = [{"BACKEND": "django.template.backends.django.DjangoTemplates", "DIRS": [BASE_DIR / "src" / "web" / "customer" / "templates", BASE_DIR / "src" / "web" / "templates"], "APP_DIRS": True,
               "OPTIONS": {"context_processors": ["django.template.context_processors.request",
                  "django.contrib.auth.context_processors.auth", "django.contrib.messages.context_processors.messages",
-                 "web.staff.context_processors.staff_cabinet", "web.identity.context_processors.auth_context"]}}]
+                 "web.staff.context_processors.staff_cabinet", "web.identity.context_processors.auth_context",
+                 "web.seo.metadata.seo_context"]}}]
 DATABASES = {"default": {"ENGINE": "django.db.backends.postgresql",
     "NAME": os.environ.get("POSTGRES_DB", "inet_mag"), "USER": os.environ.get("POSTGRES_USER", "inet_mag"),
     "PASSWORD": os.environ["POSTGRES_PASSWORD"], "HOST": os.environ.get("POSTGRES_HOST", "127.0.0.1"),
@@ -57,6 +59,7 @@ STORAGES = {"default": {"BACKEND": "django.core.files.storage.FileSystemStorage"
             "staticfiles": {"BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage"}}
 # Local storage is only for development. S3 wiring follows with media import.
 MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = "/media/"
 LOGIN_URL = "staff:login"
 LOGIN_REDIRECT_URL = "staff:home"
 LOGOUT_REDIRECT_URL = "staff:login"
@@ -71,3 +74,9 @@ EBAY_OAUTH_BASE_URL = os.environ.get("EBAY_OAUTH_BASE_URL", "https://shop.pinlit
 EBAY_OAUTH_ENCRYPTION_KEYS = os.environ.get("EBAY_OAUTH_ENCRYPTION_KEYS", "")
 EBAY_NOTIFICATION_ENDPOINT = os.environ.get("EBAY_NOTIFICATION_ENDPOINT", "")
 EBAY_NOTIFICATION_VERIFICATION_TOKEN = os.environ.get("EBAY_NOTIFICATION_VERIFICATION_TOKEN", "")
+
+# Public indexing requires an explicit deployment setting and a validated HTTPS origin.
+SEO_SITE_NAME = "Männermasche"
+SEO_INDEXING_ENABLED = False
+SEO_PUBLIC_ORIGIN = ""
+SEO_FORCE_NOINDEX = False
