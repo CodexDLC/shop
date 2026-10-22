@@ -14,7 +14,9 @@ def test_pdp_renders_real_gallery_and_accessible_zoom(client, django_assert_num_
     urls = ['https://example.test/front.jpg', 'https://example.test/back.jpg']
     for index, url in enumerate(urls):
         ProductImage.objects.create(product=product, image_url=url, position=index, alt_key='catalog.photo.demo')
-    with django_assert_num_queries(9):
+    # Includes one request-memoized public seller identity read for the shared footer.
+    # Two bounded SEO reads: the published page override and its automatic rule.
+    with django_assert_num_queries(12):
         response = client.get(reverse('catalog:detail', kwargs={'slug': product.slug}))
     assert response.context['product']['initial_gallery'] == urls
     html = response.content.decode()

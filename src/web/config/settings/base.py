@@ -12,7 +12,7 @@ INSTALLED_APPS = [
     "web.localization.apps.LocalizationConfig", "web.catalog.apps.CatalogConfig",
     "web.cart.apps.CartConfig", "web.orders.apps.OrdersConfig", "web.payments.apps.PaymentsConfig",
     "web.customer.apps.CustomerConfig", "web.support.apps.SupportConfig", "web.wishlist.apps.WishlistConfig",
-    "web.staff.apps.StaffConfig",
+    "web.staff.apps.StaffConfig", "web.seo.apps.SeoConfig",
     "web.identity.apps.IdentityConfig", "allauth", "allauth.account", "allauth.mfa",
     "web.ebay_notifications.apps.EbayNotificationsConfig",
     "web.ebay_oauth.apps.EbayOAuthConfig",
@@ -34,7 +34,7 @@ TEMPLATES = [{"BACKEND": "django.template.backends.django.DjangoTemplates", "DIR
               "OPTIONS": {"context_processors": ["django.template.context_processors.request",
                  "django.contrib.auth.context_processors.auth", "django.contrib.messages.context_processors.messages",
                  "web.staff.context_processors.staff_cabinet", "web.identity.context_processors.auth_context",
-                 "web.seo.metadata.seo_context"]}}]
+                 "web.seo.metadata.seo_context", "web.shop.context_processors.store_identity"]}}]
 DATABASES = {"default": {"ENGINE": "django.db.backends.postgresql",
     "NAME": os.environ.get("POSTGRES_DB", "inet_mag"), "USER": os.environ.get("POSTGRES_USER", "inet_mag"),
     "PASSWORD": os.environ["POSTGRES_PASSWORD"], "HOST": os.environ.get("POSTGRES_HOST", "127.0.0.1"),

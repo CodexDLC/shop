@@ -36,7 +36,7 @@ def product_schema(context, canonical):
             'url': canonical, 'brand': {'@type': 'Brand', 'name': product['brand']}}
     description = context.get('product_information', {}).get('description') or product.get('description', '')
     if description:
-        item['description'] = strip_tags(description)
+        item['description'] = description if context.get('seo_visible_body') else strip_tags(description)
     image = absolute_image(product.get('photo_url', ''))
     if image:
         item['image'] = [image]

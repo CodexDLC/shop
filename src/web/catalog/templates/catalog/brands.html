@@ -7,6 +7,7 @@
 <nav class="flex items-center gap-2 text-label-sm text-text-muted" aria-label="{% text 'catalog.listing.breadcrumbs' %}"><a href="{% url 'shop:home' %}" data-real-navigation>{% text 'catalog.list.text.b660f83df4d6' %}</a><span>/</span><span aria-current="page">{% text 'navigation.brands' %}</span></nav>
 <div class="mb-space-xl mt-space-lg"><div class="flex items-center gap-3 mb-1"><span class="w-8 h-[2px] bg-brand-deep"></span><span class="text-label-sm uppercase tracking-[0.25em] text-brand-deep">{% text 'navigation.brands' %}</span></div><h1 class="font-headline-lg text-headline-lg">{% text 'catalog.brands.title' %}</h1><p class="text-body-md text-text-muted mt-2">{% text 'catalog.brands.intro' %}</p></div>
 <p class="text-body-sm text-text-muted mb-4">{{ brand_page.paginator.count }} {% text 'catalog.brands.count' %}</p>
+{% if seo_visible_body %}<p class="text-body-md text-text-muted mb-space-lg">{{ seo_visible_body|linebreaksbr }}</p>{% endif %}
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-md">
 {% for brand in brand_links %}<a data-real-navigation href="{{ brand.url }}" class="block bg-surface-muted p-space-lg font-title-lg text-title-lg text-text-primary hover:bg-surface-variant focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-deep">{{ brand.name }} <span aria-hidden="true">→</span></a>{% empty %}<p class="text-body-md text-text-muted">{% text 'catalog.brands.empty' %}</p>{% endfor %}
 </div>

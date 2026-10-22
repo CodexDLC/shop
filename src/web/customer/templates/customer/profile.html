@@ -330,7 +330,7 @@
 <div class="bg-surface-muted p-space-md flex items-start gap-3 shadow-sm">
 <span class="material-symbols-outlined text-text-muted text-[20px] shrink-0 mt-0.5">{% text 'customer.profile.text.9f00fad98bad' %}</span>
 <p class="font-body-sm text-body-sm text-text-muted leading-relaxed">
-<strong class="text-text-primary font-semibold">{% text 'customer.profile.text.2562545f9ddf' %}</strong> {% text 'customer.profile.text.eb6b4042ed3c' %} <a class="text-brand-deep underline" href="mailto:datenschutz@maennermasche.de">{% text 'customer.profile.text.881e7b8e6f4e' %}</a>.
+<strong class="text-text-primary font-semibold">{% text 'customer.profile.text.2562545f9ddf' %}</strong> {% text 'customer.profile.text.eb6b4042ed3c' %} {% if shop_identity.email_href %}<a class="text-brand-deep underline" href="{{ shop_identity.email_href }}">{{ shop_identity.contact_email }}</a>{% else %}<a class="text-brand-deep underline" href="{% url 'support:contact' %}">{% text 'store_identity.contact_form' %}</a>{% endif %}.
           </p>
 </div>
 <div class="flex flex-col sm:flex-row items-center justify-between pt-space-md gap-space-md">

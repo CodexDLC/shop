@@ -9,7 +9,7 @@
 {% endblock %}
 {% block body_attrs %} class="bg-page-bg font-body-md text-text-primary antialiased flex flex-col min-h-screen" data-demo-page="help-mobile.html"{% endblock %}
 {% block content %}
-{% include 'includes/header.html' %}<main class="flex flex-col relative w-full pt-16 pb-24 bg-page-bg"><div class="flex flex-col w-full"><p class="font-body-sm text-body-sm text-text-muted p-4" role="note">{% text 'support.help.ui.policy_draft' %} {% text 'support.help.ui.contacts_draft' %}</p>
+{% include 'includes/header.html' %}<main class="flex flex-col relative w-full pt-16 pb-24 bg-page-bg"><div class="flex flex-col w-full"><p class="font-body-sm text-body-sm text-text-muted p-4" role="note">{% text 'support.help.ui.policy_draft' %} {% text 'store_identity.service_scope' %}</p>
 <!-- Subtle Header Sub-Bar -->
 <div class="px-4 py-3 bg-surface-muted flex items-center justify-between">
 <div class="flex items-center gap-2">
@@ -117,22 +117,7 @@
 <p class="font-body-sm text-body-sm text-on-primary-container mt-0.5">{% text 'support.help_mobile.text.3a319be18489' %}</p>
 </div>
 </div>
-<div class="flex flex-col gap-2">
-<a class="flex items-center justify-between px-4 py-3 bg-primary-container text-on-primary font-label-md text-label-md uppercase tracking-wider active:bg-brand-deep transition-colors" aria-disabled="true" data-contact-draft="true">
-<div class="flex items-center gap-2.5">
-<span class="material-symbols-outlined text-[20px] text-primary-fixed">{% text 'support.help_mobile.text.bc8d8647b02d' %}</span>
-<span>{% text 'support.help.ui.phone_pending' %}</span>
-</div>
-<span class="font-body-sm text-body-sm text-primary-fixed text-[11px] lowercase">{% text 'support.help_mobile.text.7df316b35a9d' %}</span>
-</a>
-<a class="flex items-center justify-between px-4 py-3 bg-surface-container text-text-primary font-label-md text-label-md uppercase tracking-wider active:bg-surface-container-high transition-colors" aria-disabled="true" data-contact-draft="true">
-<div class="flex items-center gap-2.5">
-<span class="material-symbols-outlined text-[20px] text-brand-deep">{% text 'support.help_mobile.text.7ecde348ff9c' %}</span>
-<span>{% text 'support.help_mobile.text.1e1c96a78ce5' %}</span>
-</div>
-<span class="material-symbols-outlined text-[18px] text-text-muted">{% text 'support.help_mobile.text.d031e2061b1a' %}</span>
-</a>
-</div>
+<div class="flex flex-col gap-2">{% include 'includes/store_identity.html' with identity_part='address' %}{% include 'includes/store_contact_links.html' %}<a class="underline" href="#kontakt-formular">{% text 'store_identity.contact_form' %}</a></div>
 <div class="pt-2 flex items-center justify-between font-label-sm text-label-sm text-on-primary-container text-[11px]">
 <div class="flex items-center gap-1.5">
 <span class="material-symbols-outlined text-[14px]">{% text 'support.help_mobile.text.11e9ba26c91a' %}</span>
@@ -226,7 +211,7 @@
 <h3 class="font-headline-md text-headline-md text-text-primary">{% text 'support.help_mobile.text.046badcb91fa' %}</h3>
 <p class="font-body-sm text-body-sm text-text-muted mt-0.5">{% text 'support.help_mobile.text.dae1981da662' %}</p>
 </div>
-<p class="font-body-sm text-body-sm text-text-muted p-3" role="note">{% text 'support.help.ui.contacts_draft' %}</p>{% for message in messages %}{% if 'contact-saved' in message.tags %}<p id="contact-saved-status" role="status" class="p-4 mb-4 bg-primary-fixed text-on-primary-fixed">{{ message }}</p>{% endif %}{% endfor %}<form class="flex flex-col gap-3" id="contactForm" method="post" action="{% url 'support:contact' %}" data-real-support="true">{% csrf_token %}<input type="hidden" name="form_source" value="mobile">
+<p class="font-body-sm text-body-sm text-text-muted p-3" role="note">{% text 'store_identity.service_scope' %}</p>{% for message in messages %}{% if 'contact-saved' in message.tags %}<p id="contact-saved-status" role="status" class="p-4 mb-4 bg-primary-fixed text-on-primary-fixed">{{ message }}</p>{% endif %}{% endfor %}<form class="flex flex-col gap-3" id="contactForm" method="post" action="{% url 'support:contact' %}" data-real-support="true">{% csrf_token %}<input type="hidden" name="form_source" value="mobile">
 <input type="text" name="website" tabindex="-1" autocomplete="off" hidden aria-hidden="true">
 <p class="font-body-sm text-body-sm text-text-muted mb-4" role="note">{% text 'support.help.ui.contact_local' %} <a class="underline" href="{% url 'support:datenschutz' %}" data-real-navigation>{% text 'support.help.ui.contact_privacy' %}</a></p>
 {% if contact_form.errors %}<div role="alert" class="text-error font-body-sm mb-4">{% text 'support.help.ui.contact_errors' %}{{ contact_form.errors }}</div>{% endif %}

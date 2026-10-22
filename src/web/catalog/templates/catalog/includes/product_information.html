@@ -11,14 +11,16 @@
       <div class="md:col-span-7 space-y-6">
         <h3 class="text-2xl font-serif text-text-primary font-medium">{{ product.name }}</h3>
         {% if product_information.description %}<p class="text-base text-text-muted leading-relaxed product-information-text">{{ product_information.description }}</p>{% else %}<p data-information-empty class="text-base text-text-muted leading-relaxed">{% text 'catalog.information.description_empty' %}</p>{% endif %}
-        {% if information_language and information_language != information_requested_language %}<p class="text-xs text-text-muted">{% text 'catalog.information.content_language' %} {{ information_language|upper }}</p>{% endif %}
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+        {% if description_language and description_language != information_requested_language %}<p data-description-fallback class="text-xs text-text-muted">{% text 'catalog.information.content_language' %} {{ description_language|upper }}</p>{% endif %}
+        <div data-information-facts class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
           <div class="bg-surface-muted p-4"><span class="text-xs uppercase tracking-wider text-text-muted block mb-1">{% text 'catalog.information.fit' %}</span><p class="text-sm text-text-primary product-information-text">{{ product_information.fit|default_if_none:''|default:information_not_provided }}</p></div>
           <div class="bg-surface-muted p-4"><span class="text-xs uppercase tracking-wider text-text-muted block mb-1">{% text 'catalog.information.article' %}</span><p class="text-sm text-text-primary product-information-text">{{ manufacturer_article|default:information_not_provided }}</p></div>
+          {% if product_information.fit and information_language and information_language != information_requested_language %}<p data-facts-fallback class="text-xs text-text-muted">{% text 'catalog.information.content_language' %} {{ information_language|upper }}</p>{% endif %}
         </div>
       </div>
       <div class="md:col-span-5 bg-surface-muted p-6 md:p-8 flex flex-col justify-between">
         <h4 class="text-xs uppercase tracking-wider text-text-primary font-bold mb-4">{% text 'catalog.product.text.1698b84f31f7' %}</h4>
+        {% if information_language and information_language != information_requested_language %}<p data-facts-fallback class="text-xs text-text-muted mb-4">{% text 'catalog.information.content_language' %} {{ information_language|upper }}</p>{% endif %}
         <ul class="space-y-3 text-sm text-text-primary">
           {% include 'catalog/includes/information_field.html' with label_key='catalog.information.composition' value=product_information.composition %}
           {% include 'catalog/includes/information_field.html' with label_key='catalog.information.origin' value=product_information.origin %}
@@ -31,6 +33,7 @@
   </section>
   <section id="product-material" data-information-panel="material" class="product-info-panel bg-surface-container-lowest p-6 md:p-12 mt-2">
     <h3 class="text-2xl font-serif mb-6">{% text 'catalog.product.text.03ba06083d67' %}</h3>
+    {% if information_language and information_language != information_requested_language %}<p data-facts-fallback class="text-xs text-text-muted mb-4">{% text 'catalog.information.content_language' %} {{ information_language|upper }}</p>{% endif %}
     <ul class="space-y-3 text-sm text-text-primary">
       {% include 'catalog/includes/information_field.html' with label_key='catalog.information.composition' value=product_information.composition %}
       {% include 'catalog/includes/information_field.html' with label_key='catalog.information.care' value=product_information.care %}

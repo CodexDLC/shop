@@ -118,12 +118,14 @@ def translated_name(key, fallback):
 
 def audit_action(action):
     known = {"promo.updated", "promo.created", "support.resolved", "support.reopened",
-             "quick_access.updated", "product.information_updated", "product.created",
+             "quick_access.updated", "store_identity.updated", "product.information_updated", "product.created",
              "product.updated", "product.submit", "product.publish", "product.withdraw",
              "variants.updated", "photos.create", "photos.add", "photos.delete", "photos.reorder",
              "photos.update", "product.review", "product.reject"}
     known.update(f"reference.{name}.saved" for name in
                  ("brand", "category", "material", "property", "tag", "size_guide"))
+    known.update(f"seo.{kind}.{action}" for kind in ("page", "rule")
+                 for action in ("save", "publish", "restore"))
     return translate_text(f"staff.cards.action.{action}" if action in known else "staff.cards.action.other")
 
 
@@ -131,5 +133,6 @@ def audit_object(obj):
     names = {"catalog.product": "product", "catalog.brand": "brand", "catalog.category": "category",
              "catalog.material": "material", "catalog.productproperty": "property", "catalog.tag": "tag",
              "catalog.sizeguide": "size_guide", "cart.promocode": "promo",
-             "support.contactticket": "support", "staff.cabinetpreferences": "preferences"}
+             "support.contactticket": "support", "staff.cabinetpreferences": "preferences",
+             "shop.storeidentity": "store_identity", "seo.seopage": "seo_page", "seo.seorule": "seo_rule"}
     return f"{translate_text('staff.cards.object.' + names.get(obj.object_type, 'other'))} #{obj.object_id}"

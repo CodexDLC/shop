@@ -4,6 +4,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.models import Permission
 from django.test import Client
 from django.urls import reverse
+from django.utils.translation import override
 
 from web.staff.models import CabinetPreferences
 
@@ -24,6 +25,7 @@ def test_anonymous_redirect_and_customer_forbidden(client):
     assert client.get(reverse("staff:settings")).status_code == 403
 
 
+@override("de")
 def test_staff_shell_has_groups_settings_and_no_get_writes(client):
     client.force_login(make_user(staff=True, owner=True))
     response = client.get(reverse("staff:products"))

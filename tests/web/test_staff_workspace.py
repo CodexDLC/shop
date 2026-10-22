@@ -75,7 +75,7 @@ def test_limited_staff_sees_only_permitted_destinations_and_counts(client,django
     assert client.get(reverse('staff:workspace_preview',kwargs={'section':'integrations'})).status_code == 403
 
 
-@pytest.mark.parametrize('section', ['shipping','returns','analytics','content','integrations','store_settings','operations_settings'])
+@pytest.mark.parametrize('section', ['shipping','returns','analytics','content','integrations','operations_settings'])
 def test_future_design_pages_are_honest_get_only(owner,section):
     url=reverse('staff:workspace_preview',kwargs={'section':section})
     response=owner.get(url)

@@ -24,6 +24,7 @@ class ProductDetailView(StorefrontPageView):
         context["catalog_selection_texts"] = selection_texts()
         context.update(product_information_context(product))
         context['manufacturer_article'] = product.manufacturer_article
+        context['seo_category_name'] = product.category.name
         context['information_not_provided'] = translate_text('catalog.information.not_provided')
         context['information_requested_language'] = (get_language() or 'de').split('-')[0]
         return context

@@ -1,0 +1,16 @@
+{% extends 'staff/base.html' %}{% load shop_i18n static %}
+{% block staff_page_css %}<link rel="stylesheet" href="{% static 'cabinet/css/settings-workspace.css' %}">{% endblock %}
+{% block cabinet_content %}
+<section class="staff-settings-workspace" aria-labelledby="settings-title">
+<header class="staff-page-heading"><div><p class="staff-eyebrow">{% text 'staff.settings_workspace.eyebrow' %}</p><h1 id="settings-title">{% text settings_title %}</h1></div><span class="badge text-bg-success">{% text 'staff.store_identity.connected' %}</span></header>
+<p class="staff-page-intro">{% text 'staff.store_identity.intro' %}</p>
+{% include 'staff/settings_navigation.html' %}
+{% for message in messages %}<div class="alert alert-success" role="status">{{ message }}</div>{% endfor %}
+<form method="post">{% csrf_token %}{{ form.state }}{{ form.state.errors }}
+{% if form.non_field_errors %}<div class="alert alert-danger" role="alert">{{ form.non_field_errors }}<a href="{% url 'staff:workspace_preview' section='store_settings' %}">{% text 'staff.settings_workspace.reload' %}</a></div>{% endif %}
+<div class="card mb-3"><div class="card-body"><h2 class="h5">{% text 'staff.store_identity.details' %}</h2><p class="text-muted">{% text 'staff.store_identity.public_notice' %}</p>
+<div class="staff-settings-grid">{% for field in form.visible_fields %}<div class="staff-settings-field">{{ field.label_tag }}{{ field }}{% if field.errors %}<div class="text-danger" role="alert">{{ field.errors }}</div>{% endif %}</div>{% endfor %}</div>
+<button type="submit" class="btn btn-primary mt-3">{% text 'staff.settings.save' %}</button></div></div></form>
+<p class="alert alert-info">{% text 'staff.store_identity.planned_notice' %}</p>
+<div class="staff-settings-grid">{% for card in settings_cards %}<section class="card"><div class="card-body"><h2 class="h5">{% text card.title %}</h2><p class="text-muted">{% text card.description %}</p><fieldset disabled class="staff-settings-design"><legend>{% text 'staff.settings_workspace.planned_fields' %}</legend>{% for field in card.fields %}{% if field.key != 'vat_id' %}<div class="staff-settings-field"><label for="planned-{{ field.key }}">{% text field.label %}</label>{% if field.type == 'select' %}<select id="planned-{{ field.key }}" class="form-select"><option>{% text 'staff.workspace.not_configured' %}</option></select>{% elif field.type == 'textarea' %}<textarea id="planned-{{ field.key }}" class="form-control" rows="2" placeholder="{% text 'staff.workspace.not_configured' %}"></textarea>{% else %}<input id="planned-{{ field.key }}" class="form-control" type="{{ field.type }}" placeholder="{% text 'staff.workspace.not_configured' %}">{% endif %}</div>{% endif %}{% endfor %}</fieldset>{% for link in card.links %}<a href="{{ link.url }}">{% text link.label %}</a>{% endfor %}</div></section>{% endfor %}</div>
+</section>{% endblock %}

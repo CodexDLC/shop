@@ -65,6 +65,7 @@ def product_information_context(product, language_code=None):
     return {
         "product_information": information_fields,
         "information_language": information.language_code if information is not None else None,
+        "description_language": information.language_code if information is not None else None,
         "size_guide": size_guide,
         "review_summary": reviews.aggregate(count=Count("pk"), average=Avg("rating")),
         "product_reviews": list(reviews.values("author_display", "body", "rating", "created_at")[:10]),

@@ -7,6 +7,7 @@ from django.utils.translation import override
 
 from web.localization.translation import source_messages
 from web.support.legal_documents import legal_documents
+from web.support.legal_identity import bind_legal_identity
 
 pytestmark = pytest.mark.django_db
 
@@ -15,7 +16,8 @@ pytestmark = pytest.mark.django_db
 @pytest.mark.parametrize("document", legal_documents(), ids=lambda item: item.slug)
 def test_public_documents_read_without_database_mutation(document, django_assert_num_queries):
     client = Client(enforce_csrf_checks=True)
-    with django_assert_num_queries(1):
+    # Two bounded SEO reads: the published page override and its automatic rule.
+    with django_assert_num_queries(4):
         response = client.get(reverse(f"support:{document.url_name}"))
     assert response.status_code == 200
     assert not response.wsgi_request.user.is_authenticated
@@ -36,9 +38,10 @@ def test_public_documents_read_without_database_mutation(document, django_assert
 
 @pytest.mark.django_db
 @pytest.mark.parametrize("document", legal_documents(), ids=lambda item: item.slug)
+@override("de")
 def test_download_contains_selected_complete_document(document, django_assert_num_queries):
     url = reverse("support:legal_download", kwargs={"slug": document.slug})
-    with django_assert_num_queries(0):
+    with django_assert_num_queries(1):
         response = Client().get(url)
     assert response.status_code == 200
     assert response["Content-Type"] == "text/plain; charset=utf-8"
@@ -50,7 +53,7 @@ def test_download_contains_selected_complete_document(document, django_assert_nu
     assert "ENTWURF" in text
     assert "<html" not in text
     messages = source_messages()
-    for section in document.sections:
+    for section in bind_legal_identity(document).sections:
         assert messages[section.title_key] in text
         for key in section.paragraph_keys + section.form_keys:
             assert messages[key] in text

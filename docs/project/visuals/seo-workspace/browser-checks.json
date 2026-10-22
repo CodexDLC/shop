@@ -1,0 +1,20 @@
+{
+  "qa": "isolated SQLite8032 writes only",
+  "actual_local": "8030 existing primecodex admin read-only navigation/search",
+  "checks": [
+    "save draft does not change public title/body",
+    "publish applies title/meta/body",
+    "restore returns automatic values",
+    "public robots remains noindex",
+    "SKU search actual local finds target",
+    "RU desktop and DE rules",
+    "Chrome mobile innerWidth=390 scrollWidth=390"
+  ],
+  "screenshots": [
+    "editor-ru-published.png",
+    "editor-mobile.png",
+    "rules-de.png",
+    "overview-local-ru.png"
+  ],
+  "review": "Independent reviewer R1-R6 pass; 78 current tests"
+}

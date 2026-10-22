@@ -1,0 +1,17 @@
+{% load shop_i18n %}
+<div data-store-identity class="space-y-2 break-words" style="overflow-wrap:anywhere">
+{% if identity_part == 'recipient' %}<p class="font-semibold">{% text 'store_identity.legal_recipient' %}</p>{% endif %}
+{% if identity_part != 'contacts' and identity_part != 'register' %}
+{% if shop_identity.legal_name %}<p class="font-semibold">{{ shop_identity.legal_name }}</p>{% else %}<p>{% text 'store_identity.unconfigured' %}</p>{% endif %}
+{% if shop_identity.representative %}<p>{% text 'store_identity.representative' %}: {{ shop_identity.representative }}</p>{% endif %}
+{% if shop_identity.street_address %}<p>{{ shop_identity.street_address }}<br>{{ shop_identity.postal_code }} {{ shop_identity.city }}{% if shop_identity.country %}<br>{{ shop_identity.country }}{% endif %}</p>{% endif %}
+{% endif %}
+{% if identity_part != 'register' and identity_part != 'address' %}
+{% include 'includes/store_contact_links.html' %}
+{% endif %}
+{% if identity_part == 'register' or identity_part == 'full' %}
+{% if shop_identity.vat_id %}<p>{% text 'store_identity.vat_id' %}: {{ shop_identity.vat_id }}</p>{% endif %}
+{% if shop_identity.register_court %}<p>{% text 'store_identity.register_court' %}: {{ shop_identity.register_court }}</p>{% endif %}
+{% if shop_identity.register_number %}<p>{% text 'store_identity.register_number' %}: {{ shop_identity.register_number }}</p>{% endif %}
+{% endif %}
+</div>

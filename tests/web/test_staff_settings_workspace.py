@@ -123,7 +123,7 @@ def test_csrf_required_even_with_valid_signed_state(django_user_model):
 
 
 @pytest.mark.parametrize("lang", ["de", "ru"])
-@pytest.mark.parametrize("section", ["catalog", "store_settings", "operations_settings"])
+@pytest.mark.parametrize("section", ["catalog", "operations_settings"])
 def test_settings_design_clear_typed_readonly_and_no_get_writes(owner, lang, section):
     with override(lang):
         url = reverse("staff:catalog_settings") if section == "catalog" else reverse("staff:workspace_preview", kwargs={"section": section})

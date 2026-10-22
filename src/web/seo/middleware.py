@@ -6,6 +6,9 @@ from .policy import PagePolicy
 
 class SeoMiddleware(MiddlewareMixin):
     def process_template_response(self, request, response):
+        from .public import apply_public_overlay
+
+        apply_public_overlay(request, response.context_data, status=response.status_code)
         response.context_data['seo'] = page_metadata(request, response.context_data, status=response.status_code)
         return response
 

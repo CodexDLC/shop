@@ -42,7 +42,7 @@ def settings_workspace(user, section):
                                 if user.has_perm(permission)]})
     nav = []
     for name, url, permission in (
-        ("store_settings", reverse("staff:workspace_preview", kwargs={"section": "store_settings"}), "staff.change_cabinetpreferences"),
+        ("store_settings", reverse("staff:workspace_preview", kwargs={"section": "store_settings"}), "shop.change_storeidentity"),
         ("catalog", reverse("staff:catalog_settings"), "catalog.view_product"),
         ("operations_settings", reverse("staff:workspace_preview", kwargs={"section": "operations_settings"}), "orders.view_order"),
         ("quick_access", reverse("staff:settings"), "staff.change_cabinetpreferences"),

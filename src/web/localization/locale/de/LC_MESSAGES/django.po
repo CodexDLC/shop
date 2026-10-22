@@ -9352,6 +9352,27 @@ msgstr "Größentabelle gespeichert"
 msgid "staff.cards.action.reference.tag.saved"
 msgstr "Etikett gespeichert"
 
+msgid "staff.cards.action.seo.page.publish"
+msgstr "SEO veröffentlicht"
+
+msgid "staff.cards.action.seo.page.restore"
+msgstr "SEO-Version wiederhergestellt"
+
+msgid "staff.cards.action.seo.page.save"
+msgstr "SEO-Entwurf gespeichert"
+
+msgid "staff.cards.action.seo.rule.publish"
+msgstr "SEO veröffentlicht"
+
+msgid "staff.cards.action.seo.rule.restore"
+msgstr "SEO-Version wiederhergestellt"
+
+msgid "staff.cards.action.seo.rule.save"
+msgstr "SEO-Entwurf gespeichert"
+
+msgid "staff.cards.action.store_identity.updated"
+msgstr "Shop-Angaben aktualisiert"
+
 msgid "staff.cards.action.support.reopened"
 msgstr "Anfrage wieder geöffnet"
 
@@ -9385,8 +9406,17 @@ msgstr "Aktionscode"
 msgid "staff.cards.object.property"
 msgstr "Eigenschaft"
 
+msgid "staff.cards.object.seo_page"
+msgstr "SEO-Seite"
+
+msgid "staff.cards.object.seo_rule"
+msgstr "SEO-Regel"
+
 msgid "staff.cards.object.size_guide"
 msgstr "Größentabelle"
+
+msgid "staff.cards.object.store_identity"
+msgstr "Shop-Angaben"
 
 msgid "staff.cards.object.support"
 msgstr "Anfrage"
@@ -10366,6 +10396,315 @@ msgstr "Rabatt"
 msgid "staff.records.yes"
 msgstr "Ja"
 
+msgid "staff.seo.actual_examples"
+msgstr "Beispiele aus vorhandenen Seiten"
+
+msgid "staff.seo.all_kinds"
+msgstr "Alle Seitentypen"
+
+msgid "staff.seo.apply_language"
+msgstr "Anzeigen"
+
+msgid "staff.seo.audit"
+msgstr "Änderungsverlauf"
+
+msgid "staff.seo.audit.publish"
+msgstr "Veröffentlicht"
+
+msgid "staff.seo.audit.restore"
+msgstr "Vorherige Fassung veröffentlicht"
+
+msgid "staff.seo.audit.save"
+msgstr "Entwurf gespeichert"
+
+msgid "staff.seo.audit.version"
+msgstr "Version"
+
+msgid "staff.seo.automatic"
+msgstr "Automatisch"
+
+msgid "staff.seo.automatic_value"
+msgstr "Automatischen Wert anzeigen"
+
+msgid "staff.seo.back_pages"
+msgstr "Zur Seitenliste"
+
+msgid "staff.seo.body_locked"
+msgstr "Der Inhalt dieser Rechtsseite wird im Bereich Rechtstexte verwaltet."
+
+msgid "staff.seo.check.empty_description"
+msgstr "Die Suchbeschreibung ist leer."
+
+msgid "staff.seo.check.empty_title"
+msgstr "Der Seitentitel ist leer."
+
+msgid "staff.seo.check.long_description"
+msgstr "Die Suchbeschreibung ist länger als 160 Zeichen und kann gekürzt angezeigt werden."
+
+msgid "staff.seo.check.long_title"
+msgstr "Der Seitentitel ist länger als 70 Zeichen und kann gekürzt angezeigt werden."
+
+msgid "staff.seo.checks"
+msgstr "Hinweise zum gespeicherten Entwurf"
+
+msgid "staff.seo.checks_ok"
+msgstr "Titel und Suchbeschreibung vorhanden; keine Längenhinweise."
+
+msgid "staff.seo.content_language"
+msgstr "Inhaltssprache"
+
+msgid "staff.seo.current"
+msgstr "Aktuell veröffentlicht"
+
+msgid "staff.seo.draft_notice"
+msgstr "Unveröffentlichte Änderungen. Die öffentliche Seite zeigt weiterhin die veröffentlichte Fassung."
+
+msgid "staff.seo.empty"
+msgstr "Keine passenden Seiten. Suchbegriff ändern oder einen anderen Seitentyp wählen."
+
+msgid "staff.seo.empty_auto"
+msgstr "Leer lassen, um den automatischen Wert zu verwenden. Nur Text; HTML wird nicht ausgeführt."
+
+msgid "staff.seo.eyebrow"
+msgstr "Verwaltung"
+
+msgid "staff.seo.field.body"
+msgstr "Text auf der Seite"
+
+msgid "staff.seo.field.description"
+msgstr "Beschreibung für Suchmaschinen"
+
+msgid "staff.seo.field.description_template"
+msgstr "Vorlage für Suchbeschreibungen"
+
+msgid "staff.seo.field.title"
+msgstr "Seitentitel"
+
+msgid "staff.seo.field.title_template"
+msgstr "Vorlage für Seitentitel"
+
+msgid "staff.seo.force_noindex"
+msgstr "Für diese Umgebung ist eine zusätzliche Indexierungssperre aktiv."
+
+msgid "staff.seo.indexing_demo"
+msgstr "Demo-Produkte werden durch SEO-Änderungen nicht für Suchmaschinen freigegeben."
+
+msgid "staff.seo.indexing_intro"
+msgstr "Aktuelle Freigabe und Schutzregeln für Suchmaschinen."
+
+msgid "staff.seo.indexing_locales"
+msgstr "Nur die vollständig veröffentlichte deutsche Sprachfassung ist zur Indexierung vorgesehen."
+
+msgid "staff.seo.indexing_off"
+msgstr "Indexierung gesperrt"
+
+msgid "staff.seo.indexing_on"
+msgstr "Freigabe aktiv; Seitenregeln gelten"
+
+msgid "staff.seo.indexing_private"
+msgstr "Private Bereiche, Fehlerseiten und nicht freigegebene Seiten bleiben gesperrt."
+
+msgid "staff.seo.indexing_query"
+msgstr "Filter- und Suchanfragen bleiben gesperrt; freigegebene Paginierung folgt eigenen Regeln."
+
+msgid "staff.seo.indexing_readonly"
+msgstr "Dieser Status ist schreibgeschützt. SEO-Texte oder Regeln können die Indexierung nicht aktivieren."
+
+msgid "staff.seo.indexing_status"
+msgstr "Aktueller Status"
+
+msgid "staff.seo.intro"
+msgstr "Automatische Metadaten prüfen und gezielte Ausnahmen als Entwurf bearbeiten."
+
+msgid "staff.seo.invalid"
+msgstr "Die Änderung konnte nicht übernommen werden. Längen, einzeilige Metadaten und erlaubte Platzhalter prüfen."
+
+msgid "staff.seo.jsonld_empty"
+msgstr "Für diese Seite ist kein JSON-LD verfügbar. Produktdaten benötigen eine konfigurierte öffentliche Domain."
+
+msgid "staff.seo.jsonld_help"
+msgstr "JSON-LD wird aus den aktuellen Produktdaten erzeugt. Preise, Verfügbarkeit und Bewertungen können hier nicht geändert werden."
+
+msgid "staff.seo.kind"
+msgstr "Seitentyp"
+
+msgid "staff.seo.kind.brand"
+msgstr "Marken"
+
+msgid "staff.seo.kind.category"
+msgstr "Kategorien"
+
+msgid "staff.seo.kind.product"
+msgstr "Produkte"
+
+msgid "staff.seo.kind.static"
+msgstr "Weitere Seiten"
+
+msgid "staff.seo.language.de"
+msgstr "Deutsch"
+
+msgid "staff.seo.language.ru"
+msgstr "Russisch"
+
+msgid "staff.seo.language_help"
+msgstr "Die Inhaltssprache ist unabhängig von der Sprache des Mitarbeiterbereichs."
+
+msgid "staff.seo.manual"
+msgstr "Manuelle Ausnahme im Entwurf"
+
+msgid "staff.seo.nav.indexing"
+msgstr "Indexierung"
+
+msgid "staff.seo.nav.overview"
+msgstr "Übersicht"
+
+msgid "staff.seo.nav.pages"
+msgstr "Seiten und Texte"
+
+msgid "staff.seo.nav.rules"
+msgstr "Automatische Regeln"
+
+msgid "staff.seo.navigation"
+msgstr "SEO-Bereiche"
+
+msgid "staff.seo.next"
+msgstr "Weiter"
+
+msgid "staff.seo.no_examples"
+msgstr "Keine passenden Seiten für die Vorschau vorhanden. Die Regel kann erst nach Prüfung eines Beispiels veröffentlicht werden."
+
+msgid "staff.seo.no_publish"
+msgstr "Zum Veröffentlichen ist eine gesonderte Berechtigung erforderlich."
+
+msgid "staff.seo.no_recent"
+msgstr "Bisher keine SEO-Änderungen. In der Seitenliste eine Seite auswählen."
+
+msgid "staff.seo.open"
+msgstr "Öffnen"
+
+msgid "staff.seo.page"
+msgstr "Seite"
+
+msgid "staff.seo.pages_intro"
+msgstr "Seiten nach Name, Artikelnummer oder URL finden; Titel, Suchbeschreibung und Texte bearbeiten."
+
+msgid "staff.seo.pagination"
+msgstr "Seiten der Suchergebnisse"
+
+msgid "staff.seo.preview"
+msgstr "Gespeicherten Entwurf prüfen"
+
+msgid "staff.seo.preview_examples"
+msgstr "Beispiele prüfen"
+
+msgid "staff.seo.preview_help"
+msgstr "Ergebnis aus gespeichertem Entwurf und Automatik. Änderungen im Formular zuerst speichern."
+
+msgid "staff.seo.preview_required"
+msgstr "Die Vorschau ist veraltet. Seite neu laden und die Beispiele vor der Veröffentlichung prüfen."
+
+msgid "staff.seo.previous"
+msgstr "Zurück"
+
+msgid "staff.seo.public_origin"
+msgstr "Vertrauenswürdige öffentliche Domain"
+
+msgid "staff.seo.publication"
+msgstr "Veröffentlichung"
+
+msgid "staff.seo.publish"
+msgstr "Gespeicherten Entwurf veröffentlichen"
+
+msgid "staff.seo.publish_help"
+msgstr "Die Veröffentlichung übernimmt den gespeicherten Entwurf auf die öffentliche Seite. Die vorherige Fassung bleibt wiederherstellbar."
+
+msgid "staff.seo.publish_rule"
+msgstr "Gespeicherte Regel veröffentlichen"
+
+msgid "staff.seo.read_only"
+msgstr "Nur Lesen. Für dieses Feld fehlt die Bearbeitungsberechtigung."
+
+msgid "staff.seo.recent"
+msgstr "Zuletzt bearbeitete Seiten"
+
+msgid "staff.seo.reload"
+msgstr "Aktuelle Fassung laden"
+
+msgid "staff.seo.reset"
+msgstr "Automatischen Wert als Entwurf übernehmen"
+
+msgid "staff.seo.restore"
+msgstr "Vorherige Fassung wieder veröffentlichen"
+
+msgid "staff.seo.restore_rule"
+msgstr "Vorherige Regel wieder veröffentlichen"
+
+msgid "staff.seo.rule_draft"
+msgstr "Die Regel enthält unveröffentlichte Änderungen."
+
+msgid "staff.seo.rule_empty_auto"
+msgstr "Leere Vorlagen verwenden die bestehende Automatik. Platzhalter verwenden nur vorhandene Seitendaten."
+
+msgid "staff.seo.rule_preview_help"
+msgstr "Manuelle Ausnahmen werden durch Regeln nicht überschrieben. Vor Veröffentlichung den Entwurf speichern und diese Beispiele prüfen."
+
+msgid "staff.seo.rules_intro"
+msgstr "Vorlagen je Seitentyp und Inhaltssprache. Manuelle Ausnahmen bleiben erhalten."
+
+msgid "staff.seo.save_draft"
+msgstr "Entwurf speichern"
+
+msgid "staff.seo.save_first"
+msgstr "Die Eingaben wurden noch nicht gespeichert. Zuerst den Entwurf speichern und das Ergebnis prüfen."
+
+msgid "staff.seo.saved.publish"
+msgstr "Gespeicherte Fassung veröffentlicht."
+
+msgid "staff.seo.saved.reset"
+msgstr "Automatischer Wert als Entwurf gespeichert. Zum Übernehmen veröffentlichen."
+
+msgid "staff.seo.saved.restore"
+msgstr "Vorherige Fassung wieder veröffentlicht."
+
+msgid "staff.seo.saved.save"
+msgstr "Entwurf gespeichert."
+
+msgid "staff.seo.search"
+msgstr "Suchen"
+
+msgid "staff.seo.search_hint"
+msgstr "Name, SKU oder URL"
+
+msgid "staff.seo.shortcut"
+msgstr "SEO dieser Seite"
+
+msgid "staff.seo.stale"
+msgstr "Die Fassung wurde inzwischen geändert. Aktuelle Fassung laden und Änderungen erneut prüfen."
+
+msgid "staff.seo.summary.drafts"
+msgstr "Seiten mit Entwurf"
+
+msgid "staff.seo.summary.published"
+msgstr "Veröffentlichte SEO-Fassungen"
+
+msgid "staff.seo.summary.rules"
+msgstr "Regeln mit Entwurf"
+
+msgid "staff.seo.technical"
+msgstr "Technische Details und JSON-LD"
+
+msgid "staff.seo.title"
+msgstr "SEO"
+
+msgid "staff.seo.url"
+msgstr "URL"
+
+msgid "staff.seo.variables"
+msgstr "Erlaubte Platzhalter:"
+
+msgid "staff.seo.workflow"
+msgstr "Änderungen zuerst als Entwurf speichern, das Ergebnis prüfen und anschließend veröffentlichen."
+
 msgid "staff.settings.choose"
 msgstr "Links für die obere Leiste auswählen"
 
@@ -10548,6 +10887,72 @@ msgstr "Aktuelle Auswahl laden"
 
 msgid "staff.settings_workspace.shared"
 msgstr "Für alle Mitarbeitenden"
+
+msgid "staff.store_identity.conflict"
+msgstr "Die Angaben wurden inzwischen geändert oder das Formular ist abgelaufen. Aktuelle Angaben neu laden und erneut prüfen."
+
+msgid "staff.store_identity.connected"
+msgstr "Speicherung aktiv"
+
+msgid "staff.store_identity.country_error"
+msgstr "Aktuell wird nur Deutschland unterstützt."
+
+msgid "staff.store_identity.details"
+msgstr "Rechtliche Angaben und Kontakt"
+
+msgid "staff.store_identity.field.city"
+msgstr "Ort"
+
+msgid "staff.store_identity.field.contact_email"
+msgstr "Öffentliche E-Mail-Adresse"
+
+msgid "staff.store_identity.field.contact_phone"
+msgstr "Öffentliche Telefonnummer"
+
+msgid "staff.store_identity.field.country"
+msgstr "Land"
+
+msgid "staff.store_identity.field.legal_name"
+msgstr "Firmenname / rechtlicher Name"
+
+msgid "staff.store_identity.field.postal_code"
+msgstr "Postleitzahl"
+
+msgid "staff.store_identity.field.register_court"
+msgstr "Registergericht"
+
+msgid "staff.store_identity.field.register_number"
+msgstr "Registernummer"
+
+msgid "staff.store_identity.field.representative"
+msgstr "Vertretungsberechtigte Person"
+
+msgid "staff.store_identity.field.street_address"
+msgstr "Straße und Hausnummer"
+
+msgid "staff.store_identity.field.vat_id"
+msgstr "Umsatzsteuer-ID"
+
+msgid "staff.store_identity.germany"
+msgstr "Deutschland"
+
+msgid "staff.store_identity.intro"
+msgstr "Rechtliche Angaben und öffentliche Kontakte des Shops verwalten."
+
+msgid "staff.store_identity.phone_error"
+msgstr "Bitte eine Telefonnummer mit Ziffern und optionalem + sowie üblichen Trennzeichen eingeben."
+
+msgid "staff.store_identity.planned_notice"
+msgstr "Nur die Angaben oben werden gespeichert. Weitere Einstellungen unten sind noch nicht angeschlossen."
+
+msgid "staff.store_identity.postal_error"
+msgstr "Bitte eine deutsche Postleitzahl mit fünf Ziffern eingeben."
+
+msgid "staff.store_identity.public_notice"
+msgstr "Gespeicherte Angaben erscheinen sofort auf der Website, im Kontaktbereich und bei den rechtlichen Angaben. Keine privaten Kontaktdaten eingeben."
+
+msgid "staff.store_identity.saved"
+msgstr "Angaben gespeichert. Die Website verwendet jetzt diese Daten."
 
 msgid "staff.title"
 msgstr "Arbeitsbereich"
@@ -10978,6 +11383,9 @@ msgstr "Retouren"
 msgid "staff.workspace.nav.reviews"
 msgstr "Bewertungen"
 
+msgid "staff.workspace.nav.seo_overview"
+msgstr "SEO"
+
 msgid "staff.workspace.nav.shipping"
 msgstr "Versand"
 
@@ -11253,6 +11661,42 @@ msgstr "Taille, cm"
 
 msgid "staff.workspace_catalog.yes"
 msgstr "Ja"
+
+msgid "store_identity.agb_scope"
+msgstr "Diese Arbeitsfassung ist für einen künftigen Verkauf von Waren durch den oben genannten Anbieter an Verbraucher vorgesehen. Sie wird erst nach Anpassung an Sortiment, Liefergebiet und Vertragsablauf als Geschäftsbedingung freigegeben. Individuelle Vereinbarungen und zwingende gesetzliche Rechte bleiben maßgeblich."
+
+msgid "store_identity.contact_form"
+msgstr "Kontaktformular"
+
+msgid "store_identity.contacts_unconfigured"
+msgstr "Öffentliche Kontaktdaten sind noch nicht hinterlegt."
+
+msgid "store_identity.legal_recipient"
+msgstr "Empfänger rechtlicher Erklärungen"
+
+msgid "store_identity.legal_returns_notice"
+msgstr "Rücksendeanschriften können abweichen und müssen im freigegebenen Widerrufsdokument gesondert bestätigt werden. Bitte senden Sie keine Ware an Platzhalteradressen."
+
+msgid "store_identity.register_court"
+msgstr "Registergericht"
+
+msgid "store_identity.register_number"
+msgstr "Registernummer"
+
+msgid "store_identity.representative"
+msgstr "Vertreten durch"
+
+msgid "store_identity.service_scope"
+msgstr "Erreichbarkeit und Beratungsangebote werden gesondert bestätigt."
+
+msgid "store_identity.unconfigured"
+msgstr "Anbieterangaben sind noch nicht hinterlegt."
+
+msgid "store_identity.vat_id"
+msgstr "Umsatzsteuer-ID"
+
+msgid "store_identity.withdrawal_declaration"
+msgstr "Teilen Sie diesem Empfänger eindeutig mit, dass Sie den betroffenen Vertrag widerrufen. Dafür kann die untenstehende Vorlage genutzt werden; eine andere eindeutige Erklärung bleibt möglich."
 
 msgid "support.emails.label.70755381342b"
 msgstr "High luxury editorial campaign photo of male model wearing fine dark underwear in architectural brutalist concrete interior with warm ambient spotlight"

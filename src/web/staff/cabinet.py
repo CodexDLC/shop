@@ -35,12 +35,13 @@ declare("management", space="staff",
             for name, icon, order, permission in (
                 ("promos", "bi-percent", 20, "cart.view_promocode"),
                 ("payments", "bi-credit-card", 30, "payments.view_paymentattempt"),
+                ("seo_overview", "bi-search", 45, "seo.view_seopage"),
                 ("team", "bi-person-badge", 60, "auth.view_user"),
                 ("audit", "bi-clock-history", 80, "staff.view_staffauditevent"),
             )], *[
             SidebarItem(label=label(f"staff.workspace.nav.{name}"),
                         url=reverse_lazy("staff:workspace_preview", kwargs={"section": name}),
-                        icon=icon, order=order, permissions=("staff.change_cabinetpreferences",))
+                        icon=icon, order=order, permissions=(("shop.change_storeidentity" if name == "store_settings" else "staff.change_cabinetpreferences"),))
             for name, icon, order in (
                 ("analytics", "bi-bar-chart", 40), ("content", "bi-layout-text-window", 50),
                 ("integrations", "bi-plug", 70), ("store_settings", "bi-sliders", 90),

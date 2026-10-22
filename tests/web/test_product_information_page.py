@@ -68,7 +68,9 @@ def test_pdp_uses_escaped_editorial_data_and_only_approved_reviews(client, djang
     ProductReview.objects.create(product=product, rating=2, status='approved',
                                  author_display='<img onerror="bad()">', body='<script>review()</script>')
     ProductReview.objects.create(product=product, rating=5, status='pending', body='DO-NOT-PUBLISH')
-    with django_assert_num_queries(10):
+    # Includes one request-memoized public seller identity read for the shared footer.
+    # Two bounded SEO reads: the published page override and its automatic rule.
+    with django_assert_num_queries(13):
         response = client.get(reverse('catalog:detail', kwargs={'slug': product.slug}))
     html = response.content.decode()
     assert response.context['review_summary']['count'] == 1

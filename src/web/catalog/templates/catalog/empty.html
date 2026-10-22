@@ -208,7 +208,7 @@
 <div>
 <span class="text-text-primary font-semibold">{% text 'catalog.empty.text.4c1cd4156cb7' %}</span>
 <span> {% text 'catalog.empty.text.f6a6c4f05f0f' %} </span>
-<a class="text-text-primary font-medium underline underline-offset-2 hover:text-brand-deep transition-colors" href="tel:+49892154890">+49 (0) 89 215 489 0</a>
+{% if shop_identity.phone_href %}<a class="text-text-primary font-medium underline underline-offset-2 hover:text-brand-deep transition-colors" href="{{ shop_identity.phone_href }}">{{ shop_identity.contact_phone }}</a>{% endif %}
 <span class="text-[11px] block text-text-muted mt-0.5">{% text 'catalog.empty.text.41b258f5acf2' %}</span>
 </div>
 </div>

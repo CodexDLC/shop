@@ -8,7 +8,7 @@
 {% endblock %}
 {% block body_attrs %} class="bg-page-bg font-body-md text-text-primary antialiased selection:bg-primary-container selection:text-on-primary" data-demo-page="help.html"{% endblock %}
 {% block content %}
-{% include 'includes/header.html' %}<main class="w-full pt-28 bg-page-bg min-h-[calc(100vh-280px)]"><div class="flex flex-col w-full"><p class="font-body-sm text-body-sm text-text-muted p-4" role="note">{% text 'support.help.ui.policy_draft' %} {% text 'support.help.ui.contacts_draft' %}</p>
+{% include 'includes/header.html' %}<main class="w-full pt-28 bg-page-bg min-h-[calc(100vh-280px)]"><div class="flex flex-col w-full"><p class="font-body-sm text-body-sm text-text-muted p-4" role="note">{% text 'support.help.ui.policy_draft' %} {% text 'store_identity.service_scope' %}</p>
 <!-- Subtle Hero Scrim & Top Breadcrumb Bar -->
 <div class="w-full bg-surface-muted/60">
 <div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin py-space-sm">
@@ -23,6 +23,7 @@
 <section class="w-full bg-surface-muted/30 pb-space-2xl">
 <div class="max-w-[1440px] mx-auto px-margin-mobile lg:px-margin pt-space-xl">
 <div class="max-w-4xl">
+{% if seo_visible_body %}<p class="text-body-md text-text-muted mb-space-lg">{{ seo_visible_body|linebreaksbr }}</p>{% endif %}
 <div class="inline-flex items-center gap-2 px-3 py-1 bg-brand-deep text-on-primary font-label-sm text-label-sm uppercase tracking-[0.2em] mb-space-md">
 <span class="material-symbols-outlined text-[14px]">{% text 'support.help.text.79ac32b1d75f' %}</span>
           {% text 'support.help.text.2c3bd2f05671' %}
@@ -178,36 +179,10 @@
 <p class="font-body-sm text-body-sm text-white/80 leading-relaxed">
                   {% text 'support.help.text.56c6f0e3a979' %}
                 </p>
-<div class="pt-2 space-y-3 font-body-sm text-body-sm">
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-[20px] text-primary-fixed shrink-0">{% text 'support.help.text.bc8d8647b02d' %}</span>
-<div>
-<a class="font-price-md text-price-md tracking-wider text-on-primary hover:text-primary-fixed transition-colors" aria-disabled="true" data-contact-draft="true">
-                        {% text 'support.help.ui.phone_pending' %}
-                      </a>
-<p class="text-white/70 text-[11px] uppercase tracking-wider">{% text 'support.help.text.c5d1ee933285' %}</p>
-</div>
-</div>
-<div class="flex items-start gap-3">
-<span class="material-symbols-outlined text-[20px] text-primary-fixed shrink-0">{% text 'support.help.text.1d6e1cf70ec6' %}</span>
-<div>
-<a class="text-on-primary font-medium hover:text-primary-fixed transition-colors" aria-disabled="true" data-contact-draft="true">
-                        {% text 'support.help.text.311edcc927a4' %}
-                      </a>
-<p class="text-white/70 text-[11px]">{% text 'support.help.text.eebe9d7d6101' %}</p>
-</div>
-</div>
-<div class="pt-2">
-<a class="w-full flex items-center justify-center gap-2 bg-primary-fixed text-on-primary-fixed font-label-md text-label-md uppercase tracking-wider py-3 px-4 hover:bg-white transition-colors" aria-disabled="true" data-contact-draft="true" rel="noopener noreferrer" target="_blank">
-<span class="material-symbols-outlined text-[18px]">{% text 'support.help.text.7ecde348ff9c' %}</span>
-<span>{% text 'support.help.text.1e1c96a78ce5' %}</span>
-</a>
-</div>
-</div>
+<div class="pt-2 space-y-3 font-body-sm text-body-sm">{% include 'includes/store_contact_links.html' %}<a class="inline-block underline" href="#kontakt-formular">{% text 'store_identity.contact_form' %}</a></div>
 <div class="pt-space-md text-[11px] text-white/60 leading-normal">
 <span class="font-medium text-white/80 block">{% text 'support.help.text.fddc2afa3c7b' %}</span>
-                  {% text 'support.help.text.0eb36e9cfb53' %}<br/>
-                  {% text 'support.help.text.7c87d7911835' %}
+                  {% include 'includes/store_identity.html' with identity_part='address' %}
                 </div>
 </div>
 </div>
@@ -242,7 +217,7 @@
                     {% text 'support.help.text.69953b5e2a90' %}
                   </h4>
 <p class="font-body-md text-body-md text-text-muted leading-relaxed">
-                    {% text 'support.help.text.ff6554169056' %} <strong>{% text 'support.help.text.a735ef11fa5d' %}</strong>.
+                    {% text 'support.help.text.ff6554169056' %} <strong data-store-seller>{% if shop_identity.legal_name %}{{ shop_identity.legal_name }}{% else %}{% text 'store_identity.unconfigured' %}{% endif %}</strong>.
                   </p>
 </div>
 </div>
@@ -499,7 +474,7 @@
 </button>
 <div class="hidden px-space-md pb-space-md font-body-md text-body-md text-text-muted" id="content-faq-7">
 <p class="leading-relaxed">
-                    {% text 'support.help.text.f1d5bfbc2eea' %} <strong>{% text 'support.help.ui.phone_pending' %}</strong> {% text 'support.help.text.560adccf6c16' %}
+                    {% include 'includes/store_contact_links.html' %} {% text 'store_identity.service_scope' %}
                   </p>
 </div>
 </div>

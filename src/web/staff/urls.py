@@ -12,11 +12,14 @@ from .views.product_preview_view import ProductPreviewView
 from .views.product_publication_view import ProductPublicationView
 from .views.product_variant_preview_view import ProductVariantPreviewView
 from .views.quick_access_view import QuickAccessView
+from .views.store_identity_view import StoreIdentityView
 from .views.variant_matrix_view import VariantMatrixView
 from .views.workspace_preview_view import WorkspacePreviewView
 
 app_name = "staff"
 urlpatterns = [
+    path("seo/", include("web.staff.seo_workspace.urls")),
+    path("workspace/store_settings/", StoreIdentityView.as_view(), {"section": "store_settings"}, name="workspace_preview"),
     path('workspace/<slug:section>/', WorkspacePreviewView.as_view(), name='workspace_preview'),
     path('', include('web.staff.operations.urls')),
     path('', include('web.staff.catalog_workspace.urls')),

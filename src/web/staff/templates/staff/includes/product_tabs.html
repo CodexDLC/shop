@@ -6,6 +6,7 @@
 {% if perms.catalog.view_productimage %}<a class="nav-link{% if request.resolver_match.url_name == 'product_photos' %} active{% endif %}" href="{% url 'staff:product_photos' pk=product.pk %}">{% text 'staff.product_tabs.photos' %}</a>{% endif %}
 <a class="nav-link{% if request.resolver_match.url_name == 'product_publication' %} active{% endif %}" href="{% url 'staff:product_publication' pk=product.pk %}">{% text 'staff.product_tabs.publication' %}</a>
 </nav><div class="staff-product-actions">{% if perms.catalog.view_product %}<a class="btn btn-sm btn-outline-secondary" href="{% url 'staff:product_preview' pk=product.pk %}">{% text 'staff.product_tabs.preview' %}</a>{% endif %}
+{% if perms.seo.view_seopage %}<a class="btn btn-sm btn-outline-secondary" href="{% url 'staff:seo_page' kind='product' key=product.slug %}">{% text 'staff.seo.shortcut' %}</a>{% endif %}
 {% if product.is_active %}<a class="btn btn-sm btn-outline-secondary" href="{% url 'catalog:detail' slug=product.slug %}">{% text 'staff.product_tabs.storefront' %}</a>{% endif %}
 </div></div>{% endif %}
 {% if product.is_active %}<div class="alert alert-warning" role="status">{% text 'staff.workflow.published_warning' %} <a href="{% url 'staff:product_publication' pk=product.pk %}">{% text 'staff.product_tabs.publication' %}</a></div>{% endif %}

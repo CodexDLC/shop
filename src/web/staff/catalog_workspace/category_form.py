@@ -15,10 +15,9 @@ class CategoryForm(forms.ModelForm):
     class Meta:
         model = Category
         fields = ["name_de", "name_ru", "slug", "parent", "section", "position", "is_visible",
-                  "description_de", "description_ru", "seo_title", "seo_description", "image_alt"]
+                  "description_de", "description_ru", "image_alt"]
         widgets = {"description_de": forms.Textarea(attrs={"rows": 5}),
-                   "description_ru": forms.Textarea(attrs={"rows": 4}),
-                   "seo_description": forms.Textarea(attrs={"rows": 3})}
+                   "description_ru": forms.Textarea(attrs={"rows": 4})}
 
     def __init__(self, *args, categories, **kwargs):
         super().__init__(*args, **kwargs)
@@ -49,7 +48,6 @@ class CategoryForm(forms.ModelForm):
             ("display", ["position", "is_visible", "confirm_visibility"]),
             ("image", ["upload", "remove_image", "image_alt"]),
             ("description", ["description_de", "description_ru"]),
-            ("seo", ["seo_title", "seo_description"]),
         ]
         return [{"key": f"staff.categories.group.{name}", "fields": [self[field] for field in fields]}
                 for name, fields in groups]

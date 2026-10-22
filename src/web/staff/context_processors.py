@@ -16,7 +16,8 @@ def staff_cabinet(request):
     def allowed(item):
         return not item.permissions or any(user.has_perm(p) for p in item.permissions)
     can_catalog = user.has_perm("catalog.view_product")
-    can_settings = user.has_perm("staff.change_cabinetpreferences")
+    can_settings = (user.has_perm("staff.change_cabinetpreferences") or user.has_perm("shop.change_storeidentity")
+                    or user.has_perm("seo.view_seopage"))
     selected = CabinetPreferences.objects.filter(pk=1).values_list("quick_access_keys", flat=True).first() or []
     entries = [entry for entry in resolved.topbar_entries
                if (entry.group != "admin" or can_settings)
@@ -49,7 +50,7 @@ def staff_cabinet(request):
             reverse("staff:workspace_preview", kwargs={"section": "operations_settings"})
             if module == "operations" and user.has_perm("orders.view_order") else None
         ),
-        "staff_global_settings_url": global_settings if can_settings else None,
+        "staff_global_settings_url": global_settings if user.has_perm("shop.change_storeidentity") else None,
         "cabinet_site_url": reverse("shop:home"), "cabinet_client_switch_url": reverse("customer:overview"),
         "cabinet_logout_url": reverse("staff:logout_confirm"), "notification_items": [],
     }

@@ -320,10 +320,10 @@
 </div>
 </div>
 <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-sm w-full md:w-auto shrink-0">
-<a class="h-11 px-6 bg-surface-container-lowest text-text-primary font-label-md text-label-md uppercase tracking-wider hover:bg-page-bg transition-colors flex items-center justify-center gap-2 whitespace-nowrap" href="tel:+49892154890">
+{% if shop_identity.phone_href %}<a class="h-11 px-6 bg-surface-container-lowest text-text-primary font-label-md text-label-md uppercase tracking-wider hover:bg-page-bg transition-colors flex items-center justify-center gap-2 whitespace-nowrap" href="{{ shop_identity.phone_href }}">
 <span class="material-symbols-outlined text-[18px]">{% text 'catalog.search_empty.text.f6be6ca91098' %}</span>
-<span>+49 (0) 89 215 489 0</span>
-</a>
+<span>{{ shop_identity.contact_phone }}</span>
+</a>{% endif %}
 <a class="h-11 px-6 border border-border-subtle/40 text-on-primary font-label-md text-label-md uppercase tracking-wider hover:bg-primary-container transition-colors flex items-center justify-center whitespace-nowrap" data-path="hilfe-kontakt" href="#">
 <span>{% text 'catalog.search_empty.text.499c497198de' %}</span>
 </a>

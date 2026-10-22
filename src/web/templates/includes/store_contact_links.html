@@ -1,0 +1,6 @@
+{% load shop_i18n %}
+<div data-store-contact class="space-y-2 break-words" style="overflow-wrap:anywhere">
+{% if shop_identity.contact_email and shop_identity.email_href %}<p><a class="underline underline-offset-2" href="{{ shop_identity.email_href }}">{{ shop_identity.contact_email }}</a></p>{% endif %}
+{% if shop_identity.contact_phone and shop_identity.phone_href %}<p><a class="underline underline-offset-2" href="{{ shop_identity.phone_href }}">{{ shop_identity.contact_phone }}</a></p>{% endif %}
+{% if not shop_identity.contact_email and not shop_identity.contact_phone %}<p>{% text 'store_identity.contacts_unconfigured' %}</p>{% endif %}
+</div>

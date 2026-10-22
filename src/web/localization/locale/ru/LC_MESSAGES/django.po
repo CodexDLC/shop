@@ -94,6 +94,27 @@ msgstr "Таблица размеров сохранён"
 msgid "staff.cards.action.reference.tag.saved"
 msgstr "Тег сохранён"
 
+msgid "staff.cards.action.seo.page.publish"
+msgstr "SEO опубликовано"
+
+msgid "staff.cards.action.seo.page.restore"
+msgstr "Восстановлена версия SEO"
+
+msgid "staff.cards.action.seo.page.save"
+msgstr "Сохранён SEO-черновик"
+
+msgid "staff.cards.action.seo.rule.publish"
+msgstr "SEO опубликовано"
+
+msgid "staff.cards.action.seo.rule.restore"
+msgstr "Восстановлена версия SEO"
+
+msgid "staff.cards.action.seo.rule.save"
+msgstr "Сохранён SEO-черновик"
+
+msgid "staff.cards.action.store_identity.updated"
+msgstr "Реквизиты магазина обновлены"
+
 msgid "staff.cards.action.support.reopened"
 msgstr "Обращение открыто повторно"
 
@@ -127,8 +148,17 @@ msgstr "Промокод"
 msgid "staff.cards.object.property"
 msgstr "Свойство"
 
+msgid "staff.cards.object.seo_page"
+msgstr "SEO страницы"
+
+msgid "staff.cards.object.seo_rule"
+msgstr "Правило SEO"
+
 msgid "staff.cards.object.size_guide"
 msgstr "Таблица размеров"
+
+msgid "staff.cards.object.store_identity"
+msgstr "Реквизиты магазина"
 
 msgid "staff.cards.object.support"
 msgstr "Обращение"
@@ -1108,6 +1138,315 @@ msgstr "Скидка"
 msgid "staff.records.yes"
 msgstr "Да"
 
+msgid "staff.seo.actual_examples"
+msgstr "Примеры существующих страниц"
+
+msgid "staff.seo.all_kinds"
+msgstr "Все типы страниц"
+
+msgid "staff.seo.apply_language"
+msgstr "Показать"
+
+msgid "staff.seo.audit"
+msgstr "Журнал изменений"
+
+msgid "staff.seo.audit.publish"
+msgstr "Опубликовано"
+
+msgid "staff.seo.audit.restore"
+msgstr "Предыдущая версия опубликована"
+
+msgid "staff.seo.audit.save"
+msgstr "Черновик сохранён"
+
+msgid "staff.seo.audit.version"
+msgstr "Версия"
+
+msgid "staff.seo.automatic"
+msgstr "Автоматически"
+
+msgid "staff.seo.automatic_value"
+msgstr "Показать автоматическое значение"
+
+msgid "staff.seo.back_pages"
+msgstr "К списку страниц"
+
+msgid "staff.seo.body_locked"
+msgstr "Содержимое этой правовой страницы редактируется в разделе юридических документов."
+
+msgid "staff.seo.check.empty_description"
+msgstr "Описание для поиска пустое."
+
+msgid "staff.seo.check.empty_title"
+msgstr "Заголовок страницы пустой."
+
+msgid "staff.seo.check.long_description"
+msgstr "Описание длиннее 160 символов и может быть сокращено в поиске."
+
+msgid "staff.seo.check.long_title"
+msgstr "Заголовок длиннее 70 символов и может быть сокращён в поиске."
+
+msgid "staff.seo.checks"
+msgstr "Замечания к сохранённому черновику"
+
+msgid "staff.seo.checks_ok"
+msgstr "Заголовок и описание заполнены; замечаний по длине нет."
+
+msgid "staff.seo.content_language"
+msgstr "Язык контента"
+
+msgid "staff.seo.current"
+msgstr "Сейчас опубликовано"
+
+msgid "staff.seo.draft_notice"
+msgstr "Есть неопубликованные изменения. Покупатели по-прежнему видят опубликованную версию."
+
+msgid "staff.seo.empty"
+msgstr "Подходящих страниц нет. Измените запрос или выберите другой тип страницы."
+
+msgid "staff.seo.empty_auto"
+msgstr "Оставьте пустым для автоматического значения. Только текст; HTML не выполняется."
+
+msgid "staff.seo.eyebrow"
+msgstr "Управление"
+
+msgid "staff.seo.field.body"
+msgstr "Текст на странице"
+
+msgid "staff.seo.field.description"
+msgstr "Описание для поиска"
+
+msgid "staff.seo.field.description_template"
+msgstr "Шаблон описания для поиска"
+
+msgid "staff.seo.field.title"
+msgstr "Заголовок страницы"
+
+msgid "staff.seo.field.title_template"
+msgstr "Шаблон заголовка страницы"
+
+msgid "staff.seo.force_noindex"
+msgstr "Для этой среды действует дополнительный запрет индексации."
+
+msgid "staff.seo.indexing_demo"
+msgstr "Изменения SEO не открывают демонстрационные товары для поисковых систем."
+
+msgid "staff.seo.indexing_intro"
+msgstr "Текущие настройки и ограничения для поисковых систем."
+
+msgid "staff.seo.indexing_locales"
+msgstr "Для индексации предусмотрена только полностью опубликованная немецкая версия."
+
+msgid "staff.seo.indexing_off"
+msgstr "Индексация закрыта"
+
+msgid "staff.seo.indexing_on"
+msgstr "Индексация разрешена с учётом правил страниц"
+
+msgid "staff.seo.indexing_private"
+msgstr "Личные разделы, страницы ошибок и неразрешённые страницы закрыты."
+
+msgid "staff.seo.indexing_query"
+msgstr "Фильтры и поисковые запросы закрыты; разрешённая пагинация следует отдельным правилам."
+
+msgid "staff.seo.indexing_readonly"
+msgstr "Статус доступен только для просмотра. Тексты SEO и правила не могут включить индексацию."
+
+msgid "staff.seo.indexing_status"
+msgstr "Текущий статус"
+
+msgid "staff.seo.intro"
+msgstr "Проверяйте автоматические метаданные и сохраняйте ручные исключения в черновик."
+
+msgid "staff.seo.invalid"
+msgstr "Не удалось применить изменения. Проверьте длину, отсутствие переносов строк в метаданных и разрешённые переменные."
+
+msgid "staff.seo.jsonld_empty"
+msgstr "Для этой страницы нет JSON-LD. Для данных товара нужен настроенный публичный домен."
+
+msgid "staff.seo.jsonld_help"
+msgstr "JSON-LD формируется из текущих данных товара. Цены, остатки и оценки здесь не изменяются."
+
+msgid "staff.seo.kind"
+msgstr "Тип страницы"
+
+msgid "staff.seo.kind.brand"
+msgstr "Бренды"
+
+msgid "staff.seo.kind.category"
+msgstr "Категории"
+
+msgid "staff.seo.kind.product"
+msgstr "Товары"
+
+msgid "staff.seo.kind.static"
+msgstr "Другие страницы"
+
+msgid "staff.seo.language.de"
+msgstr "Немецкий"
+
+msgid "staff.seo.language.ru"
+msgstr "Русский"
+
+msgid "staff.seo.language_help"
+msgstr "Язык контента не зависит от языка кабинета сотрудника."
+
+msgid "staff.seo.manual"
+msgstr "Ручное исключение в черновике"
+
+msgid "staff.seo.nav.indexing"
+msgstr "Индексация"
+
+msgid "staff.seo.nav.overview"
+msgstr "Обзор"
+
+msgid "staff.seo.nav.pages"
+msgstr "Страницы и тексты"
+
+msgid "staff.seo.nav.rules"
+msgstr "Правила автоматики"
+
+msgid "staff.seo.navigation"
+msgstr "Разделы SEO"
+
+msgid "staff.seo.next"
+msgstr "Вперёд"
+
+msgid "staff.seo.no_examples"
+msgstr "Подходящих страниц для предпросмотра пока нет. Правило можно опубликовать после проверки примера."
+
+msgid "staff.seo.no_publish"
+msgstr "Для публикации нужны отдельные права."
+
+msgid "staff.seo.no_recent"
+msgstr "Изменений SEO пока нет. Выберите страницу в списке."
+
+msgid "staff.seo.open"
+msgstr "Открыть"
+
+msgid "staff.seo.page"
+msgstr "Страница"
+
+msgid "staff.seo.pages_intro"
+msgstr "Найдите страницу по названию, SKU или URL; измените заголовок, описание для поиска и текст."
+
+msgid "staff.seo.pagination"
+msgstr "Страницы результатов поиска"
+
+msgid "staff.seo.preview"
+msgstr "Проверка сохранённого черновика"
+
+msgid "staff.seo.preview_examples"
+msgstr "Проверить примеры"
+
+msgid "staff.seo.preview_help"
+msgstr "Результат сохранённого черновика и автоматики. Изменения в форме сначала сохраните."
+
+msgid "staff.seo.preview_required"
+msgstr "Предпросмотр устарел. Загрузите актуальную версию и проверьте примеры перед публикацией."
+
+msgid "staff.seo.previous"
+msgstr "Назад"
+
+msgid "staff.seo.public_origin"
+msgstr "Доверенный публичный домен"
+
+msgid "staff.seo.publication"
+msgstr "Публикация"
+
+msgid "staff.seo.publish"
+msgstr "Опубликовать сохранённый черновик"
+
+msgid "staff.seo.publish_help"
+msgstr "Публикация применит сохранённый черновик на публичной странице. Предыдущую версию можно восстановить."
+
+msgid "staff.seo.publish_rule"
+msgstr "Опубликовать сохранённое правило"
+
+msgid "staff.seo.read_only"
+msgstr "Только просмотр. Для изменения этого поля нужны отдельные права."
+
+msgid "staff.seo.recent"
+msgstr "Недавно изменённые страницы"
+
+msgid "staff.seo.reload"
+msgstr "Загрузить актуальную версию"
+
+msgid "staff.seo.reset"
+msgstr "Вернуть автоматическое значение в черновик"
+
+msgid "staff.seo.restore"
+msgstr "Снова опубликовать предыдущую версию"
+
+msgid "staff.seo.restore_rule"
+msgstr "Снова опубликовать предыдущее правило"
+
+msgid "staff.seo.rule_draft"
+msgstr "В правиле есть неопубликованные изменения."
+
+msgid "staff.seo.rule_empty_auto"
+msgstr "Пустые шаблоны используют существующую автоматику. Переменные берут только реальные данные страницы."
+
+msgid "staff.seo.rule_preview_help"
+msgstr "Правила не перезаписывают ручные исключения. Перед публикацией сохраните черновик и проверьте эти примеры."
+
+msgid "staff.seo.rules_intro"
+msgstr "Шаблоны для каждого типа страниц и языка контента. Ручные исключения сохраняются."
+
+msgid "staff.seo.save_draft"
+msgstr "Сохранить черновик"
+
+msgid "staff.seo.save_first"
+msgstr "Изменения в форме ещё не сохранены. Сначала сохраните черновик и проверьте результат."
+
+msgid "staff.seo.saved.publish"
+msgstr "Сохранённая версия опубликована."
+
+msgid "staff.seo.saved.reset"
+msgstr "Автоматическое значение сохранено в черновик. Опубликуйте для применения."
+
+msgid "staff.seo.saved.restore"
+msgstr "Предыдущая версия снова опубликована."
+
+msgid "staff.seo.saved.save"
+msgstr "Черновик сохранён."
+
+msgid "staff.seo.search"
+msgstr "Найти"
+
+msgid "staff.seo.search_hint"
+msgstr "Название, SKU или URL"
+
+msgid "staff.seo.shortcut"
+msgstr "SEO этой страницы"
+
+msgid "staff.seo.stale"
+msgstr "Версия уже изменилась. Загрузите актуальную версию и повторно проверьте изменения."
+
+msgid "staff.seo.summary.drafts"
+msgstr "Страниц с черновиком"
+
+msgid "staff.seo.summary.published"
+msgstr "Опубликованных SEO-версий"
+
+msgid "staff.seo.summary.rules"
+msgstr "Правил с черновиком"
+
+msgid "staff.seo.technical"
+msgstr "Технические сведения и JSON-LD"
+
+msgid "staff.seo.title"
+msgstr "SEO"
+
+msgid "staff.seo.url"
+msgstr "URL"
+
+msgid "staff.seo.variables"
+msgstr "Разрешённые переменные:"
+
+msgid "staff.seo.workflow"
+msgstr "Сначала сохраните черновик, проверьте результат и затем опубликуйте."
+
 msgid "staff.settings.choose"
 msgstr "Выберите ссылки для верхней панели"
 
@@ -1290,6 +1629,72 @@ msgstr "Открыть актуальный список"
 
 msgid "staff.settings_workspace.shared"
 msgstr "Для всех сотрудников"
+
+msgid "staff.store_identity.conflict"
+msgstr "Данные изменились или срок действия формы истёк. Загрузите актуальные данные и проверьте изменения."
+
+msgid "staff.store_identity.connected"
+msgstr "Сохранение подключено"
+
+msgid "staff.store_identity.country_error"
+msgstr "Сейчас поддерживается только Германия."
+
+msgid "staff.store_identity.details"
+msgstr "Реквизиты и контакты"
+
+msgid "staff.store_identity.field.city"
+msgstr "Город"
+
+msgid "staff.store_identity.field.contact_email"
+msgstr "Публичная электронная почта"
+
+msgid "staff.store_identity.field.contact_phone"
+msgstr "Публичный телефон"
+
+msgid "staff.store_identity.field.country"
+msgstr "Страна"
+
+msgid "staff.store_identity.field.legal_name"
+msgstr "Юридическое название"
+
+msgid "staff.store_identity.field.postal_code"
+msgstr "Почтовый индекс"
+
+msgid "staff.store_identity.field.register_court"
+msgstr "Регистрирующий суд"
+
+msgid "staff.store_identity.field.register_number"
+msgstr "Регистрационный номер"
+
+msgid "staff.store_identity.field.representative"
+msgstr "Представитель"
+
+msgid "staff.store_identity.field.street_address"
+msgstr "Улица и дом"
+
+msgid "staff.store_identity.field.vat_id"
+msgstr "Идентификатор НДС (USt-IdNr.)"
+
+msgid "staff.store_identity.germany"
+msgstr "Германия"
+
+msgid "staff.store_identity.intro"
+msgstr "Юридические реквизиты и публичные контакты магазина."
+
+msgid "staff.store_identity.phone_error"
+msgstr "Укажите телефон цифрами, с необязательным + и обычными разделителями."
+
+msgid "staff.store_identity.planned_notice"
+msgstr "Сохраняются только поля выше. Остальные настройки ниже пока не подключены."
+
+msgid "staff.store_identity.postal_error"
+msgstr "Укажите немецкий почтовый индекс из пяти цифр."
+
+msgid "staff.store_identity.public_notice"
+msgstr "После сохранения данные сразу появятся на сайте, в контактах и юридических реквизитах. Не указывайте личные закрытые контакты."
+
+msgid "staff.store_identity.saved"
+msgstr "Реквизиты сохранены. Сайт использует новые данные."
 
 msgid "staff.title"
 msgstr "Рабочий кабинет"
@@ -1720,6 +2125,9 @@ msgstr "Возвраты"
 msgid "staff.workspace.nav.reviews"
 msgstr "Отзывы"
 
+msgid "staff.workspace.nav.seo_overview"
+msgstr "SEO"
+
 msgid "staff.workspace.nav.shipping"
 msgstr "Доставка"
 
@@ -1995,3 +2403,39 @@ msgstr "Талия, см"
 
 msgid "staff.workspace_catalog.yes"
 msgstr "Да"
+
+msgid "store_identity.agb_scope"
+msgstr "Этот черновик подготовлен для будущей продажи товаров указанным выше продавцом потребителям. Условия будут утверждены после адаптации к ассортименту, территории доставки и процессу заключения договора. Индивидуальные соглашения и обязательные права, установленные законом, сохраняют силу."
+
+msgid "store_identity.contact_form"
+msgstr "Форма обращения"
+
+msgid "store_identity.contacts_unconfigured"
+msgstr "Публичные контакты ещё не заполнены."
+
+msgid "store_identity.legal_recipient"
+msgstr "Получатель юридически значимых заявлений"
+
+msgid "store_identity.legal_returns_notice"
+msgstr "Адрес возврата товара может отличаться. Его необходимо отдельно подтвердить в утверждённом документе об отказе от договора. Не отправляйте товары на адреса-заглушки."
+
+msgid "store_identity.register_court"
+msgstr "Регистрационный суд"
+
+msgid "store_identity.register_number"
+msgstr "Регистрационный номер"
+
+msgid "store_identity.representative"
+msgstr "Представитель"
+
+msgid "store_identity.service_scope"
+msgstr "Часы работы и консультационные услуги будут подтверждены отдельно."
+
+msgid "store_identity.unconfigured"
+msgstr "Реквизиты продавца ещё не заполнены."
+
+msgid "store_identity.vat_id"
+msgstr "Номер НДС"
+
+msgid "store_identity.withdrawal_declaration"
+msgstr "Однозначно сообщите этому получателю об отказе от соответствующего договора. Можно использовать форму ниже или другое однозначное заявление."

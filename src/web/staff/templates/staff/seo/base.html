@@ -1,0 +1,9 @@
+{% extends 'staff/base.html' %}{% load shop_i18n static %}
+{% block staff_page_css %}<link rel="stylesheet" href="{% static 'cabinet/css/seo-workspace.css' %}">{% endblock %}
+{% block cabinet_content %}
+<section class="seo-workspace" aria-labelledby="seo-heading">
+<header class="seo-heading"><div><p class="text-muted mb-1">{% text 'staff.seo.eyebrow' %}</p><h1 class="h3" id="seo-heading">{% block seo_heading %}{% text 'staff.seo.title' %}{% endblock %}</h1></div></header>
+<nav class="seo-navigation" aria-label="{% text 'staff.seo.navigation' %}">{% for item in seo_navigation %}<a href="{{ item.url }}"{% if item.active %} aria-current="page"{% endif %}>{% text item.label %}</a>{% endfor %}</nav>
+{% for message in messages %}<div class="alert alert-success" role="status">{{ message }}</div>{% endfor %}
+{% block seo_content %}{% endblock %}
+</section>{% endblock %}

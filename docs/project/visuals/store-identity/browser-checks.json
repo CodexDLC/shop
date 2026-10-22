@@ -1,0 +1,23 @@
+{
+  "environment": "isolated QA8032 except actual-settings-empty.png on local8030",
+  "checks": [
+    "RU invalid postcode error retains input",
+    "RU save persists QA identity",
+    "DE saved form values",
+    "390px mobile width equals scroll width",
+    "saved identity in public Impressum and help",
+    "actual local8030 form empty and editable for existing admin",
+    "actual local8030 home honestly displays missing identity"
+  ],
+  "review": "Independent reviewer G1-G3 pass",
+  "tests": "755 passed in 39.53s",
+  "screenshots": [
+    "invalid-postcode.png",
+    "saved-settings.png",
+    "settings-de.png",
+    "settings-mobile.png",
+    "public-impressum.png",
+    "public-help.png",
+    "actual-settings-empty.png"
+  ]
+}

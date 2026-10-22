@@ -7,5 +7,5 @@ PREVIEWS = {
     "analytics": ("management", "staff.change_cabinetpreferences", ("sales", "sources", "profit")),
     "content": ("management", "staff.change_cabinetpreferences", ("homepage", "legal", "email")),
     "integrations": ("management", "staff.change_cabinetpreferences", ("ebay", "stripe", "dhl", "mail", "s3")),
-    "store_settings": ("management", "staff.change_cabinetpreferences", ("company", "taxes", "documents", "notifications")),
+    "store_settings": ("management", "shop.change_storeidentity", ("company", "taxes", "documents", "notifications")),
 }

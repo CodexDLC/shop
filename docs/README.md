@@ -20,6 +20,8 @@
 
 [Реализованный рабочий кабинет: вход, права и ограничения](project/staff-cabinet-run.md).
 
+[Сохранение реквизитов и публичных контактов магазина](project/store-identity.md).
+
 [Редактор товара: фото, характеристики и публикация](project/staff-product-editor.md) · [Следующие задачи кабинета K1–K8](project/staff-cabinet-roadmap.md).
 
 [Перенос витрины в Django: статус и запуск](project/django-template-migration.md), [ключи локализации](project/django-localization.md).
@@ -50,3 +52,5 @@ Foundation, общий каталог из ORM, выбор вариантов, �
 [SEO-каркас: head, правила индексации, sitemap и языки](project/seo-foundation.md).
 
 [Рабочий кабинет: верхние группы, левое меню, реальные разделы и проекты настроек](project/staff-workspace.md).
+
+- [Рабочий раздел SEO](project/seo-workspace.md) — отдельные права, автоматика и тексты страниц.

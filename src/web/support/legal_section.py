@@ -11,3 +11,4 @@ class LegalSection:
     cards: tuple[tuple[str, str], ...] = ()
     rows: tuple[tuple[str, str, str], ...] = ()
     form_keys: tuple[str, ...] = ()
+    identity_part: str = ""

@@ -225,29 +225,7 @@
 <p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
           {% text 'support.not_found.text.3a8362b19400' %}
         </p>
-<p class="font-body-sm text-body-sm text-text-muted" role="note">{% text 'support.not_found.ui.contacts_draft' %}</p><!-- Communication Badges -->
-<div class="pt-space-sm flex flex-col sm:flex-row gap-space-md">
-<!-- Telephone Consultation -->
-<a class="flex items-center gap-space-sm p-space-md bg-surface-muted hover:bg-surface-dim transition-colors flex-1" aria-disabled="true" data-contact-draft="true">
-<div class="w-10 h-10 bg-brand-deep text-on-primary flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-[20px]">{% text 'support.not_found.text.bc8d8647b02d' %}</span>
-</div>
-<div>
-<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted block">{% text 'support.not_found.text.4fa4428cd931' %}</span>
-<span class="font-title-md text-title-md text-text-primary">+49 (0) 800 123 45 67</span>
-</div>
-</a>
-<!-- WhatsApp Chat -->
-<a class="flex items-center gap-space-sm p-space-md bg-surface-muted hover:bg-surface-dim transition-colors flex-1" aria-disabled="true" data-contact-draft="true" rel="noopener noreferrer" target="_blank">
-<div class="w-10 h-10 bg-brand-deep text-on-primary flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-[20px]">{% text 'support.not_found.text.7ecde348ff9c' %}</span>
-</div>
-<div>
-<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-muted block">{% text 'support.not_found.text.7333c119e615' %}</span>
-<span class="font-title-md text-title-md text-text-primary">{% text 'support.not_found.text.8ed6a417d6ee' %}</span>
-</div>
-</a>
-</div>
+<div class="pt-space-sm p-space-md bg-surface-muted">{% include 'includes/store_contact_links.html' %}</div>
 <!-- Availability Note -->
 <p class="font-body-sm text-body-sm text-text-muted pt-space-xs flex items-center gap-2">
 <span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span>
