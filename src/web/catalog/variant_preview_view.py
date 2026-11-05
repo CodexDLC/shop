@@ -4,11 +4,12 @@ from django.views import View
 from codex_ecommerce.catalog import CatalogSelectionError
 from web.catalog.adapters import CatalogVariantSelection
 from web.catalog.models import Product
+from web.inventory.checkout_policy import stock_mode
 from web.localization import translate_text
 
 
 class VariantPreviewView(View):
-    """Local demo read model, never a checkout or inventory reservation API."""
+    """Local read model, never a checkout or inventory reservation API."""
 
     http_method_names = ["get", "head", "options"]
 
@@ -28,13 +29,14 @@ class VariantPreviewView(View):
             status = 404 if exc.code == "catalog.variant_not_found" else 409
             return self.error(exc.code, status)
         response = JsonResponse({
-            "mode": "demo",
+            "mode": stock_mode(),
             "checkout_enabled": False,
             "variant": {
                 "sku": result.variant.sku, "color": result.variant.color,
                 "size": result.variant.size, "price": str(result.variant.price),
                 "currency": result.variant.currency, "active": result.variant.active,
-                "demo_available": result.purchase_allowed,
+                "available": result.purchase_allowed,
+                **({'demo_available': result.purchase_allowed} if stock_mode() == 'demo' else {}),
             },
             "gallery": {"color": result.gallery.color, "images": list(result.gallery.images)},
         })
@@ -44,7 +46,7 @@ class VariantPreviewView(View):
 
     def error(self, code, status):
         response = JsonResponse({
-            "mode": "demo", "checkout_enabled": False,
+            "mode": stock_mode(), "checkout_enabled": False,
             "error": {"code": code, "message": translate_text(f"{code}.message")},
         }, status=status)
         response["Cache-Control"] = "no-store"

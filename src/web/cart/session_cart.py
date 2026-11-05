@@ -6,7 +6,11 @@ from django.urls import reverse
 from codex_ecommerce.cart import CartError, CartItem, quote_total, validate_quantity
 from web.cart.promotions import promotion_quote, selected_code
 from web.catalog.category_visibility import visible_category_ids
-from web.catalog.models import ProductVariant
+from web.catalog.models import Product, ProductVariant
+from web.inventory.availability import InventoryAvailability
+from web.inventory.availability_queries import with_availability
+from web.inventory.checkout_policy import stock_mode
+from web.inventory.models import StockBalance
 from web.localization import translate_text
 
 
@@ -21,10 +25,30 @@ def quantities(request):
 
 def quote(request, *, values=None, lock=False, ignore_coupon=False):
     values = quantities(request) if values is None else values
-    variants = ProductVariant.objects.select_related("product__brand").prefetch_related("product__images")
+    mode = stock_mode()
+    if not isinstance(values, dict) or len(values) > 50:
+        raise CartError('commerce.error.lines')
+    for sku, quantity in values.items():
+        if not isinstance(sku, str) or not sku or len(sku) > 100:
+            raise CartError('commerce.error.variant')
+        validate_quantity(quantity)
+    balances = {}
     if lock:
-        variants = variants.select_for_update()
-    rows = {variant.sku: variant for variant in variants.filter(sku__in=values, product__category_id__in=visible_category_ids())}
+        # Shared order with staff/expiry: all parents, then all balances. Lock
+        # products afterwards; joined select_related must not add implicit locks.
+        targets = list(ProductVariant.objects.filter(sku__in=values).order_by('pk')
+            .select_for_update(of=('self',)))
+        if mode == 'inventory_test':
+            balances = {row.variant_id: row for row in StockBalance.objects.select_for_update()
+                .filter(variant_id__in=[row.pk for row in targets], location_id='main').order_by('variant_id')}
+        list(Product.objects.select_for_update().filter(pk__in={row.product_id for row in targets}).order_by('pk'))
+    variants = ProductVariant.objects.select_related("product__brand").prefetch_related("product__images")
+    # The locked path projects the balances already acquired above. Other reads
+    # attach the same scalar quantity to each bounded variant query.
+    if not lock:
+        variants = with_availability(variants)
+    rows = {variant.sku: variant for variant in variants.filter(sku__in=values,
+        product__category_id__in=visible_category_ids()).order_by('pk')}
     items, lines, errors = [], [], []
     for sku, quantity in values.items():
         variant = rows.get(sku)
@@ -32,7 +56,10 @@ def quote(request, *, values=None, lock=False, ignore_coupon=False):
         if not valid:
             errors.append("commerce.error.variant")
         amount = variant.price if variant else Decimal("0.00")
-        available = min(20, variant.demo_quantity) if valid else 0
+        availability = InventoryAvailability.from_variant(variant, balances=balances if lock else None) if valid else None
+        if availability is not None and not availability.configured:
+            errors.append('commerce.error.inventory_unconfigured')
+        available = min(20, availability.quantity) if availability is not None and availability.configured else 0
         item = CartItem(sku, quantity, amount, "EUR", available)
         try:
             quote_total((item,))
@@ -43,6 +70,7 @@ def quote(request, *, values=None, lock=False, ignore_coupon=False):
         image = next((row for row in images if row.color_code == variant.color_code), None) if variant else None
         image = image or next((row for row in images if not row.color_code), None)
         lines.append({
+            "variant_id": variant.pk if variant else None,
             "sku": sku, "quantity": quantity, "unit_amount": amount, "line_amount": amount * quantity,
             "name": variant.product.model_name if variant else sku,
             "brand": variant.product.brand.name if variant else "",
@@ -51,6 +79,7 @@ def quote(request, *, values=None, lock=False, ignore_coupon=False):
             "photo_url": image.public_url if image else "",
             "detail_url": reverse("catalog:detail", kwargs={"slug": variant.product.slug}) if valid else "",
             "available": bool(valid and quantity <= available),
+            "stock_configured": availability.configured if availability is not None else False,
         })
     if len(lines) > 50:
         errors.append("commerce.error.lines")
@@ -70,7 +99,8 @@ def quote(request, *, values=None, lock=False, ignore_coupon=False):
             discount = coupon['discount_amount']
         except CartError as exc:
             errors.append(str(exc))
-    return {"currency": "EUR", "lines": lines, "subtotal": subtotal, "total": subtotal - discount,
+    return {"currency": "EUR", "stock_mode": mode, "lines": lines, "subtotal": subtotal, "total": subtotal - discount,
+            "_inventory_balances": balances,
             "discount_amount": discount, "coupon_code": code, "coupon": coupon,
             "coupon_signature": coupon['signature'] if coupon else '',
             "shipping_amount": Decimal("0.00"), "item_count": sum(values.values()),

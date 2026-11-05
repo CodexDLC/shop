@@ -1,6 +1,8 @@
 from django.urls import reverse
 from django.utils.formats import number_format
 
+from web.inventory.availability import InventoryAvailability
+from web.inventory.checkout_policy import stock_mode
 from web.localization.translation import translate_text
 
 from .registry import detail_route
@@ -31,7 +33,7 @@ def money(value, currency):
 
 
 def columns(kind):
-    return [f"staff.records.{name}" for name in {
+    result = [f"staff.records.{name}" for name in {
         "orders": ("reference", "status", "total", "items", "created", "mode"),
         "customers": ("username", "email", "name", "status", "created"),
         "support": ("reference", "topic", "name", "email", "status", "created"),
@@ -41,6 +43,9 @@ def columns(kind):
         "audit": ("reference", "action", "object", "actor", "created"),
         "team": ("username", "email", "name", "status", "owner"),
     }[kind]]
+    if kind == 'stock':
+        result[3] = 'staff.products.demo_quantity' if stock_mode() == 'demo' else 'staff.availability.quantity'
+    return result
 
 
 def summary(kind, obj, user=None):
@@ -58,8 +63,10 @@ def summary(kind, obj, user=None):
                 cell("staff.records.resolved" if obj.resolved else "staff.records.open", key=True),
                 cell(obj.created_at)]
     if kind == "stock":
+        availability = InventoryAvailability.from_variant(obj)
         return [cell(obj.sku), cell(f"{obj.product.brand.name} {obj.product.model_name}"), cell(obj.size),
-                cell(obj.demo_quantity), cell(money(obj.price, obj.currency)), active(obj.is_active)]
+                cell(availability.quantity) if availability.configured else cell('staff.availability.unconfigured', key=True),
+                cell(money(obj.price, obj.currency)), active(obj.is_active)]
     if kind == "payments":
         return [cell(f"#{obj.pk}"), cell(f"#{obj.order_id}"),
                 cell(f"staff.records.method.{obj.method if obj.method in {'card', 'paypal'} else 'unknown'}", key=True), state(obj.status),

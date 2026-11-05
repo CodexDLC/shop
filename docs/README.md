@@ -54,3 +54,5 @@ Foundation, общий каталог из ORM, выбор вариантов, �
 [Рабочий кабинет: верхние группы, левое меню, реальные разделы и проекты настроек](project/staff-workspace.md).
 
 - [Рабочий раздел SEO](project/seo-workspace.md) — отдельные права, автоматика и тексты страниц.
+
+[Склад и резервы: контракт, backend и кабинет шагов1–8](project/inventory-contract.md) · [Полное ТЗ K4 и последовательные шаги](../tasks/active/2026-11-01-inventory-reservations-spec.md).

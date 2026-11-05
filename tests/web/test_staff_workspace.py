@@ -65,7 +65,7 @@ def test_dashboard_counts_and_product_state_filter_use_real_records(owner):
 
 def test_limited_staff_sees_only_permitted_destinations_and_counts(client,django_user_model):
     account=django_user_model.objects.create_user(username='stock-only',is_staff=True)
-    account.user_permissions.add(Permission.objects.get(content_type__app_label='catalog',codename='view_productvariant'))
+    account.user_permissions.add(Permission.objects.get(content_type__app_label='inventory',codename='view_stockbalance'))
     client.force_login(account)
     response=client.get(reverse('staff:home'))
     assert response.status_code == 200

@@ -1,3 +1,5 @@
+from dataclasses import replace
+
 from codex_django.cabinet import cabinet_registry
 from codex_django.cabinet.quick_access import get_enabled_staff_quick_access
 from codex_django.cabinet.runtime import CabinetRuntimeResolver
@@ -36,6 +38,12 @@ def staff_cabinet(request):
             first = next((item for item in available if str(item.url) != reverse("staff:settings")), available[0])
             groups.append({"key": key, "label_key": f"staff.workspace.group.{key}",
                            "url": str(first.url), "active": module == group_module})
+    # The operations dropdown and its primary group share an authorized landing
+    # page. Warehouse-only staff must never be sent to the orders endpoint.
+    operation_group = next((group for group in groups if group['key'] == 'operations'), None)
+    entries = [replace(entry, url=operation_group['url'])
+               if str(entry.url) == reverse('staff:orders') else entry
+               for entry in entries if str(entry.url) != reverse('staff:orders') or operation_group]
     return {
         "staff_primary_groups": groups, "staff_workspace_group": module,
         "cabinet_sidebar": sorted(sidebar, key=lambda item: item.order),

@@ -3361,6 +3361,18 @@ msgstr "Dieser Gutscheincode ist nicht gültig. Bitte prüfen oder entfernen."
 msgid "commerce.error.coupon_minimum"
 msgstr "Der Mindestwarenwert für diesen Gutschein ist nicht erreicht. Bitte entfernen oder ersetzen."
 
+msgid "commerce.error.inventory_retry"
+msgstr "Der Bestand hat sich geändert. Bitte aktualisieren Sie die Bestellübersicht und versuchen Sie es erneut."
+
+msgid "commerce.error.inventory_shortage"
+msgstr "Die gewünschte Menge ist nicht verfügbar. Ihr Warenkorb bleibt erhalten. Bitte prüfen oder reduzieren Sie die Mengen."
+
+msgid "commerce.error.inventory_unavailable"
+msgstr "Der Bestand ist derzeit nicht verfügbar. Ihr Warenkorb bleibt erhalten. Bitte versuchen Sie es später erneut."
+
+msgid "commerce.error.inventory_unconfigured"
+msgstr "Der Bestand ist für diese Testbestellung nicht eingerichtet. Bitte versuchen Sie es später erneut."
+
 msgid "commerce.error.lines"
 msgstr "Der lokale Warenkorb unterstützt höchstens 50 verschiedene Artikel."
 
@@ -3603,6 +3615,12 @@ msgstr "Ihre Übersicht"
 
 msgid "commerce.summary.total"
 msgstr "Testgesamtbetrag"
+
+msgid "commerce.test.inventory_notice"
+msgstr "Der Warenkorb reserviert keine Artikel. Erst mit der Bestätigung der Testbestellung werden die Artikel vorübergehend reserviert. Es erfolgen keine echte Zahlung, kein Versand und keine E-Mail."
+
+msgid "commerce.test.inventory_order_notice"
+msgstr "Für diese Testbestellung wurde eine vorübergehende Reservierung angelegt. Sie kann bereits abgelaufen sein. Es erfolgten keine echte Zahlung, kein Versand und keine E-Mail."
 
 msgid "commerce.test.notice"
 msgstr "Dieser lokale Test speichert Warenkorb und Testbestellung. Keine Zahlung, keine Reservierung, kein Versand und keine E-Mail werden ausgelöst."
@@ -9283,6 +9301,15 @@ msgstr "Auf Lager (L)"
 msgid "shop.home.text.fad6190c875f"
 msgstr "Neuheit"
 
+msgid "staff.availability.inventory_notice"
+msgstr "TEST-Lager: verfügbar = physischer Bestand minus Reservierungen. Nicht eingerichtete Varianten sind nicht bestellbar. Dies ist eine Momentaufnahme; die Reservierung erfolgt erst beim abschließenden TEST-Checkout. Demo-Mengen im Varianteneditor ändern diesen Lagerbestand nicht."
+
+msgid "staff.availability.quantity"
+msgstr "Verfügbar (TEST-Lager)"
+
+msgid "staff.availability.unconfigured"
+msgstr "Lagerbestand nicht eingerichtet"
+
 msgid "staff.cards.action.other"
 msgstr "Weitere Änderung"
 
@@ -9642,6 +9669,258 @@ msgstr "Größentabellen der Marke"
 
 msgid "staff.information.size_guides_help"
 msgstr "Größentabellen werden gemeinsam je Marke und Kategorie gepflegt. Sie werden hier nicht pro Modell kopiert. Angezeigt werden vorhandene Tabellen der Marke; in der Vorschau gilt die veröffentlichte Tabelle für die Produktkategorie."
+
+msgid "staff.inventory.action.adjust"
+msgstr "Absolute Korrektur"
+
+msgid "staff.inventory.action.checked_return"
+msgstr "Geprüfte Rücknahme"
+
+msgid "staff.inventory.action.commit"
+msgstr "Reservierung bestätigen"
+
+msgid "staff.inventory.action.expire"
+msgstr "Ablauf freigeben"
+
+msgid "staff.inventory.action.external_sale"
+msgstr "Synthetischer externer Verkauf (TEST)"
+
+msgid "staff.inventory.action.external_snapshot"
+msgstr "Synthetischer externer Bestand (TEST)"
+
+msgid "staff.inventory.action.fulfill"
+msgstr "Verbrauch"
+
+msgid "staff.inventory.action.initialize"
+msgstr "Bestand einrichten"
+
+msgid "staff.inventory.action.receive"
+msgstr "Wareneingang"
+
+msgid "staff.inventory.action.release"
+msgstr "Freigabe"
+
+msgid "staff.inventory.action.reserve"
+msgstr "Reservierung"
+
+msgid "staff.inventory.adjust_help"
+msgstr "Der eingegebene absolute Bestand ersetzt den bisherigen physischen Bestand; Reservierungen bleiben erhalten. Er darf die reservierte Menge nicht unterschreiten."
+
+msgid "staff.inventory.apply"
+msgstr "Bestätigen"
+
+msgid "staff.inventory.available"
+msgstr "Verfügbar"
+
+msgid "staff.inventory.balance"
+msgstr "Bestand"
+
+msgid "staff.inventory.before_after"
+msgstr "Vorher → nachher"
+
+msgid "staff.inventory.cleanup"
+msgstr "Fällige Reservierungen bereinigen"
+
+msgid "staff.inventory.cleanup_help"
+msgstr "Expliziter Lauf für das gesamte Hauptlager (alle SKU), höchstens 20 fällige Zeilen. Nur abgelaufene HELD werden freigegeben. Weitere Läufe können nötig sein."
+
+msgid "staff.inventory.cleanup_result"
+msgstr "Bereinigung Hauptlager: geprüft {scanned}, freigegeben {expired}, übersprungen {skipped}. Weitere fällig: {more}."
+
+msgid "staff.inventory.created"
+msgstr "Erstellt"
+
+msgid "staff.inventory.deadline"
+msgstr "Frist"
+
+msgid "staff.inventory.delta"
+msgstr "Änderung"
+
+msgid "staff.inventory.error.below_reserved"
+msgstr "Der neue Bestand {quantity} ist zu niedrig: aktuell sind {reserved} Stück reserviert. Reservierungen prüfen; der physische Bestand wurde nicht geändert."
+
+msgid "staff.inventory.error.database"
+msgstr "Datenbankvorgang fehlgeschlagen. Bestand neu laden und Ergebnis prüfen; eine Bereinigung kann bereits einzelne Zeilen abgeschlossen haben."
+
+msgid "staff.inventory.error.expiry_backlog"
+msgstr "Abgelaufene Reservierungen müssen noch bereinigt werden. Bereinigung ausführen oder später neu laden."
+
+msgid "staff.inventory.error.expiry_requires_autocommit"
+msgstr "Bereinigung kann hier nicht abgeschlossen werden. Vorgang separat erneut versuchen."
+
+msgid "staff.inventory.error.idempotency_conflict"
+msgstr "Dieses Formular wurde bereits mit anderen Daten verarbeitet. Bestand neu laden."
+
+msgid "staff.inventory.error.insufficient_stock"
+msgstr "Die Menge unterschreitet die Reservierungen oder den verfügbaren Bestand."
+
+msgid "staff.inventory.error.intent"
+msgstr "Ungültiges Formular. Bestand neu laden und erneut eingeben."
+
+msgid "staff.inventory.error.invalid_quantity"
+msgstr "Eine gültige Menge eingeben; Wareneingang muss positiv sein."
+
+msgid "staff.inventory.error.invalid_transition"
+msgstr "Diese Aktion passt nicht zum aktuellen Bestand. Neu laden."
+
+msgid "staff.inventory.error.inventory_error"
+msgstr "Änderung konnte nicht verarbeitet werden. Bestand prüfen."
+
+msgid "staff.inventory.error.inventory_invariant"
+msgstr "Bestand oder SKU prüfen; Änderung wurde nicht übernommen."
+
+msgid "staff.inventory.error.reservation_expired"
+msgstr "Reservierung ist abgelaufen. Bestand neu laden."
+
+msgid "staff.inventory.error.stale_revision"
+msgstr "Bestand wurde inzwischen geändert. Eingabe bleibt erhalten. Bestand neu laden, Mengen prüfen und erneut eingeben."
+
+msgid "staff.inventory.error.stock_not_configured"
+msgstr "Bestand zuerst ausdrücklich einrichten."
+
+msgid "staff.inventory.expired"
+msgstr "Abgelaufene HELD dieser SKU"
+
+msgid "staff.inventory.filter"
+msgstr "Bestandsfilter"
+
+msgid "staff.inventory.filter.all"
+msgstr "Alle SKU"
+
+msgid "staff.inventory.filter.low"
+msgstr "Verfügbar bis Grenzwert"
+
+msgid "staff.inventory.filter.missing"
+msgstr "Nicht eingerichtet"
+
+msgid "staff.inventory.filter.reserved"
+msgstr "Mit Reservierungen"
+
+msgid "staff.inventory.filter.unavailable"
+msgstr "Nichts verfügbar"
+
+msgid "staff.inventory.history"
+msgstr "Historie"
+
+msgid "staff.inventory.last_cleanup"
+msgstr "Letzte erfolgreiche Ablaufbuchung dieser SKU"
+
+msgid "staff.inventory.ledger_balances"
+msgstr "Journal: physisch / reserviert"
+
+msgid "staff.inventory.ledger_revision"
+msgstr "Letzte Version / Buchungsanzahl"
+
+msgid "staff.inventory.line_reserved"
+msgstr "Summe offener Reservierungsmengen"
+
+msgid "staff.inventory.missing"
+msgstr "Bestand noch nicht eingerichtet"
+
+msgid "staff.inventory.no"
+msgstr "Nein"
+
+msgid "staff.inventory.no_cleanup"
+msgstr "Noch keine Buchung"
+
+msgid "staff.inventory.on_hand"
+msgstr "Physisch vorhanden"
+
+msgid "staff.inventory.open_reservations"
+msgstr "Reservierungen öffnen"
+
+msgid "staff.inventory.page_limit"
+msgstr "Maximal 10.000 Einträge überspringen. Suche eingrenzen."
+
+msgid "staff.inventory.product"
+msgstr "Produkt"
+
+msgid "staff.inventory.quantity.adjust"
+msgstr "Neuer absoluter Bestand"
+
+msgid "staff.inventory.quantity.initialize"
+msgstr "Anfangsbestand"
+
+msgid "staff.inventory.quantity.receive"
+msgstr "Eingegangene Menge"
+
+msgid "staff.inventory.readonly"
+msgstr "Lesemodus. Keine Berechtigung für Bestandsänderungen."
+
+msgid "staff.inventory.reason"
+msgstr "Grund"
+
+msgid "staff.inventory.reason_actor"
+msgstr "Grund / Mitarbeiter"
+
+msgid "staff.inventory.reason_help"
+msgstr "Nur betrieblicher Grund. Keine Kundenadressen, E-Mails oder Zahlungsdaten."
+
+msgid "staff.inventory.reconciliation"
+msgstr "Bestandsabgleich · nur lesen"
+
+msgid "staff.inventory.reconciliation_help"
+msgstr "Vergleich eines Datenbank-Snapshots; keine Reparatur. Bei Änderungen Seite neu laden."
+
+msgid "staff.inventory.reconciliation_mismatch"
+msgstr "Abweichung festgestellt. Verantwortliche Person muss prüfen; keine automatische Korrektur."
+
+msgid "staff.inventory.reconciliation_ok"
+msgstr "Bestand, Reservierungszeilen und Buchungen stimmen überein."
+
+msgid "staff.inventory.reservation_quantities"
+msgstr "Ursprünglich / offen / verbraucht / freigegeben"
+
+msgid "staff.inventory.reservations"
+msgstr "Reservierungen"
+
+msgid "staff.inventory.reserved"
+msgstr "Reserviert"
+
+msgid "staff.inventory.returned"
+msgstr "Geprüft zurückgenommen"
+
+msgid "staff.inventory.revision"
+msgstr "Version"
+
+msgid "staff.inventory.saved"
+msgstr "Vorgang gespeichert oder identisch wiederholt: physisch {on_hand}, reserviert {reserved}, verfügbar {available}, Version {revision}."
+
+msgid "staff.inventory.sections"
+msgstr "Lagerbereiche"
+
+msgid "staff.inventory.source"
+msgstr "Physischer Bestand · Hauptlager (main). Unabhängig vom Demo-Bestand im Produkteditor."
+
+msgid "staff.inventory.state"
+msgstr "Status / Referenz"
+
+msgid "staff.inventory.state.closed"
+msgstr "Geschlossen"
+
+msgid "staff.inventory.state.committed"
+msgstr "Bestätigt"
+
+msgid "staff.inventory.state.held"
+msgstr "Befristet reserviert"
+
+msgid "staff.inventory.system"
+msgstr "System / Checkout"
+
+msgid "staff.inventory.threshold"
+msgstr "Grenzwert (einschließlich)"
+
+msgid "staff.inventory.threshold_required"
+msgstr "Grenzwert für diesen Filter eingeben."
+
+msgid "staff.inventory.time_action"
+msgstr "Zeit / Vorgang"
+
+msgid "staff.inventory.variant"
+msgstr "Farbe / Größe"
+
+msgid "staff.inventory.yes"
+msgstr "Ja"
 
 msgid "staff.language.apply"
 msgstr "Übernehmen"

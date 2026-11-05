@@ -17,6 +17,8 @@ def record_model(kind):
 
 
 def record_permission(kind):
+    if kind == 'stock':
+        return 'inventory.view_stockbalance'
     model = record_model(kind)
     return f"{model._meta.app_label}.view_{model._meta.model_name}"
 

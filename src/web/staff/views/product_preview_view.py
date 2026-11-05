@@ -1,11 +1,13 @@
 from codex_django.cabinet import StaffRequiredMixin
 from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.db.models import Prefetch
 from django.shortcuts import get_object_or_404
 from django.urls import reverse
 from django.utils.cache import patch_cache_control
 
-from web.catalog.models import Product
+from web.catalog.models import Product, ProductVariant
 from web.catalog.product_detail_view import ProductDetailView
+from web.inventory.availability_queries import with_availability
 
 
 class ProductPreviewView(PermissionRequiredMixin, StaffRequiredMixin, ProductDetailView):
@@ -14,7 +16,7 @@ class ProductPreviewView(PermissionRequiredMixin, StaffRequiredMixin, ProductDet
 
     def get_product(self):
         return get_object_or_404(Product.objects.select_related('brand', 'category').prefetch_related(
-            'variants', 'images', 'tags',
+            Prefetch('variants', queryset=with_availability(ProductVariant.objects.filter(currency='EUR'))), 'images', 'tags',
         ), pk=self.kwargs['pk'])
 
     def get_context_data(self, **kwargs):

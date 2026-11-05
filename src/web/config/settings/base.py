@@ -12,7 +12,7 @@ INSTALLED_APPS = [
     "web.localization.apps.LocalizationConfig", "web.catalog.apps.CatalogConfig",
     "web.cart.apps.CartConfig", "web.orders.apps.OrdersConfig", "web.payments.apps.PaymentsConfig",
     "web.customer.apps.CustomerConfig", "web.support.apps.SupportConfig", "web.wishlist.apps.WishlistConfig",
-    "web.staff.apps.StaffConfig", "web.seo.apps.SeoConfig",
+    "web.staff.apps.StaffConfig", "web.seo.apps.SeoConfig", "web.inventory.apps.InventoryConfig",
     "web.identity.apps.IdentityConfig", "allauth", "allauth.account", "allauth.mfa",
     "web.ebay_notifications.apps.EbayNotificationsConfig",
     "web.ebay_oauth.apps.EbayOAuthConfig",
@@ -80,3 +80,13 @@ SEO_SITE_NAME = "Männermasche"
 SEO_INDEXING_ENABLED = False
 SEO_PUBLIC_ORIGIN = ""
 SEO_FORCE_NOINDEX = False
+
+# Opt-in internal cleanup; do not enable before inventory schema and actor permissions are configured.
+INVENTORY_EXPIRY_ENABLED = os.environ.get("INVENTORY_EXPIRY_ENABLED", "0") == "1"
+INVENTORY_EXPIRY_TOKEN = os.environ.get("INVENTORY_EXPIRY_TOKEN", "")
+INVENTORY_EXPIRY_ACTOR_ID = os.environ.get("INVENTORY_EXPIRY_ACTOR_ID", "")
+INVENTORY_EXPIRY_BATCH_SIZE = int(os.environ.get("INVENTORY_EXPIRY_BATCH_SIZE", "100"))
+
+# Demo and inventory-backed TEST checkout are explicit modes; missing stock never selects demo.
+SHOP_CHECKOUT_STOCK_MODE = os.environ.get("SHOP_CHECKOUT_STOCK_MODE", "demo")
+SHOP_CHECKOUT_RESERVATION_TTL_SECONDS = int(os.environ.get("SHOP_CHECKOUT_RESERVATION_TTL_SECONDS", "1800"))

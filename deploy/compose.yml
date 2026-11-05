@@ -24,14 +24,25 @@ services:
     environment:
       DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY:?Set DJANGO_SECRET_KEY in .env}
       DJANGO_SETTINGS_MODULE: web.config.settings.local
+      DJANGO_ALLOWED_HOSTS: ${DJANGO_ALLOWED_HOSTS:-localhost,127.0.0.1,web}
       POSTGRES_HOST: postgres
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+      INVENTORY_EXPIRY_ENABLED: ${INVENTORY_EXPIRY_ENABLED:-0}
+      INVENTORY_EXPIRY_TOKEN: ${INVENTORY_EXPIRY_TOKEN:-}
+      INVENTORY_EXPIRY_ACTOR_ID: ${INVENTORY_EXPIRY_ACTOR_ID:-}
+      INVENTORY_EXPIRY_BATCH_SIZE: ${INVENTORY_EXPIRY_BATCH_SIZE:-100}
+      SHOP_CHECKOUT_STOCK_MODE: ${SHOP_CHECKOUT_STOCK_MODE:-demo}
+      SHOP_CHECKOUT_RESERVATION_TTL_SECONDS: ${SHOP_CHECKOUT_RESERVATION_TTL_SECONDS:-1800}
     ports: ["127.0.0.1:8000:8000"]
     depends_on:
       postgres: {condition: service_healthy}
   worker:
     build: {context: .., dockerfile: deploy/worker/Dockerfile}
-    environment: {REDIS_URL: "redis://redis:6379/0"}
+    environment:
+      REDIS_URL: "redis://redis:6379/0"
+      INVENTORY_EXPIRY_ENABLED: ${INVENTORY_EXPIRY_ENABLED:-0}
+      INVENTORY_EXPIRY_TOKEN: ${INVENTORY_EXPIRY_TOKEN:-}
+      INVENTORY_EXPIRY_URL: ${INVENTORY_EXPIRY_URL:-http://web:8000/internal/inventory/expiry/}
     depends_on:
       redis: {condition: service_healthy}
 volumes:

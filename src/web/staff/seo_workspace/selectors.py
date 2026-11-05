@@ -1,10 +1,11 @@
-from django.db.models import Count, F, Q
+from django.db.models import Count, F, Prefetch, Q
 from django.http import Http404
 from django.utils.translation import override
 
-from web.catalog.models import Product
+from web.catalog.models import Product, ProductVariant
 from web.catalog.presentation import product_presentation
 from web.catalog.product_information_context import product_information_context
+from web.inventory.availability_queries import with_availability
 from web.seo.models import SeoPage, SeoRule
 from web.seo.origin import public_origin
 from web.seo.public import apply_published_body
@@ -31,7 +32,7 @@ def page_schema(page, language):
     if page["kind"] != "product" or not public_origin():
         return ""
     product = Product.objects.select_related("brand", "category").prefetch_related(
-        "variants", "images", "tags").get(slug=page["key"])
+        Prefetch('variants', queryset=with_availability(ProductVariant.objects.all())), "images", "tags").get(slug=page["key"])
     with override(language):
         context = {"product": product_presentation(product, code="seo"),
                    "manufacturer_article": product.manufacturer_article,

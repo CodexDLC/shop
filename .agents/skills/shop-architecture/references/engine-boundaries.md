@@ -12,3 +12,7 @@ Engine.status() возвращает неизменяемый EngineStatus; ни
 - [src/codex_ecommerce/status.py](../../../../src/codex_ecommerce/status.py)
 - [tests/engine/test_engine.py](../../../../tests/engine/test_engine.py)
 - [docs/project/architecture.md](../../../../docs/project/architecture.md)
+
+## Inventory durable facts — 05.11.2026
+
+Independent engine экспортирует immutableInventoryChanged и purechecked_return_reservation, безDjango. ConcreteDjangomovement/save-hook сохраняетeventжурналвserviceatomic, boundedreadselectorпроектный; неброкернаяплатформа/неHTTPengine. PKcursorтолькодляdisplaypagination, futuredispatcherнельзястроитьнаслепомafter_idиз-запорядкаcommit. Отдельныйworkerпо-прежнемунекопируетweb/неdjango.setup; этотэтапнеподключаетeventdelivery. Syntheticexternalcontract—узкийDjangoadapterсfixedfake-source/typedDTO/nativepermission+inventory_test, nodirectproviderrequests. Checkedreturnsиfakefactsнеподменяютpayment/shipping/RMA modules.

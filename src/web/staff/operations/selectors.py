@@ -1,5 +1,7 @@
 from django.db.models import Count, Q
 
+from web.inventory.availability_queries import with_availability
+
 from .registry import record_model
 
 
@@ -27,7 +29,7 @@ def records(kind, query="", status=""):
         if status:
             queryset = queryset.filter(resolved=(status == "resolved"))
     elif kind == "stock":
-        queryset = queryset.select_related("product", "product__brand")
+        queryset = with_availability(queryset.select_related("product", "product__brand"))
         if query:
             queryset = queryset.filter(Q(sku__icontains=query) | Q(product__model_name__icontains=query))
         if status:

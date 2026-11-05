@@ -4,7 +4,7 @@
 <section aria-labelledby="staff-products-title">
   <h1 id="staff-products-title" class="h3 mb-3">{% text 'staff.products.title' %}</h1>
   {% if perms.catalog.add_product %}<a class="btn btn-primary mb-3" href="{% url 'staff:product_add' %}">{% text 'staff.product_form.add_title' %}</a>{% endif %}
-  <p class="text-muted">{% text 'staff.products.demo_notice' %}</p>
+  <p class="text-muted">{% if stock_mode == 'inventory_test' %}{% text 'staff.availability.inventory_notice' %}{% else %}{% text 'staff.products.demo_notice' %}{% endif %}</p>
   <form method="get" class="row g-3 mb-4" role="search">
     <div class="col-md-5">
       <label for="product-search" class="form-label">{% text 'staff.products.search' %}</label>
@@ -34,7 +34,7 @@
         <th scope="col">{% text 'staff.products.model' %}</th>
         <th scope="col">{% text 'staff.products.category' %}</th>
         <th scope="col">{% text 'staff.products.variants' %}</th>
-        <th scope="col">{% text 'staff.products.demo_quantity' %}</th>
+        <th scope="col">{% if stock_mode == 'inventory_test' %}{% text 'staff.availability.quantity' %}{% else %}{% text 'staff.products.demo_quantity' %}{% endif %}</th>
         <th scope="col">{% text 'staff.products.price' %}</th>
         <th scope="col">{% text 'staff.products.status' %}</th>
       </tr></thead>
@@ -42,7 +42,7 @@
         <td><strong>{{ product.brand.name }}</strong><br>{% if perms.catalog.change_product %}<a href="{% url 'staff:product_edit' pk=product.pk %}">{{ product.model_name }}</a>{% else %}{{ product.model_name }}{% endif %}{% if product.manufacturer_article %}<br><small>{{ product.manufacturer_article }}</small>{% endif %}</td>
         <td>{{ product.category.name }}</td>
         <td>{{ product.active_variant_count }} / {{ product.variant_count }}</td>
-        <td>{{ product.available_quantity }}</td>
+        <td>{{ product.available_quantity }}{% if product.unconfigured_variant_count %}<br><small>{% text 'staff.availability.unconfigured' %}: {{ product.unconfigured_variant_count }}</small>{% endif %}</td>
         <td>{% if product.currency_count > 1 %}{% text 'staff.products.mixed_currency' %}{% elif product.minimum_price != None %}{{ product.minimum_price|floatformat:2 }}{% if product.minimum_price != product.maximum_price %} – {{ product.maximum_price|floatformat:2 }}{% endif %} {{ product.price_currency }}{% else %}—{% endif %}</td>
         <td>{% if product.is_active %}<span class="badge text-bg-success">{% text 'staff.workflow.published' %}</span>{% elif product.publication_state == 'review' %}<span class="badge text-bg-info">{% text 'staff.workflow.review' %}</span>{% else %}<span class="badge text-bg-secondary">{% text 'staff.workflow.draft' %}</span>{% endif %}</td>
       </tr>{% empty %}<tr><td colspan="6">{% text 'staff.products.empty' %}</td></tr>{% endfor %}</tbody>

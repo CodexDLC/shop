@@ -106,7 +106,7 @@ async function run(previewOnly, code) {
   const context = {document, window: {location: {href: 'http://localhost/katalog/'}},
     URL, AbortController, Intl, CustomEvent: class {},
     fetch: async () => { requests++; return {ok: true, json: async () => ({variant:
-      {color: 'navy', size: 'M', sku: 'B', price: '21.00', currency: 'EUR', active: true, demo_available: true}})}; }};
+      {color: 'navy', size: 'M', sku: 'B', price: '21.00', currency: 'EUR', active: true, available: true}})}; }};
   vm.runInNewContext(source, context);
   assert.equal(requests, previewOnly ? 0 : 1);
   if (previewOnly) {

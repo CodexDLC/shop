@@ -11,7 +11,7 @@ class ProductVariant(models.Model):
     size = models.CharField(max_length=20)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     currency = models.CharField(max_length=3, default="EUR", validators=[RegexValidator(r"^[A-Z]{3}$")])
-    # Demonstration stock only. Reservations and real channel inventory are separate future features.
+    # Explicit demo adapter only; never copied or used as an inventory fallback.
     demo_quantity = models.PositiveIntegerField(default=0)
     is_active = models.BooleanField(default=True)
     is_on_sale = models.BooleanField(default=False)
@@ -26,7 +26,9 @@ class ProductVariant(models.Model):
 
     @property
     def is_available(self):
-        return self.is_active and self.demo_quantity > 0
+        from web.inventory.availability import InventoryAvailability
+
+        return InventoryAvailability.from_variant(self).available
 
     def __str__(self):
         return self.sku

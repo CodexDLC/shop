@@ -22,8 +22,35 @@ msgstr "Сайт"
 msgid "auth.mfa.optional"
 msgstr "Двухфакторная защита добровольна для всех аккаунтов. Если вы её включите, при входе потребуется дополнительный код."
 
+msgid "commerce.error.inventory_retry"
+msgstr "Остатки изменились. Обновите обзор заказа и попробуйте ещё раз."
+
+msgid "commerce.error.inventory_shortage"
+msgstr "Нужного количества нет в наличии. Корзина сохранена. Проверьте или уменьшите количество товаров."
+
+msgid "commerce.error.inventory_unavailable"
+msgstr "Остатки сейчас недоступны. Корзина сохранена. Попробуйте позже."
+
+msgid "commerce.error.inventory_unconfigured"
+msgstr "Остатки для этого тестового заказа не настроены. Попробуйте позже."
+
+msgid "commerce.test.inventory_notice"
+msgstr "Корзина не резервирует товары. Только после подтверждения тестового заказа товары будут временно зарезервированы. Настоящих оплаты, отправки и письма не будет."
+
+msgid "commerce.test.inventory_order_notice"
+msgstr "Для этого тестового заказа был создан временный резерв. Его срок уже мог истечь. Настоящих оплаты, отправки и письма не было."
+
 msgid "common.shop_name"
 msgstr "Männermasche"
+
+msgid "staff.availability.inventory_notice"
+msgstr "TEST-склад: доступно = физический остаток минус резервы. Варианты без настройки склада нельзя заказать. Это снимок; резерв создаётся только при финальном подтверждении TEST-заказа. Демоколичество в редакторе вариантов не меняет этот складской остаток."
+
+msgid "staff.availability.quantity"
+msgstr "Доступно (TEST-склад)"
+
+msgid "staff.availability.unconfigured"
+msgstr "Склад не настроен"
 
 msgid "staff.cards.action.other"
 msgstr "Другое изменение"
@@ -384,6 +411,258 @@ msgstr "Таблицы размеров бренда"
 
 msgid "staff.information.size_guides_help"
 msgstr "Таблицы размеров ведутся совместно для каждого бренда и категории, а не копируются для каждой модели. Здесь показаны существующие таблицы бренда; в предпросмотре используется опубликованная таблица для категории товара."
+
+msgid "staff.inventory.action.adjust"
+msgstr "Абсолютная корректировка"
+
+msgid "staff.inventory.action.checked_return"
+msgstr "Проверенный возврат"
+
+msgid "staff.inventory.action.commit"
+msgstr "Подтверждение резерва"
+
+msgid "staff.inventory.action.expire"
+msgstr "Закрытие просроченного резерва"
+
+msgid "staff.inventory.action.external_sale"
+msgstr "Синтетическая внешняя продажа (TEST)"
+
+msgid "staff.inventory.action.external_snapshot"
+msgstr "Синтетический внешний остаток (TEST)"
+
+msgid "staff.inventory.action.fulfill"
+msgstr "Расход"
+
+msgid "staff.inventory.action.initialize"
+msgstr "Инициализация остатка"
+
+msgid "staff.inventory.action.receive"
+msgstr "Приход"
+
+msgid "staff.inventory.action.release"
+msgstr "Освобождение резерва"
+
+msgid "staff.inventory.action.reserve"
+msgstr "Создание резерва"
+
+msgid "staff.inventory.adjust_help"
+msgstr "Введённое абсолютное количество заменит текущий физический остаток; резерв сохраняется. Новый остаток не может быть ниже резерва."
+
+msgid "staff.inventory.apply"
+msgstr "Применить"
+
+msgid "staff.inventory.available"
+msgstr "Доступно"
+
+msgid "staff.inventory.balance"
+msgstr "Остаток"
+
+msgid "staff.inventory.before_after"
+msgstr "До → после"
+
+msgid "staff.inventory.cleanup"
+msgstr "Закрыть просроченные резервы"
+
+msgid "staff.inventory.cleanup_help"
+msgstr "Явный запуск по всему основному складу (все SKU), максимум 20 просроченных строк. Освобождаются только истёкшие HELD. Может потребоваться повторный запуск."
+
+msgid "staff.inventory.cleanup_result"
+msgstr "Очистка основного склада: проверено {scanned}, закрыто {expired}, пропущено {skipped}. Остались просроченные: {more}."
+
+msgid "staff.inventory.created"
+msgstr "Создан"
+
+msgid "staff.inventory.deadline"
+msgstr "Срок"
+
+msgid "staff.inventory.delta"
+msgstr "Изменение"
+
+msgid "staff.inventory.error.below_reserved"
+msgstr "Нельзя установить остаток {quantity}: сейчас зарезервировано {reserved}. Проверьте резервы; физический остаток не изменён."
+
+msgid "staff.inventory.error.database"
+msgstr "Не удалось завершить операцию БД. Обновите остаток и проверьте результат; очистка могла уже закрыть отдельные строки."
+
+msgid "staff.inventory.error.expiry_backlog"
+msgstr "Остались просроченные резервы. Запустите очистку или обновите снимок позднее."
+
+msgid "staff.inventory.error.expiry_requires_autocommit"
+msgstr "Не удалось завершить очистку в текущей операции. Повторите отдельно."
+
+msgid "staff.inventory.error.idempotency_conflict"
+msgstr "Эта форма уже обработана с другими данными. Обновите остаток."
+
+msgid "staff.inventory.error.insufficient_stock"
+msgstr "Количество ниже резерва или превышает доступный остаток."
+
+msgid "staff.inventory.error.intent"
+msgstr "Недействительная форма. Обновите остаток и заполните заново."
+
+msgid "staff.inventory.error.invalid_quantity"
+msgstr "Укажите допустимое количество; приход должен быть положительным."
+
+msgid "staff.inventory.error.invalid_transition"
+msgstr "Действие не соответствует текущему состоянию. Обновите снимок."
+
+msgid "staff.inventory.error.inventory_error"
+msgstr "Не удалось обработать изменение. Проверьте остаток."
+
+msgid "staff.inventory.error.inventory_invariant"
+msgstr "Проверьте остаток и SKU; изменение не применено."
+
+msgid "staff.inventory.error.reservation_expired"
+msgstr "Резерв истёк. Обновите остаток."
+
+msgid "staff.inventory.error.stale_revision"
+msgstr "Остаток уже изменился. Ввод сохранён. Обновите снимок, проверьте количество и заполните заново."
+
+msgid "staff.inventory.error.stock_not_configured"
+msgstr "Сначала явно настройте складской учёт."
+
+msgid "staff.inventory.expired"
+msgstr "Просроченные HELD этого SKU"
+
+msgid "staff.inventory.filter"
+msgstr "Фильтр остатков"
+
+msgid "staff.inventory.filter.all"
+msgstr "Все SKU"
+
+msgid "staff.inventory.filter.low"
+msgstr "Доступно не выше порога"
+
+msgid "staff.inventory.filter.missing"
+msgstr "Не настроены"
+
+msgid "staff.inventory.filter.reserved"
+msgstr "Есть резерв"
+
+msgid "staff.inventory.filter.unavailable"
+msgstr "Нет доступного"
+
+msgid "staff.inventory.history"
+msgstr "История"
+
+msgid "staff.inventory.last_cleanup"
+msgstr "Последнее успешное закрытие просроченного резерва SKU"
+
+msgid "staff.inventory.ledger_balances"
+msgstr "Журнал: на складе / в резерве"
+
+msgid "staff.inventory.ledger_revision"
+msgstr "Последняя версия / число движений"
+
+msgid "staff.inventory.line_reserved"
+msgstr "Сумма оставшегося резерва строк"
+
+msgid "staff.inventory.missing"
+msgstr "Складской учёт не настроен"
+
+msgid "staff.inventory.no"
+msgstr "Нет"
+
+msgid "staff.inventory.no_cleanup"
+msgstr "Пока нет записей"
+
+msgid "staff.inventory.on_hand"
+msgstr "На складе"
+
+msgid "staff.inventory.open_reservations"
+msgstr "Открыть резервы"
+
+msgid "staff.inventory.page_limit"
+msgstr "Предел смещения — 10 000 записей. Уточните поиск."
+
+msgid "staff.inventory.product"
+msgstr "Товар"
+
+msgid "staff.inventory.quantity.adjust"
+msgstr "Новый абсолютный остаток"
+
+msgid "staff.inventory.quantity.initialize"
+msgstr "Начальное количество"
+
+msgid "staff.inventory.quantity.receive"
+msgstr "Количество прихода"
+
+msgid "staff.inventory.readonly"
+msgstr "Только чтение. Нет права на изменение остатка."
+
+msgid "staff.inventory.reason"
+msgstr "Причина"
+
+msgid "staff.inventory.reason_actor"
+msgstr "Причина / сотрудник"
+
+msgid "staff.inventory.reason_help"
+msgstr "Только служебная причина. Без адресов, email клиентов и платёжных данных."
+
+msgid "staff.inventory.reconciliation"
+msgstr "Сверка учёта · только чтение"
+
+msgid "staff.inventory.reconciliation_help"
+msgstr "Сравнение одного снимка БД; без исправления. После изменений обновите страницу."
+
+msgid "staff.inventory.reconciliation_mismatch"
+msgstr "Обнаружено расхождение. Требуется проверка ответственным; автоматического исправления нет."
+
+msgid "staff.inventory.reconciliation_ok"
+msgstr "Баланс, строки резервов и журнал согласованы."
+
+msgid "staff.inventory.reservation_quantities"
+msgstr "Исходно / резерв / расход / освобождено"
+
+msgid "staff.inventory.reservations"
+msgstr "Резервы"
+
+msgid "staff.inventory.reserved"
+msgstr "В резерве"
+
+msgid "staff.inventory.returned"
+msgstr "Принято после проверки"
+
+msgid "staff.inventory.revision"
+msgstr "Версия"
+
+msgid "staff.inventory.saved"
+msgstr "Операция сохранена или повторена без изменений: на складе {on_hand}, резерв {reserved}, доступно {available}, версия {revision}."
+
+msgid "staff.inventory.sections"
+msgstr "Разделы склада"
+
+msgid "staff.inventory.source"
+msgstr "Физический склад · основной (main). Не зависит от демо-остатка в редакторе товара."
+
+msgid "staff.inventory.state"
+msgstr "Состояние / ссылка"
+
+msgid "staff.inventory.state.closed"
+msgstr "Закрыт"
+
+msgid "staff.inventory.state.committed"
+msgstr "Подтверждён"
+
+msgid "staff.inventory.state.held"
+msgstr "Временный резерв"
+
+msgid "staff.inventory.system"
+msgstr "Система / оформление заказа"
+
+msgid "staff.inventory.threshold"
+msgstr "Порог (включительно)"
+
+msgid "staff.inventory.threshold_required"
+msgstr "Для этого фильтра укажите порог."
+
+msgid "staff.inventory.time_action"
+msgstr "Время / действие"
+
+msgid "staff.inventory.variant"
+msgstr "Цвет / размер"
+
+msgid "staff.inventory.yes"
+msgstr "Да"
 
 msgid "staff.language.apply"
 msgstr "Применить"

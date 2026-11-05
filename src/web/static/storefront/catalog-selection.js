@@ -100,7 +100,7 @@
             return;
           }
           if (!response.ok || !result.variant || result.variant.color !== color || result.variant.size !== size) throw new Error('selection');
-          variant = {...result.variant, available: Boolean(result.variant.active && result.variant.demo_available)};
+          variant = {...result.variant, available: Boolean(result.variant.active && result.variant.available)};
           validated = true;
           root.dataset.selectedSku = variant.sku || '';
           setText('[data-product-sku]', variant.sku);

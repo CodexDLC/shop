@@ -1,6 +1,8 @@
 """Allowlisted settings designs and links; no operational settings payloads."""
 from django.urls import reverse
 
+from web.staff.inventory_workspace.access import can_read_inventory
+
 
 def settings_workspace(user, section):
     definitions = {
@@ -28,7 +30,7 @@ def settings_workspace(user, section):
             ("shipping", (("shipping_country", "select"), ("free_shipping_threshold", "number")), (
                 ("staff:orders", "staff.workspace.nav.orders", "orders.view_order"),)),
             ("packing", (("parcel_weight", "number"), ("packing_note", "textarea")), (
-                ("staff:stock", "staff.workspace.nav.stock", "catalog.view_productvariant"),)),
+                ("staff:stock", "staff.workspace.nav.stock", "inventory.view_stockbalance"),)),
             ("returns", (("return_days", "number"), ("inspection_rule", "select")), ()),
         ),
     }
@@ -39,7 +41,7 @@ def settings_workspace(user, section):
                       "fields": [{"key": key, "type": kind, "label": f"staff.settings_workspace.field.{key}"}
                                  for key, kind in fields],
                       "links": [{"url": reverse(url), "label": label} for url, label, permission in links
-                                if user.has_perm(permission)]})
+                                if (can_read_inventory(user) if url == 'staff:stock' else user.has_perm(permission))]})
     nav = []
     for name, url, permission in (
         ("store_settings", reverse("staff:workspace_preview", kwargs={"section": "store_settings"}), "shop.change_storeidentity"),

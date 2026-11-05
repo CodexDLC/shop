@@ -1,5 +1,7 @@
 from django.db.models import Avg, Count, Exists, F, OuterRef, Prefetch, Q, Subquery
 
+from web.inventory.availability_queries import with_availability
+
 from .category_visibility import descendant_category_ids, visible_category_ids
 from .models import Product, ProductReview, ProductVariant
 
@@ -7,7 +9,7 @@ from .models import Product, ProductReview, ProductVariant
 def storefront_products():
     """Lazy queryset: callers must bound the page before evaluation (four SQL queries)."""
     return Product.objects.filter(is_active=True, category_id__in=visible_category_ids()).select_related("brand", "category").prefetch_related(
-        Prefetch("variants", queryset=ProductVariant.objects.filter(is_active=True)), "images", "tags"
+        Prefetch("variants", queryset=with_availability(ProductVariant.objects.filter(is_active=True, currency="EUR"))), "images", "tags"
     )
 
 
@@ -69,7 +71,7 @@ def listing_variant_conditions(criteria):
         if field in criteria.filters:
             conditions &= Q(**{lookup: criteria.filters[field]})
     if criteria.filters.get("in_stock"):
-        conditions &= Q(demo_quantity__gt=0)
+        conditions &= Q(availability_quantity__gt=0)
     if criteria.filters.get("sale"):
         conditions &= Q(is_on_sale=True)
     return conditions
@@ -77,7 +79,7 @@ def listing_variant_conditions(criteria):
 
 def listing_products(criteria):
     """Unsliced queryset for count/pagination; no join multiplication or N+1."""
-    matching = ProductVariant.objects.filter(
+    matching = with_availability(ProductVariant.objects.all()).filter(
         listing_variant_conditions(criteria), product_id=OuterRef("pk"),
     )
     products = Product.objects.filter(is_active=True, category_id__in=visible_category_ids()).filter(Exists(matching))
@@ -138,7 +140,7 @@ def listing_products(criteria):
                    F("approved_review_count").desc(nulls_last=True), "model_name", "pk"),
     }
     return products.select_related("brand", "category").prefetch_related(
-        Prefetch("variants", queryset=ProductVariant.objects.filter(is_active=True, currency="EUR")),
+        Prefetch("variants", queryset=with_availability(ProductVariant.objects.filter(is_active=True, currency="EUR"))),
         "images", "tags",
     ).order_by(*orders[criteria.sort])
 

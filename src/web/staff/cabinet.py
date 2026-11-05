@@ -52,12 +52,13 @@ declare("operations", space="staff",
                           icon="bi-inboxes", url=reverse_lazy("staff:orders"), order=30),
         sidebar=[SidebarItem(label=label(f"staff.workspace.nav.{name}"),
                              url=reverse_lazy(f"staff:{name}"), icon=icon, order=order,
-                             permissions=(permission,))
+                             permissions=(("inventory.view_stockbalance", "inventory.view_inventorymovement",
+                                           "inventory.view_reservationline") if name == 'stock' else (permission,)))
                  for name, icon, order, permission in (
                      ("orders", "bi-receipt", 10, "orders.view_order"),
                      ("customers", "bi-people", 20, "auth.view_user"),
                      ("support", "bi-chat-left-text", 30, "support.view_contactticket"),
-                     ("stock", "bi-boxes", 40, "catalog.view_productvariant"),
+                     ("stock", "bi-boxes", 40, "inventory.view_stockbalance"),
                  )] + [SidebarItem(label=label(f"staff.workspace.nav.{name}"),
                                       url=reverse_lazy("staff:workspace_preview", kwargs={"section": name}),
                                       icon=icon, order=order, permissions=("orders.view_order",))

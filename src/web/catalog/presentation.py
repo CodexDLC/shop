@@ -5,12 +5,15 @@ from django.urls import reverse
 
 from codex_ecommerce.catalog import Gallery, Variant, VariantSelector
 from web.catalog.descriptions import legacy_description
+from web.inventory.availability import InventoryAvailability
+from web.inventory.checkout_policy import stock_mode
 from web.localization import translate_text
 
 
 def product_presentation(product, *, code, selected_sku=None, currency=None):
     """Project a prefetched ORM snapshot; no queries, writes or invented variants."""
     rows = [row for row in product.variants.all() if row.is_active and (currency is None or row.currency == currency)]
+    availability = {row.pk: InventoryAvailability.from_variant(row) for row in rows}
     images = defaultdict(list)
     image_alts = {}
     for image in product.images.all():
@@ -26,12 +29,12 @@ def product_presentation(product, *, code, selected_sku=None, currency=None):
         })
     variants = tuple(Variant(
         sku=row.sku, color=row.color_code, size=row.size, price=row.price,
-        currency=row.currency, available=row.is_available,
+        currency=row.currency, available=availability[row.pk].available,
     ) for row in rows)
     # An initial selection is explicit; subsequent changes never substitute size or color.
     default = next((row for row in rows if row.sku == selected_sku), None)
-    default = default or next((row for row in rows if row.is_available and row.size == "M"), None)
-    default = default or next((row for row in rows if row.is_available), None) or next(iter(rows), None)
+    default = default or next((row for row in rows if availability[row.pk].available and row.size == "M"), None)
+    default = default or next((row for row in rows if availability[row.pk].available), None) or next(iter(rows), None)
     galleries = {color: images.get(color) or images.get(None, []) for color in colors}
     initial_images = images.get(None, [])
     price = None
@@ -56,9 +59,11 @@ def product_presentation(product, *, code, selected_sku=None, currency=None):
         "colors": list(colors.values()), "sizes": list(dict.fromkeys(row.size for row in rows)),
         "variants": [{"color": row.color_code, "size": row.size, "sku": row.sku,
                       "price": str(row.price), "currency": row.currency,
-                      "available": row.is_available} for row in rows],
+                      "available": availability[row.pk].available,
+                      "stock_configured": availability[row.pk].configured} for row in rows],
         "galleries": galleries, "default_color": default.color_code if default else "",
-        "default_size": default.size if default else "", "is_demo": True,
+        "default_size": default.size if default else "", "is_demo": stock_mode() == 'demo',
+        "stock_mode": stock_mode(),
     }
 
 

@@ -1,0 +1,1 @@
+{% load shop_i18n %}{% if order %}{% if order.stock_mode == 'inventory_test' %}{% text 'commerce.test.inventory_order_notice' %}{% else %}{% text 'commerce.test.notice' %}{% endif %}{% elif cart.stock_mode == 'inventory_test' %}{% text 'commerce.test.inventory_notice' %}{% else %}{% text 'commerce.test.notice' %}{% endif %}

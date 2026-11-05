@@ -32,9 +32,18 @@ class Order(models.Model):
     discount_amount = models.DecimalField(max_digits=12, decimal_places=2, default=0)
     coupon_code = models.CharField(max_length=32, blank=True)
     billing_address = models.JSONField(default=dict, blank=True)
+    stock_mode = models.CharField(max_length=20, default='demo')
+    checkout_fingerprint = models.CharField(max_length=64, default='', blank=True)
+    inventory_hold_expires_at = models.DateTimeField(null=True, blank=True)
 
     class Meta:
         constraints = [models.CheckConstraint(
+            condition=models.Q(stock_mode__in=['demo', 'inventory_test']), name='order_stock_mode',
+        ), models.CheckConstraint(
+            condition=models.Q(stock_mode='demo', inventory_hold_expires_at__isnull=True)
+                | models.Q(stock_mode='inventory_test', inventory_hold_expires_at__isnull=False, is_test=True),
+            name='order_stock_mode_deadline',
+        ), models.CheckConstraint(
             condition=models.Q(total_amount__gte=0), name="order_total_nonnegative",
         ), models.CheckConstraint(
             condition=models.Q(discount_amount__gte=0), name="order_discount_nonnegative",

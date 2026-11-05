@@ -1,8 +1,11 @@
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.core.paginator import Paginator
-from django.db.models import Count, Exists, Max, Min, OuterRef, Q, Sum
+from django.db.models import BigIntegerField, Count, Exists, Max, Min, OuterRef, Q, Subquery, Sum, Value
+from django.db.models.functions import Coalesce
 
 from web.catalog.models import Brand, Category, Product, ProductVariant
+from web.inventory.availability_queries import with_availability
+from web.inventory.checkout_policy import stock_mode
 from web.staff.views.staff_page_view import StaffPageView
 
 
@@ -26,11 +29,21 @@ class ProductListView(PermissionRequiredMixin, StaffPageView):
         products = Product.objects.select_related("brand", "category").annotate(
             variant_count=Count("variants"),
             active_variant_count=Count("variants", filter=active),
-            available_quantity=Sum("variants__demo_quantity", filter=active, default=0),
             minimum_price=Min("variants__price", filter=active),
             maximum_price=Max("variants__price", filter=active),
             price_currency=Min("variants__currency", filter=active),
             currency_count=Count("variants__currency", filter=active, distinct=True),
+        )
+        # Aggregate a single row per variant first; inventory relations must never
+        # multiply product counts or cause per-product lookups.
+        variants = with_availability(ProductVariant.objects.filter(product_id=OuterRef('pk'), is_active=True))
+        totals = variants.order_by().values('product_id').annotate(
+            quantity=Sum('availability_quantity'),
+            missing=Count('pk', filter=Q(availability_quantity__isnull=True)),
+        )
+        products = products.annotate(
+            available_quantity=Coalesce(Subquery(totals.values('quantity')[:1]), Value(0), output_field=BigIntegerField()),
+            unconfigured_variant_count=Coalesce(Subquery(totals.values('missing')[:1]), Value(0)),
         )
         if query:
             matching_sku = ProductVariant.objects.filter(product_id=OuterRef("pk"), sku__icontains=query)
@@ -63,5 +76,6 @@ class ProductListView(PermissionRequiredMixin, StaffPageView):
             brands=Brand.objects.order_by("name", "pk"),
             categories=Category.objects.order_by("slug", "pk"),
             page_query=parameters.urlencode(),
+            stock_mode=stock_mode(),
         )
         return context

@@ -1,0 +1,19 @@
+{% extends 'staff/base.html' %}{% load shop_i18n %}
+{% block cabinet_content %}
+<section aria-labelledby="inventory-title">
+{% include 'staff/inventory/messages.html' %}
+<h1 id="inventory-title" class="h3 mb-3">{% text 'staff.records.stock' %}</h1>
+<p class="alert alert-info">{% text 'staff.inventory.source' %}</p>
+<form method="get" role="search" class="row g-2 align-items-end mb-3">
+<input type="hidden" name="section" value="{{ section }}">
+{% for field in filter_form %}<div class="col-12 col-md">{{ field.label_tag }} {{ field }}{% if field.errors %}<div class="text-danger" role="alert">{{ field.errors }}</div>{% endif %}</div>{% endfor %}
+<div class="col-auto"><button class="btn btn-primary" type="submit">{% text 'staff.records.filter' %}</button></div>
+</form>
+<p class="text-muted">{% text 'staff.records.total' %}: {{ page_obj.paginator.count }}</p>
+<div class="table-responsive"><table class="table table-hover align-middle">
+<caption class="visually-hidden">{% text 'staff.records.stock' %}</caption>
+<thead><tr><th scope="col">SKU / {% text 'staff.inventory.product' %}</th><th scope="col">{% text 'staff.inventory.variant' %}</th>{% if show_balance %}<th scope="col">{% text 'staff.inventory.on_hand' %}</th><th scope="col">{% text 'staff.inventory.reserved' %}</th><th scope="col">{% text 'staff.inventory.available' %}</th>{% endif %}</tr></thead>
+<tbody>{% for item in page_obj %}<tr><td class="text-break"><a href="{% url 'staff:stock_detail' item.pk %}?section={{ section }}">{{ item.sku }}</a><div class="small text-muted">{{ item.product.model_name }} · {{ item.product.brand.name }}</div></td><td>{{ item.color_code }} · {{ item.size }}{% if not item.is_active %}<div class="small text-muted">{% text 'staff.records.inactive' %}</div>{% endif %}</td>
+{% if show_balance %}{% if item.stock_on_hand == None %}<td colspan="3"><span class="badge text-bg-secondary">{% text 'staff.inventory.missing' %}</span></td>{% else %}<td>{{ item.stock_on_hand }}</td><td>{{ item.stock_reserved }}</td><td>{{ item.stock_available }}</td>{% endif %}{% endif %}</tr>{% empty %}<tr><td colspan="5">{% text 'staff.records.empty' %}</td></tr>{% endfor %}</tbody></table></div>
+{% include 'staff/inventory/pagination.html' with page=page_obj query=page_query %}
+</section>{% endblock %}

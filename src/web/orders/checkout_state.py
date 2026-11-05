@@ -20,8 +20,8 @@ def address_key(request):
 
 
 def checkout_fingerprint(cart, address):
-    payload = {"address": address, "lines": [
-        {key: line[key] for key in ("sku", "quantity", "unit_amount", "name", "brand", "colour_name", "size")}
+    payload = {"address": address, "stock_mode": cart['stock_mode'], "lines": [
+        {key: line[key] for key in ("variant_id", "sku", "quantity", "unit_amount", "name", "brand", "colour_name", "size")}
         for line in cart["lines"]
     ], "shipping": cart["shipping_amount"], "currency": cart["currency"],
         "subtotal": cart['subtotal'], "discount": cart['discount_amount'], "total": cart['total'],
@@ -41,6 +41,9 @@ def review_token(request, cart, address):
 
 def read_token(request, token):
     payload = signing.loads(token, salt="local-test-checkout", max_age=3600)
+    if (not isinstance(payload, dict) or set(payload) != {'owner', 'fingerprint', 'nonce'}
+            or any(not isinstance(payload[key], str) or not payload[key] for key in payload)):
+        raise signing.BadSignature('Invalid checkout intent')
     if payload["owner"] != session_owner(request):
         raise signing.BadSignature("Wrong checkout owner")
     return payload

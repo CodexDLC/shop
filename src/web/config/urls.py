@@ -14,6 +14,7 @@ urlpatterns = [path("health/", EngineStatusView.as_view(), name="health"), path(
 urlpatterns += [path("robots.txt", robots, name="robots"), path("sitemap.xml", sitemap, name="sitemap")]
 urlpatterns += [path("integrations/ebay/", include("web.ebay_notifications.urls"))]
 urlpatterns += [path("integrations/ebay/oauth/", include("web.ebay_oauth.urls"))]
+urlpatterns += [path("internal/inventory/", include("web.inventory.urls"))]
 urlpatterns += i18n_patterns(
     path("i18n/", include("django.conf.urls.i18n")),
     path("staff/", include("web.staff.urls")),
